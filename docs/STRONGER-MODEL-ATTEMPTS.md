@@ -1,8 +1,12 @@
-# Stronger-model comparisons: every final slot
+# Every final stronger-model comparison
 
-These are separate experiments. The original-five ledger retains all 14 started slots, including two interrupted instrument-unknown attempts. The verification-repair matrix retains all 30 attempts. Neither table estimates general reliability.
+These tables answer two different questions.
 
-## Original tasks and selected payroll recurrence
+The original-task comparison asks whether a model makes the program or answer correctly. Its ten initial attempts passed. A later paired payroll check found a failure in one of two completed fresh Sol repetitions, despite both passing the 26 original cases. Two interrupted earlier attempts remain unknown.
+
+The verification-repair experiment asks models to repair verifiers under explicit rules. All 30 attempts passed. Those successes should not be merged with the original-task follow-up or with the complete-eval authoring experiment.
+
+## Original tasks and the payroll follow-up
 
 | Arm | Model | Task | Trial | Outcome | Recorded checks |
 |---|---|---|---|---|---|

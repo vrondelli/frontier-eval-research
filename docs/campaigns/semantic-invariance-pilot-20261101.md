@@ -1,23 +1,28 @@
-# Semantic invariance pilot
+# Would the same meaning receive the same score?
 
-**Question:** Do equivalent answers receive stable ratings while consequential changes alter them?
+We repeated answers, rewrote them without changing their meaning and introduced consequential changes that should matter to a rating.
 
-**Role:** executed known-case diagnostics.
+Identical repeats agreed, while a small number of equivalent rewrites changed decisions. Meaningful changes were detected in the selected cases. The result separates repeatability from semantic consistency rather than calling the scoring system simply reliable.
 
-## What we tried
+[Read the original report](../../evidence/source-text/semantic-invariance-pilot-20261101/FINDINGS.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-60calls,60primary+240background judgments.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Sol/high;tools available
+**Recorded question:** Do equivalent answers receive stable ratings while consequential changes alter them?
 
-## What we found
+**Type of work:** executed known-case diagnostics.
 
-Identicalrepeats30/30agree;equivalence22/24;consequentialchange24/24;allowedreference58/60.
+**Original counting:** 60calls,60primary+240background judgments.
 
-## Interpretation and limits
+**Conditions:** Sol/high;tools available
 
-Authored semanticrelations/allowedsets ambiguous; coarse category-change can pass while exact reference fails;30human review cases unrun.
+**Detailed outcome:** Identicalrepeats30/30agree;equivalence22/24;consequentialchange24/24;allowedreference58/60.
 
-[Read the source report](../../evidence/source-text/semantic-invariance-pilot-20261101/FINDINGS.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Authored semanticrelations/allowedsets ambiguous; coarse category-change can pass while exact reference fails;30human review cases unrun.
 
-Full local archive: `research/hackathon/semantic-invariance-pilot-20261101`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/semantic-invariance-pilot-20261101`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

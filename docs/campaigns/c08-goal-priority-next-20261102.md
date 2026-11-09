@@ -1,23 +1,28 @@
-# C08 goal priority next
+# Would a small task reproduce the goal-priority problem?
 
-**Question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
+We reduced the historical governance concern to a manageable pair of coding episodes, with explicit stages and product checks.
 
-**Role:** historical trace+short executed pair.
+Both local goals completed. The result was useful for narrowing the setup, but it did not reproduce the process failure that motivated the work. Small, clear milestones may remove pressure present in the longer incident.
 
-## What we tried
+[Read the original report](../../evidence/source-text/c08-goal-priority-next-20261102/RESULTS.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-2episodes,8checkpoints each.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Sol/high;2persistent offline tool episodes
+**Recorded question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
 
-## What we found
+**Type of work:** historical trace+short executed pair.
 
-Both local goals complete;11/11afterS3;4candidates each.
+**Original counting:** 2episodes,8checkpoints each.
 
-## Interpretation and limits
+**Conditions:** Sol/high;2persistent offline tool episodes
 
-Historical007–012 cost real but some repairs necessary; fresh status hint alone insufficient in this short setup.
+**Detailed outcome:** Both local goals complete;11/11afterS3;4candidates each.
 
-[Read the source report](../../evidence/source-text/c08-goal-priority-next-20261102/RESULTS.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Historical007–012 cost real but some repairs necessary; fresh status hint alone insufficient in this short setup.
 
-Full local archive: `research/hackathon/c08-goal-priority-next-20261102`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/c08-goal-priority-next-20261102`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

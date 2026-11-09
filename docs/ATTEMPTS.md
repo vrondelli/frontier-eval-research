@@ -1,6 +1,12 @@
-# Every attempt, with the right counting unit
+# Finding every attempt without mixing the counts
 
-Use this ledger in order. We retain failed, successful, interrupted, conditional and unrun work. There is no defensible grand experiment total because studies reuse cases and exports, and count calls, episodes, turns, trajectories, checkpoints and assertions differently.
+Suppose you want to check whether the payroll failure really happened again. Start with [the readable stronger-model table](STRONGER-MODEL-ATTEMPTS.md). It keeps the ten initial passes, two interrupted unknowns and two completed follow-ups visible. The links below take you from that summary to the original ledger.
+
+For a generated evaluator, use [the 31 author-attempt rows](META-EVAL-SCORES.md). For an earlier hypothesis, find its [campaign](CAMPAIGNS.md), then its [protocol](PROTOCOLS.md) and result.
+
+We do not report one grand experiment count because the records describe different things. One model attempt can have several turns and hundreds of test decisions. A later report may summarize a run that already appears elsewhere. An export archive adds no new model answer.
+
+The table is a map of those records, including successful, failed, interrupted, conditional and unrun work.
 
 | Part of the work | Where every retained unit is listed | Unit / limitation |
 |---|---|---|

@@ -1,23 +1,28 @@
-# Submission failure audit
+# What happened when earlier failures got ordinary tools?
 
-**Question:** Do earlier failures persist when ordinary persistent computation tools are allowed?
+The shortlist was only useful if we understood the resource condition. This follow-up allowed persistent Bash, Python and Git on problems that had previously restricted computation.
 
-**Role:** executed ordinary-tool retest.
+All 24 attempts passed, and every attempt actually invoked Python. The result limits a broad failure claim while preserving the earlier no-tool errors. It is a tool intervention, not an unchanged replication.
 
-## What we tried
+[Read the original report](../../evidence/source-text/submission-failure-audit-20261101/SELECTION.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-24retests,24passes,0triggeredconfirmation episodes.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Sol/Astra F02/F03/G05;Sol/Terra C1-DIRECT;high;all24actuallyusedPython
+**Recorded question:** Do earlier failures persist when ordinary persistent computation tools are allowed?
 
-## What we found
+**Type of work:** executed ordinary-tool retest.
 
-All original primary endpoints pass; independent18trajectories/30schedules replay.
+**Original counting:** 24retests,24passes,0triggeredconfirmation episodes.
 
-## Interpretation and limits
+**Conditions:** Sol/Astra F02/F03/G05;Sol/Terra C1-DIRECT;high;all24actuallyusedPython
 
-Original toolprohibition explicitlyreplaced; computation encouraged;physicalprobecostunchanged;not same-condition replication.
+**Detailed outcome:** All original primary endpoints pass; independent18trajectories/30schedules replay.
 
-[Read the source report](../../evidence/source-text/submission-failure-audit-20261101/SELECTION.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Original toolprohibition explicitlyreplaced; computation encouraged;physicalprobecostunchanged;not same-condition replication.
 
-Full local archive: `research/hackathon/submission-failure-audit-20261101`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/submission-failure-audit-20261101`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

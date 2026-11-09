@@ -1,6 +1,12 @@
-# Rounds 1-10: all 67 protocol rows
+# What happened in the first ten research rounds
 
-The closed cut counts **295 model episodes** across 67 protocol rows: 286 requested Luna and nine requested Terra. These are not 295 independent frontier tasks. Historical dispositions below are quoted; “ceiling” and “KILL” describe local promotion rules and do not establish absence of ordinary errors. See [the interpretation](HYPOTHESES.md) and [audit corrections](INSTRUMENT-LESSONS.md).
+One reason to keep this table is that the original labels can sound more conclusive than the evidence. A result described as “KILL” meant that a lead did not meet its promotion rule. It could still contain wrong delivered code. Likewise, the historical word “ceiling” describes the bounded checks reported there; it does not establish the model's maximum ability or general correctness.
+
+The lying-helper thread is a good example. Five cuts retained failure counts of 1/4, 1/6, 1/16, 3/24 and 2/12. In one payroll case an entirely excluded batch should have produced total 0 and paid 0, but the program returned total 753 and paid 1. That error is real even though the broader research lead missed its threshold.
+
+The table preserves all 67 protocol rows and their historical descriptions. Together they count 295 model episodes: 286 requested Luna and nine requested Terra. They do not represent 295 independent frontier tasks. Later stronger-model comparisons belong to separate experiments.
+
+Read [the research story](RESEARCH-STORY.md) for the interpretation, or [the instrument lessons](INSTRUMENT-LESSONS.md) for results that were downgraded because the grader or setup was wrong.
 
 | Round | Protocol | Counted model episodes | Historical disposition | Source result |
 |---|---|---:|---|---|

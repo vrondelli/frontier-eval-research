@@ -1,23 +1,28 @@
-# Adaptive frontier research
+# Can the model choose a test without losing the goal?
 
-**Question:** Can a model choose diagnostic actions that preserve a feasible winning continuation?
+A diagnostic agent has to do more than list the possibilities. Its next question must preserve a useful route to an answer within the remaining budget.
 
-**Role:** executed no-tool discovery.
+The study retained concrete planning failures on Sol and Astra, along with successes and abstentions. Some models tracked the possible worlds correctly but chose an action that lost an attainable guarantee. Later experiments changed tools or resources, so their outcomes need to be read alongside these original conditions.
 
-## What we tried
+[Read the original report](../../evidence/source-text/adaptive-frontier-research-20261031/FINDINGS.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-8 episodes,39 native turns.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Sol,Terra,Astra/high; app-server; no tools
+**Recorded question:** Can a model choose diagnostic actions that preserve a feasible winning continuation?
 
-## What we found
+**Type of work:** executed no-tool discovery.
 
-Sol case19 failure; Astra both live cases fail; Terra case19 fail,case0 conservative abstention; ring onepass/one review_required.
+**Original counting:** 8 episodes,39 native turns.
 
-## Interpretation and limits
+**Conditions:** Sol,Terra,Astra/high; app-server; no tools
 
-Real enacted planning errors with constructive alternatives; later compute retests change treatment; selected development cases.
+**Detailed outcome:** Sol case19 failure; Astra both live cases fail; Terra case19 fail,case0 conservative abstention; ring onepass/one review_required.
 
-[Read the source report](../../evidence/source-text/adaptive-frontier-research-20261031/FINDINGS.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Real enacted planning errors with constructive alternatives; later compute retests change treatment; selected development cases.
 
-Full local archive: `research/hackathon/adaptive-frontier-research-20261031`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/adaptive-frontier-research-20261031`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

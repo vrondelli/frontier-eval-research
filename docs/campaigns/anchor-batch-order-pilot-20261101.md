@@ -1,23 +1,28 @@
-# Anchor batch order pilot
+# Does an answer score differently because of where it appears?
 
-**Question:** Does batch position change criterion-focused ratings?
+A rubric should judge the answer rather than its position in a batch. We varied order and inspected both the primary decision and the more detailed ratings.
 
-**Role:** executed known-case scoring.
+The primary comparisons agreed, while some secondary ratings varied with case and order. That makes the result more informative than a single stable-or-unstable label: the broad decision and the finer scores did not behave identically.
 
-## What we tried
+[Read the original report](../../evidence/source-text/anchor-batch-order-pilot-20261101/FINDINGS.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-42 calls,303 judgments.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Sol/high; actual terminal calls0
+**Recorded question:** Does batch position change criterion-focused ratings?
 
-## What we found
+**Type of work:** executed known-case scoring.
 
-Primary42/42 matches;17/87 secondary case/order cells vary,including8/42 criterion-focused cells.
+**Original counting:** 42 calls,303 judgments.
 
-## Interpretation and limits
+**Conditions:** Sol/high; actual terminal calls0
 
-Known cases; target stability does not erase secondary variation; order/neighbors/output scope bundled.
+**Detailed outcome:** Primary42/42 matches;17/87 secondary case/order cells vary,including8/42 criterion-focused cells.
 
-[Read the source report](../../evidence/source-text/anchor-batch-order-pilot-20261101/FINDINGS.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Known cases; target stability does not erase secondary variation; order/neighbors/output scope bundled.
 
-Full local archive: `research/hackathon/anchor-batch-order-pilot-20261101`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/anchor-batch-order-pilot-20261101`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

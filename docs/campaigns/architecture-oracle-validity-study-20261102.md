@@ -1,23 +1,28 @@
-# Architecture oracle validity study
+# Designing a fair test of architecture claims
 
-**Question:** What does this source campaign contribute to the evaluation research?
+Before running the maintenance study, we worked out how to compare initially valid implementations and observe their behavior on later changes.
 
-**Role:** unrun design.
+This package contains the design, cases and review forms. It is preparation for an experiment, not evidence that models failed at architecture. Keeping it separate prevents a complete-looking plan from being mistaken for an executed study.
 
-## What we tried
+[Read the original report](../../evidence/source-text/architecture-oracle-validity-study-20261102/README.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-0 model attempts.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: No new models in design package
+**Recorded question:** What does this source campaign contribute to the evaluation research?
 
-## What we found
+**Type of work:** unrun design.
 
-Concrete architecture-penalty/payback proposal.
+**Original counting:** 0 model attempts.
 
-## Interpretation and limits
+**Conditions:** No new models in design package
 
-Executed successor elsewhere; blank expert forms/design gates are not capability outcomes.
+**Detailed outcome:** Concrete architecture-penalty/payback proposal.
 
-[Read the source report](../../evidence/source-text/architecture-oracle-validity-study-20261102/README.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Executed successor elsewhere; blank expert forms/design gates are not capability outcomes.
 
-Full local archive: `research/hackathon/architecture-oracle-validity-study-20261102`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/architecture-oracle-validity-study-20261102`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

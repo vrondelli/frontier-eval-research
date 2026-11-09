@@ -1,23 +1,28 @@
-# Assessment evidence screen
+# Could explicit evidence tasks expose a failure?
 
-**Question:** Can models solve explicit evidence, novelty, identification and repair tasks?
+We prepared tasks about novelty, coverage, scoring, selection, instrument repair and clarification. The question was whether these concrete finite problems would reveal a useful model weakness.
 
-**Role:** executed six-family screen.
+All 90 attempts passed their registered checks. Independent certificates agreed with those results. This is an important negative result: these particular explicit tasks did not produce the failure we were looking for.
 
-## What we tried
+[Read the original report](../../evidence/source-text/assessment-evidence-screen-20261102/FINDINGS.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-90 attempts,90passes.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Sol54,Terra18,Astra18/high; normal Linux tools available,8actual terminal calls
+**Recorded question:** Can models solve explicit evidence, novelty, identification and repair tasks?
 
-## What we found
+**Type of work:** executed six-family screen.
 
-All finite evidence/novelty/repair tasks pass; independent certificates agree.
+**Original counting:** 90 attempts,90passes.
 
-## Interpretation and limits
+**Conditions:** Sol54,Terra18,Astra18/high; normal Linux tools available,8actual terminal calls
 
-Extra forms onlySol; no failure-triggered confirmation; finite formal controls not validated human constructs.
+**Detailed outcome:** All finite evidence/novelty/repair tasks pass; independent certificates agree.
 
-[Read the source report](../../evidence/source-text/assessment-evidence-screen-20261102/FINDINGS.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Extra forms onlySol; no failure-triggered confirmation; finite formal controls not validated human constructs.
 
-Full local archive: `research/hackathon/assessment-evidence-screen-20261102`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/assessment-evidence-screen-20261102`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

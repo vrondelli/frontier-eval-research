@@ -1,23 +1,28 @@
-# Governance cycle repo pilot
+# Can a repository get stuck checking its own changing receipt?
 
-**Question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
+Self-referential evidence rules can create a cycle: writing a receipt changes the content the receipt is meant to describe. We tested repository tasks with that kind of pressure.
 
-**Role:** executed self-hash variants.
+The attempts completed, including a persistent multi-turn condition. Generated receipts were removed from their own digest calculation. The local result shows a workable response to this particular cycle.
 
-## What we tried
+[Read the original report](../../evidence/source-text/governance-cycle-repo-pilot-20261102/RESULTS.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-2initial+2clean pair episodes;1persistent3turn episode.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Sol/high;normal offline tools
+**Recorded question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
 
-## What we found
+**Type of work:** executed self-hash variants.
 
-All pass; generated receipt removed from own digest; persistent9/9checks.
+**Original counting:** 2initial+2clean pair episodes;1persistent3turn episode.
 
-## Interpretation and limits
+**Conditions:** Sol/high;normal offline tools
 
-Fresh clean pair fixes accidental public-test indentation; overlap with governance-progress synthesis,not5newmechanisms.
+**Detailed outcome:** All pass; generated receipt removed from own digest; persistent9/9checks.
 
-[Read the source report](../../evidence/source-text/governance-cycle-repo-pilot-20261102/RESULTS.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Fresh clean pair fixes accidental public-test indentation; overlap with governance-progress synthesis,not5newmechanisms.
 
-Full local archive: `research/hackathon/governance-cycle-repo-pilot-20261102`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/governance-cycle-repo-pilot-20261102`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

@@ -1,23 +1,28 @@
-# Architecture long horizon report
+# Making the software-maintenance experiments readable
 
-**Question:** How can already collected evidence be packaged or explained without counting it again?
+The maintenance results were spread across several small software trajectories. This report brought the existing evidence into an illustrated explanation.
 
-**Role:** duplicate synthesis/visualization.
+The saved pilots did not show a stable architectural regression under the tested contracts. This is a synthesis of earlier runs, so its trajectories and checkpoints should not be counted again as new experiments.
 
-## What we tried
+[Read the original report](../../evidence/source-text/architecture-long-horizon-report-20261102/README.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-5 reused sequential trajectories,54 reused checkpoints.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: No new inference
+**Recorded question:** How can already collected evidence be packaged or explained without counting it again?
 
-## What we found
+**Type of work:** duplicate synthesis/visualization.
 
-Saved pilots show no stable architectural regression.
+**Original counting:** 5 reused sequential trajectories,54 reused checkpoints.
 
-## Interpretation and limits
+**Conditions:** No new inference
 
-Reuses practical/long-horizon/coupling evidence; not another experiment.
+**Detailed outcome:** Saved pilots show no stable architectural regression.
 
-[Read the source report](../../evidence/source-text/architecture-long-horizon-report-20261102/README.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Reuses practical/long-horizon/coupling evidence; not another experiment.
 
-Full local archive: `research/hackathon/architecture-long-horizon-report-20261102`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/architecture-long-horizon-report-20261102`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

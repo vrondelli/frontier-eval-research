@@ -1,28 +1,89 @@
-# Hypotheses and what happened
+# The questions we tried to answer
 
-This is the human map. [Every individual frontier design](PROTOCOLS.md), [all campaigns](CAMPAIGNS.md) and [the attempt ledger](ATTEMPTS.md) give the details. “Not promoted” means a study's threshold was not met; it does not mean the model made no mistake.
+The research did not begin with one settled explanation. Each result suggested another question: was the problem planning, tool access, a misleading dependency, an incomplete test, or our interpretation of the task?
 
-| Hypothesis | What we tried | What we found | Conclusion |
-|---|---|---|---|
-| Models lose a feasible adaptive plan despite tracking state correctly | No-tool diagnostics, persistent interaction, fresh cases and computation arms | Concrete Sol/Astra bad probe choices; ordinary-tool retest 24/24 passes | Supported under recorded no-tool conditions; computation changes the task |
-| A search program can hide direct-construction weaknesses | Executable-plan tasks versus committed schedules | Program-based v2 all 30 pass; Terra direct plans suboptimal on two of five variants | Representation matters; separate conditions |
-| Scores should resist irrelevant wording and batch position | Semantic equivalents, consequential changes, adversarial claims, order and anchor variants | Some identical-input/order variation; many fresh comparisons already agree; references unvalidated | Instability recorded; improved human measurement not established |
-| Architecture predicts maintenance or makes repair pay off | Successive changes, repair/direct comparisons and held-out repositories | Small lineages mostly pass; repair-first takes 48.7% more native time over tested horizon; predictor evidence weak | Bounded negative and cost evidence |
-| Process displaces the parent goal | Historical traces, C08/C09 pilots, cost cues and coordinators | Historical cost/tool-error loops real; short pilots pass, change authority or miss the full process | Faithful mechanism recreation incomplete |
-| Lying dependencies cause wrong delivered code | R5/R6/R7/R9/R10 across insurance, shipping, payroll and hotel | Eight retained failures in five cuts: 1/4, 1/6, 1/16, 3/24, 2/12 | Qualitative recurrence; promotion bars missed; no pooling |
-| Models fail state, lifetime, permission or reporting boundaries | R8-R13 screens for stale updates, grants, child exits and findings | Many primary endpoints zero; ordinary omissions, protected mutations, environment limits and low exposure remain | Finite negatives need endpoint/exposure qualifications |
-| Query optimizers mishandle namespaces | Original/fresh Luna tasks and stronger-model comparisons | Original Luna 6/8 optimizer errors; new Luna 3/8; Astra/Sol each pass eight | Not a frontier-wide weakness on this family |
-| Integral JSON encodings expose parser defects | Saved programs, exponent-zero pairs and original-task pilots | Sixteen reviewed Luna artifacts fail zero-family probes; Astra/Sol warehouse pilots pass | Historical defects remain; stronger-model producer limitation not shown by this pilot |
-| Graders can be fooled by reported work | Synthetic spoof and runtime traces | Spoof performs 180 comparisons, reports 30, passes 41 checks; actual 16 stronger-model programs reduce work | Measurement vulnerability, not observed cheating |
-| Explicit verifier repair remains difficult | Five tasks, two models, three trials per cell | All 30 attempts / 1,806 decisions pass | Retained negative; different from complete independent eval authoring |
-| Stronger models repeat original product errors | Original-five comparison and fresh payroll repetitions | Ten initial passes; payroll bug recurs in one of two completed Sol repetitions; two interrupted slots unknown | Specific recurrence, not a reliability estimate |
-| GPT reliably builds complete trustworthy evals | Nine jobs plus confirmation, budget, clean and coached conditions | Five H1 hidden-literal failures; three H6 false-green outputs; two overlapping H6 false reds; partial coached fix | Concrete construction errors persist; broad qualification incomplete |
-| Our outer grader can be checked | Two good / ten broken evals, three domain controls, tests and replay | Calibration behaves as expected; 19 tests pass; stable findings reproduce over 114 jobs | Finite software validation; human/oracle authority separate |
+This guide groups the hypotheses by the problem they were trying to explain. [The individual protocols](PROTOCOLS.md) preserve the exact tasks and grading rules; [the campaign index](CAMPAIGNS.md) helps locate the full history.
 
-## Counts and comparisons
+## Could a model understand the current state and still make a bad plan?
 
-Numeric outputs, query programs, final eval-author packages and payroll follow-ups are different products. One artifact can appear in several reports; one output can have both a false green and a false red. Read each local denominator and original unit.
+Yes. In the diagnostic games, Sol and Astra sometimes kept the correct set of possible worlds but chose tests that lost a feasible winning continuation. The important failure was the action, not a wrong description of the state.
 
-## What would strengthen the evidence
+We then changed resources. A later ordinary-tool retest passed all 24 attempts, each using Python. That tells us computation helped under those conditions. It also tells us to keep no-tool planning and tool-assisted search separate when describing the finding. [Planning example](CASE-STUDIES.md#4-the-model-knew-the-possible-answers-but-chose-the-wrong-test).
 
-Freeze new public task contracts and externally qualified independent controls before inference. Hold prompts, tools, models and runtime constant, retain fixed samples, measure actual effects, and use a declared fresh-replication policy. Human review should resolve specific source meanings rather than approve an aggregate score by impression.
+## Was returning a search program easier than committing to a direct answer?
+
+We compared executable solutions with direct schedules. A program can search for a good arrangement when it is run; a direct answer has already committed to one arrangement.
+
+The revised ten-task run passed all 30 attempts. In a separate direct-scheduling follow-up, Terra produced legal but suboptimal plans on two of five variants. This suggests that the requested form of the answer matters. It does not justify merging the two conditions into one failure rate. [Direct-scheduling study](campaigns/depot-direct-run-2026-10-31.md).
+
+## Would irrelevant changes alter an assessment score?
+
+If two answers mean the same thing, changing their style or position in a batch should not casually change their score. We tested equivalent wording, meaningful changes, adversarial claims, order and clearer scoring anchors.
+
+Some ratings varied even on identical inputs. Many fresh comparisons, however, already agreed in both versions. Clearer anchors sometimes stabilized selected examples without establishing an improvement in real human measurement. These studies concern scoring behavior; they do not validate the scores for hiring or creativity assessment. [Scoring-consistency study](campaigns/semantic-invariance-pilot-20261101.md).
+
+## Would software structure predict trouble after later changes?
+
+We asked whether small codebases would accumulate regressions, whether interacting changes would break earlier requirements, and whether repairing structure first would repay its cost.
+
+The selected maintenance tasks mostly passed. Over the tested horizon, repair-first used 48.7% more native time. Evidence that structural measurements predicted future cost was weak. These are useful limits on the hypothesis, especially because a compelling architecture story could otherwise outrun the observed results. [Maintenance experiments](campaigns/architecture-oracle-validity-experiments-20261102.md).
+
+## Could an agent follow the process and lose sight of the goal?
+
+Historical governance work contained costly repeated tool errors and owner interventions. We tried to recreate the pressure using small tasks, cost cues, original-source material and native coordinators.
+
+Several recreations completed successfully. Some permitted construction that the original situation had prohibited, changing an important condition. An original coordinator run was explicitly paused by the user. The historical concern remains real, but these short studies did not establish a faithful reproduction of the whole process. [Governance follow-up](campaigns/c08-session-archaeology-20261103.md).
+
+## Would an agent trust a helper whose documentation was wrong?
+
+We supplied tasks where relying on a misleading helper could produce the wrong business result. The pattern recurred in different domains, including shipping, insurance, payroll and hotel billing.
+
+Five separate research cuts retained failure counts of 1/4, 1/6, 1/16, 3/24 and 2/12. Several missed their local rule for promoting a lead. We keep that decision, but also keep the actual product errors. A payroll implementation returning money for a wholly excluded batch is still wrong even if its study says “no hit.” [The first ten rounds](ROUNDS-01-10.md).
+
+## Would agents mishandle updates, permissions, stopped workers or missing findings?
+
+Later rounds tested stale state, fencing, grant lifetimes, child-process exits, reporting and coordination. These are situations where a local action can look successful while the larger job is wrong.
+
+Many specified failure patterns did not appear. Broader review still found some ordinary omissions, protected-file changes and incomplete attempts. Some tasks also had too little exposure to the proposed mistake. For example, eight responses with no invalid-singleton calls cannot provide eight direct tests of invalid-singleton handling. [Later experiments](LATER-ROUNDS.md).
+
+## Would a query optimizer preserve meaning when names were qualified?
+
+A query that uses a namespaced name should retain its meaning after optimization. Saved and fresh Luna implementations sometimes broke that property. The original optimizer errors recurred in six of eight programs, and a later Luna comparison had three such errors in eight.
+
+Astra and Sol each passed all eight tasks in their corresponding comparison. That result narrowed the lead: the evidence did not show the same weakness across the stronger models tested. [Query follow-up and original failures](LATER-ROUNDS.md).
+
+## Could a different spelling of an integer break otherwise correct-looking code?
+
+The numeric tasks accepted exact integral JSON values, including exponent notation. Sixteen reviewed Luna artifacts failed legal zero-family probes that the original finite suites had missed.
+
+Both stronger-model warehouse pilots later passed the historical zero input. Separately, a payroll probe found a Sol conversion error on a small amount written with many leading zeros, and one fresh repetition repeated it. These are related questions about number representations, but distinct programs, rules and follow-ups. [Both numeric examples](CASE-STUDIES.md).
+
+## Could a program fool a performance grader by reporting the right-looking number?
+
+Our synthetic query candidate did 180 comparisons while reporting 30 and passed all 41 checks. It exposed a real gap between replaying a declared plan and observing all execution.
+
+The actual 16 stronger-model programs were checked separately and showed genuine work reductions on the inspected paths. The loophole is established; deliberate cheating by those programs is not. [The measurement example](CASE-STUDIES.md#5-the-test-measured-the-reported-plan-not-all-the-work).
+
+## Would stronger models fail when explicitly asked to repair verification?
+
+We tested five verifier-repair tasks with Astra and Sol, three trials per task/model pair. All 30 attempts passed, producing 1,806 correct case decisions.
+
+That is a retained successful experiment. It tests repair with explicit public rules. It does not settle whether a model can independently choose, expose and implement every obligation needed for a complete new evaluation. [Every repair attempt](STRONGER-MODEL-ATTEMPTS.md).
+
+## Would the original failures recur on fresh stronger-model outputs?
+
+The initial original-five comparison passed all ten attempts. Both diagnostic episodes preserved an optimal guarantee; the coding outputs passed their retained checks.
+
+A later payroll check found a valid-input bug in a prior Sol artifact. Of two completed fresh repetitions, one repeated it and one passed. Two interrupted earlier slots stayed unknown. This gives us a concrete recurrence while preserving the successful attempts that limit the claim. [Payroll follow-up](CASE-STUDIES.md#3-the-number-was-small-its-spelling-broke-the-payroll-program).
+
+## Could GPT construct a complete evaluation that judges the stated task correctly?
+
+This became the final research direction. Five completed allowance-service evaluators required a word missing from their solver instructions. Three numeric evaluators accepted a preserved faulty program, and two of those also rejected a correct equivalent output.
+
+A more explicit instruction fixed the status-word mismatch in one successor, while changing that evaluator's scope. The result is a specific set of construction errors and a partial fix, with broader correctness still unresolved. [How we tested the evaluation author](HOW-THE-META-EVAL-WORKS.md).
+
+## How would we know if our own meta-eval was wrong?
+
+We gave it two small correct eval packages and ten deliberately broken ones, including graders that always pass or fail, wrong references, hidden rules and misleading reports. The intended calibration outcomes and three domain controls passed; so did the 19 unit tests.
+
+That is evidence for those specific checks. Human semantic review and wider reference qualification remain incomplete. The next stronger experiment would establish independent human-reviewed rules before new model attempts begin. [Conclusions and open questions](CONCLUSIONS.md).

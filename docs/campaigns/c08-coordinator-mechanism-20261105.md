@@ -1,23 +1,28 @@
-# C08 coordinator mechanism
+# What part of the old governance rule changed behavior?
 
-**Question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
+The historical process included both descriptive review language and structural restrictions. We wanted to know which part actually controlled the selected policy.
 
-**Role:** historical provenance/deterministic replay.
+Removing one descriptive sentence did not change that policy, while structural rejection did. The historical traces contain unrecovered handoffs, so this is a limited mechanism investigation rather than a reconstruction of every private interaction.
 
-## What we tried
+[Read the original report](../../evidence/source-text/c08-coordinator-mechanism-20261105/RESULTS.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-83historical calls+83outputs,44visible messages,13encrypted handoffs unrecovered.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Historical Sol trace; no new agent process-loop trial
+**Recorded question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
 
-## What we found
+**Type of work:** historical provenance/deterministic replay.
 
-Descriptive review sentence removal does not change selected policy; structural rejection does.
+**Original counting:** 83historical calls+83outputs,44visible messages,13encrypted handoffs unrecovered.
 
-## Interpretation and limits
+**Conditions:** Historical Sol trace; no new agent process-loop trial
 
-Requirement provenance is not proof reviews unnecessary;61calls before focusedE48 launch include legitimate work.
+**Detailed outcome:** Descriptive review sentence removal does not change selected policy; structural rejection does.
 
-[Read the source report](../../evidence/source-text/c08-coordinator-mechanism-20261105/RESULTS.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Requirement provenance is not proof reviews unnecessary;61calls before focusedE48 launch include legitimate work.
 
-Full local archive: `research/hackathon/c08-coordinator-mechanism-20261105`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/c08-coordinator-mechanism-20261105`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

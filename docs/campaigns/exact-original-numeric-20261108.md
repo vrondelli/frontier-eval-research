@@ -1,23 +1,28 @@
-# Exact original numeric
+# Would stronger models repeat the original zero-parsing bug?
 
-**Question:** Does the historical exponent-zero failure persist on stronger models solving the original bounded warehouse task?
+Older numeric programs crashed on a short legal exponent spelling of zero. We gave Astra and Sol the unchanged original bounded warehouse task, without revealing the counterexample.
 
-**Role:** Executed stronger-model pilot.
+Both new implementations handled the failing input and its ordinary-zero contrast correctly. No pilot qualified for the conditional follow-up. This is a real successful result on the selected mechanism, alongside the still-defective older artifacts.
 
-## What we tried
+[Read the original report](../../evidence/source-text/exact-original-numeric-20261108/audit/INDEPENDENT-REPORT.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-Two planned model attempts: Astra and Sol.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: See source and condition matrix; do not infer immutable serving weights.
+**Recorded question:** Does the historical exponent-zero failure persist on stronger models solving the original bounded warehouse task?
 
-## What we found
+**Type of work:** Executed stronger-model pilot.
 
-Both warehouse pilots pass the original zero witness; no model qualifies for the conditional energy replication.
+**Original counting:** Two planned model attempts: Astra and Sol.
 
-## Interpretation and limits
+**Conditions:** See source and condition matrix; do not infer immutable serving weights.
 
-These are current stronger-model successes on a selected mechanism; earlier bad Luna artifacts remain bad.
+**Detailed outcome:** Both warehouse pilots pass the original zero witness; no model qualifies for the conditional energy replication.
 
-[Read the source report](../../evidence/source-text/exact-original-numeric-20261108/audit/INDEPENDENT-REPORT.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** These are current stronger-model successes on a selected mechanism; earlier bad Luna artifacts remain bad.
 
-Full local archive: `research/hackathon/exact-original-numeric-20261108`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/exact-original-numeric-20261108`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

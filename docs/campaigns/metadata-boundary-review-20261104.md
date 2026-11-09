@@ -1,21 +1,26 @@
-# Metadata boundary review
+# Preparing a human review of the authority boundary
 
-**Question:** Can human reviewers qualify metadata and authority boundaries?
+Some governance judgments depend on what a record is allowed to authorize, which cannot be established by a passing script alone. We prepared a fact pack for reviewers.
 
-**Role:** unrun human review pack.
+The reviewer slots remained blank. This is a review package awaiting human decisions, not completed human validation.
 
-## What we tried
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-2blank reviewer slots.
+**Recorded question:** Can human reviewers qualify metadata and authority boundaries?
 
-Condition: No completed human reviews or benchmark inference
+**Type of work:** unrun human review pack.
 
-## What we found
+**Original counting:** 2blank reviewer slots.
 
-All reviewer identities/labels null.
+**Conditions:** No completed human reviews or benchmark inference
 
-## Interpretation and limits
+**Detailed outcome:** All reviewer identities/labels null.
 
-Prepared fact pack not expert endorsement; rules/ownerintent need real review.
+**What qualifies the result:** Prepared fact pack not expert endorsement; rules/ownerintent need real review.
 
-Full local archive: `research/hackathon/metadata-boundary-review-20261104`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/metadata-boundary-review-20261104`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

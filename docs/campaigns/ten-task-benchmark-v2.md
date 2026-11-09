@@ -1,23 +1,28 @@
-# Ten task benchmark v2
+# Clarifying the contract and revising the task mix
 
-**Question:** Can the benchmark tasks, references and package checks be prepared or validated?
+The first run exposed an unstated status convention and opportunities for harder constructive tasks. The revised benchmark made those changes explicit.
 
-**Role:** authored successor benchmark.
+This is the successor task pack. Its later model run is reported separately, preserving the original benchmark rather than overwriting its results.
 
-## What we tried
+[Read the original report](../../evidence/source-text/ten-task-benchmark-v2/README.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-10protocols,0newtrials.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: No modelinference here;answeringcondition no tools
+**Recorded question:** Can the benchmark tasks, references and package checks be prepared or validated?
 
-## What we found
+**Type of work:** authored successor benchmark.
 
-E1literalfix,E2–E5controls,C1–C5replaced.
+**Original counting:** 10protocols,0newtrials.
 
-## Interpretation and limits
+**Conditions:** No modelinference here;answeringcondition no tools
 
-Content+representation changed for creativity;E3unchanged; native answers elsewhere.
+**Detailed outcome:** E1literalfix,E2–E5controls,C1–C5replaced.
 
-[Read the source report](../../evidence/source-text/ten-task-benchmark-v2/README.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Content+representation changed for creativity;E3unchanged; native answers elsewhere.
 
-Full local archive: `research/hackathon/ten-task-benchmark-v2`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/ten-task-benchmark-v2`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

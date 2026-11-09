@@ -3,6 +3,8 @@
 No candidate programs, model calls or network requests are executed.
 """
 from pathlib import Path
+from campaign_context import CONTEXT
+from reader_intros import INTROS
 import datetime, hashlib, json, re, os
 ROOT = Path(__file__).resolve().parents[1]
 ARCHIVE = ROOT / 'research/hackathon'
@@ -12,6 +14,8 @@ def put(p, s):
     p.write_text(s, encoding='utf-8')
 def js(p, obj): put(p, json.dumps(obj, ensure_ascii=False, indent=2)+'\n')
 def cell(x): return str(x).replace('|',' / ').replace('\n',' ')
+def status_text(s):
+    return {'completed':'Completed','timeout':'Timed out','capture_unknown_native_terminal':'Completion unknown','recovered_completed_turn_delivery':'Completed; delivery recovered'}.get(s,s)
 def title(s): return re.sub(r'-20\d{6}$','',s).replace('-', ' ').capitalize()
 EARLY = read_json(ARCHIVE/'complete-recap-audit-20261108/EARLY-COVERAGE.json')
 PROTO = read_json(ARCHIVE/'complete-recap-audit-20261108/R1-R10-PROTOCOL-LEDGER.json')
@@ -60,6 +64,7 @@ all_names=sorted(p.name for p in ARCHIVE.iterdir() if p.is_dir())
 unknown=sorted(set(all_names)-set(entries))
 assert not unknown,unknown
 assert set(entries)==set(all_names),(len(entries),len(all_names))
+assert set(CONTEXT)==set(all_names),('Missing editorial context',sorted(set(all_names)-set(CONTEXT)))
 QUESTIONS={
 'adaptive-frontier-research-20261031':'Can a model choose diagnostic actions that preserve a feasible winning continuation?',
 'readiness-study-20261031':'Do the planning failures persist on fresh instances, persistent interaction, or when computation is offered?',
@@ -100,9 +105,13 @@ for key,x in entries.items():
     if key in {'exact-original-numeric-20261108','original-task-replays-20261108'}:source=key+'/audit/INDEPENDENT-REPORT.md'
     pub=excerpt(source) if source else None
     x['source_reading']=pub;x['archive_path']=f'research/hackathon/{key}';x['portfolio_page']=f'docs/campaigns/{key}.md'
-    text=f'# {title(key)}\n\n**Question:** {x["question"]}\n\n**Role:** {x["kind"]}.\n\n## What we tried\n\n{x["local_counts_with_units"]}.\n\nCondition: {x.get("model_tool_condition","See source.")}\n\n## What we found\n\n{x["observed_outcome"]}.\n\n## Interpretation and limits\n\n{x["followup_comparability_and_limits"]}.\n\n'
-    if pub:text+=f'[Read the source report](../../{pub}). The excerpt preserves the report\'s historical status; this page supplies the current portfolio interpretation.\n\n'
-    text+=f'Full local archive: `{x["archive_path"]}`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).\n'
+    page_title, context, finding = CONTEXT[key]
+    text=f'# {page_title}\n\n{context}\n\n{finding}\n\n'
+    if pub:
+        text+=f'[Read the original report](../../{pub}). The report keeps the wording used at the time; the explanation above places it in the later research.\n\n'
+    text+='<details>\n<summary>How this was run, the original counts and the limits</summary>\n\n'
+    text+=f'**Recorded question:** {x["question"]}\n\n**Type of work:** {x["kind"]}.\n\n**Original counting:** {x["local_counts_with_units"]}.\n\n**Conditions:** {x.get("model_tool_condition","See source.")}\n\n**Detailed outcome:** {x["observed_outcome"]}.\n\n**What qualifies the result:** {x["followup_comparability_and_limits"]}.\n\n'
+    text+=f'Full local archive: `{x["archive_path"]}`. This raw archive is excluded from Git.\n\n</details>\n\n[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).\n'
     put(ROOT/x['portfolio_page'],text)
 js(ROOT/'data/campaigns.json',{'schema':'portfolio-campaign-catalogue/v1','directories_covered':len(entries),'no_grand_attempt_total':True,'campaigns':[entries[k] for k in all_names]})
 lines=['# All campaigns','',f'Every one of the **{len(entries)} study directories** has a page below, including designs, duplicate exports, incomplete work and negative results. Counts retain their original units. The earlier audit covered a historical cut of 46 directories; it is not relabeled as a 55-directory audit.','', '| Campaign / question | What was tried | Outcome |','|---|---|---|']
@@ -139,11 +148,14 @@ put(ROOT/'docs/LATER-ROUNDS.md','\n'.join(lines)+'\n')
 # Meta-eval attempt-level scores and adjudications, including all incomplete slots.
 by_id={x['subject']['id']:x for x in SCORES['subjects']}
 meta=[]
-lines=['# Meta-eval: all 31 author attempts','', 'Every original attempt is retained. Nineteen completed eval-author packages receive 100-point score intervals; four completed audit outputs are supplementary. Seven timeouts and one unknown native completion receive no fabricated score. Lower/upper bounds are supported points plus unresolved weights, not confidence intervals or model ranks. Human semantic review remains incomplete.','', '| Attempt | Status | Score /100 | Failed checks | What happened |','|---|---|---:|---|---|']
+lines=['# Meta-eval: all 31 author attempts','', 'Every original attempt is retained. Nineteen completed eval-author packages receive 100-point score intervals; four completed audit outputs are supplementary. Seven timeouts and one unknown native completion receive no fabricated score. Lower/upper bounds are supported points plus unresolved weights, not confidence intervals or model ranks. Human semantic review remains incomplete.','', '| Attempt | Status | Score /100 | Failed checks |','|---|---|---:|---|']
 for a in META['attempts']:
  s=by_id.get(a['id'],{}).get('scoring',{}); bounds=s.get('score_interval'); score=f'{bounds[0]:.2f}-{bounds[1]:.2f}' if bounds else 'Not scored'
  row={k:a.get(k) for k in ['id','cohort','model_requested','case_id','draw','budget_seconds','effective_status','semantic_outcome','semantic_summary','verified_dimensions']};row['scoring']=s;meta.append(row)
- lines.append(f'| `{a["id"]}` | {cell(a["effective_status"])} | {score} | {cell(", ".join(s.get("critical_failures",[])) or "None established / unresolved")} | {cell(a["semantic_summary"])} |')
+ lines.append(f'| `{a["id"]}` | {cell(status_text(a["effective_status"]))} | {score} | {cell(", ".join(s.get("critical_failures",[])) or "None established / unresolved")} |')
+lines+=['','## Detailed notes for each attempt','']
+for a in META['attempts']:
+    lines += ['<details>',f'<summary>{a["id"]}</summary>','',a['semantic_summary'],'','</details>','']
 put(ROOT/'docs/META-EVAL-SCORES.md','\n'.join(lines)+'\n\n[Runnable guide](../meta-eval/META-EVAL.md) · [Full executed report](../meta-eval/grades/scored-v2-final/REPORT.md).\n')
 js(ROOT/'data/meta-eval-attempts.json',{'schema':'portfolio-meta-eval-attempts/v1','attempts':meta,'source':'meta-eval/RESULTS.json','source_status_note':'Current owner review remains incomplete; the historical RESULTS snapshot may predate five source-rule approvals.'})
 # Record paths to native receipts without copying private ambient transcripts.
@@ -207,3 +219,11 @@ lines+=['','All 30 pass. These 1,806 decisions are repeated case decisions withi
 put(ROOT/'docs/STRONGER-MODEL-ATTEMPTS.md','\n'.join(lines)+'\n')
 
 
+
+# Human introductions are maintained separately from the historical table rows.
+for name, intro in INTROS.items():
+    p=ROOT/'docs'/name
+    body=p.read_text(encoding='utf-8')
+    table=body.find('\n|')
+    assert table>=0, name
+    p.write_text(intro.rstrip()+'\n\n'+body[table+1:],encoding='utf-8')

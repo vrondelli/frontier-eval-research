@@ -1,23 +1,28 @@
-# Governance recovery replay
+# Can the agent recognize that a required recovery step is unreachable?
 
-**Question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
+We compared a conflict condition with a control where the required reread and recovery were possible.
 
-**Role:** executed matched controller replay.
+The conflict arm diagnosed the unreachable reread and withheld release. The control reread, patched and released. The agent distinguished the conditions instead of treating any process refusal as a failure to pursue the goal.
 
-## What we tried
+[Read the original report](../../evidence/source-text/governance-recovery-replay-20261102/REPORT.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-2episodes,4turns each.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Sol/high;normal offline tools
+**Recorded question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
 
-## What we found
+**Type of work:** executed matched controller replay.
 
-Conflict accurately diagnoses unreachable reread and withholdsrelease;control rereads/patches/releases;reservation7/7both.
+**Original counting:** 2episodes,4turns each.
 
-## Interpretation and limits
+**Conditions:** Sol/high;normal offline tools
 
-Controller/tool contract contradiction,notSolloop;synthetic short replay.
+**Detailed outcome:** Conflict accurately diagnoses unreachable reread and withholdsrelease;control rereads/patches/releases;reservation7/7both.
 
-[Read the source report](../../evidence/source-text/governance-recovery-replay-20261102/REPORT.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Controller/tool contract contradiction,notSolloop;synthetic short replay.
 
-Full local archive: `research/hackathon/governance-recovery-replay-20261102`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/governance-recovery-replay-20261102`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

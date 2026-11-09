@@ -1,23 +1,28 @@
-# Governance loop experiment
+# A first screen for governance loops
 
-**Question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
+We tried five small tasks meant to expose conflicts between process requirements and getting the requested work done.
 
-**Role:** executed five-task screen.
+All five eligible episodes passed their functional and governance checks. A capability-mismatched attempt was retained separately. Passing these explicit tasks is a bounded negative, not proof that process loops never happen.
 
-## What we tried
+[Read the original report](../../evidence/source-text/governance-loop-experiment-20261102/RESULTS.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-5eligible episodes,1excluded capability-mismatch attempt.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Sol/high;normal offline tools
+**Recorded question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
 
-## What we found
+**Type of work:** executed five-task screen.
 
-All five pass functional/governancechecks.
+**Original counting:** 5eligible episodes,1excluded capability-mismatch attempt.
 
-## Interpretation and limits
+**Conditions:** Sol/high;normal offline tools
 
-Initial read-only declaration but writable terminal was harness mismatch; model did not save repair; fresh workspace-write successor differs.
+**Detailed outcome:** All five pass functional/governancechecks.
 
-[Read the source report](../../evidence/source-text/governance-loop-experiment-20261102/RESULTS.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Initial read-only declaration but writable terminal was harness mismatch; model did not save repair; fresh workspace-write successor differs.
 
-Full local archive: `research/hackathon/governance-loop-experiment-20261102`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/governance-loop-experiment-20261102`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

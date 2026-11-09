@@ -1,23 +1,28 @@
-# Ten task benchmark v1
+# Building the first ten-task benchmark
 
-**Question:** Can the benchmark tasks, references and package checks be prepared or validated?
+The search needed concrete questions, expected answers and a way to judge actual responses. This package prepared the original benchmark and its controls.
 
-**Role:** authored benchmark/control package.
+Preparation and control checks did not themselves assess models. The model answers live in the separate first-run campaign, where both real answer errors and grader-contract defects were found.
 
-## What we tried
+[Read the original report](../../evidence/source-text/ten-task-benchmark-v1/README.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-10question protocols,0modeltrials.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: No new modelobservations here
+**Recorded question:** Can the benchmark tasks, references and package checks be prepared or validated?
 
-## What we found
+**Type of work:** authored benchmark/control package.
 
-Reference/controlchecks only;actualanswers separate frontier-run.
+**Original counting:** 10question protocols,0modeltrials.
 
-## Interpretation and limits
+**Conditions:** No new modelobservations here
 
-Later E1 omittedliteral defect proves reference acceptance not grader validity; subcases not independentconstructs.
+**Detailed outcome:** Reference/controlchecks only;actualanswers separate frontier-run.
 
-[Read the source report](../../evidence/source-text/ten-task-benchmark-v1/README.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Later E1 omittedliteral defect proves reference acceptance not grader validity; subcases not independentconstructs.
 
-Full local archive: `research/hackathon/ten-task-benchmark-v1`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/ten-task-benchmark-v1`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

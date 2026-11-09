@@ -1,21 +1,26 @@
-# Ten task benchmark v1 validation
+# Could the first benchmark be extracted and checked?
 
-**Question:** Can the benchmark tasks, references and package checks be prepared or validated?
+A task pack that works only in its author workspace is difficult for another person to use. This validation examined the packaged benchmark and saved replays.
 
-**Role:** archive/structural validation.
+The records concern delivery and structural checks. They add no fresh model attempts and do not independently resolve every task meaning.
 
-## What we tried
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-0newtrials.
+**Recorded question:** Can the benchmark tasks, references and package checks be prepared or validated?
 
-Condition: No modelinference
+**Type of work:** archive/structural validation.
 
-## What we found
+**Original counting:** 0newtrials.
 
-Clean/extracted/workspace saved replays.
+**Conditions:** No modelinference
 
-## Interpretation and limits
+**Detailed outcome:** Clean/extracted/workspace saved replays.
 
-ZIP verification not new native trial; cannot provepublic-contract semantics.
+**What qualifies the result:** ZIP verification not new native trial; cannot provepublic-contract semantics.
 
-Full local archive: `research/hackathon/ten-task-benchmark-v1-validation`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/ten-task-benchmark-v1-validation`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

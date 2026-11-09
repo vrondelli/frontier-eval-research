@@ -1,24 +1,33 @@
-# Repository scope and migration
+# Where the explanations and original records live
 
-- `docs/`: current editorial interpretation for a new reader.
-- `data/`: catalogues/provenance. Metadata receipt files are not necessarily unique attempts.
-- `evidence/source-text/`: readable source copies with provenance headers, original relative links rendered as historical text and a generalized workspace prefix. These are derived exports.
-- `evidence/ledgers/`: selected unchanged machine ledgers with historical counts and hashes.
-- `meta-eval/`: byte-identical extracted scored-v2 release with code, packages, controls and release-selected/sanitized evidence.
-- `releases/`: immutable scored ZIP and external proof. The executable entry point here is `meta-eval/run_meta_eval.py`.
-- `research/hackathon/`: full local archive, ignored by Git. Private ambient sessions, large copied workspaces and historical execution trees remain local.
+If you came from the README, start in `docs/`. Those pages explain why we ran the experiments and how to read their outcomes. When you want to check a particular statement, follow the links into the original reports or runnable package.
 
-## Migration
+## The readable research account
 
-The original `engineer-assessment/research/hackathon` was renamed on the same filesystem to this repository's `research/hackathon`. Its inode and 55 study directories were preserved. A relative compatibility symlink preserves the old WSL/Linux paths. Windows-native UNC clients must open the new actual repository path; they do not traverse this Linux symlink. Original material was not rewritten to match the narrative.
+`README.md`, the research story, the hypothesis guide and the case studies are written for someone encountering the project for the first time. The campaign pages explain individual pieces of work. Their expandable details retain the original counts and conditions without making those details the opening paragraph.
 
-[Migration receipt](../data/MIGRATION.json) records the source commit, census and ZIP hash. This repository starts a separate Git history; the source history was neither rewritten nor imported. The migration receipt describes the original preparation state. Repository publication is a later, separately authorized action.
+`data/` contains the catalogues behind the lookup tables. The native receipt index lists available metadata files; one run can have more than one receipt, so the file count is not a count of independent attempts.
 
-## Clone scope
+## The evidence behind a claim
 
-A clone can read every catalogued campaign/protocol/attempt group and replay the portable scored meta-eval. It cannot reconstruct every earlier live interaction without the excluded archive and historical services. The receipt index contains paths/hashes and selected metadata, not raw private sessions. Aliases do not pin backend weights.
+`evidence/source-text/` contains readable exports of earlier reports. Each starts with its original location. Relative links are shown as historical references, and the original workspace prefix is generalized. These are derived copies, with both original and exported hashes recorded in the source map.
 
-## Reading historical statuses
+Some old reports say a run is live or a lead produced no hit. That was the wording at the time. The newer campaign pages explain later results and corrections. We keep the old text so you can inspect how the interpretation changed.
 
-Earlier READMEs may say live, no result yet or no hit. Export headers label them archived. Read current campaign pages, later final reports and audits together. Do not rewrite frozen receipts to reconcile old prose.
+`evidence/ledgers/` contains selected unchanged machine ledgers. These preserve the individual outcomes and the counting units used in their studies.
 
+## The software you can rerun
+
+`meta-eval/` is the exact extracted scored-v2 release. Its code, controls, saved model packages and selected evidence retain their release bytes. For example, the complete executed report is at `meta-eval/grades/scored-v2-final/REPORT.md`.
+
+`releases/` holds the immutable ZIP and the external records that bind its identity and clean replay. The [reproduction guide](REPRODUCE.md) explains what you can run and what to expect. The clearer newer documentation lives outside the frozen release, so improving an explanation does not silently alter a historical artifact.
+
+## The complete local archive
+
+The original `engineer-assessment/research/hackathon` directory was moved intact into this repository's `research/hackathon/`. It includes the full older workspaces, copied repositories and ambient sessions. That archive is ignored by Git.
+
+A public clone therefore includes the readable catalogues, source excerpts and portable meta-eval, but not every historical raw session. This is intentional and stated at the point where a reproduction requires more material.
+
+The [migration record](../data/MIGRATION.json) records the source commit, directory census and ZIP identity. Old WSL/Linux paths continue through a relative symlink. Windows-native clients need the new actual repository path because they do not traverse that Linux symlink.
+
+This repository starts a separate Git history; it does not rewrite or import the original project's history. The migration record describes the preparation at that time. Later publication was separately authorized.

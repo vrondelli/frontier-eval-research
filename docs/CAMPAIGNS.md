@@ -1,6 +1,17 @@
-# All campaigns
+# Find the part of the investigation you are interested in
 
-Every one of the **55 study directories** has a page below, including designs, duplicate exports, incomplete work and negative results. Counts retain their original units. The earlier audit covered a historical cut of 46 directories; it is not relabeled as a 55-directory audit.
+The work spread into many directories because each question led to a different kind of follow-up. A prepared task, a live experiment, a source audit and an export can all have their own folder. They should not all be read as new model trials.
+
+The index below covers all 55 research directories. Each campaign page now starts with why we did the work and what it taught us. Open its expandable details if you need the original counts, model condition and caveats.
+
+For an easier starting point, follow one thread:
+
+- **Planning:** [the readiness study](campaigns/readiness-study-20261031.md), then [what changed when tools were allowed](campaigns/submission-failure-audit-20261101.md).
+- **Our tests being wrong:** [the complete audit](campaigns/complete-recap-audit-20261108.md), then [lessons from the grader and audit defects](INSTRUMENT-LESSONS.md).
+- **Stronger-model follow-ups:** [the original-five comparison](campaigns/original-five-rerun-20261108.md) and [all final attempt rows](STRONGER-MODEL-ATTEMPTS.md).
+- **Testing the evaluation author:** [the meta-eval campaign](campaigns/eval-author-meta-eval-20261108.md), followed by [how the checker works](HOW-THE-META-EVAL-WORKS.md).
+
+The table preserves the shorter source summaries for lookup. Some reports combine earlier results, so their numbers overlap. The earlier audit's 46-directory coverage refers to its historical archive, rather than this later 55-directory collection.
 
 | Campaign / question | What was tried | Outcome |
 |---|---|---|

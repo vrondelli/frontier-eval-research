@@ -1,23 +1,28 @@
-# Practical coding pilot
+# Testing ordinary coding work with tools available
 
-**Question:** Do practical migration, publication and shared-policy tasks expose normal-tool failures?
+We tried migration, publication and shared-policy tasks that could expose practical mistakes outside the earlier no-tool reasoning games.
 
-**Role:** executed three-repair screen.
+All nine episodes passed their independent checks. The result is a useful normal-tool negative for these tasks, and it helps prevent presenting the research as a collection containing only failures.
 
-## What we tried
+[Read the original report](../../evidence/source-text/practical-coding-pilot-20261101/RESULTS.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-9episodes,52terminalcalls.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Sol/high;offline Bash/Python/Git
+**Recorded question:** Do practical migration, publication and shared-policy tasks expose normal-tool failures?
 
-## What we found
+**Type of work:** executed three-repair screen.
 
-All9pass independent migration/publication/shared-policy checks.
+**Original counting:** 9episodes,52terminalcalls.
 
-## Interpretation and limits
+**Conditions:** Sol/high;offline Bash/Python/Git
 
-Recovered unavailable-rg/search permissionerrors not finalsoftwarefailure; compatcalls separate; small SQLite families.
+**Detailed outcome:** All9pass independent migration/publication/shared-policy checks.
 
-[Read the source report](../../evidence/source-text/practical-coding-pilot-20261101/RESULTS.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Recovered unavailable-rg/search permissionerrors not finalsoftwarefailure; compatcalls separate; small SQLite families.
 
-Full local archive: `research/hackathon/practical-coding-pilot-20261101`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/practical-coding-pilot-20261101`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

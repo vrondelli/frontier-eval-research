@@ -1,23 +1,28 @@
-# Qualification strategy pilot
+# Would an agent reconsider a costly qualification strategy?
 
-**Question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
+The historical concern involved repeated candidates and qualification effort. We tried a more authentic task with a total gate and staged work.
 
-**Role:** executed authentic total-gate attempts.
+One complete episode repaired faults and passed focused cases without the repeated candidate loop. It did not explicitly reassess the overall cadence, so functional completion and strategic reflection remain different observations.
 
-## What we tried
+[Read the original report](../../evidence/source-text/qualification-strategy-pilot-20261104/RESULTS.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-3attempts,1complete3stageepisode.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: gpt-6-sol/high;offline authentic tools
+**Recorded question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
 
-## What we found
+**Type of work:** executed authentic total-gate attempts.
 
-r3repairs faults/focused cases;no repeated candidate loop;no explicit global cadence reassessment.
+**Original counting:** 3attempts,1complete3stageepisode.
 
-## Interpretation and limits
+**Conditions:** gpt-6-sol/high;offline authentic tools
 
-r1interruption;r2deadline;r3budget prospectivelyextended after slowerreference; absentproposal alone not proof interventionrequired;full72outside scope.
+**Detailed outcome:** r3repairs faults/focused cases;no repeated candidate loop;no explicit global cadence reassessment.
 
-[Read the source report](../../evidence/source-text/qualification-strategy-pilot-20261104/RESULTS.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** r1interruption;r2deadline;r3budget prospectivelyextended after slowerreference; absentproposal alone not proof interventionrequired;full72outside scope.
 
-Full local archive: `research/hackathon/qualification-strategy-pilot-20261104`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/qualification-strategy-pilot-20261104`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

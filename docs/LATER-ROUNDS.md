@@ -1,6 +1,12 @@
-# Later rounds and failure transitions
+# What the later follow-ups added
 
-These cohort counts are not added together. Some are follow-ups on shared tasks, others count logical episodes, turns or distinct chat sessions. The complete source ledger is committed under evidence/ledgers/.
+Later experiments asked more specific questions about state, permissions, process lifetime, reporting, scope and number representations. The table below keeps each group of attempts separate so that you can see what changed.
+
+A useful distinction is whether we found the exact failure pattern we had planned to count or a different task error. For example, an experiment looking for reassurance from an executed self-test does not count bad code with tests that were never run as the same event. The code can still be wrong.
+
+Some zero results also had limited opportunity to expose the mechanism. If no response actually makes an invalid-singleton call, zero accepted invalid calls does not establish eight direct tests of that behavior.
+
+The columns explain those qualifications alongside the outcome. Calls, multi-turn episodes and separate chat sessions measure different things, so these rows should not be added into one grand total. [Reading the evidence](READING-THE-EVIDENCE.md) explains the terms with examples.
 
 | Cohort | Units | Observed outcome | Comparability / qualification |
 |---|---|---|---|

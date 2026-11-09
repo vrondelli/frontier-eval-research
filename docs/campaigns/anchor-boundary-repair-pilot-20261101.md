@@ -1,23 +1,28 @@
-# Anchor boundary repair pilot
+# Would clearer score boundaries make ratings more consistent?
 
-**Question:** Do clearer anchor boundaries improve selected regressions and fresh comparisons?
+When a response sits between two rating categories, a clearer anchor might reduce arbitrary choices. We tested a revised set of boundaries on selected earlier examples and fresh comparisons.
 
-**Role:** executed anchor successor.
+Some selected regressions became less variable. But the fresh matched comparisons already gave identical categories in both versions. That limits the claim that the revised anchors caused an improvement on new cases.
 
-## What we tried
+[Read the original report](../../evidence/source-text/anchor-boundary-repair-pilot-20261101/FINDINGS.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-36 calls,474 judgments,144 fresh matched comparisons.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Sol/high; app-server
+**Recorded question:** Do clearer anchor boundaries improve selected regressions and fresh comparisons?
 
-## What we found
+**Type of work:** executed anchor successor.
 
-Fresh categories identical144/144 both arms; selected regressions less variable.
+**Original counting:** 36 calls,474 judgments,144 fresh matched comparisons.
 
-## Interpretation and limits
+**Conditions:** Sol/high; app-server
 
-New conventions/shared status schema,not unchanged-gold accuracy improvement; human review pending.
+**Detailed outcome:** Fresh categories identical144/144 both arms; selected regressions less variable.
 
-[Read the source report](../../evidence/source-text/anchor-boundary-repair-pilot-20261101/FINDINGS.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** New conventions/shared status schema,not unchanged-gold accuracy improvement; human review pending.
 
-Full local archive: `research/hackathon/anchor-boundary-repair-pilot-20261101`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/anchor-boundary-repair-pilot-20261101`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

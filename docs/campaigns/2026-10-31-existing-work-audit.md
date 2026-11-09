@@ -1,23 +1,28 @@
-# 2026 10 31 existing work audit
+# What research did we already have?
 
-**Question:** What does this source campaign contribute to the evaluation research?
+Before creating more tasks, we needed to understand what the existing project contained and whether another person could inspect it. This was an inventory and reproducibility check, rather than a new test of a model.
 
-**Role:** inventory/review.
+The audit found a large body of reports and tools and verified a fresh public clone. Its file counts describe existing material, not hundreds of independent experiments.
 
-## What we tried
+[Read the original report](../../evidence/source-text/2026-10-31-existing-work-audit/REPORT.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-550 direct report paths,1334 tool paths.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: No new models
+**Recorded question:** What does this source campaign contribute to the evaluation research?
 
-## What we found
+**Type of work:** inventory/review.
 
-Fresh public clone verifies; old local checkout incomplete.
+**Original counting:** 550 direct report paths,1334 tool paths.
 
-## Interpretation and limits
+**Conditions:** No new models
 
-File inventory is not550 independent experiments; many preexisting finite tasks pass.
+**Detailed outcome:** Fresh public clone verifies; old local checkout incomplete.
 
-[Read the source report](../../evidence/source-text/2026-10-31-existing-work-audit/REPORT.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** File inventory is not550 independent experiments; many preexisting finite tasks pass.
 
-Full local archive: `research/hackathon/2026-10-31-existing-work-audit`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/2026-10-31-existing-work-audit`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

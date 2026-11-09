@@ -1,23 +1,28 @@
-# C08 cost budget
+# Would making process cost visible change the outcome?
 
-**Question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
+The historical concern was that a coding agent could spend too much effort on repeated candidate and review cycles. We introduced cost and budget conditions into small matched coding tasks.
 
-**Role:** executed matched coding pairs.
+The local products and required proofs completed, without the registered repeated loop. The short tasks show what happened under those conditions; they do not recreate the full cost and horizon of the original incident.
 
-## What we tried
+[Read the original report](../../evidence/source-text/c08-cost-budget-20261103/RESULTS.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-6episodes,3pairs,8checkpoints each.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Sol/high; persistent Bash/Python/Git
+**Recorded question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
 
-## What we found
+**Type of work:** executed matched coding pairs.
 
-All final11/11 productchecks/current proof;3–4candidates per episode;no registered loop.
+**Original counting:** 6episodes,3pairs,8checkpoints each.
 
-## Interpretation and limits
+**Conditions:** Sol/high; persistent Bash/Python/Git
 
-Short explicit mutable-construction goal with synthetic cost pressure is not original~8h process.
+**Detailed outcome:** All final11/11 productchecks/current proof;3–4candidates per episode;no registered loop.
 
-[Read the source report](../../evidence/source-text/c08-cost-budget-20261103/RESULTS.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Short explicit mutable-construction goal with synthetic cost pressure is not original~8h process.
 
-Full local archive: `research/hackathon/c08-cost-budget-20261103`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/c08-cost-budget-20261103`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

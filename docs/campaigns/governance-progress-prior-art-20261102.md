@@ -1,23 +1,28 @@
-# Governance progress prior art
+# Which parts of the governance concern were already known?
 
-**Question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
+Before claiming a novel failure mechanism, we reviewed primary sources, pinned repositories and historical examples of process cost and recovery problems.
 
-**Role:** historical/literature review.
+The historical cost concerns were real, but related work already addressed conflict, ceremony, loops and release gates. This package provides context for designing a narrower claim, rather than a fresh model benchmark.
 
-## What we tried
+[Read the original report](../../evidence/source-text/governance-progress-prior-art-20261102/REPORT.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-23primary sources,5pinned repos,38sourcefiles inspected.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: No new model trials;ARE/Craft/Lab archives
+**Recorded question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
 
-## What we found
+**Type of work:** historical/literature review.
 
-Historical cost incidents real; related work alreadycovers conflict,ceremony,loops,releasegates.
+**Original counting:** 23primary sources,5pinned repos,38sourcefiles inspected.
 
-## Interpretation and limits
+**Conditions:** No new model trials;ARE/Craft/Lab archives
 
-Combined novelty unestablished; historical anecdotes not controlled trials; positive rounds/nulls preserved.
+**Detailed outcome:** Historical cost incidents real; related work alreadycovers conflict,ceremony,loops,releasegates.
 
-[Read the source report](../../evidence/source-text/governance-progress-prior-art-20261102/REPORT.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Combined novelty unestablished; historical anecdotes not controlled trials; positive rounds/nulls preserved.
 
-Full local archive: `research/hackathon/governance-progress-prior-art-20261102`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/governance-progress-prior-art-20261102`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

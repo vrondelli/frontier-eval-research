@@ -1,23 +1,28 @@
-# Structural maintenance study design
+# Planning a larger study of structural maintenance
 
-**Question:** What study design or task family should be tested next?
+The small coding pilots raised questions about what structure to measure and which later changes would make those measurements meaningful.
 
-**Role:** unrun design/prior art.
+This package assembled sources, dimensions, metrics and proposed experiments. It remained a design, not an executed model study or evidence that a structural predictor worked.
 
-## What we tried
+[Read the original report](../../evidence/source-text/structural-maintenance-study-design-20261102/README.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-19sources,9dimensions,21metrics,13families,11plannedexperiments,0trials.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: No new assessed models
+**Recorded question:** What study design or task family should be tested next?
 
-## What we found
+**Type of work:** unrun design/prior art.
 
-Design complete/notlaunchready.
+**Original counting:** 19sources,9dimensions,21metrics,13families,11plannedexperiments,0trials.
 
-## Interpretation and limits
+**Conditions:** No new assessed models
 
-Designcomponentcounts not testedhypotheses; later architectureexperiments separate.
+**Detailed outcome:** Design complete/notlaunchready.
 
-[Read the source report](../../evidence/source-text/structural-maintenance-study-design-20261102/README.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Designcomponentcounts not testedhypotheses; later architectureexperiments separate.
 
-Full local archive: `research/hackathon/structural-maintenance-study-design-20261102`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/structural-maintenance-study-design-20261102`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

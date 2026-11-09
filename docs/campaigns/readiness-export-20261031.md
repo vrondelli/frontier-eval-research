@@ -1,21 +1,26 @@
-# Readiness export
+# Packaging the earlier study for someone else to inspect
 
-**Question:** How can already collected evidence be packaged or explained without counting it again?
+Research material needs an understandable delivery format as well as a local workspace. This directory holds export archives of the existing study.
 
-**Role:** duplicate export archives.
+The exports add no model trials. Their results belong to the source studies they package, so they are not counted again.
 
-## What we tried
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-0newtrials.
+**Recorded question:** How can already collected evidence be packaged or explained without counting it again?
 
-Condition: No new inference
+**Type of work:** duplicate export archives.
 
-## What we found
+**Original counting:** 0newtrials.
 
-ZIP exports of research/candidate.
+**Conditions:** No new inference
 
-## Interpretation and limits
+**Detailed outcome:** ZIP exports of research/candidate.
 
-Packaging integrity not new model capability evidence.
+**What qualifies the result:** Packaging integrity not new model capability evidence.
 
-Full local archive: `research/hackathon/readiness-export-20261031`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/readiness-export-20261031`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

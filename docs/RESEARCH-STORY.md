@@ -1,59 +1,81 @@
-# How the research developed
+# How a search for model failures became a test of the tests
 
-The project began with a question: could unusual reasoning, planning and software tasks expose consequential failures in capable AI agents? It became a second question: could we trust the tests used to answer the first?
+We started with a hackathon goal: find a meaningful failure that another person could reproduce. A striking answer was not enough. We needed a task with clear rules, a way to establish the right result, and evidence that the mistake survived inspection.
 
-## 1. Build tasks before claiming a weakness
+The difficult part became deciding which failures we could trust. Sometimes a model wrote bad code. Sometimes our grader demanded something the task had never stated. Sometimes a fresh attempt really did solve the same problem. And sometimes the follow-up changed enough that it answered a different question.
 
-The first ten-task benchmark covered reasoning, planning, creativity and engineering. Three model aliases produced 30 episodes and 48 turns without answering tools. Review separated the raw failures: three allowance-service failures depended on an undocumented success word, while a Terra queue-equivalence answer really was wrong.
+The project developed through those distinctions.
 
-The successor made the status contract explicit and changed some creative tasks. All 30 attempts passed. Terra's queue task retained the same visible prompt and schema and succeeded in a fresh draw. Some non-recurrence was a genuine new success.
+## The first results were already a mixture
 
-[Original campaign](campaigns/frontier-run-2026-10-31.md) · [Successor](campaigns/frontier-run-v2-2026-10-31.md).
+The original ten-task benchmark asked three model aliases to solve reasoning, planning, creativity and engineering problems without answering tools. It produced 30 episodes and 48 turns.
 
-## 2. Distinguish live planning from producing a search program
+One group of failures looked like an allowance-service problem. On inspection, the implementations had the required ledger and retry behavior, but the grader wanted a particular success-status word that the question had not specified. Three raw failures belonged to the test contract.
 
-Adaptive diagnostics made the agent commit to actions under a budget. Sol and Astra sometimes tracked the correct possible-world set but chose a probe that destroyed a feasible winning continuation. Direct scheduling also exposed legal but suboptimal Terra plans.
+A Terra answer to a queue problem had a different issue: it claimed two processes were equivalent and supplied a witness that did not establish the requested outcome. That was an actual answer error.
 
-A later ordinary-tool retest passed 24/24, with actual Python use in all 24. Computation helped under the changed conditions; it does not make the original no-tool failures imaginary.
+The revised benchmark clarified the service vocabulary and changed some creative tasks. All 30 new attempts passed. Terra also solved the queue problem in a fresh draw with the same visible prompt and schema. That result mattered: we could not explain every later success by saying we had edited the failure away.
+
+[Original benchmark results](campaigns/frontier-run-2026-10-31.md) · [Revised benchmark](campaigns/frontier-run-v2-2026-10-31.md).
+
+## Tracking the situation was easier than choosing the next move
+
+The diagnostic planning tasks gave us a more concrete reasoning problem. The model had to choose tests under a limited budget, using each answer to decide its next action.
+
+In a retained Sol example, its list of possible worlds stayed correct. The mistake was the next test it chose. Before that action, a strategy existed that could identify one world. Afterward, even the best remaining strategy could only narrow the answer to two. The model knew where it was but spent its budget in a way that lost the achievable goal.
+
+We repeated planning work on fresh instances and with persistent interaction. We also tried different resources. When ordinary computation tools were allowed in a later shortlist, all 24 attempts passed, and all 24 used Python.
+
+This gave us a practical lesson about replication. A model choosing live actions without computation and a model using Python to search a plan are operating under different conditions. Both results are useful; each needs its own explanation.
 
 [Planning study](campaigns/readiness-study-20261031.md) · [Tool-enabled retest](campaigns/submission-failure-audit-20261101.md).
 
-## 3. Search across engineering, judgment and governance
+## We widened the search, and the summaries became misleading
 
-Other campaigns tested rating invariance, adversarial criteria, successive code changes, architectural maintenance, governance and coordinators. Many small explicit tasks passed. Rating variability did not establish a validated scoring construct. Historical governance traces showed real cost and repeated tool errors, while short recreations often changed the authority boundary or missed the full process.
+The work expanded into software maintenance, scoring consistency, governance, coordination and many smaller programming tasks. We asked whether earlier requirements would be forgotten, whether misleading library documentation would be trusted, and whether process rules would distract an agent from its goal.
 
-Architecture work exposed a research-side defect: the first custody audit found 156 snapshots for 228 turns, missing 72 stored differently. The corrected audit enforced 228/228. A green audit was insufficient when input discovery was incomplete.
+Many of these tasks passed. Other tasks produced real mistakes but did not meet the experiment's rule for promoting a lead. The distinction became easy to lose in short labels such as “no hit” or “KILL.”
 
-[All campaigns](CAMPAIGNS.md) · [Instrument lessons](INSTRUMENT-LESSONS.md).
+For example, the lying-helper mechanism appeared in five separate research rounds. The local failure counts were 1/4, 1/6, 1/16, 3/24 and 2/12. These were different samples and tasks, so adding them into one model reliability estimate would be misleading. But describing the mechanism as something that never recurred would also be wrong.
 
-## 4. Expand the search, then audit the summaries
+One payroll result makes the issue tangible. The rules excluded an entire batch, so the answer should have been total 0 and paid 0. A saved implementation instead returned total 753 and paid 1. Missing the study's promotion threshold did not make that delivered result correct.
 
-The closed R1-R10 cut has 67 protocol rows and 295 counted model episodes, predominantly Luna. Several families passed their finite checks. Lying-helper errors nevertheless recur across five cuts: 1/4, 1/6, 1/16, 3/24 and 2/12. These are separate denominators.
+[Hypothesis guide](HYPOTHESES.md) · [All first-ten-round results](ROUNDS-01-10.md) · [Later follow-ups](LATER-ROUNDS.md).
 
-“No promoted hit” often meant a recurrence threshold was missed, not that the product was correct. R11-R13 widened the search to lifecycle, authorization, reporting, stale state, scope and numeric semantics. Some frozen endpoints stayed zero while broader review found errors or inadequate exposure.
+## Our tools needed the same skepticism as the models
 
-[All 67 rows](ROUNDS-01-10.md) · [Later cohorts](LATER-ROUNDS.md) · [151 design locations](PROTOCOLS.md).
+An audit of the architecture experiments initially reported 156 saved snapshots for 228 turns. It had looked in one directory layout and missed 72 snapshots stored another way. After correction, the audit explicitly checked 228 against 228.
 
-## 5. Investigate whether the tests were being fooled
+That was a failure in our evidence pipeline. The first report could say it passed because it never counted what it had failed to find.
 
-An audit candidate executed 180 query comparisons while reporting 30 and passed the original 41 checks. The grader observed a declared plan, not all work performed.
+The query-optimizer audit exposed another problem. We built a deliberately dishonest candidate that did 150 comparisons using the original plan, then 30 using an optimized plan, and reported only the latter. It passed all 41 checks while doing 180 comparisons in total. The checks could replay the declared plan, but they did not observe all the work the candidate performed.
 
-That did not prove actual models exploited it. The 16 inspected stronger-model implementations genuinely reduced work on the reviewed paths. A private-oracle path was also readable during scoring, without proof a subject used it. A vulnerable evaluator and observed cheating are different claims.
+We then inspected the actual stronger-model programs separately. All 16 reviewed implementations genuinely reduced work on the measured paths. The test had a loophole; the reviewed programs were not shown to have used it.
 
-## 6. Revisit original tasks on stronger models
+[What went wrong in our tools](INSTRUMENT-LESSONS.md) · [Query audit](../evidence/source-text/complete-recap-audit-20261108/TEST-GAMING-AUDIT.md).
 
-Astra/Sol query comparisons passed. Both warehouse pilots passed the historical zero witness, so conditional replication correctly launched zero calls. Explicit verifier repair passed 30/30. The initial original-five comparison passed all ten tasks.
+## Stronger-model follow-ups gave us both successes and a fresh failure
 
-A broader source-licensed payroll probe found a Sol failure: a five-kilobyte spelling of one reached Python's integer-conversion limit. The follow-up retained two interrupted instrument-unknown slots and two completed recovery repetitions. One repetition failed; the other passed. This is specific fresh recurrence, not a universal frontier limitation.
+We returned to original tasks instead of assuming that a historical failure would still appear on a stronger model.
 
-[Payroll case](CASE-STUDIES.md) · [All 14 started slots](../evidence/ledgers/original-five-rerun-20261108/RESULTS.json).
+Astra and Sol passed their query comparisons and the warehouse input that had broken older numeric programs. Both also passed the initial five-task comparison. In a separate experiment, they completed all 30 explicit verifier-repair attempts successfully.
 
-## 7. Evaluate the evaluator author
+A later payroll check found a smaller, sharper problem. The original task allowed leading zeros in a positive digit string. A prior Sol implementation handled `1` but crashed on the same number written with 5,000 leading zeros. The input was only about five kilobytes and still represented one.
 
-The final direction made the model-created eval the object under test. Outer checks challenged delivered graders, references, task exposure, controls and reports.
+We ran two completed fresh Sol repetitions of the unchanged task. One repeated the error; the other passed. Both passed all 26 original test cases. Two earlier interrupted attempts stayed in the records as unknowns instead of being quietly replaced.
 
-Of 31 attempts, 19 completed eval-authoring packages received scored checks; four audit outputs stayed supplementary, seven attempts timed out, and one completion remained unknown. The meta-eval ran 114 native check jobs. Five H1 packages had an undisclosed success-word requirement; three H6 packages accepted a faulty CLI, and two also rejected legal equivalent output.
+This was enough to establish a specific recurring implementation mistake. It was not enough to say that every frontier model had the weakness, or that half of all Sol outputs would fail.
 
-The software was calibrated and clean-replayed. Human semantic qualification remains incomplete. The result is reproducible software and concrete evidence alongside explicit unanswered questions.
+[Payroll example](CASE-STUDIES.md#3-the-number-was-small-its-spelling-broke-the-payroll-program) · [Every stronger-model attempt](STRONGER-MODEL-ATTEMPTS.md).
 
-[Final scores](META-EVAL-SCORES.md) · [Conclusions](CONCLUSIONS.md).
+## Finally, we made the evaluation builder the subject
+
+By this point, mistakes in test construction were themselves worth investigating. The question became: if we ask GPT to build an evaluation, can it deliver one that judges the stated task correctly?
+
+This is a different job from repairing a known verifier under explicit rules. An evaluation author has to decide what to expose to the solver, establish a reference, choose meaningful tests, accept legitimate alternatives and report what was actually checked.
+
+The final meta-eval tested those delivered packages. It reproduced five hidden-status-word failures and three outputs that accepted the faulty numeric program. Two of the latter also rejected a legal equivalent output spelling. These findings overlap within eight evaluator outputs.
+
+The result is a runnable research artifact with preserved successes, failures and unanswered checks. It also leaves a clear next question: how often do these construction problems appear on new tasks whose rules and independent checks were established before the model began?
+
+[How the meta-eval works](HOW-THE-META-EVAL-WORKS.md) · [Every score](META-EVAL-SCORES.md) · [What we conclude](CONCLUSIONS.md).

@@ -1,6 +1,12 @@
-# Individual frontier protocols
+# The individual experiments we designed
 
-151 authored DESIGN.md locations are indexed below. Each link shows the original hypothesis and protocol; available results are paired. Copied source trees and subject workspaces are excluded. A missing paired result means this selector found no local result at that location, not proof of zero attempts. The audited R1-R10 ledger and later cohort census remain authoritative for their defined counts.
+A protocol records what we would ask a model to do, how we would judge the result and what would count as evidence for the proposed failure. It is the place to look when a short summary leaves you wondering whether a rule was stated before the answer was seen.
+
+This index contains 151 authored design locations. A design is not necessarily a new model attempt, and some designs are revised versions or conditional follow-ups. Copied workspaces and audit copies are excluded.
+
+For example, the lying-helper thread moved between shipping, insurance and payroll tasks. The everyday question was similar: would the model trust an unreliable helper and deliver the wrong business result? The protocols show the exact wording, examples and promotion rules used at each step. [The hypothesis guide](HYPOTHESES.md) explains what connected those experiments.
+
+Each row links to the original design and its nearby result report where available. If a result link is missing, consult [the attempt guide](ATTEMPTS.md) and aggregate reports; absence from this particular file selector does not mean no attempt took place.
 
 | Protocol | Design | Results |
 |---|---|---|

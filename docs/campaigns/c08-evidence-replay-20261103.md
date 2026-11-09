@@ -1,23 +1,28 @@
-# C08 evidence replay
+# Could the original evidence help an agent recognize the process problem?
 
-**Question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
+Instead of only describing a synthetic governance puzzle, we supplied authentic evidence and asked for advisory analysis and a bounded coding task.
 
-**Role:** executed advisory+authentic coding.
+The advice identified tension in the review cadence, and the coding episode built the selected custody prototype without a numbered candidate loop. Recognizing the tension in prose and reproducing the historical behavior remained separate results.
 
-## What we tried
+[Read the original report](../../evidence/source-text/c08-evidence-replay-20261103/RESULTS.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-2advisory threads,5turns;1authentic coding episode.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Sol/high; separate advisory/coding conditions
+**Recorded question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
 
-## What we found
+**Type of work:** executed advisory+authentic coding.
 
-Advisory detects cadence tension;349.225s coding episode/18terminal calls builds custody prototype and selectedE01pass;no numbered-loop.
+**Original counting:** 2advisory threads,5turns;1authentic coding episode.
 
-## Interpretation and limits
+**Conditions:** Sol/high; separate advisory/coding conditions
 
-Advisory versus autonomous action differs; no same-budget C09 path in coding pilot; later investigator integration is not model action.
+**Detailed outcome:** Advisory detects cadence tension;349.225s coding episode/18terminal calls builds custody prototype and selectedE01pass;no numbered-loop.
 
-[Read the source report](../../evidence/source-text/c08-evidence-replay-20261103/RESULTS.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Advisory versus autonomous action differs; no same-budget C09 path in coding pilot; later investigator integration is not model action.
 
-Full local archive: `research/hackathon/c08-evidence-replay-20261103`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/c08-evidence-replay-20261103`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

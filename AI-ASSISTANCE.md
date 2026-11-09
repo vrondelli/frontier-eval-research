@@ -1,11 +1,13 @@
-# AI assistance, authorship and review
+# How AI helped, and where review still matters
 
-This was an AI-assisted research project directed by Vladimir Rondelli. Codex and GPT agents helped propose hypotheses, build tasks/graders, run experiments, audit evidence, implement the meta-eval and write documentation. Model aliases and conditions are recorded per cohort.
+Vladimir Rondelli directed this project, with substantial assistance from Codex and GPT agents. They helped propose hypotheses, write tasks and graders, run experiments, inspect code and logs, build the meta-eval and draft the documentation. The experiments record the model aliases and conditions used in each group of attempts.
 
-Separate agents, algorithms and software processes can reduce common-mode errors. They do not automatically supply external human expertise, construct validity or authenticated experimental independence. The broader AI-assisted pipeline contributed to task authoring, references and review.
+That assistance is part of the research question. When AI helps write both a task and its checker, two plausible outputs can share the same mistake. We used separate algorithms, controls and audits to challenge those assumptions. Several audits corrected earlier claims rather than confirming them.
 
-Five underlying H1 source rules were approved in the owner walkthrough. Full meta-grading and semantic review remain incomplete. Unknown isolation, scope fidelity, domain-wide references and broad claims do not silently receive points.
+A separate agent is still not the same as an external human expert. Algorithmic agreement is useful evidence for a specific calculation; it does not settle every ambiguity in a task or validate a broad measurement claim.
 
-The narrative preserves instrument errors, negative results and stronger-model successes. It supports neither deliberate-cheating claims nor universal frontier incapacity or validated employment use.
+The owner walkthrough approved five underlying H1 source rules. Review of all meta-grading judgments and task meanings remains incomplete. The score records keep missing evidence visible instead of turning it into automatic approval.
 
-Repository organization is separate from hackathon submission. A video script, description or verified package does not establish that an entry was submitted or accepted.
+The repository also preserves successful follow-ups, including the explicit verifier-repair matrix and stronger-model original-task successes. The examples support particular software and evaluator defects. They do not establish deliberate cheating, universal frontier inability or a validated method for assessing people for employment.
+
+Finally, publishing this research repository is separate from submitting a hackathon entry. An entry draft, video script or verified package is not a record that the entry was submitted or accepted.

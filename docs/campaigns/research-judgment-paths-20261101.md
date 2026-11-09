@@ -1,23 +1,28 @@
-# Research judgment paths
+# Could evidence and judgment tasks reveal a more useful lead?
 
-**Question:** What does this source campaign contribute to the evaluation research?
+We explored finite judgment problems and more open assessment-design requests, keeping their different evaluation needs separate.
 
-**Role:** executed finite screens/open design.
+The formal finite attempts passed. The open designs were delivered but still needed validation. A completed design document and an established measurement instrument are different outcomes.
 
-## What we tried
+[Read the original report](../../evidence/source-text/research-judgment-paths-20261101/SELECTION.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-21actualanswers=18formal+3open;9schema rejections beforegeneration.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Sol/high;normal tools
+**Recorded question:** What does this source campaign contribute to the evaluation research?
 
-## What we found
+**Type of work:** executed finite screens/open design.
 
-18/18formal passes;3complete assessment designs pendingvalidation.
+**Original counting:** 21actualanswers=18formal+3open;9schema rejections beforegeneration.
 
-## Interpretation and limits
+**Conditions:** Sol/high;normal tools
 
-Transport/schema repair not semanticanswerrepair; explicitprompts guide concerns; some paths share mechanisms.
+**Detailed outcome:** 18/18formal passes;3complete assessment designs pendingvalidation.
 
-[Read the source report](../../evidence/source-text/research-judgment-paths-20261101/SELECTION.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Transport/schema repair not semanticanswerrepair; explicitprompts guide concerns; some paths share mechanisms.
 
-Full local archive: `research/hackathon/research-judgment-paths-20261101`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/research-judgment-paths-20261101`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).

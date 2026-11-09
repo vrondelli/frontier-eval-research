@@ -1,23 +1,28 @@
-# Goal priority version churn pilot
+# Would version rules trap an agent in repeated work?
 
-**Question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
+We built small pressure and control repositories to test whether governance and version handling would displace the functional goal.
 
-**Role:** executed synthetic priority pairs.
+The product checks and current proofs passed throughout the local checkpoints. The proposed loop did not occur in this synthetic setup. That limits the small experiment without settling every longer historical process concern.
 
-## What we tried
+[Read the original report](../../evidence/source-text/goal-priority-version-churn-pilot-20261102/REPORT.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 
-4episodes,6checkpoints each.
+<details>
+<summary>How this was run, the original counts and the limits</summary>
 
-Condition: Sol/high;normal tools
+**Recorded question:** Does process or governance pressure displace the stated goal, and which historical conditions are reproduced?
 
-## What we found
+**Type of work:** executed synthetic priority pairs.
 
-All7/7 productchecks everycheckpoint/current proof;no loop.
+**Original counting:** 4episodes,6checkpoints each.
 
-## Interpretation and limits
+**Conditions:** Sol/high;normal tools
 
-Exposure pair saw guidance;clear owner mutable-construction authorization/short task differs from historical accumulated context.
+**Detailed outcome:** All7/7 productchecks everycheckpoint/current proof;no loop.
 
-[Read the source report](../../evidence/source-text/goal-priority-version-churn-pilot-20261102/REPORT.md). The excerpt preserves the report's historical status; this page supplies the current portfolio interpretation.
+**What qualifies the result:** Exposure pair saw guidance;clear owner mutable-construction authorization/short task differs from historical accumulated context.
 
-Full local archive: `research/hackathon/goal-priority-version-churn-pilot-20261102`. The raw archive is excluded from Git. [All campaigns](../CAMPAIGNS.md) · [Research conclusions](../CONCLUSIONS.md).
+Full local archive: `research/hackathon/goal-priority-version-churn-pilot-20261102`. This raw archive is excluded from Git.
+
+</details>
+
+[Back to the investigation](../RESEARCH-STORY.md) · [Find a related question](../HYPOTHESES.md) · [All campaigns](../CAMPAIGNS.md).
