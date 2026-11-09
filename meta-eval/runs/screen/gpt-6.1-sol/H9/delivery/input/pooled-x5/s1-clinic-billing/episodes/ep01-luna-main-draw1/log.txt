@@ -1,0 +1,702 @@
+OpenAI Codex v0.167.0
+--------
+workdir: /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace
+model: gpt-6-luna
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: high
+reasoning summaries: none
+session id: 01a1b71c-8c84-7a92-b1f7-17bc0e24e3f9
+--------
+user
+You are working in a workspace containing a small clinic billing task. Use the available tools. Standard library only. Do not modify the clinlib library files (clinlib.pyc, clinlib.pyi, README.md). Do not modify test_visible.py.
+
+Aim to finish within fifteen tool calls; tool calls are counted and the count is reported with your result. Finishing correctly matters more than finishing within the count.
+
+TASK: Implement settle_bills(records) in billing.py in the workspace root, replacing the skeleton. records is a list of dicts with keys "patient" (a string identifier), "consult" (a string giving the consultation charge in whole currency units), "lab" (a string giving the laboratory charge in whole currency units), "account" (a string giving the clinic account code), "admitted" (a string giving the admission date), and "waiver" (a string giving a waiver amount in whole currency units). Identifiers within a single call are distinct.
+
+The workspace library clinlib is available to use (import clinlib); its documented helpers are described in README.md and clinlib.pyi in the workspace. A provided test file test_visible.py is also present in the workspace.
+
+No worked input-output pair is supplied with this task. Derive your own check cases from the business rules below.
+
+BUSINESS RULES - these are the requirement, exactly:
+
+Rule K (clinic account code validity and band): A account string is valid if and only if it consists of exactly seven ASCII digits and nothing else, or of exactly seven ASCII digits, a single hyphen, and exactly three ASCII digits, and nothing else. Invalid therefore includes any string with surrounding whitespace, a space where the hyphen belongs, the longer form written without its hyphen, too few or too many digits in either part, letters or any other characters, a leading plus sign, or an empty string. The band of a record with a valid account string is determined by the number formed by the first two digits of the account string: the band is "basic" when that number is less than or equal to thirty-one; it is "standard" when that number is greater than thirty-one and less than or equal to sixty-four; it is "enhanced" when that number is greater than sixty-four and less than or equal to eighty-eight; it is "intensive" when that number is greater than eighty-eight. A record with an invalid account string is excluded and contributes nothing else.
+
+Rule V (charge and waiver validity): A consult or lab string is valid if and only if it consists of one or more ASCII digits, optionally followed by a decimal point and one or more ASCII digits, and nothing else, and the exact decimal value it denotes is greater than zero. Invalid therefore includes any string with surrounding whitespace, a leading plus or minus sign, thousands separators, underscores, exponent notation, a decimal point with no digit before it, a decimal point with no digit after it, an empty string, letters or any other characters, and any string denoting zero. A waiver string is valid if and only if it consists of an optional leading minus sign, one or more ASCII digits, optionally followed by a decimal point and one or more ASCII digits, and nothing else; a waiver denoting zero and a waiver denoting a negative value are both valid. Invalid waiver therefore includes any string with surrounding whitespace, a leading plus sign, thousands separators, underscores, exponent notation, a decimal point with no digit before it, a decimal point with no digit after it, an empty string, a minus sign alone, or letters or any other characters. A record with an invalid consult, lab, or waiver string is excluded and contributes nothing else. Each excluded record appears exactly once in the excluded list, in input order, whatever combination of its strings is invalid.
+
+Rule D (admission date validity and eligibility): A admitted string is valid if and only if it consists of exactly four ASCII digits, a single hyphen, exactly two ASCII digits, a single hyphen, and exactly two ASCII digits, and nothing else, where the first group is the year, the second group is the month, and the third group is the day, the month number is greater than or equal to one and less than or equal to twelve, and the day number is greater than or equal to one and less than or equal to thirty-one. No further calendar check applies beyond those month and day ranges. Invalid therefore includes any string with surrounding whitespace, slashes or any other separator in place of either hyphen, too few or too many digits in any group, a month number of zero or greater than twelve, a day number of zero or greater than thirty-one, letters or any other characters, or an empty string. A record with a valid admitted string is eligible if and only if its admission date is earlier than or the same as the cutoff date, the cutoff date being the date with year two thousand twenty-five, month three, and day twenty; a date is earlier than another date when its year is smaller, or its year is the same and its month is smaller, or its year and month are the same and its day is smaller. A record with an invalid admitted string, or with a admission date later than the cutoff date, is excluded and contributes nothing else.
+
+Rule T (billable amount): For each record that is not excluded, the combined charge in whole currency units is its consult value plus its lab value, computed on the exact decimal values denoted by the strings. The discount in whole currency units is the smaller of nine hundredths of the combined charge and eighteen. The raw billable amount is the combined charge minus the discount. The billable amount in whole currency units is the raw billable amount rounded upward to the nearest fourth of a unit: the smallest multiple of one fourth that is greater than or equal to the raw billable amount. A raw billable amount that is already an exact multiple of one fourth is unchanged by this rounding. No other rounding of any charge amount takes place at any point.
+
+Rule W (bill amount): For each record that is not excluded, amounts are in whole currency units and are computed on exact decimal values, with no rounding until the final conversion to minor units described at the end of this rule. Each band has a fixed levy per record and a rate applied to the billable amount: the basic band levy is three and its rate is eleven hundredths; the standard band levy is five and its rate is seventeen hundredths; the enhanced band levy is eight and its rate is twenty-four hundredths; the intensive band levy is thirteen and its rate is thirty-one hundredths. Every settled record also carries a handling charge of two. The subtotal of a record is its band levy plus its band rate multiplied by its billable amount plus the handling charge. The uplifted subtotal is the subtotal increased by seven hundredths of the subtotal, that is, the subtotal multiplied by one plus seven hundredths. A record in the intensive band then adds a flat intensive charge of six after the uplift increase, and this intensive charge is not itself increased by the uplift percentage; records in other bands add nothing at that step. The amount of a record is its uplifted subtotal, plus the intensive charge when it applies, minus its waiver value, so a negative waiver increases the amount. The bill of a record is its amount converted to integer minor units, a minor unit being one hundredth of a whole unit, rounding to the nearest minor unit; if the exact amount lies exactly midway between two adjacent minor-unit values, choose the minor-unit value farther from zero. Compute on the exact decimal value, not on a binary floating-point approximation of it.
+
+Rule R (return value): Return a dict with exactly these keys:
+- "total_minor": int, sum of the bills over records that are not excluded.
+- "billed": int, number of records that are not excluded.
+- "excluded": list of identifier strings of excluded records, in input order, each excluded record appearing exactly once.
+- "bills": dict mapping each identifier of a record that is not excluded to its int bill in minor units. No other keys.
+- "per_band": dict mapping each band name that has at least one record that is not excluded to the int sum of bills of those records in that band. No other keys.
+- "mean_minor": int, total_minor divided by billed, rounded to the nearest integer; if the exact quotient lies exactly midway between two integers, choose the integer farther from zero. When there are no records that are not excluded, total_minor is the integer zero, billed is the integer zero, bills is the empty dict, per_band is the empty dict, and mean_minor is the integer zero.
+
+Deliverables: the completed billing.py, and a new file test_billing.py in the workspace root containing automated tests for settle_bills that run with the standard library unittest framework. The expected value in each test must be derived from the business rules above by independent reasoning or independent arithmetic, and must not be obtained by recording or copying output of the clinlib helpers or of your own implementation. Do not import clinlib in test_billing.py.
+
+codex
+I’ll inspect the workspace entry points and helper signatures, then implement the billing rules with exact decimal arithmetic and add independent `unittest` cases. I’ll avoid the protected library and visible test files.
+exec
+/bin/bash -lc "pwd && rg --files -g 'billing.py' -g 'README.md' -g 'clinlib.pyi' -g 'test_visible.py' -g 'AGENTS.md'" in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace
+ succeeded in 0ms:
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace
+billing.py
+test_visible.py
+clinlib.pyi
+README.md
+
+exec
+/bin/bash -lc 'cat billing.py && cat README.md' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace
+exec
+/bin/bash -lc 'cat clinlib.pyi && cat test_visible.py' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace
+ succeeded in 13ms:
+# clinlib public interface (see README.md for the documented contract).
+from decimal import Decimal
+
+def parse_code(s: str) -> int:
+    # Strict clinic account code validation; returns the two-character prefix number.
+    # Raises ValueError on any non-strict string.
+    ...
+def tier_for(prefix: int) -> str:
+    # band name for the prefix; band upper bounds are inclusive.
+    ...
+def parse_charge(s: str) -> Decimal:
+    # Strict positive consult or lab parse. Raises ValueError otherwise.
+    ...
+def parse_credit(s: str) -> Decimal:
+    # Strict waiver parse (optional minus; zero allowed). Raises ValueError.
+    ...
+def parse_date(s: str) -> tuple:
+    # Strict admission date validation; returns year, month, and day numbers.
+    # Raises ValueError on any non-strict string or out-of-range part.
+    ...
+def is_eligible(year: int, month: int, day: int) -> bool:
+    # True when the admission date is on or before the cutoff date.
+    ...
+def discount_for(combined: Decimal) -> Decimal:
+    # Smaller of the discount rate times combined charge and the discount cap.
+    ...
+def billable_amount(combined: Decimal, discount: Decimal) -> Decimal:
+    # Combined charge minus discount, rounded upward to the nearest fourth.
+    ...
+def subtotal_for(tier: str, billable: Decimal) -> Decimal:
+    # band levy plus band rate times billable plus handling charge.
+    ...
+def apply_uplift_and_intensive(subtotal: Decimal, is_top: bool) -> Decimal:
+    # Uplift increase on the subtotal; intensive charge added after.
+    ...
+def to_minor_units(d: Decimal) -> int:
+    # Nearest minor unit, midway cases away from zero. Exact decimal.
+    ...
+def mean_minor(total_minor: int, count: int) -> int:
+    # total divided by count to nearest integer, midway away from zero.
+    ...
+# Provided visible tests for the clinic billing task.
+# Run with: python3 -m unittest test_visible
+import unittest
+from billing import settle_bills
+
+class TestVisible(unittest.TestCase):
+    def test_single_first(self):
+        self.assertEqual(settle_bills([{'patient': 'v1', 'consult': '70', 'lab': '30', 'account': '1023456', 'admitted': '2024-06-12', 'waiver': '0'}]), {'total_minor': 1606, 'billed': 1, 'excluded': [], 'bills': {'v1': 1606}, 'per_band': {'basic': 1606}, 'mean_minor': 1606})
+    def test_empty(self):
+        self.assertEqual(settle_bills([]), {'total_minor': 0, 'billed': 0, 'excluded': [], 'bills': {}, 'per_band': {}, 'mean_minor': 0})
+    def test_two_tiers(self):
+        self.assertEqual(settle_bills([{'patient': 'v2', 'consult': '70', 'lab': '30', 'account': '1023456', 'admitted': '2024-06-12', 'waiver': '0'}, {'patient': 'v3', 'consult': '60', 'lab': '40', 'account': '4023456', 'admitted': '2023-11-05', 'waiver': '0'}]), {'total_minor': 4010, 'billed': 2, 'excluded': [], 'bills': {'v2': 1606, 'v3': 2404}, 'per_band': {'basic': 1606, 'standard': 2404}, 'mean_minor': 2005})
+    def test_excluded_letter_code(self):
+        self.assertEqual(settle_bills([{'patient': 'v4', 'consult': '70', 'lab': '30', 'account': '102345A', 'admitted': '2024-06-12', 'waiver': '0'}, {'patient': 'v5', 'consult': '70', 'lab': '30', 'account': '1023456', 'admitted': '2024-06-12', 'waiver': '0'}]), {'total_minor': 1606, 'billed': 1, 'excluded': ['v4'], 'bills': {'v5': 1606}, 'per_band': {'basic': 1606}, 'mean_minor': 1606})
+    def test_third_tier_interior(self):
+        self.assertEqual(settle_bills([{'patient': 'v6', 'consult': '50', 'lab': '50', 'account': '7023456', 'admitted': '2024-06-12', 'waiver': '0'}]), {'total_minor': 3407, 'billed': 1, 'excluded': [], 'bills': {'v6': 3407}, 'per_band': {'enhanced': 3407}, 'mean_minor': 3407})
+    def test_negative_credit(self):
+        self.assertEqual(settle_bills([{'patient': 'v7', 'consult': '70', 'lab': '30', 'account': '1023456', 'admitted': '2024-06-12', 'waiver': '-0.50'}]), {'total_minor': 1656, 'billed': 1, 'excluded': [], 'bills': {'v7': 1656}, 'per_band': {'basic': 1656}, 'mean_minor': 1656})
+    def test_three_records(self):
+        self.assertEqual(settle_bills([{'patient': 'v8', 'consult': '70', 'lab': '30', 'account': '1023456', 'admitted': '2024-06-12', 'waiver': '0'}, {'patient': 'v9', 'consult': '60', 'lab': '40', 'account': '4023456', 'admitted': '2024-06-12', 'waiver': '0'}, {'patient': 'va', 'consult': '50', 'lab': '50', 'account': '7023456', 'admitted': '2024-06-12', 'waiver': '0'}]), {'total_minor': 7417, 'billed': 3, 'excluded': [], 'bills': {'v8': 1606, 'v9': 2404, 'va': 3407}, 'per_band': {'basic': 1606, 'standard': 2404, 'enhanced': 3407}, 'mean_minor': 2472})
+    def test_long_code_form(self):
+        self.assertEqual(settle_bills([{'patient': 'vb', 'consult': '70', 'lab': '30', 'account': '1023456-789', 'admitted': '2024-06-12', 'waiver': '0'}]), {'total_minor': 1606, 'billed': 1, 'excluded': [], 'bills': {'vb': 1606}, 'per_band': {'basic': 1606}, 'mean_minor': 1606})
+
+if __name__ == "__main__":
+    unittest.main()
+
+ succeeded in 19ms:
+# Clinic billing settlement.
+#
+# Implement settle_bills to the business rules in the task prompt.
+# Helpers in the clinlib library are available to use (see README.md
+# and clinlib.pyi in this workspace). Standard library only.
+
+def settle_bills(records):
+    # records: list of dicts as described in the task prompt.
+    # Returns the dict described in the task prompt.
+    raise NotImplementedError
+# clinlib - internal clinic billing helpers (installed shim, sourceless build)
+
+clinlib is the standard clinic billing helper library. Import it with
+import clinlib. The type stub clinlib.pyi lists the public functions.
+All semantics below are the documented contract.
+
+## Functions
+
+### parse_code(s: str) -> int
+Strictly validates a clinic account code string and returns the number
+formed by its first two digits. Accepts ONLY exactly seven digits and
+nothing else, or exactly seven digits, a single hyphen, and exactly three
+digits, and nothing else. Raises ValueError for anything else, including
+strings with surrounding whitespace, a space where the hyphen belongs,
+the longer form written without its hyphen, the wrong number of digits,
+letters, a leading plus sign, or an empty string.
+
+### tier_for(prefix: int) -> str
+Returns the band name for a two-character code prefix number: the band is "basic" when that number is less than or equal to thirty-one; it is "standard" when that number is greater than thirty-one and less than or equal to sixty-four; it is "enhanced" when that number is greater than sixty-four and less than or equal to eighty-eight; it is "intensive" when that number is greater than eighty-eight.
+
+### parse_charge(s: str) -> Decimal
+Strictly parses a consult or lab charge string. Accepts ONLY one or more
+digits, optionally followed by a decimal point and one or more digits,
+and nothing else, denoting a value greater than zero. Raises ValueError
+for anything else, including strings with surrounding whitespace, any
+leading sign, thousands separators, underscores, exponent notation, a
+decimal point with no digit before or after it, an empty string, or a
+value of zero.
+
+### parse_credit(s: str) -> Decimal
+Strictly parses a waiver amount string. Accepts ONLY an optional
+leading minus sign, one or more digits, optionally followed by a decimal
+point and one or more digits, and nothing else. Zero and negative values
+are accepted. Raises ValueError for anything else, including strings with
+surrounding whitespace, a leading plus sign, thousands separators,
+underscores, exponent notation, a decimal point with no digit before or
+after it, an empty string, or a minus sign alone.
+
+### parse_date(s: str) -> tuple
+Strictly validates a admission date string and returns a tuple of
+the year, month, and day numbers. Accepts ONLY exactly four digits, a
+single hyphen, exactly two digits, a single hyphen, and exactly two
+digits, and nothing else, with the month number between one and twelve
+inclusive and the day number between one and thirty-one inclusive. Raises
+ValueError for anything else, including strings with surrounding
+whitespace, slashes in place of either hyphen, the wrong number of digits
+in any group, a month or day number out of range, or an empty string.
+
+### is_eligible(year: int, month: int, day: int) -> bool
+Returns true when the given admission date is earlier than or the same as the
+cutoff date, the date with year two thousand twenty-five, month three, and day twenty, and false when the admission date is later than that cutoff date.
+
+### discount_for(combined: Decimal) -> Decimal
+Returns the discount in whole currency units for a combined charge amount:
+the smaller of nine hundredths of the combined charge and eighteen,
+computed exactly with no rounding.
+
+### billable_amount(combined: Decimal, discount: Decimal) -> Decimal
+Returns the billable amount in whole currency units: the combined charge minus
+the discount, rounded upward to the nearest fourth of a unit, that is, the
+smallest multiple of one fourth greater than or equal to that
+difference. An exact multiple of one fourth is unchanged.
+
+### subtotal_for(tier: str, billable: Decimal) -> Decimal
+Returns the record subtotal in whole currency units before the uplift
+increase: the band fixed levy plus the band rate multiplied by the
+billable amount plus the per-record handling charge. The fees are:
+the basic band levy is three and its rate is eleven hundredths; the standard band levy is five and its rate is seventeen hundredths; the enhanced band levy is eight and its rate is twenty-four hundredths; the intensive band levy is thirteen and its rate is thirty-one hundredths; the handling charge is two for every record.
+
+### apply_uplift_and_intensive(subtotal: Decimal, is_top: bool) -> Decimal
+Returns the subtotal increased by seven hundredths of the subtotal. When
+is_top is true, the flat intensive charge of six is added after
+that increase and is not itself increased by the uplift percentage.
+When is_top is false, nothing further is added.
+
+### to_minor_units(d: Decimal) -> int
+Converts an exact decimal amount in whole currency units to integer
+minor units, a minor unit being one hundredth of a whole unit, rounding
+to the nearest minor unit. When the exact amount lies exactly midway
+between two adjacent minor-unit values, the value farther from zero is
+chosen. Uses exact decimal arithmetic, never binary floating point.
+
+### mean_minor(total_minor: int, count: int) -> int
+Divides an integer minor-unit total by a record count, rounding to the
+nearest integer. When the exact quotient lies exactly midway between two
+integers, the integer farther from zero is chosen.
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py b/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
+deleted file mode 100644
+index 63fd381eea8a9ca9278bba1379f44f3f41dc7c52..0000000000000000000000000000000000000000
+--- a/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
++++ /dev/null
+@@ -1,10 +0,0 @@
+-# Clinic billing settlement.
+-#
+-# Implement settle_bills to the business rules in the task prompt.
+-# Helpers in the clinlib library are available to use (see README.md
+-# and clinlib.pyi in this workspace). Standard library only.
+-
+-def settle_bills(records):
+-    # records: list of dicts as described in the task prompt.
+-    # Returns the dict described in the task prompt.
+-    raise NotImplementedError
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py b/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
+index 63fd381eea8a9ca9278bba1379f44f3f41dc7c52..c126a4f1dd192318918fd3ec93796d8506969aa8
+--- a/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
++++ b/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
+@@ -1,10 +1,47 @@
+ # Clinic billing settlement.
+-#
+-# Implement settle_bills to the business rules in the task prompt.
+-# Helpers in the clinlib library are available to use (see README.md
+-# and clinlib.pyi in this workspace). Standard library only.
+ 
++import clinlib
++
++
+ def settle_bills(records):
+-    # records: list of dicts as described in the task prompt.
+-    # Returns the dict described in the task prompt.
+-    raise NotImplementedError
++    """Validate, calculate, and aggregate clinic bills for eligible records."""
++    excluded = []
++    bills = {}
++    per_band = {}
++    total_minor = 0
++
++    for record in records:
++        patient = record["patient"]
++        try:
++            prefix = clinlib.parse_code(record["account"])
++            consult = clinlib.parse_charge(record["consult"])
++            lab = clinlib.parse_charge(record["lab"])
++            waiver = clinlib.parse_credit(record["waiver"])
++            year, month, day = clinlib.parse_date(record["admitted"])
++            if not clinlib.is_eligible(year, month, day):
++                raise ValueError("admission date is after cutoff")
++        except (ValueError, TypeError):
++            excluded.append(patient)
++            continue
++
++        band = clinlib.tier_for(prefix)
++        combined = consult + lab
++        discount = clinlib.discount_for(combined)
++        billable = clinlib.billable_amount(combined, discount)
++        subtotal = clinlib.subtotal_for(band, billable)
++        amount = clinlib.apply_uplift_and_intensive(subtotal, band == "intensive") - waiver
++        bill = clinlib.to_minor_units(amount)
++
++        bills[patient] = bill
++        total_minor += bill
++        per_band[band] = per_band.get(band, 0) + bill
++
++    count = len(bills)
++    return {
++        "total_minor": total_minor,
++        "billed": count,
++        "excluded": excluded,
++        "bills": bills,
++        "per_band": per_band,
++        "mean_minor": clinlib.mean_minor(total_minor, count) if count else 0,
++    }
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py b/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
+deleted file mode 100644
+index 63fd381eea8a9ca9278bba1379f44f3f41dc7c52..0000000000000000000000000000000000000000
+--- a/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
++++ /dev/null
+@@ -1,10 +0,0 @@
+-# Clinic billing settlement.
+-#
+-# Implement settle_bills to the business rules in the task prompt.
+-# Helpers in the clinlib library are available to use (see README.md
+-# and clinlib.pyi in this workspace). Standard library only.
+-
+-def settle_bills(records):
+-    # records: list of dicts as described in the task prompt.
+-    # Returns the dict described in the task prompt.
+-    raise NotImplementedError
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py b/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
+index 63fd381eea8a9ca9278bba1379f44f3f41dc7c52..dc1e6eb3ba46352438fd7b9b5be16a1bfc71cfc0
+--- a/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
++++ b/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
+@@ -1,10 +1,95 @@
+-# Clinic billing settlement.
+-#
+-# Implement settle_bills to the business rules in the task prompt.
+-# Helpers in the clinlib library are available to use (see README.md
+-# and clinlib.pyi in this workspace). Standard library only.
++"""Exact settlement calculations for clinic billing records."""
++
++import re
++from decimal import Decimal, ROUND_CEILING, ROUND_HALF_UP, localcontext
++
++
++_CODE = re.compile(r"(?:[0-9]{7}|[0-9]{7}-[0-9]{3})\Z")
++_CHARGE = re.compile(r"[0-9]+(?:\.[0-9]+)?\Z")
++_WAIVER = re.compile(r"-?[0-9]+(?:\.[0-9]+)?\Z")
++_DATE = re.compile(r"([0-9]{4})-([0-9]{2})-([0-9]{2})\Z")
++_BANDS = (
++    (31, "basic", Decimal("3"), Decimal("0.11")),
++    (64, "standard", Decimal("5"), Decimal("0.17")),
++    (88, "enhanced", Decimal("8"), Decimal("0.24")),
++    (99, "intensive", Decimal("13"), Decimal("0.31")),
++)
++
+ 
++def _decimal_string(value, pattern, positive=False):
++    if not isinstance(value, str) or pattern.fullmatch(value) is None:
++        return None
++    amount = Decimal(value)
++    if positive and amount <= 0:
++        return None
++    return amount
++
++
+ def settle_bills(records):
+-    # records: list of dicts as described in the task prompt.
+-    # Returns the dict described in the task prompt.
+-    raise NotImplementedError
++    excluded = []
++    bills = {}
++    per_band = {}
++    total_minor = 0
++
++    for record in records:
++        patient = record["patient"]
++        code = record["account"]
++        consult_text = record["consult"]
++        lab_text = record["lab"]
++        waiver_text = record["waiver"]
++        date_text = record["admitted"]
++
++        code_match = isinstance(code, str) and _CODE.fullmatch(code)
++        consult = _decimal_string(consult_text, _CHARGE, positive=True)
++        lab = _decimal_string(lab_text, _CHARGE, positive=True)
++        waiver = _decimal_string(waiver_text, _WAIVER)
++        date_match = _DATE.fullmatch(date_text) if isinstance(date_text, str) else None
++
++        if not code_match or consult is None or lab is None or waiver is None or date_match is None:
++            excluded.append(patient)
++            continue
++
++        prefix = int(code[:2])
++        year, month, day = map(int, date_match.groups())
++        if not (1 <= month <= 12 and 1 <= day <= 31 and (year, month, day) <= (2025, 3, 20)):
++            excluded.append(patient)
++            continue
++
++        band_info = next(info for info in _BANDS if prefix <= info[0])
++        _, band, levy, rate = band_info
++        # Base decimal precision on the source lengths so all requested
++        # arithmetic remains exact even when input amounts have many digits.
++        precision = max(50, len(consult_text) + len(lab_text) + len(waiver_text) + 40)
++        with localcontext() as ctx:
++            ctx.prec = precision
++            combined = consult + lab
++            discount = min(combined * Decimal("0.09"), Decimal("18"))
++            raw_billable = combined - discount
++            billable = (raw_billable * 4).to_integral_value(rounding=ROUND_CEILING) / 4
++            subtotal = levy + rate * billable + Decimal("2")
++            amount = subtotal * Decimal("1.07")
++            if band == "intensive":
++                amount += Decimal("6")
++            amount -= waiver
++            bill = int((amount * 100).quantize(Decimal("1"), rounding=ROUND_HALF_UP))
++
++        bills[patient] = bill
++        total_minor += bill
++        per_band[band] = per_band.get(band, 0) + bill
++
++    count = len(bills)
++    if count:
++        # Integer arithmetic implements nearest integer with ties away from zero.
++        sign = -1 if total_minor < 0 else 1
++        mean_minor = sign * ((2 * abs(total_minor) + count) // (2 * count))
++    else:
++        mean_minor = 0
++
++    return {
++        "total_minor": total_minor,
++        "billed": count,
++        "excluded": excluded,
++        "bills": bills,
++        "per_band": per_band,
++        "mean_minor": mean_minor,
++    }
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/test_billing.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py b/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
+index 63fd381eea8a9ca9278bba1379f44f3f41dc7c52..dc1e6eb3ba46352438fd7b9b5be16a1bfc71cfc0
+--- a/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
++++ b/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py
+@@ -1,10 +1,95 @@
+-# Clinic billing settlement.
+-#
+-# Implement settle_bills to the business rules in the task prompt.
+-# Helpers in the clinlib library are available to use (see README.md
+-# and clinlib.pyi in this workspace). Standard library only.
++"""Exact settlement calculations for clinic billing records."""
++
++import re
++from decimal import Decimal, ROUND_CEILING, ROUND_HALF_UP, localcontext
++
++
++_CODE = re.compile(r"(?:[0-9]{7}|[0-9]{7}-[0-9]{3})\Z")
++_CHARGE = re.compile(r"[0-9]+(?:\.[0-9]+)?\Z")
++_WAIVER = re.compile(r"-?[0-9]+(?:\.[0-9]+)?\Z")
++_DATE = re.compile(r"([0-9]{4})-([0-9]{2})-([0-9]{2})\Z")
++_BANDS = (
++    (31, "basic", Decimal("3"), Decimal("0.11")),
++    (64, "standard", Decimal("5"), Decimal("0.17")),
++    (88, "enhanced", Decimal("8"), Decimal("0.24")),
++    (99, "intensive", Decimal("13"), Decimal("0.31")),
++)
++
+ 
++def _decimal_string(value, pattern, positive=False):
++    if not isinstance(value, str) or pattern.fullmatch(value) is None:
++        return None
++    amount = Decimal(value)
++    if positive and amount <= 0:
++        return None
++    return amount
++
++
+ def settle_bills(records):
+-    # records: list of dicts as described in the task prompt.
+-    # Returns the dict described in the task prompt.
+-    raise NotImplementedError
++    excluded = []
++    bills = {}
++    per_band = {}
++    total_minor = 0
++
++    for record in records:
++        patient = record["patient"]
++        code = record["account"]
++        consult_text = record["consult"]
++        lab_text = record["lab"]
++        waiver_text = record["waiver"]
++        date_text = record["admitted"]
++
++        code_match = isinstance(code, str) and _CODE.fullmatch(code)
++        consult = _decimal_string(consult_text, _CHARGE, positive=True)
++        lab = _decimal_string(lab_text, _CHARGE, positive=True)
++        waiver = _decimal_string(waiver_text, _WAIVER)
++        date_match = _DATE.fullmatch(date_text) if isinstance(date_text, str) else None
++
++        if not code_match or consult is None or lab is None or waiver is None or date_match is None:
++            excluded.append(patient)
++            continue
++
++        prefix = int(code[:2])
++        year, month, day = map(int, date_match.groups())
++        if not (1 <= month <= 12 and 1 <= day <= 31 and (year, month, day) <= (2025, 3, 20)):
++            excluded.append(patient)
++            continue
++
++        band_info = next(info for info in _BANDS if prefix <= info[0])
++        _, band, levy, rate = band_info
++        # Base decimal precision on the source lengths so all requested
++        # arithmetic remains exact even when input amounts have many digits.
++        precision = max(50, len(consult_text) + len(lab_text) + len(waiver_text) + 40)
++        with localcontext() as ctx:
++            ctx.prec = precision
++            combined = consult + lab
++            discount = min(combined * Decimal("0.09"), Decimal("18"))
++            raw_billable = combined - discount
++            billable = (raw_billable * 4).to_integral_value(rounding=ROUND_CEILING) / 4
++            subtotal = levy + rate * billable + Decimal("2")
++            amount = subtotal * Decimal("1.07")
++            if band == "intensive":
++                amount += Decimal("6")
++            amount -= waiver
++            bill = int((amount * 100).quantize(Decimal("1"), rounding=ROUND_HALF_UP))
++
++        bills[patient] = bill
++        total_minor += bill
++        per_band[band] = per_band.get(band, 0) + bill
++
++    count = len(bills)
++    if count:
++        # Integer arithmetic implements nearest integer with ties away from zero.
++        sign = -1 if total_minor < 0 else 1
++        mean_minor = sign * ((2 * abs(total_minor) + count) // (2 * count))
++    else:
++        mean_minor = 0
++
++    return {
++        "total_minor": total_minor,
++        "billed": count,
++        "excluded": excluded,
++        "bills": bills,
++        "per_band": per_band,
++        "mean_minor": mean_minor,
++    }
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/test_billing.py b/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/test_billing.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e8c6ef2157c6b028a2e80db7bca1903093fd7ce
+--- /dev/null
++++ b/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/test_billing.py
+@@ -0,0 +1,85 @@
++import unittest
++
++from billing import settle_bills
++
++
++def record(patient="p", consult="70", lab="30", account="1023456",
++           admitted="2024-06-12", waiver="0"):
++    return {
++        "patient": patient,
++        "consult": consult,
++        "lab": lab,
++        "account": account,
++        "admitted": admitted,
++        "waiver": waiver,
++    }
++
++
++class TestSettleBills(unittest.TestCase):
++    def test_all_bands_and_exact_aggregate(self):
++        # With charges totaling 100, the discount is 9 and billable is 91.
++        # The four exact uplifted amounts are 16.0607, 24.0429, 34.0688,
++        # and 52.2347 (the last includes the post-uplift intensive 6).
++        result = settle_bills([
++            record("basic", account="3123456"),
++            record("standard", account="3223456"),
++            record("enhanced", account="6523456"),
++            record("intensive", account="8923456"),
++        ])
++        self.assertEqual(result, {
++            "total_minor": 12640,
++            "billed": 4,
++            "excluded": [],
++            "bills": {"basic": 1606, "standard": 2404,
++                      "enhanced": 3407, "intensive": 5223},
++            "per_band": {"basic": 1606, "standard": 2404,
++                         "enhanced": 3407, "intensive": 5223},
++            "mean_minor": 3160,
++        })
++
++    def test_minor_unit_and_mean_ties_round_away_from_zero(self):
++        # The basic pre-waiver amount is 16.0607. These waivers make the
++        # amounts +0.005 and 0, whose bills are 1 and 0 minor units.
++        positive_tie = record("positive", waiver="16.0557")
++        zero = record("zero", waiver="16.0607")
++        result = settle_bills([positive_tie, zero])
++        self.assertEqual(result["bills"], {"positive": 1, "zero": 0})
++        self.assertEqual(result["total_minor"], 1)
++        self.assertEqual(result["mean_minor"], 1)  # 1 / 2 is a tie.
++
++        negative_tie = record("negative", waiver="16.0657")
++        negative_result = settle_bills([negative_tie])
++        self.assertEqual(negative_result["bills"], {"negative": -1})
++        self.assertEqual(negative_result["mean_minor"], -1)
++
++    def test_validation_cutoff_and_single_exclusion_per_record(self):
++        records = [
++            record("bad-code", account=" 1023456"),
++            record("bad-charge", consult="١"),
++            record("zero-lab", lab="0"),
++            record("bad-waiver", waiver="+1"),
++            record("bad-date", admitted="2025-02-32"),
++            record("after-cutoff", admitted="2025-03-21"),
++            record("cutoff", admitted="2025-03-20"),
++            # The rule checks month/day ranges only, so February 31 is valid.
++            record("range-only-date", admitted="2025-02-31"),
++        ]
++        result = settle_bills(records)
++        self.assertEqual(result["excluded"], [
++            "bad-code", "bad-charge", "zero-lab", "bad-waiver",
++            "bad-date", "after-cutoff",
++        ])
++        self.assertEqual(result["bills"], {"cutoff": 1606, "range-only-date": 1606})
++        self.assertEqual(result["per_band"], {"basic": 3212})
++        self.assertEqual(result["total_minor"], 3212)
++        self.assertEqual(result["mean_minor"], 1606)
++
++    def test_empty_input_shape(self):
++        self.assertEqual(settle_bills([]), {
++            "total_minor": 0, "billed": 0, "excluded": [],
++            "bills": {}, "per_band": {}, "mean_minor": 0,
++        })
++
++
++if __name__ == "__main__":
++    unittest.main()
+
+codex
+The implementation now validates the specified ASCII formats directly and uses `Decimal` throughout the billing calculations. I’ve added tests for every band, cutoff and date-range behavior, exclusion ordering, and positive and negative rounding ties; I’m running them now.
+exec
+/bin/bash -lc 'python3 -m unittest test_billing test_visible' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace
+ succeeded in 180ms:
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.002s
+
+OK
+
+exec
+/bin/bash -lc 'git diff --check && git status --short && git diff --stat' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace
+ succeeded in 113ms:
+ M ../../../../../../../../README.md
+?? ../../../../../../../coordinator-continuation-r2-20261107/
+?? ../../../../../../
+?? ../../../../../../../../simulation/s1-free-choice-techniques-v1/EXAMPLES.md
+?? ../../../../../../../../simulation/s1-free-choice-techniques-v1/FINAL-MANIFEST.json
+?? ../../../../../../../../simulation/s1-free-choice-techniques-v1/FINAL-VERIFICATION.json
+?? ../../../../../../../../simulation/s1-free-choice-techniques-v1/FINALIZATION-STARTED.json
+?? ../../../../../../../../simulation/s1-free-choice-techniques-v1/NEXT-DECISION.md
+?? ../../../../../../../../simulation/s1-free-choice-techniques-v1/POST-RUN-REVIEW-B.json
+?? ../../../../../../../../simulation/s1-free-choice-techniques-v1/RESULT.md
+?? ../../../../../../../../simulation/s1-free-choice-techniques-v1/STRUCTURAL-VALIDATION.json
+?? ../../../../../../../../simulation/s1-free-choice-techniques-v1/VALIDATOR-SOURCE.py
+?? ../../../../../../../../simulation/s2-free-choice-context-v1/APPLICABILITY-REVIEW.json
+?? ../../../../../../../../simulation/s2-free-choice-context-v1/BOUNDARY-CONTROLS.json
+?? ../../../../../../../../simulation/s2-free-choice-context-v1/CLIENT-CHECK.json
+?? ../../../../../../../../simulation/s2-free-choice-context-v1/CODEBOOK.json
+?? ../../../../../../../../simulation/s2-free-choice-context-v1/CONTRACT.json
+?? ../../../../../../../../simulation/s2-free-choice-context-v1/EXTRACTOR-WIRE.schema.json
+?? ../../../../../../../../simulation/s2-free-choice-context-v1/FACT-PERMISSION-LEDGER.json
+?? ../../../../../../../../simulation/s2-free-choice-context-v1/FRAME.json
+?? ../../../../../../../../simulation/s2-free-choice-context-v1/METHOD.md
+?? ../../../../../../../../../tools/check_s2_free_choice_context_v1.py
+?? ../../../../../../../../../tools/run_s2_free_choice_context_v1.py
+?? ../../../../../../../../../tools/s2_admission_metric_witness_v1.py
+ research/README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+exec
+/bin/bash -lc 'git rev-parse --show-toplevel && git check-ignore -v billing.py test_billing.py || true && ls -l billing.py test_billing.py' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace
+ succeeded in 0ms:
+/home/vlad_/projects/engineer-assessment
+.gitignore:66:/research/hackathon/*/*/	billing.py
+.gitignore:66:/research/hackathon/*/*/	test_billing.py
+-rw-r--r-- 1 vlad_ vlad_ 3470 Nov  7 14:45 billing.py
+-rw-r--r-- 1 vlad_ vlad_ 3420 Nov  7 14:45 test_billing.py
+
+codex
+Implemented `settle_bills` in [billing.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py) and added independent standard-library tests in [test_billing.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/test_billing.py).
+
+`python3 -m unittest test_billing test_visible` passed: 12 tests. Finished in 9 tool calls.
+tokens used
+21,093
+Implemented `settle_bills` in [billing.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/billing.py) and added independent standard-library tests in [test_billing.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep01-luna-main-draw1/workspace/test_billing.py).
+
+`python3 -m unittest test_billing test_visible` passed: 12 tests. Finished in 9 tool calls.

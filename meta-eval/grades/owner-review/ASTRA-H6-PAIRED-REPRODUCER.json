@@ -1,0 +1,70 @@
+{
+  "kind": "paired_native_false_green_reproducer",
+  "model": "gpt-6-astra",
+  "case_id": "H6",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "reproduce-eval-author-b1c6fbd1cbae48baa7de318980cb5004",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "64",
+    "--memory",
+    "256m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,noexec,nosuid,size=32m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6-astra/H6/delivery,target=/subject,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H6/saved_luna_decimal.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,shutil,subprocess,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir();script=Path('/tmp/candidate/summarize.py');script.write_text(c['code']);sys.path.insert(0,'/tmp/eval/evaluation');import evaluate\ngrade=evaluate.run_suite(script,work_dir='/tmp')\nraw='{\"adjustment_sheets\":{\"root / exact zero\":{\"stat\":\"event_count\",\"turns\":[0e10000000000000000000]},\"root / mixed zero\":{\"stat\":\"event_count\",\"turns\":[0e10000000000000000000,0,1]}}}'\nreplays=[]\nfor label,text in [('exponent_zero',raw),('canonical_zero',raw.replace('0e10000000000000000000','0'))]:\n src=Path('/tmp/'+label+' input.json');dst=Path('/tmp/'+label+' output.json');src.write_text(text);p=subprocess.run([sys.executable,str(script),str(src),str(dst)],capture_output=True,text=True,timeout=8)\n replays.append({'label':label,'request':text,'exit_code':p.returncode,'stdout':p.stdout,'stderr':p.stderr,'output':dst.read_text()if dst.exists()else None})\nprint(json.dumps({'new_eval_cases_passed':grade['passed'],'new_eval_total':grade['total'],'new_eval_accepts':grade['all_passed'],'expected_counts':{'root / exact zero':1,'root / mixed zero':3},'replays':replays}))\n"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"new_eval_cases_passed\": 84, \"new_eval_total\": 84, \"new_eval_accepts\": true, \"expected_counts\": {\"root / exact zero\": 1, \"root / mixed zero\": 3}, \"replays\": [{\"label\": \"exponent_zero\", \"request\": \"{\\\"adjustment_sheets\\\":{\\\"root / exact zero\\\":{\\\"stat\\\":\\\"event_count\\\",\\\"turns\\\":[0e10000000000000000000]},\\\"root / mixed zero\\\":{\\\"stat\\\":\\\"event_count\\\",\\\"turns\\\":[0e10000000000000000000,0,1]}}}\", \"exit_code\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 125, in <module>\\n    raise SystemExit(main())\\n                     ~~~~^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 108, in main\\n    document = json.loads(\\n        source,\\n    ...<3 lines>...\\n        object_pairs_hook=_object_without_duplicates,\\n    )\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\\n\", \"output\": null}, {\"label\": \"canonical_zero\", \"request\": \"{\\\"adjustment_sheets\\\":{\\\"root / exact zero\\\":{\\\"stat\\\":\\\"event_count\\\",\\\"turns\\\":[0]},\\\"root / mixed zero\\\":{\\\"stat\\\":\\\"event_count\\\",\\\"turns\\\":[0,0,1]}}}\", \"exit_code\": 0, \"stdout\": \"\", \"stderr\": \"\", \"output\": \"{\\\"stock_reports\\\":{\\\"root / exact zero\\\":1,\\\"root / mixed zero\\\":3}}\\n\"}]}\n",
+  "stderr": "",
+  "fixture_sha256": "26ff4806a165bc951306069717e009289d98a788a419c358d1657e9d8e6ce823",
+  "grader_sha256": "c391d10055b8fe0ed49515d5ea189e87f1c3a9209357151b672fad235ba94598",
+  "observed": {
+    "new_eval_cases_passed": 84,
+    "new_eval_total": 84,
+    "new_eval_accepts": true,
+    "expected_counts": {
+      "root / exact zero": 1,
+      "root / mixed zero": 3
+    },
+    "replays": [
+      {
+        "label": "exponent_zero",
+        "request": "{\"adjustment_sheets\":{\"root / exact zero\":{\"stat\":\"event_count\",\"turns\":[0e10000000000000000000]},\"root / mixed zero\":{\"stat\":\"event_count\",\"turns\":[0e10000000000000000000,0,1]}}}",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 125, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"/tmp/candidate/summarize.py\", line 108, in main\n    document = json.loads(\n        source,\n    ...<3 lines>...\n        object_pairs_hook=_object_without_duplicates,\n    )\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\n",
+        "output": null
+      },
+      {
+        "label": "canonical_zero",
+        "request": "{\"adjustment_sheets\":{\"root / exact zero\":{\"stat\":\"event_count\",\"turns\":[0]},\"root / mixed zero\":{\"stat\":\"event_count\",\"turns\":[0,0,1]}}}",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "output": "{\"stock_reports\":{\"root / exact zero\":1,\"root / mixed zero\":3}}\n"
+      }
+    ]
+  }
+}

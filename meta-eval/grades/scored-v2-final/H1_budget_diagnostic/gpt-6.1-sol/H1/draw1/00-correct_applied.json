@@ -1,0 +1,484 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 0.65497888200116,
+  "stdout": "{\"schema_version\": \"e1-evaluation/v1\", \"task_id\": \"E1\", \"task_source_sha256\": \"514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221\", \"answer_sha256\": null, \"repetitions_declared\": 3, \"repetitions\": [{\"index\": 1, \"checks\": [{\"name\": \"overlapping_60\", \"requests\": [{\"key\": \"run0-left\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"run0-right\", \"account\": \"A\", \"amount\": 60}], \"protocol\": [{\"event\": \"ready\"}, {\"event\": \"ready\"}, {\"event\": \"armed\"}, {\"event\": \"armed\"}, {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 40}}, {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}], \"replies\": [{\"status\": \"applied\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}], \"terminal_codes\": [-9, -9], \"observed\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"run0-left\", \"A\", 60, \"applied\", 40], [\"run0-right\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"run0-left\", \"A\", 60]]}, \"passed\": false}], \"status\": \"fail\", \"reason\": \"overlapping_60: replies and tables do not match either legal serial history\", \"final_observation\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"run0-left\", \"A\", 60, \"applied\", 40], [\"run0-right\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"run0-left\", \"A\", 60]]}}, {\"index\": 2, \"checks\": [{\"name\": \"overlapping_60\", \"requests\": [{\"key\": \"run1-left\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"run1-right\", \"account\": \"A\", \"amount\": 60}], \"protocol\": [{\"event\": \"ready\"}, {\"event\": \"ready\"}, {\"event\": \"armed\"}, {\"event\": \"armed\"}, {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 40}}, {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}], \"replies\": [{\"status\": \"applied\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}], \"terminal_codes\": [-9, -9], \"observed\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"run1-left\", \"A\", 60, \"applied\", 40], [\"run1-right\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"run1-left\", \"A\", 60]]}, \"passed\": false}], \"status\": \"fail\", \"reason\": \"overlapping_60: replies and tables do not match either legal serial history\", \"final_observation\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"run1-left\", \"A\", 60, \"applied\", 40], [\"run1-right\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"run1-left\", \"A\", 60]]}}, {\"index\": 3, \"checks\": [{\"name\": \"overlapping_60\", \"requests\": [{\"key\": \"run2-left\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"run2-right\", \"account\": \"A\", \"amount\": 60}], \"protocol\": [{\"event\": \"ready\"}, {\"event\": \"ready\"}, {\"event\": \"armed\"}, {\"event\": \"armed\"}, {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 40}}, {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}], \"replies\": [{\"status\": \"applied\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}], \"terminal_codes\": [-9, -9], \"observed\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"run2-left\", \"A\", 60, \"applied\", 40], [\"run2-right\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"run2-left\", \"A\", 60]]}, \"passed\": false}], \"status\": \"fail\", \"reason\": \"overlapping_60: replies and tables do not match either legal serial history\", \"final_observation\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"run2-left\", \"A\", 60, \"applied\", 40], [\"run2-right\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"run2-left\", \"A\", 60]]}}], \"review_status\": \"pending\", \"score\": null, \"limitations\": [\"Finite schedules; no exhaustive internal interleaving coverage.\", \"No throughput/latency gold label or creativity/hiring score.\", \"Explanation presence does not establish explanation quality.\"], \"repetitions_completed\": 3, \"status\": \"fail\", \"formal_status\": \"fail\", \"overall_status\": \"fail\"}\n",
+  "stderr": "",
+  "command": [
+    "bwrap",
+    "--die-with-parent",
+    "--unshare-all",
+    "--cap-drop",
+    "ALL",
+    "--clearenv",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "--setenv",
+    "LANG",
+    "C.UTF-8",
+    "--ro-bind",
+    "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/budget-diagnostic/gpt-6.1-sol/H1/draw1/delivery",
+    "/subject",
+    "--ro-bind",
+    "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H1/correct_applied.json",
+    "/control.json",
+    "--chdir",
+    "/tmp",
+    "/usr/bin/python3",
+    "-B",
+    "-c",
+    "import json,sys;sys.path.insert(0,'/subject');import evaluate;c=json.load(open('/control.json'));a=dict(task_id='E1',code=c['code'],explanation='Owner executable control; prose quality reviewed separately.');r=getattr(evaluate,sys.argv[1])(a);print(json.dumps(r))",
+    "evaluate"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 3640,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "schema_version": "e1-evaluation/v1",
+    "task_id": "E1",
+    "task_source_sha256": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+    "answer_sha256": null,
+    "repetitions_declared": 3,
+    "repetitions": [
+      {
+        "index": 1,
+        "checks": [
+          {
+            "name": "overlapping_60",
+            "requests": [
+              {
+                "key": "run0-left",
+                "account": "A",
+                "amount": 60
+              },
+              {
+                "key": "run0-right",
+                "account": "A",
+                "amount": 60
+              }
+            ],
+            "protocol": [
+              {
+                "event": "ready"
+              },
+              {
+                "event": "ready"
+              },
+              {
+                "event": "armed"
+              },
+              {
+                "event": "armed"
+              },
+              {
+                "event": "reply",
+                "value": {
+                  "status": "applied",
+                  "remaining": 40
+                }
+              },
+              {
+                "event": "reply",
+                "value": {
+                  "status": "rejected",
+                  "remaining": 40
+                }
+              }
+            ],
+            "replies": [
+              {
+                "status": "applied",
+                "remaining": 40
+              },
+              {
+                "status": "rejected",
+                "remaining": 40
+              }
+            ],
+            "terminal_codes": [
+              -9,
+              -9
+            ],
+            "observed": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "run0-left",
+                  "A",
+                  60,
+                  "applied",
+                  40
+                ],
+                [
+                  "run0-right",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "run0-left",
+                  "A",
+                  60
+                ]
+              ]
+            },
+            "passed": false
+          }
+        ],
+        "status": "fail",
+        "reason": "overlapping_60: replies and tables do not match either legal serial history",
+        "final_observation": {
+          "accounts": [
+            [
+              "A",
+              40
+            ],
+            [
+              "B",
+              100
+            ]
+          ],
+          "decisions": [
+            [
+              "run0-left",
+              "A",
+              60,
+              "applied",
+              40
+            ],
+            [
+              "run0-right",
+              "A",
+              60,
+              "rejected",
+              40
+            ]
+          ],
+          "ledger": [
+            [
+              "run0-left",
+              "A",
+              60
+            ]
+          ]
+        }
+      },
+      {
+        "index": 2,
+        "checks": [
+          {
+            "name": "overlapping_60",
+            "requests": [
+              {
+                "key": "run1-left",
+                "account": "A",
+                "amount": 60
+              },
+              {
+                "key": "run1-right",
+                "account": "A",
+                "amount": 60
+              }
+            ],
+            "protocol": [
+              {
+                "event": "ready"
+              },
+              {
+                "event": "ready"
+              },
+              {
+                "event": "armed"
+              },
+              {
+                "event": "armed"
+              },
+              {
+                "event": "reply",
+                "value": {
+                  "status": "applied",
+                  "remaining": 40
+                }
+              },
+              {
+                "event": "reply",
+                "value": {
+                  "status": "rejected",
+                  "remaining": 40
+                }
+              }
+            ],
+            "replies": [
+              {
+                "status": "applied",
+                "remaining": 40
+              },
+              {
+                "status": "rejected",
+                "remaining": 40
+              }
+            ],
+            "terminal_codes": [
+              -9,
+              -9
+            ],
+            "observed": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "run1-left",
+                  "A",
+                  60,
+                  "applied",
+                  40
+                ],
+                [
+                  "run1-right",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "run1-left",
+                  "A",
+                  60
+                ]
+              ]
+            },
+            "passed": false
+          }
+        ],
+        "status": "fail",
+        "reason": "overlapping_60: replies and tables do not match either legal serial history",
+        "final_observation": {
+          "accounts": [
+            [
+              "A",
+              40
+            ],
+            [
+              "B",
+              100
+            ]
+          ],
+          "decisions": [
+            [
+              "run1-left",
+              "A",
+              60,
+              "applied",
+              40
+            ],
+            [
+              "run1-right",
+              "A",
+              60,
+              "rejected",
+              40
+            ]
+          ],
+          "ledger": [
+            [
+              "run1-left",
+              "A",
+              60
+            ]
+          ]
+        }
+      },
+      {
+        "index": 3,
+        "checks": [
+          {
+            "name": "overlapping_60",
+            "requests": [
+              {
+                "key": "run2-left",
+                "account": "A",
+                "amount": 60
+              },
+              {
+                "key": "run2-right",
+                "account": "A",
+                "amount": 60
+              }
+            ],
+            "protocol": [
+              {
+                "event": "ready"
+              },
+              {
+                "event": "ready"
+              },
+              {
+                "event": "armed"
+              },
+              {
+                "event": "armed"
+              },
+              {
+                "event": "reply",
+                "value": {
+                  "status": "applied",
+                  "remaining": 40
+                }
+              },
+              {
+                "event": "reply",
+                "value": {
+                  "status": "rejected",
+                  "remaining": 40
+                }
+              }
+            ],
+            "replies": [
+              {
+                "status": "applied",
+                "remaining": 40
+              },
+              {
+                "status": "rejected",
+                "remaining": 40
+              }
+            ],
+            "terminal_codes": [
+              -9,
+              -9
+            ],
+            "observed": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "run2-left",
+                  "A",
+                  60,
+                  "applied",
+                  40
+                ],
+                [
+                  "run2-right",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "run2-left",
+                  "A",
+                  60
+                ]
+              ]
+            },
+            "passed": false
+          }
+        ],
+        "status": "fail",
+        "reason": "overlapping_60: replies and tables do not match either legal serial history",
+        "final_observation": {
+          "accounts": [
+            [
+              "A",
+              40
+            ],
+            [
+              "B",
+              100
+            ]
+          ],
+          "decisions": [
+            [
+              "run2-left",
+              "A",
+              60,
+              "applied",
+              40
+            ],
+            [
+              "run2-right",
+              "A",
+              60,
+              "rejected",
+              40
+            ]
+          ],
+          "ledger": [
+            [
+              "run2-left",
+              "A",
+              60
+            ]
+          ]
+        }
+      }
+    ],
+    "review_status": "pending",
+    "score": null,
+    "limitations": [
+      "Finite schedules; no exhaustive internal interleaving coverage.",
+      "No throughput/latency gold label or creativity/hiring score.",
+      "Explanation presence does not establish explanation quality."
+    ],
+    "repetitions_completed": 3,
+    "status": "fail",
+    "formal_status": "fail",
+    "overall_status": "fail"
+  },
+  "job_id": "correct_applied",
+  "kind": "control",
+  "expected": true,
+  "family": "baseline"
+}

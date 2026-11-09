@@ -1,0 +1,69 @@
+{
+  "kind": "scoped_native_cli_and_output_probe",
+  "model": "gpt-6.1-sol",
+  "case_id": "H6",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "64",
+    "--memory",
+    "256m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,noexec,nosuid,size=16m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H6/delivery,target=/subject,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H6/saved_luna_decimal.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,sys\nfrom pathlib import Path\nsys.path.insert(0,'/subject/evaluation');import evaluate\nc=json.load(open('/control.json'));Path('/tmp/summarize.py').write_text(c['code']);case=next(c for c in evaluate.make_cases()if c.name=='negative_zero');r=evaluate.evaluate([sys.executable,'/tmp/summarize.py'],cases=[case])\noutput_case=evaluate.Case('owner-zero-output','equivalent_output',b'',{'e':'0'});reason=evaluate.judge_output(output_case,0,b'{\"stock_reports\":{\"e\":0e10000000000000000000}}')\nprint(json.dumps({'selected_negative_zero_cli':r,'legal_zero_output_rejection_reason':reason,'legal_zero_output_accepted':reason is None}))\n"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"selected_negative_zero_cli\": {\"evaluation\": \"warehouse-numeric-export-v1\", \"passed\": 0, \"total\": 1, \"score\": 0, \"pass_rate\": 0.0, \"success\": false, \"groups\": {\"exact_numbers\": {\"passed\": 0, \"total\": 1}}, \"cases\": [{\"name\": \"negative_zero\", \"group\": \"exact_numbers\", \"passed\": false, \"returncode\": 1, \"seconds\": 0.469, \"reason\": \"valid input exited 1\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/summarize.py\\\", line 125, in <module>\\n    raise SystemExit(main())\\n                     ~~~~^^\\n  File \\\"/tmp/summarize.py\\\", line 108, in main\\n    document = json.loads(\\n        source,\\n    ...<3 lines>...\\n        object_pairs_hook=_object_without_duplicates,\\n    )\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\\n\"}]}, \"legal_zero_output_rejection_reason\": null, \"legal_zero_output_accepted\": true}\n",
+  "stderr": "",
+  "scope": "Selected existing negative_zero test plus owner legal equivalent-zero output check; not entire public language.",
+  "observed": {
+    "selected_negative_zero_cli": {
+      "evaluation": "warehouse-numeric-export-v1",
+      "passed": 0,
+      "total": 1,
+      "score": 0,
+      "pass_rate": 0.0,
+      "success": false,
+      "groups": {
+        "exact_numbers": {
+          "passed": 0,
+          "total": 1
+        }
+      },
+      "cases": [
+        {
+          "name": "negative_zero",
+          "group": "exact_numbers",
+          "passed": false,
+          "returncode": 1,
+          "seconds": 0.469,
+          "reason": "valid input exited 1",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/summarize.py\", line 125, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"/tmp/summarize.py\", line 108, in main\n    document = json.loads(\n        source,\n    ...<3 lines>...\n        object_pairs_hook=_object_without_duplicates,\n    )\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\n"
+        }
+      ]
+    },
+    "legal_zero_output_rejection_reason": null,
+    "legal_zero_output_accepted": true
+  }
+}

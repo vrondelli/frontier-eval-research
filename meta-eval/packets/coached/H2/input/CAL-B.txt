@@ -1,0 +1,6 @@
+Title: Retry failed tests with growing delays
+When a test fails, run it again up to three times, waiting 5, 15, then 45
+seconds between attempts. If any retry passes, report the test as flaky-pass and
+let the build continue. If all retries fail, fail the build.
+Test of the idea: enable on one pipeline and compare red-build rate over two
+weeks against the previous two weeks. Cost: up to 65 extra seconds per failure.

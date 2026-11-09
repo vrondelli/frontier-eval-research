@@ -1,0 +1,1575 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 0.6544191649991262,
+  "stdout": "{\"report\": {\"schema_version\": \"e1-report/v1\", \"task_id\": \"E1\", \"submission_sha256\": \"8db0b4505ab86836c77fed8fa8fe25f41a60f4e4989c7c159b279902a1e4e0a9\", \"status\": \"fail\", \"formal_status\": \"fail\", \"overall_status\": \"formal_fail\", \"isolation\": \"linux_bwrap\", \"checks\": [{\"id\": \"t1.overlap\", \"passed\": true}, {\"id\": \"t1.replay_x\", \"passed\": true}, {\"id\": \"t1.replay_y\", \"passed\": true}, {\"id\": \"t1.mismatch_account\", \"passed\": false}, {\"id\": \"t1.completion\", \"passed\": false}, {\"id\": \"t2.overlap\", \"passed\": true}, {\"id\": \"t2.replay_x\", \"passed\": true}, {\"id\": \"t2.replay_y\", \"passed\": true}, {\"id\": \"t2.mismatch_account\", \"passed\": false}, {\"id\": \"t2.completion\", \"passed\": false}, {\"id\": \"t3.overlap\", \"passed\": true}, {\"id\": \"t3.replay_x\", \"passed\": true}, {\"id\": \"t3.replay_y\", \"passed\": true}, {\"id\": \"t3.mismatch_account\", \"passed\": false}, {\"id\": \"t3.completion\", \"passed\": false}], \"trials\": [{\"index\": 1, \"events\": [{\"name\": \"overlap\", \"records\": [{\"request\": {\"key\": \"x\", \"account\": \"A\", \"amount\": 60}, \"response\": {\"kind\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}, \"exit_code\": 0}, {\"request\": {\"key\": \"y\", \"account\": \"A\", \"amount\": 60}, \"response\": {\"kind\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}, \"exit_code\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}, \"legal_outcomes\": [{\"replies\": [{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}}, {\"replies\": [{\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"rejected\", 40], [\"y\", \"A\", 60, \"accepted\", 40]], \"ledger\": [[\"y\", \"A\", 60]]}}]}, {\"name\": \"replay_x\", \"records\": [{\"request\": {\"key\": \"x\", \"account\": \"A\", \"amount\": 60}, \"response\": {\"kind\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}, \"exit_code\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}, \"legal_outcomes\": [{\"replies\": [{\"status\": \"accepted\", \"remaining\": 40}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}}]}, {\"name\": \"replay_y\", \"records\": [{\"request\": {\"key\": \"y\", \"account\": \"A\", \"amount\": 60}, \"response\": {\"kind\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}, \"exit_code\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}, \"legal_outcomes\": [{\"replies\": [{\"status\": \"rejected\", \"remaining\": 40}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}}]}, {\"name\": \"mismatch_account\", \"records\": [{\"request\": {\"key\": \"x\", \"account\": \"B\", \"amount\": 60}, \"response\": {\"kind\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}, \"exit_code\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}, \"legal_outcomes\": [{\"replies\": [{\"status\": \"payload_mismatch\", \"remaining\": null}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}}]}], \"passed\": false}, {\"index\": 2, \"events\": [{\"name\": \"overlap\", \"records\": [{\"request\": {\"key\": \"x\", \"account\": \"A\", \"amount\": 60}, \"response\": {\"kind\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}, \"exit_code\": 0}, {\"request\": {\"key\": \"y\", \"account\": \"A\", \"amount\": 60}, \"response\": {\"kind\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}, \"exit_code\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}, \"legal_outcomes\": [{\"replies\": [{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}}, {\"replies\": [{\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"rejected\", 40], [\"y\", \"A\", 60, \"accepted\", 40]], \"ledger\": [[\"y\", \"A\", 60]]}}]}, {\"name\": \"replay_x\", \"records\": [{\"request\": {\"key\": \"x\", \"account\": \"A\", \"amount\": 60}, \"response\": {\"kind\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}, \"exit_code\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}, \"legal_outcomes\": [{\"replies\": [{\"status\": \"accepted\", \"remaining\": 40}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}}]}, {\"name\": \"replay_y\", \"records\": [{\"request\": {\"key\": \"y\", \"account\": \"A\", \"amount\": 60}, \"response\": {\"kind\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}, \"exit_code\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}, \"legal_outcomes\": [{\"replies\": [{\"status\": \"rejected\", \"remaining\": 40}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}}]}, {\"name\": \"mismatch_account\", \"records\": [{\"request\": {\"key\": \"x\", \"account\": \"B\", \"amount\": 60}, \"response\": {\"kind\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}, \"exit_code\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}, \"legal_outcomes\": [{\"replies\": [{\"status\": \"payload_mismatch\", \"remaining\": null}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}}]}], \"passed\": false}, {\"index\": 3, \"events\": [{\"name\": \"overlap\", \"records\": [{\"request\": {\"key\": \"x\", \"account\": \"A\", \"amount\": 60}, \"response\": {\"kind\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}, \"exit_code\": 0}, {\"request\": {\"key\": \"y\", \"account\": \"A\", \"amount\": 60}, \"response\": {\"kind\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}, \"exit_code\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}, \"legal_outcomes\": [{\"replies\": [{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}}, {\"replies\": [{\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"rejected\", 40], [\"y\", \"A\", 60, \"accepted\", 40]], \"ledger\": [[\"y\", \"A\", 60]]}}]}, {\"name\": \"replay_x\", \"records\": [{\"request\": {\"key\": \"x\", \"account\": \"A\", \"amount\": 60}, \"response\": {\"kind\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}, \"exit_code\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}, \"legal_outcomes\": [{\"replies\": [{\"status\": \"accepted\", \"remaining\": 40}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}}]}, {\"name\": \"replay_y\", \"records\": [{\"request\": {\"key\": \"y\", \"account\": \"A\", \"amount\": 60}, \"response\": {\"kind\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}, \"exit_code\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}, \"legal_outcomes\": [{\"replies\": [{\"status\": \"rejected\", \"remaining\": 40}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}}]}, {\"name\": \"mismatch_account\", \"records\": [{\"request\": {\"key\": \"x\", \"account\": \"B\", \"amount\": 60}, \"response\": {\"kind\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}, \"exit_code\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}, \"legal_outcomes\": [{\"replies\": [{\"status\": \"payload_mismatch\", \"remaining\": null}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"x\", \"A\", 60, \"accepted\", 40], [\"y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"x\", \"A\", 60]]}}]}], \"passed\": false}], \"diagnostics\": [\"Trial 1: WorkerFailure: Replies and SQL state do not match any legal serial outcome: mismatch_account\", \"Trial 2: WorkerFailure: Replies and SQL state do not match any legal serial outcome: mismatch_account\", \"Trial 3: WorkerFailure: Replies and SQL state do not match any legal serial outcome: mismatch_account\"], \"explanation_review\": {\"status\": \"pending\", \"criteria\": [\"atomic_boundary\", \"global_identity\", \"unknown_outcome_replay\", \"contention_vs_cycles\", \"cross_account_parallelism\", \"first_mitigation\", \"rollback_trigger\", \"deployment_tradeoffs\"], \"unresolved_claims\": [], \"quality_scored\": false}}, \"owner_mapping\": {\"reason\": \"Coached publicTASK explicitly mandates accepted literal; only conform ownercontrol wirevalue, preserving all business faults. This is not a subject repair.\", \"source_sha256\": \"fb44000a16849a10ede6ac9f5e0a63a02e4d650c20935929796590c597f268fc\", \"mapped_sha256\": \"96e4360f18dc0d55d0ea3f4f8ea8214ad17147c7d0c91a962455bddbaf750b5b\", \"literal_only_changes\": 1}}\n",
+  "stderr": "",
+  "command": [
+    "bwrap",
+    "--die-with-parent",
+    "--unshare-all",
+    "--cap-drop",
+    "ALL",
+    "--clearenv",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "--setenv",
+    "LANG",
+    "C.UTF-8",
+    "--ro-bind",
+    "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/clean_screen_v2/coached/gpt-6.1-sol/H1/delivery",
+    "/subject",
+    "--ro-bind",
+    "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H1/wrong_payload_mismatch.json",
+    "/control.json",
+    "--chdir",
+    "/tmp",
+    "/usr/bin/python3",
+    "-B",
+    "-c",
+    "import hashlib,json,sys\nsys.path.insert(0,'/subject');from e1eval.grader import grade\nc=json.load(open('/control.json'));old=c['code'];source=old.replace(\"'applied' if changed\",\"'accepted' if changed\")\nr=grade(dict(task_id='E1',code=source,explanation='Owner executable control; prose quality is separately reviewed.'));print(json.dumps({'report':r,'owner_mapping':{'reason':'Coached publicTASK explicitly mandates accepted literal; only conform ownercontrol wirevalue, preserving all business faults. This is not a subject repair.','source_sha256':hashlib.sha256(old.encode()).hexdigest(),'mapped_sha256':hashlib.sha256(source.encode()).hexdigest(),'literal_only_changes':old.count(\"'applied' if changed\")}}))\n"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 10405,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "report": {
+      "schema_version": "e1-report/v1",
+      "task_id": "E1",
+      "submission_sha256": "8db0b4505ab86836c77fed8fa8fe25f41a60f4e4989c7c159b279902a1e4e0a9",
+      "status": "fail",
+      "formal_status": "fail",
+      "overall_status": "formal_fail",
+      "isolation": "linux_bwrap",
+      "checks": [
+        {
+          "id": "t1.overlap",
+          "passed": true
+        },
+        {
+          "id": "t1.replay_x",
+          "passed": true
+        },
+        {
+          "id": "t1.replay_y",
+          "passed": true
+        },
+        {
+          "id": "t1.mismatch_account",
+          "passed": false
+        },
+        {
+          "id": "t1.completion",
+          "passed": false
+        },
+        {
+          "id": "t2.overlap",
+          "passed": true
+        },
+        {
+          "id": "t2.replay_x",
+          "passed": true
+        },
+        {
+          "id": "t2.replay_y",
+          "passed": true
+        },
+        {
+          "id": "t2.mismatch_account",
+          "passed": false
+        },
+        {
+          "id": "t2.completion",
+          "passed": false
+        },
+        {
+          "id": "t3.overlap",
+          "passed": true
+        },
+        {
+          "id": "t3.replay_x",
+          "passed": true
+        },
+        {
+          "id": "t3.replay_y",
+          "passed": true
+        },
+        {
+          "id": "t3.mismatch_account",
+          "passed": false
+        },
+        {
+          "id": "t3.completion",
+          "passed": false
+        }
+      ],
+      "trials": [
+        {
+          "index": 1,
+          "events": [
+            {
+              "name": "overlap",
+              "records": [
+                {
+                  "request": {
+                    "key": "x",
+                    "account": "A",
+                    "amount": 60
+                  },
+                  "response": {
+                    "kind": "reply",
+                    "value": {
+                      "status": "accepted",
+                      "remaining": 40
+                    }
+                  },
+                  "exit_code": 0
+                },
+                {
+                  "request": {
+                    "key": "y",
+                    "account": "A",
+                    "amount": 60
+                  },
+                  "response": {
+                    "kind": "reply",
+                    "value": {
+                      "status": "rejected",
+                      "remaining": 40
+                    }
+                  },
+                  "exit_code": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    100
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "x",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ],
+                  [
+                    "y",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "x",
+                    "A",
+                    60
+                  ]
+                ]
+              },
+              "legal_outcomes": [
+                {
+                  "replies": [
+                    {
+                      "status": "accepted",
+                      "remaining": 40
+                    },
+                    {
+                      "status": "rejected",
+                      "remaining": 40
+                    }
+                  ],
+                  "snapshot": {
+                    "accounts": [
+                      [
+                        "A",
+                        40
+                      ],
+                      [
+                        "B",
+                        100
+                      ]
+                    ],
+                    "decisions": [
+                      [
+                        "x",
+                        "A",
+                        60,
+                        "accepted",
+                        40
+                      ],
+                      [
+                        "y",
+                        "A",
+                        60,
+                        "rejected",
+                        40
+                      ]
+                    ],
+                    "ledger": [
+                      [
+                        "x",
+                        "A",
+                        60
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "replies": [
+                    {
+                      "status": "rejected",
+                      "remaining": 40
+                    },
+                    {
+                      "status": "accepted",
+                      "remaining": 40
+                    }
+                  ],
+                  "snapshot": {
+                    "accounts": [
+                      [
+                        "A",
+                        40
+                      ],
+                      [
+                        "B",
+                        100
+                      ]
+                    ],
+                    "decisions": [
+                      [
+                        "x",
+                        "A",
+                        60,
+                        "rejected",
+                        40
+                      ],
+                      [
+                        "y",
+                        "A",
+                        60,
+                        "accepted",
+                        40
+                      ]
+                    ],
+                    "ledger": [
+                      [
+                        "y",
+                        "A",
+                        60
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "replay_x",
+              "records": [
+                {
+                  "request": {
+                    "key": "x",
+                    "account": "A",
+                    "amount": 60
+                  },
+                  "response": {
+                    "kind": "reply",
+                    "value": {
+                      "status": "accepted",
+                      "remaining": 40
+                    }
+                  },
+                  "exit_code": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    100
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "x",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ],
+                  [
+                    "y",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "x",
+                    "A",
+                    60
+                  ]
+                ]
+              },
+              "legal_outcomes": [
+                {
+                  "replies": [
+                    {
+                      "status": "accepted",
+                      "remaining": 40
+                    }
+                  ],
+                  "snapshot": {
+                    "accounts": [
+                      [
+                        "A",
+                        40
+                      ],
+                      [
+                        "B",
+                        100
+                      ]
+                    ],
+                    "decisions": [
+                      [
+                        "x",
+                        "A",
+                        60,
+                        "accepted",
+                        40
+                      ],
+                      [
+                        "y",
+                        "A",
+                        60,
+                        "rejected",
+                        40
+                      ]
+                    ],
+                    "ledger": [
+                      [
+                        "x",
+                        "A",
+                        60
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "replay_y",
+              "records": [
+                {
+                  "request": {
+                    "key": "y",
+                    "account": "A",
+                    "amount": 60
+                  },
+                  "response": {
+                    "kind": "reply",
+                    "value": {
+                      "status": "rejected",
+                      "remaining": 40
+                    }
+                  },
+                  "exit_code": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    100
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "x",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ],
+                  [
+                    "y",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "x",
+                    "A",
+                    60
+                  ]
+                ]
+              },
+              "legal_outcomes": [
+                {
+                  "replies": [
+                    {
+                      "status": "rejected",
+                      "remaining": 40
+                    }
+                  ],
+                  "snapshot": {
+                    "accounts": [
+                      [
+                        "A",
+                        40
+                      ],
+                      [
+                        "B",
+                        100
+                      ]
+                    ],
+                    "decisions": [
+                      [
+                        "x",
+                        "A",
+                        60,
+                        "accepted",
+                        40
+                      ],
+                      [
+                        "y",
+                        "A",
+                        60,
+                        "rejected",
+                        40
+                      ]
+                    ],
+                    "ledger": [
+                      [
+                        "x",
+                        "A",
+                        60
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "mismatch_account",
+              "records": [
+                {
+                  "request": {
+                    "key": "x",
+                    "account": "B",
+                    "amount": 60
+                  },
+                  "response": {
+                    "kind": "reply",
+                    "value": {
+                      "status": "rejected",
+                      "remaining": 0
+                    }
+                  },
+                  "exit_code": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    100
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "x",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ],
+                  [
+                    "y",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "x",
+                    "A",
+                    60
+                  ]
+                ]
+              },
+              "legal_outcomes": [
+                {
+                  "replies": [
+                    {
+                      "status": "payload_mismatch",
+                      "remaining": null
+                    }
+                  ],
+                  "snapshot": {
+                    "accounts": [
+                      [
+                        "A",
+                        40
+                      ],
+                      [
+                        "B",
+                        100
+                      ]
+                    ],
+                    "decisions": [
+                      [
+                        "x",
+                        "A",
+                        60,
+                        "accepted",
+                        40
+                      ],
+                      [
+                        "y",
+                        "A",
+                        60,
+                        "rejected",
+                        40
+                      ]
+                    ],
+                    "ledger": [
+                      [
+                        "x",
+                        "A",
+                        60
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "passed": false
+        },
+        {
+          "index": 2,
+          "events": [
+            {
+              "name": "overlap",
+              "records": [
+                {
+                  "request": {
+                    "key": "x",
+                    "account": "A",
+                    "amount": 60
+                  },
+                  "response": {
+                    "kind": "reply",
+                    "value": {
+                      "status": "accepted",
+                      "remaining": 40
+                    }
+                  },
+                  "exit_code": 0
+                },
+                {
+                  "request": {
+                    "key": "y",
+                    "account": "A",
+                    "amount": 60
+                  },
+                  "response": {
+                    "kind": "reply",
+                    "value": {
+                      "status": "rejected",
+                      "remaining": 40
+                    }
+                  },
+                  "exit_code": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    100
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "x",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ],
+                  [
+                    "y",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "x",
+                    "A",
+                    60
+                  ]
+                ]
+              },
+              "legal_outcomes": [
+                {
+                  "replies": [
+                    {
+                      "status": "accepted",
+                      "remaining": 40
+                    },
+                    {
+                      "status": "rejected",
+                      "remaining": 40
+                    }
+                  ],
+                  "snapshot": {
+                    "accounts": [
+                      [
+                        "A",
+                        40
+                      ],
+                      [
+                        "B",
+                        100
+                      ]
+                    ],
+                    "decisions": [
+                      [
+                        "x",
+                        "A",
+                        60,
+                        "accepted",
+                        40
+                      ],
+                      [
+                        "y",
+                        "A",
+                        60,
+                        "rejected",
+                        40
+                      ]
+                    ],
+                    "ledger": [
+                      [
+                        "x",
+                        "A",
+                        60
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "replies": [
+                    {
+                      "status": "rejected",
+                      "remaining": 40
+                    },
+                    {
+                      "status": "accepted",
+                      "remaining": 40
+                    }
+                  ],
+                  "snapshot": {
+                    "accounts": [
+                      [
+                        "A",
+                        40
+                      ],
+                      [
+                        "B",
+                        100
+                      ]
+                    ],
+                    "decisions": [
+                      [
+                        "x",
+                        "A",
+                        60,
+                        "rejected",
+                        40
+                      ],
+                      [
+                        "y",
+                        "A",
+                        60,
+                        "accepted",
+                        40
+                      ]
+                    ],
+                    "ledger": [
+                      [
+                        "y",
+                        "A",
+                        60
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "replay_x",
+              "records": [
+                {
+                  "request": {
+                    "key": "x",
+                    "account": "A",
+                    "amount": 60
+                  },
+                  "response": {
+                    "kind": "reply",
+                    "value": {
+                      "status": "accepted",
+                      "remaining": 40
+                    }
+                  },
+                  "exit_code": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    100
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "x",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ],
+                  [
+                    "y",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "x",
+                    "A",
+                    60
+                  ]
+                ]
+              },
+              "legal_outcomes": [
+                {
+                  "replies": [
+                    {
+                      "status": "accepted",
+                      "remaining": 40
+                    }
+                  ],
+                  "snapshot": {
+                    "accounts": [
+                      [
+                        "A",
+                        40
+                      ],
+                      [
+                        "B",
+                        100
+                      ]
+                    ],
+                    "decisions": [
+                      [
+                        "x",
+                        "A",
+                        60,
+                        "accepted",
+                        40
+                      ],
+                      [
+                        "y",
+                        "A",
+                        60,
+                        "rejected",
+                        40
+                      ]
+                    ],
+                    "ledger": [
+                      [
+                        "x",
+                        "A",
+                        60
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "replay_y",
+              "records": [
+                {
+                  "request": {
+                    "key": "y",
+                    "account": "A",
+                    "amount": 60
+                  },
+                  "response": {
+                    "kind": "reply",
+                    "value": {
+                      "status": "rejected",
+                      "remaining": 40
+                    }
+                  },
+                  "exit_code": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    100
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "x",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ],
+                  [
+                    "y",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "x",
+                    "A",
+                    60
+                  ]
+                ]
+              },
+              "legal_outcomes": [
+                {
+                  "replies": [
+                    {
+                      "status": "rejected",
+                      "remaining": 40
+                    }
+                  ],
+                  "snapshot": {
+                    "accounts": [
+                      [
+                        "A",
+                        40
+                      ],
+                      [
+                        "B",
+                        100
+                      ]
+                    ],
+                    "decisions": [
+                      [
+                        "x",
+                        "A",
+                        60,
+                        "accepted",
+                        40
+                      ],
+                      [
+                        "y",
+                        "A",
+                        60,
+                        "rejected",
+                        40
+                      ]
+                    ],
+                    "ledger": [
+                      [
+                        "x",
+                        "A",
+                        60
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "mismatch_account",
+              "records": [
+                {
+                  "request": {
+                    "key": "x",
+                    "account": "B",
+                    "amount": 60
+                  },
+                  "response": {
+                    "kind": "reply",
+                    "value": {
+                      "status": "rejected",
+                      "remaining": 0
+                    }
+                  },
+                  "exit_code": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    100
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "x",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ],
+                  [
+                    "y",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "x",
+                    "A",
+                    60
+                  ]
+                ]
+              },
+              "legal_outcomes": [
+                {
+                  "replies": [
+                    {
+                      "status": "payload_mismatch",
+                      "remaining": null
+                    }
+                  ],
+                  "snapshot": {
+                    "accounts": [
+                      [
+                        "A",
+                        40
+                      ],
+                      [
+                        "B",
+                        100
+                      ]
+                    ],
+                    "decisions": [
+                      [
+                        "x",
+                        "A",
+                        60,
+                        "accepted",
+                        40
+                      ],
+                      [
+                        "y",
+                        "A",
+                        60,
+                        "rejected",
+                        40
+                      ]
+                    ],
+                    "ledger": [
+                      [
+                        "x",
+                        "A",
+                        60
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "passed": false
+        },
+        {
+          "index": 3,
+          "events": [
+            {
+              "name": "overlap",
+              "records": [
+                {
+                  "request": {
+                    "key": "x",
+                    "account": "A",
+                    "amount": 60
+                  },
+                  "response": {
+                    "kind": "reply",
+                    "value": {
+                      "status": "accepted",
+                      "remaining": 40
+                    }
+                  },
+                  "exit_code": 0
+                },
+                {
+                  "request": {
+                    "key": "y",
+                    "account": "A",
+                    "amount": 60
+                  },
+                  "response": {
+                    "kind": "reply",
+                    "value": {
+                      "status": "rejected",
+                      "remaining": 40
+                    }
+                  },
+                  "exit_code": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    100
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "x",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ],
+                  [
+                    "y",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "x",
+                    "A",
+                    60
+                  ]
+                ]
+              },
+              "legal_outcomes": [
+                {
+                  "replies": [
+                    {
+                      "status": "accepted",
+                      "remaining": 40
+                    },
+                    {
+                      "status": "rejected",
+                      "remaining": 40
+                    }
+                  ],
+                  "snapshot": {
+                    "accounts": [
+                      [
+                        "A",
+                        40
+                      ],
+                      [
+                        "B",
+                        100
+                      ]
+                    ],
+                    "decisions": [
+                      [
+                        "x",
+                        "A",
+                        60,
+                        "accepted",
+                        40
+                      ],
+                      [
+                        "y",
+                        "A",
+                        60,
+                        "rejected",
+                        40
+                      ]
+                    ],
+                    "ledger": [
+                      [
+                        "x",
+                        "A",
+                        60
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "replies": [
+                    {
+                      "status": "rejected",
+                      "remaining": 40
+                    },
+                    {
+                      "status": "accepted",
+                      "remaining": 40
+                    }
+                  ],
+                  "snapshot": {
+                    "accounts": [
+                      [
+                        "A",
+                        40
+                      ],
+                      [
+                        "B",
+                        100
+                      ]
+                    ],
+                    "decisions": [
+                      [
+                        "x",
+                        "A",
+                        60,
+                        "rejected",
+                        40
+                      ],
+                      [
+                        "y",
+                        "A",
+                        60,
+                        "accepted",
+                        40
+                      ]
+                    ],
+                    "ledger": [
+                      [
+                        "y",
+                        "A",
+                        60
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "replay_x",
+              "records": [
+                {
+                  "request": {
+                    "key": "x",
+                    "account": "A",
+                    "amount": 60
+                  },
+                  "response": {
+                    "kind": "reply",
+                    "value": {
+                      "status": "accepted",
+                      "remaining": 40
+                    }
+                  },
+                  "exit_code": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    100
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "x",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ],
+                  [
+                    "y",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "x",
+                    "A",
+                    60
+                  ]
+                ]
+              },
+              "legal_outcomes": [
+                {
+                  "replies": [
+                    {
+                      "status": "accepted",
+                      "remaining": 40
+                    }
+                  ],
+                  "snapshot": {
+                    "accounts": [
+                      [
+                        "A",
+                        40
+                      ],
+                      [
+                        "B",
+                        100
+                      ]
+                    ],
+                    "decisions": [
+                      [
+                        "x",
+                        "A",
+                        60,
+                        "accepted",
+                        40
+                      ],
+                      [
+                        "y",
+                        "A",
+                        60,
+                        "rejected",
+                        40
+                      ]
+                    ],
+                    "ledger": [
+                      [
+                        "x",
+                        "A",
+                        60
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "replay_y",
+              "records": [
+                {
+                  "request": {
+                    "key": "y",
+                    "account": "A",
+                    "amount": 60
+                  },
+                  "response": {
+                    "kind": "reply",
+                    "value": {
+                      "status": "rejected",
+                      "remaining": 40
+                    }
+                  },
+                  "exit_code": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    100
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "x",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ],
+                  [
+                    "y",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "x",
+                    "A",
+                    60
+                  ]
+                ]
+              },
+              "legal_outcomes": [
+                {
+                  "replies": [
+                    {
+                      "status": "rejected",
+                      "remaining": 40
+                    }
+                  ],
+                  "snapshot": {
+                    "accounts": [
+                      [
+                        "A",
+                        40
+                      ],
+                      [
+                        "B",
+                        100
+                      ]
+                    ],
+                    "decisions": [
+                      [
+                        "x",
+                        "A",
+                        60,
+                        "accepted",
+                        40
+                      ],
+                      [
+                        "y",
+                        "A",
+                        60,
+                        "rejected",
+                        40
+                      ]
+                    ],
+                    "ledger": [
+                      [
+                        "x",
+                        "A",
+                        60
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "mismatch_account",
+              "records": [
+                {
+                  "request": {
+                    "key": "x",
+                    "account": "B",
+                    "amount": 60
+                  },
+                  "response": {
+                    "kind": "reply",
+                    "value": {
+                      "status": "rejected",
+                      "remaining": 0
+                    }
+                  },
+                  "exit_code": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    100
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "x",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ],
+                  [
+                    "y",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "x",
+                    "A",
+                    60
+                  ]
+                ]
+              },
+              "legal_outcomes": [
+                {
+                  "replies": [
+                    {
+                      "status": "payload_mismatch",
+                      "remaining": null
+                    }
+                  ],
+                  "snapshot": {
+                    "accounts": [
+                      [
+                        "A",
+                        40
+                      ],
+                      [
+                        "B",
+                        100
+                      ]
+                    ],
+                    "decisions": [
+                      [
+                        "x",
+                        "A",
+                        60,
+                        "accepted",
+                        40
+                      ],
+                      [
+                        "y",
+                        "A",
+                        60,
+                        "rejected",
+                        40
+                      ]
+                    ],
+                    "ledger": [
+                      [
+                        "x",
+                        "A",
+                        60
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "passed": false
+        }
+      ],
+      "diagnostics": [
+        "Trial 1: WorkerFailure: Replies and SQL state do not match any legal serial outcome: mismatch_account",
+        "Trial 2: WorkerFailure: Replies and SQL state do not match any legal serial outcome: mismatch_account",
+        "Trial 3: WorkerFailure: Replies and SQL state do not match any legal serial outcome: mismatch_account"
+      ],
+      "explanation_review": {
+        "status": "pending",
+        "criteria": [
+          "atomic_boundary",
+          "global_identity",
+          "unknown_outcome_replay",
+          "contention_vs_cycles",
+          "cross_account_parallelism",
+          "first_mitigation",
+          "rollback_trigger",
+          "deployment_tradeoffs"
+        ],
+        "unresolved_claims": [],
+        "quality_scored": false
+      }
+    },
+    "owner_mapping": {
+      "reason": "Coached publicTASK explicitly mandates accepted literal; only conform ownercontrol wirevalue, preserving all business faults. This is not a subject repair.",
+      "source_sha256": "fb44000a16849a10ede6ac9f5e0a63a02e4d650c20935929796590c597f268fc",
+      "mapped_sha256": "96e4360f18dc0d55d0ea3f4f8ea8214ad17147c7d0c91a962455bddbaf750b5b",
+      "literal_only_changes": 1
+    }
+  },
+  "job_id": "wrong_payload_mismatch",
+  "kind": "control",
+  "expected": false,
+  "family": "baseline"
+}

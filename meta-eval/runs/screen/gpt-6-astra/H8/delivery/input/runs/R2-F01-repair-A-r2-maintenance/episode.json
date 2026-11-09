@@ -1,0 +1,135 @@
+{
+  "actor_stopped": true,
+  "errors": [],
+  "finished_utc": "2026-11-02T16:15:38.889845+00:00",
+  "id": "R2-F01-repair-A-r2-maintenance",
+  "resources": {
+    "billed_money": null,
+    "cumulative_native_usage": {
+      "cacheWriteInputTokens": 0,
+      "cachedInputTokens": 592128,
+      "inputTokens": 651681,
+      "outputTokens": 7882,
+      "reasoningOutputTokens": 1546,
+      "totalTokens": 659563
+    },
+    "task_window_seconds": 198.860384,
+    "total_operational_seconds": 208.480665
+  },
+  "stages": [
+    {
+      "active": [
+        "C1"
+      ],
+      "id": "01-C1",
+      "native": {
+        "answer_sha256": "e280c6d75d4c5daf6e6ebdf42dc2d9ea2736b8aa474bfe66d50fe3cc1b03a344",
+        "automatic_retries": 0,
+        "cumulative_native_usage": {
+          "cacheWriteInputTokens": 0,
+          "cachedInputTokens": 86528,
+          "inputTokens": 108668,
+          "outputTokens": 1391,
+          "reasoningOutputTokens": 82,
+          "totalTokens": 110059
+        },
+        "elapsed_seconds": 38.227,
+        "error": null,
+        "generation_status": "completed",
+        "native_status": "completed",
+        "prompt_sha256": "62a3c23918a15c9da48f2b9285a8fab04738615350871ea47972c62122558c79",
+        "server_event_range": [
+          4,
+          221
+        ],
+        "stage_deadline_seconds": 1800,
+        "status": "completed",
+        "thread_id": "01a19d08-5738-76d2-bf30-072b0517f350",
+        "tool_calls": 4,
+        "turn_id": "01a19d08-5a0f-7e33-9889-c0866e65e29e",
+        "unexpected_item_types": []
+      },
+      "snapshot_status": "completed",
+      "task": "C1",
+      "task_window_seconds": 38.228748
+    },
+    {
+      "active": [
+        "C1",
+        "C2"
+      ],
+      "id": "02-C2",
+      "native": {
+        "answer_sha256": "9e796152af402ef9e46f7d5589669053a40c86b9b3d0d9dc7b699705434b4f21",
+        "automatic_retries": 0,
+        "cumulative_native_usage": {
+          "cacheWriteInputTokens": 0,
+          "cachedInputTokens": 311040,
+          "inputTokens": 354545,
+          "outputTokens": 5179,
+          "reasoningOutputTokens": 866,
+          "totalTokens": 359724
+        },
+        "elapsed_seconds": 86.995,
+        "error": null,
+        "generation_status": "completed",
+        "native_status": "completed",
+        "prompt_sha256": "6a460ea517514a122caaa1dfcb22da4f06978489d2f9b7bcb95a871888e60874",
+        "server_event_range": [
+          221,
+          485
+        ],
+        "stage_deadline_seconds": 1800,
+        "status": "completed",
+        "thread_id": "01a19d08-5738-76d2-bf30-072b0517f350",
+        "tool_calls": 5,
+        "turn_id": "01a19d08-f89f-78c1-b3d4-a1133695ed07",
+        "unexpected_item_types": []
+      },
+      "snapshot_status": "completed",
+      "task": "C2",
+      "task_window_seconds": 86.99623
+    },
+    {
+      "active": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "id": "03-C3",
+      "native": {
+        "answer_sha256": "864c67981a169fb3111be4ef66e0be729cd23830b4c652c21ea21957fb76011c",
+        "automatic_retries": 0,
+        "cumulative_native_usage": {
+          "cacheWriteInputTokens": 0,
+          "cachedInputTokens": 592128,
+          "inputTokens": 651681,
+          "outputTokens": 7882,
+          "reasoningOutputTokens": 1546,
+          "totalTokens": 659563
+        },
+        "elapsed_seconds": 73.633,
+        "error": null,
+        "generation_status": "completed",
+        "native_status": "completed",
+        "prompt_sha256": "32ce610b000e384c83229352e8d1e12b9d4db6c733cd7d7c11e0492784eec2e4",
+        "server_event_range": [
+          485,
+          698
+        ],
+        "stage_deadline_seconds": 1800,
+        "status": "completed",
+        "thread_id": "01a19d08-5738-76d2-bf30-072b0517f350",
+        "tool_calls": 4,
+        "turn_id": "01a19d0a-5688-7c51-a65c-ec564c92a0da",
+        "unexpected_item_types": []
+      },
+      "snapshot_status": "completed",
+      "task": "C3",
+      "task_window_seconds": 73.635406
+    }
+  ],
+  "started_utc": "2026-11-02T16:12:10.409195+00:00",
+  "status": "completed",
+  "thread_id": "01a19d08-5738-76d2-bf30-072b0517f350"
+}

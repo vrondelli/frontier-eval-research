@@ -1,0 +1,7 @@
+Title: Automatic quarantine for repeatedly flaky tests
+We keep a rolling 14-day record for each test. If a test both passes and fails on
+the same commit in at least 3 of the last 20 runs, we move it to a quarantine
+suite that still runs nightly but does not block merges. A ticket is filed
+automatically. The test leaves quarantine after 20 consecutive passes.
+Test of the idea: turn it on for one repository for two weeks and count blocked
+merges before and after. Cost: one nightly job.

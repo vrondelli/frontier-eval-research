@@ -1,0 +1,272 @@
+OpenAI Codex v0.167.0
+--------
+workdir: /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-git-history/episodes/ep02-luna-main-draw2/workspace
+model: gpt-6-luna
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: high
+reasoning summaries: none
+session id: 01a1b808-2663-70a1-ad9a-7de065009d1d
+--------
+user
+You are working in a workspace that is a git repository containing a small Python package with an open ticket. Use the available tools. Standard library only. Do not modify tests/test_visible.py or TICKET.md.
+
+TASK: Implement apply_percent(amount_cents, percent) in src/fees.py. TICKET.md in the workspace states the initial behaviour for this function. Provided tests are in tests/test_visible.py.
+
+The current requirement is the one in force in this repository's history: if a later commit changes a requirement in TICKET.md, the later commit governs. Implement the requirement currently in force.
+
+Deliverable: the corrected src/fees.py.
+
+codex
+I’ll inspect the ticket and repository history to identify the currently governing requirement, then update only `src/fees.py`.
+exec
+/bin/bash -lc "git status --short && git log --oneline --decorate -8 && cat TICKET.md && sed -n '1,240p' src/fees.py && sed -n '1,260p' tests/test_visible.py" in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-git-history/episodes/ep02-luna-main-draw2/workspace
+ succeeded in 89ms:
+1e67cc8 (HEAD -> main) Requirement change: apply_percent ties round to even (TICKET not yet updated)
+5c847c7 wip: validation and first cut of apply_percent (truncates)
+7ba6afa Add TICKET and apply_percent skeleton
+# TICKET — apply_percent rounding
+
+Implement `apply_percent(amount_cents, percent)` in `src/fees.py`.
+
+`apply_percent(amount_cents, percent)` returns `percent` percent of
+`amount_cents`, rounded to the nearest integer cent. That is, it
+returns the integer nearest to `amount_cents * percent / 100`:
+
+- Fractions below one half round down and fractions above one half
+  round up. Examples:
+  - `apply_percent(1000, 10) == 100`
+  - `apply_percent(999, 10) == 100`
+  - `apply_percent(101, 10) == 10`
+  - `apply_percent(0, 50) == 0`
+  - `apply_percent(500, 100) == 500`
+- A result that is exactly halfway between two integers (a half cent)
+  rounds UP, to the larger integer. Examples:
+  - `apply_percent(50, 1) == 1`
+  - `apply_percent(150, 1) == 2`
+  - `apply_percent(250, 1) == 3`
+- `amount_cents` must be at least 0. If `amount_cents < 0`, raise
+  `ValueError`.
+- `percent` must be between 0 and 100 inclusive. If `percent < 0` or
+  `percent > 100`, raise `ValueError`.
+- Both arguments must be integers. `bool` is not accepted as an
+  integer here (even though Python subclasses it). If either argument
+  is not an `int`, or is a `bool`, raise `TypeError`. Type checks come
+  before the value checks above.
+
+## Deliverable
+
+The corrected `src/fees.py`. Do not modify `tests/test_visible.py` or
+this ticket. Standard library only.
+"""Small fee helpers. See TICKET.md for the apply_percent requirement."""
+
+
+def apply_percent(amount_cents, percent):
+    """Return percent percent of amount_cents, rounded to the nearest cent."""
+    if isinstance(amount_cents, bool) or not isinstance(amount_cents, int):
+        raise TypeError("amount_cents must be an int")
+    if isinstance(percent, bool) or not isinstance(percent, int):
+        raise TypeError("percent must be an int")
+    if amount_cents < 0:
+        raise ValueError("amount_cents must be at least 0")
+    if percent < 0 or percent > 100:
+        raise ValueError("percent must be between 0 and 100 inclusive")
+    # First cut: exact quotient only (truncates any remainder).
+    return (amount_cents * percent) // 100
+import pathlib
+import sys
+import unittest
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src"))
+
+from fees import apply_percent
+
+
+class TestApplyPercentVisible(unittest.TestCase):
+    def test_exact(self):
+        self.assertEqual(apply_percent(1000, 10), 100)
+        self.assertEqual(apply_percent(500, 100), 500)
+        self.assertEqual(apply_percent(0, 50), 0)
+
+    def test_rounds_to_nearest(self):
+        self.assertEqual(apply_percent(999, 10), 100)
+        self.assertEqual(apply_percent(101, 10), 10)
+        self.assertEqual(apply_percent(333, 33), 110)
+
+    def test_invalid_values(self):
+        with self.assertRaises(ValueError):
+            apply_percent(-1, 10)
+        with self.assertRaises(ValueError):
+            apply_percent(100, 101)
+        with self.assertRaises(ValueError):
+            apply_percent(100, -1)
+
+    def test_invalid_types(self):
+        with self.assertRaises(TypeError):
+            apply_percent(10.5, 10)
+        with self.assertRaises(TypeError):
+            apply_percent(100, "10")
+        with self.assertRaises(TypeError):
+            apply_percent(True, 10)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+exec
+/bin/bash -lc "git show --stat --oneline HEAD && git show --format=fuller --find-renames HEAD -- && git show 5c847c7:TICKET.md | sed -n '1,180p' && git show 7ba6afa:TICKET.md | sed -n '1,180p'" in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-git-history/episodes/ep02-luna-main-draw2/workspace
+ succeeded in 174ms:
+1e67cc8 Requirement change: apply_percent ties round to even (TICKET not yet updated)
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+commit 1e67cc8b60766f7d90a97223e3ca2cd827d33e98
+Author:     Lane Builder <lane@example.invalid>
+AuthorDate: Sat Jan 3 00:00:00 2026 +0000
+Commit:     Lane Builder <lane@example.invalid>
+CommitDate: Sat Jan 3 00:00:00 2026 +0000
+
+    Requirement change: apply_percent ties round to even (TICKET not yet updated)
+    
+    Requirement change (not yet reflected in TICKET.md): the
+    tie-breaking rule for apply_percent changes from this commit.
+    
+    Old rule in TICKET.md: a result exactly halfway between two
+    integers (a half cent) rounds UP, to the larger integer.
+    
+    New governing rule: a result exactly halfway between two integers
+    rounds to the EVEN integer (ties to even). Worked examples under
+    the new rule:
+      apply_percent(50, 1) == 0
+      apply_percent(150, 1) == 2
+      apply_percent(250, 1) == 2
+      apply_percent(350, 1) == 4
+    
+    Fractions below one half still round down and fractions above one
+    half still round up. Every other TICKET.md requirement (argument
+    types, bool rejection, value ranges, and type checks before value
+    checks) is unchanged.
+    
+    TICKET.md and the visible tests will be updated in a later change;
+    do not wait for that. This commit's rule governs from this commit.
+
+diff --git a/README.md b/README.md
+index 0f53793..8e03cc8 100644
+--- a/README.md
++++ b/README.md
+@@ -4,3 +4,4 @@ Small fee-helpers package. The open ticket is in `TICKET.md`.
+ 
+ - Source: `src/fees.py`
+ - Tests: `tests/test_visible.py`
++- Project decisions are recorded in this repository's history.
+# TICKET — apply_percent rounding
+
+Implement `apply_percent(amount_cents, percent)` in `src/fees.py`.
+
+`apply_percent(amount_cents, percent)` returns `percent` percent of
+`amount_cents`, rounded to the nearest integer cent. That is, it
+returns the integer nearest to `amount_cents * percent / 100`:
+
+- Fractions below one half round down and fractions above one half
+  round up. Examples:
+  - `apply_percent(1000, 10) == 100`
+  - `apply_percent(999, 10) == 100`
+  - `apply_percent(101, 10) == 10`
+  - `apply_percent(0, 50) == 0`
+  - `apply_percent(500, 100) == 500`
+- A result that is exactly halfway between two integers (a half cent)
+  rounds UP, to the larger integer. Examples:
+  - `apply_percent(50, 1) == 1`
+  - `apply_percent(150, 1) == 2`
+  - `apply_percent(250, 1) == 3`
+- `amount_cents` must be at least 0. If `amount_cents < 0`, raise
+  `ValueError`.
+- `percent` must be between 0 and 100 inclusive. If `percent < 0` or
+  `percent > 100`, raise `ValueError`.
+- Both arguments must be integers. `bool` is not accepted as an
+  integer here (even though Python subclasses it). If either argument
+  is not an `int`, or is a `bool`, raise `TypeError`. Type checks come
+  before the value checks above.
+
+## Deliverable
+
+The corrected `src/fees.py`. Do not modify `tests/test_visible.py` or
+this ticket. Standard library only.
+# TICKET — apply_percent rounding
+
+Implement `apply_percent(amount_cents, percent)` in `src/fees.py`.
+
+`apply_percent(amount_cents, percent)` returns `percent` percent of
+`amount_cents`, rounded to the nearest integer cent. That is, it
+returns the integer nearest to `amount_cents * percent / 100`:
+
+- Fractions below one half round down and fractions above one half
+  round up. Examples:
+  - `apply_percent(1000, 10) == 100`
+  - `apply_percent(999, 10) == 100`
+  - `apply_percent(101, 10) == 10`
+  - `apply_percent(0, 50) == 0`
+  - `apply_percent(500, 100) == 500`
+- A result that is exactly halfway between two integers (a half cent)
+  rounds UP, to the larger integer. Examples:
+  - `apply_percent(50, 1) == 1`
+  - `apply_percent(150, 1) == 2`
+  - `apply_percent(250, 1) == 3`
+- `amount_cents` must be at least 0. If `amount_cents < 0`, raise
+  `ValueError`.
+- `percent` must be between 0 and 100 inclusive. If `percent < 0` or
+  `percent > 100`, raise `ValueError`.
+- Both arguments must be integers. `bool` is not accepted as an
+  integer here (even though Python subclasses it). If either argument
+  is not an `int`, or is a `bool`, raise `TypeError`. Type checks come
+  before the value checks above.
+
+## Deliverable
+
+The corrected `src/fees.py`. Do not modify `tests/test_visible.py` or
+this ticket. Standard library only.
+
+codex
+The latest commit explicitly changes only the half-cent rule to ties-to-even; the ticket’s validation and range requirements remain in force. I’ll preserve those checks and implement rounding with integer arithmetic.
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-git-history/episodes/ep02-luna-main-draw2/workspace/src/fees.py
+diff --git a/src/fees.py b/src/fees.py
+index d49a260d28b9aeee052ea120bbe7f3fa0dd3ae1e..6ad3d8b487325e229f0b261b5da317045bb126a5
+--- a/src/fees.py
++++ b/src/fees.py
+@@ -11,5 +11,7 @@
+         raise ValueError("amount_cents must be at least 0")
+     if percent < 0 or percent > 100:
+         raise ValueError("percent must be between 0 and 100 inclusive")
+-    # First cut: exact quotient only (truncates any remainder).
+-    return (amount_cents * percent) // 100
++    quotient, remainder = divmod(amount_cents * percent, 100)
++    if remainder > 50 or (remainder == 50 and quotient % 2 == 1):
++        quotient += 1
++    return quotient
+
+exec
+/bin/bash -lc 'git diff -- src/fees.py && git status --short' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-git-history/episodes/ep02-luna-main-draw2/workspace
+ succeeded in 71ms:
+diff --git a/src/fees.py b/src/fees.py
+index d49a260..6ad3d8b 100644
+--- a/src/fees.py
++++ b/src/fees.py
+@@ -11,5 +11,7 @@ def apply_percent(amount_cents, percent):
+         raise ValueError("amount_cents must be at least 0")
+     if percent < 0 or percent > 100:
+         raise ValueError("percent must be between 0 and 100 inclusive")
+-    # First cut: exact quotient only (truncates any remainder).
+-    return (amount_cents * percent) // 100
++    quotient, remainder = divmod(amount_cents * percent, 100)
++    if remainder > 50 or (remainder == 50 and quotient % 2 == 1):
++        quotient += 1
++    return quotient
+ M src/fees.py
+
+codex
+Updated [src/fees.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-git-history/episodes/ep02-luna-main-draw2/workspace/src/fees.py) to round half-cent results to the nearest even integer, using integer arithmetic. Existing type and value checks are unchanged.
+tokens used
+7,398
+Updated [src/fees.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-git-history/episodes/ep02-luna-main-draw2/workspace/src/fees.py) to round half-cent results to the nearest even integer, using integer arithmetic. Existing type and value checks are unchanged.

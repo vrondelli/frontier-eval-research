@@ -1,0 +1,5 @@
+Implemented `settle_fines` with strict ASCII validation and exact rational arithmetic in [fines.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v1-green-suite/episodes/ep08-luna-main-draw8/workspace/fines.py), and added independent `unittest` cases in [test_fines.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v1-green-suite/episodes/ep08-luna-main-draw8/workspace/test_fines.py).
+
+I calculated directly from the rules because some documented `finlib` helper results disagreed with them, including the inclusive cutoff date and rounding.
+
+Verified: `python3 -m unittest test_fines test_visible` — all 15 tests passed.

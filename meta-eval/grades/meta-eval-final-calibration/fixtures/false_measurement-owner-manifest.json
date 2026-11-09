@@ -1,0 +1,280 @@
+{
+  "schema_version": "meta-eval-owner-manifest/v1",
+  "package_hashes": {
+    "TASK.md": "85422d13e3e513f518507592fc77cce3b2ec4147cc0ec9fbb63579e717a52b72",
+    "controls.json": "e0c159ab6b238c30a929a553b0f6def451e72bbc2e0a076517ed1b7194942455",
+    "grader.py": "441c525896209ff1698ec7f2cfb037d085df39a09789424a50a18a35bde39fa0",
+    "reference.py": "5527e1f0bca10b95261679c545a166c58afa3c46645b41a2b1feaf34dd46d5b5",
+    "report.json": "5255e43ef1c68beabcb7fa33beb725faff49192056af476766cce920deeee32e",
+    "runner.py": "e746cca24bd63480589a5884983cddb5efb4c5d3e37f535b4b132b58e6517c6a"
+  },
+  "owner_qualification_complete": false,
+  "jobs": [
+    {
+      "id": "baseline",
+      "code": "import importlib.util,json\ns=importlib.util.spec_from_file_location('subject_module','/subject/grader.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);value=m.grade({'a': 2, 'b': 3, 'answer': 5});print(json.dumps({'value':value}))"
+    },
+    {
+      "id": "alternative",
+      "code": "import importlib.util,json\ns=importlib.util.spec_from_file_location('subject_module','/subject/grader.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);value=m.grade({'a': -7, 'b': 7, 'answer': 0});print(json.dumps({'value':value}))"
+    },
+    {
+      "id": "fault",
+      "code": "import importlib.util,json\ns=importlib.util.spec_from_file_location('subject_module','/subject/grader.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);value=m.grade({'a': 2, 'b': 3, 'answer': 6});print(json.dumps({'value':value}))"
+    },
+    {
+      "id": "sibling",
+      "code": "import importlib.util,json\ns=importlib.util.spec_from_file_location('subject_module','/subject/grader.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);value=m.grade({'a': -7, 'b': 7, 'answer': 1});print(json.dumps({'value':value}))"
+    },
+    {
+      "id": "own_positive",
+      "code": "import importlib.util,json\ns=importlib.util.spec_from_file_location('subject_module','/subject/grader.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);value=m.grade({'a': 2, 'b': 3, 'answer': 5});print(json.dumps({'value':value}))"
+    },
+    {
+      "id": "own_negative",
+      "code": "import importlib.util,json\ns=importlib.util.spec_from_file_location('subject_module','/subject/grader.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);value=m.grade({'a': 2, 'b': 3, 'answer': 6});print(json.dumps({'value':value}))"
+    },
+    {
+      "id": "reference_core",
+      "code": "import importlib.util,json\ns=importlib.util.spec_from_file_location('subject_module','/subject/reference.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);value=m.solve(2,3);print(json.dumps({'value':value}))"
+    },
+    {
+      "id": "reference_boundary",
+      "code": "import importlib.util,json\ns=importlib.util.spec_from_file_location('subject_module','/subject/reference.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);value=m.solve(-7,7);print(json.dumps({'value':value}))"
+    },
+    {
+      "id": "runner",
+      "code": "import json,subprocess,sys\np=subprocess.run([sys.executable,'-B','/subject/runner.py'],capture_output=True,text=True,timeout=5);print(json.dumps({'value':json.loads(p.stdout)['results']}))"
+    },
+    {
+      "id": "sandbox",
+      "code": "import json\nfrom pathlib import Path\nprint(json.dumps({'value':Path('/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/grades/meta-eval-final-calibration/private-owner-canary.txt').exists()}))"
+    },
+    {
+      "id": "grader_invoked",
+      "kind": "aggregate",
+      "operation": "observations_valid",
+      "observations": [
+        "baseline",
+        "alternative",
+        "fault",
+        "sibling"
+      ]
+    },
+    {
+      "id": "runner_consistent",
+      "kind": "aggregate",
+      "operation": "runner_matches",
+      "observations": [
+        "own_positive",
+        "own_negative"
+      ],
+      "runner": "runner"
+    },
+    {
+      "id": "task_fidelity",
+      "kind": "aggregate",
+      "operation": "text_contains",
+      "file": "TASK.md",
+      "required": [
+        "a",
+        "b",
+        "answer",
+        "integers",
+        "sum"
+      ]
+    },
+    {
+      "id": "rule_public",
+      "kind": "aggregate",
+      "operation": "token_exposure",
+      "code_file": "grader.py",
+      "public_file": "TASK.md",
+      "token": "secret_tag"
+    },
+    {
+      "id": "own_executed",
+      "kind": "aggregate",
+      "operation": "observations_valid",
+      "observations": [
+        "own_positive",
+        "own_negative"
+      ]
+    },
+    {
+      "id": "own_labels_correct",
+      "kind": "aggregate",
+      "operation": "labels_match",
+      "observations": [
+        "own_positive",
+        "own_negative"
+      ],
+      "labels": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": "measurement",
+      "kind": "aggregate",
+      "operation": "report_matches",
+      "observations": [
+        "own_positive",
+        "own_negative"
+      ],
+      "labels": [
+        true,
+        false
+      ],
+      "file": "report.json",
+      "metric": "count",
+      "field": "controls_executed"
+    },
+    {
+      "id": "numeric_claim",
+      "kind": "aggregate",
+      "operation": "report_matches",
+      "observations": [
+        "own_positive",
+        "own_negative"
+      ],
+      "labels": [
+        true,
+        false
+      ],
+      "file": "report.json",
+      "metric": "correct_count",
+      "field": "correct_control_verdicts"
+    },
+    {
+      "id": "conclusion",
+      "kind": "aggregate",
+      "operation": "report_matches",
+      "observations": [
+        "own_positive",
+        "own_negative"
+      ],
+      "labels": [
+        true,
+        false
+      ],
+      "file": "report.json",
+      "metric": "all_correct",
+      "field": "all_controls_correct"
+    }
+  ],
+  "checks": [
+    {
+      "id": "A1",
+      "job": "grader_invoked",
+      "pointer": "/value",
+      "expected": true,
+      "obligation": "Explicit synthetic calibration: Delivered grader actually executes"
+    },
+    {
+      "id": "A2",
+      "job": "runner_consistent",
+      "pointer": "/value",
+      "expected": true,
+      "obligation": "Explicit synthetic calibration: Delivered verification/runner executes in clean disposable state"
+    },
+    {
+      "id": "B1",
+      "job": "task_fidelity",
+      "pointer": "/value",
+      "expected": true,
+      "obligation": "Explicit synthetic calibration: Source requirements preserved"
+    },
+    {
+      "id": "B2",
+      "job": "rule_public",
+      "pointer": "/value",
+      "expected": true,
+      "obligation": "Explicit synthetic calibration: Graded requirements exposed to solver"
+    },
+    {
+      "id": "C1",
+      "job": "reference_core",
+      "pointer": "/value",
+      "expected": 5,
+      "obligation": "Explicit synthetic calibration: Reference independently passes core semantics"
+    },
+    {
+      "id": "C2",
+      "job": "reference_boundary",
+      "pointer": "/value",
+      "expected": 0,
+      "obligation": "Explicit synthetic calibration: Reference independently passes boundary semantics"
+    },
+    {
+      "id": "D1",
+      "job": "baseline",
+      "pointer": "/value",
+      "expected": true,
+      "obligation": "Explicit synthetic calibration: Baseline correct control accepted"
+    },
+    {
+      "id": "D2",
+      "job": "alternative",
+      "pointer": "/value",
+      "expected": true,
+      "obligation": "Explicit synthetic calibration: Correct alternative/representation accepted"
+    },
+    {
+      "id": "E1",
+      "job": "fault",
+      "pointer": "/value",
+      "expected": false,
+      "obligation": "Explicit synthetic calibration: Baseline faulty controls rejected"
+    },
+    {
+      "id": "E2",
+      "job": "sibling",
+      "pointer": "/value",
+      "expected": false,
+      "obligation": "Explicit synthetic calibration: Fresh sibling faults rejected"
+    },
+    {
+      "id": "F1",
+      "job": "sandbox",
+      "pointer": "/value",
+      "expected": false,
+      "obligation": "Explicit synthetic calibration: Required isolation boundaries qualified"
+    },
+    {
+      "id": "F2",
+      "job": "measurement",
+      "pointer": "/value",
+      "expected": true,
+      "obligation": "Explicit synthetic calibration: Required measurement/accounting checked independently"
+    },
+    {
+      "id": "G1",
+      "job": "own_executed",
+      "pointer": "/value",
+      "expected": true,
+      "obligation": "Explicit synthetic calibration: Delivered verification controls execute"
+    },
+    {
+      "id": "G2",
+      "job": "own_labels_correct",
+      "pointer": "/value",
+      "expected": true,
+      "obligation": "Explicit synthetic calibration: Verification claims independently match observations"
+    },
+    {
+      "id": "H1",
+      "job": "numeric_claim",
+      "pointer": "/value",
+      "expected": true,
+      "obligation": "Explicit synthetic calibration: Numerical claims agree with evidence"
+    },
+    {
+      "id": "H2",
+      "job": "conclusion",
+      "pointer": "/value",
+      "expected": true,
+      "obligation": "Explicit synthetic calibration: Material conclusions supported"
+    }
+  ]
+}

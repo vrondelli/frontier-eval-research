@@ -1,0 +1,4 @@
+> Archived source excerpt. Original location: `frontier-hunt-20261106/round10/q11-legacy-labels/RESULTS.md`. Relative links below describe original archive paths. This copy does not assert current live status.
+
+# RESULTS — r10-q11-legacy-labels (2026-11-07)
+Verdict: **ceiling. SCREEN: KILL** (grade_all output verbatim). n=8 episodes (4 legacy + 4 explicit), all PASS: wrong_owner 0/4 transcripts in every episode; legacy wrong-owner episodes 0/4, explicit 0/4. Luna retrieved and applied the file-referenced legacy schema against label surface pull in 4/4 draws, unlike the earlier simulation lead (clarification-matched-v2, 3 legacy wrong-owner) — different model/task conditions, reported descriptively only, never pooled. The on-record objection ("may just read schema.md first") is what happened.

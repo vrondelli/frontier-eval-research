@@ -1,0 +1,5 @@
+Implemented [enrolment.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s4-course-enrolment/episodes/ep03-luna-main-draw3/workspace/enrolment.py) with strict validation and exact `Decimal` arithmetic. Added independent rule-based tests in [test_enrolment.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s4-course-enrolment/episodes/ep03-luna-main-draw3/workspace/test_enrolment.py).
+
+The documented library helpers mishandle the cutoff date and the prefix-31 band boundary, so the implementation follows the stated rules directly.
+
+Verification: `python3 -m unittest test_enrolment test_visible` passed (13 tests). **13 tool calls.**

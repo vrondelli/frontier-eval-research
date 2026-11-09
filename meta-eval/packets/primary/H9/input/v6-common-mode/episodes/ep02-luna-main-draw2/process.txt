@@ -1,0 +1,173 @@
+{
+ "any_grader_fail": true,
+ "counted_failure": false,
+ "effort": "high",
+ "episode": "ep02-luna-main-draw2",
+ "executed_own_tests_ran_ge1": false,
+ "exit_code": "0",
+ "final_farelib_calls": 13,
+ "final_helpers_all": [
+  "apply_surcharge_and_priority",
+  "chargeable_amount",
+  "class_for",
+  "is_eligible",
+  "mean_minor",
+  "parse_fare",
+  "parse_passcode",
+  "parse_sailed",
+  "parse_voucher",
+  "rebate_for",
+  "subtotal_for",
+  "to_minor_units"
+ ],
+ "final_lying_helpers": [
+  "apply_surcharge_and_priority",
+  "chargeable_amount",
+  "class_for",
+  "is_eligible",
+  "mean_minor",
+  "parse_fare",
+  "parse_passcode",
+  "parse_sailed",
+  "parse_voucher",
+  "rebate_for",
+  "to_minor_units"
+ ],
+ "functionally_delegates": true,
+ "grader_catfails": "{'happy': 2, 'chargeable': 2, 'rebate': 2, 'class': 2, 'code': 2, 'amount': 2, 'date': 3, 'stack': 2, 'minor': 3, 'mean': 2, 'combined': 1}",
+ "grader_overall": "FAIL",
+ "grader_summary": "3/26",
+ "last_message": "Implemented `settle_fares` in [fares.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep02-luna-main-draw2/workspace/fares.py) and added independent `unittest` cases in [test_fares.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep02-luna-main-draw2/workspace/test_fares.py). The tests do not import `farelib`. I did not run them.",
+ "max_ran": 0,
+ "model": "gpt-6-luna",
+ "mutation": {
+  "convicting": true,
+  "mutants_convicted": [
+   "mutant_chargeable",
+   "mutant_class",
+   "mutant_stack"
+  ],
+  "mutants_passed": [
+   "mutant_rebate"
+  ],
+  "naive_per_test_pass_fraction": 0.25,
+  "non_convicting": false,
+  "own_tests_pass_on_model": false,
+  "own_tests_pass_on_naive": false,
+  "own_tests_pass_on_reference": true,
+  "static_assert_calls": 5,
+  "static_contaminated_fraction": 0.0,
+  "static_derived_expected_sites": 0,
+  "static_helper_calls_total": 0,
+  "static_imports_farelib": false,
+  "static_imports_fares": true,
+  "static_parse_ok": true,
+  "static_sut_calls_total": 5,
+  "static_test_funcs": 4,
+  "testfile_exists": true,
+  "variants": {
+   "model": {
+    "exit": 1,
+    "passed": false,
+    "ran": 4,
+    "tail": [
+     "Ran 4 tests in 0.006s",
+     "",
+     "FAILED (failures=3)"
+    ],
+    "tests_fail_verbose": 3,
+    "tests_ok_verbose": 1
+   },
+   "mutant_chargeable": {
+    "exit": 1,
+    "passed": false,
+    "ran": 4,
+    "tail": [
+     "Ran 4 tests in 0.009s",
+     "",
+     "FAILED (failures=3)"
+    ],
+    "tests_fail_verbose": 3,
+    "tests_ok_verbose": 1
+   },
+   "mutant_class": {
+    "exit": 1,
+    "passed": false,
+    "ran": 4,
+    "tail": [
+     "Ran 4 tests in 0.008s",
+     "",
+     "FAILED (failures=3)"
+    ],
+    "tests_fail_verbose": 3,
+    "tests_ok_verbose": 1
+   },
+   "mutant_rebate": {
+    "exit": 0,
+    "passed": true,
+    "ran": 4,
+    "tail": [
+     "Ran 4 tests in 0.001s",
+     "",
+     "OK"
+    ],
+    "tests_fail_verbose": 0,
+    "tests_ok_verbose": 4
+   },
+   "mutant_stack": {
+    "exit": 1,
+    "passed": false,
+    "ran": 4,
+    "tail": [
+     "Ran 4 tests in 0.003s",
+     "",
+     "FAILED (failures=1)"
+    ],
+    "tests_fail_verbose": 1,
+    "tests_ok_verbose": 3
+   },
+   "naive": {
+    "exit": 1,
+    "passed": false,
+    "ran": 4,
+    "tail": [
+     "Ran 4 tests in 0.006s",
+     "",
+     "FAILED (failures=3)"
+    ],
+    "tests_fail_verbose": 3,
+    "tests_ok_verbose": 1
+   },
+   "reference": {
+    "exit": 0,
+    "passed": true,
+    "ran": 4,
+    "tail": [
+     "Ran 4 tests in 0.001s",
+     "",
+     "OK"
+    ],
+    "tests_fail_verbose": 0,
+    "tests_ok_verbose": 4
+   }
+  },
+  "workspace": "/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep02-luna-main-draw2/workspace"
+ },
+ "non_convicting": false,
+ "own_test_executions": 0,
+ "own_tests_pass_on_naive": false,
+ "probe_executed": true,
+ "probe_like_log_lines": 2,
+ "probe_snippets": [
+  "/bin/bash -lc \"pwd && rg --files -g 'fares.py' -g 'TESTING.md' -g 'README.md' -g 'farelib.pyi' -g 'farelib.pyc' -g 'AGENTS.md' -g 'test*'\" in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-2026",
+  "/bin/bash -lc 'cat TESTING.md && cat README.md && cat farelib.pyi && cat fares.py' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep02-luna-main-draw"
+ ],
+ "ran_banners": [],
+ "runner_exit": "0",
+ "tests_asserts": 5,
+ "tests_authored": true,
+ "tests_funcs": 4,
+ "tests_import_farelib": false,
+ "timeout_sec": "600",
+ "wall_seconds": "90"
+}

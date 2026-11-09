@@ -1,0 +1,3 @@
+Implemented `settle_fares` in [fares.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep01-luna-main-draw1/workspace/fares.py) and added independent standard-library tests in [test_fares.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep01-luna-main-draw1/workspace/test_fares.py).
+
+The implementation uses exact `Fraction` arithmetic and applies the supplied business rules directly; some installed `farelib` helper behavior conflicts with those rules. All five tests pass with `python3 -m unittest -v test_fares.py`.

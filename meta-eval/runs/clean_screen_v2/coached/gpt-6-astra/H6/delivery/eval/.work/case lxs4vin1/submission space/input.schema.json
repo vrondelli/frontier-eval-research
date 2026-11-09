@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "adjustment_sheets"
+  ],
+  "properties": {
+    "adjustment_sheets": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "minLength": 1
+      },
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "stat",
+              "turns"
+            ],
+            "properties": {
+              "stat": {
+                "const": "net_units"
+              },
+              "turns": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "stat",
+              "turns"
+            ],
+            "properties": {
+              "stat": {
+                "const": "event_count"
+              },
+              "turns": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "stat",
+              "turns"
+            ],
+            "properties": {
+              "stat": {
+                "const": "largest_adjustment"
+              },
+              "turns": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "minItems": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}

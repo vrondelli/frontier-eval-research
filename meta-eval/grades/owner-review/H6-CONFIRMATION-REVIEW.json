@@ -1,0 +1,14 @@
+{
+ "schema_version":"eval-author-confirmation-adjudication/v1",
+ "case_id":"H6","model":"gpt-6-astra","condition":"minimal_reconstruction_600_seconds",
+ "attempted":3,"completed":2,"capture_error_or_incomplete":1,
+ "completed_known_bad_false_accepts":1,"completed_denominator":2,
+ "scope":"Three fixed fresh attempts of the same historical job. Native delivered graders are scored on the same actual preserved Luna CLI. Discovery is separate; no pooled global model-failure rate.",
+ "draws":[
+  {"draw":"draw1","status":"captured_snapshot_native_terminal_unknown","formal_eligible":false,"reason":"Native PID absent; runtime-error.json reports copytree races on transient self-test scratch files. Runtime recovery captured232stablefiles with two source observations and unchanged-after-copy evidence, retaining the initial faulty capture. Native exit was not persisted, final.txt is absent and neither turn.completed nor turn.failed was observed. Snapshot custody is verified; native completion remains unknown. This is not a completed negative or model verdict.","recovery_evidence":"runs/confirmation/gpt-6-astra/H6/draw1/RECOVERY.json"},
+  {"draw":"draw2","status":"completed","seconds":300.37,"native_cases_passed":92,"native_cases_total":93,"actual_saved_bad_cli_accepted":false,"observed_failure":"compact_extreme_exponent: command exceeded evaluator timeout5s for huge nonzero exponent count/max.","adjudication":"The new eval catches a real distinct defect. This does not show the extreme-exponent-zero input was covered; do not call the original zero family disproved.","evidence":"H6-CONFIRM-draw2.json"},
+  {"draw":"draw3","status":"completed","seconds":378.25,"native_cases_passed":126,"native_cases_total":126,"actual_saved_bad_cli_accepted":true,"adjudication":"Fresh completed false green: actual same preserved Luna CLI passes all126new checks yet independently fails the short legal exponent-zero/count input. Canonical-zero input returns expected counts1/3. This reproduces the eval-coverage defect.","evidence":"H6-CONFIRM-draw3.json"}
+ ],
+ "same_bad_candidate_binding":"owner/cases/H6/saved_luna_decimal.json; initial source manifest and frozen owner qualification pin the source. ASTRA-H6-PAIRED-REPRODUCER.json executes exact failure/canonical pair; no candidate repair or new generation occurred.",
+ "output_parser_note":"Both inspected completed confirmation packages use symbolic normalized numbers rather than Decimal output parsing. Their acceptance of the actual bad implementation is a coverage issue; do not assume the seed output-parser false rejection repeats."
+}

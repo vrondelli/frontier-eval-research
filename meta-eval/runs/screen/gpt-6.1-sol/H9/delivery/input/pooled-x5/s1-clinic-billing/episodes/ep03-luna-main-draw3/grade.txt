@@ -1,0 +1,31 @@
+PASS happy_basic [happy]
+PASS empty_batch [happy]
+PASS all_excluded [happy]
+PASS billable_ceil_a [billable]
+PASS billable_ceil_b [billable]
+PASS discount_cap [discount]
+PASS discount_cap_b [discount]
+PASS tier_edges_low [tier]
+PASS tier_edges_high [tier]
+PASS code_lenient [code]
+PASS code_forms [code]
+PASS amount_lenient [amount]
+PASS amount_values [amount]
+PASS date_boundary [date]
+PASS date_lenient [date]
+PASS date_forms [date]
+PASS premium_stack [stack]
+PASS premium_stack_heavy [stack]
+PASS minor_tie_pos [minor]
+PASS minor_tie_neg [minor]
+PASS minor_nontie [minor]
+PASS credit_neg [minor]
+PASS mean_tie_pos [mean]
+PASS mean_tie_neg [mean]
+PASS mean_nontie [mean]
+PASS combined [combined]
+TESTFILE exists=True
+TESTFILE imports_clinlib=False chars=3943
+SUMMARY 26/26 pass; fails=[]; catfails={}
+OVERALL PASS
+grader_exit=0

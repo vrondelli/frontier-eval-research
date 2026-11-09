@@ -1,0 +1,5 @@
+Implemented strict validation and exact rational arithmetic in [picking.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s3-warehouse-picking/episodes/ep06-luna-main-draw6/workspace/picking.py), and added independent `unittest` coverage in [test_picking.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s3-warehouse-picking/episodes/ep06-luna-main-draw6/workspace/test_picking.py).
+
+The documented `picklib` helpers contradicted the required validation and calculation rules, so the implementation follows the task’s rules directly.
+
+Verification: `python3 -m unittest test_picking test_visible` passed (16 tests). **Tool calls: 13.**

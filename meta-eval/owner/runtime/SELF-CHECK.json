@@ -1,0 +1,125 @@
+{
+  "status": "scored",
+  "adapter_condition": true,
+  "owner_cli_mapping": null,
+  "formal_eligible": false,
+  "formal_eligibility_reason": "Instruction provenance and human semantic review require separate qualification",
+  "owner_bank_isolation": "unisolated_diagnostic",
+  "nested_scored_candidate_isolation": "not_exercised_by_JSON_adapter",
+  "package_before": {
+    "grade.py": "aa748b080d32ba75104470590aa4f26f1154e77de8d931e1776051d3068d0eaf"
+  },
+  "package_unchanged": true,
+  "checks": [
+    {
+      "case_id": "H8",
+      "control": "owner\\audit_cases\\H8\\control-01.json",
+      "control_sha256": "982170f263f1e120061f30a23f322740a0edc838d7ca018f686dbdaa7099d1ea",
+      "expected_pass": true,
+      "actual_pass": true,
+      "valid": true,
+      "correct": true,
+      "parse_error": null,
+      "command": [
+        "C:\\Users\\vlad_\\AppData\\Roaming\\uv\\python\\cpython-3.12.12-windows-x86_64-none\\python.exe",
+        "grade.py",
+        "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-rpnx4uvt\\case.json"
+      ],
+      "cwd": "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-rpnx4uvt\\subject",
+      "status": "completed",
+      "exit_code": 0,
+      "seconds": 0.22693419456481934,
+      "stdout": "{\"pass\": true, \"reason\": \"independent exact source-derived check\"}\n",
+      "stderr": ""
+    },
+    {
+      "case_id": "H8",
+      "control": "owner\\audit_cases\\H8\\control-02.json",
+      "control_sha256": "b881f4ef7b0f15bc91a1f9566867ff97e8520426f2e968d0cf4839b21b029a26",
+      "expected_pass": true,
+      "actual_pass": true,
+      "valid": true,
+      "correct": true,
+      "parse_error": null,
+      "command": [
+        "C:\\Users\\vlad_\\AppData\\Roaming\\uv\\python\\cpython-3.12.12-windows-x86_64-none\\python.exe",
+        "grade.py",
+        "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-qoy4pruj\\case.json"
+      ],
+      "cwd": "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-qoy4pruj\\subject",
+      "status": "completed",
+      "exit_code": 0,
+      "seconds": 0.22748470306396484,
+      "stdout": "{\"pass\": true, \"reason\": \"independent exact source-derived check\"}\n",
+      "stderr": ""
+    },
+    {
+      "case_id": "H8",
+      "control": "owner\\audit_cases\\H8\\control-03.json",
+      "control_sha256": "72046385c017f2370937989dbdabb83146b6a6dba94a7c305be9143b72d31b16",
+      "expected_pass": false,
+      "actual_pass": false,
+      "valid": true,
+      "correct": true,
+      "parse_error": null,
+      "command": [
+        "C:\\Users\\vlad_\\AppData\\Roaming\\uv\\python\\cpython-3.12.12-windows-x86_64-none\\python.exe",
+        "grade.py",
+        "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-l43wtp77\\case.json"
+      ],
+      "cwd": "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-l43wtp77\\subject",
+      "status": "completed",
+      "exit_code": 0,
+      "seconds": 0.20793819427490234,
+      "stdout": "{\"pass\": false, \"reason\": \"independent exact source-derived check\"}\n",
+      "stderr": ""
+    },
+    {
+      "case_id": "H8",
+      "control": "owner\\audit_cases\\H8\\control-04.json",
+      "control_sha256": "4b1b0a053a40fbedea600f9c974b64abce6fbe3f549498eab8b8c9a06c8c0813",
+      "expected_pass": false,
+      "actual_pass": false,
+      "valid": true,
+      "correct": true,
+      "parse_error": null,
+      "command": [
+        "C:\\Users\\vlad_\\AppData\\Roaming\\uv\\python\\cpython-3.12.12-windows-x86_64-none\\python.exe",
+        "grade.py",
+        "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-jx0in6e9\\case.json"
+      ],
+      "cwd": "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-jx0in6e9\\subject",
+      "status": "completed",
+      "exit_code": 0,
+      "seconds": 0.3568916320800781,
+      "stdout": "{\"pass\": false, \"reason\": \"independent exact source-derived check\"}\n",
+      "stderr": ""
+    },
+    {
+      "case_id": "H8",
+      "control": "owner\\audit_cases\\H8\\control-05.json",
+      "control_sha256": "d9ccc998b9c6078d582e74001b65437c76b6111ca500cef9bf0e1a30d0c48406",
+      "expected_pass": false,
+      "actual_pass": false,
+      "valid": true,
+      "correct": true,
+      "parse_error": null,
+      "command": [
+        "C:\\Users\\vlad_\\AppData\\Roaming\\uv\\python\\cpython-3.12.12-windows-x86_64-none\\python.exe",
+        "grade.py",
+        "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-etoni1x6\\case.json"
+      ],
+      "cwd": "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-etoni1x6\\subject",
+      "status": "completed",
+      "exit_code": 0,
+      "seconds": 0.20172810554504395,
+      "stdout": "{\"pass\": false, \"reason\": \"independent exact source-derived check\"}\n",
+      "stderr": ""
+    }
+  ],
+  "total": 5,
+  "correct": 5,
+  "false_accepts": 0,
+  "false_rejects": 0,
+  "invalid": 0
+}

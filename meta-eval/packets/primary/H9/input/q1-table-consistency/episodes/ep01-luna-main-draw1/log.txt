@@ -1,0 +1,345 @@
+OpenAI Codex v0.167.0
+--------
+workdir: /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/q1-table-consistency/episodes/ep01-luna-main-draw1/workspace
+model: gpt-6-luna
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: high
+reasoning summaries: none
+session id: 01a1b6d6-95d2-7053-8f77-03b2188cd8f4
+--------
+user
+You are working in a workspace containing a scoring task. Use the available tools.
+
+The workspace root contains `anchors.md`, a folder `cases/` with 16 case files (`c01.md` through `c16.md`), and `scores_template.csv`. Each case file contains one Problem and one Candidate answer.
+
+TASK: Score all 16 candidate answers and write the results to a new file `scores.csv` in the workspace root.
+
+Read `anchors.md` in full first. Scores follow the mapping table in `anchors.md`: extract the listed features for each case, then assign the ordinal the table gives for those features.
+
+For each case, extract exactly the six features defined in `anchors.md` from that case's own text, record the evidence entry `anchors.md` requires for each feature, and assign the score the mapping table in `anchors.md` gives for the features you extracted.
+
+Write `scores.csv` using exactly the header and column order in `scores_template.csv`, with exactly 16 data rows, one for each case `c01` through `c16`, each exactly once.
+
+Do not modify `anchors.md`, any file in `cases/`, or `scores_template.csv`.
+
+Deliverable: the completed `scores.csv` in the workspace root.
+
+codex
+I’ll read the scoring anchors in full first, then inspect the template and all 16 cases to fill `scores.csv` in the required format.
+exec
+/bin/bash -lc 'cat anchors.md' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/q1-table-consistency/episodes/ep01-luna-main-draw1/workspace
+ succeeded in 0ms:
+# Scoring anchors (authoritative)
+
+Each case file in `cases/` contains one Problem and one Candidate answer. Score every candidate answer using only this file.
+
+## Features
+
+Extract exactly these six features from the candidate answer in each case file. Judge each feature only from the text of that case file.
+
+- `f_core` (0, 1, or 2): 2 means the answer states a complete construction or procedure that addresses every constraint stated in the Problem. 1 means the answer states a partial construction or procedure that addresses some but not all of the stated constraints, or leaves part of the construction unspecified. 0 means the answer states no construction or procedure at all.
+- `f_check` (0 or 1): 1 means the answer reports a check actually applied to its own proposal, with an outcome stated as a specific value or observed result. A check that is only proposed for the future counts as `f_next`, not `f_check`. A generic assurance that the proposal works, with no applied check and no stated outcome, is `f_check`=0.
+- `f_compare` (0 or 1): 1 means the answer compares at least two alternatives and gives a reason for choosing one over another. Merely naming two alternatives with no reason for the choice is `f_compare`=0.
+- `f_contra` (0 or 1): 1 means the answer states or uses something that contradicts a constraint explicitly stated in the Problem (for example using a material, tool, or method the Problem excludes). Otherwise `f_contra`=0.
+- `f_limit` (0 or 1): 1 means the answer states a limitation of its proposal or a condition under which the proposal fails. Merely leaving part of the work unfinished is not a limitation statement, so it is `f_limit`=0 by itself.
+- `f_next` (0 or 1): 1 means the answer proposes a specific next step or future test, naming what would be done. A generic intention such as planning to think more about it, with no specific step named, is `f_next`=0.
+
+## Mapping table (authoritative)
+
+Scores follow the mapping table in this file: extract the listed features for each case, then assign the ordinal the table gives for those features.
+
+Apply the rows top to bottom; the first matching row gives the score. The table is deterministic and complete: every possible feature combination matches exactly one row by this first-match rule. Do not average features, do not add points, and do not adjust the table result for overall impression, length, fluency, or apparent quality. The score is an ordinal from 0 to 3.
+
+| Row | Condition on the extracted features | Score |
+|---|---|---|
+| 1 | `f_contra`=1 and `f_core`=0 | 0 |
+| 2 | `f_contra`=1 and `f_core`>=1 | 1 |
+| 3 | `f_core`=0 | 0 |
+| 4 | `f_core`=2 and `f_check`=1 and `f_compare`=1 | 3 |
+| 5 | `f_core`=2 and `f_check`=1 and `f_compare`=0 and `f_limit`=1 | 3 |
+| 6 | `f_core`=2 and `f_check`=1 | 2 |
+| 7 | `f_core`=2 and `f_check`=0 and `f_next`=1 | 2 |
+| 8 | `f_core`=2 and `f_check`=0 | 1 |
+| 9 | `f_core`=1 and `f_check`=1 | 2 |
+| 10 | `f_core`=1 and (`f_compare`=1 or `f_limit`=1 or `f_next`=1) | 1 |
+| 11 | `f_core`=1 | 0 |
+
+## Evidence quotes
+
+For every feature, give one evidence entry. When a feature records a presence (`f_core` 1 or 2, or any other feature equal to 1), the evidence entry must be a verbatim quote of at least four words copied exactly from that case file. When a feature records an absence (`f_core`=0, or any other feature equal to 0), the evidence entry must be exactly the single word `ABSENT`.
+
+## Output
+
+Write one row per case to `scores.csv` in the workspace root, using exactly the header and column order in `scores_template.csv`. There must be exactly 16 data rows, one for each case `c01` through `c16`, each exactly once. Feature values and the score must be plain integers in the ranges stated above.
+
+exec
+/bin/bash -lc "cat scores_template.csv && for f in cases/c*.md; do printf '\\n--- %s ---\\n' \""'$f"; cat "$f"; done' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/q1-table-consistency/episodes/ep01-luna-main-draw1/workspace
+ succeeded in 121ms:
+case_id,f_core,f_check,f_compare,f_contra,f_limit,f_next,score,ev_core,ev_check,ev_compare,ev_contra,ev_limit,ev_next
+c01,,,,,,,,,,,,,
+c02,,,,,,,,,,,,,
+c03,,,,,,,,,,,,,
+c04,,,,,,,,,,,,,
+c05,,,,,,,,,,,,,
+c06,,,,,,,,,,,,,
+c07,,,,,,,,,,,,,
+c08,,,,,,,,,,,,,
+c09,,,,,,,,,,,,,
+c10,,,,,,,,,,,,,
+c11,,,,,,,,,,,,,
+c12,,,,,,,,,,,,,
+c13,,,,,,,,,,,,,
+c14,,,,,,,,,,,,,
+c15,,,,,,,,,,,,,
+c16,,,,,,,,,,,,,
+
+--- cases/c01.md ---
+# Case c01 - Footbridge over a stream
+
+Problem: Cross a stream 6 metres wide carrying a 100 kilogram load. You may use only timber planks and rope. No support may be placed in the middle of the stream.
+
+Candidate answer:
+Lay two timber planks side by side across the full 6 metre span and lash them together with rope at both banks and at the centre, forming one rigid double beam with no support in the stream. I checked the beam by placing 100 kilograms of sandbags at midspan, and the centre sagged by only 4 centimetres, so it held the required load. A single plank would bend far more than the lashed pair, so I choose the double beam over a single plank because the pair shares the load across both planks.
+
+--- cases/c02.md ---
+# Case c02 - Rainwater tank overflow
+
+Problem: A rainwater tank must never rise above its marked line, using only a hose, a bucket, and gravity. No pump may be used.
+
+Candidate answer:
+Run the hose from an outlet exactly at the marked line over the tank rim and down into the bucket on the ground, so water above the line siphons out by gravity and the level can never pass the line. I filled the tank past the line with 20 litres of extra water to test it, and the level fell back to the line within two minutes.
+
+--- cases/c03.md ---
+# Case c03 - Mine hoist counterweight
+
+Problem: Raise a 60 kilogram ore bucket up a 10 metre shaft with one person pulling, using a rope, one pulley, and sacks of stones.
+
+Candidate answer:
+Hang the rope over the pulley at the shaft top, tie the ore bucket to one end and a sack holding 55 kilograms of stones to the other, so the person only pulls the 5 kilogram difference to raise the bucket the full 10 metres. I worked out the pull needed as 60 minus 55 and confirmed with a spring scale that the pull measured 5 kilograms at the start of the lift. This arrangement fails if the rope stretches enough for the stone sack to rest on the shaft floor before the bucket reaches the top.
+
+--- cases/c04.md ---
+# Case c04 - Warehouse sorting chute
+
+Problem: Sort round fruit so that fruit wider than 8 centimetres goes to the right bin and smaller fruit goes to the left bin, using boards and gravity only.
+
+Candidate answer:
+Build a sloping chute whose floor is two boards separated by a slot that widens from 5 centimetres at the top to 8 centimetres at the bottom, so each fruit rolls down and drops through the slot into the left bin as soon as the slot exceeds its width, while fruit wider than 8 centimetres rolls off the end into the right bin. A fixed 8 centimetre gap would jam fruit that is nearly 8 centimetres wide, so I choose the widening slot over a fixed gap because borderline fruit settles before it can jam. The chute will mis-sort fruit that is badly out of round, because such fruit can bridge the slot on its long side. This design will obviously sort every round fruit correctly, so its correctness is clear from the geometry.
+
+--- cases/c05.md ---
+# Case c05 - Cooling a hot lamp
+
+Problem: Keep a lamp housing cool enough to touch, using only aluminium sheet, screws, and air. No fan may be used.
+
+Candidate answer:
+Cut the aluminium sheet into six fins and screw them upright around the lamp housing so heat spreads into the fins and rising air carries it away from all six surfaces. As a next step, I would run the lamp for ten minutes and measure the housing temperature with a thermometer, and if it exceeds 50 degrees I would add two more fins.
+
+--- cases/c06.md ---
+# Case c06 - Gear train for a clock hand
+
+Problem: Make a clock hand turn exactly once while a motor shaft turns 60 times, using gears with 10, 20, 30, or 40 teeth.
+
+Candidate answer:
+Put a 10 tooth gear on the motor shaft driving a 40 tooth gear, which gives the first stage of the reduction toward one turn in 60. The remaining stage between the 40 tooth gear and the hand is not specified yet, so the full train to the hand is still incomplete. I counted the first stage by turning the motor gear 4 full turns and observed the 40 tooth gear turn exactly once, matching the 4 to 1 ratio.
+
+--- cases/c07.md ---
+# Case c07 - Irrigation for three fields
+
+Problem: Carry water by gravity from one hill pond to three fields below it, using open channels dug in soil. Every field must receive water.
+
+Candidate answer:
+Dig the main channel from the pond down to the first field and branch a second channel from it to the second field. For the first field I choose the straight downslope channel over a longer channel along the contour because the straight channel loses less water to soaking on the way. I have not yet routed any channel to the third field.
+
+--- cases/c08.md ---
+# Case c08 - Lifting a heavy stone
+
+Problem: Lift one edge of a 200 kilogram stone high enough to slide a board under it, using one wooden pole and one small rock.
+
+Candidate answer:
+Use the pole as a lever with the small rock somewhere under it and push down on the long end to raise the stone edge. I have not worked out where the rock goes or how long the pole must be.
+
+--- cases/c09.md ---
+# Case c09 - Crate across a frozen pond
+
+Problem: Move a 150 kilogram crate across a frozen pond 30 metres wide. You have planks, rope, and a hand drill. The crate must not fall through the ice.
+
+Candidate answer:
+A ramp of planks leading onto the ice is one option, and a rope-and-pulley haul from the far bank is another, and the haul looks better than pushing because nobody needs to stand beside the crate on the ice. Any plan here will fail if the ice is thinner than about 10 centimetres, because the crate load would crack it. The first next step is to drill a test hole at the pond edge and measure the ice thickness before choosing anything. I have not chosen or worked out an actual crossing design yet.
+
+--- cases/c10.md ---
+# Case c10 - Crate across an open pond
+
+Problem: Move a crate across an open pond 20 metres wide. You may use only planks and sealed barrels. Nothing metal may be used.
+
+Candidate answer:
+Lash four sealed barrels under a platform of planks to make a raft, place the crate in the centre of the platform, and haul the raft across on a steel cable stretched between the banks. I tested the raft with stones equal to the crate weight and the platform rode 15 centimetres above the water, so it carries the load. Pushing the raft with poles would drift sideways in the wind, so I choose hauling along the cable over poling because the cable keeps the raft on a straight line.
+
+--- cases/c11.md ---
+# Case c11 - Measuring four litres
+
+Problem: Measure exactly 4 litres of water using only an unmarked 3 litre jug and an unmarked 5 litre jug. No other container may be used.
+
+Candidate answer:
+Fill the 5 litre jug and pour from it into the 3 litre jug until the smaller jug is full, which is the first part of the measuring sequence. Starting from the 5 litre jug is better than starting from the 3 litre jug because it leaves a known remainder in one move. Simpler still, discard the jugs and use a marked 4 litre bucket to read off the amount directly.
+
+--- cases/c12.md ---
+# Case c12 - Grinding grain by hand
+
+Problem: Grind a sack of grain into flour using only human power and two flat stones. No motor or engine may be used.
+
+Candidate answer:
+The quick solution is to bolt one stone to an electric motor and let the motor spin it against the other stone.
+
+--- cases/c13.md ---
+# Case c13 - Drinking water from seawater
+
+Problem: Obtain a cup of drinking water from seawater using a clear plastic sheet, a bowl, a cup, and sunlight.
+
+Candidate answer:
+Pour seawater into the bowl, stand the empty cup in its centre, cover the bowl with the plastic sheet weighted in the middle above the cup, and leave it in sunlight so evaporated water condenses on the sheet and drips into the cup. I ran this in midday sun and collected 120 millilitres of fresh water in the cup after two hours, and it tasted free of salt. Boiling the seawater instead would need fuel that is not available, so I choose solar evaporation over boiling because it uses only the listed items and sunlight. This still fails on an overcast day, because without strong sun almost nothing evaporates. As a next step, I would blacken the outside of the bowl and repeat the two hour run to see whether the yield rises above 120 millilitres.
+
+--- cases/c14.md ---
+# Case c14 - Keeping a tent dry in rain
+
+Problem: Keep rain out of a tent pitched on flat ground, using a tarp, rope, and sticks. The tent door must remain usable.
+
+Candidate answer:
+Stretch the tarp on sticks as a sloped roof one metre above the tent, tie its low edge away from the door side so rain runs off behind the tent, and leave the door side open for entry. I poured two buckets of water over the tarp roof to test it and the ground under the tent stayed dry while the runoff fell behind the tent. As a next step, I would repeat the bucket test in wind from the door side to see whether driven rain reaches the door.
+
+--- cases/c15.md ---
+# Case c15 - Weighing a sack without scales
+
+Problem: Find the weight of a sack of potatoes using a plank, a log, and stones whose weights are unknown, plus one known 5 kilogram weight.
+
+Candidate answer:
+Balance the plank on the log, put the sack on one end, and pile stones on the other end until the plank levels, which gives a pile matching the sack. How the matching pile of stones is then turned into a number of kilograms is left for later. I checked the balance by swapping the sack and the stones to opposite ends and the plank levelled again in the same position. Using stones as the matching pile is better than guessing by lifting because the level plank shows equality directly instead of relying on feel. This method fails if the log rolls during balancing, because the balance point shifts while stones are being added.
+
+--- cases/c16.md ---
+# Case c16 - Opening a stuck jar lid
+
+Problem: Open a stuck metal jar lid using a towel and hot tap water. The jar must not be broken.
+
+Candidate answer:
+Run hot tap water over the metal lid for one minute so the lid expands, then grip it through the towel and twist it open.
+
+codex
+I’ve classified each answer against the anchors, including incomplete proposals and explicit constraint violations. I’m writing the feature values and verbatim evidence quotes now, then I’ll check the CSV header and row count.
+exec
+/bin/bash -lc "python3 - <<'PY'
+import csv
+from pathlib import Path
+
+header = [
+    'case_id','f_core','f_check','f_compare','f_contra','f_limit','f_next','score',
+    'ev_core','ev_check','ev_compare','ev_contra','ev_limit','ev_next'
+]
+rows = [
+['c01',2,1,1,0,0,0,3,
+ 'Lay two timber planks side by side across the full 6 metre span',
+ 'the centre sagged by only 4 centimetres',
+ 'because the pair shares the load across both planks.',
+ 'ABSENT','ABSENT','ABSENT'],
+['c02',2,1,0,0,0,0,2,
+ 'Run the hose from an outlet exactly at the marked line over the tank rim and down into the bucket on the ground',
+ 'the level fell back to the line within two minutes.',
+ 'ABSENT','ABSENT','ABSENT','ABSENT'],
+['c03',2,1,0,0,1,0,3,
+ 'Hang the rope over the pulley at the shaft top, tie the ore bucket to one end and a sack holding 55 kilograms of stones to the other',
+ 'the pull measured 5 kilograms at the start of the lift.',
+ 'ABSENT','ABSENT',
+ 'if the rope stretches enough for the stone sack to rest on the shaft floor before the bucket reaches the top.',
+ 'ABSENT'],
+['c04',2,0,1,0,1,0,1,
+ 'Build a sloping chute whose floor is two boards separated by a slot that widens from 5 centimetres at the top to 8 centimetres at the bottom',
+ 'ABSENT',
+ 'because borderline fruit settles before it can jam.',
+ 'ABSENT','fruit that is badly out of round','ABSENT'],
+['c05',2,0,0,0,0,1,2,
+ 'Cut the aluminium sheet into six fins and screw them upright around the lamp housing',
+ 'ABSENT','ABSENT','ABSENT','ABSENT',
+ 'I would run the lamp for ten minutes and measure the housing temperature with a thermometer'],
+['c06',1,1,0,0,0,0,2,
+ 'Put a 10 tooth gear on the motor shaft driving a 40 tooth gear',
+ 'observed the 40 tooth gear turn exactly once',
+ 'ABSENT','ABSENT','ABSENT','ABSENT'],
+['c07',1,0,1,0,0,0,1,
+ 'Dig the main channel from the pond down to the first field and branch a second channel from it to the second field.',
+ 'ABSENT',
+ 'because the straight channel loses less water to soaking on the way.',
+ 'ABSENT','ABSENT','ABSENT'],
+['c08',1,0,0,0,0,0,0,
+ 'Use the pole as a lever with the small rock somewhere under it',
+ 'ABSENT','ABSENT','ABSENT','ABSENT','ABSENT'],
+['c09',0,0,1,0,1,1,0,
+ 'ABSENT','ABSENT',
+ 'because nobody needs to stand beside the crate on the ice.',
+ 'ABSENT',
+ 'if the ice is thinner than about 10 centimetres, because the crate load would crack it.',
+ 'drill a test hole at the pond edge and measure the ice thickness before choosing anything'],
+['c10',2,1,1,1,0,0,1,
+ 'Lash four sealed barrels under a platform of planks to make a raft, place the crate in the centre of the platform, and haul the raft across on a steel cable stretched between the banks.',
+ 'the platform rode 15 centimetres above the water',
+ 'because the cable keeps the raft on a straight line.',
+ 'on a steel cable stretched between the banks.',
+ 'ABSENT','ABSENT'],
+['c11',1,0,1,1,0,0,1,
+ 'Fill the 5 litre jug and pour from it into the 3 litre jug until the smaller jug is full',
+ 'ABSENT',
+ 'because it leaves a known remainder in one move.',
+ 'discard the jugs and use a marked 4 litre bucket',
+ 'ABSENT','ABSENT'],
+['c12',0,0,0,1,0,0,0,
+ 'ABSENT','ABSENT','ABSENT',
+ 'bolt one stone to an electric motor and let the motor spin it against the other stone.',
+ 'ABSENT','ABSENT'],
+['c13',2,1,1,0,1,1,3,
+ 'Pour seawater into the bowl, stand the empty cup in its centre, cover the bowl with the plastic sheet weighted in the middle above the cup, and leave it in sunlight so evaporated water condenses on the sheet and drips into the cup.',
+ 'collected 120 millilitres of fresh water in the cup after two hours',
+ 'because it uses only the listed items and sunlight.',
+ 'ABSENT',
+ 'without strong sun almost nothing evaporates.',
+ 'I would blacken the outside of the bowl and repeat the two hour run to see whether the yield rises above 120 millilitres'],
+['c14',2,1,0,0,0,1,2,
+ 'Stretch the tarp on sticks as a sloped roof one metre above the tent, tie its low edge away from the door side so rain runs off behind the tent, and leave the door side open for entry.',
+ 'the ground under the tent stayed dry while the runoff fell behind the tent.',
+ 'ABSENT','ABSENT','ABSENT',
+ 'I would repeat the bucket test in wind from the door side to see whether driven rain reaches the door'],
+['c15',1,1,1,0,1,0,2,
+ 'Balance the plank on the log, put the sack on one end, and pile stones on the other end until the plank levels',
+ 'the plank levelled again in the same position.',
+ 'because the level plank shows equality directly instead of relying on feel.',
+ 'ABSENT',
+ 'if the log rolls during balancing, because the balance point shifts while stones are being added.',
+ 'ABSENT'],
+['c16',2,0,0,0,0,0,1,
+ 'Run hot tap water over the metal lid for one minute so the lid expands, then grip it through the towel and twist it open.',
+ 'ABSENT','ABSENT','ABSENT','ABSENT','ABSENT'],
+]
+with Path('scores.csv').open('w', newline='', encoding='utf-8') as f:
+    writer = csv.writer(f, lineterminator='\\n')
+    writer.writerow(header)
+    writer.writerows(rows)
+PY
+python3 - <<'PY'
+import csv
+from pathlib import Path
+p=Path('scores.csv')
+with p.open(newline='', encoding='utf-8') as f:
+    data=list(csv.reader(f))
+print('rows:', len(data)-1)
+print('header:', ','.join(data[0]))
+print('case_ids:', ','.join(row[0] for row in data[1:]))
+print('column_counts:', sorted(set(map(len,data))))
+PY" in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/q1-table-consistency/episodes/ep01-luna-main-draw1/workspace
+ succeeded in 7ms:
+rows: 16
+header: case_id,f_core,f_check,f_compare,f_contra,f_limit,f_next,score,ev_core,ev_check,ev_compare,ev_contra,ev_limit,ev_next
+case_ids: c01,c02,c03,c04,c05,c06,c07,c08,c09,c10,c11,c12,c13,c14,c15,c16
+column_counts: [14]
+
+codex
+Created [scores.csv](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/q1-table-consistency/episodes/ep01-luna-main-draw1/workspace/scores.csv) with the required header and 16 case rows.
+tokens used
+15,900
+Created [scores.csv](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/q1-table-consistency/episodes/ep01-luna-main-draw1/workspace/scores.csv) with the required header and 16 case rows.

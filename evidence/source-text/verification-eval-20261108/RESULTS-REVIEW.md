@@ -1,0 +1,37 @@
+> Archived source excerpt. Original location: `verification-eval-20261108/RESULTS-REVIEW.md`. Relative links below describe original archive paths. This copy does not assert current live status.
+
+# Verification eval result review
+
+**Finding: no qualified frontier failure in the frozen sample.** Astra passed 15/15 attempts and Sol passed 15/15; all 1,806 case decisions were correct. There were zero false accepts, false rejects, candidate process failures, protected-input violations or infrastructure unknowns in this sample. The five task/model cells each retain all three planned trials. Results (historical reference: `RESULTS.json`), table (historical reference: `RESULTS.md`), root summary (historical reference: `audit/ROOT-SUMMARY.json`).
+
+This supports a reproducible verification-repair benchmark and a negative result. The tested condition is repair under explicit public contracts. Autonomous discovery of an unknown verification defect remains untested. This new experiment is distinct from earlier producer/query-task evaluations; historical failures and negative results remain preserved and are not pooled into this denominator. It does not support presenting these trials as demonstrated frontier inability. Owner submission and publication decisions remain pending. No entry, agreement or video link has been submitted.
+
+## Experiment and grader qualification
+
+The source cut was frozen on 2026-11-08 at 22:15:07 UTC. FREEZE.json binds 105 files and the exact two requested model IDs, high effort, three fresh trials for each of five tasks,600-second native turn caps, four parallel workers and zero retries. The native fixed sample started22:15:44 UTC and ran for 2,112.207 seconds. All30 turns completed normally, with recorded native durations180.704–472.687 seconds. These are30 attempts, not1,806 independent tasks.
+
+The five tasks check exact JSON arithmetic, literal current-source quotations, complete work receipts, virtual file-view policy and settlement reports independent of a flawed SDK. Their301 fixed cases include positive and negative decisions. All five reference implementations passed; every one of 16 deliberately faulty controls failed. Both directions matter: accept-all cannot reject unsupported claims and reject-all blocks valid alternatives. Task qualification (historical reference: `audit/task-gates/SUMMARY.json`), common qualification (historical reference: `audit/common-gates/SUMMARY.json`).
+
+The scorer compares executable decisions with host-side expected answers. A crash on a negative case never earns rejection credit. It rejects duplicate output keys, non-JSON NaN/Infinity tokens, nonboolean decisions and invalid UTF-8 stdout; diagnostic wording is ungraded. Candidate code runs under a separate UID in a read-only, network-disabled Linux container with bounded CPU/memory/output and reset scratch. Private expected labels and reference files are not mounted. Known source/scope errors and observer uncertainty remain separate. Supplemental controls checked detached-child cleanup and source/cache timestamp restoration. These checks support the tested implementation; they are not an exhaustive sandbox or oracle proof.
+
+Native development used Windows CPython 3.12.12 and the recorded CLI build; grading used pinned Linux CPython 3.12.16. The exact environment, image and binary identities are in ENVIRONMENT.json (historical reference: `runtime/ENVIRONMENT.json`). Cold replay rebuilds the scorer from its pinned base and records any new derived image ID without replacing the historical one.
+
+## Independent audit and possible gaming
+
+Root custody (historical reference: `audit/ROOT-CUSTODY.json`) confirms 30 unique native chat IDs, all 30 turn.completed events, matching frozen public inputs and matching saved-source manifests. A separate live-versus-saved comparison also matched every workspace at audit time. This does not prove that copying was an atomic filesystem snapshot; no conflicting source or background-write evidence was found.
+
+The Astra review (historical reference: `audit/independent-astra/REPORT.md`) and Sol review (historical reference: `audit/independent-sol/REPORT.md`) inspect all 15 attempts each, their saved implementations and all recorded shell/MCP/file/message channels, including non-JSON diagnostics. They do not treat a model's own completion message or test summary as a grader result. No recorded action returned the new private cases, expected answers, reference implementation or canary. No hidden-case dispatch, copied oracle or intentional score-spoofing mechanism was observed. The source and transcript audits cannot prove absence of unrecorded activity or unknown prior exposure.
+
+These were native configured-agent runs with ambient global tools and instructions. Three Astra attempts searched generic Codex MEMORY.md and received the same three unrelated registry lines; none disclosed this eval's mechanisms or private cases. One Sol attempt read 20 generic orchestration-skill lines. The full paths and returned text are retained in the independent reports. This is a tool-enabled experiment with disclosed ambient context, not a context-free test.
+
+The audits also retain 38 Astra and 44 Sol ARE metadata-call failures, malformed installed-skill diagnostics and recovered development/patch errors. Those are visible interface/runtime defects. They neither terminated a turn nor establish a semantic model failure here; all 30 final artifacts passed. They must not be relabeled as frontier failures on this verifier task.
+
+## Replication, limits and follow-up
+
+HIT-REPLAY-SUMMARY.json (historical reference: `audit/HIT-REPLAY-SUMMARY.json`) records zero qualified hits. No additional model trial or artifact-hit replay was needed. All three fresh trials per model/task remain in the fixed denominator; no negative or inconvenient attempt was discarded.
+
+Sol's source audit identified a posthoc, unscored ambiguity: whether a terminal file followed by '/.' should be accepted under T04's instructions to ignore dot components and reject nonfinal file components. A separate diagnostic observed that Sol trial 2 rejects dot variants while the reference and the other five implementations accept them. The wording does not settle the competing interpretations cleanly enough for a convincing failure claim. This is a future specification-clarification lead, excluded from the frozen matrix and from frontier-failure counts. No original case or grader was changed to exploit it. Supplemental observation (historical reference: `audit/independent-sol/SUPPLEMENTAL-FILE-DOT.json`).
+
+Finite cases and AI source review cannot prove every submitted program correct for every allowed document. Task authoring, references and audits were heavily AI-assisted; detailed human expertise review remains pending. The owner worksheet provides concrete cases and explicit sign-off fields. There is no validated employment-selection, human-ability or production-security claim.
+
+The package should be described as a benchmark proposal with a negative stronger-model result. A future failure search needs separately frozen tasks and an unambiguous oracle; additional ambiguous edge probes cannot retroactively convert this30/30 result into a frontier limitation. Final cold-replay and archive receipts accompany the delivery. AI disclosure (historical reference: `delivery/AI-USE.md`), owner checklist (historical reference: `delivery/OWNER-CHECKLIST.md`), human review worksheet (historical reference: `delivery/HUMAN-REVIEW-WORKSHEET.md`).

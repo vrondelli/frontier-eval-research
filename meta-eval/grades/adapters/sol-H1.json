@@ -1,0 +1,14 @@
+{
+  "case_id": "H1",
+  "model": "gpt-6.1-sol",
+  "mapping_note": "Owner wrapper maps embedded Service control into original task answer object with a constant nonempty explanation; prose review is separate. Calls immutable delivered evaluation.grader.grade. Runtime unavailable is invalid/unknown, never false reject.",
+  "command": [
+    "python",
+    "-B",
+    "-c",
+    "import json,sys;from evaluation.grader import grade;c=json.load(open(sys.argv[1]));r=grade({{'task_id':'E1','code':c['code'],'explanation':'Owner-authored executable control; explanation quality is reviewed separately.'}});print(json.dumps({{'pass':r['formal_status']=='pass','report':r}}) if r['formal_status'] in ['pass','fail'] else json.dumps({{'status':r['formal_status'],'report':r}}))",
+    "{case_file}"
+  ],
+  "verdict_source": "json",
+  "pass_key": "pass"
+}

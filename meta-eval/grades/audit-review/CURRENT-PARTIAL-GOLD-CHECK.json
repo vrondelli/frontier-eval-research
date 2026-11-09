@@ -1,0 +1,150 @@
+{
+  "status": "scored_partial_only",
+  "adapter_condition": true,
+  "owner_cli_mapping": null,
+  "formal_eligible": false,
+  "formal_eligibility_reason": "Instruction provenance and human semantic review require separate qualification",
+  "owner_bank_isolation": "unisolated_diagnostic",
+  "nested_scored_candidate_isolation": "not_exercised_by_JSON_adapter",
+  "package_before": {
+    "grade.py": "b148ea5fd5d1dc0bd4f62188db8860a64ccc9af61f7ea7237de6ed9e6529f9de"
+  },
+  "package_unchanged": true,
+  "checks": [
+    {
+      "case_id": "H6",
+      "control": "owner\\cases\\H6\\saved_luna_decimal.json",
+      "control_sha256": "26ff4806a165bc951306069717e009289d98a788a419c358d1657e9d8e6ce823",
+      "expected_pass": false,
+      "actual_pass": false,
+      "valid": true,
+      "correct": true,
+      "parse_error": null,
+      "command": [
+        "C:\\Users\\vlad_\\AppData\\Roaming\\uv\\python\\cpython-3.14.2-windows-x86_64-none\\python.exe",
+        "grade.py",
+        "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-v9wbifnz\\case.json"
+      ],
+      "cwd": "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-v9wbifnz\\subject",
+      "status": "completed",
+      "exit_code": 0,
+      "seconds": 0.09877514839172363,
+      "stdout": "{\"pass\": false}\n",
+      "stderr": ""
+    },
+    {
+      "case_id": "H6",
+      "control": "owner\\cases\\H6\\wrong_count.json",
+      "control_sha256": "28246aa0bdf6b4af391a2a299aeb4462a33c07dc5eb4cc1ea89a67cb75b96a40",
+      "expected_pass": false,
+      "actual_pass": false,
+      "valid": true,
+      "correct": true,
+      "parse_error": null,
+      "command": [
+        "C:\\Users\\vlad_\\AppData\\Roaming\\uv\\python\\cpython-3.14.2-windows-x86_64-none\\python.exe",
+        "grade.py",
+        "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-z_l2zsmb\\case.json"
+      ],
+      "cwd": "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-z_l2zsmb\\subject",
+      "status": "completed",
+      "exit_code": 0,
+      "seconds": 0.10513901710510254,
+      "stdout": "{\"pass\": false}\n",
+      "stderr": ""
+    },
+    {
+      "case_id": "H6",
+      "control": "owner\\cases\\H6\\reject_empty.json",
+      "control_sha256": "31b8043c456786720217db6ec52d88c7fadc34affc25abd88efac9db0189753d",
+      "expected_pass": false,
+      "actual_pass": false,
+      "valid": true,
+      "correct": true,
+      "parse_error": null,
+      "command": [
+        "C:\\Users\\vlad_\\AppData\\Roaming\\uv\\python\\cpython-3.14.2-windows-x86_64-none\\python.exe",
+        "grade.py",
+        "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-qvtdyew2\\case.json"
+      ],
+      "cwd": "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-score-qvtdyew2\\subject",
+      "status": "completed",
+      "exit_code": 0,
+      "seconds": 0.11751508712768555,
+      "stdout": "{\"pass\": false}\n",
+      "stderr": ""
+    }
+  ],
+  "total": 3,
+  "correct": 3,
+  "false_accepts": 0,
+  "false_rejects": 0,
+  "invalid": 0,
+  "owner_adjudication_sha256": "6e05954954507dffcdcfc9b8ab63585450a39d5db57b1e5885dbc093f10fa597",
+  "excluded_owner_controls": [
+    {
+      "case_id": "H4",
+      "control_id": "correct_independent_alternate",
+      "path": "owner/cases/H4/correct_independent_alternate.json",
+      "reason": "Standalone assertions violate original task requirement to run with unittest; also inherited production reference is not full-domain qualified.",
+      "retained_scope": "Original receipt only establishes finite reference/naive discrimination, not a full-task positive."
+    },
+    {
+      "case_id": "H4",
+      "control_id": "correct_independent",
+      "path": "owner/cases/H4/correct_independent.json",
+      "reason": "Inherited reference uses re.match final-newline acceptance and Decimal precision; cannot supply full-domain positive gold for richer new graders.",
+      "retained_scope": "Finite original test-suite discrimination only."
+    },
+    {
+      "case_id": "H4",
+      "control_id": "contaminated",
+      "path": "owner/cases/H4/contaminated.json",
+      "reason": "Native complete-candidate wrapper would pair suite with inherited production reference; its rejection cannot isolate test-quality mechanism.",
+      "retained_scope": "Targeted suite failure against preserved original reference/naive only."
+    },
+    {
+      "case_id": "H4",
+      "control_id": "reject_everything",
+      "path": "owner/cases/H4/reject_everything.json",
+      "reason": "Native complete-candidate wrapper uses unqualified inherited production reference; retain as component negative only.",
+      "retained_scope": "Suite rejects correct selected behavior; not independent full-task grading."
+    },
+    {
+      "case_id": "H4",
+      "control_id": "accept_everything",
+      "path": "owner/cases/H4/accept_everything.json",
+      "reason": "Native complete-candidate wrapper uses unqualified inherited production reference; retain as component negative only.",
+      "retained_scope": "Suite has no meaningful assertions; full-task native positive/negative gold deferred to successor."
+    },
+    {
+      "case_id": "H6",
+      "control_id": "correct_lexical_integer",
+      "path": "owner/cases/H6/correct_lexical_integer.json",
+      "reason": "Finite owner positive expands10**written_exponent before count; cannot qualify full original numeric domain even on feasible-output extreme-exponent count. Full-task false-reject scoring is invalid.",
+      "retained_scope": "Independent finite bounded-output owner probes only; not a universally correct implementation."
+    },
+    {
+      "case_id": "H6",
+      "control_id": "correct_fraction_parser",
+      "path": "owner/cases/H6/correct_fraction_parser.json",
+      "reason": "Fraction-based finite positive expands huge nonzero exponent before count; full-domain correctness is unqualified and runtime may exhaust resources.",
+      "retained_scope": "Independent finite bounded-output owner probes only; not full-task positive gold."
+    }
+  ],
+  "subject_disposable_copy_writable": false,
+  "adjudicated_control_coverage": {
+    "H6": {
+      "admitted_positive_controls": 0,
+      "admitted_negative_controls": 3,
+      "both_control_directions_present": false,
+      "owner_case_policy": {
+        "status": "coverage_dimension_qualified_overall_positive_qualification_unknown",
+        "requires_complete_candidate": true,
+        "scope": "Known-bad saved Luna CLI fails tiny legal exponent-zero count input, so its acceptance proves a coverage false green. Initial positives are excluded as full-task gold. Only feasible bounded-output cases supply failure claims; enormous nonzero sum/output capacity remains resource-ambiguous. Do not classify missing incomplete-turn outputs as completed failures."
+      }
+    }
+  },
+  "complete_eval_acceptance_decision": "unknown_missing_admitted_positive_or_negative_gold",
+  "owner_control_condition": "initial_bank_minus_adjudicated_exclusions"
+}

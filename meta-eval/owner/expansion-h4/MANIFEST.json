@@ -1,0 +1,27 @@
+{
+  "status": "post_outcome_owner_correction",
+  "cases": [
+    {
+      "path": "accept_everything.json",
+      "expected_pass": false
+    },
+    {
+      "path": "contaminated.json",
+      "expected_pass": false
+    },
+    {
+      "path": "correct_independent.json",
+      "expected_pass": true
+    },
+    {
+      "path": "correct_independent_alternate.json",
+      "expected_pass": true
+    },
+    {
+      "path": "reject_everything.json",
+      "expected_pass": false
+    }
+  ],
+  "original_bank_unchanged": true,
+  "reason": "Original alternate positive violated required unittest format; inherited reference had final-newline and decimal-precision weaknesses. New controls are diagnostics, not blind preregistered holdouts."
+}

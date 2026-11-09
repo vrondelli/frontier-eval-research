@@ -1,0 +1,46 @@
+{
+  "schema_version": "post-outcome-semantic-controls/v1",
+  "created_utc": "2026-11-09T02:12:20.611270+00:00",
+  "condition": "post_outcome_semantic_control_successor",
+  "model_calls": 0,
+  "original_frozen_banks_modified": false,
+  "human_review": "pending",
+  "cases": [
+    {
+      "case_id": "H2",
+      "controls": [
+        "owner/semantic-successor/H2/positive-gpt-6.1-sol.json",
+        "owner/semantic-successor/H2/positive-gpt-6-astra.json",
+        "owner/semantic-successor/H2/missing-required-heading.json",
+        "owner/semantic-successor/H2/mapping-gap.json",
+        "owner/semantic-successor/H2/worked-arithmetic.json"
+      ],
+      "scope": "Deterministic headings, weights, range coverage and worked arithmetic for the two known reviewed formats; novelty/usefulness construct validity remains manual."
+    },
+    {
+      "case_id": "H3",
+      "controls": [
+        "owner/semantic-successor/H3/positive-gpt-6.1-sol.json",
+        "owner/semantic-successor/H3/positive-gpt-6-astra.json",
+        "owner/semantic-successor/H3/unlicensed-accuracy-floor.json",
+        "owner/semantic-successor/H3/missing-binary-output-check.json",
+        "owner/semantic-successor/H3/automatic-accept-with-false-metric.json"
+      ],
+      "reference_candidate": {
+        "pipeline.py": {
+          "source_path": "runs/screen/gpt-6-astra/H3/delivery/reference/pipeline.py",
+          "sha256": "6279419134c3a7376b263746a70a8b756a57d27907e7f20326ac5ce8c3de0d39"
+        },
+        "features.txt": {
+          "source_path": "runs/screen/gpt-6-astra/H3/delivery/reference/features.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "REPORT.md": {
+          "source_path": "runs/screen/gpt-6-astra/H3/delivery/reference/REPORT.md",
+          "sha256": "708de00e3df214dede9bf7d3a60e676c825a0c1e1ec06be08be869d83616cfad"
+        }
+      },
+      "scope": "Actual delivered evaluators run on safe authored candidates in disposable Docker. Positives qualify specific semantic components only. Unknown overall review and disclosed missing OSsandbox remain unknown."
+    }
+  ]
+}

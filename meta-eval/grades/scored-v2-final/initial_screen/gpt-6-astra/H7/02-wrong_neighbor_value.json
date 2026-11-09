@@ -1,0 +1,102 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 1.0386241289997997,
+  "stdout": "{\"pass_verdict\": false, \"report\": {\"passed\": false, \"score\": 0.875, \"points\": 14, \"possible_points\": 16, \"errors\": [], \"fields\": {\"path\": {\"value_correct\": true, \"quote_supported\": true, \"reasons\": []}, \"load_profile\": {\"value_correct\": true, \"quote_supported\": true, \"reasons\": []}, \"metric\": {\"value_correct\": true, \"quote_supported\": true, \"reasons\": []}, \"value_ms\": {\"value_correct\": false, \"quote_supported\": false, \"reasons\": [\"Expected normalized value '18.2'\"]}, \"sample_count\": {\"value_correct\": true, \"quote_supported\": true, \"reasons\": []}, \"time_scope\": {\"value_correct\": true, \"quote_supported\": true, \"reasons\": []}, \"rejection_rate\": {\"value_correct\": true, \"quote_supported\": true, \"reasons\": []}, \"deployment_region\": {\"value_correct\": true, \"quote_supported\": true, \"reasons\": []}}}}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-ea3435aca1b841daa370a79655e7258c",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6-astra/H7/delivery,target=/subject,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H7/wrong_neighbor_value.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,sys;sys.path.insert(0,'/subject/evaluation');import grade;c=json.load(open(sys.argv[1]));r=grade.grade(c['extraction']);print(json.dumps(dict(pass_verdict=r['passed'],report=r)))",
+    "/control.json"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 803,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "pass_verdict": false,
+    "report": {
+      "passed": false,
+      "score": 0.875,
+      "points": 14,
+      "possible_points": 16,
+      "errors": [],
+      "fields": {
+        "path": {
+          "value_correct": true,
+          "quote_supported": true,
+          "reasons": []
+        },
+        "load_profile": {
+          "value_correct": true,
+          "quote_supported": true,
+          "reasons": []
+        },
+        "metric": {
+          "value_correct": true,
+          "quote_supported": true,
+          "reasons": []
+        },
+        "value_ms": {
+          "value_correct": false,
+          "quote_supported": false,
+          "reasons": [
+            "Expected normalized value '18.2'"
+          ]
+        },
+        "sample_count": {
+          "value_correct": true,
+          "quote_supported": true,
+          "reasons": []
+        },
+        "time_scope": {
+          "value_correct": true,
+          "quote_supported": true,
+          "reasons": []
+        },
+        "rejection_rate": {
+          "value_correct": true,
+          "quote_supported": true,
+          "reasons": []
+        },
+        "deployment_region": {
+          "value_correct": true,
+          "quote_supported": true,
+          "reasons": []
+        }
+      }
+    }
+  },
+  "job_id": "wrong_neighbor_value",
+  "kind": "control",
+  "expected": false,
+  "family": "baseline"
+}

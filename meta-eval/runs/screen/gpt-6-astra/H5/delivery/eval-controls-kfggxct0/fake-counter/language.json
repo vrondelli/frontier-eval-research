@@ -1,0 +1,36 @@
+{
+  "operators": [
+    "scan",
+    "filter",
+    "project",
+    "join(inner,left)",
+    "group"
+  ],
+  "expressions": [
+    "col",
+    "lit",
+    "add",
+    "sub"
+  ],
+  "predicates": [
+    "eq",
+    "ne",
+    "lt",
+    "le",
+    "gt",
+    "ge",
+    "is_null",
+    "not",
+    "and",
+    "or"
+  ],
+  "aggregate_functions": [
+    "count_all",
+    "count",
+    "sum"
+  ],
+  "bag_semantics": true,
+  "null_logic": "SQL three-valued",
+  "row_order": "irrelevant",
+  "public_contract": "README.md"
+}

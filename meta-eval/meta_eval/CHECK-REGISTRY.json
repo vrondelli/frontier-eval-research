@@ -1,0 +1,135 @@
+{
+  "schema_version": "meta-eval-executable-checks/v1",
+  "post_hoc_for_existing_runs": true,
+  "family_scoring": "Equal control weights within each fixed family; failed required units retain critical-failure status.",
+  "checks": [
+    {
+      "id": "A1",
+      "points": 5,
+      "description": "Delivered grader actually executes",
+      "checker": "native_grader",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    },
+    {
+      "id": "A2",
+      "points": 5,
+      "description": "Delivered verification/runner executes in clean disposable state",
+      "checker": "fresh_delivered_verification",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    },
+    {
+      "id": "B1",
+      "points": 7.5,
+      "description": "Source requirements preserved",
+      "checker": "source_artifact_or_bound_human_review",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    },
+    {
+      "id": "B2",
+      "points": 7.5,
+      "description": "Graded requirements exposed to solver",
+      "checker": "source_exposure_review_and_native_counterexample",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    },
+    {
+      "id": "C1",
+      "points": 7.5,
+      "description": "Reference independently passes core semantics",
+      "checker": "independent_reference_oracle",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    },
+    {
+      "id": "C2",
+      "points": 7.5,
+      "description": "Reference independently passes boundary semantics",
+      "checker": "independent_boundary_oracle",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    },
+    {
+      "id": "D1",
+      "points": 10,
+      "description": "Baseline correct control accepted",
+      "checker": "native_positive_control",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    },
+    {
+      "id": "D2",
+      "points": 10,
+      "description": "Correct alternative/representation accepted",
+      "checker": "native_alternative_or_output_pair",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    },
+    {
+      "id": "E1",
+      "points": 10,
+      "description": "Baseline faulty controls rejected",
+      "checker": "native_fault_control",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    },
+    {
+      "id": "E2",
+      "points": 10,
+      "description": "Fresh sibling faults rejected",
+      "checker": "native_sibling_fault_control",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    },
+    {
+      "id": "F1",
+      "points": 5,
+      "description": "Required isolation boundaries qualified",
+      "checker": "bound_boundary_qualification_review",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    },
+    {
+      "id": "F2",
+      "points": 5,
+      "description": "Required measurement/accounting checked independently",
+      "checker": "bound_independent_measurement_review",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    },
+    {
+      "id": "G1",
+      "points": 2.5,
+      "description": "Delivered verification controls execute",
+      "checker": "actual_delivered_verification",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    },
+    {
+      "id": "G2",
+      "points": 2.5,
+      "description": "Verification claims independently match observations",
+      "checker": "verification_claim_corroboration",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    },
+    {
+      "id": "H1",
+      "points": 2.5,
+      "description": "Numerical claims agree with evidence",
+      "checker": "independent_numerical_claim_check",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    },
+    {
+      "id": "H2",
+      "points": 2.5,
+      "description": "Material conclusions supported",
+      "checker": "bound_report_conclusion_review",
+      "missing_evidence_status": "unknown",
+      "required_for_scoped_pass": true
+    }
+  ]
+}

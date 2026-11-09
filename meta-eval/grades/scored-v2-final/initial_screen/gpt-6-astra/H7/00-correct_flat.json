@@ -1,0 +1,100 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 2.227437147999808,
+  "stdout": "{\"pass_verdict\": true, \"report\": {\"passed\": true, \"score\": 1.0, \"points\": 16, \"possible_points\": 16, \"errors\": [], \"fields\": {\"path\": {\"value_correct\": true, \"quote_supported\": true, \"reasons\": []}, \"load_profile\": {\"value_correct\": true, \"quote_supported\": true, \"reasons\": []}, \"metric\": {\"value_correct\": true, \"quote_supported\": true, \"reasons\": []}, \"value_ms\": {\"value_correct\": true, \"quote_supported\": true, \"reasons\": []}, \"sample_count\": {\"value_correct\": true, \"quote_supported\": true, \"reasons\": []}, \"time_scope\": {\"value_correct\": true, \"quote_supported\": true, \"reasons\": []}, \"rejection_rate\": {\"value_correct\": true, \"quote_supported\": true, \"reasons\": []}, \"deployment_region\": {\"value_correct\": true, \"quote_supported\": true, \"reasons\": []}}}}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-0ab248afaff84d188a2b56ab3384c543",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6-astra/H7/delivery,target=/subject,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H7/correct_flat.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,sys;sys.path.insert(0,'/subject/evaluation');import grade;c=json.load(open(sys.argv[1]));r=grade.grade(c['extraction']);print(json.dumps(dict(pass_verdict=r['passed'],report=r)))",
+    "/control.json"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 763,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "pass_verdict": true,
+    "report": {
+      "passed": true,
+      "score": 1.0,
+      "points": 16,
+      "possible_points": 16,
+      "errors": [],
+      "fields": {
+        "path": {
+          "value_correct": true,
+          "quote_supported": true,
+          "reasons": []
+        },
+        "load_profile": {
+          "value_correct": true,
+          "quote_supported": true,
+          "reasons": []
+        },
+        "metric": {
+          "value_correct": true,
+          "quote_supported": true,
+          "reasons": []
+        },
+        "value_ms": {
+          "value_correct": true,
+          "quote_supported": true,
+          "reasons": []
+        },
+        "sample_count": {
+          "value_correct": true,
+          "quote_supported": true,
+          "reasons": []
+        },
+        "time_scope": {
+          "value_correct": true,
+          "quote_supported": true,
+          "reasons": []
+        },
+        "rejection_rate": {
+          "value_correct": true,
+          "quote_supported": true,
+          "reasons": []
+        },
+        "deployment_region": {
+          "value_correct": true,
+          "quote_supported": true,
+          "reasons": []
+        }
+      }
+    }
+  },
+  "job_id": "correct_flat",
+  "kind": "control",
+  "expected": true,
+  "family": "baseline"
+}

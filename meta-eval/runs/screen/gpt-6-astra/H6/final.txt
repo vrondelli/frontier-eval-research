@@ -1,0 +1,9 @@
+Built the [evaluation](C:/Users/vlad_/AppData/Local/Temp/eval-author-H6-799c5wix/workspace/evaluation/README.md) with 84 CLI cases covering exact arithmetic, schema validation, duplicates, and failure output.
+
+Validation: seven self-tests pass; all six faulty controls are detected. Original inputs remain unchanged.
+
+Run against a candidate:
+
+```powershell
+python evaluation/evaluate.py path/to/summarize.py --report evaluation/report.json
+```

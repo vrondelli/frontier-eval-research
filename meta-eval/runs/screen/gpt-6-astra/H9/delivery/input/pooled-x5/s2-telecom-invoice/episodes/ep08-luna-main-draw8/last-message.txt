@@ -1,0 +1,5 @@
+Implemented `settle_invoices` in [invoices.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s2-telecom-invoice/episodes/ep08-luna-main-draw8/workspace/invoices.py) and added independent `unittest` coverage in [test_invoices.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s2-telecom-invoice/episodes/ep08-luna-main-draw8/workspace/test_invoices.py).
+
+The implementation uses strict ASCII validation and exact rational arithmetic. I avoided helpers whose behavior differed from their documented contract, including cutoff eligibility and malformed amount parsing.
+
+Verification: `python3 -m unittest test_invoices test_visible` passed all 13 tests. Total tool calls: 11.

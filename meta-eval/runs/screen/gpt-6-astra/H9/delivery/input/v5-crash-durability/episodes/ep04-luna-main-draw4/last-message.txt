@@ -1,0 +1,3 @@
+Implemented the ledger in `ledger.py` with input validation, cross-process file locking, and atomic writes that `fsync` the record and its directory before returning. Reads return a consistent snapshot, and a missing store reads as empty.
+
+I did not run `test_visible.py`.

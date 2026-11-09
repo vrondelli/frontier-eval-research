@@ -1,0 +1,40 @@
+--- PRISTINE SUITE (run outside workspace) ---
+test_basic_substitution (test_module.TestRender.test_basic_substitution) ... ok
+test_default_not_used_when_present (test_module.TestRender.test_default_not_used_when_present) ... ok
+test_default_used_when_empty (test_module.TestRender.test_default_used_when_empty) ... ok
+test_default_used_when_missing (test_module.TestRender.test_default_used_when_missing) ... ok
+test_escaped_braces_are_literal (test_module.TestRender.test_escaped_braces_are_literal) ... ok
+test_lower_filter (test_module.TestRender.test_lower_filter) ... ok
+test_missing_renders_empty (test_module.TestRender.test_missing_renders_empty) ... ok
+test_non_string_and_none_values (test_module.TestRender.test_non_string_and_none_values) ... ok
+test_spaces_inside_braces_ignored (test_module.TestRender.test_spaces_inside_braces_ignored) ... ok
+test_text_outside_placeholders_unchanged (test_module.TestRender.test_text_outside_placeholders_unchanged) ... ok
+test_title_filter (test_module.TestRender.test_title_filter) ... ok
+test_unclosed_placeholder_left_unchanged (test_module.TestRender.test_unclosed_placeholder_left_unchanged) ... ok
+test_upper_filter (test_module.TestRender.test_upper_filter) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.001s
+
+OK
+PRISTINE_SUMMARY 13/13 pass; failures=0; errors=0
+PASS held_adjacent [R1R8]
+PASS held_missing_mid [R2]
+PASS held_missing_filtered [R2R3]
+PASS held_upper_nospace [R3]
+PASS held_lower_nospace [R3]
+PASS held_title_words [R3]
+PASS held_default_spaces_text [R4]
+PASS held_default_none [R4R6]
+PASS held_default_present_int [R4R6]
+PASS held_escape_then_real [R5R1]
+PASS held_other_backslash [R5]
+PASS held_int_value [R6]
+PASS held_unclosed_tail [R7]
+PASS held_plain_text [R8]
+PASS held_repeat_name [R1R8]
+PASS held_empty_template [R8]
+HELDOUT_SUMMARY 16/16 pass; fails=[]
+SUMMARY pristine 13/13 + heldout 16/16; bad=0
+OVERALL PASS
+

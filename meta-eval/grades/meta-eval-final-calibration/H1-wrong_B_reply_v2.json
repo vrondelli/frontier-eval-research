@@ -1,0 +1,48 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 1.6592876949998754,
+  "stdout": "{\"observed_pass\": false, \"evidence\": {\"exit_code\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"<string>\\\", line 13, in <module>\\n    assert s.apply({'key':'c','account':'B','amount':100})['remaining']==0\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError\\n\"}}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-714ea08eb8654695ab0fedb89dbdc6d8",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/check_cases.py,target=/checker.py,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/meta_eval/controls/H1/wrong_B_reply_v2.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,runpy\nm=runpy.run_path('/checker.py');c=json.load(open('/control.json'));ok,ev=m['CHECKS']['H1'](c);print(json.dumps({'observed_pass':ok,'evidence':ev}))"
+  ],
+  "decoded": {
+    "observed_pass": false,
+    "evidence": {
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 13, in <module>\n    assert s.apply({'key':'c','account':'B','amount':100})['remaining']==0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    }
+  }
+}

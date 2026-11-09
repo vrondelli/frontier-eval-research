@@ -1,0 +1,947 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 47.587338999001076,
+  "stdout": "{\"pass_verdict\": false, \"report\": {\"evaluation\": \"warehouse-numeric-export-v1\", \"passed\": 116, \"total\": 121, \"score\": 0, \"pass_rate\": 0.9586776859504132, \"success\": false, \"groups\": {\"semantics\": {\"passed\": 7, \"total\": 7}, \"exact_numbers\": {\"passed\": 16, \"total\": 21}, \"generated\": {\"passed\": 12, \"total\": 12}, \"byte_limit\": {\"passed\": 3, \"total\": 3}, \"validation\": {\"passed\": 71, \"total\": 71}, \"duplicates\": {\"passed\": 5, \"total\": 5}, \"failure_atomicity\": {\"passed\": 2, \"total\": 2}}, \"cases\": [{\"name\": \"public_example\", \"group\": \"semantics\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.369}, {\"name\": \"empty_sum_and_count\", \"group\": \"semantics\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.32}, {\"name\": \"repetitions_are_events\", \"group\": \"semantics\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.319}, {\"name\": \"singletons_and_zero\", \"group\": \"semantics\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.369}, {\"name\": \"identifier_preservation\", \"group\": \"semantics\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.324}, {\"name\": \"all_sheets_and_order\", \"group\": \"semantics\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.32}, {\"name\": \"long_array\", \"group\": \"semantics\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.369}, {\"name\": \"integral_decimals\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.317}, {\"name\": \"integral_exponents\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.368}, {\"name\": \"negative_zero\", \"group\": \"exact_numbers\", \"passed\": false, \"returncode\": 1, \"seconds\": 0.521, \"reason\": \"valid input exited 1\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 125, in <module>\\n    raise SystemExit(main())\\n                     ~~~~^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 108, in main\\n    document = json.loads(\\n        source,\\n    ...<3 lines>...\\n        object_pairs_hook=_object_without_duplicates,\\n    )\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\\n\"}, {\"name\": \"encoded_repetitions\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.369}, {\"name\": \"encoded_negative_maximum\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.317}, {\"name\": \"binary64_integer_boundary\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.318}, {\"name\": \"binary64_decimal_boundary\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.37}, {\"name\": \"binary64_maximum_boundary\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.369}, {\"name\": \"signed64_overflow\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.318}, {\"name\": \"decimal_context_cancellation\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.321}, {\"name\": \"decimal_context_order\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.37}, {\"name\": \"exponent_overflow_cancellation\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.368}, {\"name\": \"exponent_overflow_max\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.37}, {\"name\": \"negative_exponent_order\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.372}, {\"name\": \"beyond_default_digit_limit\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.319}, {\"name\": \"large_exponent_sum\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.367}, {\"name\": \"large_exponent_cancellation\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.37}, {\"name\": \"extreme_exponent_singleton\", \"group\": \"exact_numbers\", \"passed\": false, \"returncode\": 1, \"seconds\": 0.622, \"reason\": \"valid input exited 1\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 125, in <module>\\n    raise SystemExit(main())\\n                     ~~~~^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 108, in main\\n    document = json.loads(\\n        source,\\n    ...<3 lines>...\\n        object_pairs_hook=_object_without_duplicates,\\n    )\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\\n\"}, {\"name\": \"extreme_exponent_count\", \"group\": \"exact_numbers\", \"passed\": false, \"returncode\": 1, \"seconds\": 0.62, \"reason\": \"valid input exited 1\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 125, in <module>\\n    raise SystemExit(main())\\n                     ~~~~^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 108, in main\\n    document = json.loads(\\n        source,\\n    ...<3 lines>...\\n        object_pairs_hook=_object_without_duplicates,\\n    )\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\\n\"}, {\"name\": \"extreme_exponent_cancel\", \"group\": \"exact_numbers\", \"passed\": false, \"returncode\": 1, \"seconds\": 0.67, \"reason\": \"valid input exited 1\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 125, in <module>\\n    raise SystemExit(main())\\n                     ~~~~^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 108, in main\\n    document = json.loads(\\n        source,\\n    ...<3 lines>...\\n        object_pairs_hook=_object_without_duplicates,\\n    )\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\\n\"}, {\"name\": \"extreme_exponent_max\", \"group\": \"exact_numbers\", \"passed\": false, \"returncode\": 1, \"seconds\": 0.62, \"reason\": \"valid input exited 1\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 125, in <module>\\n    raise SystemExit(main())\\n                     ~~~~^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 108, in main\\n    document = json.loads(\\n        source,\\n    ...<3 lines>...\\n        object_pairs_hook=_object_without_duplicates,\\n    )\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\\n\"}, {\"name\": \"generated_00\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.368}, {\"name\": \"generated_01\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.318}, {\"name\": \"generated_02\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.37}, {\"name\": \"generated_03\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.37}, {\"name\": \"generated_04\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.32}, {\"name\": \"generated_05\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.318}, {\"name\": \"generated_06\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.322}, {\"name\": \"generated_07\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.32}, {\"name\": \"generated_08\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.322}, {\"name\": \"generated_09\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.319}, {\"name\": \"generated_10\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.319}, {\"name\": \"generated_11\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.317}, {\"name\": \"exactly_8192_bytes\", \"group\": \"byte_limit\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.318}, {\"name\": \"8193_bytes\", \"group\": \"byte_limit\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.318}, {\"name\": \"utf8_bytes_not_characters\", \"group\": \"byte_limit\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.371}, {\"name\": \"empty_identifier\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"empty_sheets\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.317}, {\"name\": \"sheet_not_object\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.368}, {\"name\": \"missing_stat\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.368}, {\"name\": \"missing_turns\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.216}, {\"name\": \"unknown_stat\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.216}, {\"name\": \"stat_not_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.216}, {\"name\": \"extra_sheet_member\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"empty_maximum\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.37}, {\"name\": \"net_units_boolean_true\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.419}, {\"name\": \"net_units_boolean_false\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.421}, {\"name\": \"net_units_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.37}, {\"name\": \"net_units_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.422}, {\"name\": \"net_units_object\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.419}, {\"name\": \"net_units_array\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.468}, {\"name\": \"net_units_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.37}, {\"name\": \"net_units_turns_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.374}, {\"name\": \"net_units_turns_object\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.318}, {\"name\": \"net_units_turns_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.32}, {\"name\": \"net_units_turns_number\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.267}, {\"name\": \"event_count_boolean_true\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.317}, {\"name\": \"event_count_boolean_false\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.374}, {\"name\": \"event_count_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.318}, {\"name\": \"event_count_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.319}, {\"name\": \"event_count_object\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.32}, {\"name\": \"event_count_array\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.371}, {\"name\": \"event_count_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.369}, {\"name\": \"event_count_turns_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.368}, {\"name\": \"event_count_turns_object\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.318}, {\"name\": \"event_count_turns_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.322}, {\"name\": \"event_count_turns_number\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.369}, {\"name\": \"largest_adjustment_boolean_true\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.317}, {\"name\": \"largest_adjustment_boolean_false\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.37}, {\"name\": \"largest_adjustment_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.42}, {\"name\": \"largest_adjustment_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.323}, {\"name\": \"largest_adjustment_object\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.371}, {\"name\": \"largest_adjustment_array\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.368}, {\"name\": \"largest_adjustment_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.418}, {\"name\": \"largest_adjustment_turns_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.473}, {\"name\": \"largest_adjustment_turns_object\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.37}, {\"name\": \"largest_adjustment_turns_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.32}, {\"name\": \"largest_adjustment_turns_number\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.319}, {\"name\": \"root_array\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.32}, {\"name\": \"root_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.371}, {\"name\": \"root_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.317}, {\"name\": \"missing_sheets\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"sheets_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.42}, {\"name\": \"sheets_array\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.368}, {\"name\": \"extra_root_member\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.367}, {\"name\": \"truncated_json\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.367}, {\"name\": \"empty_file\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.317}, {\"name\": \"trailing_document\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.37}, {\"name\": \"comment\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.369}, {\"name\": \"trailing_comma\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.421}, {\"name\": \"rounded_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.423}, {\"name\": \"tiny_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.376}, {\"name\": \"extreme_tiny_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.824}, {\"name\": \"decimal_hidden_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.471}, {\"name\": \"NaN\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.42}, {\"name\": \"positive_infinity\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.369}, {\"name\": \"negative_infinity\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.369}, {\"name\": \"leading_zero\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.421}, {\"name\": \"plus_sign\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.374}, {\"name\": \"leading_dot\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.372}, {\"name\": \"trailing_dot\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.372}, {\"name\": \"event_count_rounded_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.267}, {\"name\": \"event_count_tiny_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.371}, {\"name\": \"largest_adjustment_rounded_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.37}, {\"name\": \"largest_adjustment_tiny_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.471}, {\"name\": \"duplicate_root\", \"group\": \"duplicates\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.421}, {\"name\": \"duplicate_identifier\", \"group\": \"duplicates\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.472}, {\"name\": \"escaped_duplicate_identifier\", \"group\": \"duplicates\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.475}, {\"name\": \"duplicate_stat\", \"group\": \"duplicates\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.474}, {\"name\": \"duplicate_turns\", \"group\": \"duplicates\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.422}, {\"name\": \"invalid_utf8\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.421}, {\"name\": \"utf16_document\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.371}, {\"name\": \"late_invalid_sheet\", \"group\": \"failure_atomicity\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.422}, {\"name\": \"late_invalid_value\", \"group\": \"failure_atomicity\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.374}]}}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-09f3663ee8a243f8a574193d9b4d515d",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H6/delivery,target=/subject,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H6/saved_luna_decimal.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import importlib,json,os,shutil,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir();script=Path('/tmp/candidate/summarize.py');script.write_text(c['code']);sys.path.insert(0,'/tmp/eval/evaluation');os.chdir('/tmp');e=importlib.import_module('evaluate');r=e.evaluate([sys.executable,str(script)],cwd=script.parent);print(json.dumps({'pass_verdict':r['success'],'report':r}))\n"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 18114,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "pass_verdict": false,
+    "report": {
+      "evaluation": "warehouse-numeric-export-v1",
+      "passed": 116,
+      "total": 121,
+      "score": 0,
+      "pass_rate": 0.9586776859504132,
+      "success": false,
+      "groups": {
+        "semantics": {
+          "passed": 7,
+          "total": 7
+        },
+        "exact_numbers": {
+          "passed": 16,
+          "total": 21
+        },
+        "generated": {
+          "passed": 12,
+          "total": 12
+        },
+        "byte_limit": {
+          "passed": 3,
+          "total": 3
+        },
+        "validation": {
+          "passed": 71,
+          "total": 71
+        },
+        "duplicates": {
+          "passed": 5,
+          "total": 5
+        },
+        "failure_atomicity": {
+          "passed": 2,
+          "total": 2
+        }
+      },
+      "cases": [
+        {
+          "name": "public_example",
+          "group": "semantics",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.369
+        },
+        {
+          "name": "empty_sum_and_count",
+          "group": "semantics",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.32
+        },
+        {
+          "name": "repetitions_are_events",
+          "group": "semantics",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.319
+        },
+        {
+          "name": "singletons_and_zero",
+          "group": "semantics",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.369
+        },
+        {
+          "name": "identifier_preservation",
+          "group": "semantics",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.324
+        },
+        {
+          "name": "all_sheets_and_order",
+          "group": "semantics",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.32
+        },
+        {
+          "name": "long_array",
+          "group": "semantics",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.369
+        },
+        {
+          "name": "integral_decimals",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.317
+        },
+        {
+          "name": "integral_exponents",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.368
+        },
+        {
+          "name": "negative_zero",
+          "group": "exact_numbers",
+          "passed": false,
+          "returncode": 1,
+          "seconds": 0.521,
+          "reason": "valid input exited 1",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 125, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"/tmp/candidate/summarize.py\", line 108, in main\n    document = json.loads(\n        source,\n    ...<3 lines>...\n        object_pairs_hook=_object_without_duplicates,\n    )\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\n"
+        },
+        {
+          "name": "encoded_repetitions",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.369
+        },
+        {
+          "name": "encoded_negative_maximum",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.317
+        },
+        {
+          "name": "binary64_integer_boundary",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.318
+        },
+        {
+          "name": "binary64_decimal_boundary",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.37
+        },
+        {
+          "name": "binary64_maximum_boundary",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.369
+        },
+        {
+          "name": "signed64_overflow",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.318
+        },
+        {
+          "name": "decimal_context_cancellation",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.321
+        },
+        {
+          "name": "decimal_context_order",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.37
+        },
+        {
+          "name": "exponent_overflow_cancellation",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.368
+        },
+        {
+          "name": "exponent_overflow_max",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.37
+        },
+        {
+          "name": "negative_exponent_order",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.372
+        },
+        {
+          "name": "beyond_default_digit_limit",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.319
+        },
+        {
+          "name": "large_exponent_sum",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.367
+        },
+        {
+          "name": "large_exponent_cancellation",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.37
+        },
+        {
+          "name": "extreme_exponent_singleton",
+          "group": "exact_numbers",
+          "passed": false,
+          "returncode": 1,
+          "seconds": 0.622,
+          "reason": "valid input exited 1",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 125, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"/tmp/candidate/summarize.py\", line 108, in main\n    document = json.loads(\n        source,\n    ...<3 lines>...\n        object_pairs_hook=_object_without_duplicates,\n    )\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\n"
+        },
+        {
+          "name": "extreme_exponent_count",
+          "group": "exact_numbers",
+          "passed": false,
+          "returncode": 1,
+          "seconds": 0.62,
+          "reason": "valid input exited 1",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 125, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"/tmp/candidate/summarize.py\", line 108, in main\n    document = json.loads(\n        source,\n    ...<3 lines>...\n        object_pairs_hook=_object_without_duplicates,\n    )\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\n"
+        },
+        {
+          "name": "extreme_exponent_cancel",
+          "group": "exact_numbers",
+          "passed": false,
+          "returncode": 1,
+          "seconds": 0.67,
+          "reason": "valid input exited 1",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 125, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"/tmp/candidate/summarize.py\", line 108, in main\n    document = json.loads(\n        source,\n    ...<3 lines>...\n        object_pairs_hook=_object_without_duplicates,\n    )\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\n"
+        },
+        {
+          "name": "extreme_exponent_max",
+          "group": "exact_numbers",
+          "passed": false,
+          "returncode": 1,
+          "seconds": 0.62,
+          "reason": "valid input exited 1",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 125, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"/tmp/candidate/summarize.py\", line 108, in main\n    document = json.loads(\n        source,\n    ...<3 lines>...\n        object_pairs_hook=_object_without_duplicates,\n    )\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\n"
+        },
+        {
+          "name": "generated_00",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.368
+        },
+        {
+          "name": "generated_01",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.318
+        },
+        {
+          "name": "generated_02",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.37
+        },
+        {
+          "name": "generated_03",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.37
+        },
+        {
+          "name": "generated_04",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.32
+        },
+        {
+          "name": "generated_05",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.318
+        },
+        {
+          "name": "generated_06",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.322
+        },
+        {
+          "name": "generated_07",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.32
+        },
+        {
+          "name": "generated_08",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.322
+        },
+        {
+          "name": "generated_09",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.319
+        },
+        {
+          "name": "generated_10",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.319
+        },
+        {
+          "name": "generated_11",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.317
+        },
+        {
+          "name": "exactly_8192_bytes",
+          "group": "byte_limit",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.318
+        },
+        {
+          "name": "8193_bytes",
+          "group": "byte_limit",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.318
+        },
+        {
+          "name": "utf8_bytes_not_characters",
+          "group": "byte_limit",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.371
+        },
+        {
+          "name": "empty_identifier",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "empty_sheets",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.317
+        },
+        {
+          "name": "sheet_not_object",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.368
+        },
+        {
+          "name": "missing_stat",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.368
+        },
+        {
+          "name": "missing_turns",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.216
+        },
+        {
+          "name": "unknown_stat",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.216
+        },
+        {
+          "name": "stat_not_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.216
+        },
+        {
+          "name": "extra_sheet_member",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "empty_maximum",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.37
+        },
+        {
+          "name": "net_units_boolean_true",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.419
+        },
+        {
+          "name": "net_units_boolean_false",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.421
+        },
+        {
+          "name": "net_units_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.37
+        },
+        {
+          "name": "net_units_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.422
+        },
+        {
+          "name": "net_units_object",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.419
+        },
+        {
+          "name": "net_units_array",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.468
+        },
+        {
+          "name": "net_units_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.37
+        },
+        {
+          "name": "net_units_turns_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.374
+        },
+        {
+          "name": "net_units_turns_object",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.318
+        },
+        {
+          "name": "net_units_turns_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.32
+        },
+        {
+          "name": "net_units_turns_number",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.267
+        },
+        {
+          "name": "event_count_boolean_true",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.317
+        },
+        {
+          "name": "event_count_boolean_false",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.374
+        },
+        {
+          "name": "event_count_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.318
+        },
+        {
+          "name": "event_count_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.319
+        },
+        {
+          "name": "event_count_object",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.32
+        },
+        {
+          "name": "event_count_array",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.371
+        },
+        {
+          "name": "event_count_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.369
+        },
+        {
+          "name": "event_count_turns_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.368
+        },
+        {
+          "name": "event_count_turns_object",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.318
+        },
+        {
+          "name": "event_count_turns_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.322
+        },
+        {
+          "name": "event_count_turns_number",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.369
+        },
+        {
+          "name": "largest_adjustment_boolean_true",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.317
+        },
+        {
+          "name": "largest_adjustment_boolean_false",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.37
+        },
+        {
+          "name": "largest_adjustment_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.42
+        },
+        {
+          "name": "largest_adjustment_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.323
+        },
+        {
+          "name": "largest_adjustment_object",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.371
+        },
+        {
+          "name": "largest_adjustment_array",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.368
+        },
+        {
+          "name": "largest_adjustment_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.418
+        },
+        {
+          "name": "largest_adjustment_turns_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.473
+        },
+        {
+          "name": "largest_adjustment_turns_object",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.37
+        },
+        {
+          "name": "largest_adjustment_turns_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.32
+        },
+        {
+          "name": "largest_adjustment_turns_number",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.319
+        },
+        {
+          "name": "root_array",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.32
+        },
+        {
+          "name": "root_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.371
+        },
+        {
+          "name": "root_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.317
+        },
+        {
+          "name": "missing_sheets",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "sheets_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.42
+        },
+        {
+          "name": "sheets_array",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.368
+        },
+        {
+          "name": "extra_root_member",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.367
+        },
+        {
+          "name": "truncated_json",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.367
+        },
+        {
+          "name": "empty_file",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.317
+        },
+        {
+          "name": "trailing_document",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.37
+        },
+        {
+          "name": "comment",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.369
+        },
+        {
+          "name": "trailing_comma",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.421
+        },
+        {
+          "name": "rounded_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.423
+        },
+        {
+          "name": "tiny_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.376
+        },
+        {
+          "name": "extreme_tiny_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.824
+        },
+        {
+          "name": "decimal_hidden_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.471
+        },
+        {
+          "name": "NaN",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.42
+        },
+        {
+          "name": "positive_infinity",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.369
+        },
+        {
+          "name": "negative_infinity",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.369
+        },
+        {
+          "name": "leading_zero",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.421
+        },
+        {
+          "name": "plus_sign",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.374
+        },
+        {
+          "name": "leading_dot",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.372
+        },
+        {
+          "name": "trailing_dot",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.372
+        },
+        {
+          "name": "event_count_rounded_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.267
+        },
+        {
+          "name": "event_count_tiny_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.371
+        },
+        {
+          "name": "largest_adjustment_rounded_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.37
+        },
+        {
+          "name": "largest_adjustment_tiny_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.471
+        },
+        {
+          "name": "duplicate_root",
+          "group": "duplicates",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.421
+        },
+        {
+          "name": "duplicate_identifier",
+          "group": "duplicates",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.472
+        },
+        {
+          "name": "escaped_duplicate_identifier",
+          "group": "duplicates",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.475
+        },
+        {
+          "name": "duplicate_stat",
+          "group": "duplicates",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.474
+        },
+        {
+          "name": "duplicate_turns",
+          "group": "duplicates",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.422
+        },
+        {
+          "name": "invalid_utf8",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.421
+        },
+        {
+          "name": "utf16_document",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.371
+        },
+        {
+          "name": "late_invalid_sheet",
+          "group": "failure_atomicity",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.422
+        },
+        {
+          "name": "late_invalid_value",
+          "group": "failure_atomicity",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.374
+        }
+      ]
+    }
+  },
+  "job_id": "saved_luna_decimal",
+  "kind": "control",
+  "expected": false,
+  "family": "baseline"
+}

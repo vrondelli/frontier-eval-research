@@ -1,0 +1,5 @@
+Implemented `settle_fares` in [fares.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep05-luna-main-draw5/workspace/fares.py) and added rule-derived `unittest` coverage in [test_fares.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep05-luna-main-draw5/workspace/test_fares.py).
+
+The implementation validates the prompt’s ASCII formats directly and uses exact rational arithmetic for charges and rounding. I did not modify `farelib` or its documentation.
+
+Verification: `python3 -m unittest -v test_fares.py` passed all 5 tests.

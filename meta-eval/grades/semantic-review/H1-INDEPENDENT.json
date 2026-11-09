@@ -1,0 +1,64 @@
+{
+  "case_id": "H1",
+  "model": "gpt-6.1-sol",
+  "reviewer_type": "independent_AI_reviewer_not_human",
+  "reviewed_utc": "2026-11-09T01:53:59.948425+00:00",
+  "attempt_condition": "minimal_reconstruction_with_metadata_context",
+  "classification": "verified_false_rejection_under_documented_solver_only_views",
+  "conclusion": "The accepted-only rule is publicly written in the new operator README, but is missing from the new package question output and both documented solver-only staged views. Under the package own exposure instructions, rejecting correct applied-status behavior is a hidden grading literal rather than a communicated task clarification.",
+  "original_task_review": {
+    "F2": "Only payload_mismatch has a specified literal. Retry returns the original status/remaining; no accepted or applied success spelling is prescribed.",
+    "F3": "The words newly accepted describe a business outcome, not an exact string requirement. The applied service has identical atomic allowance, durable decision, ledger and replay behavior.",
+    "source_reference_status": "Original authored positive reference uses applied; its presence is owner evidence, not a reason to expose the answer to a new solver."
+  },
+  "new_package_exposure_review": {
+    "operator_README_line13": "Explicitly documents accepted|rejected. A solver actually given that README could fairly be required to use accepted.",
+    "operator_README_lines45_48": "Documented staging tells operator to send ONLY initial-view.json, then ONLY final-view.json with prior solver context.",
+    "protocol_py_initial_view": "Builds prompt from original F1-F5 and runtime/table limits; does not add accepted literal.",
+    "protocol_py_reveal": "Final prompt is original input/E1.md only; does not add accepted literal.",
+    "benchmark_question": "Prints original input/E1.md only.",
+    "adjudication": "This is a source-to-solver-view inconsistency. The narrower conclusion applies to those documented views, not every possible operator exposure."
+  },
+  "independent_paired_replay": {
+    "receipt": "H1-SOL-LITERAL-PAIR.json",
+    "package_unchanged": true,
+    "code_intervention": "Single success-status expression changed from applied to accepted; all logic, concurrency, ledger and persistence code otherwise identical.",
+    "results": [
+      {
+        "literal": "applied",
+        "exit_code": 0,
+        "formal_status": "fail"
+      },
+      {
+        "literal": "accepted",
+        "exit_code": 0,
+        "formal_status": "pass"
+      }
+    ],
+    "result": "Applied fails and identical accepted version passes full native grader inside outer bubblewrap."
+  },
+  "independent_root_replay": {
+    "receipt": "../root-review/H1-SOL-REPLAY.json",
+    "valid_controls": 5,
+    "false_rejects": 1,
+    "supports": "One false reject among five full-grader controls; correct accepted service and all three faulty controls correctly classified."
+  },
+  "counts": {
+    "completed_subject_attempts_demonstrating_this_defect": 1,
+    "exact_original_instruction_replications": 0,
+    "Astra_timeout_snapshot_counted_as_completed_failure": 0
+  },
+  "excluded_explanations": [
+    "Missing bubblewrap in earlier Docker image is a reviewer runtime incident; later qualified nested bubblewrap replay establishes actual grading behavior.",
+    "The author disclosed skipped Linux integration checks, so this is not a false execution claim.",
+    "Astra H1 timed out; its similar snapshot is not a second completed-author failure."
+  ],
+  "source_sha256": {
+    "runs\\screen\\gpt-6.1-sol\\H1\\delivery\\input\\E1.md": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+    "runs\\screen\\gpt-6.1-sol\\H1\\delivery\\README.md": "1f835d3e95b4b75153ee66808438e8b42dd65b58be5d42a4522e4553320f70ed",
+    "runs\\screen\\gpt-6.1-sol\\H1\\delivery\\evaluation\\protocol.py": "160c51ce3a53911ad97800eeff27254f895a19fd3e888f710a0dcf7597b00a3f",
+    "runs\\screen\\gpt-6.1-sol\\H1\\delivery\\evaluation\\oracle.py": "1ed558d201c0d07132c696d6f524340f6ce43ac3fee56404587e894da4c994f6",
+    "grades\\semantic-review\\H1-SOL-LITERAL-PAIR.json": "3427ee7d38cc38389d7a1831618682a5a78b7f0f939f52d35f8b0ca153d14dcd",
+    "grades\\root-review\\H1-SOL-REPLAY.json": "ce440eb4013bd5e44839a7f5e3b43310c19ce2c58e3948d029d8173f3a15d945"
+  }
+}

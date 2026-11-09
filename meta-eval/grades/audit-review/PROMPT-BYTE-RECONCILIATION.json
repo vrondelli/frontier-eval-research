@@ -1,0 +1,36 @@
+{
+  "model_calls": 0,
+  "prompt_comparisons": [
+    {
+      "model": "gpt-6.1-sol",
+      "case": "H1",
+      "raw_prompt_sha256": "df6180cbe0ef1a14781dbf0b50e0d29490876cf466dc39a865f24ea9e64825d0",
+      "raw_CRLF_sequences": 1,
+      "raw_last_bytes_hex": "45312e6d642e0d0a",
+      "normalized_stdin_sha256": "6da38c2c9f459e6f87c4df711b38aeb9023051d5e280710330336d878afd9ecf",
+      "recorded_actual_stdin_sha256": "6da38c2c9f459e6f87c4df711b38aeb9023051d5e280710330336d878afd9ecf",
+      "actual_stdin_equals_newline_normalized_original": true,
+      "delivered_prompt_raw_identical": true,
+      "boundary_instruction_added": false,
+      "source_instruction_text": "Build an evaluation for the ledger-admission task in input/E1.md.\n"
+    },
+    {
+      "model": "gpt-6-astra",
+      "case": "H6",
+      "raw_prompt_sha256": "b445955764503d0f388b8471f5740124bcc06bd9f00014f071735cd031a05b4d",
+      "raw_CRLF_sequences": 1,
+      "raw_last_bytes_hex": "6b2e7478742e0d0a",
+      "normalized_stdin_sha256": "1bf13b95de4d50b48464912cce75ec60e2284d30de0f00e34b7922aac68c9bcb",
+      "recorded_actual_stdin_sha256": "1bf13b95de4d50b48464912cce75ec60e2284d30de0f00e34b7922aac68c9bcb",
+      "actual_stdin_equals_newline_normalized_original": true,
+      "delivered_prompt_raw_identical": true,
+      "boundary_instruction_added": false,
+      "source_instruction_text": "Build an evaluation for the numeric export CLI task described in input/task.txt.\n"
+    }
+  ],
+  "clean_runner_current_sha256": "20e028253eb072f8d1c8e4ea12592caebca01ca1b494d6530c036beae328559f",
+  "clean_runner_frozen_sha256": "20e028253eb072f8d1c8e4ea12592caebca01ca1b494d6530c036beae328559f",
+  "explanation": "Windows text-mode read normalizesCRLF toLF before stdin; source payload rawhash and stdintexthash may differ with identical instruction text.",
+  "coached_comparison": "Coachedfreeze verifies newline-normalized primary text plus the explicitqualitysentence and whitespace separators only; input files identical.",
+  "other_condition_changes": "Metadata removed; H1clean timeout1200 differs from initialscreen600. These remain separateconditions."
+}

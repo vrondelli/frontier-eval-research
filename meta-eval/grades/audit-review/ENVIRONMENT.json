@@ -1,0 +1,83 @@
+{
+  "schema_version": "eval-author-environment/v1",
+  "model_calls": 0,
+  "author_python_executable": "C:\\Users\\vlad_\\AppData\\Roaming\\uv\\python\\cpython-3.14.2-windows-x86_64-none\\python.exe",
+  "author_python_reported": "3.14.2 (main, Dec 17 2025, 21:10:36) [MSC v.1944 64 bit (AMD64)]",
+  "author_python_actual": {
+    "command": [
+      "C:\\Users\\vlad_\\AppData\\Roaming\\uv\\python\\cpython-3.14.2-windows-x86_64-none\\python.exe",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "Python 3.14.2",
+    "stderr": ""
+  },
+  "codex_cli": {
+    "command": [
+      "C:\\Users\\vlad_\\AppData\\Local\\OpenAI\\Codex\\bin\\f71a721e0e6193a9\\codex.exe",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "codex-cli 0.167.0-alpha.3.2",
+    "stderr": ""
+  },
+  "codex_binary_sha256": "4b3286e35d7fe866c6b0eb3f07d7a4cdb5e96489576170dfd6b3a15aa1c67382",
+  "host_platform": "Windows-11-10.0.26200-SP0",
+  "machine": "AMD64",
+  "linux_python": {
+    "command": [
+      "wsl.exe",
+      "--distribution",
+      "Ubuntu-26.04",
+      "--user",
+      "vlad_",
+      "--exec",
+      "python3",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "Python 3.14.4",
+    "stderr": ""
+  },
+  "docker_image": {
+    "command": [
+      "wsl.exe",
+      "--distribution",
+      "Ubuntu-26.04",
+      "--user",
+      "vlad_",
+      "--exec",
+      "docker",
+      "image",
+      "inspect",
+      "python:3.12-slim",
+      "--format",
+      "{{json .RepoDigests}} {{.Id}}"
+    ],
+    "exit_code": 0,
+    "stdout": "[\"python@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b\"] sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b",
+    "stderr": ""
+  },
+  "docker_python314_image": {
+    "command": [
+      "wsl.exe",
+      "--distribution",
+      "Ubuntu-26.04",
+      "--user",
+      "vlad_",
+      "--exec",
+      "docker",
+      "image",
+      "inspect",
+      "python:3.14-slim",
+      "--format",
+      "{{json .RepoDigests}} {{.Id}}"
+    ],
+    "exit_code": 0,
+    "stdout": "[\"python@sha256:cd89c30eda26ee911a4611b18680086e0ea42e6f5f8cbe653d07fa7958c9cec8\"] sha256:cd89c30eda26ee911a4611b18680086e0ea42e6f5f8cbe653d07fa7958c9cec8",
+    "stderr": ""
+  },
+  "model_weight_identity": "not independently pinned; requested aliases saved per launch",
+  "generation_sandbox": "Windows native MXC workspace-write; scoped UNC read-denial probe recorded separately",
+  "owner_execution": "Docker no network, read-only root, no capabilities, no privilege escalation,256MiB,1CPU,64PIDlimit"
+}

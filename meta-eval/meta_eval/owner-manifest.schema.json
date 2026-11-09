@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Owner-side meta-evaluation manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "jobs",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "meta-eval-owner-manifest/v1"
+    },
+    "package_hashes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      }
+    },
+    "jobs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "timeout": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "kind": {
+            "enum": [
+              "native",
+              "aggregate"
+            ]
+          },
+          "operation": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "job",
+          "pointer",
+          "expected",
+          "obligation"
+        ],
+        "properties": {
+          "id": {
+            "enum": [
+              "A1",
+              "A2",
+              "B1",
+              "B2",
+              "C1",
+              "C2",
+              "D1",
+              "D2",
+              "E1",
+              "E2",
+              "F1",
+              "F2",
+              "G1",
+              "G2",
+              "H1",
+              "H2"
+            ]
+          },
+          "job": {
+            "type": "string"
+          },
+          "pointer": {
+            "type": "string"
+          },
+          "obligation": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "owner_qualification_complete": {
+      "type": "boolean"
+    },
+    "human_review": {
+      "type": "object"
+    }
+  }
+}

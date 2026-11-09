@@ -1,0 +1,13 @@
+# Runtime boundary
+
+`run_eval.py` provides source-only workspace copying, a dry-run/native Codex launcher, and black-box scoring. The owner can map an immutable delivered grader through `--adapter ADAPTER.json`, without changing the subject's code or asking it to expose a new interface. The adapter's `command` list supports `{case_file}`, `{candidate_dir}` and `{package_dir}` placeholders; `verdict_source` is `exit_code` for pass0/fail1 or JSON with `pass_key` (default `pass`). Controls can name `artifact_dir`, mounted read-only at `/candidate`. An example owner mapping is `{"command":["python","grader.py","{candidate_dir}"],"verdict_source":"exit_code"}`.
+
+Without an owner CLI mapping, the fallback `grade.py` interface receives a JSON artifact and returns `{"pass": true|false, "reason": "..."}`. That fallback is a **new adapter condition**, not a recovered original eval-authoring instruction. Missing CLI mapping is `unknown`, not automatically a subject failure.
+
+Scoring without Docker fails closed unless `--allow-unisolated-diagnostic` is explicitly requested. Diagnostic bypass results are always ineligible. Docker mode mounts only a disposable copy of the delivered package and one candidate JSON file; it disables networking, writable root, capabilities and privilege escalation. It establishes an owner-bank mount boundary. JSON controls do not execute nested candidate code, so nested scored-code isolation remains untested and is never reported qualified.
+
+Generation uses a fresh workspace and native Codex workspace-write sandbox. The deterministic `:workspace` sandbox probe successfully wrote inside its workspace and received Permission denied reading a random owner-side WSL UNC sentinel. `GENERATION-BOUNDARY-PROBE.json` records that scoped result. It is a known-path test, not a proof about every possible host path. Docker scoring and generation have different boundaries.
+
+H8/H9 controls are derived from actual historical custody and Round10 regrade receipts, with exact source hashes in each input. They are owner controls, not new model trials. The check script independently recomputes counts and set equality. Full historical audit coverage and broad synthesis validity remain outside these two narrow checks.
+
+With an owner CLI mapping and no pre-existing `artifact_dir`, controls materialize into disposable files: H1 `service.py`/`answer.json`; H4 `test_fares.py` and assets; H5 exact file map; H6 `summarize.py`; H7 request/report/extraction; H8/H9 input/report JSON. This changes representation only; candidate code is not repaired. Additional generated-grader expectations must be mapped explicitly and recorded by the owner. An unsupported CLI or schema remains unknown.

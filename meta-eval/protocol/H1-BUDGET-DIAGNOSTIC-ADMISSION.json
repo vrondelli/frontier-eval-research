@@ -1,0 +1,10 @@
+{
+  "admitted": true,
+  "models": ["gpt-6.1-sol"],
+  "cases": ["H1"],
+  "draws": 3,
+  "timeout_seconds": 1200,
+  "condition": "post_screen_budget_diagnostic_1200s_same_primary_packet",
+  "trigger": "All3same-condition600secondSolH1confirmations timedout; originalcompletedseed took573seconds. Test budget confound without replacing any timeout.",
+  "policy": "Fixed3freshsessions, same frozen H1prompt/input/metadata and model settings; only construction wall budget changes. Start after3AstraH6confirmations terminate. Grade immutable packages independently; report separately from initial600second cohorts."
+}

@@ -1,0 +1,1815 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 21.66892438099967,
+  "stdout": "{\"pass_verdict\": false, \"report\": {\"evaluation_version\": 1, \"candidate\": \"/tmp/candidate/summarize.py\", \"seed\": 20261108, \"timeout_seconds\": 5.0, \"passed\": false, \"passed_cases\": 76, \"total_cases\": 96, \"groups\": {\"semantics\": {\"passed\": 0, \"total\": 2}, \"identifiers\": {\"passed\": 1, \"total\": 1}, \"exactness\": {\"passed\": 4, \"total\": 6}, \"generalization\": {\"passed\": 1, \"total\": 16}, \"boundaries\": {\"passed\": 2, \"total\": 3}, \"validation\": {\"passed\": 68, \"total\": 68}}, \"cases\": [{\"name\": \"illustrative-example\", \"group\": \"semantics\", \"valid_input\": true, \"input_sha256\": \"4333d3441acf8d3cd7989277953b77eb3eef0ab67557c2a0106610b15509df23\", \"input_bytes\": 220, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/illustrative-example/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/illustrative-example/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'warehouse-sample-1-1'\"}, {\"name\": \"empty-identities-and-repetitions\", \"group\": \"semantics\", \"valid_input\": true, \"input_sha256\": \"aeab19c708211f077639b66719aa7a16986d8ae9058249e5dacdfa6aef81b5ea\", \"input_bytes\": 478, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/empty-identities-and-repetitions/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/empty-identities-and-repetitions/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'zero-count'\"}, {\"name\": \"opaque-identifiers\", \"group\": \"identifiers\", \"valid_input\": true, \"input_sha256\": \"8293044fcdfd395d628ee08ab1405f0ebdc0bfb96262c0efd8a6c5706debea87\", \"input_bytes\": 296, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/opaque-identifiers/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/opaque-identifiers/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": true, \"reason\": \"Exact expected results\"}, {\"name\": \"integral-number-encodings\", \"group\": \"exactness\", \"valid_input\": true, \"input_sha256\": \"cafd463a6bf9d2579f6e1729a5840fc8bcb72d9b4845465957157fe857160591\", \"input_bytes\": 208, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/integral-number-encodings/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/integral-number-encodings/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'count'\"}, {\"name\": \"float-integer-boundary\", \"group\": \"exactness\", \"valid_input\": true, \"input_sha256\": \"6c17561635e0ded912467007e60b438ad1790022e45e287edfbafb04a7af7c7b\", \"input_bytes\": 235, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/float-integer-boundary/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/float-integer-boundary/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": true, \"reason\": \"Exact expected results\"}, {\"name\": \"decimal-context-cancellation\", \"group\": \"exactness\", \"valid_input\": true, \"input_sha256\": \"e72f00b638a046313f039bf03eeb381bbd3e712c070ac6a0a57a1e03e4fe6420\", \"input_bytes\": 475, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/decimal-context-cancellation/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/decimal-context-cancellation/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": true, \"reason\": \"Exact expected results\"}, {\"name\": \"exceeds-float-range\", \"group\": \"exactness\", \"valid_input\": true, \"input_sha256\": \"da96e2194a5ee793f33b3eba9b0492db2363e55078fd5e8f2685697e58775bf5\", \"input_bytes\": 189, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/exceeds-float-range/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/exceeds-float-range/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'count'\"}, {\"name\": \"large-exponent\", \"group\": \"exactness\", \"valid_input\": true, \"input_sha256\": \"369aa9dae1eef871d08a6fcdfc863c551ce7d6a3425237a90e77572086b2c461\", \"input_bytes\": 144, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/large-exponent/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/large-exponent/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": true, \"reason\": \"Exact expected results\"}, {\"name\": \"integer-token-over-python-default-limit\", \"group\": \"exactness\", \"valid_input\": true, \"input_sha256\": \"5e8379cc837603c8c8a42528b46eeb7126a3559a7b0bda7cb802b45e48621065\", \"input_bytes\": 6062, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/integer-token-over-python-default-limit/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/integer-token-over-python-default-limit/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": true, \"reason\": \"Exact expected results\"}, {\"name\": \"generated-00\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"320c05f2f4df01ca8b996a09ea4a0ba76e20bf803df95d0045d2a18badea7760\", \"input_bytes\": 740, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-00/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-00/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'generated-0-2-391637'\"}, {\"name\": \"generated-01\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"d819689a7b2711160049f3af92d3dfe35d6ff2ac01a26150477a33ae5c586903\", \"input_bytes\": 653, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-01/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-01/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'generated-1-5-370273'\"}, {\"name\": \"generated-02\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"71d7a5ebb000f16a5bbedea667c38685232b8663d9ab729ce2d8fb335ca95f5c\", \"input_bytes\": 567, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-02/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-02/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'generated-2-2-717191'\"}, {\"name\": \"generated-03\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"8777be67f5087c869799c63f93cfe16f1e2a8042849c3b4b9bbbe8e0e181976e\", \"input_bytes\": 1377, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-03/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-03/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'generated-3-1-685950'\"}, {\"name\": \"generated-04\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"4fccfbb1b344a1e0c6d03e3feb3efe58289d216c802012e700d7a4ea7c11179d\", \"input_bytes\": 994, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-04/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-04/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'generated-4-3-255387'\"}, {\"name\": \"generated-05\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"9968876c4289d348085d4fa575870275c72cfa5a624ff84cef8c448bb14deb02\", \"input_bytes\": 1506, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-05/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-05/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'generated-5-1-116057'\"}, {\"name\": \"generated-06\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"1c1c5c0bccebd5d415a1b1c53aea6948ea2be82001641dfa1f9b75e168c0f267\", \"input_bytes\": 611, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-06/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-06/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'generated-6-0-583052'\"}, {\"name\": \"generated-07\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"0a0fc23dcc28331fd59708fb41f176717788c2e1f87bb2a9ba87af237801a50e\", \"input_bytes\": 1574, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-07/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-07/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'generated-7-1-264310'\"}, {\"name\": \"generated-08\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"343e5ecdb2750caf3e740476026f48a07ffacf8e7a326063e9d67719f501a946\", \"input_bytes\": 1513, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-08/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-08/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'generated-8-1-386741'\"}, {\"name\": \"generated-09\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"994f961b9653d0568d98b1bf65ad284ee5e188eac78804fb98fc017f599b0429\", \"input_bytes\": 387, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-09/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-09/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'generated-9-2-748497'\"}, {\"name\": \"generated-10\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"da14b4f08a495d7bb6f27e220d54157f6ccc2010ed0cc2f98782c2389fad45ca\", \"input_bytes\": 645, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-10/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-10/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'generated-10-0-625228'\"}, {\"name\": \"generated-11\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"89ca65042809d6966fc4117f0fe7aaf6abbd6c40c6046499c39e0349d8a06cc1\", \"input_bytes\": 1847, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-11/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-11/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'generated-11-0-708772'\"}, {\"name\": \"generated-12\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"76c9492bf518e2dc3ef81e1e1a92795c90a20939859cbe5058515f37e12390a3\", \"input_bytes\": 1790, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-12/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-12/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'generated-12-0-544522'\"}, {\"name\": \"generated-13\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"24e0d10706a0d5cde70bcd69f39472cc9c2cc76d5673f48fce4df80c5c4c6b1d\", \"input_bytes\": 132, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-13/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-13/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": true, \"reason\": \"Exact expected results\"}, {\"name\": \"generated-14\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"fd584497d478167f70930055a8803fbbe80449f8bf74262410a0611dae4bc70c\", \"input_bytes\": 446, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-14/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-14/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'generated-14-0-868462'\"}, {\"name\": \"generated-15\", \"group\": \"generalization\", \"valid_input\": true, \"input_sha256\": \"576489d08e8501742785282bd6074ce9d6fc6b7dba290b3fefeca1560d42ee2b\", \"input_bytes\": 1091, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/generated-15/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/generated-15/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'generated-15-1-825393'\"}, {\"name\": \"exactly-8192-bytes\", \"group\": \"boundaries\", \"valid_input\": true, \"input_sha256\": \"7d49ab2f36ef91154e0c450a3832aa7e6d01137e92d0b870dd40bc41fe258d62\", \"input_bytes\": 8192, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/exactly-8192-bytes/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/exactly-8192-bytes/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": true, \"reason\": \"Exact expected results\"}, {\"name\": \"long-array\", \"group\": \"boundaries\", \"valid_input\": true, \"input_sha256\": \"eeb3cee12d84fc1b48ab57608995e3982027d7e2cca9cf7e73668c6157f452dd\", \"input_bytes\": 7063, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/long-array/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/long-array/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": false, \"reason\": \"Incorrect exact integer for identifier 'many'\"}, {\"name\": \"many-identifiers\", \"group\": \"boundaries\", \"valid_input\": true, \"input_sha256\": \"cf47788087f854ac2df4f71e41cc2b28fef346454b9022ca7bb99794d56a6160\", \"input_bytes\": 4203, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/many-identifiers/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/many-identifiers/output report.json\"], \"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\", \"passed\": true, \"reason\": \"Exact expected results\"}, {\"name\": \"empty-file\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"input_bytes\": 0, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/empty-file/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/empty-file/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 363, in raw_decode\\n    raise JSONDecodeError(\\\"Expecting value\\\", s, err.value) from None\\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"malformed-json\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96\", \"input_bytes\": 1, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/malformed-json/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/malformed-json/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\njson.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"trailing-document\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"235f8ca454e10e29036ae9b444e85a2a57706648961f02984c0aaf12002c52fc\", \"input_bytes\": 27, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/trailing-document/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/trailing-document/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 348, in decode\\n    raise JSONDecodeError(\\\"Extra data\\\", s, end)\\njson.decoder.JSONDecodeError: Extra data: line 1 column 26 (char 25)\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"trailing-comma\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"0a43c43cd8241f2bb742bd9072645e0cb2b57a49e34ee621e42f695559d476cd\", \"input_bytes\": 61, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/trailing-comma/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/trailing-comma/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\njson.decoder.JSONDecodeError: Illegal trailing comma before end of array: line 1 column 57 (char 56)\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"invalid-utf8\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"214f1c967f4d3a7de098bcf011a7745d7847dc3062181e2b445deecf3b28acde\", \"input_bytes\": 59, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/invalid-utf8/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/invalid-utf8/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\\n  File \\\"/usr/local/lib/python3.14/pathlib/__init__.py\\\", line 788, in read_text\\n    return f.read()\\n           ~~~~~~^^\\n  File \\\"<frozen codecs>\\\", line 325, in decode\\nUnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 23: invalid start byte\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"root-null\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b\", \"input_bytes\": 4, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/root-null/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/root-null/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 21, in <module>\\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\\n       ~~~^^^\\nTypeError: 'NoneType' object is not iterable\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"root-array\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\", \"input_bytes\": 2, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/root-array/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/root-array/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 21, in <module>\\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\\n                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: root\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"root-number\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b\", \"input_bytes\": 1, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/root-number/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/root-number/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 21, in <module>\\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\\n       ~~~^^^\\nTypeError: 'int' object is not iterable\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"missing-sheets\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a\", \"input_bytes\": 2, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/missing-sheets/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/missing-sheets/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 21, in <module>\\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\\n                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: root\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"empty-sheets\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"5b6ac56e927c209749dd0dc21121835601c3246ba1fe199c82741d918e63384d\", \"input_bytes\": 24, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/empty-sheets/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/empty-sheets/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 21, in <module>\\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\\n                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: root\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"sheets-array\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"8384a76cb25828d3f10e0b18646ef577e39c9e9503817a0f90b86e4ff37de076\", \"input_bytes\": 24, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/sheets-array/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/sheets-array/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 21, in <module>\\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\\n                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: root\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"sheets-null\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"1651276641cec6e901a17bd431efff9fa4e402d427aed0971d9abec9cc432703\", \"input_bytes\": 26, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/sheets-null/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/sheets-null/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 21, in <module>\\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\\n                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: root\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"top-extra\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"104aba8849e563b4a2dcb72815d3b61f11720188309d6906fda9c1cd3a2a2e7f\", \"input_bytes\": 69, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/top-extra/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/top-extra/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 21, in <module>\\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\\n                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: root\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"empty-id\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"efec9f51120af0807096f2e95750cd3301c3fbf7e4513e7d8556be385b2a166e\", \"input_bytes\": 58, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/empty-id/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/empty-id/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"duplicate-root\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"8bbbb515a0c1ea67c4a099cd224b66c2faa1dfa4ffe4d8452f05c9c6af03d7fb\", \"input_bytes\": 117, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/duplicate-root/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/duplicate-root/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 17, in pairs\\n    if k in d:raise ValueError('duplicate')\\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: duplicate\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"duplicate-id\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"02b0d8dffc165bdf643d38ab1c230c890ffde0a52aeab0ec89c868a2108a2697\", \"input_bytes\": 97, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/duplicate-id/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/duplicate-id/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 17, in pairs\\n    if k in d:raise ValueError('duplicate')\\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: duplicate\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"escaped-duplicate-id\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"1438ae6c4f4327f4ae81bee027d1f60c5daa16c77d95091a72955521ed7fb621\", \"input_bytes\": 100, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/escaped-duplicate-id/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/escaped-duplicate-id/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 17, in pairs\\n    if k in d:raise ValueError('duplicate')\\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: duplicate\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"duplicate-stat\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"599c8ce9d8b5ae1c9c49a4baee32a6617aa2e957ff9ce389ae0721bbf4b8e68e\", \"input_bytes\": 78, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/duplicate-stat/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/duplicate-stat/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 17, in pairs\\n    if k in d:raise ValueError('duplicate')\\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: duplicate\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"duplicate-turns\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"0a0b8c91951e9ae8c60d4afb45c1fa114b6948886ffab883a9c4b3608ea8780a\", \"input_bytes\": 71, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/duplicate-turns/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/duplicate-turns/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 17, in pairs\\n    if k in d:raise ValueError('duplicate')\\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: duplicate\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"sheet-null\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"975fc683e23d3980d68ac1b31401b826693b6f25223e8ba61bb27b59416e654f\", \"input_bytes\": 74, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/sheet-null/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/sheet-null/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                ~~~^^^\\nTypeError: 'NoneType' object is not iterable\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"sheet-array\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"565b4031eb462501f2fdaab3c4502075fadae386dcb229cf7ef0b5f99279384f\", \"input_bytes\": 72, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/sheet-array/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/sheet-array/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"sheet-number\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"eab674c14b2ef5fe14a0a55e323d2e3753ee5e41015e757fe423543313540732\", \"input_bytes\": 71, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/sheet-number/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/sheet-number/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                ~~~^^^\\nTypeError: 'int' object is not iterable\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"missing-stat\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"4007f162e567b0a034291757a4bea4be45e90c798eba1751d48943b914600c8e\", \"input_bytes\": 82, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/missing-stat/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/missing-stat/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"missing-turns\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"82128796b14de46d4866d7d241c3a863e4cb9779063136cbbb54637f2fd5ce28\", \"input_bytes\": 90, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/missing-turns/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/missing-turns/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"unknown-stat\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"cd8466155d3e0d26bd13a1730cb12fe722a53c6c9eedf2f8d5149fac100a6258\", \"input_bytes\": 95, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/unknown-stat/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/unknown-stat/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 29, in <module>\\n    else:raise ValueError('operation')\\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: operation\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"case-sensitive-stat\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"79b5dd90f28fd00fd3daa31df2c7c0ea567f9f944995038cfb7040f006b74cc0\", \"input_bytes\": 101, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/case-sensitive-stat/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/case-sensitive-stat/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 29, in <module>\\n    else:raise ValueError('operation')\\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: operation\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"stat-number\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"e65ccf340f726f3fb683843e4c8f94ea283a6b964dfe5d90ced58fbb1d6ed52c\", \"input_bytes\": 91, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/stat-number/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/stat-number/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 29, in <module>\\n    else:raise ValueError('operation')\\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: operation\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"extra-sheet-property\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"7cf14b6a1576554dafb628c65d3d31500cfa8b4242618c9ddce4f81d592f59b5\", \"input_bytes\": 111, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/extra-sheet-property/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/extra-sheet-property/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"turns-null\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"efbac4e18362fb5541af0c1bae083592113236fba7ee79bfac0bc96bdc0edc58\", \"input_bytes\": 103, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/turns-null/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/turns-null/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"turns-object\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"d17aa462d7170d304ea83c2c9c106455aca69163ba1659606a6ac77729a7aa81\", \"input_bytes\": 101, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/turns-object/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/turns-object/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"turns-string\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"7cce1d2aed49f23a2c39b8ffa8f26e61fa7eeaa22ba214c565b04bb2e56c4dea\", \"input_bytes\": 104, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/turns-string/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/turns-string/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"empty-largest\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"e00f7fd079317f40f8ed40871246f3ea7610c7684c2beff21769f26a2efb2736\", \"input_bytes\": 110, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/empty-largest/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/empty-largest/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 29, in <module>\\n    else:raise ValueError('operation')\\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: operation\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"net_units-invalid-item-00\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"0d26d0cdd63670703789d6ce50786f33139d32055e88c2e80b96763e96311a36\", \"input_bytes\": 108, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-00/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-00/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"net_units-invalid-item-01\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"a5192179ad1dc861cfd85e3b73a761522a47b6dca84cb43fac75ef82663a3b37\", \"input_bytes\": 109, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-01/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-01/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"net_units-invalid-item-02\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"1615eb0ed111c843e6cce275d8ba4f6693b1dca69c5861d7a35ab6209282fb16\", \"input_bytes\": 108, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-02/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-02/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"net_units-invalid-item-03\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"43992b61f1d9673c2fbdcda9ec0123690a214cddf4849a1c3ae6b68917b011ab\", \"input_bytes\": 107, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-03/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-03/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"net_units-invalid-item-04\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"7aed4fce307e37e26d938d5019d22995736b2107256c05cc62fb81e85fe19115\", \"input_bytes\": 106, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-04/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-04/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"net_units-invalid-item-05\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"030d892fb433220fa3063dbc6402bbc0ea55bf2b5cdf2e23fe7d77e0c491ca3b\", \"input_bytes\": 106, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-05/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-05/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"net_units-invalid-item-06\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"c8e66aa81e0ffaa7e82fee12215d6ce53997943f0e0e499d5af0eac1ca08de22\", \"input_bytes\": 107, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-06/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-06/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 11, in integer\\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: noninteger\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"net_units-invalid-item-07\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"b669839b5a84b2f6d79340eb59d4c773beeb5ece432a677b19b61c58f05275ab\", \"input_bytes\": 108, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-07/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-07/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 11, in integer\\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: noninteger\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"net_units-invalid-item-08\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"b4d13e3625ee053b9d88b1652411fb247e93436d5398791dd145d3b8ee5c056d\", \"input_bytes\": 140, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-08/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-08/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 11, in integer\\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: noninteger\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"net_units-invalid-item-09\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"3cc0c01055588a089f9fbf6e62a526b7ff5b9f9f81354435b9ea6502b9a886ab\", \"input_bytes\": 107, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-09/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-09/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"net_units-invalid-item-10\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"f7dbedd9f8a0ae2fe7dbd90f4312101338566c1c5c8af5a8ad748227c8d8bad9\", \"input_bytes\": 112, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-10/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-10/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"net_units-invalid-item-11\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"668545936a6e7baccb80f3a8c458319a951dc245d2512fbbdb855259d380a9b9\", \"input_bytes\": 113, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-11/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-11/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"event_count-invalid-item-00\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"62cd9d447e579e35ec9281e00091fb986d61c9f9655637f17dd6ea6746da102e\", \"input_bytes\": 110, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-00/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-00/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"event_count-invalid-item-01\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"03c7b7d358dc5bc39a32f6c1624100834602f00ef9918ce052553d8dd001051e\", \"input_bytes\": 111, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-01/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-01/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"event_count-invalid-item-02\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"fb6a4ddc38e2c2da82cf35d48d4782890ba61bc30ae9c2b45cc7a40f3374cc9d\", \"input_bytes\": 110, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-02/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-02/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"event_count-invalid-item-03\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"5b03b7d835c892693d00ec1f64585ae2e5a4b1477065af954611ee750bebf88a\", \"input_bytes\": 109, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-03/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-03/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"event_count-invalid-item-04\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"f7c2952101bbac70f2faef2d2bad81ef7fb54b569fb73928239852dec2adc707\", \"input_bytes\": 108, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-04/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-04/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"event_count-invalid-item-05\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"b0fb065b5d8ba2d641fc9694c2b57574210bd40885fe6a0909c2e04d31ee1e6a\", \"input_bytes\": 108, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-05/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-05/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"event_count-invalid-item-06\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"9d616638a65d23b5e6978e4bdb94d4afbe3858a2b58ffd7ef42cd498fe688617\", \"input_bytes\": 109, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-06/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-06/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 11, in integer\\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: noninteger\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"event_count-invalid-item-07\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"081940ab09509ed8e446e5ab83c91d3d377b663a7661eee95c748dd0d61e57e4\", \"input_bytes\": 110, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-07/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-07/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 11, in integer\\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: noninteger\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"event_count-invalid-item-08\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"aeb0715cdde584523d506b7e1a3b00d01f9b39b01fc30452f93e4044b1f4d0b8\", \"input_bytes\": 142, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-08/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-08/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 11, in integer\\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: noninteger\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"event_count-invalid-item-09\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"e58e2a22c5ce1390bc752ab435b01ac0ccc6afa3594762bf1cf5aebbb2c3eb56\", \"input_bytes\": 109, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-09/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-09/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"event_count-invalid-item-10\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"be97177cf3b357d50449eb8a4ac0480d5745848d186f3ff7316759a4405bb830\", \"input_bytes\": 114, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-10/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-10/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"event_count-invalid-item-11\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"cade6d48640dbec839426ecbeae535268b12358ef0392ca189ce3112153b5b9f\", \"input_bytes\": 115, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-11/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-11/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"largest_adjustment-invalid-item-00\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"c8fb98ec4097a51628290a2359caaa23951d62907b8b38e951e31459995cc135\", \"input_bytes\": 117, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-00/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-00/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"largest_adjustment-invalid-item-01\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"b27a04c849bd2bbba6cfed55cbe4834e4d9df8456f72a45416a2fcf4241235cf\", \"input_bytes\": 118, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-01/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-01/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"largest_adjustment-invalid-item-02\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"22dd99698622e7266925921ed7f877c7077ee34bf786ee0b101109b27c91c785\", \"input_bytes\": 117, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-02/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-02/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"largest_adjustment-invalid-item-03\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"ad65d811f01759ebcc2b049e188a005dfb5e0ae133b28aed6520ee28077f1add\", \"input_bytes\": 116, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-03/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-03/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"largest_adjustment-invalid-item-04\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"7264fae441285bb95c77e97303a276fa25583f23611eceb083ce6cfff9a37aae\", \"input_bytes\": 115, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-04/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-04/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"largest_adjustment-invalid-item-05\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"66f125ed6538345979e368d651fa487010c6862f56e6c7d3143841b2da4dc105\", \"input_bytes\": 115, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-05/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-05/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"largest_adjustment-invalid-item-06\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"a18f7eb595cbbe0d647ff5bbc18b4a43fefaac756fb64e77250f74cf80080917\", \"input_bytes\": 116, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-06/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-06/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 11, in integer\\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: noninteger\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"largest_adjustment-invalid-item-07\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"120909e043d8c13a7d0ddf0725f7d6aca779862dd8df6ca66e5e5c03cbdc9d0f\", \"input_bytes\": 117, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-07/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-07/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 11, in integer\\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: noninteger\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"largest_adjustment-invalid-item-08\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"080eb4c07b5177dfad3894674c5884fb4ca5243eb8020c6be6b748bffbf545da\", \"input_bytes\": 149, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-08/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-08/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 20, in <module>\\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\n  File \\\"/tmp/candidate/summarize.py\\\", line 11, in integer\\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: noninteger\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"largest_adjustment-invalid-item-09\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"f6a1a92ea1ae51df7d83ff58cbeeb35d4354ccb36721c7d5fa3423127a83d4c6\", \"input_bytes\": 116, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-09/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-09/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"largest_adjustment-invalid-item-10\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"f2bef52679ebdfdb4e05ad3611058d0757711c8ea3dcbb258b09134ef50c7345\", \"input_bytes\": 121, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-10/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-10/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}, {\"name\": \"largest_adjustment-invalid-item-11\", \"group\": \"validation\", \"valid_input\": false, \"input_sha256\": \"61b0884006cba1150e6e403a5be6f0731a6653e189c23d4e7b9543324f027707\", \"input_bytes\": 122, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-11/input data.json\", \"/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-11/output report.json\"], \"returncode\": 1, \"stdout\": \"\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 24, in <module>\\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: row\\n\", \"passed\": true, \"reason\": \"Rejected without results\"}]}}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-cb93818f4ddb4337b77281993fabb6f0",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/clean_screen/gpt-6-astra/H6/delivery,target=/subject,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H6/wrong_count.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import importlib,json,os,shutil,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir();script=Path('/tmp/candidate/summarize.py');script.write_text(c['code']);sys.path.insert(0,'/tmp/eval/evaluation');os.chdir('/tmp');e=importlib.import_module('evaluate');r=e.evaluate(script);print(json.dumps({'pass_verdict':r['passed'],'report':r}))\n"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 84862,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "pass_verdict": false,
+    "report": {
+      "evaluation_version": 1,
+      "candidate": "/tmp/candidate/summarize.py",
+      "seed": 20261108,
+      "timeout_seconds": 5.0,
+      "passed": false,
+      "passed_cases": 76,
+      "total_cases": 96,
+      "groups": {
+        "semantics": {
+          "passed": 0,
+          "total": 2
+        },
+        "identifiers": {
+          "passed": 1,
+          "total": 1
+        },
+        "exactness": {
+          "passed": 4,
+          "total": 6
+        },
+        "generalization": {
+          "passed": 1,
+          "total": 16
+        },
+        "boundaries": {
+          "passed": 2,
+          "total": 3
+        },
+        "validation": {
+          "passed": 68,
+          "total": 68
+        }
+      },
+      "cases": [
+        {
+          "name": "illustrative-example",
+          "group": "semantics",
+          "valid_input": true,
+          "input_sha256": "4333d3441acf8d3cd7989277953b77eb3eef0ab67557c2a0106610b15509df23",
+          "input_bytes": 220,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/illustrative-example/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/illustrative-example/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'warehouse-sample-1-1'"
+        },
+        {
+          "name": "empty-identities-and-repetitions",
+          "group": "semantics",
+          "valid_input": true,
+          "input_sha256": "aeab19c708211f077639b66719aa7a16986d8ae9058249e5dacdfa6aef81b5ea",
+          "input_bytes": 478,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/empty-identities-and-repetitions/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/empty-identities-and-repetitions/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'zero-count'"
+        },
+        {
+          "name": "opaque-identifiers",
+          "group": "identifiers",
+          "valid_input": true,
+          "input_sha256": "8293044fcdfd395d628ee08ab1405f0ebdc0bfb96262c0efd8a6c5706debea87",
+          "input_bytes": 296,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/opaque-identifiers/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/opaque-identifiers/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": true,
+          "reason": "Exact expected results"
+        },
+        {
+          "name": "integral-number-encodings",
+          "group": "exactness",
+          "valid_input": true,
+          "input_sha256": "cafd463a6bf9d2579f6e1729a5840fc8bcb72d9b4845465957157fe857160591",
+          "input_bytes": 208,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/integral-number-encodings/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/integral-number-encodings/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'count'"
+        },
+        {
+          "name": "float-integer-boundary",
+          "group": "exactness",
+          "valid_input": true,
+          "input_sha256": "6c17561635e0ded912467007e60b438ad1790022e45e287edfbafb04a7af7c7b",
+          "input_bytes": 235,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/float-integer-boundary/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/float-integer-boundary/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": true,
+          "reason": "Exact expected results"
+        },
+        {
+          "name": "decimal-context-cancellation",
+          "group": "exactness",
+          "valid_input": true,
+          "input_sha256": "e72f00b638a046313f039bf03eeb381bbd3e712c070ac6a0a57a1e03e4fe6420",
+          "input_bytes": 475,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/decimal-context-cancellation/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/decimal-context-cancellation/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": true,
+          "reason": "Exact expected results"
+        },
+        {
+          "name": "exceeds-float-range",
+          "group": "exactness",
+          "valid_input": true,
+          "input_sha256": "da96e2194a5ee793f33b3eba9b0492db2363e55078fd5e8f2685697e58775bf5",
+          "input_bytes": 189,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/exceeds-float-range/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/exceeds-float-range/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'count'"
+        },
+        {
+          "name": "large-exponent",
+          "group": "exactness",
+          "valid_input": true,
+          "input_sha256": "369aa9dae1eef871d08a6fcdfc863c551ce7d6a3425237a90e77572086b2c461",
+          "input_bytes": 144,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/large-exponent/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/large-exponent/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": true,
+          "reason": "Exact expected results"
+        },
+        {
+          "name": "integer-token-over-python-default-limit",
+          "group": "exactness",
+          "valid_input": true,
+          "input_sha256": "5e8379cc837603c8c8a42528b46eeb7126a3559a7b0bda7cb802b45e48621065",
+          "input_bytes": 6062,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/integer-token-over-python-default-limit/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/integer-token-over-python-default-limit/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": true,
+          "reason": "Exact expected results"
+        },
+        {
+          "name": "generated-00",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "320c05f2f4df01ca8b996a09ea4a0ba76e20bf803df95d0045d2a18badea7760",
+          "input_bytes": 740,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-00/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-00/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'generated-0-2-391637'"
+        },
+        {
+          "name": "generated-01",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "d819689a7b2711160049f3af92d3dfe35d6ff2ac01a26150477a33ae5c586903",
+          "input_bytes": 653,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-01/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-01/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'generated-1-5-370273'"
+        },
+        {
+          "name": "generated-02",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "71d7a5ebb000f16a5bbedea667c38685232b8663d9ab729ce2d8fb335ca95f5c",
+          "input_bytes": 567,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-02/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-02/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'generated-2-2-717191'"
+        },
+        {
+          "name": "generated-03",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "8777be67f5087c869799c63f93cfe16f1e2a8042849c3b4b9bbbe8e0e181976e",
+          "input_bytes": 1377,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-03/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-03/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'generated-3-1-685950'"
+        },
+        {
+          "name": "generated-04",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "4fccfbb1b344a1e0c6d03e3feb3efe58289d216c802012e700d7a4ea7c11179d",
+          "input_bytes": 994,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-04/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-04/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'generated-4-3-255387'"
+        },
+        {
+          "name": "generated-05",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "9968876c4289d348085d4fa575870275c72cfa5a624ff84cef8c448bb14deb02",
+          "input_bytes": 1506,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-05/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-05/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'generated-5-1-116057'"
+        },
+        {
+          "name": "generated-06",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "1c1c5c0bccebd5d415a1b1c53aea6948ea2be82001641dfa1f9b75e168c0f267",
+          "input_bytes": 611,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-06/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-06/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'generated-6-0-583052'"
+        },
+        {
+          "name": "generated-07",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "0a0fc23dcc28331fd59708fb41f176717788c2e1f87bb2a9ba87af237801a50e",
+          "input_bytes": 1574,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-07/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-07/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'generated-7-1-264310'"
+        },
+        {
+          "name": "generated-08",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "343e5ecdb2750caf3e740476026f48a07ffacf8e7a326063e9d67719f501a946",
+          "input_bytes": 1513,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-08/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-08/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'generated-8-1-386741'"
+        },
+        {
+          "name": "generated-09",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "994f961b9653d0568d98b1bf65ad284ee5e188eac78804fb98fc017f599b0429",
+          "input_bytes": 387,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-09/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-09/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'generated-9-2-748497'"
+        },
+        {
+          "name": "generated-10",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "da14b4f08a495d7bb6f27e220d54157f6ccc2010ed0cc2f98782c2389fad45ca",
+          "input_bytes": 645,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-10/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-10/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'generated-10-0-625228'"
+        },
+        {
+          "name": "generated-11",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "89ca65042809d6966fc4117f0fe7aaf6abbd6c40c6046499c39e0349d8a06cc1",
+          "input_bytes": 1847,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-11/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-11/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'generated-11-0-708772'"
+        },
+        {
+          "name": "generated-12",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "76c9492bf518e2dc3ef81e1e1a92795c90a20939859cbe5058515f37e12390a3",
+          "input_bytes": 1790,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-12/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-12/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'generated-12-0-544522'"
+        },
+        {
+          "name": "generated-13",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "24e0d10706a0d5cde70bcd69f39472cc9c2cc76d5673f48fce4df80c5c4c6b1d",
+          "input_bytes": 132,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-13/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-13/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": true,
+          "reason": "Exact expected results"
+        },
+        {
+          "name": "generated-14",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "fd584497d478167f70930055a8803fbbe80449f8bf74262410a0611dae4bc70c",
+          "input_bytes": 446,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-14/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-14/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'generated-14-0-868462'"
+        },
+        {
+          "name": "generated-15",
+          "group": "generalization",
+          "valid_input": true,
+          "input_sha256": "576489d08e8501742785282bd6074ce9d6fc6b7dba290b3fefeca1560d42ee2b",
+          "input_bytes": 1091,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-15/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/generated-15/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'generated-15-1-825393'"
+        },
+        {
+          "name": "exactly-8192-bytes",
+          "group": "boundaries",
+          "valid_input": true,
+          "input_sha256": "7d49ab2f36ef91154e0c450a3832aa7e6d01137e92d0b870dd40bc41fe258d62",
+          "input_bytes": 8192,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/exactly-8192-bytes/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/exactly-8192-bytes/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": true,
+          "reason": "Exact expected results"
+        },
+        {
+          "name": "long-array",
+          "group": "boundaries",
+          "valid_input": true,
+          "input_sha256": "eeb3cee12d84fc1b48ab57608995e3982027d7e2cca9cf7e73668c6157f452dd",
+          "input_bytes": 7063,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/long-array/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/long-array/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": false,
+          "reason": "Incorrect exact integer for identifier 'many'"
+        },
+        {
+          "name": "many-identifiers",
+          "group": "boundaries",
+          "valid_input": true,
+          "input_sha256": "cf47788087f854ac2df4f71e41cc2b28fef346454b9022ca7bb99794d56a6160",
+          "input_bytes": 4203,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/many-identifiers/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/many-identifiers/output report.json"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "passed": true,
+          "reason": "Exact expected results"
+        },
+        {
+          "name": "empty-file",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "input_bytes": 0,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/empty-file/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/empty-file/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 363, in raw_decode\n    raise JSONDecodeError(\"Expecting value\", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "malformed-json",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96",
+          "input_bytes": 1,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/malformed-json/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/malformed-json/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\njson.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "trailing-document",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "235f8ca454e10e29036ae9b444e85a2a57706648961f02984c0aaf12002c52fc",
+          "input_bytes": 27,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/trailing-document/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/trailing-document/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 348, in decode\n    raise JSONDecodeError(\"Extra data\", s, end)\njson.decoder.JSONDecodeError: Extra data: line 1 column 26 (char 25)\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "trailing-comma",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "0a43c43cd8241f2bb742bd9072645e0cb2b57a49e34ee621e42f695559d476cd",
+          "input_bytes": 61,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/trailing-comma/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/trailing-comma/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\njson.decoder.JSONDecodeError: Illegal trailing comma before end of array: line 1 column 57 (char 56)\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "invalid-utf8",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "214f1c967f4d3a7de098bcf011a7745d7847dc3062181e2b445deecf3b28acde",
+          "input_bytes": 59,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/invalid-utf8/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/invalid-utf8/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/usr/local/lib/python3.14/pathlib/__init__.py\", line 788, in read_text\n    return f.read()\n           ~~~~~~^^\n  File \"<frozen codecs>\", line 325, in decode\nUnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 23: invalid start byte\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "root-null",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "input_bytes": 4,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/root-null/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/root-null/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 21, in <module>\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\n       ~~~^^^\nTypeError: 'NoneType' object is not iterable\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "root-array",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "input_bytes": 2,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/root-array/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/root-array/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 21, in <module>\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\n                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: root\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "root-number",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+          "input_bytes": 1,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/root-number/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/root-number/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 21, in <module>\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\n       ~~~^^^\nTypeError: 'int' object is not iterable\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "missing-sheets",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "input_bytes": 2,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/missing-sheets/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/missing-sheets/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 21, in <module>\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\n                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: root\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "empty-sheets",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "5b6ac56e927c209749dd0dc21121835601c3246ba1fe199c82741d918e63384d",
+          "input_bytes": 24,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/empty-sheets/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/empty-sheets/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 21, in <module>\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\n                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: root\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "sheets-array",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "8384a76cb25828d3f10e0b18646ef577e39c9e9503817a0f90b86e4ff37de076",
+          "input_bytes": 24,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/sheets-array/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/sheets-array/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 21, in <module>\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\n                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: root\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "sheets-null",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "1651276641cec6e901a17bd431efff9fa4e402d427aed0971d9abec9cc432703",
+          "input_bytes": 26,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/sheets-null/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/sheets-null/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 21, in <module>\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\n                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: root\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "top-extra",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "104aba8849e563b4a2dcb72815d3b61f11720188309d6906fda9c1cd3a2a2e7f",
+          "input_bytes": 69,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/top-extra/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/top-extra/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 21, in <module>\n    if set(p)!={'adjustment_sheets'} or not p['adjustment_sheets']:raise ValueError('root')\n                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: root\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "empty-id",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "efec9f51120af0807096f2e95750cd3301c3fbf7e4513e7d8556be385b2a166e",
+          "input_bytes": 58,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/empty-id/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/empty-id/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "duplicate-root",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "8bbbb515a0c1ea67c4a099cd224b66c2faa1dfa4ffe4d8452f05c9c6af03d7fb",
+          "input_bytes": 117,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/duplicate-root/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/duplicate-root/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\n  File \"/tmp/candidate/summarize.py\", line 17, in pairs\n    if k in d:raise ValueError('duplicate')\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: duplicate\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "duplicate-id",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "02b0d8dffc165bdf643d38ab1c230c890ffde0a52aeab0ec89c868a2108a2697",
+          "input_bytes": 97,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/duplicate-id/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/duplicate-id/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\n  File \"/tmp/candidate/summarize.py\", line 17, in pairs\n    if k in d:raise ValueError('duplicate')\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: duplicate\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "escaped-duplicate-id",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "1438ae6c4f4327f4ae81bee027d1f60c5daa16c77d95091a72955521ed7fb621",
+          "input_bytes": 100,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/escaped-duplicate-id/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/escaped-duplicate-id/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\n  File \"/tmp/candidate/summarize.py\", line 17, in pairs\n    if k in d:raise ValueError('duplicate')\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: duplicate\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "duplicate-stat",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "599c8ce9d8b5ae1c9c49a4baee32a6617aa2e957ff9ce389ae0721bbf4b8e68e",
+          "input_bytes": 78,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/duplicate-stat/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/duplicate-stat/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\n  File \"/tmp/candidate/summarize.py\", line 17, in pairs\n    if k in d:raise ValueError('duplicate')\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: duplicate\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "duplicate-turns",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "0a0b8c91951e9ae8c60d4afb45c1fa114b6948886ffab883a9c4b3608ea8780a",
+          "input_bytes": 71,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/duplicate-turns/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/duplicate-turns/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\n  File \"/tmp/candidate/summarize.py\", line 17, in pairs\n    if k in d:raise ValueError('duplicate')\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: duplicate\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "sheet-null",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "975fc683e23d3980d68ac1b31401b826693b6f25223e8ba61bb27b59416e654f",
+          "input_bytes": 74,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/sheet-null/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/sheet-null/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                ~~~^^^\nTypeError: 'NoneType' object is not iterable\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "sheet-array",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "565b4031eb462501f2fdaab3c4502075fadae386dcb229cf7ef0b5f99279384f",
+          "input_bytes": 72,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/sheet-array/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/sheet-array/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "sheet-number",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "eab674c14b2ef5fe14a0a55e323d2e3753ee5e41015e757fe423543313540732",
+          "input_bytes": 71,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/sheet-number/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/sheet-number/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                ~~~^^^\nTypeError: 'int' object is not iterable\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "missing-stat",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "4007f162e567b0a034291757a4bea4be45e90c798eba1751d48943b914600c8e",
+          "input_bytes": 82,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/missing-stat/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/missing-stat/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "missing-turns",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "82128796b14de46d4866d7d241c3a863e4cb9779063136cbbb54637f2fd5ce28",
+          "input_bytes": 90,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/missing-turns/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/missing-turns/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "unknown-stat",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "cd8466155d3e0d26bd13a1730cb12fe722a53c6c9eedf2f8d5149fac100a6258",
+          "input_bytes": 95,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/unknown-stat/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/unknown-stat/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 29, in <module>\n    else:raise ValueError('operation')\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: operation\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "case-sensitive-stat",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "79b5dd90f28fd00fd3daa31df2c7c0ea567f9f944995038cfb7040f006b74cc0",
+          "input_bytes": 101,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/case-sensitive-stat/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/case-sensitive-stat/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 29, in <module>\n    else:raise ValueError('operation')\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: operation\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "stat-number",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "e65ccf340f726f3fb683843e4c8f94ea283a6b964dfe5d90ced58fbb1d6ed52c",
+          "input_bytes": 91,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/stat-number/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/stat-number/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 29, in <module>\n    else:raise ValueError('operation')\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: operation\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "extra-sheet-property",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "7cf14b6a1576554dafb628c65d3d31500cfa8b4242618c9ddce4f81d592f59b5",
+          "input_bytes": 111,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/extra-sheet-property/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/extra-sheet-property/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "turns-null",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "efbac4e18362fb5541af0c1bae083592113236fba7ee79bfac0bc96bdc0edc58",
+          "input_bytes": 103,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/turns-null/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/turns-null/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "turns-object",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "d17aa462d7170d304ea83c2c9c106455aca69163ba1659606a6ac77729a7aa81",
+          "input_bytes": 101,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/turns-object/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/turns-object/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "turns-string",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "7cce1d2aed49f23a2c39b8ffa8f26e61fa7eeaa22ba214c565b04bb2e56c4dea",
+          "input_bytes": 104,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/turns-string/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/turns-string/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "empty-largest",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "e00f7fd079317f40f8ed40871246f3ea7610c7684c2beff21769f26a2efb2736",
+          "input_bytes": 110,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/empty-largest/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/empty-largest/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 29, in <module>\n    else:raise ValueError('operation')\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: operation\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "net_units-invalid-item-00",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "0d26d0cdd63670703789d6ce50786f33139d32055e88c2e80b96763e96311a36",
+          "input_bytes": 108,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-00/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-00/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "net_units-invalid-item-01",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "a5192179ad1dc861cfd85e3b73a761522a47b6dca84cb43fac75ef82663a3b37",
+          "input_bytes": 109,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-01/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-01/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "net_units-invalid-item-02",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "1615eb0ed111c843e6cce275d8ba4f6693b1dca69c5861d7a35ab6209282fb16",
+          "input_bytes": 108,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-02/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-02/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "net_units-invalid-item-03",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "43992b61f1d9673c2fbdcda9ec0123690a214cddf4849a1c3ae6b68917b011ab",
+          "input_bytes": 107,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-03/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-03/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "net_units-invalid-item-04",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "7aed4fce307e37e26d938d5019d22995736b2107256c05cc62fb81e85fe19115",
+          "input_bytes": 106,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-04/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-04/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "net_units-invalid-item-05",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "030d892fb433220fa3063dbc6402bbc0ea55bf2b5cdf2e23fe7d77e0c491ca3b",
+          "input_bytes": 106,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-05/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-05/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "net_units-invalid-item-06",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "c8e66aa81e0ffaa7e82fee12215d6ce53997943f0e0e499d5af0eac1ca08de22",
+          "input_bytes": 107,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-06/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-06/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\n  File \"/tmp/candidate/summarize.py\", line 11, in integer\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: noninteger\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "net_units-invalid-item-07",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "b669839b5a84b2f6d79340eb59d4c773beeb5ece432a677b19b61c58f05275ab",
+          "input_bytes": 108,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-07/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-07/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\n  File \"/tmp/candidate/summarize.py\", line 11, in integer\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: noninteger\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "net_units-invalid-item-08",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "b4d13e3625ee053b9d88b1652411fb247e93436d5398791dd145d3b8ee5c056d",
+          "input_bytes": 140,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-08/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-08/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\n  File \"/tmp/candidate/summarize.py\", line 11, in integer\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: noninteger\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "net_units-invalid-item-09",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "3cc0c01055588a089f9fbf6e62a526b7ff5b9f9f81354435b9ea6502b9a886ab",
+          "input_bytes": 107,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-09/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-09/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "net_units-invalid-item-10",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "f7dbedd9f8a0ae2fe7dbd90f4312101338566c1c5c8af5a8ad748227c8d8bad9",
+          "input_bytes": 112,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-10/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-10/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "net_units-invalid-item-11",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "668545936a6e7baccb80f3a8c458319a951dc245d2512fbbdb855259d380a9b9",
+          "input_bytes": 113,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-11/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/net_units-invalid-item-11/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "event_count-invalid-item-00",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "62cd9d447e579e35ec9281e00091fb986d61c9f9655637f17dd6ea6746da102e",
+          "input_bytes": 110,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-00/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-00/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "event_count-invalid-item-01",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "03c7b7d358dc5bc39a32f6c1624100834602f00ef9918ce052553d8dd001051e",
+          "input_bytes": 111,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-01/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-01/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "event_count-invalid-item-02",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "fb6a4ddc38e2c2da82cf35d48d4782890ba61bc30ae9c2b45cc7a40f3374cc9d",
+          "input_bytes": 110,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-02/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-02/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "event_count-invalid-item-03",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "5b03b7d835c892693d00ec1f64585ae2e5a4b1477065af954611ee750bebf88a",
+          "input_bytes": 109,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-03/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-03/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "event_count-invalid-item-04",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "f7c2952101bbac70f2faef2d2bad81ef7fb54b569fb73928239852dec2adc707",
+          "input_bytes": 108,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-04/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-04/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "event_count-invalid-item-05",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "b0fb065b5d8ba2d641fc9694c2b57574210bd40885fe6a0909c2e04d31ee1e6a",
+          "input_bytes": 108,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-05/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-05/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "event_count-invalid-item-06",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "9d616638a65d23b5e6978e4bdb94d4afbe3858a2b58ffd7ef42cd498fe688617",
+          "input_bytes": 109,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-06/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-06/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\n  File \"/tmp/candidate/summarize.py\", line 11, in integer\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: noninteger\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "event_count-invalid-item-07",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "081940ab09509ed8e446e5ab83c91d3d377b663a7661eee95c748dd0d61e57e4",
+          "input_bytes": 110,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-07/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-07/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\n  File \"/tmp/candidate/summarize.py\", line 11, in integer\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: noninteger\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "event_count-invalid-item-08",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "aeb0715cdde584523d506b7e1a3b00d01f9b39b01fc30452f93e4044b1f4d0b8",
+          "input_bytes": 142,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-08/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-08/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\n  File \"/tmp/candidate/summarize.py\", line 11, in integer\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: noninteger\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "event_count-invalid-item-09",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "e58e2a22c5ce1390bc752ab435b01ac0ccc6afa3594762bf1cf5aebbb2c3eb56",
+          "input_bytes": 109,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-09/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-09/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "event_count-invalid-item-10",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "be97177cf3b357d50449eb8a4ac0480d5745848d186f3ff7316759a4405bb830",
+          "input_bytes": 114,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-10/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-10/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "event_count-invalid-item-11",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "cade6d48640dbec839426ecbeae535268b12358ef0392ca189ce3112153b5b9f",
+          "input_bytes": 115,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-11/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/event_count-invalid-item-11/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "largest_adjustment-invalid-item-00",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "c8fb98ec4097a51628290a2359caaa23951d62907b8b38e951e31459995cc135",
+          "input_bytes": 117,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-00/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-00/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "largest_adjustment-invalid-item-01",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "b27a04c849bd2bbba6cfed55cbe4834e4d9df8456f72a45416a2fcf4241235cf",
+          "input_bytes": 118,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-01/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-01/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "largest_adjustment-invalid-item-02",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "22dd99698622e7266925921ed7f877c7077ee34bf786ee0b101109b27c91c785",
+          "input_bytes": 117,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-02/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-02/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "largest_adjustment-invalid-item-03",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "ad65d811f01759ebcc2b049e188a005dfb5e0ae133b28aed6520ee28077f1add",
+          "input_bytes": 116,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-03/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-03/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "largest_adjustment-invalid-item-04",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "7264fae441285bb95c77e97303a276fa25583f23611eceb083ce6cfff9a37aae",
+          "input_bytes": 115,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-04/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-04/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "largest_adjustment-invalid-item-05",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "66f125ed6538345979e368d651fa487010c6862f56e6c7d3143841b2da4dc105",
+          "input_bytes": 115,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-05/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-05/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "largest_adjustment-invalid-item-06",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "a18f7eb595cbbe0d647ff5bbc18b4a43fefaac756fb64e77250f74cf80080917",
+          "input_bytes": 116,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-06/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-06/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\n  File \"/tmp/candidate/summarize.py\", line 11, in integer\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: noninteger\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "largest_adjustment-invalid-item-07",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "120909e043d8c13a7d0ddf0725f7d6aca779862dd8df6ca66e5e5c03cbdc9d0f",
+          "input_bytes": 117,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-07/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-07/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\n  File \"/tmp/candidate/summarize.py\", line 11, in integer\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: noninteger\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "largest_adjustment-invalid-item-08",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "080eb4c07b5177dfad3894674c5884fb4ca5243eb8020c6be6b748bffbf545da",
+          "input_bytes": 149,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-08/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-08/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 20, in <module>\n    p=json.loads(Path(sys.argv[1]).read_text(),parse_int=integer,parse_float=integer,object_pairs_hook=pairs)\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\n  File \"/tmp/candidate/summarize.py\", line 11, in integer\n    if len(digits)<-exponent or digits[exponent:].strip('0'):raise ValueError('noninteger')\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: noninteger\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "largest_adjustment-invalid-item-09",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "f6a1a92ea1ae51df7d83ff58cbeeb35d4354ccb36721c7d5fa3423127a83d4c6",
+          "input_bytes": 116,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-09/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-09/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "largest_adjustment-invalid-item-10",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "f2bef52679ebdfdb4e05ad3611058d0757711c8ea3dcbb258b09134ef50c7345",
+          "input_bytes": 121,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-10/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-10/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        },
+        {
+          "name": "largest_adjustment-invalid-item-11",
+          "group": "validation",
+          "valid_input": false,
+          "input_sha256": "61b0884006cba1150e6e403a5be6f0731a6653e189c23d4e7b9543324f027707",
+          "input_bytes": 122,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-11/input data.json",
+            "/tmp/numeric export evaluation oa3y9ygx/largest_adjustment-invalid-item-11/output report.json"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n",
+          "passed": true,
+          "reason": "Rejected without results"
+        }
+      ]
+    }
+  },
+  "job_id": "wrong_count",
+  "kind": "control",
+  "expected": false,
+  "family": "sibling"
+}

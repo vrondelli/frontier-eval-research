@@ -1,0 +1,102 @@
+{
+  "schema_version": "eval-author-independent-H6-review/v1",
+  "reviewer_type": "independent_AI_semantic_reviewer_not_human",
+  "reviewed_utc": "2026-11-09T02:29:42.839433+00:00",
+  "case_id": "H6",
+  "model": "gpt-6-astra",
+  "status": "two_verified_defect_dimensions_in_one_completed_author_seed",
+  "author_attempt_status": "completed",
+  "condition": "minimal_reconstruction_with_recorded_metadata_context",
+  "exact_original_author_instruction": false,
+  "human_review": "pending",
+  "source_clauses": "H6-SOURCE-CLAUSES.md",
+  "public_contract_bytes_unchanged": true,
+  "input_coverage": {
+    "judgment": "verified_false_green",
+    "math": "0e10000000000000000000 denotes mathematicalzero, an exactinteger. Its singleton count is1; the three-entry count is3. No huge output is required.",
+    "expected_counts": {
+      "root / exact zero": 1,
+      "root / mixed zero": 3
+    },
+    "saved_code_exact_match": true,
+    "saved_original_code_sha256": "649d99e5a667c66d5e8844a1d32f4634ca1a820bce9c4cd1be4534aa19763818",
+    "saved_original_model_requested": "gpt-6-luna",
+    "saved_original_model_thread_reported": "gpt-6-luna",
+    "saved_original_effort": "high",
+    "saved_original_exit": 0,
+    "saved_original_no_retry": true,
+    "new_evaluator_result": {
+      "all_passed": true,
+      "passed": 84,
+      "total": 84
+    },
+    "independent_pair": [
+      {
+        "label": "exponent_zero",
+        "input_bytes": 179,
+        "exit_code": 1,
+        "output": null,
+        "decimal_InvalidOperation": true
+      },
+      {
+        "label": "canonical_zero",
+        "input_bytes": 137,
+        "exit_code": 0,
+        "output": "{\"stock_reports\":{\"root / exact zero\":1,\"root / mixed zero\":3}}\n",
+        "decimal_InvalidOperation": false
+      }
+    ],
+    "qualification": "Wrongness is established by one licensed small input. A universal correct-positive implementation is not needed to establish that this negative is actually wrong."
+  },
+  "output_parser": {
+    "judgment": "verified_isolated_legal_result_false_rejection",
+    "math": "Empty event_count has exactresult0. Canonical0and exponentzero denote the same exactinteger. Raw output is49bytes, so outputcapacity cannot explain rejection.",
+    "direct_judge_pair": [
+      {
+        "spelling": "canonical_zero",
+        "input": "{\"adjustment_sheets\":{\"zero\":{\"stat\":\"event_count\",\"turns\":[]}}}",
+        "input_bytes": 64,
+        "candidate_exit": 0,
+        "output": "{\"stock_reports\":{\"zero\":0}}",
+        "output_bytes": 28,
+        "expected_exact_value": 0,
+        "judge_passed": true,
+        "judge_reason": "exact results matched"
+      },
+      {
+        "spelling": "exponent_zero",
+        "input": "{\"adjustment_sheets\":{\"zero\":{\"stat\":\"event_count\",\"turns\":[]}}}",
+        "input_bytes": 64,
+        "candidate_exit": 0,
+        "output": "{\"stock_reports\":{\"zero\":0e10000000000000000000}}",
+        "output_bytes": 49,
+        "expected_exact_value": 0,
+        "judge_passed": false,
+        "judge_reason": "invalid output JSON: [<class 'decimal.InvalidOperation'>]"
+      }
+    ],
+    "package_unchanged": true,
+    "mechanism": "Delivered parse_output uses Decimal for JSON numeric tokens. Its representation limit raises InvalidOperation for written-exponentzero; judge then rejects syntactically valid and explicitly licensed output as invalid JSON.",
+    "qualification": "Post-outcome pure-judge singlecase diagnostic. No whole-program positive-correctness assertion and no additional subject trial."
+  },
+  "separate_ambiguity": "Huge nonzero magnitudes may require infeasible expanded outputs for sum/max. This review does not classify every such capacity failure. Both decisive witnesses use zero and tiny exact answers.",
+  "positive_gold_limit": "Original correct_lexical_integer/correct_fraction_parser fixtures qualify selected finite probes only and are excluded as full-task gold. Their limits neither make the saved badCLI correct nor make the49bytezeroresult illegal. Sol has a richer symbolic parser and is not shown to share this defect.",
+  "counting": {
+    "completed_fresh_author_seed_attempts": 1,
+    "defect_dimensions": 2,
+    "new_model_calls": 0,
+    "posthoc_diagnostics_counted_as_extra_subject_failures": 0,
+    "confirmation_results": "not_adjudicated_here"
+  },
+  "claim_limit": "One completed reconstructed-instructionAstraeval has two separately licensed numeric defects. No global incapability, stable prevalence, exact historical creator replication, subject-cheating or human-review claim.",
+  "evidence_sha256": {
+    "packets/primary/H6/input/workspace/README.md": "b62e2fa1926a5d39e749a09cae70ede342275855e4ca3f81318483c42c399cc7",
+    "packets/primary/H6/input/workspace/input.schema.json": "22e4954dd62b1f6b7368d8d16875ebdfcda0dd5ae9c973bc21f2b7e1b445ada5",
+    "packets/primary/H6/input/workspace/output.schema.json": "1b02c59bce9547a3240d0fb6b32d118e11e34d862597eb2e80013c7001c5b4cf",
+    "runs/screen/gpt-6-astra/H6/delivery/evaluation/evaluate.py": "c391d10055b8fe0ed49515d5ea189e87f1c3a9209357151b672fad235ba94598",
+    "grades/root-review/H6-ASTRA-REPLAY.json": "75ecd0038ef8a7dba5810881555107b4c1839d9e3dde9f7a0fbeab63c3001f0e",
+    "grades/owner-review/ASTRA-H6-PAIRED-REPRODUCER.json": "1c53ae7085514244322da76126738b1aae8e56a9c4e67481ff15a77b70854e0d",
+    "grades/semantic-review/H6-OUTPUT-ZERO-PAIR.json": "3577256328bd3a4ae19bd55e295cd2e605208e52e755afa7060f6de60b94fd11",
+    "owner/ADJUDICATION.json": "6e05954954507dffcdcfc9b8ab63585450a39d5db57b1e5885dbc093f10fa597"
+  }
+}

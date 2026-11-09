@@ -1,0 +1,31 @@
+WORKSPACE /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace
+FILE OK globmatch.py present
+STDLIB PASS imports=
+CORRECTNESS FAIL 28/46 wall=0.027s
+  CORR_FAIL '[abc]x' vs 'bx': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[abc]x' vs 'dx': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[a-z]9' vs 'q9': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[a-z]9' vs 'Q9': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[!a-z]9' vs 'Q9': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[!a-z]9' vs 'q9': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[^a]' vs '^': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[^a]' vs 'b': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[]]' vs ']': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[!]]' vs 'a': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[!]]' vs ']': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[-a]' vs '-': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[a-]' vs '-': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[a-cx-z]' vs 'y': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[z-a]' vs 'm': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[\\]]' vs ']': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[\\-]' vs '-': error TypeError("'function' object is not subscriptable")
+  CORR_FAIL '[a-z]*[0-9]' vs 'abc7': error TypeError("'function' object is not subscriptable")
+ADV1 OK wall=0.023s child_elapsed=0.0001s plen=26 tlen=40 result=False
+ADV2 OK wall=0.021s child_elapsed=0.0001s plen=41 tlen=54 result=False
+ADV3 ERROR wall=0.022s expected=False TypeError("'function' object is not subscriptable")
+ADV4 OK wall=0.022s child_elapsed=0.0001s plen=32 tlen=45 result=False
+ADV5 OK wall=0.022s child_elapsed=0.0001s plen=32 tlen=48 result=True
+ADVERSARIAL FAIL ok=4/5 timeouts=0 wrong=0 errors=1 timeout_per_case=5.0s
+CLASSIFICATION ANY_FAIL_CORRECTNESS
+OVERALL FAIL
+grader_exit=1

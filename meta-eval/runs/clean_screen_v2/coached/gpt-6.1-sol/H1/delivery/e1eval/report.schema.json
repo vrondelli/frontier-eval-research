@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:e1:report:v1",
+  "title": "E1 formal evaluation report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "task_id", "submission_sha256", "status", "formal_status", "overall_status", "isolation", "checks", "trials", "diagnostics", "explanation_review"],
+  "properties": {
+    "schema_version": {"const": "e1-report/v1"},
+    "task_id": {"const": "E1"},
+    "submission_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "status": {"enum": ["pass", "fail", "invalid", "review_required", "unavailable", "internal_error"]},
+    "formal_status": {"enum": ["pass", "fail", "not_run"]},
+    "overall_status": {"enum": ["formal_pass_review_pending", "formal_fail", "invalid", "review_required", "unavailable", "internal_error"]},
+    "isolation": {"enum": ["linux_bwrap", "trusted_control"]},
+    "checks": {"type": "array", "items": {
+      "type": "object", "additionalProperties": false, "required": ["id", "passed"],
+      "properties": {"id": {"type": "string"}, "passed": {"type": "boolean"}}
+    }},
+    "trials": {"type": "array", "maxItems": 3, "items": {
+      "type": "object", "additionalProperties": false, "required": ["index", "events", "passed"],
+      "properties": {"index": {"type": "integer", "minimum": 1, "maximum": 3},
+        "passed": {"type": "boolean"}, "events": {"type": "array", "items": {
+          "type": "object", "required": ["name", "records", "snapshot"],
+          "properties": {"name": {"type": "string"}, "records": {"type": "array", "items": {
+            "type": "object", "required": ["request", "response", "exit_code"],
+            "properties": {"request": {"type": "object"}, "response": {"type": "object"}, "exit_code": {"type": "integer"}}
+          }}, "snapshot": {"type": "object"}, "legal_outcomes": {"type": "array"},
+          "expected_snapshot": {"type": "object"}, "expected_reply": {"type": "object"}}
+        }}}
+    }},
+    "diagnostics": {"type": "array", "items": {"type": "string"}},
+    "explanation_review": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "criteria", "unresolved_claims", "quality_scored"],
+      "properties": {"status": {"const": "pending"}, "quality_scored": {"const": false},
+        "criteria": {"type": "array", "minItems": 8, "maxItems": 8, "items": {"type": "string"}},
+        "unresolved_claims": {"type": "array", "items": {"type": "string"}}}
+    }
+  }
+}

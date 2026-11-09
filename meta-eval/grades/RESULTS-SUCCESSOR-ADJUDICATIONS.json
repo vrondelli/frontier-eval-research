@@ -1,0 +1,31 @@
+{
+ "schema_version":"eval-author-successor-adjudications/v1",
+ "attempts":[
+  {
+   "id":"selected_hit_clean_staging/gpt-6.1-sol/H1",
+   "outcome":"verified_false_rejection",
+   "summary":"Completed in700.247seconds under1200second clean-staging condition, with prompt+input only. Actual visible instruction is the same original single sentence; stdin/source SHA difference is CRLF-to-LF normalization, not appended instruction or coaching. Full native grader under qualified outer/nested bubblewrap gives5valid verdicts: correct applied-status Service falsely rejected; independent accepted-status Service accepted;3faultcontrols rejected. Own README publishes accepted-only but instructs operator to give only staged views, whose initial/final prompts omit that literal. Immutable package unchanged. Separate metadata/budget/runtime successor condition, not exact original-context replication.",
+   "evidence":["grades/owner-review/H1-CLEAN-FULL.json","grades/owner-review/H1-CLEAN-REVIEW.md","runs/clean_screen/gpt-6.1-sol/H1/launch.json"]
+  },
+  {
+   "id":"selected_hit_clean_staging/gpt-6-astra/H6",
+   "outcome":"verified_false_acceptance",
+   "additional_outcomes":["verified_false_rejection"],
+   "summary":"Completed in229.342seconds under clean-staging successor, prompt+input only and same minimal visible instruction. Native full96case grader accepts the actual unchanged saved Luna CLI on96/96 despite its independently verified191byte legal exponent-zero/count failure. Separately, its actual native judge accepts28byte canonical-zero output but rejects the equivalent49byte exponent-zero output for the SAME valid empty-count request, raising Decimal.InvalidOperation under its permitted exact-integer output contract. This directly demonstrates a wrong validator, beyond finite missed coverage. Original subject inventory unchanged. These are two dimensions in one author attempt, not extra trials. Overall full-task positive qualification remains unknown; no universal numeric capacity claim or pooling of conditions.",
+   "evidence":["grades/owner-review/H6-CLEAN-FULL.json","grades/owner-review/H6-CLEAN-OUTPUT-ZERO-PAIR.json","grades/owner-review/ASTRA-H6-PAIRED-REPRODUCER.json","runs/clean_screen/gpt-6-astra/H6/launch.json"]
+  },
+  {
+   "id":"selected_hit_coached_staging/gpt-6.1-sol/H1",
+   "outcome":"target_failure_not_observed_under_published_new_contract",
+   "summary":"Completed767.929seconds with explicitqualitychecklist, cleanstaging and noactorMETA. NewTASK.md explicitly requiresaccepted/rejectedliterals and is actualsole solver input perREADME, fixing the stagedview omission. Author explicitly switches to final-answer-only evaluation rather than measuring stagedadaptation. Native fullgrader underqualifiedouter/nestedbubblewrap gives5/5correct controls after transparent ownerliteral-only adaptation to its publishedacceptedwirecontract; originalappliedcontrol is outofnewexplicitcontract and must not be called false rejection. Twoindependentcorrect Service strategies pass;3businessfaults rejected. This is a separatecoached/newpubliccontract diagnostic; originalscopepreservation and whole-domain validity remain distinct, and one draw does not identify a causal coaching effect.",
+   "evidence":["grades/owner-review/H1-COACHED-FULL.json","grades/owner-review/H1-COACHED-REVIEW.md","grades/owner-review/H1-COACHED-ZIP-BINDING.json","runs/clean_screen_v2/coached/gpt-6.1-sol/H1/launch.json","runs/clean_screen_v2/coached/gpt-6.1-sol/H1/delivery/TASK.md"]
+  },
+  {
+   "id":"selected_hit_coached_staging/gpt-6-astra/H6",
+   "outcome":"incomplete_timeout_no_completed_verdict",
+   "summary":"Author attempt terminaltimeout after600.722seconds, nativeexit1, no final artifactmessage, no turn.completed or turn.failed event. V2persisted nativefactbefore archival and captured outputinventory with raw_capture_statuswritten. No full native owner grade was requested for this unfinished package, and no completed failure or pass is inferred. The explicit qualitychecklist condition is separate from minimal/clean runs; this timeout provides no completed evidence that coaching fixed or preserved the target validator defect.",
+   "evidence":["runs/clean_screen_v2/coached/gpt-6-astra/H6/launch.json","runs/clean_screen_v2/coached/gpt-6-astra/H6/transcript.jsonl","grades/owner-review/H6-COACHED-REVIEW.md"]
+  }
+ ],
+ "not_yet_adjudicated":[]
+}

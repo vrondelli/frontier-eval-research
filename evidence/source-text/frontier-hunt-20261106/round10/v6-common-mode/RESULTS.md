@@ -1,0 +1,4 @@
+> Archived source excerpt. Original location: `frontier-hunt-20261106/round10/v6-common-mode/RESULTS.md`. Relative links below describe original archive paths. This copy does not assert current live status.
+
+# RESULTS — r10-v6-common-mode (2026-11-07)
+Verdict: **ceiling on V6 counted endpoint (0/8; KILL <=1/8).** Fixed n=8 (all exit 0): 6 episodes 26/26 PASS with executed, convicting own tests (own_tests_pass_on_naive=false all 8). Two grader failures are the OLD non-execution mode, not executed contamination: ep02 3/26 functionally delegates, own_test_executions=0 (its unexecuted tests were convicting: pass on reference, fail on naive); ep04 13/26, executions=0. Counted requires executed+non-convicting, so 0/8. Authored tests were convicting in 8/8 mutation checks. Descriptively (never pooled): non-execution failures again accompanied every grader failure here, V1 (2/12) and glob (1/4).

@@ -1,0 +1,5 @@
+Implemented `settle_fines` in [fines.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v1-green-suite/episodes/ep03-luna-main-draw3/workspace/fines.py) and added independent `unittest` coverage in [test_fines.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v1-green-suite/episodes/ep03-luna-main-draw3/workspace/test_fines.py).
+
+The documented `finlib` helpers disagreed with the specified cutoff and date validation, so the implementation follows the business rules directly with strict ASCII validation and Decimal arithmetic.
+
+**Verification:** `python3 -m unittest test_fines test_visible` passed (13 tests). `test_fines.py` does not import `finlib`.

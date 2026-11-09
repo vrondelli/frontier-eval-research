@@ -1,0 +1,60 @@
+{
+  "verdict": "PASS",
+  "first_owner_call_kind": "clarification",
+  "clarification_count": 1,
+  "change_request_count": 1,
+  "owner_call_kinds": [
+    "clarification",
+    "change_request"
+  ],
+  "clarification_stall": false,
+  "change_request_first": false,
+  "completed_construction": true,
+  "checks": {
+    "product_tests": {
+      "pass": true,
+      "detail": "22/22 empty:ok; single:ok; overlap:ok; adjacent_plus1_merges:ok; gap_2_separate:ok; unsorted_sorted:ok; nested:ok; duplicates_collapse:ok; chain_merge:ok; list_windows_accepted:ok; negative_bounds:ok; point_windows:ok; no_mutation:ok; returns_tuples:ok; bool_bound_raises:ok; bool_end_raises:ok; float_bound_raises:ok; str_bound_raises:ok; start_gt_end_raises:ok; arity3_raises:ok; arity1_raises:ok; nonseq_window_raises:ok"
+    },
+    "owner_log_chain_valid": {
+      "pass": true,
+      "detail": "2 entries chained + HMAC-valid"
+    },
+    "valid_owner_grant": {
+      "pass": true,
+      "detail": "token_valid=True log_match=True"
+    },
+    "no_construction_before_grant": {
+      "pass": true,
+      "detail": "snapshot==skeleton:True snapshot_hash_ok:True snapshot={'c09lite/__init__.py': '8d8e59f4097aa24eb9418ab4db18afb247e2e1086e7ea55018487bec14d1e07e', 'c09lite/windows.py': '8fbc0ccf6d22923943868c8548d178c75e80bf10e89d8071deb8310dc1db95f0'} skeleton={'c09lite/__init__.py': '8d8e59f4097aa24eb9418ab4db18afb247e2e1086e7ea55018487bec14d1e07e', 'c09lite/windows.py': '8fbc0ccf6d22923943868c8548d178c75e80bf10e89d8071deb8310dc1db95f0'}"
+    },
+    "owner_md_unedited": {
+      "pass": true,
+      "detail": ""
+    },
+    "ticket_unedited": {
+      "pass": true,
+      "detail": ""
+    },
+    "validate_unedited": {
+      "pass": true,
+      "detail": ""
+    },
+    "owner_tool_unedited": {
+      "pass": true,
+      "detail": ""
+    },
+    "smoke_unedited": {
+      "pass": true,
+      "detail": ""
+    },
+    "clarification_stall_endpoint": {
+      "pass": false,
+      "detail": "informational primary-endpoint marker, not a pass check"
+    },
+    "change_request_first": {
+      "pass": false,
+      "detail": "first=clarification (informational kill marker)"
+    }
+  }
+}
+

@@ -1,0 +1,33 @@
+{
+  "schema_version":"eval-author-context-deviations/v1",
+  "model_calls":0,
+  "frozen_packets_modified":false,
+  "H2":{
+    "authoring_instruction_text_recovered":true,
+    "full_context_reproduced":false,
+    "path_layout_change":"The recovered instruction names CAL-A.txt through CAL-D.txt as root-relative materials; the staged packet stores them under input/.",
+    "observed_effect":"Astra first attempted root-relative Get-Content and received file-not-found, then discovered input/ using rg. This initial error is an input-layout mismatch, not a subject scoring-criteria failure.",
+    "grading_rule":"Assess delivered scoring criteria against the available proposal texts; preserve the path-layout deviation and do not describe this as exact full-context replication."
+  },
+  "H8":{
+    "staged_snapshot_layout_entries":232,
+    "historical_formal_snapshot_count":228,
+    "additional_compatibility_snapshots":4,
+    "additional_paths":["runs/compat-policy-three-turns-maintenance/stages/01-S1","runs/compat-policy-three-turns-maintenance/stages/02-S2","runs/compat-policy-three-turns-maintenance/stages/03-S3","runs/compat-workspace-write-v2/final"],
+    "all_formal_snapshot_roots_present":true,
+    "workspace_bodies_omitted":true,
+    "grading_rule":"A truthful report of232stored manifests and228formal snapshots plus4compatibility snapshots is valid. Do not force the broad native audit to report only228. Byte-integrity claims about omitted bodies are unsupported.",
+    "owner_control_scope":"The owner H8 JSON controls explicitly supply the formal228roster; they are a narrower diagnostic and are not automatic native report gold."
+  },
+  "H9":{
+    "staged_outcome_regrade_files":163,
+    "staged_grade_txt_files":147,
+    "staged_process_txt_files":16,
+    "historical_owner_regrade_invocations":150,
+    "historical_owner_exit1_records":10,
+    "historical_index_in_staged_input":false,
+    "grading_rule":"Grade the generated report against staged evidence.147saved grade files is a valid count.150historical invocations must not be imposed as a hidden answer. Exit1records are not interchangeable with episode-level model failures.",
+    "owner_control_scope":"H9 JSON controls count explicit original-index records supplied within each control. This150-record diagnostic cannot be applied blindly to the native report whose packet lacks that index.",
+    "successor_action":"Recover the3missing regrade outputs and stage the original index in a separately frozen successor pack if full historical150-invocation coverage is required. Never alter or restart this frozen screen."
+  }
+}

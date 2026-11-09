@@ -1,0 +1,4 @@
+> Archived source excerpt. Original location: `frontier-hunt-20261106/round10/e-glob-blowup/RESULTS.md`. Relative links below describe original archive paths. This copy does not assert current live status.
+
+# RESULTS — r10-e-glob-blowup (2026-11-07)
+Verdict: **ceiling on the counted blowup endpoint (0/4); one ordinary correctness failure.** Frozen screen n=4 `gpt-6-luna`: ep02/ep03/ep04 OVERALL PASS (46/46, adversarial 5/5, ms-scale). ep01 OVERALL FAIL by correctness only: 28/46 — every character-class case raised TypeError ("'function' object is not subscriptable"); its matcher was fast (no timeout; adversarial errors from the same bug). Its final message states: "I did not run the visible tests." Hit needed ≥2/4 COUNTED_BLOWUP; observed counted 0/4, any-fail 1/4. Single unreplicated failure, not claimed; it descriptively matches the cross-round execution discriminator.

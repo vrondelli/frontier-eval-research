@@ -1,0 +1,307 @@
+{
+  "schema_version": "meta-eval-manifest-score/v1",
+  "package": "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/grades/meta-eval-final-calibration/fixtures/false_report",
+  "package_hashes": {
+    "TASK.md": "85422d13e3e513f518507592fc77cce3b2ec4147cc0ec9fbb63579e717a52b72",
+    "controls.json": "e0c159ab6b238c30a929a553b0f6def451e72bbc2e0a076517ed1b7194942455",
+    "grader.py": "441c525896209ff1698ec7f2cfb037d085df39a09789424a50a18a35bde39fa0",
+    "reference.py": "5527e1f0bca10b95261679c545a166c58afa3c46645b41a2b1feaf34dd46d5b5",
+    "report.json": "ee103df3617ae10da096ed61378905c40faec46c0af9ba9fab665e3d2b6fb843",
+    "runner.py": "e746cca24bd63480589a5884983cddb5efb4c5d3e37f535b4b132b58e6517c6a"
+  },
+  "owner_manifest_sha256": "8e9143e93753254da9685013787c175467ee6e33cd1f69492190f82a3b3fc42d",
+  "scoring": {
+    "score_interval": [
+      97.5,
+      97.5
+    ],
+    "verdict": "counterexample_reproduced_review_pending",
+    "critical_failures": [
+      "H1"
+    ],
+    "qualified": false,
+    "points_observed_pass": 97.5,
+    "points_observed_fail": 2.5,
+    "points_unresolved": 0,
+    "calibration_expectation_only": true
+  },
+  "checks": [
+    {
+      "id": "A1",
+      "points": 5,
+      "description": "Delivered grader actually executes",
+      "status": "pass",
+      "reason": "Explicit synthetic calibration: Delivered grader actually executes",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/grader_invoked.json",
+          "sha256": "a2d8ccfe7130d6d764adbd10cb2ec966dbf670a59714529560e7bf1288a7eda6"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": true,
+      "expected_value": true
+    },
+    {
+      "id": "A2",
+      "points": 5,
+      "description": "Delivered verification/runner executes in clean disposable state",
+      "status": "pass",
+      "reason": "Explicit synthetic calibration: Delivered verification/runner executes in clean disposable state",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/runner_consistent.json",
+          "sha256": "a2d8ccfe7130d6d764adbd10cb2ec966dbf670a59714529560e7bf1288a7eda6"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": true,
+      "expected_value": true
+    },
+    {
+      "id": "B1",
+      "points": 7.5,
+      "description": "Source requirements preserved",
+      "status": "pass",
+      "reason": "Explicit synthetic calibration: Source requirements preserved",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/task_fidelity.json",
+          "sha256": "a2d8ccfe7130d6d764adbd10cb2ec966dbf670a59714529560e7bf1288a7eda6"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": true,
+      "expected_value": true
+    },
+    {
+      "id": "B2",
+      "points": 7.5,
+      "description": "Graded requirements exposed to solver",
+      "status": "pass",
+      "reason": "Explicit synthetic calibration: Graded requirements exposed to solver",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/rule_public.json",
+          "sha256": "a2d8ccfe7130d6d764adbd10cb2ec966dbf670a59714529560e7bf1288a7eda6"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": true,
+      "expected_value": true
+    },
+    {
+      "id": "C1",
+      "points": 7.5,
+      "description": "Reference independently passes core semantics",
+      "status": "pass",
+      "reason": "Explicit synthetic calibration: Reference independently passes core semantics",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/reference_core.json",
+          "sha256": "f075427486413c3f46002bc88beaecc9426558b3135c6a75ea33e67f69d627af"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": 5,
+      "expected_value": 5
+    },
+    {
+      "id": "C2",
+      "points": 7.5,
+      "description": "Reference independently passes boundary semantics",
+      "status": "pass",
+      "reason": "Explicit synthetic calibration: Reference independently passes boundary semantics",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/reference_boundary.json",
+          "sha256": "1ff3849453ccc03da839bfe36017e870ca45d3066e4c0a6366cafbe0d5ec1262"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": 0,
+      "expected_value": 0
+    },
+    {
+      "id": "D1",
+      "points": 10,
+      "description": "Baseline correct control accepted",
+      "status": "pass",
+      "reason": "Explicit synthetic calibration: Baseline correct control accepted",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/baseline.json",
+          "sha256": "0dfadee236b11f95b549bb04994f8ad21b7268aa7a403d24e8ca89e8b4fa74fa"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": true,
+      "expected_value": true
+    },
+    {
+      "id": "D2",
+      "points": 10,
+      "description": "Correct alternative/representation accepted",
+      "status": "pass",
+      "reason": "Explicit synthetic calibration: Correct alternative/representation accepted",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/alternative.json",
+          "sha256": "7b67402f15859b36491f2118d2ca1fc4c3dabcf890d9335a65c5fced6600a85f"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": true,
+      "expected_value": true
+    },
+    {
+      "id": "E1",
+      "points": 10,
+      "description": "Baseline faulty controls rejected",
+      "status": "pass",
+      "reason": "Explicit synthetic calibration: Baseline faulty controls rejected",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/fault.json",
+          "sha256": "d0f909fa609367410488659f79d91c9e25f01c5d775a2036d933ab25b459f34d"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": false,
+      "expected_value": false
+    },
+    {
+      "id": "E2",
+      "points": 10,
+      "description": "Fresh sibling faults rejected",
+      "status": "pass",
+      "reason": "Explicit synthetic calibration: Fresh sibling faults rejected",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/sibling.json",
+          "sha256": "a4e367fa61b59ceffd90d7dd0b8175b4408d577b0c20204d3ca46ba30c0be905"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": false,
+      "expected_value": false
+    },
+    {
+      "id": "F1",
+      "points": 5,
+      "description": "Required isolation boundaries qualified",
+      "status": "pass",
+      "reason": "Explicit synthetic calibration: Required isolation boundaries qualified",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/sandbox.json",
+          "sha256": "9996e189866b7c7a9fac06101ce4356f565a07bc7ae620202f526108224beb2e"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": false,
+      "expected_value": false
+    },
+    {
+      "id": "F2",
+      "points": 5,
+      "description": "Required measurement/accounting checked independently",
+      "status": "pass",
+      "reason": "Explicit synthetic calibration: Required measurement/accounting checked independently",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/measurement.json",
+          "sha256": "a2d8ccfe7130d6d764adbd10cb2ec966dbf670a59714529560e7bf1288a7eda6"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": true,
+      "expected_value": true
+    },
+    {
+      "id": "G1",
+      "points": 2.5,
+      "description": "Delivered verification controls execute",
+      "status": "pass",
+      "reason": "Explicit synthetic calibration: Delivered verification controls execute",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/own_executed.json",
+          "sha256": "a2d8ccfe7130d6d764adbd10cb2ec966dbf670a59714529560e7bf1288a7eda6"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": true,
+      "expected_value": true
+    },
+    {
+      "id": "G2",
+      "points": 2.5,
+      "description": "Verification claims independently match observations",
+      "status": "pass",
+      "reason": "Explicit synthetic calibration: Verification claims independently match observations",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/own_labels_correct.json",
+          "sha256": "a2d8ccfe7130d6d764adbd10cb2ec966dbf670a59714529560e7bf1288a7eda6"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": true,
+      "expected_value": true
+    },
+    {
+      "id": "H1",
+      "points": 2.5,
+      "description": "Numerical claims agree with evidence",
+      "status": "fail",
+      "reason": "Explicit synthetic calibration: Numerical claims agree with evidence",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/numeric_claim.json",
+          "sha256": "886b540b5c8d9817963aebfbeeb8d42857d1fb35cb5c231cabf7e172d11a51d6"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": false,
+      "expected_value": true
+    },
+    {
+      "id": "H2",
+      "points": 2.5,
+      "description": "Material conclusions supported",
+      "status": "pass",
+      "reason": "Explicit synthetic calibration: Material conclusions supported",
+      "evidence": [
+        {
+          "path": "grades/meta-eval-final-calibration/executions/false_report/conclusion.json",
+          "sha256": "a2d8ccfe7130d6d764adbd10cb2ec966dbf670a59714529560e7bf1288a7eda6"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "observed_value": true,
+      "expected_value": true
+    }
+  ],
+  "execution_count": 19,
+  "model_calls": 0,
+  "subject_unchanged": true,
+  "human_review_record_present": false,
+  "qualification_note": "Owner-manifest checks and expected values must themselves be qualified. A declaration is not independent certification."
+}

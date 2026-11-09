@@ -1,0 +1,60 @@
+{
+  "cases": [
+    {
+      "case_id": "H8",
+      "qualification": "source_derived_adapter_control",
+      "native_report_semantic_review_required": true,
+      "scope_note": "Controls specify formal228 roster only; native stored-artifact audit may truthfully report232 including4compatibility snapshots.",
+      "controls": [
+        {
+          "path": "owner/audit_cases/H8/control-01.json",
+          "expected_pass": true
+        },
+        {
+          "path": "owner/audit_cases/H8/control-02.json",
+          "expected_pass": true
+        },
+        {
+          "path": "owner/audit_cases/H8/control-03.json",
+          "expected_pass": false
+        },
+        {
+          "path": "owner/audit_cases/H8/control-04.json",
+          "expected_pass": false
+        },
+        {
+          "path": "owner/audit_cases/H8/control-05.json",
+          "expected_pass": false
+        }
+      ]
+    },
+    {
+      "case_id": "H9",
+      "qualification": "source_derived_adapter_control",
+      "native_report_semantic_review_required": false,
+      "scope_note": "Counts150grader invocations, not163raw files or150episodes.",
+      "controls": [
+        {
+          "path": "owner/audit_cases/H9/control-01.json",
+          "expected_pass": true
+        },
+        {
+          "path": "owner/audit_cases/H9/control-02.json",
+          "expected_pass": true
+        },
+        {
+          "path": "owner/audit_cases/H9/control-03.json",
+          "expected_pass": false
+        },
+        {
+          "path": "owner/audit_cases/H9/control-04.json",
+          "expected_pass": false
+        },
+        {
+          "path": "owner/audit_cases/H9/control-05.json",
+          "expected_pass": false
+        }
+      ]
+    }
+  ]
+}

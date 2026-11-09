@@ -1,0 +1,5 @@
+Implemented `settle_picking` in [picking.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s3-warehouse-picking/episodes/ep02-luna-main-draw2/workspace/picking.py) and added independent `unittest` coverage in [test_picking.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s3-warehouse-picking/episodes/ep02-luna-main-draw2/workspace/test_picking.py).
+
+The implementation follows the task’s rules directly with strict ASCII validation and exact `Decimal` arithmetic. The available `picklib` shim behaved differently from its documented contract, so I did not rely on it.
+
+Verification: `python3 -m unittest test_picking test_visible` passed all 15 tests; `git diff --check` passed. **12 tool calls.**

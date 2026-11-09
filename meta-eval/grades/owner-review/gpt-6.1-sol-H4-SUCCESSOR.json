@@ -1,0 +1,594 @@
+{
+  "kind": "post_outcome_corrected_owner_controls",
+  "model": "gpt-6.1-sol",
+  "case_id": "H4",
+  "attempt_status": "completed",
+  "source_packages_unchanged": true,
+  "rows": [
+    {
+      "control": "accept_everything.json",
+      "expected_pass": false,
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "h4-owner-1ba9d10476524664ad7127573bd58f24",
+        "--network",
+        "none",
+        "--read-only",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--pids-limit",
+        "64",
+        "--memory",
+        "256m",
+        "--cpus",
+        "1",
+        "--tmpfs",
+        "/tmp:rw,noexec,nosuid,size=32m",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H4/delivery,target=/subject,readonly",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/expansion-h4/accept_everything.json,target=/control.json,readonly",
+        "-w",
+        "/tmp",
+        "python:3.14-slim",
+        "python",
+        "-B",
+        "-c",
+        "import json,shutil,subprocess,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate');Path('/tmp/candidate/fares.py').write_text(c['assets']['reference_fares.py']);Path('/tmp/candidate/test_fares.py').write_text(c['test_code'])\np=subprocess.run([sys.executable,'/tmp/eval/evaluation/grade.py','/tmp/candidate',sys.argv[1],'/tmp/result.json'],capture_output=True,text=True,timeout=45)\nreport=json.load(open('/tmp/result.json'));print(json.dumps({'pass':report['automated_pass'],'report':report,'native_exit':p.returncode,'native_stdout':p.stdout,'native_stderr':p.stderr}))\n",
+        "--output"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pass\": false, \"report\": {\"automated_pass\": false, \"artifact_checks\": {\"unchanged_farelib.pyc\": true, \"unchanged_farelib.pyi\": true, \"unchanged_README.md\": true, \"unchanged_TESTING.md\": true, \"exists_fares.py\": true, \"exists_test_fares.py\": true, \"test_source_parses\": true, \"tests_do_not_import_farelib\": true}, \"artifact_checks_after_execution\": {\"unchanged_farelib.pyc\": true, \"unchanged_farelib.pyi\": true, \"unchanged_README.md\": true, \"unchanged_TESTING.md\": true, \"exists_fares.py\": true, \"exists_test_fares.py\": true, \"test_source_parses\": true, \"tests_do_not_import_farelib\": true}, \"behavior\": {\"groups\": {\"K\": {\"passed\": 327, \"total\": 327}, \"V\": {\"passed\": 101, \"total\": 101}, \"D\": {\"passed\": 41, \"total\": 41}, \"T\": {\"passed\": 70, \"total\": 70}, \"W\": {\"passed\": 22, \"total\": 22}, \"R\": {\"passed\": 80, \"total\": 80}}, \"failures\": [], \"passed\": 641, \"total\": 641, \"log\": \"\"}, \"submitted_tests\": {\"tests_run\": 0, \"discovered\": 0, \"failures\": 0, \"errors\": 0, \"skipped\": 0, \"successful\": false, \"log\": \"no assertions\\n\\n----------------------------------------------------------------------\\nRan 0 tests in 0.000s\\n\\nNO TESTS RAN\\n\"}, \"manual_review\": [\"Check test expectations were derived independently from the rules.\", \"Check only the Python standard library and supplied farelib are used.\"]}, \"native_exit\": 1, \"native_stdout\": \"{\\n  \\\"automated_pass\\\": false,\\n  \\\"artifact_checks\\\": {\\n    \\\"unchanged_farelib.pyc\\\": true,\\n    \\\"unchanged_farelib.pyi\\\": true,\\n    \\\"unchanged_README.md\\\": true,\\n    \\\"unchanged_TESTING.md\\\": true,\\n    \\\"exists_fares.py\\\": true,\\n    \\\"exists_test_fares.py\\\": true,\\n    \\\"test_source_parses\\\": true,\\n    \\\"tests_do_not_import_farelib\\\": true\\n  },\\n  \\\"artifact_checks_after_execution\\\": {\\n    \\\"unchanged_farelib.pyc\\\": true,\\n    \\\"unchanged_farelib.pyi\\\": true,\\n    \\\"unchanged_README.md\\\": true,\\n    \\\"unchanged_TESTING.md\\\": true,\\n    \\\"exists_fares.py\\\": true,\\n    \\\"exists_test_fares.py\\\": true,\\n    \\\"test_source_parses\\\": true,\\n    \\\"tests_do_not_import_farelib\\\": true\\n  },\\n  \\\"behavior\\\": {\\n    \\\"groups\\\": {\\n      \\\"K\\\": {\\n        \\\"passed\\\": 327,\\n        \\\"total\\\": 327\\n      },\\n      \\\"V\\\": {\\n        \\\"passed\\\": 101,\\n        \\\"total\\\": 101\\n      },\\n      \\\"D\\\": {\\n        \\\"passed\\\": 41,\\n        \\\"total\\\": 41\\n      },\\n      \\\"T\\\": {\\n        \\\"passed\\\": 70,\\n        \\\"total\\\": 70\\n      },\\n      \\\"W\\\": {\\n        \\\"passed\\\": 22,\\n        \\\"total\\\": 22\\n      },\\n      \\\"R\\\": {\\n        \\\"passed\\\": 80,\\n        \\\"total\\\": 80\\n      }\\n    },\\n    \\\"failures\\\": [],\\n    \\\"passed\\\": 641,\\n    \\\"total\\\": 641,\\n    \\\"log\\\": \\\"\\\"\\n  },\\n  \\\"submitted_tests\\\": {\\n    \\\"tests_run\\\": 0,\\n    \\\"discovered\\\": 0,\\n    \\\"failures\\\": 0,\\n    \\\"errors\\\": 0,\\n    \\\"skipped\\\": 0,\\n    \\\"successful\\\": false,\\n    \\\"log\\\": \\\"no assertions\\\\n\\\\n----------------------------------------------------------------------\\\\nRan 0 tests in 0.000s\\\\n\\\\nNO TESTS RAN\\\\n\\\"\\n  },\\n  \\\"manual_review\\\": [\\n    \\\"Check test expectations were derived independently from the rules.\\\",\\n    \\\"Check only the Python standard library and supplied farelib are used.\\\"\\n  ]\\n}\\n\", \"native_stderr\": \"\"}\n",
+      "stderr": "",
+      "observed": {
+        "pass": false,
+        "report": {
+          "automated_pass": false,
+          "artifact_checks": {
+            "unchanged_farelib.pyc": true,
+            "unchanged_farelib.pyi": true,
+            "unchanged_README.md": true,
+            "unchanged_TESTING.md": true,
+            "exists_fares.py": true,
+            "exists_test_fares.py": true,
+            "test_source_parses": true,
+            "tests_do_not_import_farelib": true
+          },
+          "artifact_checks_after_execution": {
+            "unchanged_farelib.pyc": true,
+            "unchanged_farelib.pyi": true,
+            "unchanged_README.md": true,
+            "unchanged_TESTING.md": true,
+            "exists_fares.py": true,
+            "exists_test_fares.py": true,
+            "test_source_parses": true,
+            "tests_do_not_import_farelib": true
+          },
+          "behavior": {
+            "groups": {
+              "K": {
+                "passed": 327,
+                "total": 327
+              },
+              "V": {
+                "passed": 101,
+                "total": 101
+              },
+              "D": {
+                "passed": 41,
+                "total": 41
+              },
+              "T": {
+                "passed": 70,
+                "total": 70
+              },
+              "W": {
+                "passed": 22,
+                "total": 22
+              },
+              "R": {
+                "passed": 80,
+                "total": 80
+              }
+            },
+            "failures": [],
+            "passed": 641,
+            "total": 641,
+            "log": ""
+          },
+          "submitted_tests": {
+            "tests_run": 0,
+            "discovered": 0,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "successful": false,
+            "log": "no assertions\n\n----------------------------------------------------------------------\nRan 0 tests in 0.000s\n\nNO TESTS RAN\n"
+          },
+          "manual_review": [
+            "Check test expectations were derived independently from the rules.",
+            "Check only the Python standard library and supplied farelib are used."
+          ]
+        },
+        "native_exit": 1,
+        "native_stdout": "{\n  \"automated_pass\": false,\n  \"artifact_checks\": {\n    \"unchanged_farelib.pyc\": true,\n    \"unchanged_farelib.pyi\": true,\n    \"unchanged_README.md\": true,\n    \"unchanged_TESTING.md\": true,\n    \"exists_fares.py\": true,\n    \"exists_test_fares.py\": true,\n    \"test_source_parses\": true,\n    \"tests_do_not_import_farelib\": true\n  },\n  \"artifact_checks_after_execution\": {\n    \"unchanged_farelib.pyc\": true,\n    \"unchanged_farelib.pyi\": true,\n    \"unchanged_README.md\": true,\n    \"unchanged_TESTING.md\": true,\n    \"exists_fares.py\": true,\n    \"exists_test_fares.py\": true,\n    \"test_source_parses\": true,\n    \"tests_do_not_import_farelib\": true\n  },\n  \"behavior\": {\n    \"groups\": {\n      \"K\": {\n        \"passed\": 327,\n        \"total\": 327\n      },\n      \"V\": {\n        \"passed\": 101,\n        \"total\": 101\n      },\n      \"D\": {\n        \"passed\": 41,\n        \"total\": 41\n      },\n      \"T\": {\n        \"passed\": 70,\n        \"total\": 70\n      },\n      \"W\": {\n        \"passed\": 22,\n        \"total\": 22\n      },\n      \"R\": {\n        \"passed\": 80,\n        \"total\": 80\n      }\n    },\n    \"failures\": [],\n    \"passed\": 641,\n    \"total\": 641,\n    \"log\": \"\"\n  },\n  \"submitted_tests\": {\n    \"tests_run\": 0,\n    \"discovered\": 0,\n    \"failures\": 0,\n    \"errors\": 0,\n    \"skipped\": 0,\n    \"successful\": false,\n    \"log\": \"no assertions\\n\\n----------------------------------------------------------------------\\nRan 0 tests in 0.000s\\n\\nNO TESTS RAN\\n\"\n  },\n  \"manual_review\": [\n    \"Check test expectations were derived independently from the rules.\",\n    \"Check only the Python standard library and supplied farelib are used.\"\n  ]\n}\n",
+        "native_stderr": ""
+      },
+      "valid": true,
+      "correct": true
+    },
+    {
+      "control": "contaminated.json",
+      "expected_pass": false,
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "h4-owner-891cda437a2645309cc3778922ced9cc",
+        "--network",
+        "none",
+        "--read-only",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--pids-limit",
+        "64",
+        "--memory",
+        "256m",
+        "--cpus",
+        "1",
+        "--tmpfs",
+        "/tmp:rw,noexec,nosuid,size=32m",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H4/delivery,target=/subject,readonly",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/expansion-h4/contaminated.json,target=/control.json,readonly",
+        "-w",
+        "/tmp",
+        "python:3.14-slim",
+        "python",
+        "-B",
+        "-c",
+        "import json,shutil,subprocess,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate');Path('/tmp/candidate/fares.py').write_text(c['assets']['reference_fares.py']);Path('/tmp/candidate/test_fares.py').write_text(c['test_code'])\np=subprocess.run([sys.executable,'/tmp/eval/evaluation/grade.py','/tmp/candidate',sys.argv[1],'/tmp/result.json'],capture_output=True,text=True,timeout=45)\nreport=json.load(open('/tmp/result.json'));print(json.dumps({'pass':report['automated_pass'],'report':report,'native_exit':p.returncode,'native_stdout':p.stdout,'native_stderr':p.stderr}))\n",
+        "--output"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pass\": false, \"report\": {\"automated_pass\": false, \"artifact_checks\": {\"unchanged_farelib.pyc\": true, \"unchanged_farelib.pyi\": true, \"unchanged_README.md\": true, \"unchanged_TESTING.md\": true, \"exists_fares.py\": true, \"exists_test_fares.py\": true, \"test_source_parses\": true, \"tests_do_not_import_farelib\": true}, \"artifact_checks_after_execution\": {\"unchanged_farelib.pyc\": true, \"unchanged_farelib.pyi\": true, \"unchanged_README.md\": true, \"unchanged_TESTING.md\": true, \"exists_fares.py\": true, \"exists_test_fares.py\": true, \"test_source_parses\": true, \"tests_do_not_import_farelib\": true}, \"behavior\": {\"groups\": {\"K\": {\"passed\": 327, \"total\": 327}, \"V\": {\"passed\": 101, \"total\": 101}, \"D\": {\"passed\": 41, \"total\": 41}, \"T\": {\"passed\": 70, \"total\": 70}, \"W\": {\"passed\": 22, \"total\": 22}, \"R\": {\"passed\": 80, \"total\": 80}}, \"failures\": [], \"passed\": 641, \"total\": 641, \"log\": \"\"}, \"submitted_tests\": {\"tests_run\": 10, \"discovered\": 10, \"failures\": 10, \"errors\": 0, \"skipped\": 0, \"successful\": false, \"log\": \" '10234', 'sailed': '2023-04-12', 'voucher': '10.1559'}]), {'total_minor': 401, 'billed': 2, 'excluded': [], 'fares': {'a1': 200, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 200})\\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: {'tot[62 chars]00, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 201} != {'tot[62 chars]00, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 200}\\n  {'billed': 2,\\n   'excluded': [],\\n   'fares': {'a1': 200, 'a2': 201},\\n-  'mean_minor': 201,\\n?                  ^\\n\\n+  'mean_minor': 200,\\n?                  ^\\n\\n   'per_class': {'youth': 401},\\n   'total_minor': 401}\\n\\n======================================================================\\nFAIL: test_minor_tie (test_fares.TestFaresGate.test_minor_tie)\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/tmp/candidate/test_fares.py\\\", line 26, in test_minor_tie\\n    self.assertEqual(settle_fares([{'passenger': 'n1', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '1.0409'}, {'passenger': 'n2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '13.2909'}]), {'total_minor': 1000, 'billed': 2, 'excluded': [], 'fares': {'n1': 1112, 'n2': -112}, 'per_class': {'youth': 1000}, 'mean_minor': 500})\\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: {'tot[60 chars]: 1113, 'n2': -113}, 'per_class': {'youth': 10[18 chars] 500} != {'tot[60 chars]: 1112, 'n2': -112}, 'per_class': {'youth': 10[18 chars] 500}\\n  {'billed': 2,\\n   'excluded': [],\\n-  'fares': {'n1': 1113, 'n2': -113},\\n?                     ^           ^\\n\\n+  'fares': {'n1': 1112, 'n2': -112},\\n?                     ^           ^\\n\\n   'mean_minor': 500,\\n   'per_class': {'youth': 1000},\\n   'total_minor': 1000}\\n\\n======================================================================\\nFAIL: test_priority_stack (test_fares.TestFaresGate.test_priority_stack)\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/tmp/candidate/test_fares.py\\\", line 24, in test_priority_stack\\n    self.assertEqual(settle_fares([{'passenger': 's1', 'fare': '70', 'baggage': '30', 'passcode': '90234', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 's2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 5996, 'billed': 2, 'excluded': [], 'fares': {'s1': 4779, 's2': 1217}, 'per_class': {'priority': 4779, 'youth': 1217}, 'mean_minor': 2998})\\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: {'total_minor': 5954, 'billed': 2, 'excluded': [], 'fares':[89 chars]2977} != {'total_minor': 5996, 'billed': 2, 'excluded': [], 'fares':[89 chars]2998}\\n  {'billed': 2,\\n   'excluded': [],\\n-  'fares': {'s1': 4737, 's2': 1217},\\n?                    -\\n\\n+  'fares': {'s1': 4779, 's2': 1217},\\n?                     +\\n\\n-  'mean_minor': 2977,\\n?                  ^^\\n\\n+  'mean_minor': 2998,\\n?                  ^^\\n\\n-  'per_class': {'priority': 4737, 'youth': 1217},\\n?                              -\\n\\n+  'per_class': {'priority': 4779, 'youth': 1217},\\n?                               +\\n\\n-  'total_minor': 5954}\\n?                   ^^\\n\\n+  'total_minor': 5996}\\n?                   ^^\\n\\n\\n======================================================================\\nFAIL: test_rebate_cap (test_fares.TestFaresGate.test_rebate_cap)\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/tmp/candidate/test_fares.py\\\", line 14, in test_rebate_cap\\n    self.assertEqual(settle_fares([{'passenger': 'k1', 'fare': '250', 'baggage': '50', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 2580, 'billed': 1, 'excluded': [], 'fares': {'k1': 2580}, 'per_class': {'youth': 2580}, 'mean_minor': 2580})\\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: {'total_minor': 2647, 'billed': 1, 'excluded': [], 'fares'[60 chars]2647} != {'total_minor': 2580, 'billed': 1, 'excluded': [], 'fares'[60 chars]2580}\\n  {'billed': 1,\\n   'excluded': [],\\n-  'fares': {'k1': 2647},\\n?                   ^^^\\n\\n+  'fares': {'k1': 2580},\\n?                   ^^^\\n\\n-  'mean_minor': 2647,\\n?                 ^^^\\n\\n+  'mean_minor': 2580,\\n?                 ^^^\\n\\n-  'per_class': {'youth': 2647},\\n?                          ^^^\\n\\n+  'per_class': {'youth': 2580},\\n?                          ^^^\\n\\n-  'total_minor': 2647}\\n?                  ^^^\\n\\n+  'total_minor': 2580}\\n?                  ^^^\\n\\n\\n----------------------------------------------------------------------\\nRan 10 tests in 0.054s\\n\\nFAILED (failures=10)\\n\"}, \"manual_review\": [\"Check test expectations were derived independently from the rules.\", \"Check only the Python standard library and supplied farelib are used.\"]}, \"native_exit\": 1, \"native_stdout\": \"{\\n  \\\"automated_pass\\\": false,\\n  \\\"artifact_checks\\\": {\\n    \\\"unchanged_farelib.pyc\\\": true,\\n    \\\"unchanged_farelib.pyi\\\": true,\\n    \\\"unchanged_README.md\\\": true,\\n    \\\"unchanged_TESTING.md\\\": true,\\n    \\\"exists_fares.py\\\": true,\\n    \\\"exists_test_fares.py\\\": true,\\n    \\\"test_source_parses\\\": true,\\n    \\\"tests_do_not_import_farelib\\\": true\\n  },\\n  \\\"artifact_checks_after_execution\\\": {\\n    \\\"unchanged_farelib.pyc\\\": true,\\n    \\\"unchanged_farelib.pyi\\\": true,\\n    \\\"unchanged_README.md\\\": true,\\n    \\\"unchanged_TESTING.md\\\": true,\\n    \\\"exists_fares.py\\\": true,\\n    \\\"exists_test_fares.py\\\": true,\\n    \\\"test_source_parses\\\": true,\\n    \\\"tests_do_not_import_farelib\\\": true\\n  },\\n  \\\"behavior\\\": {\\n    \\\"groups\\\": {\\n      \\\"K\\\": {\\n        \\\"passed\\\": 327,\\n        \\\"total\\\": 327\\n      },\\n      \\\"V\\\": {\\n        \\\"passed\\\": 101,\\n        \\\"total\\\": 101\\n      },\\n      \\\"D\\\": {\\n        \\\"passed\\\": 41,\\n        \\\"total\\\": 41\\n      },\\n      \\\"T\\\": {\\n        \\\"passed\\\": 70,\\n        \\\"total\\\": 70\\n      },\\n      \\\"W\\\": {\\n        \\\"passed\\\": 22,\\n        \\\"total\\\": 22\\n      },\\n      \\\"R\\\": {\\n        \\\"passed\\\": 80,\\n        \\\"total\\\": 80\\n      }\\n    },\\n    \\\"failures\\\": [],\\n    \\\"passed\\\": 641,\\n    \\\"total\\\": 641,\\n    \\\"log\\\": \\\"\\\"\\n  },\\n  \\\"submitted_tests\\\": {\\n    \\\"tests_run\\\": 10,\\n    \\\"discovered\\\": 10,\\n    \\\"failures\\\": 10,\\n    \\\"errors\\\": 0,\\n    \\\"skipped\\\": 0,\\n    \\\"successful\\\": false,\\n    \\\"log\\\": \\\" '10234', 'sailed': '2023-04-12', 'voucher': '10.1559'}]), {'total_minor': 401, 'billed': 2, 'excluded': [], 'fares': {'a1': 200, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 200})\\\\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\\\nAssertionError: {'tot[62 chars]00, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 201} != {'tot[62 chars]00, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 200}\\\\n  {'billed': 2,\\\\n   'excluded': [],\\\\n   'fares': {'a1': 200, 'a2': 201},\\\\n-  'mean_minor': 201,\\\\n?                  ^\\\\n\\\\n+  'mean_minor': 200,\\\\n?                  ^\\\\n\\\\n   'per_class': {'youth': 401},\\\\n   'total_minor': 401}\\\\n\\\\n======================================================================\\\\nFAIL: test_minor_tie (test_fares.TestFaresGate.test_minor_tie)\\\\n----------------------------------------------------------------------\\\\nTraceback (most recent call last):\\\\n  File \\\\\\\"/tmp/candidate/test_fares.py\\\\\\\", line 26, in test_minor_tie\\\\n    self.assertEqual(settle_fares([{'passenger': 'n1', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '1.0409'}, {'passenger': 'n2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '13.2909'}]), {'total_minor': 1000, 'billed': 2, 'excluded': [], 'fares': {'n1': 1112, 'n2': -112}, 'per_class': {'youth': 1000}, 'mean_minor': 500})\\\\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\\\nAssertionError: {'tot[60 chars]: 1113, 'n2': -113}, 'per_class': {'youth': 10[18 chars] 500} != {'tot[60 chars]: 1112, 'n2': -112}, 'per_class': {'youth': 10[18 chars] 500}\\\\n  {'billed': 2,\\\\n   'excluded': [],\\\\n-  'fares': {'n1': 1113, 'n2': -113},\\\\n?                     ^           ^\\\\n\\\\n+  'fares': {'n1': 1112, 'n2': -112},\\\\n?                     ^           ^\\\\n\\\\n   'mean_minor': 500,\\\\n   'per_class': {'youth': 1000},\\\\n   'total_minor': 1000}\\\\n\\\\n======================================================================\\\\nFAIL: test_priority_stack (test_fares.TestFaresGate.test_priority_stack)\\\\n----------------------------------------------------------------------\\\\nTraceback (most recent call last):\\\\n  File \\\\\\\"/tmp/candidate/test_fares.py\\\\\\\", line 24, in test_priority_stack\\\\n    self.assertEqual(settle_fares([{'passenger': 's1', 'fare': '70', 'baggage': '30', 'passcode': '90234', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 's2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 5996, 'billed': 2, 'excluded': [], 'fares': {'s1': 4779, 's2': 1217}, 'per_class': {'priority': 4779, 'youth': 1217}, 'mean_minor': 2998})\\\\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\\\nAssertionError: {'total_minor': 5954, 'billed': 2, 'excluded': [], 'fares':[89 chars]2977} != {'total_minor': 5996, 'billed': 2, 'excluded': [], 'fares':[89 chars]2998}\\\\n  {'billed': 2,\\\\n   'excluded': [],\\\\n-  'fares': {'s1': 4737, 's2': 1217},\\\\n?                    -\\\\n\\\\n+  'fares': {'s1': 4779, 's2': 1217},\\\\n?                     +\\\\n\\\\n-  'mean_minor': 2977,\\\\n?                  ^^\\\\n\\\\n+  'mean_minor': 2998,\\\\n?                  ^^\\\\n\\\\n-  'per_class': {'priority': 4737, 'youth': 1217},\\\\n?                              -\\\\n\\\\n+  'per_class': {'priority': 4779, 'youth': 1217},\\\\n?                               +\\\\n\\\\n-  'total_minor': 5954}\\\\n?                   ^^\\\\n\\\\n+  'total_minor': 5996}\\\\n?                   ^^\\\\n\\\\n\\\\n======================================================================\\\\nFAIL: test_rebate_cap (test_fares.TestFaresGate.test_rebate_cap)\\\\n----------------------------------------------------------------------\\\\nTraceback (most recent call last):\\\\n  File \\\\\\\"/tmp/candidate/test_fares.py\\\\\\\", line 14, in test_rebate_cap\\\\n    self.assertEqual(settle_fares([{'passenger': 'k1', 'fare': '250', 'baggage': '50', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 2580, 'billed': 1, 'excluded': [], 'fares': {'k1': 2580}, 'per_class': {'youth': 2580}, 'mean_minor': 2580})\\\\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\\\nAssertionError: {'total_minor': 2647, 'billed': 1, 'excluded': [], 'fares'[60 chars]2647} != {'total_minor': 2580, 'billed': 1, 'excluded': [], 'fares'[60 chars]2580}\\\\n  {'billed': 1,\\\\n   'excluded': [],\\\\n-  'fares': {'k1': 2647},\\\\n?                   ^^^\\\\n\\\\n+  'fares': {'k1': 2580},\\\\n?                   ^^^\\\\n\\\\n-  'mean_minor': 2647,\\\\n?                 ^^^\\\\n\\\\n+  'mean_minor': 2580,\\\\n?                 ^^^\\\\n\\\\n-  'per_class': {'youth': 2647},\\\\n?                          ^^^\\\\n\\\\n+  'per_class': {'youth': 2580},\\\\n?                          ^^^\\\\n\\\\n-  'total_minor': 2647}\\\\n?                  ^^^\\\\n\\\\n+  'total_minor': 2580}\\\\n?                  ^^^\\\\n\\\\n\\\\n----------------------------------------------------------------------\\\\nRan 10 tests in 0.054s\\\\n\\\\nFAILED (failures=10)\\\\n\\\"\\n  },\\n  \\\"manual_review\\\": [\\n    \\\"Check test expectations were derived independently from the rules.\\\",\\n    \\\"Check only the Python standard library and supplied farelib are used.\\\"\\n  ]\\n}\\n\", \"native_stderr\": \"\"}\n",
+      "stderr": "",
+      "observed": {
+        "pass": false,
+        "report": {
+          "automated_pass": false,
+          "artifact_checks": {
+            "unchanged_farelib.pyc": true,
+            "unchanged_farelib.pyi": true,
+            "unchanged_README.md": true,
+            "unchanged_TESTING.md": true,
+            "exists_fares.py": true,
+            "exists_test_fares.py": true,
+            "test_source_parses": true,
+            "tests_do_not_import_farelib": true
+          },
+          "artifact_checks_after_execution": {
+            "unchanged_farelib.pyc": true,
+            "unchanged_farelib.pyi": true,
+            "unchanged_README.md": true,
+            "unchanged_TESTING.md": true,
+            "exists_fares.py": true,
+            "exists_test_fares.py": true,
+            "test_source_parses": true,
+            "tests_do_not_import_farelib": true
+          },
+          "behavior": {
+            "groups": {
+              "K": {
+                "passed": 327,
+                "total": 327
+              },
+              "V": {
+                "passed": 101,
+                "total": 101
+              },
+              "D": {
+                "passed": 41,
+                "total": 41
+              },
+              "T": {
+                "passed": 70,
+                "total": 70
+              },
+              "W": {
+                "passed": 22,
+                "total": 22
+              },
+              "R": {
+                "passed": 80,
+                "total": 80
+              }
+            },
+            "failures": [],
+            "passed": 641,
+            "total": 641,
+            "log": ""
+          },
+          "submitted_tests": {
+            "tests_run": 10,
+            "discovered": 10,
+            "failures": 10,
+            "errors": 0,
+            "skipped": 0,
+            "successful": false,
+            "log": " '10234', 'sailed': '2023-04-12', 'voucher': '10.1559'}]), {'total_minor': 401, 'billed': 2, 'excluded': [], 'fares': {'a1': 200, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 200})\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'tot[62 chars]00, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 201} != {'tot[62 chars]00, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 200}\n  {'billed': 2,\n   'excluded': [],\n   'fares': {'a1': 200, 'a2': 201},\n-  'mean_minor': 201,\n?                  ^\n\n+  'mean_minor': 200,\n?                  ^\n\n   'per_class': {'youth': 401},\n   'total_minor': 401}\n\n======================================================================\nFAIL: test_minor_tie (test_fares.TestFaresGate.test_minor_tie)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/candidate/test_fares.py\", line 26, in test_minor_tie\n    self.assertEqual(settle_fares([{'passenger': 'n1', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '1.0409'}, {'passenger': 'n2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '13.2909'}]), {'total_minor': 1000, 'billed': 2, 'excluded': [], 'fares': {'n1': 1112, 'n2': -112}, 'per_class': {'youth': 1000}, 'mean_minor': 500})\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'tot[60 chars]: 1113, 'n2': -113}, 'per_class': {'youth': 10[18 chars] 500} != {'tot[60 chars]: 1112, 'n2': -112}, 'per_class': {'youth': 10[18 chars] 500}\n  {'billed': 2,\n   'excluded': [],\n-  'fares': {'n1': 1113, 'n2': -113},\n?                     ^           ^\n\n+  'fares': {'n1': 1112, 'n2': -112},\n?                     ^           ^\n\n   'mean_minor': 500,\n   'per_class': {'youth': 1000},\n   'total_minor': 1000}\n\n======================================================================\nFAIL: test_priority_stack (test_fares.TestFaresGate.test_priority_stack)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/candidate/test_fares.py\", line 24, in test_priority_stack\n    self.assertEqual(settle_fares([{'passenger': 's1', 'fare': '70', 'baggage': '30', 'passcode': '90234', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 's2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 5996, 'billed': 2, 'excluded': [], 'fares': {'s1': 4779, 's2': 1217}, 'per_class': {'priority': 4779, 'youth': 1217}, 'mean_minor': 2998})\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'total_minor': 5954, 'billed': 2, 'excluded': [], 'fares':[89 chars]2977} != {'total_minor': 5996, 'billed': 2, 'excluded': [], 'fares':[89 chars]2998}\n  {'billed': 2,\n   'excluded': [],\n-  'fares': {'s1': 4737, 's2': 1217},\n?                    -\n\n+  'fares': {'s1': 4779, 's2': 1217},\n?                     +\n\n-  'mean_minor': 2977,\n?                  ^^\n\n+  'mean_minor': 2998,\n?                  ^^\n\n-  'per_class': {'priority': 4737, 'youth': 1217},\n?                              -\n\n+  'per_class': {'priority': 4779, 'youth': 1217},\n?                               +\n\n-  'total_minor': 5954}\n?                   ^^\n\n+  'total_minor': 5996}\n?                   ^^\n\n\n======================================================================\nFAIL: test_rebate_cap (test_fares.TestFaresGate.test_rebate_cap)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/candidate/test_fares.py\", line 14, in test_rebate_cap\n    self.assertEqual(settle_fares([{'passenger': 'k1', 'fare': '250', 'baggage': '50', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 2580, 'billed': 1, 'excluded': [], 'fares': {'k1': 2580}, 'per_class': {'youth': 2580}, 'mean_minor': 2580})\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'total_minor': 2647, 'billed': 1, 'excluded': [], 'fares'[60 chars]2647} != {'total_minor': 2580, 'billed': 1, 'excluded': [], 'fares'[60 chars]2580}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'k1': 2647},\n?                   ^^^\n\n+  'fares': {'k1': 2580},\n?                   ^^^\n\n-  'mean_minor': 2647,\n?                 ^^^\n\n+  'mean_minor': 2580,\n?                 ^^^\n\n-  'per_class': {'youth': 2647},\n?                          ^^^\n\n+  'per_class': {'youth': 2580},\n?                          ^^^\n\n-  'total_minor': 2647}\n?                  ^^^\n\n+  'total_minor': 2580}\n?                  ^^^\n\n\n----------------------------------------------------------------------\nRan 10 tests in 0.054s\n\nFAILED (failures=10)\n"
+          },
+          "manual_review": [
+            "Check test expectations were derived independently from the rules.",
+            "Check only the Python standard library and supplied farelib are used."
+          ]
+        },
+        "native_exit": 1,
+        "native_stdout": "{\n  \"automated_pass\": false,\n  \"artifact_checks\": {\n    \"unchanged_farelib.pyc\": true,\n    \"unchanged_farelib.pyi\": true,\n    \"unchanged_README.md\": true,\n    \"unchanged_TESTING.md\": true,\n    \"exists_fares.py\": true,\n    \"exists_test_fares.py\": true,\n    \"test_source_parses\": true,\n    \"tests_do_not_import_farelib\": true\n  },\n  \"artifact_checks_after_execution\": {\n    \"unchanged_farelib.pyc\": true,\n    \"unchanged_farelib.pyi\": true,\n    \"unchanged_README.md\": true,\n    \"unchanged_TESTING.md\": true,\n    \"exists_fares.py\": true,\n    \"exists_test_fares.py\": true,\n    \"test_source_parses\": true,\n    \"tests_do_not_import_farelib\": true\n  },\n  \"behavior\": {\n    \"groups\": {\n      \"K\": {\n        \"passed\": 327,\n        \"total\": 327\n      },\n      \"V\": {\n        \"passed\": 101,\n        \"total\": 101\n      },\n      \"D\": {\n        \"passed\": 41,\n        \"total\": 41\n      },\n      \"T\": {\n        \"passed\": 70,\n        \"total\": 70\n      },\n      \"W\": {\n        \"passed\": 22,\n        \"total\": 22\n      },\n      \"R\": {\n        \"passed\": 80,\n        \"total\": 80\n      }\n    },\n    \"failures\": [],\n    \"passed\": 641,\n    \"total\": 641,\n    \"log\": \"\"\n  },\n  \"submitted_tests\": {\n    \"tests_run\": 10,\n    \"discovered\": 10,\n    \"failures\": 10,\n    \"errors\": 0,\n    \"skipped\": 0,\n    \"successful\": false,\n    \"log\": \" '10234', 'sailed': '2023-04-12', 'voucher': '10.1559'}]), {'total_minor': 401, 'billed': 2, 'excluded': [], 'fares': {'a1': 200, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 200})\\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: {'tot[62 chars]00, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 201} != {'tot[62 chars]00, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 200}\\n  {'billed': 2,\\n   'excluded': [],\\n   'fares': {'a1': 200, 'a2': 201},\\n-  'mean_minor': 201,\\n?                  ^\\n\\n+  'mean_minor': 200,\\n?                  ^\\n\\n   'per_class': {'youth': 401},\\n   'total_minor': 401}\\n\\n======================================================================\\nFAIL: test_minor_tie (test_fares.TestFaresGate.test_minor_tie)\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/tmp/candidate/test_fares.py\\\", line 26, in test_minor_tie\\n    self.assertEqual(settle_fares([{'passenger': 'n1', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '1.0409'}, {'passenger': 'n2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '13.2909'}]), {'total_minor': 1000, 'billed': 2, 'excluded': [], 'fares': {'n1': 1112, 'n2': -112}, 'per_class': {'youth': 1000}, 'mean_minor': 500})\\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: {'tot[60 chars]: 1113, 'n2': -113}, 'per_class': {'youth': 10[18 chars] 500} != {'tot[60 chars]: 1112, 'n2': -112}, 'per_class': {'youth': 10[18 chars] 500}\\n  {'billed': 2,\\n   'excluded': [],\\n-  'fares': {'n1': 1113, 'n2': -113},\\n?                     ^           ^\\n\\n+  'fares': {'n1': 1112, 'n2': -112},\\n?                     ^           ^\\n\\n   'mean_minor': 500,\\n   'per_class': {'youth': 1000},\\n   'total_minor': 1000}\\n\\n======================================================================\\nFAIL: test_priority_stack (test_fares.TestFaresGate.test_priority_stack)\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/tmp/candidate/test_fares.py\\\", line 24, in test_priority_stack\\n    self.assertEqual(settle_fares([{'passenger': 's1', 'fare': '70', 'baggage': '30', 'passcode': '90234', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 's2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 5996, 'billed': 2, 'excluded': [], 'fares': {'s1': 4779, 's2': 1217}, 'per_class': {'priority': 4779, 'youth': 1217}, 'mean_minor': 2998})\\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: {'total_minor': 5954, 'billed': 2, 'excluded': [], 'fares':[89 chars]2977} != {'total_minor': 5996, 'billed': 2, 'excluded': [], 'fares':[89 chars]2998}\\n  {'billed': 2,\\n   'excluded': [],\\n-  'fares': {'s1': 4737, 's2': 1217},\\n?                    -\\n\\n+  'fares': {'s1': 4779, 's2': 1217},\\n?                     +\\n\\n-  'mean_minor': 2977,\\n?                  ^^\\n\\n+  'mean_minor': 2998,\\n?                  ^^\\n\\n-  'per_class': {'priority': 4737, 'youth': 1217},\\n?                              -\\n\\n+  'per_class': {'priority': 4779, 'youth': 1217},\\n?                               +\\n\\n-  'total_minor': 5954}\\n?                   ^^\\n\\n+  'total_minor': 5996}\\n?                   ^^\\n\\n\\n======================================================================\\nFAIL: test_rebate_cap (test_fares.TestFaresGate.test_rebate_cap)\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/tmp/candidate/test_fares.py\\\", line 14, in test_rebate_cap\\n    self.assertEqual(settle_fares([{'passenger': 'k1', 'fare': '250', 'baggage': '50', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 2580, 'billed': 1, 'excluded': [], 'fares': {'k1': 2580}, 'per_class': {'youth': 2580}, 'mean_minor': 2580})\\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: {'total_minor': 2647, 'billed': 1, 'excluded': [], 'fares'[60 chars]2647} != {'total_minor': 2580, 'billed': 1, 'excluded': [], 'fares'[60 chars]2580}\\n  {'billed': 1,\\n   'excluded': [],\\n-  'fares': {'k1': 2647},\\n?                   ^^^\\n\\n+  'fares': {'k1': 2580},\\n?                   ^^^\\n\\n-  'mean_minor': 2647,\\n?                 ^^^\\n\\n+  'mean_minor': 2580,\\n?                 ^^^\\n\\n-  'per_class': {'youth': 2647},\\n?                          ^^^\\n\\n+  'per_class': {'youth': 2580},\\n?                          ^^^\\n\\n-  'total_minor': 2647}\\n?                  ^^^\\n\\n+  'total_minor': 2580}\\n?                  ^^^\\n\\n\\n----------------------------------------------------------------------\\nRan 10 tests in 0.054s\\n\\nFAILED (failures=10)\\n\"\n  },\n  \"manual_review\": [\n    \"Check test expectations were derived independently from the rules.\",\n    \"Check only the Python standard library and supplied farelib are used.\"\n  ]\n}\n",
+        "native_stderr": ""
+      },
+      "valid": true,
+      "correct": true
+    },
+    {
+      "control": "correct_independent.json",
+      "expected_pass": true,
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "h4-owner-42333fc6c8ff412ca90f1ff6e5dce7ae",
+        "--network",
+        "none",
+        "--read-only",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--pids-limit",
+        "64",
+        "--memory",
+        "256m",
+        "--cpus",
+        "1",
+        "--tmpfs",
+        "/tmp:rw,noexec,nosuid,size=32m",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H4/delivery,target=/subject,readonly",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/expansion-h4/correct_independent.json,target=/control.json,readonly",
+        "-w",
+        "/tmp",
+        "python:3.14-slim",
+        "python",
+        "-B",
+        "-c",
+        "import json,shutil,subprocess,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate');Path('/tmp/candidate/fares.py').write_text(c['assets']['reference_fares.py']);Path('/tmp/candidate/test_fares.py').write_text(c['test_code'])\np=subprocess.run([sys.executable,'/tmp/eval/evaluation/grade.py','/tmp/candidate',sys.argv[1],'/tmp/result.json'],capture_output=True,text=True,timeout=45)\nreport=json.load(open('/tmp/result.json'));print(json.dumps({'pass':report['automated_pass'],'report':report,'native_exit':p.returncode,'native_stdout':p.stdout,'native_stderr':p.stderr}))\n",
+        "--output"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pass\": true, \"report\": {\"automated_pass\": true, \"artifact_checks\": {\"unchanged_farelib.pyc\": true, \"unchanged_farelib.pyi\": true, \"unchanged_README.md\": true, \"unchanged_TESTING.md\": true, \"exists_fares.py\": true, \"exists_test_fares.py\": true, \"test_source_parses\": true, \"tests_do_not_import_farelib\": true}, \"artifact_checks_after_execution\": {\"unchanged_farelib.pyc\": true, \"unchanged_farelib.pyi\": true, \"unchanged_README.md\": true, \"unchanged_TESTING.md\": true, \"exists_fares.py\": true, \"exists_test_fares.py\": true, \"test_source_parses\": true, \"tests_do_not_import_farelib\": true}, \"behavior\": {\"groups\": {\"K\": {\"passed\": 327, \"total\": 327}, \"V\": {\"passed\": 101, \"total\": 101}, \"D\": {\"passed\": 41, \"total\": 41}, \"T\": {\"passed\": 70, \"total\": 70}, \"W\": {\"passed\": 22, \"total\": 22}, \"R\": {\"passed\": 80, \"total\": 80}}, \"failures\": [], \"passed\": 641, \"total\": 641, \"log\": \"\"}, \"submitted_tests\": {\"tests_run\": 10, \"discovered\": 10, \"failures\": 0, \"errors\": 0, \"skipped\": 0, \"successful\": true, \"log\": \"test_amount_lenient_excluded (test_fares.TestFaresGate.test_amount_lenient_excluded) ... ok\\ntest_chargeable_ceil (test_fares.TestFaresGate.test_chargeable_ceil) ... ok\\ntest_class_edges (test_fares.TestFaresGate.test_class_edges) ... ok\\ntest_code_lenient_excluded (test_fares.TestFaresGate.test_code_lenient_excluded) ... ok\\ntest_date_boundary (test_fares.TestFaresGate.test_date_boundary) ... ok\\ntest_happy_two (test_fares.TestFaresGate.test_happy_two) ... ok\\ntest_mean_tie (test_fares.TestFaresGate.test_mean_tie) ... ok\\ntest_minor_tie (test_fares.TestFaresGate.test_minor_tie) ... ok\\ntest_priority_stack (test_fares.TestFaresGate.test_priority_stack) ... ok\\ntest_rebate_cap (test_fares.TestFaresGate.test_rebate_cap) ... ok\\n\\n----------------------------------------------------------------------\\nRan 10 tests in 0.002s\\n\\nOK\\n\"}, \"manual_review\": [\"Check test expectations were derived independently from the rules.\", \"Check only the Python standard library and supplied farelib are used.\"]}, \"native_exit\": 0, \"native_stdout\": \"{\\n  \\\"automated_pass\\\": true,\\n  \\\"artifact_checks\\\": {\\n    \\\"unchanged_farelib.pyc\\\": true,\\n    \\\"unchanged_farelib.pyi\\\": true,\\n    \\\"unchanged_README.md\\\": true,\\n    \\\"unchanged_TESTING.md\\\": true,\\n    \\\"exists_fares.py\\\": true,\\n    \\\"exists_test_fares.py\\\": true,\\n    \\\"test_source_parses\\\": true,\\n    \\\"tests_do_not_import_farelib\\\": true\\n  },\\n  \\\"artifact_checks_after_execution\\\": {\\n    \\\"unchanged_farelib.pyc\\\": true,\\n    \\\"unchanged_farelib.pyi\\\": true,\\n    \\\"unchanged_README.md\\\": true,\\n    \\\"unchanged_TESTING.md\\\": true,\\n    \\\"exists_fares.py\\\": true,\\n    \\\"exists_test_fares.py\\\": true,\\n    \\\"test_source_parses\\\": true,\\n    \\\"tests_do_not_import_farelib\\\": true\\n  },\\n  \\\"behavior\\\": {\\n    \\\"groups\\\": {\\n      \\\"K\\\": {\\n        \\\"passed\\\": 327,\\n        \\\"total\\\": 327\\n      },\\n      \\\"V\\\": {\\n        \\\"passed\\\": 101,\\n        \\\"total\\\": 101\\n      },\\n      \\\"D\\\": {\\n        \\\"passed\\\": 41,\\n        \\\"total\\\": 41\\n      },\\n      \\\"T\\\": {\\n        \\\"passed\\\": 70,\\n        \\\"total\\\": 70\\n      },\\n      \\\"W\\\": {\\n        \\\"passed\\\": 22,\\n        \\\"total\\\": 22\\n      },\\n      \\\"R\\\": {\\n        \\\"passed\\\": 80,\\n        \\\"total\\\": 80\\n      }\\n    },\\n    \\\"failures\\\": [],\\n    \\\"passed\\\": 641,\\n    \\\"total\\\": 641,\\n    \\\"log\\\": \\\"\\\"\\n  },\\n  \\\"submitted_tests\\\": {\\n    \\\"tests_run\\\": 10,\\n    \\\"discovered\\\": 10,\\n    \\\"failures\\\": 0,\\n    \\\"errors\\\": 0,\\n    \\\"skipped\\\": 0,\\n    \\\"successful\\\": true,\\n    \\\"log\\\": \\\"test_amount_lenient_excluded (test_fares.TestFaresGate.test_amount_lenient_excluded) ... ok\\\\ntest_chargeable_ceil (test_fares.TestFaresGate.test_chargeable_ceil) ... ok\\\\ntest_class_edges (test_fares.TestFaresGate.test_class_edges) ... ok\\\\ntest_code_lenient_excluded (test_fares.TestFaresGate.test_code_lenient_excluded) ... ok\\\\ntest_date_boundary (test_fares.TestFaresGate.test_date_boundary) ... ok\\\\ntest_happy_two (test_fares.TestFaresGate.test_happy_two) ... ok\\\\ntest_mean_tie (test_fares.TestFaresGate.test_mean_tie) ... ok\\\\ntest_minor_tie (test_fares.TestFaresGate.test_minor_tie) ... ok\\\\ntest_priority_stack (test_fares.TestFaresGate.test_priority_stack) ... ok\\\\ntest_rebate_cap (test_fares.TestFaresGate.test_rebate_cap) ... ok\\\\n\\\\n----------------------------------------------------------------------\\\\nRan 10 tests in 0.002s\\\\n\\\\nOK\\\\n\\\"\\n  },\\n  \\\"manual_review\\\": [\\n    \\\"Check test expectations were derived independently from the rules.\\\",\\n    \\\"Check only the Python standard library and supplied farelib are used.\\\"\\n  ]\\n}\\n\", \"native_stderr\": \"\"}\n",
+      "stderr": "",
+      "observed": {
+        "pass": true,
+        "report": {
+          "automated_pass": true,
+          "artifact_checks": {
+            "unchanged_farelib.pyc": true,
+            "unchanged_farelib.pyi": true,
+            "unchanged_README.md": true,
+            "unchanged_TESTING.md": true,
+            "exists_fares.py": true,
+            "exists_test_fares.py": true,
+            "test_source_parses": true,
+            "tests_do_not_import_farelib": true
+          },
+          "artifact_checks_after_execution": {
+            "unchanged_farelib.pyc": true,
+            "unchanged_farelib.pyi": true,
+            "unchanged_README.md": true,
+            "unchanged_TESTING.md": true,
+            "exists_fares.py": true,
+            "exists_test_fares.py": true,
+            "test_source_parses": true,
+            "tests_do_not_import_farelib": true
+          },
+          "behavior": {
+            "groups": {
+              "K": {
+                "passed": 327,
+                "total": 327
+              },
+              "V": {
+                "passed": 101,
+                "total": 101
+              },
+              "D": {
+                "passed": 41,
+                "total": 41
+              },
+              "T": {
+                "passed": 70,
+                "total": 70
+              },
+              "W": {
+                "passed": 22,
+                "total": 22
+              },
+              "R": {
+                "passed": 80,
+                "total": 80
+              }
+            },
+            "failures": [],
+            "passed": 641,
+            "total": 641,
+            "log": ""
+          },
+          "submitted_tests": {
+            "tests_run": 10,
+            "discovered": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "successful": true,
+            "log": "test_amount_lenient_excluded (test_fares.TestFaresGate.test_amount_lenient_excluded) ... ok\ntest_chargeable_ceil (test_fares.TestFaresGate.test_chargeable_ceil) ... ok\ntest_class_edges (test_fares.TestFaresGate.test_class_edges) ... ok\ntest_code_lenient_excluded (test_fares.TestFaresGate.test_code_lenient_excluded) ... ok\ntest_date_boundary (test_fares.TestFaresGate.test_date_boundary) ... ok\ntest_happy_two (test_fares.TestFaresGate.test_happy_two) ... ok\ntest_mean_tie (test_fares.TestFaresGate.test_mean_tie) ... ok\ntest_minor_tie (test_fares.TestFaresGate.test_minor_tie) ... ok\ntest_priority_stack (test_fares.TestFaresGate.test_priority_stack) ... ok\ntest_rebate_cap (test_fares.TestFaresGate.test_rebate_cap) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.002s\n\nOK\n"
+          },
+          "manual_review": [
+            "Check test expectations were derived independently from the rules.",
+            "Check only the Python standard library and supplied farelib are used."
+          ]
+        },
+        "native_exit": 0,
+        "native_stdout": "{\n  \"automated_pass\": true,\n  \"artifact_checks\": {\n    \"unchanged_farelib.pyc\": true,\n    \"unchanged_farelib.pyi\": true,\n    \"unchanged_README.md\": true,\n    \"unchanged_TESTING.md\": true,\n    \"exists_fares.py\": true,\n    \"exists_test_fares.py\": true,\n    \"test_source_parses\": true,\n    \"tests_do_not_import_farelib\": true\n  },\n  \"artifact_checks_after_execution\": {\n    \"unchanged_farelib.pyc\": true,\n    \"unchanged_farelib.pyi\": true,\n    \"unchanged_README.md\": true,\n    \"unchanged_TESTING.md\": true,\n    \"exists_fares.py\": true,\n    \"exists_test_fares.py\": true,\n    \"test_source_parses\": true,\n    \"tests_do_not_import_farelib\": true\n  },\n  \"behavior\": {\n    \"groups\": {\n      \"K\": {\n        \"passed\": 327,\n        \"total\": 327\n      },\n      \"V\": {\n        \"passed\": 101,\n        \"total\": 101\n      },\n      \"D\": {\n        \"passed\": 41,\n        \"total\": 41\n      },\n      \"T\": {\n        \"passed\": 70,\n        \"total\": 70\n      },\n      \"W\": {\n        \"passed\": 22,\n        \"total\": 22\n      },\n      \"R\": {\n        \"passed\": 80,\n        \"total\": 80\n      }\n    },\n    \"failures\": [],\n    \"passed\": 641,\n    \"total\": 641,\n    \"log\": \"\"\n  },\n  \"submitted_tests\": {\n    \"tests_run\": 10,\n    \"discovered\": 10,\n    \"failures\": 0,\n    \"errors\": 0,\n    \"skipped\": 0,\n    \"successful\": true,\n    \"log\": \"test_amount_lenient_excluded (test_fares.TestFaresGate.test_amount_lenient_excluded) ... ok\\ntest_chargeable_ceil (test_fares.TestFaresGate.test_chargeable_ceil) ... ok\\ntest_class_edges (test_fares.TestFaresGate.test_class_edges) ... ok\\ntest_code_lenient_excluded (test_fares.TestFaresGate.test_code_lenient_excluded) ... ok\\ntest_date_boundary (test_fares.TestFaresGate.test_date_boundary) ... ok\\ntest_happy_two (test_fares.TestFaresGate.test_happy_two) ... ok\\ntest_mean_tie (test_fares.TestFaresGate.test_mean_tie) ... ok\\ntest_minor_tie (test_fares.TestFaresGate.test_minor_tie) ... ok\\ntest_priority_stack (test_fares.TestFaresGate.test_priority_stack) ... ok\\ntest_rebate_cap (test_fares.TestFaresGate.test_rebate_cap) ... ok\\n\\n----------------------------------------------------------------------\\nRan 10 tests in 0.002s\\n\\nOK\\n\"\n  },\n  \"manual_review\": [\n    \"Check test expectations were derived independently from the rules.\",\n    \"Check only the Python standard library and supplied farelib are used.\"\n  ]\n}\n",
+        "native_stderr": ""
+      },
+      "valid": true,
+      "correct": true
+    },
+    {
+      "control": "correct_independent_alternate.json",
+      "expected_pass": true,
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "h4-owner-fa933bfd90cc4329b492e619d9dec88d",
+        "--network",
+        "none",
+        "--read-only",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--pids-limit",
+        "64",
+        "--memory",
+        "256m",
+        "--cpus",
+        "1",
+        "--tmpfs",
+        "/tmp:rw,noexec,nosuid,size=32m",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H4/delivery,target=/subject,readonly",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/expansion-h4/correct_independent_alternate.json,target=/control.json,readonly",
+        "-w",
+        "/tmp",
+        "python:3.14-slim",
+        "python",
+        "-B",
+        "-c",
+        "import json,shutil,subprocess,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate');Path('/tmp/candidate/fares.py').write_text(c['assets']['reference_fares.py']);Path('/tmp/candidate/test_fares.py').write_text(c['test_code'])\np=subprocess.run([sys.executable,'/tmp/eval/evaluation/grade.py','/tmp/candidate',sys.argv[1],'/tmp/result.json'],capture_output=True,text=True,timeout=45)\nreport=json.load(open('/tmp/result.json'));print(json.dumps({'pass':report['automated_pass'],'report':report,'native_exit':p.returncode,'native_stdout':p.stdout,'native_stderr':p.stderr}))\n",
+        "--output"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pass\": true, \"report\": {\"automated_pass\": true, \"artifact_checks\": {\"unchanged_farelib.pyc\": true, \"unchanged_farelib.pyi\": true, \"unchanged_README.md\": true, \"unchanged_TESTING.md\": true, \"exists_fares.py\": true, \"exists_test_fares.py\": true, \"test_source_parses\": true, \"tests_do_not_import_farelib\": true}, \"artifact_checks_after_execution\": {\"unchanged_farelib.pyc\": true, \"unchanged_farelib.pyi\": true, \"unchanged_README.md\": true, \"unchanged_TESTING.md\": true, \"exists_fares.py\": true, \"exists_test_fares.py\": true, \"test_source_parses\": true, \"tests_do_not_import_farelib\": true}, \"behavior\": {\"groups\": {\"K\": {\"passed\": 327, \"total\": 327}, \"V\": {\"passed\": 101, \"total\": 101}, \"D\": {\"passed\": 41, \"total\": 41}, \"T\": {\"passed\": 70, \"total\": 70}, \"W\": {\"passed\": 22, \"total\": 22}, \"R\": {\"passed\": 80, \"total\": 80}}, \"failures\": [], \"passed\": 641, \"total\": 641, \"log\": \"\"}, \"submitted_tests\": {\"tests_run\": 2, \"discovered\": 2, \"failures\": 0, \"errors\": 0, \"skipped\": 0, \"successful\": true, \"log\": \"test_cutoff_inclusive (test_fares.Independent.test_cutoff_inclusive) ... ok\\ntest_fraction_ceiling (test_fares.Independent.test_fraction_ceiling) ... ok\\n\\n----------------------------------------------------------------------\\nRan 2 tests in 0.003s\\n\\nOK\\n\"}, \"manual_review\": [\"Check test expectations were derived independently from the rules.\", \"Check only the Python standard library and supplied farelib are used.\"]}, \"native_exit\": 0, \"native_stdout\": \"{\\n  \\\"automated_pass\\\": true,\\n  \\\"artifact_checks\\\": {\\n    \\\"unchanged_farelib.pyc\\\": true,\\n    \\\"unchanged_farelib.pyi\\\": true,\\n    \\\"unchanged_README.md\\\": true,\\n    \\\"unchanged_TESTING.md\\\": true,\\n    \\\"exists_fares.py\\\": true,\\n    \\\"exists_test_fares.py\\\": true,\\n    \\\"test_source_parses\\\": true,\\n    \\\"tests_do_not_import_farelib\\\": true\\n  },\\n  \\\"artifact_checks_after_execution\\\": {\\n    \\\"unchanged_farelib.pyc\\\": true,\\n    \\\"unchanged_farelib.pyi\\\": true,\\n    \\\"unchanged_README.md\\\": true,\\n    \\\"unchanged_TESTING.md\\\": true,\\n    \\\"exists_fares.py\\\": true,\\n    \\\"exists_test_fares.py\\\": true,\\n    \\\"test_source_parses\\\": true,\\n    \\\"tests_do_not_import_farelib\\\": true\\n  },\\n  \\\"behavior\\\": {\\n    \\\"groups\\\": {\\n      \\\"K\\\": {\\n        \\\"passed\\\": 327,\\n        \\\"total\\\": 327\\n      },\\n      \\\"V\\\": {\\n        \\\"passed\\\": 101,\\n        \\\"total\\\": 101\\n      },\\n      \\\"D\\\": {\\n        \\\"passed\\\": 41,\\n        \\\"total\\\": 41\\n      },\\n      \\\"T\\\": {\\n        \\\"passed\\\": 70,\\n        \\\"total\\\": 70\\n      },\\n      \\\"W\\\": {\\n        \\\"passed\\\": 22,\\n        \\\"total\\\": 22\\n      },\\n      \\\"R\\\": {\\n        \\\"passed\\\": 80,\\n        \\\"total\\\": 80\\n      }\\n    },\\n    \\\"failures\\\": [],\\n    \\\"passed\\\": 641,\\n    \\\"total\\\": 641,\\n    \\\"log\\\": \\\"\\\"\\n  },\\n  \\\"submitted_tests\\\": {\\n    \\\"tests_run\\\": 2,\\n    \\\"discovered\\\": 2,\\n    \\\"failures\\\": 0,\\n    \\\"errors\\\": 0,\\n    \\\"skipped\\\": 0,\\n    \\\"successful\\\": true,\\n    \\\"log\\\": \\\"test_cutoff_inclusive (test_fares.Independent.test_cutoff_inclusive) ... ok\\\\ntest_fraction_ceiling (test_fares.Independent.test_fraction_ceiling) ... ok\\\\n\\\\n----------------------------------------------------------------------\\\\nRan 2 tests in 0.003s\\\\n\\\\nOK\\\\n\\\"\\n  },\\n  \\\"manual_review\\\": [\\n    \\\"Check test expectations were derived independently from the rules.\\\",\\n    \\\"Check only the Python standard library and supplied farelib are used.\\\"\\n  ]\\n}\\n\", \"native_stderr\": \"\"}\n",
+      "stderr": "",
+      "observed": {
+        "pass": true,
+        "report": {
+          "automated_pass": true,
+          "artifact_checks": {
+            "unchanged_farelib.pyc": true,
+            "unchanged_farelib.pyi": true,
+            "unchanged_README.md": true,
+            "unchanged_TESTING.md": true,
+            "exists_fares.py": true,
+            "exists_test_fares.py": true,
+            "test_source_parses": true,
+            "tests_do_not_import_farelib": true
+          },
+          "artifact_checks_after_execution": {
+            "unchanged_farelib.pyc": true,
+            "unchanged_farelib.pyi": true,
+            "unchanged_README.md": true,
+            "unchanged_TESTING.md": true,
+            "exists_fares.py": true,
+            "exists_test_fares.py": true,
+            "test_source_parses": true,
+            "tests_do_not_import_farelib": true
+          },
+          "behavior": {
+            "groups": {
+              "K": {
+                "passed": 327,
+                "total": 327
+              },
+              "V": {
+                "passed": 101,
+                "total": 101
+              },
+              "D": {
+                "passed": 41,
+                "total": 41
+              },
+              "T": {
+                "passed": 70,
+                "total": 70
+              },
+              "W": {
+                "passed": 22,
+                "total": 22
+              },
+              "R": {
+                "passed": 80,
+                "total": 80
+              }
+            },
+            "failures": [],
+            "passed": 641,
+            "total": 641,
+            "log": ""
+          },
+          "submitted_tests": {
+            "tests_run": 2,
+            "discovered": 2,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "successful": true,
+            "log": "test_cutoff_inclusive (test_fares.Independent.test_cutoff_inclusive) ... ok\ntest_fraction_ceiling (test_fares.Independent.test_fraction_ceiling) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.003s\n\nOK\n"
+          },
+          "manual_review": [
+            "Check test expectations were derived independently from the rules.",
+            "Check only the Python standard library and supplied farelib are used."
+          ]
+        },
+        "native_exit": 0,
+        "native_stdout": "{\n  \"automated_pass\": true,\n  \"artifact_checks\": {\n    \"unchanged_farelib.pyc\": true,\n    \"unchanged_farelib.pyi\": true,\n    \"unchanged_README.md\": true,\n    \"unchanged_TESTING.md\": true,\n    \"exists_fares.py\": true,\n    \"exists_test_fares.py\": true,\n    \"test_source_parses\": true,\n    \"tests_do_not_import_farelib\": true\n  },\n  \"artifact_checks_after_execution\": {\n    \"unchanged_farelib.pyc\": true,\n    \"unchanged_farelib.pyi\": true,\n    \"unchanged_README.md\": true,\n    \"unchanged_TESTING.md\": true,\n    \"exists_fares.py\": true,\n    \"exists_test_fares.py\": true,\n    \"test_source_parses\": true,\n    \"tests_do_not_import_farelib\": true\n  },\n  \"behavior\": {\n    \"groups\": {\n      \"K\": {\n        \"passed\": 327,\n        \"total\": 327\n      },\n      \"V\": {\n        \"passed\": 101,\n        \"total\": 101\n      },\n      \"D\": {\n        \"passed\": 41,\n        \"total\": 41\n      },\n      \"T\": {\n        \"passed\": 70,\n        \"total\": 70\n      },\n      \"W\": {\n        \"passed\": 22,\n        \"total\": 22\n      },\n      \"R\": {\n        \"passed\": 80,\n        \"total\": 80\n      }\n    },\n    \"failures\": [],\n    \"passed\": 641,\n    \"total\": 641,\n    \"log\": \"\"\n  },\n  \"submitted_tests\": {\n    \"tests_run\": 2,\n    \"discovered\": 2,\n    \"failures\": 0,\n    \"errors\": 0,\n    \"skipped\": 0,\n    \"successful\": true,\n    \"log\": \"test_cutoff_inclusive (test_fares.Independent.test_cutoff_inclusive) ... ok\\ntest_fraction_ceiling (test_fares.Independent.test_fraction_ceiling) ... ok\\n\\n----------------------------------------------------------------------\\nRan 2 tests in 0.003s\\n\\nOK\\n\"\n  },\n  \"manual_review\": [\n    \"Check test expectations were derived independently from the rules.\",\n    \"Check only the Python standard library and supplied farelib are used.\"\n  ]\n}\n",
+        "native_stderr": ""
+      },
+      "valid": true,
+      "correct": true
+    },
+    {
+      "control": "reject_everything.json",
+      "expected_pass": false,
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "h4-owner-d655c33308ec496e80e6aabfdaa1d970",
+        "--network",
+        "none",
+        "--read-only",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--pids-limit",
+        "64",
+        "--memory",
+        "256m",
+        "--cpus",
+        "1",
+        "--tmpfs",
+        "/tmp:rw,noexec,nosuid,size=32m",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H4/delivery,target=/subject,readonly",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/expansion-h4/reject_everything.json,target=/control.json,readonly",
+        "-w",
+        "/tmp",
+        "python:3.14-slim",
+        "python",
+        "-B",
+        "-c",
+        "import json,shutil,subprocess,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate');Path('/tmp/candidate/fares.py').write_text(c['assets']['reference_fares.py']);Path('/tmp/candidate/test_fares.py').write_text(c['test_code'])\np=subprocess.run([sys.executable,'/tmp/eval/evaluation/grade.py','/tmp/candidate',sys.argv[1],'/tmp/result.json'],capture_output=True,text=True,timeout=45)\nreport=json.load(open('/tmp/result.json'));print(json.dumps({'pass':report['automated_pass'],'report':report,'native_exit':p.returncode,'native_stdout':p.stdout,'native_stderr':p.stderr}))\n",
+        "--output"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pass\": false, \"report\": {\"automated_pass\": false, \"artifact_checks\": {\"unchanged_farelib.pyc\": true, \"unchanged_farelib.pyi\": true, \"unchanged_README.md\": true, \"unchanged_TESTING.md\": true, \"exists_fares.py\": true, \"exists_test_fares.py\": true, \"test_source_parses\": true, \"tests_do_not_import_farelib\": true}, \"artifact_checks_after_execution\": {\"unchanged_farelib.pyc\": true, \"unchanged_farelib.pyi\": true, \"unchanged_README.md\": true, \"unchanged_TESTING.md\": true, \"exists_fares.py\": true, \"exists_test_fares.py\": true, \"test_source_parses\": true, \"tests_do_not_import_farelib\": true}, \"behavior\": {\"groups\": {\"K\": {\"passed\": 327, \"total\": 327}, \"V\": {\"passed\": 101, \"total\": 101}, \"D\": {\"passed\": 41, \"total\": 41}, \"T\": {\"passed\": 70, \"total\": 70}, \"W\": {\"passed\": 22, \"total\": 22}, \"R\": {\"passed\": 80, \"total\": 80}}, \"failures\": [], \"passed\": 641, \"total\": 641, \"log\": \"\"}, \"submitted_tests\": {\"error\": \"Traceback (most recent call last):\\n  File \\\"/tmp/eval/evaluation/grade.py\\\", line 56, in worker\\n    suite = unittest.defaultTestLoader.loadTestsFromName(\\\"test_fares\\\")\\n  File \\\"/usr/local/lib/python3.14/unittest/loader.py\\\", line 141, in loadTestsFromName\\n    module = __import__(module_name)\\n  File \\\"/tmp/candidate/test_fares.py\\\", line 1, in <module>\\n    raise AssertionError(\\\"always reject\\\")\\nAssertionError: always reject\\n\", \"log\": \"\"}, \"manual_review\": [\"Check test expectations were derived independently from the rules.\", \"Check only the Python standard library and supplied farelib are used.\"]}, \"native_exit\": 1, \"native_stdout\": \"{\\n  \\\"automated_pass\\\": false,\\n  \\\"artifact_checks\\\": {\\n    \\\"unchanged_farelib.pyc\\\": true,\\n    \\\"unchanged_farelib.pyi\\\": true,\\n    \\\"unchanged_README.md\\\": true,\\n    \\\"unchanged_TESTING.md\\\": true,\\n    \\\"exists_fares.py\\\": true,\\n    \\\"exists_test_fares.py\\\": true,\\n    \\\"test_source_parses\\\": true,\\n    \\\"tests_do_not_import_farelib\\\": true\\n  },\\n  \\\"artifact_checks_after_execution\\\": {\\n    \\\"unchanged_farelib.pyc\\\": true,\\n    \\\"unchanged_farelib.pyi\\\": true,\\n    \\\"unchanged_README.md\\\": true,\\n    \\\"unchanged_TESTING.md\\\": true,\\n    \\\"exists_fares.py\\\": true,\\n    \\\"exists_test_fares.py\\\": true,\\n    \\\"test_source_parses\\\": true,\\n    \\\"tests_do_not_import_farelib\\\": true\\n  },\\n  \\\"behavior\\\": {\\n    \\\"groups\\\": {\\n      \\\"K\\\": {\\n        \\\"passed\\\": 327,\\n        \\\"total\\\": 327\\n      },\\n      \\\"V\\\": {\\n        \\\"passed\\\": 101,\\n        \\\"total\\\": 101\\n      },\\n      \\\"D\\\": {\\n        \\\"passed\\\": 41,\\n        \\\"total\\\": 41\\n      },\\n      \\\"T\\\": {\\n        \\\"passed\\\": 70,\\n        \\\"total\\\": 70\\n      },\\n      \\\"W\\\": {\\n        \\\"passed\\\": 22,\\n        \\\"total\\\": 22\\n      },\\n      \\\"R\\\": {\\n        \\\"passed\\\": 80,\\n        \\\"total\\\": 80\\n      }\\n    },\\n    \\\"failures\\\": [],\\n    \\\"passed\\\": 641,\\n    \\\"total\\\": 641,\\n    \\\"log\\\": \\\"\\\"\\n  },\\n  \\\"submitted_tests\\\": {\\n    \\\"error\\\": \\\"Traceback (most recent call last):\\\\n  File \\\\\\\"/tmp/eval/evaluation/grade.py\\\\\\\", line 56, in worker\\\\n    suite = unittest.defaultTestLoader.loadTestsFromName(\\\\\\\"test_fares\\\\\\\")\\\\n  File \\\\\\\"/usr/local/lib/python3.14/unittest/loader.py\\\\\\\", line 141, in loadTestsFromName\\\\n    module = __import__(module_name)\\\\n  File \\\\\\\"/tmp/candidate/test_fares.py\\\\\\\", line 1, in <module>\\\\n    raise AssertionError(\\\\\\\"always reject\\\\\\\")\\\\nAssertionError: always reject\\\\n\\\",\\n    \\\"log\\\": \\\"\\\"\\n  },\\n  \\\"manual_review\\\": [\\n    \\\"Check test expectations were derived independently from the rules.\\\",\\n    \\\"Check only the Python standard library and supplied farelib are used.\\\"\\n  ]\\n}\\n\", \"native_stderr\": \"\"}\n",
+      "stderr": "",
+      "observed": {
+        "pass": false,
+        "report": {
+          "automated_pass": false,
+          "artifact_checks": {
+            "unchanged_farelib.pyc": true,
+            "unchanged_farelib.pyi": true,
+            "unchanged_README.md": true,
+            "unchanged_TESTING.md": true,
+            "exists_fares.py": true,
+            "exists_test_fares.py": true,
+            "test_source_parses": true,
+            "tests_do_not_import_farelib": true
+          },
+          "artifact_checks_after_execution": {
+            "unchanged_farelib.pyc": true,
+            "unchanged_farelib.pyi": true,
+            "unchanged_README.md": true,
+            "unchanged_TESTING.md": true,
+            "exists_fares.py": true,
+            "exists_test_fares.py": true,
+            "test_source_parses": true,
+            "tests_do_not_import_farelib": true
+          },
+          "behavior": {
+            "groups": {
+              "K": {
+                "passed": 327,
+                "total": 327
+              },
+              "V": {
+                "passed": 101,
+                "total": 101
+              },
+              "D": {
+                "passed": 41,
+                "total": 41
+              },
+              "T": {
+                "passed": 70,
+                "total": 70
+              },
+              "W": {
+                "passed": 22,
+                "total": 22
+              },
+              "R": {
+                "passed": 80,
+                "total": 80
+              }
+            },
+            "failures": [],
+            "passed": 641,
+            "total": 641,
+            "log": ""
+          },
+          "submitted_tests": {
+            "error": "Traceback (most recent call last):\n  File \"/tmp/eval/evaluation/grade.py\", line 56, in worker\n    suite = unittest.defaultTestLoader.loadTestsFromName(\"test_fares\")\n  File \"/usr/local/lib/python3.14/unittest/loader.py\", line 141, in loadTestsFromName\n    module = __import__(module_name)\n  File \"/tmp/candidate/test_fares.py\", line 1, in <module>\n    raise AssertionError(\"always reject\")\nAssertionError: always reject\n",
+            "log": ""
+          },
+          "manual_review": [
+            "Check test expectations were derived independently from the rules.",
+            "Check only the Python standard library and supplied farelib are used."
+          ]
+        },
+        "native_exit": 1,
+        "native_stdout": "{\n  \"automated_pass\": false,\n  \"artifact_checks\": {\n    \"unchanged_farelib.pyc\": true,\n    \"unchanged_farelib.pyi\": true,\n    \"unchanged_README.md\": true,\n    \"unchanged_TESTING.md\": true,\n    \"exists_fares.py\": true,\n    \"exists_test_fares.py\": true,\n    \"test_source_parses\": true,\n    \"tests_do_not_import_farelib\": true\n  },\n  \"artifact_checks_after_execution\": {\n    \"unchanged_farelib.pyc\": true,\n    \"unchanged_farelib.pyi\": true,\n    \"unchanged_README.md\": true,\n    \"unchanged_TESTING.md\": true,\n    \"exists_fares.py\": true,\n    \"exists_test_fares.py\": true,\n    \"test_source_parses\": true,\n    \"tests_do_not_import_farelib\": true\n  },\n  \"behavior\": {\n    \"groups\": {\n      \"K\": {\n        \"passed\": 327,\n        \"total\": 327\n      },\n      \"V\": {\n        \"passed\": 101,\n        \"total\": 101\n      },\n      \"D\": {\n        \"passed\": 41,\n        \"total\": 41\n      },\n      \"T\": {\n        \"passed\": 70,\n        \"total\": 70\n      },\n      \"W\": {\n        \"passed\": 22,\n        \"total\": 22\n      },\n      \"R\": {\n        \"passed\": 80,\n        \"total\": 80\n      }\n    },\n    \"failures\": [],\n    \"passed\": 641,\n    \"total\": 641,\n    \"log\": \"\"\n  },\n  \"submitted_tests\": {\n    \"error\": \"Traceback (most recent call last):\\n  File \\\"/tmp/eval/evaluation/grade.py\\\", line 56, in worker\\n    suite = unittest.defaultTestLoader.loadTestsFromName(\\\"test_fares\\\")\\n  File \\\"/usr/local/lib/python3.14/unittest/loader.py\\\", line 141, in loadTestsFromName\\n    module = __import__(module_name)\\n  File \\\"/tmp/candidate/test_fares.py\\\", line 1, in <module>\\n    raise AssertionError(\\\"always reject\\\")\\nAssertionError: always reject\\n\",\n    \"log\": \"\"\n  },\n  \"manual_review\": [\n    \"Check test expectations were derived independently from the rules.\",\n    \"Check only the Python standard library and supplied farelib are used.\"\n  ]\n}\n",
+        "native_stderr": ""
+      },
+      "valid": true,
+      "correct": true
+    }
+  ],
+  "valid": 5,
+  "correct": 5,
+  "false_rejects": 0,
+  "false_accepts": 0,
+  "scope": "Native authored grader under Docker; owner controls corrected after outcome inspection; do not pool as blind initial bank."
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "eval-author-coached-hit-diagnostic/v1",
+  "admitted": true,
+  "frozen_utc": "2026-11-09T02:36:38.021641+00:00",
+  "condition": "selected_hit_coached_clean_capture_v2",
+  "initial_screen_rate_eligible": false,
+  "only_instruction_change": "Create a complete runnable eval for this task, including a public task statement, independent reference, grader, positive and negative controls, clean runner, and a report schema. State every graded requirement in the public task. Verify your eval before delivery.",
+  "prior_results_or_failure_witness_hints_supplied": false,
+  "public_task_inputs_identical": true,
+  "actor_roots": [
+    "prompt.md",
+    "input/"
+  ],
+  "native_python_version": "3.14.2",
+  "reasoning_effort": "high",
+  "sandbox": "Windows MXC workspace-write",
+  "jobs_sequential": [
+    {
+      "model": "gpt-6.1-sol",
+      "case": "H1",
+      "timeout_seconds": 1200
+    },
+    {
+      "model": "gpt-6-astra",
+      "case": "H6",
+      "timeout_seconds": 600
+    }
+  ],
+  "worker_count": 1,
+  "calls_scheduled": 2,
+  "grand_total_model_arm_cap": 31,
+  "stop_new_model_arms_after_this_policy": true,
+  "automatic_retries": 0,
+  "wait_for_terminals": {
+    "runs/CLEAN-HIT-DIAGNOSTIC-TERMINAL.json": 2,
+    "runs/BUDGET-H1-TERMINAL.json": 3
+  },
+  "interpretation": "One fresh draw per selected job/model; diagnostic prompt comparison, not a population failure rate or causal estimate.",
+  "packets": {
+    "H1": {
+      "case_id": "H1",
+      "manifest_sha256": "4b169d991a5d8fc525847e513dd00388f7b7710bc8a5a9cab4e076c7ab38fba4",
+      "provenance_sha256": "d90947297a9d2f2115eaafa538f4554668edd809e1b0ef2350386e928261565d",
+      "verified_file_count": 4,
+      "prompt_sha256": "fc471c01bb862afd9a3b7541bb651ee4d87ae258d5916c1510daac3be38273f3"
+    },
+    "H6": {
+      "case_id": "H6",
+      "manifest_sha256": "ea12b7edbabab36b254ecc24f4d263b65a59a0b3073a1473841259ed701052e5",
+      "provenance_sha256": "898ad1088dba9ba2cfdd6c11b8fe1d7335e012db2cafd619a761b25df91e7490",
+      "verified_file_count": 7,
+      "prompt_sha256": "8d7282018841d61f6e250568d5748477dbd1dfbff651e46d59c2e92bd0645b81"
+    }
+  },
+  "files": {
+    "run_clean_screen_v2.py": "cbb6054a6724dff475a8e99b4e007d820c6271c408be873d9fceb70960f6840f",
+    "run_eval.py": "7bfddb3a107cbc1029c03ba117f7ccc5c6764d7c81f3c8d907a45786a804b98e",
+    "run_coached_hit_diagnostic.py": "b5e077143c9cf1d9fa3e2c12cb34afaeb58006d7ae669f1258f26367b4804aeb",
+    "packets/primary/H1/prompt.md": "df6180cbe0ef1a14781dbf0b50e0d29490876cf466dc39a865f24ea9e64825d0",
+    "packets/primary/H1/MANIFEST.json": "5f38525a68615f92a667ff2ac5d03a77e1f7759945e8220b259ed533a3cb27ea",
+    "packets/primary/H1/PROVENANCE.json": "b16d9b3da0364a2bf86f281985290973da518b8d7b3929f6a0e39c33e3540a6b",
+    "packets/primary/H1/input/README.md": "4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77",
+    "packets/primary/H1/input/E1.md": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+    "packets/coached/H1/prompt.md": "fc471c01bb862afd9a3b7541bb651ee4d87ae258d5916c1510daac3be38273f3",
+    "packets/coached/H1/MANIFEST.json": "4b169d991a5d8fc525847e513dd00388f7b7710bc8a5a9cab4e076c7ab38fba4",
+    "packets/coached/H1/PROVENANCE.json": "d90947297a9d2f2115eaafa538f4554668edd809e1b0ef2350386e928261565d",
+    "packets/coached/H1/input/README.md": "4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77",
+    "packets/coached/H1/input/E1.md": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+    "packets/primary/H6/prompt.md": "b445955764503d0f388b8471f5740124bcc06bd9f00014f071735cd031a05b4d",
+    "packets/primary/H6/MANIFEST.json": "b8d456092a610308085192119c74120c6d9123a592c8931c33a268fd193bd1f2",
+    "packets/primary/H6/PROVENANCE.json": "a6a03f7a01d2dcd617518f7a538ad5fa7a044cf6787919a95644338514d4b40a",
+    "packets/primary/H6/input/task.txt": "a14f6d6510d66ed96ad0124d3563ac1c2ea02f9686399bb97324e1fc7c3811f5",
+    "packets/primary/H6/input/workspace/example.json": "81e6c582cb892db6a2457cd88a005d45689a10835ff089041083eb3363ae1d62",
+    "packets/primary/H6/input/workspace/output.schema.json": "1b02c59bce9547a3240d0fb6b32d118e11e34d862597eb2e80013c7001c5b4cf",
+    "packets/primary/H6/input/workspace/README.md": "b62e2fa1926a5d39e749a09cae70ede342275855e4ca3f81318483c42c399cc7",
+    "packets/primary/H6/input/workspace/input.schema.json": "22e4954dd62b1f6b7368d8d16875ebdfcda0dd5ae9c973bc21f2b7e1b445ada5",
+    "packets/coached/H6/prompt.md": "8d7282018841d61f6e250568d5748477dbd1dfbff651e46d59c2e92bd0645b81",
+    "packets/coached/H6/MANIFEST.json": "ea12b7edbabab36b254ecc24f4d263b65a59a0b3073a1473841259ed701052e5",
+    "packets/coached/H6/PROVENANCE.json": "898ad1088dba9ba2cfdd6c11b8fe1d7335e012db2cafd619a761b25df91e7490",
+    "packets/coached/H6/input/task.txt": "a14f6d6510d66ed96ad0124d3563ac1c2ea02f9686399bb97324e1fc7c3811f5",
+    "packets/coached/H6/input/workspace/example.json": "81e6c582cb892db6a2457cd88a005d45689a10835ff089041083eb3363ae1d62",
+    "packets/coached/H6/input/workspace/output.schema.json": "1b02c59bce9547a3240d0fb6b32d118e11e34d862597eb2e80013c7001c5b4cf",
+    "packets/coached/H6/input/workspace/README.md": "b62e2fa1926a5d39e749a09cae70ede342275855e4ca3f81318483c42c399cc7",
+    "packets/coached/H6/input/workspace/input.schema.json": "22e4954dd62b1f6b7368d8d16875ebdfcda0dd5ae9c973bc21f2b7e1b445ada5"
+  }
+}

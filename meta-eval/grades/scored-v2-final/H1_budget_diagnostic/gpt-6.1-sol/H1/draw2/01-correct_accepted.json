@@ -1,0 +1,3342 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 3.1852415230005136,
+  "stdout": "{\"evaluator\": \"e1-eval/1.0\", \"task_id\": \"E1\", \"formal_status\": \"pass\", \"overall_status\": \"formal_pass_review_pending\", \"review_status\": \"pending\", \"cases\": [{\"name\": \"core-1\", \"scope\": \"declared_overlap_and_replay\", \"status\": \"pass\", \"plan\": {\"name\": \"core-1\", \"scope\": \"declared_overlap_and_replay\", \"pair\": [{\"key\": \"5f734a3fe3baafe55259be89-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"5f734a3fe3baafe55259be89-y\", \"account\": \"A\", \"amount\": 60}], \"tail\": [{\"key\": \"5f734a3fe3baafe55259be89-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"5f734a3fe3baafe55259be89-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"5f734a3fe3baafe55259be89-x\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"5f734a3fe3baafe55259be89-x\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"5f734a3fe3baafe55259be89-y\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"5f734a3fe3baafe55259be89-y\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"5f734a3fe3baafe55259be89-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"5f734a3fe3baafe55259be89-drain\", \"account\": \"A\", \"amount\": 40}, {\"key\": \"5f734a3fe3baafe55259be89-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"5f734a3fe3baafe55259be89-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"5f734a3fe3baafe55259be89-empty-a\", \"account\": \"A\", \"amount\": 1}, {\"key\": \"5f734a3fe3baafe55259be89-empty-b\", \"account\": \"B\", \"amount\": 1}, {\"key\": \"5f734a3fe3baafe55259be89-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"5f734a3fe3baafe55259be89-drain\", \"account\": \"A\", \"amount\": 40}], \"restart\": [{\"key\": \"5f734a3fe3baafe55259be89-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"5f734a3fe3baafe55259be89-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"5f734a3fe3baafe55259be89-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"5f734a3fe3baafe55259be89-drain\", \"account\": \"A\", \"amount\": 40}, {\"key\": \"5f734a3fe3baafe55259be89-empty-a\", \"account\": \"A\", \"amount\": 1}, {\"key\": \"5f734a3fe3baafe55259be89-empty-b\", \"account\": \"B\", \"amount\": 1}], \"release_first\": 0}, \"events\": [{\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-x\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"overlap\", \"worker\": 1, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-y\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"tail\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-x\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-y\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-x\", \"account\": \"A\", \"amount\": 61}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-x\", \"account\": \"B\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-y\", \"account\": \"A\", \"amount\": 61}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-y\", \"account\": \"B\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-b\", \"account\": \"B\", \"amount\": 100}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-drain\", \"account\": \"A\", \"amount\": 40}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-x\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-y\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-empty-a\", \"account\": \"A\", \"amount\": 1}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-empty-b\", \"account\": \"B\", \"amount\": 1}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-b\", \"account\": \"B\", \"amount\": 100}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-drain\", \"account\": \"A\", \"amount\": 40}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"restart\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"restart\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"restart\", \"worker\": 1, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-x\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"restart\", \"worker\": 0, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-y\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}}, {\"phase\": \"restart\", \"worker\": 1, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-b\", \"account\": \"B\", \"amount\": 100}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"restart\", \"worker\": 0, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-drain\", \"account\": \"A\", \"amount\": 40}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"restart\", \"worker\": 1, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-empty-a\", \"account\": \"A\", \"amount\": 1}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}}, {\"phase\": \"restart\", \"worker\": 0, \"request\": {\"key\": \"5f734a3fe3baafe55259be89-empty-b\", \"account\": \"B\", \"amount\": 1}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}}], \"checkpoints\": [{\"phase\": \"overlap\", \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"5f734a3fe3baafe55259be89-x\", \"A\", 60, \"accepted\", 40], [\"5f734a3fe3baafe55259be89-y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"5f734a3fe3baafe55259be89-x\", \"A\", 60]]}}, {\"phase\": \"tail\", \"snapshot\": {\"accounts\": [[\"A\", 0], [\"B\", 0]], \"decisions\": [[\"5f734a3fe3baafe55259be89-b\", \"B\", 100, \"accepted\", 0], [\"5f734a3fe3baafe55259be89-drain\", \"A\", 40, \"accepted\", 0], [\"5f734a3fe3baafe55259be89-empty-a\", \"A\", 1, \"rejected\", 0], [\"5f734a3fe3baafe55259be89-empty-b\", \"B\", 1, \"rejected\", 0], [\"5f734a3fe3baafe55259be89-x\", \"A\", 60, \"accepted\", 40], [\"5f734a3fe3baafe55259be89-y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"5f734a3fe3baafe55259be89-b\", \"B\", 100], [\"5f734a3fe3baafe55259be89-drain\", \"A\", 40], [\"5f734a3fe3baafe55259be89-x\", \"A\", 60]]}}, {\"phase\": \"restart\", \"snapshot\": {\"accounts\": [[\"A\", 0], [\"B\", 0]], \"decisions\": [[\"5f734a3fe3baafe55259be89-b\", \"B\", 100, \"accepted\", 0], [\"5f734a3fe3baafe55259be89-drain\", \"A\", 40, \"accepted\", 0], [\"5f734a3fe3baafe55259be89-empty-a\", \"A\", 1, \"rejected\", 0], [\"5f734a3fe3baafe55259be89-empty-b\", \"B\", 1, \"rejected\", 0], [\"5f734a3fe3baafe55259be89-x\", \"A\", 60, \"accepted\", 40], [\"5f734a3fe3baafe55259be89-y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"5f734a3fe3baafe55259be89-b\", \"B\", 100], [\"5f734a3fe3baafe55259be89-drain\", \"A\", 40], [\"5f734a3fe3baafe55259be89-x\", \"A\", 60]]}}], \"terminals\": [{\"pid\": 6, \"returncode\": 0}, {\"pid\": 7, \"returncode\": 0}, {\"pid\": 13, \"returncode\": 0}, {\"pid\": 14, \"returncode\": 0}, {\"pid\": 20, \"returncode\": 0}, {\"pid\": 21, \"returncode\": 0}], \"legal_serial_orders\": [[0, 1]]}, {\"name\": \"core-2\", \"scope\": \"declared_overlap_and_replay\", \"status\": \"pass\", \"plan\": {\"name\": \"core-2\", \"scope\": \"declared_overlap_and_replay\", \"pair\": [{\"key\": \"43b49352f31be67d92865933-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"43b49352f31be67d92865933-y\", \"account\": \"A\", \"amount\": 60}], \"tail\": [{\"key\": \"43b49352f31be67d92865933-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"43b49352f31be67d92865933-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"43b49352f31be67d92865933-x\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"43b49352f31be67d92865933-x\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"43b49352f31be67d92865933-y\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"43b49352f31be67d92865933-y\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"43b49352f31be67d92865933-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"43b49352f31be67d92865933-drain\", \"account\": \"A\", \"amount\": 40}, {\"key\": \"43b49352f31be67d92865933-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"43b49352f31be67d92865933-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"43b49352f31be67d92865933-empty-a\", \"account\": \"A\", \"amount\": 1}, {\"key\": \"43b49352f31be67d92865933-empty-b\", \"account\": \"B\", \"amount\": 1}, {\"key\": \"43b49352f31be67d92865933-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"43b49352f31be67d92865933-drain\", \"account\": \"A\", \"amount\": 40}], \"restart\": [{\"key\": \"43b49352f31be67d92865933-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"43b49352f31be67d92865933-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"43b49352f31be67d92865933-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"43b49352f31be67d92865933-drain\", \"account\": \"A\", \"amount\": 40}, {\"key\": \"43b49352f31be67d92865933-empty-a\", \"account\": \"A\", \"amount\": 1}, {\"key\": \"43b49352f31be67d92865933-empty-b\", \"account\": \"B\", \"amount\": 1}], \"release_first\": 1}, \"events\": [{\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"request\": {\"key\": \"43b49352f31be67d92865933-x\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"overlap\", \"worker\": 1, \"request\": {\"key\": \"43b49352f31be67d92865933-y\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"tail\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"43b49352f31be67d92865933-x\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"43b49352f31be67d92865933-y\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"43b49352f31be67d92865933-x\", \"account\": \"A\", \"amount\": 61}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"43b49352f31be67d92865933-x\", \"account\": \"B\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"43b49352f31be67d92865933-y\", \"account\": \"A\", \"amount\": 61}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"43b49352f31be67d92865933-y\", \"account\": \"B\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"43b49352f31be67d92865933-b\", \"account\": \"B\", \"amount\": 100}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"43b49352f31be67d92865933-drain\", \"account\": \"A\", \"amount\": 40}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"43b49352f31be67d92865933-x\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"43b49352f31be67d92865933-y\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"43b49352f31be67d92865933-empty-a\", \"account\": \"A\", \"amount\": 1}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"43b49352f31be67d92865933-empty-b\", \"account\": \"B\", \"amount\": 1}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"43b49352f31be67d92865933-b\", \"account\": \"B\", \"amount\": 100}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"43b49352f31be67d92865933-drain\", \"account\": \"A\", \"amount\": 40}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"restart\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"restart\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"restart\", \"worker\": 1, \"request\": {\"key\": \"43b49352f31be67d92865933-x\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"restart\", \"worker\": 0, \"request\": {\"key\": \"43b49352f31be67d92865933-y\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}}, {\"phase\": \"restart\", \"worker\": 1, \"request\": {\"key\": \"43b49352f31be67d92865933-b\", \"account\": \"B\", \"amount\": 100}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"restart\", \"worker\": 0, \"request\": {\"key\": \"43b49352f31be67d92865933-drain\", \"account\": \"A\", \"amount\": 40}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"restart\", \"worker\": 1, \"request\": {\"key\": \"43b49352f31be67d92865933-empty-a\", \"account\": \"A\", \"amount\": 1}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}}, {\"phase\": \"restart\", \"worker\": 0, \"request\": {\"key\": \"43b49352f31be67d92865933-empty-b\", \"account\": \"B\", \"amount\": 1}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}}], \"checkpoints\": [{\"phase\": \"overlap\", \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"43b49352f31be67d92865933-x\", \"A\", 60, \"accepted\", 40], [\"43b49352f31be67d92865933-y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"43b49352f31be67d92865933-x\", \"A\", 60]]}}, {\"phase\": \"tail\", \"snapshot\": {\"accounts\": [[\"A\", 0], [\"B\", 0]], \"decisions\": [[\"43b49352f31be67d92865933-b\", \"B\", 100, \"accepted\", 0], [\"43b49352f31be67d92865933-drain\", \"A\", 40, \"accepted\", 0], [\"43b49352f31be67d92865933-empty-a\", \"A\", 1, \"rejected\", 0], [\"43b49352f31be67d92865933-empty-b\", \"B\", 1, \"rejected\", 0], [\"43b49352f31be67d92865933-x\", \"A\", 60, \"accepted\", 40], [\"43b49352f31be67d92865933-y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"43b49352f31be67d92865933-b\", \"B\", 100], [\"43b49352f31be67d92865933-drain\", \"A\", 40], [\"43b49352f31be67d92865933-x\", \"A\", 60]]}}, {\"phase\": \"restart\", \"snapshot\": {\"accounts\": [[\"A\", 0], [\"B\", 0]], \"decisions\": [[\"43b49352f31be67d92865933-b\", \"B\", 100, \"accepted\", 0], [\"43b49352f31be67d92865933-drain\", \"A\", 40, \"accepted\", 0], [\"43b49352f31be67d92865933-empty-a\", \"A\", 1, \"rejected\", 0], [\"43b49352f31be67d92865933-empty-b\", \"B\", 1, \"rejected\", 0], [\"43b49352f31be67d92865933-x\", \"A\", 60, \"accepted\", 40], [\"43b49352f31be67d92865933-y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"43b49352f31be67d92865933-b\", \"B\", 100], [\"43b49352f31be67d92865933-drain\", \"A\", 40], [\"43b49352f31be67d92865933-x\", \"A\", 60]]}}], \"terminals\": [{\"pid\": 27, \"returncode\": 0}, {\"pid\": 28, \"returncode\": 0}, {\"pid\": 34, \"returncode\": 0}, {\"pid\": 35, \"returncode\": 0}, {\"pid\": 41, \"returncode\": 0}, {\"pid\": 42, \"returncode\": 0}], \"legal_serial_orders\": [[0, 1]]}, {\"name\": \"core-3\", \"scope\": \"declared_overlap_and_replay\", \"status\": \"pass\", \"plan\": {\"name\": \"core-3\", \"scope\": \"declared_overlap_and_replay\", \"pair\": [{\"key\": \"935b01d449e16c4b0cd083d3-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"935b01d449e16c4b0cd083d3-y\", \"account\": \"A\", \"amount\": 60}], \"tail\": [{\"key\": \"935b01d449e16c4b0cd083d3-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"935b01d449e16c4b0cd083d3-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"935b01d449e16c4b0cd083d3-x\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"935b01d449e16c4b0cd083d3-x\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"935b01d449e16c4b0cd083d3-y\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"935b01d449e16c4b0cd083d3-y\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"935b01d449e16c4b0cd083d3-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"935b01d449e16c4b0cd083d3-drain\", \"account\": \"A\", \"amount\": 40}, {\"key\": \"935b01d449e16c4b0cd083d3-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"935b01d449e16c4b0cd083d3-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"935b01d449e16c4b0cd083d3-empty-a\", \"account\": \"A\", \"amount\": 1}, {\"key\": \"935b01d449e16c4b0cd083d3-empty-b\", \"account\": \"B\", \"amount\": 1}, {\"key\": \"935b01d449e16c4b0cd083d3-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"935b01d449e16c4b0cd083d3-drain\", \"account\": \"A\", \"amount\": 40}], \"restart\": [{\"key\": \"935b01d449e16c4b0cd083d3-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"935b01d449e16c4b0cd083d3-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"935b01d449e16c4b0cd083d3-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"935b01d449e16c4b0cd083d3-drain\", \"account\": \"A\", \"amount\": 40}, {\"key\": \"935b01d449e16c4b0cd083d3-empty-a\", \"account\": \"A\", \"amount\": 1}, {\"key\": \"935b01d449e16c4b0cd083d3-empty-b\", \"account\": \"B\", \"amount\": 1}], \"release_first\": 0}, \"events\": [{\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-x\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"overlap\", \"worker\": 1, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-y\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"tail\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-x\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-y\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-x\", \"account\": \"A\", \"amount\": 61}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-x\", \"account\": \"B\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-y\", \"account\": \"A\", \"amount\": 61}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-y\", \"account\": \"B\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-b\", \"account\": \"B\", \"amount\": 100}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-drain\", \"account\": \"A\", \"amount\": 40}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-x\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-y\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-empty-a\", \"account\": \"A\", \"amount\": 1}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-empty-b\", \"account\": \"B\", \"amount\": 1}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-b\", \"account\": \"B\", \"amount\": 100}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-drain\", \"account\": \"A\", \"amount\": 40}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"restart\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"restart\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"restart\", \"worker\": 1, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-x\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"restart\", \"worker\": 0, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-y\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}}, {\"phase\": \"restart\", \"worker\": 1, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-b\", \"account\": \"B\", \"amount\": 100}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"restart\", \"worker\": 0, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-drain\", \"account\": \"A\", \"amount\": 40}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 0}}}, {\"phase\": \"restart\", \"worker\": 1, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-empty-a\", \"account\": \"A\", \"amount\": 1}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}}, {\"phase\": \"restart\", \"worker\": 0, \"request\": {\"key\": \"935b01d449e16c4b0cd083d3-empty-b\", \"account\": \"B\", \"amount\": 1}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}}], \"checkpoints\": [{\"phase\": \"overlap\", \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"935b01d449e16c4b0cd083d3-x\", \"A\", 60, \"accepted\", 40], [\"935b01d449e16c4b0cd083d3-y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"935b01d449e16c4b0cd083d3-x\", \"A\", 60]]}}, {\"phase\": \"tail\", \"snapshot\": {\"accounts\": [[\"A\", 0], [\"B\", 0]], \"decisions\": [[\"935b01d449e16c4b0cd083d3-b\", \"B\", 100, \"accepted\", 0], [\"935b01d449e16c4b0cd083d3-drain\", \"A\", 40, \"accepted\", 0], [\"935b01d449e16c4b0cd083d3-empty-a\", \"A\", 1, \"rejected\", 0], [\"935b01d449e16c4b0cd083d3-empty-b\", \"B\", 1, \"rejected\", 0], [\"935b01d449e16c4b0cd083d3-x\", \"A\", 60, \"accepted\", 40], [\"935b01d449e16c4b0cd083d3-y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"935b01d449e16c4b0cd083d3-b\", \"B\", 100], [\"935b01d449e16c4b0cd083d3-drain\", \"A\", 40], [\"935b01d449e16c4b0cd083d3-x\", \"A\", 60]]}}, {\"phase\": \"restart\", \"snapshot\": {\"accounts\": [[\"A\", 0], [\"B\", 0]], \"decisions\": [[\"935b01d449e16c4b0cd083d3-b\", \"B\", 100, \"accepted\", 0], [\"935b01d449e16c4b0cd083d3-drain\", \"A\", 40, \"accepted\", 0], [\"935b01d449e16c4b0cd083d3-empty-a\", \"A\", 1, \"rejected\", 0], [\"935b01d449e16c4b0cd083d3-empty-b\", \"B\", 1, \"rejected\", 0], [\"935b01d449e16c4b0cd083d3-x\", \"A\", 60, \"accepted\", 40], [\"935b01d449e16c4b0cd083d3-y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"935b01d449e16c4b0cd083d3-b\", \"B\", 100], [\"935b01d449e16c4b0cd083d3-drain\", \"A\", 40], [\"935b01d449e16c4b0cd083d3-x\", \"A\", 60]]}}], \"terminals\": [{\"pid\": 48, \"returncode\": 0}, {\"pid\": 49, \"returncode\": 0}, {\"pid\": 55, \"returncode\": 0}, {\"pid\": 56, \"returncode\": 0}, {\"pid\": 62, \"returncode\": 0}, {\"pid\": 63, \"returncode\": 0}], \"legal_serial_orders\": [[0, 1]]}, {\"name\": \"identity-identical\", \"scope\": \"supplemental_global_identity\", \"status\": \"pass\", \"plan\": {\"name\": \"identity-identical\", \"scope\": \"supplemental_global_identity\", \"pair\": [{\"key\": \"0c3a7755843041ba5f54c6fc\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"0c3a7755843041ba5f54c6fc\", \"account\": \"A\", \"amount\": 60}], \"tail\": [{\"key\": \"0c3a7755843041ba5f54c6fc\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"0c3a7755843041ba5f54c6fc\", \"account\": \"A\", \"amount\": 60}], \"restart\": [{\"key\": \"0c3a7755843041ba5f54c6fc\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"0c3a7755843041ba5f54c6fc\", \"account\": \"A\", \"amount\": 60}], \"release_first\": 0}, \"events\": [{\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"request\": {\"key\": \"0c3a7755843041ba5f54c6fc\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"overlap\", \"worker\": 1, \"request\": {\"key\": \"0c3a7755843041ba5f54c6fc\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"tail\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"0c3a7755843041ba5f54c6fc\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"0c3a7755843041ba5f54c6fc\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"restart\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"restart\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"restart\", \"worker\": 1, \"request\": {\"key\": \"0c3a7755843041ba5f54c6fc\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"restart\", \"worker\": 0, \"request\": {\"key\": \"0c3a7755843041ba5f54c6fc\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}], \"checkpoints\": [{\"phase\": \"overlap\", \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"0c3a7755843041ba5f54c6fc\", \"A\", 60, \"accepted\", 40]], \"ledger\": [[\"0c3a7755843041ba5f54c6fc\", \"A\", 60]]}}, {\"phase\": \"tail\", \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"0c3a7755843041ba5f54c6fc\", \"A\", 60, \"accepted\", 40]], \"ledger\": [[\"0c3a7755843041ba5f54c6fc\", \"A\", 60]]}}, {\"phase\": \"restart\", \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"0c3a7755843041ba5f54c6fc\", \"A\", 60, \"accepted\", 40]], \"ledger\": [[\"0c3a7755843041ba5f54c6fc\", \"A\", 60]]}}], \"terminals\": [{\"pid\": 69, \"returncode\": 0}, {\"pid\": 70, \"returncode\": 0}, {\"pid\": 76, \"returncode\": 0}, {\"pid\": 77, \"returncode\": 0}, {\"pid\": 83, \"returncode\": 0}, {\"pid\": 84, \"returncode\": 0}], \"legal_serial_orders\": [[0, 1], [1, 0]]}, {\"name\": \"identity-amount-conflict\", \"scope\": \"supplemental_global_identity\", \"status\": \"pass\", \"plan\": {\"name\": \"identity-amount-conflict\", \"scope\": \"supplemental_global_identity\", \"pair\": [{\"key\": \"8221e36f0b1b5d1e88ece839\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"8221e36f0b1b5d1e88ece839\", \"account\": \"A\", \"amount\": 80}], \"tail\": [{\"key\": \"8221e36f0b1b5d1e88ece839\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"8221e36f0b1b5d1e88ece839\", \"account\": \"A\", \"amount\": 80}], \"restart\": [{\"key\": \"8221e36f0b1b5d1e88ece839\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"8221e36f0b1b5d1e88ece839\", \"account\": \"A\", \"amount\": 80}], \"release_first\": 0}, \"events\": [{\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"request\": {\"key\": \"8221e36f0b1b5d1e88ece839\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"overlap\", \"worker\": 1, \"request\": {\"key\": \"8221e36f0b1b5d1e88ece839\", \"account\": \"A\", \"amount\": 80}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"tail\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"tail\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"8221e36f0b1b5d1e88ece839\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"8221e36f0b1b5d1e88ece839\", \"account\": \"A\", \"amount\": 80}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"restart\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"restart\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"restart\", \"worker\": 1, \"request\": {\"key\": \"8221e36f0b1b5d1e88ece839\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"restart\", \"worker\": 0, \"request\": {\"key\": \"8221e36f0b1b5d1e88ece839\", \"account\": \"A\", \"amount\": 80}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}], \"checkpoints\": [{\"phase\": \"overlap\", \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"8221e36f0b1b5d1e88ece839\", \"A\", 60, \"accepted\", 40]], \"ledger\": [[\"8221e36f0b1b5d1e88ece839\", \"A\", 60]]}}, {\"phase\": \"tail\", \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"8221e36f0b1b5d1e88ece839\", \"A\", 60, \"accepted\", 40]], \"ledger\": [[\"8221e36f0b1b5d1e88ece839\", \"A\", 60]]}}, {\"phase\": \"restart\", \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"8221e36f0b1b5d1e88ece839\", \"A\", 60, \"accepted\", 40]], \"ledger\": [[\"8221e36f0b1b5d1e88ece839\", \"A\", 60]]}}], \"terminals\": [{\"pid\": 90, \"returncode\": 0}, {\"pid\": 91, \"returncode\": 0}, {\"pid\": 97, \"returncode\": 0}, {\"pid\": 98, \"returncode\": 0}, {\"pid\": 104, \"returncode\": 0}, {\"pid\": 105, \"returncode\": 0}], \"legal_serial_orders\": [[0, 1]]}, {\"name\": \"identity-account-conflict\", \"scope\": \"supplemental_global_identity\", \"status\": \"pass\", \"plan\": {\"name\": \"identity-account-conflict\", \"scope\": \"supplemental_global_identity\", \"pair\": [{\"key\": \"6d3a300f25ad19072b8decc1\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"6d3a300f25ad19072b8decc1\", \"account\": \"B\", \"amount\": 60}], \"tail\": [{\"key\": \"6d3a300f25ad19072b8decc1\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"6d3a300f25ad19072b8decc1\", \"account\": \"B\", \"amount\": 60}], \"restart\": [{\"key\": \"6d3a300f25ad19072b8decc1\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"6d3a300f25ad19072b8decc1\", \"account\": \"B\", \"amount\": 60}], \"release_first\": 0}, \"events\": [{\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"request\": {\"key\": \"6d3a300f25ad19072b8decc1\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"overlap\", \"worker\": 1, \"request\": {\"key\": \"6d3a300f25ad19072b8decc1\", \"account\": \"B\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"tail\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"tail\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"tail\", \"worker\": 1, \"request\": {\"key\": \"6d3a300f25ad19072b8decc1\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"tail\", \"worker\": 0, \"request\": {\"key\": \"6d3a300f25ad19072b8decc1\", \"account\": \"B\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}, {\"phase\": \"restart\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"restart\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"restart\", \"worker\": 1, \"request\": {\"key\": \"6d3a300f25ad19072b8decc1\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"phase\": \"restart\", \"worker\": 0, \"request\": {\"key\": \"6d3a300f25ad19072b8decc1\", \"account\": \"B\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"accepted\", \"remaining\": 40}}}], \"checkpoints\": [{\"phase\": \"overlap\", \"snapshot\": {\"accounts\": [[\"A\", 100], [\"B\", 40]], \"decisions\": [[\"6d3a300f25ad19072b8decc1\", \"B\", 60, \"accepted\", 40]], \"ledger\": [[\"6d3a300f25ad19072b8decc1\", \"B\", 60]]}}, {\"phase\": \"tail\", \"snapshot\": {\"accounts\": [[\"A\", 100], [\"B\", 40]], \"decisions\": [[\"6d3a300f25ad19072b8decc1\", \"B\", 60, \"accepted\", 40]], \"ledger\": [[\"6d3a300f25ad19072b8decc1\", \"B\", 60]]}}, {\"phase\": \"restart\", \"snapshot\": {\"accounts\": [[\"A\", 100], [\"B\", 40]], \"decisions\": [[\"6d3a300f25ad19072b8decc1\", \"B\", 60, \"accepted\", 40]], \"ledger\": [[\"6d3a300f25ad19072b8decc1\", \"B\", 60]]}}], \"terminals\": [{\"pid\": 111, \"returncode\": 0}, {\"pid\": 112, \"returncode\": 0}, {\"pid\": 118, \"returncode\": 0}, {\"pid\": 119, \"returncode\": 0}, {\"pid\": 125, \"returncode\": 0}, {\"pid\": 126, \"returncode\": 0}], \"legal_serial_orders\": [[1, 0]]}], \"source_sha256\": \"514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221\", \"evaluator_files_sha256\": {\"evaluate.py\": \"26fabf2ead5c894d6f75a88a6a6460cf97cd91c0f6a195b7a96021d35f856226\", \"oracle.py\": \"bbc84c607cfe426253cdc5798b937af389e8442f78b9fd4d23373d3e2d0f5d49\", \"sandbox.py\": \"01ac80280c1829e8f127c26f94f424a4351172b06e064f5c810379385de852da\", \"worker.py\": \"5a1f6cfe44c3d183b86c256b1f731dde6880f043a7f049015b7e7e05ad6c22df\", \"inspect_db.py\": \"84fc66aaf8bfdf4d3675a2d3fef172a5ccc1d452a4ea0b2f4f710cc72b1347da\"}, \"answer_sha256\": \"aef236fb3737c0f76a7ccf88e1574244346cfce88979b5c0b5fd274e8953e1aa\"}\n",
+  "stderr": "",
+  "command": [
+    "bwrap",
+    "--die-with-parent",
+    "--unshare-all",
+    "--cap-drop",
+    "ALL",
+    "--clearenv",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "--setenv",
+    "LANG",
+    "C.UTF-8",
+    "--ro-bind",
+    "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/budget-diagnostic/gpt-6.1-sol/H1/draw2/delivery",
+    "/subject",
+    "--ro-bind",
+    "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H1/correct_accepted.json",
+    "/control.json",
+    "--chdir",
+    "/tmp",
+    "/usr/bin/python3",
+    "-B",
+    "-c",
+    "import json,sys;sys.path.insert(0,'/subject');import evaluate;c=json.load(open('/control.json'));a=dict(task_id='E1',code=c['code'],explanation='Owner executable control; prose quality reviewed separately.');r=getattr(evaluate,sys.argv[1])(a);print(json.dumps(r))",
+    "evaluate"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 34855,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "evaluator": "e1-eval/1.0",
+    "task_id": "E1",
+    "formal_status": "pass",
+    "overall_status": "formal_pass_review_pending",
+    "review_status": "pending",
+    "cases": [
+      {
+        "name": "core-1",
+        "scope": "declared_overlap_and_replay",
+        "status": "pass",
+        "plan": {
+          "name": "core-1",
+          "scope": "declared_overlap_and_replay",
+          "pair": [
+            {
+              "key": "5f734a3fe3baafe55259be89-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-y",
+              "account": "A",
+              "amount": 60
+            }
+          ],
+          "tail": [
+            {
+              "key": "5f734a3fe3baafe55259be89-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-x",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-x",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-y",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-y",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-drain",
+              "account": "A",
+              "amount": 40
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-empty-b",
+              "account": "B",
+              "amount": 1
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-drain",
+              "account": "A",
+              "amount": 40
+            }
+          ],
+          "restart": [
+            {
+              "key": "5f734a3fe3baafe55259be89-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-drain",
+              "account": "A",
+              "amount": 40
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            {
+              "key": "5f734a3fe3baafe55259be89-empty-b",
+              "account": "B",
+              "amount": 1
+            }
+          ],
+          "release_first": 0
+        },
+        "events": [
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-x",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-y",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-x",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-y",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-x",
+              "account": "A",
+              "amount": 61
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-x",
+              "account": "B",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-y",
+              "account": "A",
+              "amount": 61
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-y",
+              "account": "B",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-b",
+              "account": "B",
+              "amount": 100
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-drain",
+              "account": "A",
+              "amount": 40
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-x",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-y",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-empty-b",
+              "account": "B",
+              "amount": 1
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-b",
+              "account": "B",
+              "amount": 100
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-drain",
+              "account": "A",
+              "amount": 40
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-x",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-y",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-b",
+              "account": "B",
+              "amount": 100
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-drain",
+              "account": "A",
+              "amount": 40
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "request": {
+              "key": "5f734a3fe3baafe55259be89-empty-b",
+              "account": "B",
+              "amount": 1
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 0
+              }
+            }
+          }
+        ],
+        "checkpoints": [
+          {
+            "phase": "overlap",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "5f734a3fe3baafe55259be89-x",
+                  "A",
+                  60,
+                  "accepted",
+                  40
+                ],
+                [
+                  "5f734a3fe3baafe55259be89-y",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "5f734a3fe3baafe55259be89-x",
+                  "A",
+                  60
+                ]
+              ]
+            }
+          },
+          {
+            "phase": "tail",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  0
+                ],
+                [
+                  "B",
+                  0
+                ]
+              ],
+              "decisions": [
+                [
+                  "5f734a3fe3baafe55259be89-b",
+                  "B",
+                  100,
+                  "accepted",
+                  0
+                ],
+                [
+                  "5f734a3fe3baafe55259be89-drain",
+                  "A",
+                  40,
+                  "accepted",
+                  0
+                ],
+                [
+                  "5f734a3fe3baafe55259be89-empty-a",
+                  "A",
+                  1,
+                  "rejected",
+                  0
+                ],
+                [
+                  "5f734a3fe3baafe55259be89-empty-b",
+                  "B",
+                  1,
+                  "rejected",
+                  0
+                ],
+                [
+                  "5f734a3fe3baafe55259be89-x",
+                  "A",
+                  60,
+                  "accepted",
+                  40
+                ],
+                [
+                  "5f734a3fe3baafe55259be89-y",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "5f734a3fe3baafe55259be89-b",
+                  "B",
+                  100
+                ],
+                [
+                  "5f734a3fe3baafe55259be89-drain",
+                  "A",
+                  40
+                ],
+                [
+                  "5f734a3fe3baafe55259be89-x",
+                  "A",
+                  60
+                ]
+              ]
+            }
+          },
+          {
+            "phase": "restart",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  0
+                ],
+                [
+                  "B",
+                  0
+                ]
+              ],
+              "decisions": [
+                [
+                  "5f734a3fe3baafe55259be89-b",
+                  "B",
+                  100,
+                  "accepted",
+                  0
+                ],
+                [
+                  "5f734a3fe3baafe55259be89-drain",
+                  "A",
+                  40,
+                  "accepted",
+                  0
+                ],
+                [
+                  "5f734a3fe3baafe55259be89-empty-a",
+                  "A",
+                  1,
+                  "rejected",
+                  0
+                ],
+                [
+                  "5f734a3fe3baafe55259be89-empty-b",
+                  "B",
+                  1,
+                  "rejected",
+                  0
+                ],
+                [
+                  "5f734a3fe3baafe55259be89-x",
+                  "A",
+                  60,
+                  "accepted",
+                  40
+                ],
+                [
+                  "5f734a3fe3baafe55259be89-y",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "5f734a3fe3baafe55259be89-b",
+                  "B",
+                  100
+                ],
+                [
+                  "5f734a3fe3baafe55259be89-drain",
+                  "A",
+                  40
+                ],
+                [
+                  "5f734a3fe3baafe55259be89-x",
+                  "A",
+                  60
+                ]
+              ]
+            }
+          }
+        ],
+        "terminals": [
+          {
+            "pid": 6,
+            "returncode": 0
+          },
+          {
+            "pid": 7,
+            "returncode": 0
+          },
+          {
+            "pid": 13,
+            "returncode": 0
+          },
+          {
+            "pid": 14,
+            "returncode": 0
+          },
+          {
+            "pid": 20,
+            "returncode": 0
+          },
+          {
+            "pid": 21,
+            "returncode": 0
+          }
+        ],
+        "legal_serial_orders": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "name": "core-2",
+        "scope": "declared_overlap_and_replay",
+        "status": "pass",
+        "plan": {
+          "name": "core-2",
+          "scope": "declared_overlap_and_replay",
+          "pair": [
+            {
+              "key": "43b49352f31be67d92865933-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "43b49352f31be67d92865933-y",
+              "account": "A",
+              "amount": 60
+            }
+          ],
+          "tail": [
+            {
+              "key": "43b49352f31be67d92865933-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "43b49352f31be67d92865933-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "43b49352f31be67d92865933-x",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "43b49352f31be67d92865933-x",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "43b49352f31be67d92865933-y",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "43b49352f31be67d92865933-y",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "43b49352f31be67d92865933-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "43b49352f31be67d92865933-drain",
+              "account": "A",
+              "amount": 40
+            },
+            {
+              "key": "43b49352f31be67d92865933-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "43b49352f31be67d92865933-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "43b49352f31be67d92865933-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            {
+              "key": "43b49352f31be67d92865933-empty-b",
+              "account": "B",
+              "amount": 1
+            },
+            {
+              "key": "43b49352f31be67d92865933-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "43b49352f31be67d92865933-drain",
+              "account": "A",
+              "amount": 40
+            }
+          ],
+          "restart": [
+            {
+              "key": "43b49352f31be67d92865933-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "43b49352f31be67d92865933-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "43b49352f31be67d92865933-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "43b49352f31be67d92865933-drain",
+              "account": "A",
+              "amount": 40
+            },
+            {
+              "key": "43b49352f31be67d92865933-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            {
+              "key": "43b49352f31be67d92865933-empty-b",
+              "account": "B",
+              "amount": 1
+            }
+          ],
+          "release_first": 1
+        },
+        "events": [
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "request": {
+              "key": "43b49352f31be67d92865933-x",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "request": {
+              "key": "43b49352f31be67d92865933-y",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "43b49352f31be67d92865933-x",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "43b49352f31be67d92865933-y",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "43b49352f31be67d92865933-x",
+              "account": "A",
+              "amount": 61
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "43b49352f31be67d92865933-x",
+              "account": "B",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "43b49352f31be67d92865933-y",
+              "account": "A",
+              "amount": 61
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "43b49352f31be67d92865933-y",
+              "account": "B",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "43b49352f31be67d92865933-b",
+              "account": "B",
+              "amount": 100
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "43b49352f31be67d92865933-drain",
+              "account": "A",
+              "amount": 40
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "43b49352f31be67d92865933-x",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "43b49352f31be67d92865933-y",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "43b49352f31be67d92865933-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "43b49352f31be67d92865933-empty-b",
+              "account": "B",
+              "amount": 1
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "43b49352f31be67d92865933-b",
+              "account": "B",
+              "amount": 100
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "43b49352f31be67d92865933-drain",
+              "account": "A",
+              "amount": 40
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "request": {
+              "key": "43b49352f31be67d92865933-x",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "request": {
+              "key": "43b49352f31be67d92865933-y",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "request": {
+              "key": "43b49352f31be67d92865933-b",
+              "account": "B",
+              "amount": 100
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "request": {
+              "key": "43b49352f31be67d92865933-drain",
+              "account": "A",
+              "amount": 40
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "request": {
+              "key": "43b49352f31be67d92865933-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "request": {
+              "key": "43b49352f31be67d92865933-empty-b",
+              "account": "B",
+              "amount": 1
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 0
+              }
+            }
+          }
+        ],
+        "checkpoints": [
+          {
+            "phase": "overlap",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "43b49352f31be67d92865933-x",
+                  "A",
+                  60,
+                  "accepted",
+                  40
+                ],
+                [
+                  "43b49352f31be67d92865933-y",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "43b49352f31be67d92865933-x",
+                  "A",
+                  60
+                ]
+              ]
+            }
+          },
+          {
+            "phase": "tail",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  0
+                ],
+                [
+                  "B",
+                  0
+                ]
+              ],
+              "decisions": [
+                [
+                  "43b49352f31be67d92865933-b",
+                  "B",
+                  100,
+                  "accepted",
+                  0
+                ],
+                [
+                  "43b49352f31be67d92865933-drain",
+                  "A",
+                  40,
+                  "accepted",
+                  0
+                ],
+                [
+                  "43b49352f31be67d92865933-empty-a",
+                  "A",
+                  1,
+                  "rejected",
+                  0
+                ],
+                [
+                  "43b49352f31be67d92865933-empty-b",
+                  "B",
+                  1,
+                  "rejected",
+                  0
+                ],
+                [
+                  "43b49352f31be67d92865933-x",
+                  "A",
+                  60,
+                  "accepted",
+                  40
+                ],
+                [
+                  "43b49352f31be67d92865933-y",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "43b49352f31be67d92865933-b",
+                  "B",
+                  100
+                ],
+                [
+                  "43b49352f31be67d92865933-drain",
+                  "A",
+                  40
+                ],
+                [
+                  "43b49352f31be67d92865933-x",
+                  "A",
+                  60
+                ]
+              ]
+            }
+          },
+          {
+            "phase": "restart",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  0
+                ],
+                [
+                  "B",
+                  0
+                ]
+              ],
+              "decisions": [
+                [
+                  "43b49352f31be67d92865933-b",
+                  "B",
+                  100,
+                  "accepted",
+                  0
+                ],
+                [
+                  "43b49352f31be67d92865933-drain",
+                  "A",
+                  40,
+                  "accepted",
+                  0
+                ],
+                [
+                  "43b49352f31be67d92865933-empty-a",
+                  "A",
+                  1,
+                  "rejected",
+                  0
+                ],
+                [
+                  "43b49352f31be67d92865933-empty-b",
+                  "B",
+                  1,
+                  "rejected",
+                  0
+                ],
+                [
+                  "43b49352f31be67d92865933-x",
+                  "A",
+                  60,
+                  "accepted",
+                  40
+                ],
+                [
+                  "43b49352f31be67d92865933-y",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "43b49352f31be67d92865933-b",
+                  "B",
+                  100
+                ],
+                [
+                  "43b49352f31be67d92865933-drain",
+                  "A",
+                  40
+                ],
+                [
+                  "43b49352f31be67d92865933-x",
+                  "A",
+                  60
+                ]
+              ]
+            }
+          }
+        ],
+        "terminals": [
+          {
+            "pid": 27,
+            "returncode": 0
+          },
+          {
+            "pid": 28,
+            "returncode": 0
+          },
+          {
+            "pid": 34,
+            "returncode": 0
+          },
+          {
+            "pid": 35,
+            "returncode": 0
+          },
+          {
+            "pid": 41,
+            "returncode": 0
+          },
+          {
+            "pid": 42,
+            "returncode": 0
+          }
+        ],
+        "legal_serial_orders": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "name": "core-3",
+        "scope": "declared_overlap_and_replay",
+        "status": "pass",
+        "plan": {
+          "name": "core-3",
+          "scope": "declared_overlap_and_replay",
+          "pair": [
+            {
+              "key": "935b01d449e16c4b0cd083d3-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-y",
+              "account": "A",
+              "amount": 60
+            }
+          ],
+          "tail": [
+            {
+              "key": "935b01d449e16c4b0cd083d3-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-x",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-x",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-y",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-y",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-drain",
+              "account": "A",
+              "amount": 40
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-empty-b",
+              "account": "B",
+              "amount": 1
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-drain",
+              "account": "A",
+              "amount": 40
+            }
+          ],
+          "restart": [
+            {
+              "key": "935b01d449e16c4b0cd083d3-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-drain",
+              "account": "A",
+              "amount": 40
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            {
+              "key": "935b01d449e16c4b0cd083d3-empty-b",
+              "account": "B",
+              "amount": 1
+            }
+          ],
+          "release_first": 0
+        },
+        "events": [
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-x",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-y",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-x",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-y",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-x",
+              "account": "A",
+              "amount": 61
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-x",
+              "account": "B",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-y",
+              "account": "A",
+              "amount": 61
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-y",
+              "account": "B",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-b",
+              "account": "B",
+              "amount": 100
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-drain",
+              "account": "A",
+              "amount": 40
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-x",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-y",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-empty-b",
+              "account": "B",
+              "amount": 1
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-b",
+              "account": "B",
+              "amount": 100
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-drain",
+              "account": "A",
+              "amount": 40
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-x",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-y",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-b",
+              "account": "B",
+              "amount": 100
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-drain",
+              "account": "A",
+              "amount": 40
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "request": {
+              "key": "935b01d449e16c4b0cd083d3-empty-b",
+              "account": "B",
+              "amount": 1
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 0
+              }
+            }
+          }
+        ],
+        "checkpoints": [
+          {
+            "phase": "overlap",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "935b01d449e16c4b0cd083d3-x",
+                  "A",
+                  60,
+                  "accepted",
+                  40
+                ],
+                [
+                  "935b01d449e16c4b0cd083d3-y",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "935b01d449e16c4b0cd083d3-x",
+                  "A",
+                  60
+                ]
+              ]
+            }
+          },
+          {
+            "phase": "tail",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  0
+                ],
+                [
+                  "B",
+                  0
+                ]
+              ],
+              "decisions": [
+                [
+                  "935b01d449e16c4b0cd083d3-b",
+                  "B",
+                  100,
+                  "accepted",
+                  0
+                ],
+                [
+                  "935b01d449e16c4b0cd083d3-drain",
+                  "A",
+                  40,
+                  "accepted",
+                  0
+                ],
+                [
+                  "935b01d449e16c4b0cd083d3-empty-a",
+                  "A",
+                  1,
+                  "rejected",
+                  0
+                ],
+                [
+                  "935b01d449e16c4b0cd083d3-empty-b",
+                  "B",
+                  1,
+                  "rejected",
+                  0
+                ],
+                [
+                  "935b01d449e16c4b0cd083d3-x",
+                  "A",
+                  60,
+                  "accepted",
+                  40
+                ],
+                [
+                  "935b01d449e16c4b0cd083d3-y",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "935b01d449e16c4b0cd083d3-b",
+                  "B",
+                  100
+                ],
+                [
+                  "935b01d449e16c4b0cd083d3-drain",
+                  "A",
+                  40
+                ],
+                [
+                  "935b01d449e16c4b0cd083d3-x",
+                  "A",
+                  60
+                ]
+              ]
+            }
+          },
+          {
+            "phase": "restart",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  0
+                ],
+                [
+                  "B",
+                  0
+                ]
+              ],
+              "decisions": [
+                [
+                  "935b01d449e16c4b0cd083d3-b",
+                  "B",
+                  100,
+                  "accepted",
+                  0
+                ],
+                [
+                  "935b01d449e16c4b0cd083d3-drain",
+                  "A",
+                  40,
+                  "accepted",
+                  0
+                ],
+                [
+                  "935b01d449e16c4b0cd083d3-empty-a",
+                  "A",
+                  1,
+                  "rejected",
+                  0
+                ],
+                [
+                  "935b01d449e16c4b0cd083d3-empty-b",
+                  "B",
+                  1,
+                  "rejected",
+                  0
+                ],
+                [
+                  "935b01d449e16c4b0cd083d3-x",
+                  "A",
+                  60,
+                  "accepted",
+                  40
+                ],
+                [
+                  "935b01d449e16c4b0cd083d3-y",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "935b01d449e16c4b0cd083d3-b",
+                  "B",
+                  100
+                ],
+                [
+                  "935b01d449e16c4b0cd083d3-drain",
+                  "A",
+                  40
+                ],
+                [
+                  "935b01d449e16c4b0cd083d3-x",
+                  "A",
+                  60
+                ]
+              ]
+            }
+          }
+        ],
+        "terminals": [
+          {
+            "pid": 48,
+            "returncode": 0
+          },
+          {
+            "pid": 49,
+            "returncode": 0
+          },
+          {
+            "pid": 55,
+            "returncode": 0
+          },
+          {
+            "pid": 56,
+            "returncode": 0
+          },
+          {
+            "pid": 62,
+            "returncode": 0
+          },
+          {
+            "pid": 63,
+            "returncode": 0
+          }
+        ],
+        "legal_serial_orders": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "name": "identity-identical",
+        "scope": "supplemental_global_identity",
+        "status": "pass",
+        "plan": {
+          "name": "identity-identical",
+          "scope": "supplemental_global_identity",
+          "pair": [
+            {
+              "key": "0c3a7755843041ba5f54c6fc",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "0c3a7755843041ba5f54c6fc",
+              "account": "A",
+              "amount": 60
+            }
+          ],
+          "tail": [
+            {
+              "key": "0c3a7755843041ba5f54c6fc",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "0c3a7755843041ba5f54c6fc",
+              "account": "A",
+              "amount": 60
+            }
+          ],
+          "restart": [
+            {
+              "key": "0c3a7755843041ba5f54c6fc",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "0c3a7755843041ba5f54c6fc",
+              "account": "A",
+              "amount": 60
+            }
+          ],
+          "release_first": 0
+        },
+        "events": [
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "request": {
+              "key": "0c3a7755843041ba5f54c6fc",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "request": {
+              "key": "0c3a7755843041ba5f54c6fc",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "0c3a7755843041ba5f54c6fc",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "0c3a7755843041ba5f54c6fc",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "request": {
+              "key": "0c3a7755843041ba5f54c6fc",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "request": {
+              "key": "0c3a7755843041ba5f54c6fc",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          }
+        ],
+        "checkpoints": [
+          {
+            "phase": "overlap",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "0c3a7755843041ba5f54c6fc",
+                  "A",
+                  60,
+                  "accepted",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "0c3a7755843041ba5f54c6fc",
+                  "A",
+                  60
+                ]
+              ]
+            }
+          },
+          {
+            "phase": "tail",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "0c3a7755843041ba5f54c6fc",
+                  "A",
+                  60,
+                  "accepted",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "0c3a7755843041ba5f54c6fc",
+                  "A",
+                  60
+                ]
+              ]
+            }
+          },
+          {
+            "phase": "restart",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "0c3a7755843041ba5f54c6fc",
+                  "A",
+                  60,
+                  "accepted",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "0c3a7755843041ba5f54c6fc",
+                  "A",
+                  60
+                ]
+              ]
+            }
+          }
+        ],
+        "terminals": [
+          {
+            "pid": 69,
+            "returncode": 0
+          },
+          {
+            "pid": 70,
+            "returncode": 0
+          },
+          {
+            "pid": 76,
+            "returncode": 0
+          },
+          {
+            "pid": 77,
+            "returncode": 0
+          },
+          {
+            "pid": 83,
+            "returncode": 0
+          },
+          {
+            "pid": 84,
+            "returncode": 0
+          }
+        ],
+        "legal_serial_orders": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      {
+        "name": "identity-amount-conflict",
+        "scope": "supplemental_global_identity",
+        "status": "pass",
+        "plan": {
+          "name": "identity-amount-conflict",
+          "scope": "supplemental_global_identity",
+          "pair": [
+            {
+              "key": "8221e36f0b1b5d1e88ece839",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "8221e36f0b1b5d1e88ece839",
+              "account": "A",
+              "amount": 80
+            }
+          ],
+          "tail": [
+            {
+              "key": "8221e36f0b1b5d1e88ece839",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "8221e36f0b1b5d1e88ece839",
+              "account": "A",
+              "amount": 80
+            }
+          ],
+          "restart": [
+            {
+              "key": "8221e36f0b1b5d1e88ece839",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "8221e36f0b1b5d1e88ece839",
+              "account": "A",
+              "amount": 80
+            }
+          ],
+          "release_first": 0
+        },
+        "events": [
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "request": {
+              "key": "8221e36f0b1b5d1e88ece839",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "request": {
+              "key": "8221e36f0b1b5d1e88ece839",
+              "account": "A",
+              "amount": 80
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "8221e36f0b1b5d1e88ece839",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "8221e36f0b1b5d1e88ece839",
+              "account": "A",
+              "amount": 80
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "request": {
+              "key": "8221e36f0b1b5d1e88ece839",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "request": {
+              "key": "8221e36f0b1b5d1e88ece839",
+              "account": "A",
+              "amount": 80
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          }
+        ],
+        "checkpoints": [
+          {
+            "phase": "overlap",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "8221e36f0b1b5d1e88ece839",
+                  "A",
+                  60,
+                  "accepted",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "8221e36f0b1b5d1e88ece839",
+                  "A",
+                  60
+                ]
+              ]
+            }
+          },
+          {
+            "phase": "tail",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "8221e36f0b1b5d1e88ece839",
+                  "A",
+                  60,
+                  "accepted",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "8221e36f0b1b5d1e88ece839",
+                  "A",
+                  60
+                ]
+              ]
+            }
+          },
+          {
+            "phase": "restart",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "8221e36f0b1b5d1e88ece839",
+                  "A",
+                  60,
+                  "accepted",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "8221e36f0b1b5d1e88ece839",
+                  "A",
+                  60
+                ]
+              ]
+            }
+          }
+        ],
+        "terminals": [
+          {
+            "pid": 90,
+            "returncode": 0
+          },
+          {
+            "pid": 91,
+            "returncode": 0
+          },
+          {
+            "pid": 97,
+            "returncode": 0
+          },
+          {
+            "pid": 98,
+            "returncode": 0
+          },
+          {
+            "pid": 104,
+            "returncode": 0
+          },
+          {
+            "pid": 105,
+            "returncode": 0
+          }
+        ],
+        "legal_serial_orders": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "name": "identity-account-conflict",
+        "scope": "supplemental_global_identity",
+        "status": "pass",
+        "plan": {
+          "name": "identity-account-conflict",
+          "scope": "supplemental_global_identity",
+          "pair": [
+            {
+              "key": "6d3a300f25ad19072b8decc1",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "6d3a300f25ad19072b8decc1",
+              "account": "B",
+              "amount": 60
+            }
+          ],
+          "tail": [
+            {
+              "key": "6d3a300f25ad19072b8decc1",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "6d3a300f25ad19072b8decc1",
+              "account": "B",
+              "amount": 60
+            }
+          ],
+          "restart": [
+            {
+              "key": "6d3a300f25ad19072b8decc1",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "6d3a300f25ad19072b8decc1",
+              "account": "B",
+              "amount": 60
+            }
+          ],
+          "release_first": 0
+        },
+        "events": [
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "request": {
+              "key": "6d3a300f25ad19072b8decc1",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "request": {
+              "key": "6d3a300f25ad19072b8decc1",
+              "account": "B",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 1,
+            "request": {
+              "key": "6d3a300f25ad19072b8decc1",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "tail",
+            "worker": 0,
+            "request": {
+              "key": "6d3a300f25ad19072b8decc1",
+              "account": "B",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 1,
+            "request": {
+              "key": "6d3a300f25ad19072b8decc1",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "phase": "restart",
+            "worker": 0,
+            "request": {
+              "key": "6d3a300f25ad19072b8decc1",
+              "account": "B",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "accepted",
+                "remaining": 40
+              }
+            }
+          }
+        ],
+        "checkpoints": [
+          {
+            "phase": "overlap",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  100
+                ],
+                [
+                  "B",
+                  40
+                ]
+              ],
+              "decisions": [
+                [
+                  "6d3a300f25ad19072b8decc1",
+                  "B",
+                  60,
+                  "accepted",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "6d3a300f25ad19072b8decc1",
+                  "B",
+                  60
+                ]
+              ]
+            }
+          },
+          {
+            "phase": "tail",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  100
+                ],
+                [
+                  "B",
+                  40
+                ]
+              ],
+              "decisions": [
+                [
+                  "6d3a300f25ad19072b8decc1",
+                  "B",
+                  60,
+                  "accepted",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "6d3a300f25ad19072b8decc1",
+                  "B",
+                  60
+                ]
+              ]
+            }
+          },
+          {
+            "phase": "restart",
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  100
+                ],
+                [
+                  "B",
+                  40
+                ]
+              ],
+              "decisions": [
+                [
+                  "6d3a300f25ad19072b8decc1",
+                  "B",
+                  60,
+                  "accepted",
+                  40
+                ]
+              ],
+              "ledger": [
+                [
+                  "6d3a300f25ad19072b8decc1",
+                  "B",
+                  60
+                ]
+              ]
+            }
+          }
+        ],
+        "terminals": [
+          {
+            "pid": 111,
+            "returncode": 0
+          },
+          {
+            "pid": 112,
+            "returncode": 0
+          },
+          {
+            "pid": 118,
+            "returncode": 0
+          },
+          {
+            "pid": 119,
+            "returncode": 0
+          },
+          {
+            "pid": 125,
+            "returncode": 0
+          },
+          {
+            "pid": 126,
+            "returncode": 0
+          }
+        ],
+        "legal_serial_orders": [
+          [
+            1,
+            0
+          ]
+        ]
+      }
+    ],
+    "source_sha256": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+    "evaluator_files_sha256": {
+      "evaluate.py": "26fabf2ead5c894d6f75a88a6a6460cf97cd91c0f6a195b7a96021d35f856226",
+      "oracle.py": "bbc84c607cfe426253cdc5798b937af389e8442f78b9fd4d23373d3e2d0f5d49",
+      "sandbox.py": "01ac80280c1829e8f127c26f94f424a4351172b06e064f5c810379385de852da",
+      "worker.py": "5a1f6cfe44c3d183b86c256b1f731dde6880f043a7f049015b7e7e05ad6c22df",
+      "inspect_db.py": "84fc66aaf8bfdf4d3675a2d3fef172a5ccc1d452a4ea0b2f4f710cc72b1347da"
+    },
+    "answer_sha256": "aef236fb3737c0f76a7ccf88e1574244346cfce88979b5c0b5fd274e8953e1aa"
+  },
+  "job_id": "correct_accepted",
+  "kind": "control",
+  "expected": true,
+  "family": "baseline"
+}

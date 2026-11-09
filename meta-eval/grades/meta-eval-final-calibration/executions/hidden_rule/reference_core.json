@@ -1,0 +1,41 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 0.7623081550009374,
+  "stdout": "{\"value\": 5}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-8b9ae092cf1a470391c4b3524041db40",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/grades/meta-eval-final-calibration/fixtures/hidden_rule,target=/subject,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import importlib.util,json\ns=importlib.util.spec_from_file_location('subject_module','/subject/reference.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);value=m.solve(2,3);print(json.dumps({'value':value}))"
+  ],
+  "decoded": {
+    "value": 5
+  }
+}

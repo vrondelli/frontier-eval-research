@@ -1,0 +1,93 @@
+{
+  "all_qualified": true,
+  "components_literal": true,
+  "whole_quote_literal": false,
+  "components": [
+    "Amber lane seal inspections",
+    "90th-percentile seal-inspection completion time"
+  ],
+  "whole_quote": "Amber lane seal inspections 90th-percentile seal-inspection completion time",
+  "source_clause": "Every other quote must be one exact contiguous source span that supports THAT corresponding field value.",
+  "receipts": [
+    {
+      "control": "literal_positive",
+      "expected": true,
+      "observed": true,
+      "qualified": true,
+      "evidence": [
+        {
+          "field": "path",
+          "pass": true
+        },
+        {
+          "field": "load_profile",
+          "pass": true
+        },
+        {
+          "field": "metric",
+          "pass": true
+        },
+        {
+          "field": "value_ms",
+          "pass": true
+        },
+        {
+          "field": "sample_count",
+          "pass": true
+        },
+        {
+          "field": "time_scope",
+          "pass": true
+        },
+        {
+          "field": "rejection_rate",
+          "pass": true
+        },
+        {
+          "field": "deployment_region",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "control": "discontinuous_components",
+      "expected": false,
+      "observed": false,
+      "qualified": true,
+      "evidence": [
+        {
+          "field": "path",
+          "pass": true
+        },
+        {
+          "field": "load_profile",
+          "pass": true
+        },
+        {
+          "field": "metric",
+          "pass": false
+        },
+        {
+          "field": "value_ms",
+          "pass": true
+        },
+        {
+          "field": "sample_count",
+          "pass": true
+        },
+        {
+          "field": "time_scope",
+          "pass": true
+        },
+        {
+          "field": "rejection_rate",
+          "pass": true
+        },
+        {
+          "field": "deployment_region",
+          "pass": true
+        }
+      ]
+    }
+  ]
+}

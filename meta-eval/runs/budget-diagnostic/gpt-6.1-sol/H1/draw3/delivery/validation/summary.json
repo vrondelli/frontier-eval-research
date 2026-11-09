@@ -1,0 +1,41 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.2 (main, Dec 17 2025, 21:10:36) [MSC v.1944 64 bit (AMD64)]",
+  "tests_run": 15,
+  "failures": 0,
+  "errors": 0,
+  "skipped": [
+    {
+      "test": "test_symlink_rejected (test_evaluation.InspectorTests.test_symlink_rejected)",
+      "reason": "Windows symlink privilege not assumed"
+    },
+    {
+      "test": "setUpClass (test_evaluation.IsolatedIntegrationTests)",
+      "reason": "Linux is required; candidate code was not executed"
+    }
+  ],
+  "live_linux_integration": "not_run",
+  "input_integrity": {
+    "input/E1.md": true,
+    "prompt.md": true,
+    "PROVENANCE.json": true,
+    "input/README.md": true
+  },
+  "cli_checks": [
+    {
+      "case": "unavailable",
+      "exit_code": 2,
+      "formal_status": "unavailable"
+    },
+    {
+      "case": "review-required",
+      "exit_code": 2,
+      "formal_status": "review_required"
+    },
+    {
+      "case": "invalid",
+      "exit_code": 2,
+      "formal_status": "invalid"
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+{
+  "subject": {
+    "id": "initial_screen/gpt-6-astra/H3",
+    "case_id": "H3",
+    "cohort": "initial_screen",
+    "model": "gpt-6-astra",
+    "native_status": "completed",
+    "package": "runs/screen/gpt-6-astra/H3/delivery",
+    "jobs": [
+      {
+        "name": "feature_free_reference_probe",
+        "kind": "hybrid",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-b8abf864e79548a298db220961868b34",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6-astra/H3/delivery,target=/subject,readonly",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6-astra/H3/delivery/reference,target=/candidate,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import json,subprocess,sys,shutil\nfrom pathlib import Path\nshutil.copytree('/subject','/tmp/eval');shutil.copytree('/candidate','/tmp/candidate')\np=subprocess.run([sys.executable,'/tmp/eval/evaluate.py','/tmp/candidate','--output','/tmp/result.json'],capture_output=True,text=True,timeout=120)\nq=Path('/tmp/result.json');print(json.dumps({'native_exit':p.returncode,'report':json.loads(q.read_text())if q.exists()else None,'stderr':p.stderr}))\n"
+        ]
+      },
+      {
+        "name": "author_verification",
+        "kind": "selftests",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-e49e11035eb44c87be59c509bd36a6dc",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6-astra/H3/delivery,target=/subject,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import json,os,shutil,subprocess,sys\nfrom pathlib import Path\nshutil.copytree('/subject','/tmp/eval');os.chdir('/tmp/eval');env=dict(os.environ);env['PYTHONPATH']='/tmp/eval:/tmp/eval/evaluation'\np=subprocess.run([sys.executable,'-B','-c',\"import json,runpy,sys,unittest\\nfrom pathlib import Path\\nevents={'unittest_cases_entered':0,'native_grader_calls':0}\\ncase_code=unittest.TestCase.run.__code__\\ndef observe(frame,event,arg):\\n if event=='call':\\n  if frame.f_code is case_code:events['unittest_cases_entered']+=1\\n  if frame.f_code.co_filename.startswith('/tmp/eval/')and frame.f_code.co_name in ['grade','evaluate','run_suite']:events['native_grader_calls']+=1\\nsys.argv=['-m', 'unittest', 'discover', '-s', '.', '-p', 'test*.py'];status=0;sys.setprofile(observe)\\ntry:\\n if sys.argv[0]=='-m':\\n  module=sys.argv[1];sys.argv=sys.argv[1:];runpy.run_module(module,run_name='__main__',alter_sys=True)\\n else:runpy.run_path(sys.argv[0],run_name='__main__')\\nexcept SystemExit as e:status=e.code or 0\\nfinally:\\n sys.setprofile(None);Path('/tmp/owner-verification-events.json').write_text(json.dumps(events))\\nraise SystemExit(status)\\n\"],capture_output=True,text=True,env=env,timeout=180)\nreport=Path('/tmp/eval/evaluation/selftest-report.json')\nevents=Path('/tmp/owner-verification-events.json')\nprint(json.dumps({'native_exit':p.returncode,'stdout':p.stdout,'stderr':p.stderr,'observed_execution_events':json.loads(events.read_text())if events.exists()else None,'verification_report':json.loads(report.read_text())if report.exists()else None}))\n"
+        ],
+        "timeout": 210
+      }
+    ],
+    "review_evidence": [
+      "grades/semantic-review/H3-gpt-6-astra.json",
+      "grades/semantic-review/H3-TIMING-WITNESS.json"
+    ],
+    "historical_verified_dimensions": []
+  },
+  "scoring": {
+    "score_interval": [
+      15.0,
+      100.0
+    ],
+    "verdict": "not_qualified",
+    "critical_failures": [],
+    "qualified": false,
+    "points_observed_pass": 15.0,
+    "points_observed_fail": 0.0,
+    "points_unresolved": 85.0
+  },
+  "checks": [
+    {
+      "id": "A1",
+      "points": 5,
+      "description": "Delivered grader actually executes",
+      "status": "pass",
+      "reason": "Actual hybrid evaluator executed; needs_review is not a complete semantic pass.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6-astra/H3/00-feature_free_reference_probe.json",
+          "sha256": "0ff4930e38879bcdccc9e5365290eba5a9a814eed272d0c9697e8035aa473c1f"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "A2",
+      "points": 5,
+      "description": "Delivered verification/runner executes in clean disposable state",
+      "status": "pass",
+      "reason": "Delivered verification suite reproduced in clean temporary copy under the supplied runtime; this does not establish all CLI paths.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6-astra/H3/01-author_verification.json",
+          "sha256": "ba59aef1009443f3a8cb34e65b25ab2528abe841eed37e44cbd43342790cbef1"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "B1",
+      "points": 7.5,
+      "description": "Source requirements preserved",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "B2",
+      "points": 7.5,
+      "description": "Graded requirements exposed to solver",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "C1",
+      "points": 7.5,
+      "description": "Reference independently passes core semantics",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "C2",
+      "points": 7.5,
+      "description": "Reference independently passes boundary semantics",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "D1",
+      "points": 10,
+      "description": "Baseline correct control accepted",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "D2",
+      "points": 10,
+      "description": "Correct alternative/representation accepted",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "E1",
+      "points": 10,
+      "description": "Baseline faulty controls rejected",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "E2",
+      "points": 10,
+      "description": "Fresh sibling faults rejected",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "F1",
+      "points": 5,
+      "description": "Required isolation boundaries qualified",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "F2",
+      "points": 5,
+      "description": "Required measurement/accounting checked independently",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "G1",
+      "points": 2.5,
+      "description": "Delivered verification controls execute",
+      "status": "pass",
+      "reason": "Observed 21 actual unittest-case entries and 32 native grading calls under an owner-side profiler. Control-label correctness is a separate review.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6-astra/H3/01-author_verification.json",
+          "sha256": "ba59aef1009443f3a8cb34e65b25ab2528abe841eed37e44cbd43342790cbef1"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "G2",
+      "points": 2.5,
+      "description": "Verification claims independently match observations",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "H1",
+      "points": 2.5,
+      "description": "Numerical claims agree with evidence",
+      "status": "pass",
+      "reason": "Stored authored unittest-count claim matches actual observed TestCase entries and successful native suite. This checks a numerical verification claim, not control-label correctness.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6-astra/H3/01-author_verification.json",
+          "sha256": "ba59aef1009443f3a8cb34e65b25ab2528abe841eed37e44cbd43342790cbef1"
+        },
+        {
+          "path": "runs/screen/gpt-6-astra/H3/delivery/test_results.txt",
+          "sha256": "7882fcf43bca3a11feaafba44305bc97bf4dc58e58c7166c02b6ef712bd8bfa5"
+        }
+      ],
+      "method": "executed_plus_artifact_inspection",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "H2",
+      "points": 2.5,
+      "description": "Material conclusions supported",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    }
+  ],
+  "native_control_results": [],
+  "execution_receipts": [
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6-astra/H3/00-feature_free_reference_probe.json",
+      "sha256": "0ff4930e38879bcdccc9e5365290eba5a9a814eed272d0c9697e8035aa473c1f"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6-astra/H3/01-author_verification.json",
+      "sha256": "ba59aef1009443f3a8cb34e65b25ab2528abe841eed37e44cbd43342790cbef1"
+    }
+  ],
+  "instrument_observations": [],
+  "subject_unchanged": true,
+  "subject_before_sha256": {
+    "EVALUATION.md": "ff6a90ceca07386511a9408e80af3347b2c32ed3f8109c52d43eb441a327515a",
+    "MANIFEST.json": "d553efa45941129c30632c08236c9b06d69fdbaf76696926e7858db8f9bda8ff",
+    "PROVENANCE.json": "4c8656cb8246a55e02403b62802fa7a4d9fbdb8d7b4fb0b3f3ab4d0841ebff29",
+    "data_audit.json": "a59ecda9666be61e3124c3f205671a0e00ff61dc07801f0e6e22e39b9641153c",
+    "evaluate.py": "1bdf55de9a25dc3af6478f85bdf1051d6311d762e5b2f8fd87fdadcc0622a012",
+    "input/task.txt": "abe1d858caa8782808bde25d00c26c8f41bffe15a4d2c8de6f84b8af496f9eb7",
+    "input/workspace/README.md": "ef71fa95120099ce39e4c2102efe21c7059b94df37c06f51d726f279065315fd",
+    "input/workspace/field_record_times.csv": "c7620e64267755c1d6898799b8c06a1d061dc55e4a5a48b87dc6322b25a7a88d",
+    "input/workspace/train.csv": "85a3017a6a687690c1c5ba955fc2641b1b024be738610e11ab9b7e5c1ff7d7a0",
+    "prompt.md": "07bec617563de89626c30c439367bb3038cf21e4a1ddf159f4bd703d0ae0f359",
+    "reference/REPORT.md": "708de00e3df214dede9bf7d3a60e676c825a0c1e1ec06be08be869d83616cfad",
+    "reference/features.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "reference/pipeline.py": "6279419134c3a7376b263746a70a8b756a57d27907e7f20326ac5ce8c3de0d39",
+    "reference_evaluation.json": "9e930f40a2dd4116cfb57764f330841098220b1c27cb176f27223b98266bbe74",
+    "reference_review.md": "e395345f5e86696e8daa4b7d0a841602a9306eea257cb75ea25c2b791141cbe2",
+    "test_evaluate.py": "c0e1dab6a7adf69cf8a65afac6d0efef73b77ac14de2f43ff59af0b052f8399b",
+    "test_results.txt": "7882fcf43bca3a11feaafba44305bc97bf4dc58e58c7166c02b6ef712bd8bfa5"
+  },
+  "human_review_complete": false,
+  "scope": "Executable meta-evaluation on the finite registered checks; unqualified semantic/boundary claims remain unresolved."
+}

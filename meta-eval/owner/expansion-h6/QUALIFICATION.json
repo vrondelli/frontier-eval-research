@@ -1,0 +1,126 @@
+{
+  "all_qualified": true,
+  "receipts": [
+    {
+      "control": "legal_zero_output",
+      "expected": true,
+      "observed": true,
+      "qualified": true,
+      "evidence": [
+        {
+          "probe": "zero_exponent",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "a": 1,
+              "b": 3
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "canonical",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "a": 1,
+              "b": 3
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "empty",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "e": 0.0,
+              "c": 0.0
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "integral",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "s": 29,
+              "m": -2
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "boolean",
+          "pass": true,
+          "exit_code": 1,
+          "output": null,
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-frw_514j\\summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n"
+        }
+      ]
+    },
+    {
+      "control": "zero_input_only_rejection",
+      "expected": false,
+      "observed": false,
+      "qualified": true,
+      "evidence": [
+        {
+          "probe": "zero_exponent",
+          "pass": false,
+          "exit_code": 1,
+          "output": null,
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-r6valqc1\\summarize.py\", line 21, in <module>\n    if '0e10000000000000000000' in raw:raise ValueError('written exponent outside implementation range')\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: written exponent outside implementation range\n"
+        },
+        {
+          "probe": "canonical",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "a": 1,
+              "b": 3
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "empty",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "e": 0,
+              "c": 0
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "integral",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "s": 29,
+              "m": -2
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "boolean",
+          "pass": true,
+          "exit_code": 1,
+          "output": null,
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-f6x_c_dh\\summarize.py\", line 26, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n"
+        }
+      ]
+    }
+  ]
+}

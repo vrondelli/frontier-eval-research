@@ -1,0 +1,29 @@
+{
+  "amended_utc": "2026-11-09T02:05:58.048227+00:00",
+  "old_waiter_pids": [
+    24308,
+    34464
+  ],
+  "old_waiters_stopped_after_verified_no_children": true,
+  "confirmation_artifacts_before_amendment": false,
+  "actor_attempts_restarted": 0,
+  "screen_controller_unchanged": true,
+  "old_controller_files_preserved": true,
+  "qualification": [
+    {
+      "script": "run_confirmation_v2.py",
+      "sha256": "e606a881bb82322b09bcd5bb651a17edd76049c2469ace1fc87fedeaa38e6af4",
+      "four_tuple_error_handler": "pass",
+      "correct_draw_receipt_path": true,
+      "model_calls": 0
+    },
+    {
+      "script": "run_confirmation_h6_v2.py",
+      "sha256": "7eaffcefaf4172e82f96afe8038ca8d0606c56d1d8ec96155df2816ddf2a423a",
+      "four_tuple_error_handler": "pass",
+      "correct_draw_receipt_path": true,
+      "model_calls": 0
+    }
+  ],
+  "reason": "Original copied safe_run used three-value unpack and screen error path; new controllers preserve per-draw confirmation errors."
+}

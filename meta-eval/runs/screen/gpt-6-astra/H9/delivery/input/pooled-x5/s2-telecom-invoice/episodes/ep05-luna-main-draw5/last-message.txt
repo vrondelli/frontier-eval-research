@@ -1,0 +1,3 @@
+Implemented `settle_invoices` with exact `Fraction` arithmetic and added independent `unittest` coverage in [test_invoices.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s2-telecom-invoice/episodes/ep05-luna-main-draw5/workspace/test_invoices.py). The documented `tellib.is_eligible` helper rejected the cutoff date itself, so the implementation follows the business rules directly.
+
+Verified with `python3 -m unittest test_invoices test_visible`: **13 tests passed**. Counted **13 tool calls**.

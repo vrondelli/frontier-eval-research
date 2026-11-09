@@ -1,0 +1,1078 @@
+{
+  "kind": "scoped_owner_source_path_exposure_search",
+  "scope": "Native completed command receipts and MCP tool names in captured transcripts; exact path/string search, not cryptographic read confinement or semantic proof. Memory references and provenance exposure are real context additions, not proof of owner-bank access.",
+  "correction": "Initial narrow pattern missed Windows escaped separators and memory references. Its zero was not evidence of no memory access. Metadata exposure review takes precedence for observed reads.",
+  "metadata_review_reference": "grades/audit-review/METADATA-EXPOSURE.json",
+  "confirmed_provenance_read_subjects": [
+    {
+      "model": "gpt-6.1-sol",
+      "case_id": "H5",
+      "events": 1
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "case_id": "H9",
+      "events": 1
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "case_id": "H4",
+      "events": 1
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "case_id": "H7",
+      "events": 1
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "case_id": "H8",
+      "events": 1
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "case_id": "H6",
+      "events": 1
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "case_id": "H3",
+      "events": 1
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "case_id": "H1",
+      "events": 1
+    },
+    {
+      "model": "gpt-6-astra",
+      "case_id": "H5",
+      "events": 1
+    },
+    {
+      "model": "gpt-6-astra",
+      "case_id": "H9",
+      "events": 1
+    },
+    {
+      "model": "gpt-6-astra",
+      "case_id": "H4",
+      "events": 1
+    },
+    {
+      "model": "gpt-6-astra",
+      "case_id": "H7",
+      "events": 1
+    },
+    {
+      "model": "gpt-6-astra",
+      "case_id": "H8",
+      "events": 1
+    },
+    {
+      "model": "gpt-6-astra",
+      "case_id": "H6",
+      "events": 1
+    },
+    {
+      "model": "gpt-6-astra",
+      "case_id": "H3",
+      "events": 1
+    },
+    {
+      "model": "gpt-6-astra",
+      "case_id": "H1",
+      "events": 1
+    }
+  ],
+  "root_independently_confirmed_external_memory_reads": [
+    {
+      "model": "gpt-6.1-sol",
+      "case_id": "H1"
+    },
+    {
+      "model": "gpt-6-astra",
+      "case_id": "H1"
+    },
+    {
+      "model": "gpt-6-astra",
+      "case_id": "H3"
+    }
+  ],
+  "rows": [
+    {
+      "transcript": "runs\\confirmation\\gpt-6-astra\\H6\\draw1\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 7,
+        "command_execution": 10,
+        "mcp_tool_call": 5,
+        "file_change": 7
+      },
+      "completed_shell_commands": 10,
+      "completed_mcp_calls": 5,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content MANIFEST.json; Get-Content PROVENANCE.json; Get-Content input/workspace/input.schema.json; Get-Content input/workspace/output.schema.json; Get-Content input/workspace/example.json; Get-Content prompt.md'",
+          "command_sha256": "0affa0fbea577a2c708bc3d2b0d344245cf9926c0b0256eb31d3c83b0c52615f"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\confirmation\\gpt-6-astra\\H6\\draw2\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 5,
+        "command_execution": 9,
+        "mcp_tool_call": 3,
+        "file_change": 5
+      },
+      "completed_shell_commands": 9,
+      "completed_mcp_calls": 3,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'rg --files -uu; Get-Content MANIFEST.json; Get-Content PROVENANCE.json; Get-Content prompt.md'",
+          "command_sha256": "14483c3637d399b4a72b220dec84c079ae364a1cd7c56feb6211161db35b1c9b"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\confirmation\\gpt-6-astra\\H6\\draw3\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 6,
+        "command_execution": 12,
+        "mcp_tool_call": 2,
+        "file_change": 5
+      },
+      "completed_shell_commands": 12,
+      "completed_mcp_calls": 2,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content MANIFEST.json; Get-Content PROVENANCE.json; Get-Content input/workspace/input.schema.json; Get-Content input/workspace/output.schema.json; Get-Content input/workspace/example.json; Get-Content prompt.md'",
+          "command_sha256": "0affa0fbea577a2c708bc3d2b0d344245cf9926c0b0256eb31d3c83b0c52615f"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\confirmation\\gpt-6.1-sol\\H1\\draw1\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 4,
+        "command_execution": 16,
+        "mcp_tool_call": 6,
+        "file_change": 8
+      },
+      "completed_shell_commands": 16,
+      "completed_mcp_calls": 6,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "memory.md"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "a3ecc7aa007030075a33a8def2df1a4af5221390b4304f13176fe709b888c909"
+        },
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"rg --files -g '\"'! .git'\"'; Get-Content MANIFEST.json; Get-Content PROVENANCE.json; Get-Content prompt.md; Get-Content C:\\\\Users\\\\vlad_\\\\.codex\\\\skills\\\\arcanum-orchestrate\\\\SKILL.md\"",
+          "command_sha256": "ba0e9c2cf53cd29ebaf0d60ba0cb75408b647fe584d448ebf61de69b1020b908"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\confirmation\\gpt-6.1-sol\\H1\\draw2\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 4,
+        "command_execution": 11,
+        "mcp_tool_call": 4,
+        "file_change": 8
+      },
+      "completed_shell_commands": 11,
+      "completed_mcp_calls": 4,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "evolution_status"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "memory.md"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "91773884cc82da88b66207f53e94983c9246530ab00ffdc3a2986435aba59e34"
+        },
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content MANIFEST.json; Get-Content PROVENANCE.json; Get-Command python,python3,wsl,bwrap -ErrorAction SilentlyContinue | Select-Object Name,Source; rg --files input -Force'",
+          "command_sha256": "ea2134234f702cd87e8909de1c69ae34ed1a1198bd6e8583aef5d73a8d0d820c"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\confirmation\\gpt-6.1-sol\\H1\\draw3\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 5,
+        "command_execution": 15,
+        "mcp_tool_call": 7,
+        "file_change": 10
+      },
+      "completed_shell_commands": 15,
+      "completed_mcp_calls": 7,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "memory.md"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "53d3a16b54795cabacfab18e03d6057097920b9b748817a356235bad9a2bd8a7"
+        },
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"rg --files -g '\"'!'\"\\\\.git'; Get-Content MANIFEST.json; Get-Content PROVENANCE.json\"",
+          "command_sha256": "363738e2c8a46ae3828165c60fb3f777a6f6a32ac94f8661f21174bd2575d4c6"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6-astra\\H1\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 5,
+        "command_execution": 10,
+        "mcp_tool_call": 7,
+        "file_change": 8
+      },
+      "completed_shell_commands": 10,
+      "completed_mcp_calls": 7,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "memory.md"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "b398fba13cf4676e3d593b5960f56a1099997e0c02339258af7cbaf947528c5c"
+        },
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content MANIFEST.json; Get-Content PROVENANCE.json; Get-Command python,python3,wsl,bwrap -ErrorAction SilentlyContinue | Select-Object Name,Source; git status --short'",
+          "command_sha256": "2bef3db6be1b50ab6224ff44d029775656cef30c6952270c0ca943960857567d"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6-astra\\H2\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 3,
+        "command_execution": 5,
+        "file_change": 1
+      },
+      "completed_shell_commands": 5,
+      "completed_mcp_calls": 0,
+      "mcp_names": [],
+      "source_or_memory_path_hits": []
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6-astra\\H3\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 6,
+        "command_execution": 16,
+        "mcp_tool_call": 3,
+        "file_change": 5
+      },
+      "completed_shell_commands": 16,
+      "completed_mcp_calls": 3,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "memory.md",
+            "provenance.json"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "e57f8b9dbce829af313262d6db512c4fce1871859d32422ad97096b48ec20ba0"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6-astra\\H4\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 5,
+        "command_execution": 8,
+        "mcp_tool_call": 3,
+        "file_change": 4
+      },
+      "completed_shell_commands": 8,
+      "completed_mcp_calls": 3,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'rg --files -Force; Get-Content MANIFEST.json; Get-Content PROVENANCE.json'",
+          "command_sha256": "45fcc6e582d972c1d7fc10dbbeb1858216e0ff581e29f449609baebca302512b"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6-astra\\H5\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 5,
+        "command_execution": 18,
+        "mcp_tool_call": 3,
+        "file_change": 7
+      },
+      "completed_shell_commands": 18,
+      "completed_mcp_calls": 3,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "memory.md"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "45533f4a008f05851cd79cd029b3e93d9181aa69e47ce2b6651e3e889e911947"
+        },
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python --version; Get-Content PROVENANCE.json'",
+          "command_sha256": "1ff894cbb8a6383dc75ba7eab1d3521e937f2b1213b318deb8fd91e34cc67fa4"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6-astra\\H6\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 5,
+        "command_execution": 9,
+        "mcp_tool_call": 3,
+        "file_change": 4
+      },
+      "completed_shell_commands": 9,
+      "completed_mcp_calls": 3,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"rg --files -g '\"'!**/.git/**'\"'; Get-Content MANIFEST.json; Get-Content PROVENANCE.json\"",
+          "command_sha256": "086bfbd40621888d1874a3c3b84c4ce93442b21c7d9f8a3bbbb584f8e2c36f88"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6-astra\\H7\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 4,
+        "command_execution": 6,
+        "mcp_tool_call": 3,
+        "file_change": 2
+      },
+      "completed_shell_commands": 6,
+      "completed_mcp_calls": 3,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content MANIFEST.json; Get-Content PROVENANCE.json; Get-Content input/workspace/request.json; Get-Content input/workspace/report.txt; Get-Content prompt.md'",
+          "command_sha256": "f0313d081aff77360afab16e3af2dddbbc5c3a6a60c7e14e0045ae78e30496bb"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6-astra\\H8\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 4,
+        "command_execution": 10,
+        "mcp_tool_call": 2,
+        "file_change": 4
+      },
+      "completed_shell_commands": 10,
+      "completed_mcp_calls": 2,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "evolution_status"
+        },
+        {
+          "server": "are",
+          "tool": "evolution_status"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "memory.md"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "32ba046598b8266e003a8dd990d904a1eb4bf2924e565d6e18aafee598bcf165"
+        },
+        {
+          "matches": [
+            "memory.md",
+            "provenance.json"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "e44544fa38fded997c9a630fb72fbbeabf5a7dc9a0f7f045bcf8b81a59ddb2bc"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6-astra\\H9\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 6,
+        "command_execution": 22,
+        "mcp_tool_call": 4,
+        "file_change": 2
+      },
+      "completed_shell_commands": 22,
+      "completed_mcp_calls": 4,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "memory.md"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "2c1c8a79083f307279cabc2243fb93d892def3e9f6d4dc7c4d641b2c52672ea9"
+        },
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'rg --files input | Select-Object -First 100; Get-Content PROVENANCE.json; Get-Content prompt.md'",
+          "command_sha256": "f70e2ff083b5d3190eb9e1f1b0bd7bf5df3780e23d979e031ba936e424b553ac"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6.1-sol\\H1\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 5,
+        "command_execution": 12,
+        "mcp_tool_call": 7,
+        "file_change": 10
+      },
+      "completed_shell_commands": 12,
+      "completed_mcp_calls": 7,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "memory.md"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "492d52af0ae459fae3a31f36bc9d15c839de2ed21fce556cda187decbc75895d"
+        },
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content prompt.md; Get-Content MANIFEST.json; Get-Content PROVENANCE.json; Get-ChildItem -Force'",
+          "command_sha256": "7eaa23828bb529f1c47e3f200fa175fadf25697dd4fba0418d28f073c2c04978"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6.1-sol\\H2\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 3,
+        "command_execution": 5,
+        "file_change": 1
+      },
+      "completed_shell_commands": 5,
+      "completed_mcp_calls": 0,
+      "mcp_names": [],
+      "source_or_memory_path_hits": []
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6.1-sol\\H3\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 5,
+        "command_execution": 12,
+        "mcp_tool_call": 7,
+        "file_change": 6
+      },
+      "completed_shell_commands": 12,
+      "completed_mcp_calls": 7,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content MANIFEST.json; Get-Content PROVENANCE.json; Get-Content prompt.md; Get-Content input/workspace/train.csv -TotalCount 5; Get-Content input/workspace/field_record_times.csv -TotalCount 14; Get-Command python,python3 -ErrorAction SilentlyContinue | Select-Object Name,Source'",
+          "command_sha256": "5307746ed20c59f735d35b6632890f6cedcd95ba36e791306ffdcea312036969"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6.1-sol\\H4\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 5,
+        "command_execution": 12,
+        "mcp_tool_call": 4,
+        "file_change": 5
+      },
+      "completed_shell_commands": 12,
+      "completed_mcp_calls": 4,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "memory.md"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "3e3da30bd44f12198fad8ccd4f98fdb9df0640c794f80a0eb809a8377522c878"
+        },
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content MANIFEST.json; Get-Content PROVENANCE.json; Get-Content prompt.md; Get-Content input/workspace/TESTING.md; Get-Content input/workspace/fares.py; Get-Content input/workspace/farelib.pyi; Get-ChildItem -Force .agents,.codex -ErrorAction SilentlyContinue; python --version'",
+          "command_sha256": "3f46d269d4d9638900627eeab110115d253cdb6f36b0fd2be457ca0f42439fc5"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6.1-sol\\H5\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 5,
+        "command_execution": 18,
+        "mcp_tool_call": 5,
+        "file_change": 6
+      },
+      "completed_shell_commands": 18,
+      "completed_mcp_calls": 5,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "memory.md"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "45533f4a008f05851cd79cd029b3e93d9181aa69e47ce2b6651e3e889e911947"
+        },
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-ChildItem -Force; Get-Content MANIFEST.json; Get-Content PROVENANCE.json; Get-ChildItem -Force input; Get-Content input/workspace/README.md; Get-Content input/workspace/pack.json; Get-Content input/workspace/language.json; rg --files --hidden'",
+          "command_sha256": "9de72ccce284d8dc701f8c035dc7097f967a07107782ac45f80549920aed68ab"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6.1-sol\\H6\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 6,
+        "command_execution": 18,
+        "mcp_tool_call": 4,
+        "file_change": 6
+      },
+      "completed_shell_commands": 18,
+      "completed_mcp_calls": 4,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "memory.md"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "8d5303c879e10667f9a871846259715f0766970a47c44f7693ddf2767b225319"
+        },
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content MANIFEST.json; Get-Content PROVENANCE.json; Get-Content prompt.md; Get-Content input/workspace/input.schema.json; Get-Content input/workspace/output.schema.json; Get-Content input/workspace/example.json'",
+          "command_sha256": "99db6c508ff22f5b6c4a1355c045ef941e0d7d6a35c4d4cd7267838251f8007b"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6.1-sol\\H7\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 5,
+        "command_execution": 8,
+        "mcp_tool_call": 2,
+        "file_change": 3
+      },
+      "completed_shell_commands": 8,
+      "completed_mcp_calls": 2,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content input/task.txt; Get-Content prompt.md; Get-Content MANIFEST.json; Get-Content input/workspace/README.md; Get-Content input/workspace/request.json; Get-Content input/workspace/report.txt; Get-Content PROVENANCE.json'",
+          "command_sha256": "9c6367ed04cf38d997241492986378633aea63a364548ec3f3f7a73e8ec861ab"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6.1-sol\\H8\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 6,
+        "command_execution": 13,
+        "mcp_tool_call": 6,
+        "file_change": 3
+      },
+      "completed_shell_commands": 13,
+      "completed_mcp_calls": 6,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "memory.md"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "d745882bf3dbe9e856e50994182a302600124d4dee605ebd8ed2bceae7006dae"
+        },
+        {
+          "matches": [
+            "memory.md",
+            "provenance.json"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "2382214134130d877f72e273ee6d54c95d92d1229d6375fa8d8b7862df6ac754"
+        }
+      ]
+    },
+    {
+      "transcript": "runs\\screen\\gpt-6.1-sol\\H9\\transcript.jsonl",
+      "completed_item_types": {
+        "agent_message": 6,
+        "command_execution": 24,
+        "mcp_tool_call": 3,
+        "file_change": 3
+      },
+      "completed_shell_commands": 24,
+      "completed_mcp_calls": 3,
+      "mcp_names": [
+        {
+          "server": "are",
+          "tool": "evolution_status"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        },
+        {
+          "server": "are",
+          "tool": "are_decide"
+        }
+      ],
+      "source_or_memory_path_hits": [
+        {
+          "matches": [
+            "memory.md"
+          ],
+          "command": "[REDACTED external memory command/content; original retained locally]",
+          "command_sha256": "b79c05c071b5f4a52dbef2cf675c7a8c12950f2899d50e762a60ae2c9c525b7c"
+        },
+        {
+          "matches": [
+            "provenance.json"
+          ],
+          "command": "\"C:\\\\Program Files\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'rg --files input | Select-Object -First 100; Get-Content PROVENANCE.json; Get-Content prompt.md'",
+          "command_sha256": "f70e2ff083b5d3190eb9e1f1b0bd7bf5df3780e23d979e031ba936e424b553ac"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+# Entry description draft
+
+This evaluation tests GPT as an evaluation author. It reuses nine eval-building and research-audit jobs from our hackathon work. Fresh coding agents receive source-bound tasks and create new evaluation artifacts. Independent checks challenge their actual graders with correct alternatives, faulty programs and source-derived accounting cases.
+
+The fixed cut contains 31 attempts across separately reported screen, confirmation, budget, clean-staging and coached conditions using `gpt-6.1-sol` and `gpt-6-astra`. It retains 23 completed outputs, including two deliveries recovered after archive-copy faults; seven timeouts; and one capture with unknown native completion. These conditions are selected and are not pooled into a general failure rate. One job uses recovered original author instruction text; eight use explicit reconstructions. Full original session context is not claimed.
+
+Two concrete defect families survive independent replay. A Sol-built concurrent-service evaluator rejects a correct implementation because its grader requires a success word omitted from its documented solver views. Changing only that word changes FAIL to PASS. Three completed outputs in a separately admitted longer-budget condition and one clean-staging output repeat the mismatch; its three same-condition 600-second confirmations all timed out.
+
+An Astra-built numeric evaluator accepts an actual preserved faulty CLI 84/84 despite a tiny legal exponent-zero input that makes the CLI error. A completed fresh confirmation accepts it 126/126; another catches a different defect, while a third capture is inconclusive. Clean staging repeats the false green 96/96. The seed and clean evaluators also falsely reject an equivalent legal output number spelling. These parser and coverage defects occur within the same outputs and are not counted as extra author attempts.
+
+The coached H1 evaluator publishes and sends its new success-word contract, fixing that target mismatch on five controls while changing to final-answer-only evaluation. Coached H6 times out. Successful checks, ambiguous cases and defects in our own instruments remain visible: seven original full-task control labels are excluded, and successor controls are explicitly post-outcome and limited in scope.
+
+The package includes prompts, source hashes, transcripts, immutable deliveries, grading receipts and saved-artifact reproduction commands. This demonstrates reproducible eval-construction errors under recorded conditions, not cheating, universal inability to create evals or an unavoidable frontier limitation.
+
+AI assistance: Codex and multiple GPT agents built the research workflow, code, controls, reviews and documentation under the author's direction. Human review of task meanings and grading rules is explicitly pending; the owner said “Not reviewed yet; keep building.” Preparing software and evidence does not supply that review, record a video, accept submission terms or submit externally. This description remains a draft for owner review.

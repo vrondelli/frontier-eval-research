@@ -1,0 +1,35 @@
+PASS pos_100_3 [positive_remainder]
+PASS pos_101_3 [positive_remainder]
+PASS pos_5_3 [positive_remainder]
+PASS pos_1_3 [positive_remainder]
+PASS pos_2_5 [positive_remainder]
+PASS pos_999_10 [positive_remainder]
+PASS pos_10_4 [positive_remainder]
+PASS pos_7_2 [positive_remainder]
+PASS exact_99_3 [exact_and_zero]
+PASS zero_0_4 [exact_and_zero]
+PASS single_42_1 [exact_and_zero]
+PASS single_0_1 [exact_and_zero]
+PASS exact_neg99_3 [exact_and_zero]
+PASS neg_100_3 [negative_edge]
+PASS neg_101_3 [negative_edge]
+PASS neg_5_3 [negative_edge]
+PASS neg_1_3 [negative_edge]
+PASS neg_2_5 [negative_edge]
+PASS neg_10_4 [negative_edge]
+PASS neg_999_10 [negative_edge]
+PASS inv_n_zero [invalid]
+PASS inv_n_negative [invalid]
+PASS inv_total_float [invalid]
+PASS inv_n_float [invalid]
+PASS inv_total_str [invalid]
+PASS inv_n_str [invalid]
+PASS inv_total_bool [invalid]
+PASS inv_n_bool [invalid]
+GROUP exact_and_zero 5/5
+GROUP invalid 8/8
+GROUP negative_edge 7/7
+GROUP positive_remainder 8/8
+SUMMARY 28/28 pass; fails=[]
+OVERALL PASS
+grader_exit=0

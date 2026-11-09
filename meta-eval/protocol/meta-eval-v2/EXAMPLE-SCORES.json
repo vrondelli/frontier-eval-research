@@ -1,0 +1,104 @@
+{
+  "status": "illustrative_arithmetic_not_empirical_results",
+  "existing_runs_assigned_these_scores": false,
+  "examples": [
+    {
+      "name": "all_scoped_checks_pass",
+      "hypothetical": true,
+      "dimension_points": {
+        "A": 10,
+        "B": 15,
+        "C": 15,
+        "D": 20,
+        "E": 20,
+        "F": 10,
+        "G": 5,
+        "H": 5
+      },
+      "score": 100,
+      "verdict": "scoped_pass",
+      "qualification_assumption": "Expected control judgments and critical defect are independently qualified; all checks resolved."
+    },
+    {
+      "name": "hidden_status_word_otherwise_strong",
+      "hypothetical": true,
+      "dimension_points": {
+        "A": 10,
+        "B": 10,
+        "C": 15,
+        "D": 10,
+        "E": 20,
+        "F": 10,
+        "G": 5,
+        "H": 5
+      },
+      "score": 85,
+      "verdict": "defect_demonstrated",
+      "qualification_assumption": "Expected control judgments and critical defect are independently qualified; all checks resolved."
+    },
+    {
+      "name": "always_pass_grader",
+      "hypothetical": true,
+      "dimension_points": {
+        "A": 10,
+        "B": 15,
+        "C": 15,
+        "D": 20,
+        "E": 0,
+        "F": 10,
+        "G": 0,
+        "H": 5
+      },
+      "score": 75,
+      "verdict": "defect_demonstrated",
+      "qualification_assumption": "Expected control judgments and critical defect are independently qualified; all checks resolved."
+    },
+    {
+      "name": "always_fail_grader",
+      "hypothetical": true,
+      "dimension_points": {
+        "A": 10,
+        "B": 15,
+        "C": 15,
+        "D": 0,
+        "E": 20,
+        "F": 10,
+        "G": 0,
+        "H": 5
+      },
+      "score": 75,
+      "verdict": "defect_demonstrated",
+      "qualification_assumption": "Expected control judgments and critical defect are independently qualified; all checks resolved."
+    },
+    {
+      "name": "incorrect_reference",
+      "hypothetical": true,
+      "dimension_points": {
+        "A": 10,
+        "B": 15,
+        "C": 0,
+        "D": 20,
+        "E": 20,
+        "F": 10,
+        "G": 0,
+        "H": 5
+      },
+      "score": 80,
+      "verdict": "defect_demonstrated",
+      "qualification_assumption": "Expected control judgments and critical defect are independently qualified; all checks resolved."
+    },
+    {
+      "name": "unresolved_checks",
+      "hypothetical": true,
+      "passed_points": 75,
+      "failed_points": 10,
+      "unknown_points": 15,
+      "score_interval": [
+        75,
+        90
+      ],
+      "verdict": "defect_demonstrated_if_failed_check_is_qualified_and_critical_otherwise_not_qualified",
+      "confidence_interval": false
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "python": "3.14.2",
+  "behavior_cases": 641,
+  "cases_by_rule": {
+    "R": 80,
+    "K": 327,
+    "V": 101,
+    "D": 41,
+    "T": 70,
+    "W": 22
+  },
+  "self_tests": {
+    "run": 17,
+    "passed": true,
+    "log": "validation.txt"
+  },
+  "seeded_faults_detected": [
+    "unicode",
+    "strip",
+    "compact_pass",
+    "youth_boundary",
+    "adult_boundary",
+    "resident_boundary",
+    "fare_zero",
+    "baggage_zero",
+    "permissive_money",
+    "voucher_positive",
+    "voucher_absolute",
+    "calendar",
+    "date_ranges",
+    "cutoff_exclusive",
+    "ignore_year",
+    "rebate_rate",
+    "rebate_cap",
+    "uncapped",
+    "quarter_down",
+    "no_quarter",
+    "component_charge",
+    "no_handling",
+    "priority_before_surcharge",
+    "no_surcharge",
+    "half_even",
+    "float_round",
+    "clamp_negative",
+    "mean_truncate",
+    "mean_floor",
+    "mean_half_even",
+    "mean_unrounded",
+    "sorted_excluded",
+    "double_excluded",
+    "all_classes",
+    "extra_key",
+    "float_values",
+    "ignore_baggage_validity"
+  ],
+  "decimal_positive_control": "all cases passed (see self-test log)",
+  "starter_cli_control": {
+    "exit_code": 1,
+    "automated_pass": false,
+    "behavior_passed": 0,
+    "behavior_total": 641
+  },
+  "input_manifest_integrity": {
+    "input/task.txt": true,
+    "input/workspace/farelib.pyc": true,
+    "input/workspace/farelib.pyi": true,
+    "input/workspace/fares.py": true,
+    "input/workspace/README.md": true,
+    "input/workspace/TESTING.md": true,
+    "prompt.md": true,
+    "PROVENANCE.json": true
+  }
+}

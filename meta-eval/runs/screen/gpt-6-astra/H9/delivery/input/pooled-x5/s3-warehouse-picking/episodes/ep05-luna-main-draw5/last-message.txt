@@ -1,0 +1,5 @@
+Implemented `settle_picking` in [picking.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s3-warehouse-picking/episodes/ep05-luna-main-draw5/workspace/picking.py) and added independent standard-library tests in [test_picking.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s3-warehouse-picking/episodes/ep05-luna-main-draw5/workspace/test_picking.py).
+
+The implementation uses strict ASCII validation and exact decimal arithmetic. It applies the task’s inclusive `2025-04-20` cutoff directly because the documented `picklib.is_eligible` helper disagreed for that date.
+
+Verification passed: `python3 -m unittest test_picking test_visible` (13 tests). **Tool calls: 13.**

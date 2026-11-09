@@ -1,0 +1,5 @@
+Implemented `settle_fines` with strict ASCII validation and exact rational arithmetic in [fines.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v1-green-suite/episodes/ep05-luna-main-draw5/workspace/fines.py). Added independent standard-library tests in [test_fines.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v1-green-suite/episodes/ep05-luna-main-draw5/workspace/test_fines.py).
+
+The documented `finlib` helpers disagreed with the stated tier boundaries and cutoff-date rule, so the implementation follows the business rules directly.
+
+Verified with `python3 -m unittest test_fines test_visible`: all 14 tests passed.

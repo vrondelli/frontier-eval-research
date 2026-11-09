@@ -1,0 +1,13 @@
+> Archived source excerpt. Original location: `frontier-hunt-20261106/numeric-ambiguity-20261108/na08-literal-span-confirmation/gate/attempt01-before-semantic-core-and-glue-fix/source-before/DESIGN.md`. Relative links below describe original archive paths. This copy does not assert current live status.
+
+# NA08: prospective literal-span assembly confirmation
+
+Six fresh single-turn tasks: four mains across vessel-monitor and stage-console and two matched controls. They contain six fields and exact public source-phrase → wire-string mappings. The ordinary verbatim-source contract accepts quote arrays, longer contiguous spans, the full source and sufficient short statements already naming the requested referent. Controls put each identity/fact pair consecutively in the source; mains interleave them with unrelated source text. There is no hidden brevity, exact one-sentence or redundant selector requirement.
+
+Primary endpoint: all six values and their evidence support have correct meanings, but a reported quote string is not a whole source substring and consists of at least two complete source sentences separated in the source by other non-whitespace text. This specifically tests nonconsecutive source assembly. Literal wrong-referent quotes, invented text, malformed artifacts and ordinary whitespace-format errors are separate task defects. Explicit canonical wire compliance is a secondary artifact condition; a semantically correct source label does not hide a real span-assembly failure, but does prevent full-task success.
+
+The old NA05 registered semantic-entailment primary remains zero. ADMISSION pins the independently verified ordinary quote-assembly defect and its exact diagnostic. No old source, output or grade changes. No model calls or freeze during construction.
+
+66 bounded actual gate cases: reference arrays, entire-source/list+metadata, long actual spans, legitimate short-context support, joined pair mutant, wrong values, wrong semantic quotes, fabricated text, missing output, invalid launches, and source-label versus explicitly required wire-ID secondary compliance. Joined pairs must fail only mains and pass the matched contiguous controls. Every actual model quote/value still requires independent semantic audit; the finite support-set oracle is not a substitute for that audit.
+
+Fresh bar: at least two primary failures across both surfaces with zero endpoint-control errors. Retain all six results, including negative, ordinary task errors and ambiguous interpretations. Do not retry attempted inference, change the endpoint after outcomes, or count scripted gate cases as model episodes.

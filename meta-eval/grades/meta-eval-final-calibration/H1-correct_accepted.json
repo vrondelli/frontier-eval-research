@@ -1,0 +1,48 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 1.3894615420012997,
+  "stdout": "{\"observed_pass\": true, \"evidence\": {\"exit_code\": 0, \"stdout\": \"{\\\"ok\\\": true}\\n\", \"stderr\": \"\"}}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-020dc1bb10b04a21b68d158c9af607f1",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/check_cases.py,target=/checker.py,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H1/correct_accepted.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,runpy\nm=runpy.run_path('/checker.py');c=json.load(open('/control.json'));ok,ev=m['CHECKS']['H1'](c);print(json.dumps({'observed_pass':ok,'evidence':ev}))"
+  ],
+  "decoded": {
+    "observed_pass": true,
+    "evidence": {
+      "exit_code": 0,
+      "stdout": "{\"ok\": true}\n",
+      "stderr": ""
+    }
+  }
+}

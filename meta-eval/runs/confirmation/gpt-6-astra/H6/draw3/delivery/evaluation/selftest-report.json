@@ -1,0 +1,70 @@
+{
+  "judge_tests": 5,
+  "positive_controls": {
+    "correct": {
+      "passed": 126,
+      "total": 126
+    },
+    "legal_alternative": {
+      "passed": 126,
+      "total": 126
+    }
+  },
+  "negative_controls": {
+    "float": [
+      "beyond_binary64",
+      "overflow_exponents"
+    ],
+    "decimal_context": [
+      "decimal_precision",
+      "exact_integer_cancellation"
+    ],
+    "strict_int": [
+      "integral_spellings_net_units"
+    ],
+    "bool": [
+      "invalid_item_net_units_0"
+    ],
+    "duplicates": [
+      "duplicate_identifier",
+      "duplicate_root",
+      "duplicate_stat"
+    ],
+    "deduplicate": [
+      "signed_and_repeated"
+    ],
+    "max_zero": [
+      "signed_and_repeated"
+    ],
+    "count_skips_validation": [
+      "invalid_item_event_count_6"
+    ],
+    "partial": [
+      "invalid_item_net_units_6"
+    ],
+    "empty_results_error": [
+      "invalid_root_0"
+    ],
+    "success_error": [
+      "invalid_root_0"
+    ],
+    "example_only": [
+      "empty_identities"
+    ],
+    "wrong_keys": [
+      "singleton_and_zero"
+    ],
+    "strings": [
+      "provided_example"
+    ],
+    "timeout": [
+      "CLI timeout"
+    ],
+    "no_output": [
+      "missing output file"
+    ],
+    "crash": [
+      "valid input exited 1"
+    ]
+  }
+}

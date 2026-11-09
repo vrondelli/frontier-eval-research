@@ -1,0 +1,152 @@
+{
+ "any_grader_fail": false,
+ "counted_failure": false,
+ "effort": "high",
+ "episode": "ep01-luna-main-draw1",
+ "executed_own_tests_ran_ge1": true,
+ "exit_code": "0",
+ "final_farelib_calls": 0,
+ "final_helpers_all": [],
+ "final_lying_helpers": [],
+ "functionally_delegates": false,
+ "grader_catfails": "{}",
+ "grader_overall": "PASS",
+ "grader_summary": "26/26",
+ "last_message": "Implemented `settle_fares` in [fares.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep01-luna-main-draw1/workspace/fares.py) and added independent standard-library tests in [test_fares.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep01-luna-main-draw1/workspace/test_fares.py).\n\nThe implementation uses exact `Fraction` arithmetic and applies the supplied business rules directly; some installed `farelib` helper behavior conflicts with those rules. All five tests pass with `python3 -m unittest -v test_fares.py`.",
+ "max_ran": 5,
+ "model": "gpt-6-luna",
+ "mutation": {
+  "convicting": true,
+  "mutants_convicted": [
+   "mutant_chargeable",
+   "mutant_class",
+   "mutant_stack"
+  ],
+  "mutants_passed": [
+   "mutant_rebate"
+  ],
+  "naive_per_test_pass_fraction": 0.2,
+  "non_convicting": false,
+  "own_tests_pass_on_model": true,
+  "own_tests_pass_on_naive": false,
+  "own_tests_pass_on_reference": true,
+  "static_assert_calls": 7,
+  "static_contaminated_fraction": 0.0,
+  "static_derived_expected_sites": 0,
+  "static_helper_calls_total": 0,
+  "static_imports_farelib": false,
+  "static_imports_fares": true,
+  "static_parse_ok": true,
+  "static_sut_calls_total": 4,
+  "static_test_funcs": 5,
+  "testfile_exists": true,
+  "variants": {
+   "model": {
+    "exit": 0,
+    "passed": true,
+    "ran": 5,
+    "tail": [
+     "Ran 5 tests in 0.001s",
+     "",
+     "OK"
+    ],
+    "tests_fail_verbose": 0,
+    "tests_ok_verbose": 5
+   },
+   "mutant_chargeable": {
+    "exit": 1,
+    "passed": false,
+    "ran": 5,
+    "tail": [
+     "Ran 5 tests in 0.009s",
+     "",
+     "FAILED (failures=4)"
+    ],
+    "tests_fail_verbose": 4,
+    "tests_ok_verbose": 1
+   },
+   "mutant_class": {
+    "exit": 1,
+    "passed": false,
+    "ran": 5,
+    "tail": [
+     "Ran 5 tests in 0.005s",
+     "",
+     "FAILED (failures=3)"
+    ],
+    "tests_fail_verbose": 3,
+    "tests_ok_verbose": 2
+   },
+   "mutant_rebate": {
+    "exit": 0,
+    "passed": true,
+    "ran": 5,
+    "tail": [
+     "Ran 5 tests in 0.001s",
+     "",
+     "OK"
+    ],
+    "tests_fail_verbose": 0,
+    "tests_ok_verbose": 5
+   },
+   "mutant_stack": {
+    "exit": 1,
+    "passed": false,
+    "ran": 5,
+    "tail": [
+     "Ran 5 tests in 0.004s",
+     "",
+     "FAILED (failures=2)"
+    ],
+    "tests_fail_verbose": 2,
+    "tests_ok_verbose": 3
+   },
+   "naive": {
+    "exit": 1,
+    "passed": false,
+    "ran": 5,
+    "tail": [
+     "Ran 5 tests in 0.006s",
+     "",
+     "FAILED (failures=4)"
+    ],
+    "tests_fail_verbose": 4,
+    "tests_ok_verbose": 1
+   },
+   "reference": {
+    "exit": 0,
+    "passed": true,
+    "ran": 5,
+    "tail": [
+     "Ran 5 tests in 0.001s",
+     "",
+     "OK"
+    ],
+    "tests_fail_verbose": 0,
+    "tests_ok_verbose": 5
+   }
+  },
+  "workspace": "/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep01-luna-main-draw1/workspace"
+ },
+ "non_convicting": false,
+ "own_test_executions": 4,
+ "own_tests_pass_on_naive": false,
+ "probe_executed": true,
+ "probe_like_log_lines": 3,
+ "probe_snippets": [
+  "/bin/bash -lc \"pwd && rg --files -g 'AGENTS.md' -g 'TESTING.md' -g 'fares.py' -g 'farelib.pyi' -g 'README.md' -g 'test_*.py' -g 'farelib*'\" in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-202",
+  "/bin/bash -lc 'cat README.md && cat farelib.pyi' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep01-luna-main-draw1/workspace",
+  "/bin/bash -lc \"python3 -c 'import farelib; from decimal import Decimal; print([(s, farelib.parse_passcode(s), farelib.class_for(farelib.parse_passcode(s))) for s in [\\\"18000\\\", \\\"18000-001\\\", \\\"19000\\\", \\\"50000\\\", \\\"7400"
+ ],
+ "ran_banners": [
+  5,
+  5
+ ],
+ "runner_exit": "0",
+ "tests_asserts": 7,
+ "tests_authored": true,
+ "tests_funcs": 5,
+ "tests_import_farelib": false,
+ "timeout_sec": "600",
+ "wall_seconds": "173"
+}

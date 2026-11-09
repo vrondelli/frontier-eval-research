@@ -1,0 +1,66 @@
+{
+  "case_id": "H3",
+  "condition_id": "minimal_reconstruction",
+  "files": [
+    {
+      "path": "input/task.txt",
+      "sha256": "abe1d858caa8782808bde25d00c26c8f41bffe15a4d2c8de6f84b8af496f9eb7",
+      "bytes": 2324
+    },
+    {
+      "path": "input/workspace/field_record_times.csv",
+      "sha256": "c7620e64267755c1d6898799b8c06a1d061dc55e4a5a48b87dc6322b25a7a88d",
+      "bytes": 1778052
+    },
+    {
+      "path": "input/workspace/README.md",
+      "sha256": "ef71fa95120099ce39e4c2102efe21c7059b94df37c06f51d726f279065315fd",
+      "bytes": 875
+    },
+    {
+      "path": "input/workspace/train.csv",
+      "sha256": "85a3017a6a687690c1c5ba955fc2641b1b024be738610e11ab9b7e5c1ff7d7a0",
+      "bytes": 344388
+    },
+    {
+      "path": "prompt.md",
+      "sha256": "07bec617563de89626c30c439367bb3038cf21e4a1ddf159f4bd703d0ae0f359",
+      "bytes": 86
+    },
+    {
+      "path": "PROVENANCE.json",
+      "sha256": "4c8656cb8246a55e02403b62802fa7a4d9fbdb8d7b4fb0b3f3ab4d0841ebff29",
+      "bytes": 1148
+    }
+  ],
+  "source_bindings": [
+    {
+      "source": "research/hackathon/frontier-hunt-20261106/round3/temporal-leakage/prompt.txt",
+      "destination": "packets/primary/H3/input/task.txt",
+      "sha256": "abe1d858caa8782808bde25d00c26c8f41bffe15a4d2c8de6f84b8af496f9eb7",
+      "bytes": 2324,
+      "exposure": "author_public_input"
+    },
+    {
+      "source": "research/hackathon/frontier-hunt-20261106/round3/temporal-leakage/workspace_template/field_record_times.csv",
+      "destination": "packets/primary/H3/input/workspace/field_record_times.csv",
+      "sha256": "c7620e64267755c1d6898799b8c06a1d061dc55e4a5a48b87dc6322b25a7a88d",
+      "bytes": 1778052,
+      "exposure": "author_public_input"
+    },
+    {
+      "source": "research/hackathon/frontier-hunt-20261106/round3/temporal-leakage/workspace_template/README.md",
+      "destination": "packets/primary/H3/input/workspace/README.md",
+      "sha256": "ef71fa95120099ce39e4c2102efe21c7059b94df37c06f51d726f279065315fd",
+      "bytes": 875,
+      "exposure": "author_public_input"
+    },
+    {
+      "source": "research/hackathon/frontier-hunt-20261106/round3/temporal-leakage/workspace_template/train.csv",
+      "destination": "packets/primary/H3/input/workspace/train.csv",
+      "sha256": "85a3017a6a687690c1c5ba955fc2641b1b024be738610e11ab9b7e5c1ff7d7a0",
+      "bytes": 344388,
+      "exposure": "author_public_input"
+    }
+  ]
+}

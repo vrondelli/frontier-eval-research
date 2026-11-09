@@ -1,0 +1,890 @@
+{
+  "subject": {
+    "id": "initial_screen/gpt-6.1-sol/H1",
+    "case_id": "H1",
+    "cohort": "initial_screen",
+    "model": "gpt-6.1-sol",
+    "native_status": "completed",
+    "package": "runs/screen/gpt-6.1-sol/H1/delivery",
+    "jobs": [
+      {
+        "name": "correct_applied",
+        "command": [
+          "bwrap",
+          "--die-with-parent",
+          "--unshare-all",
+          "--cap-drop",
+          "ALL",
+          "--clearenv",
+          "--ro-bind",
+          "/usr",
+          "/usr",
+          "--symlink",
+          "usr/lib",
+          "/lib",
+          "--symlink",
+          "usr/lib64",
+          "/lib64",
+          "--symlink",
+          "usr/bin",
+          "/bin",
+          "--proc",
+          "/proc",
+          "--dev",
+          "/dev",
+          "--tmpfs",
+          "/tmp",
+          "--setenv",
+          "PATH",
+          "/usr/bin:/bin",
+          "--setenv",
+          "LANG",
+          "C.UTF-8",
+          "--ro-bind",
+          "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H1/delivery",
+          "/subject",
+          "--ro-bind",
+          "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H1/correct_applied.json",
+          "/control.json",
+          "--chdir",
+          "/subject",
+          "/usr/bin/python3",
+          "-B",
+          "-c",
+          "import json;from evaluation.grader import grade;c=json.load(open('/control.json'));print(json.dumps(grade({'task_id':'E1','code':c['code'],'explanation':'Owner-authored executable control; prose is independently reviewed.'})))"
+        ],
+        "kind": "control",
+        "expected": true,
+        "family": "baseline",
+        "mapping_source": "grades/root-review/H1-SOL-REPLAY.json",
+        "mapping_sha256": "ce440eb4013bd5e44839a7f5e3b43310c19ce2c58e3948d029d8173f3a15d945"
+      },
+      {
+        "name": "correct_accepted",
+        "command": [
+          "bwrap",
+          "--die-with-parent",
+          "--unshare-all",
+          "--cap-drop",
+          "ALL",
+          "--clearenv",
+          "--ro-bind",
+          "/usr",
+          "/usr",
+          "--symlink",
+          "usr/lib",
+          "/lib",
+          "--symlink",
+          "usr/lib64",
+          "/lib64",
+          "--symlink",
+          "usr/bin",
+          "/bin",
+          "--proc",
+          "/proc",
+          "--dev",
+          "/dev",
+          "--tmpfs",
+          "/tmp",
+          "--setenv",
+          "PATH",
+          "/usr/bin:/bin",
+          "--setenv",
+          "LANG",
+          "C.UTF-8",
+          "--ro-bind",
+          "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H1/delivery",
+          "/subject",
+          "--ro-bind",
+          "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H1/correct_accepted.json",
+          "/control.json",
+          "--chdir",
+          "/subject",
+          "/usr/bin/python3",
+          "-B",
+          "-c",
+          "import json;from evaluation.grader import grade;c=json.load(open('/control.json'));print(json.dumps(grade({'task_id':'E1','code':c['code'],'explanation':'Owner-authored executable control; prose is independently reviewed.'})))"
+        ],
+        "kind": "control",
+        "expected": true,
+        "family": "baseline",
+        "mapping_source": "grades/root-review/H1-SOL-REPLAY.json",
+        "mapping_sha256": "ce440eb4013bd5e44839a7f5e3b43310c19ce2c58e3948d029d8173f3a15d945"
+      },
+      {
+        "name": "missing_ledger",
+        "command": [
+          "bwrap",
+          "--die-with-parent",
+          "--unshare-all",
+          "--cap-drop",
+          "ALL",
+          "--clearenv",
+          "--ro-bind",
+          "/usr",
+          "/usr",
+          "--symlink",
+          "usr/lib",
+          "/lib",
+          "--symlink",
+          "usr/lib64",
+          "/lib64",
+          "--symlink",
+          "usr/bin",
+          "/bin",
+          "--proc",
+          "/proc",
+          "--dev",
+          "/dev",
+          "--tmpfs",
+          "/tmp",
+          "--setenv",
+          "PATH",
+          "/usr/bin:/bin",
+          "--setenv",
+          "LANG",
+          "C.UTF-8",
+          "--ro-bind",
+          "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H1/delivery",
+          "/subject",
+          "--ro-bind",
+          "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H1/missing_ledger.json",
+          "/control.json",
+          "--chdir",
+          "/subject",
+          "/usr/bin/python3",
+          "-B",
+          "-c",
+          "import json;from evaluation.grader import grade;c=json.load(open('/control.json'));print(json.dumps(grade({'task_id':'E1','code':c['code'],'explanation':'Owner-authored executable control; prose is independently reviewed.'})))"
+        ],
+        "kind": "control",
+        "expected": false,
+        "family": "baseline",
+        "mapping_source": "grades/root-review/H1-SOL-REPLAY.json",
+        "mapping_sha256": "ce440eb4013bd5e44839a7f5e3b43310c19ce2c58e3948d029d8173f3a15d945"
+      },
+      {
+        "name": "wrong_payload_mismatch",
+        "command": [
+          "bwrap",
+          "--die-with-parent",
+          "--unshare-all",
+          "--cap-drop",
+          "ALL",
+          "--clearenv",
+          "--ro-bind",
+          "/usr",
+          "/usr",
+          "--symlink",
+          "usr/lib",
+          "/lib",
+          "--symlink",
+          "usr/lib64",
+          "/lib64",
+          "--symlink",
+          "usr/bin",
+          "/bin",
+          "--proc",
+          "/proc",
+          "--dev",
+          "/dev",
+          "--tmpfs",
+          "/tmp",
+          "--setenv",
+          "PATH",
+          "/usr/bin:/bin",
+          "--setenv",
+          "LANG",
+          "C.UTF-8",
+          "--ro-bind",
+          "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H1/delivery",
+          "/subject",
+          "--ro-bind",
+          "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H1/wrong_payload_mismatch.json",
+          "/control.json",
+          "--chdir",
+          "/subject",
+          "/usr/bin/python3",
+          "-B",
+          "-c",
+          "import json;from evaluation.grader import grade;c=json.load(open('/control.json'));print(json.dumps(grade({'task_id':'E1','code':c['code'],'explanation':'Owner-authored executable control; prose is independently reviewed.'})))"
+        ],
+        "kind": "control",
+        "expected": false,
+        "family": "baseline",
+        "mapping_source": "grades/root-review/H1-SOL-REPLAY.json",
+        "mapping_sha256": "ce440eb4013bd5e44839a7f5e3b43310c19ce2c58e3948d029d8173f3a15d945"
+      },
+      {
+        "name": "wrong_debit",
+        "command": [
+          "bwrap",
+          "--die-with-parent",
+          "--unshare-all",
+          "--cap-drop",
+          "ALL",
+          "--clearenv",
+          "--ro-bind",
+          "/usr",
+          "/usr",
+          "--symlink",
+          "usr/lib",
+          "/lib",
+          "--symlink",
+          "usr/lib64",
+          "/lib64",
+          "--symlink",
+          "usr/bin",
+          "/bin",
+          "--proc",
+          "/proc",
+          "--dev",
+          "/dev",
+          "--tmpfs",
+          "/tmp",
+          "--setenv",
+          "PATH",
+          "/usr/bin:/bin",
+          "--setenv",
+          "LANG",
+          "C.UTF-8",
+          "--ro-bind",
+          "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H1/delivery",
+          "/subject",
+          "--ro-bind",
+          "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H1/wrong_debit.json",
+          "/control.json",
+          "--chdir",
+          "/subject",
+          "/usr/bin/python3",
+          "-B",
+          "-c",
+          "import json;from evaluation.grader import grade;c=json.load(open('/control.json'));print(json.dumps(grade({'task_id':'E1','code':c['code'],'explanation':'Owner-authored executable control; prose is independently reviewed.'})))"
+        ],
+        "kind": "control",
+        "expected": false,
+        "family": "baseline",
+        "mapping_source": "grades/root-review/H1-SOL-REPLAY.json",
+        "mapping_sha256": "ce440eb4013bd5e44839a7f5e3b43310c19ce2c58e3948d029d8173f3a15d945"
+      },
+      {
+        "name": "wrong_B_reply_sibling",
+        "command": [
+          "bwrap",
+          "--die-with-parent",
+          "--unshare-all",
+          "--cap-drop",
+          "ALL",
+          "--clearenv",
+          "--ro-bind",
+          "/usr",
+          "/usr",
+          "--symlink",
+          "usr/lib",
+          "/lib",
+          "--symlink",
+          "usr/lib64",
+          "/lib64",
+          "--symlink",
+          "usr/bin",
+          "/bin",
+          "--proc",
+          "/proc",
+          "--dev",
+          "/dev",
+          "--tmpfs",
+          "/tmp",
+          "--setenv",
+          "PATH",
+          "/usr/bin:/bin",
+          "--setenv",
+          "LANG",
+          "C.UTF-8",
+          "--ro-bind",
+          "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H1/delivery",
+          "/subject",
+          "--ro-bind",
+          "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/meta_eval/controls/H1/wrong_B_reply_v2.json",
+          "/control.json",
+          "--chdir",
+          "/subject",
+          "/usr/bin/python3",
+          "-B",
+          "-c",
+          "import json;from evaluation.grader import grade;c=json.load(open('/control.json'));print(json.dumps(grade({'task_id':'E1','code':c['code'],'explanation':'Owner-authored executable control; prose is independently reviewed.'})))"
+        ],
+        "kind": "control",
+        "expected": false,
+        "family": "sibling"
+      },
+      {
+        "name": "independent_reference_core",
+        "kind": "reference_core",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-6b4d7aaf0ddb4548b04aebb9d75ad75d",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H1/delivery/examples/reference_service.py,target=/reference.py,readonly",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/check_cases.py,target=/checker.py,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import json,runpy\nfrom pathlib import Path\nm=runpy.run_path('/checker.py');ok,ev=m['check_h1']({'code':Path('/reference.py').read_text()});print(json.dumps({'ok':ok,'evidence':ev}))\n"
+        ]
+      },
+      {
+        "name": "independent_reference_concurrency",
+        "kind": "reference_boundary",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-53083e6afd4641138873ac32a6ac1a00",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H1/delivery/examples/reference_service.py,target=/reference.py,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import importlib.util,json,multiprocessing,sqlite3,tempfile\nspec=importlib.util.spec_from_file_location('owner_checked_reference','/reference.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)\nrows=[]\nfor repeat in range(3):\n with tempfile.TemporaryDirectory()as folder:\n  path=folder+'/db';m.Service(path);ctx=multiprocessing.get_context('fork');gate=ctx.Barrier(2);q=ctx.Queue()\n  def worker(key):\n   try:\n    s=m.Service(path);gate.wait(timeout=6);r=s.apply({'key':key,'account':'A','amount':60});q.put({'key':key,'reply':r})\n   except Exception as e:q.put({'key':key,'error':repr(e)})\n  processes=[ctx.Process(target=worker,args=(key,))for key in ['x','y']]\n  for p in processes:p.start()\n  replies=[q.get(timeout=10)for _ in processes]\n  for p in processes:p.join(timeout=6)\n  ok=all('reply'in r for r in replies)\n  if ok:\n   accepted=sum(r['reply']['status']in ['accepted','applied']for r in replies);ok=accepted==1 and all(r['reply']['remaining']==40 for r in replies)\n   ok=ok and all(m.Service(path).apply({'key':r['key'],'account':'A','amount':60})==r['reply']for r in replies)\n  with sqlite3.connect(path)as db:ok=ok and db.execute(\"select remaining from accounts where account='A'\").fetchone()[0]==40 and db.execute('select count(*)from ledger').fetchone()[0]==1\n  rows.append({'pass':ok,'replies':replies})\nprint(json.dumps({'ok':all(r['pass']for r in rows),'repetitions':rows}))\n"
+        ]
+      },
+      {
+        "name": "author_verification",
+        "kind": "selftests",
+        "command": [
+          "bwrap",
+          "--die-with-parent",
+          "--unshare-all",
+          "--ro-bind",
+          "/usr",
+          "/usr",
+          "--symlink",
+          "usr/lib",
+          "/lib",
+          "--symlink",
+          "usr/lib64",
+          "/lib64",
+          "--symlink",
+          "usr/bin",
+          "/bin",
+          "--proc",
+          "/proc",
+          "--dev",
+          "/dev",
+          "--tmpfs",
+          "/tmp",
+          "--clearenv",
+          "--setenv",
+          "PATH",
+          "/usr/bin:/bin",
+          "--ro-bind",
+          "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H1/delivery",
+          "/subject",
+          "--chdir",
+          "/tmp",
+          "/usr/bin/python3",
+          "-B",
+          "-c",
+          "import json,os,shutil,subprocess,sys\nfrom pathlib import Path\nshutil.copytree('/subject','/tmp/eval');os.chdir('/tmp/eval');env=dict(os.environ);env['PYTHONPATH']='/tmp/eval:/tmp/eval/evaluation'\np=subprocess.run([sys.executable,'-B','-c',\"import json,runpy,sys,unittest\\nfrom pathlib import Path\\nevents={'unittest_cases_entered':0,'native_grader_calls':0}\\ncase_code=unittest.TestCase.run.__code__\\ndef observe(frame,event,arg):\\n if event=='call':\\n  if frame.f_code is case_code:events['unittest_cases_entered']+=1\\n  if frame.f_code.co_filename.startswith('/tmp/eval/')and frame.f_code.co_name in ['grade','evaluate','run_suite']:events['native_grader_calls']+=1\\nsys.argv=['-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test*.py'];status=0;sys.setprofile(observe)\\ntry:\\n if sys.argv[0]=='-m':\\n  module=sys.argv[1];sys.argv=sys.argv[1:];runpy.run_module(module,run_name='__main__',alter_sys=True)\\n else:runpy.run_path(sys.argv[0],run_name='__main__')\\nexcept SystemExit as e:status=e.code or 0\\nfinally:\\n sys.setprofile(None);Path('/tmp/owner-verification-events.json').write_text(json.dumps(events))\\nraise SystemExit(status)\\n\"],capture_output=True,text=True,env=env,timeout=180)\nreport=Path('/tmp/eval/evaluation/selftest-report.json')\nevents=Path('/tmp/owner-verification-events.json')\nprint(json.dumps({'native_exit':p.returncode,'stdout':p.stdout,'stderr':p.stderr,'observed_execution_events':json.loads(events.read_text())if events.exists()else None,'verification_report':json.loads(report.read_text())if report.exists()else None}))\n"
+        ],
+        "timeout": 210
+      }
+    ],
+    "review_evidence": [
+      "grades/semantic-review/H1-INDEPENDENT.json",
+      "grades/semantic-review/H1-SOL-LITERAL-PAIR.json",
+      "grades/owner-review/sol-H1-FULL-BWRAP.json"
+    ],
+    "historical_verified_dimensions": [
+      "hidden_required_status_literal_false_reject"
+    ],
+    "reference": "examples/reference_service.py"
+  },
+  "scoring": {
+    "score_interval": [
+      57.5,
+      82.5
+    ],
+    "verdict": "counterexample_reproduced_review_pending",
+    "critical_failures": [
+      "B2",
+      "D2"
+    ],
+    "qualified": false,
+    "points_observed_pass": 57.5,
+    "points_observed_fail": 17.5,
+    "points_unresolved": 25.0
+  },
+  "checks": [
+    {
+      "id": "A1",
+      "points": 5,
+      "description": "Delivered grader actually executes",
+      "status": "pass",
+      "reason": "Actual delivered grading functions executed on independently supplied controls.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/00-correct_applied.json",
+          "sha256": "9bedc58aab84ff962b04339b768668d58121016fb258e182d9ba8fd20a097185"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/01-correct_accepted.json",
+          "sha256": "3c00230b44f66cb32b6c05d3fcd3d4769d027634b6f3637e0aeddb001b324c83"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/02-missing_ledger.json",
+          "sha256": "f0034315c23be5f38fccaf18f501ea99dd2870d76e41e08ce5bc78835cd98863"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/03-wrong_payload_mismatch.json",
+          "sha256": "1bf0140b1569332ed1e0d1aa50c4efb12d43ee67078d9ff10b610fdb2107d9bb"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/04-wrong_debit.json",
+          "sha256": "bf38748d742a335589e54b733415fdcd7be4d8b6cc6865ad714f11467e37c246"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/05-wrong_B_reply_sibling.json",
+          "sha256": "156be3526e39a75b1e61226a0ca2cb20444cab2c3c8be4d5dde232b66ca331f4"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "A2",
+      "points": 5,
+      "description": "Delivered verification/runner executes in clean disposable state",
+      "status": "pass",
+      "reason": "Delivered verification suite reproduced in clean temporary copy under the supplied runtime; this does not establish all CLI paths.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/08-author_verification.json",
+          "sha256": "42b5a72c16802b92aaf06bcbc5a410b55bc5ea77255f96118f943dc20944959f"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "B1",
+      "points": 7.5,
+      "description": "Source requirements preserved",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "B2",
+      "points": 7.5,
+      "description": "Graded requirements exposed to solver",
+      "status": "fail",
+      "reason": "Reproduced correct-alternative rejection; source-bound review identifies accepted-only rule omitted from documented solver views. Human adjudication pending.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/00-correct_applied.json",
+          "sha256": "9bedc58aab84ff962b04339b768668d58121016fb258e182d9ba8fd20a097185"
+        },
+        {
+          "path": "owner/contracts/H1.md",
+          "sha256": "b49fb83b8f1cbb64194cd6902e13a0324782c08c1d6cc898211c9733649ac8ef"
+        }
+      ],
+      "method": "executed_plus_source_review",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "C1",
+      "points": 7.5,
+      "description": "Reference independently passes core semantics",
+      "status": "pass",
+      "reason": "Delivered reference tested by independent owner Service/SQLite core or three-process-overlap checker.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/06-independent_reference_core.json",
+          "sha256": "9938c6b73bbfb58cab72246c683ffe0eee81e095c84873fe44962721f6feeb31"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "C2",
+      "points": 7.5,
+      "description": "Reference independently passes boundary semantics",
+      "status": "pass",
+      "reason": "Delivered reference tested by independent owner Service/SQLite core or three-process-overlap checker.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/07-independent_reference_concurrency.json",
+          "sha256": "c2b036a2710808b5661ba8b075729cf2c99581413c583318789fbc48cf379ab9"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "D1",
+      "points": 10,
+      "description": "Baseline correct control accepted",
+      "status": "pass",
+      "reason": "Independent baseline correct control under the recorded public interface.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/01-correct_accepted.json",
+          "sha256": "3c00230b44f66cb32b6c05d3fcd3d4769d027634b6f3637e0aeddb001b324c83"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "D2",
+      "points": 10,
+      "description": "Correct alternative/representation accepted",
+      "status": "fail",
+      "reason": "Independent correct alternatives/representations under the recorded public interface.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/00-correct_applied.json",
+          "sha256": "9bedc58aab84ff962b04339b768668d58121016fb258e182d9ba8fd20a097185"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "E1",
+      "points": 10,
+      "description": "Baseline faulty controls rejected",
+      "status": "pass",
+      "reason": "Actual native verdicts on independently labeled finite faulty-control family; controls macro-averaged within family.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/02-missing_ledger.json",
+          "sha256": "f0034315c23be5f38fccaf18f501ea99dd2870d76e41e08ce5bc78835cd98863"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/03-wrong_payload_mismatch.json",
+          "sha256": "1bf0140b1569332ed1e0d1aa50c4efb12d43ee67078d9ff10b610fdb2107d9bb"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/04-wrong_debit.json",
+          "sha256": "bf38748d742a335589e54b733415fdcd7be4d8b6cc6865ad714f11467e37c246"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "subchecks": [
+        {
+          "name": "missing_ledger",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/02-missing_ledger.json",
+              "sha256": "f0034315c23be5f38fccaf18f501ea99dd2870d76e41e08ce5bc78835cd98863"
+            }
+          ],
+          "points": 3.3333333333333335
+        },
+        {
+          "name": "wrong_payload_mismatch",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/03-wrong_payload_mismatch.json",
+              "sha256": "1bf0140b1569332ed1e0d1aa50c4efb12d43ee67078d9ff10b610fdb2107d9bb"
+            }
+          ],
+          "points": 3.3333333333333335
+        },
+        {
+          "name": "wrong_debit",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/04-wrong_debit.json",
+              "sha256": "bf38748d742a335589e54b733415fdcd7be4d8b6cc6865ad714f11467e37c246"
+            }
+          ],
+          "points": 3.3333333333333335
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "points": 10,
+      "description": "Fresh sibling faults rejected",
+      "status": "pass",
+      "reason": "Actual native verdicts on independently labeled finite faulty-control family; controls macro-averaged within family.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/05-wrong_B_reply_sibling.json",
+          "sha256": "156be3526e39a75b1e61226a0ca2cb20444cab2c3c8be4d5dde232b66ca331f4"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "subchecks": [
+        {
+          "name": "wrong_B_reply_sibling",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/05-wrong_B_reply_sibling.json",
+              "sha256": "156be3526e39a75b1e61226a0ca2cb20444cab2c3c8be4d5dde232b66ca331f4"
+            }
+          ],
+          "points": 10.0
+        }
+      ]
+    },
+    {
+      "id": "F1",
+      "points": 5,
+      "description": "Required isolation boundaries qualified",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "F2",
+      "points": 5,
+      "description": "Required measurement/accounting checked independently",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "G1",
+      "points": 2.5,
+      "description": "Delivered verification controls execute",
+      "status": "pass",
+      "reason": "Observed 25 actual unittest-case entries and 10 native grading calls under an owner-side profiler. Control-label correctness is a separate review.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/08-author_verification.json",
+          "sha256": "42b5a72c16802b92aaf06bcbc5a410b55bc5ea77255f96118f943dc20944959f"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "G2",
+      "points": 2.5,
+      "description": "Verification claims independently match observations",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "H1",
+      "points": 2.5,
+      "description": "Numerical claims agree with evidence",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "H2",
+      "points": 2.5,
+      "description": "Material conclusions supported",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    }
+  ],
+  "native_control_results": [
+    {
+      "name": "correct_applied",
+      "expected": true,
+      "actual": false,
+      "valid": true,
+      "family": "baseline",
+      "evidence": {
+        "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/00-correct_applied.json",
+        "sha256": "9bedc58aab84ff962b04339b768668d58121016fb258e182d9ba8fd20a097185"
+      }
+    },
+    {
+      "name": "correct_accepted",
+      "expected": true,
+      "actual": true,
+      "valid": true,
+      "family": "baseline",
+      "evidence": {
+        "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/01-correct_accepted.json",
+        "sha256": "3c00230b44f66cb32b6c05d3fcd3d4769d027634b6f3637e0aeddb001b324c83"
+      }
+    },
+    {
+      "name": "missing_ledger",
+      "expected": false,
+      "actual": false,
+      "valid": true,
+      "family": "baseline",
+      "evidence": {
+        "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/02-missing_ledger.json",
+        "sha256": "f0034315c23be5f38fccaf18f501ea99dd2870d76e41e08ce5bc78835cd98863"
+      }
+    },
+    {
+      "name": "wrong_payload_mismatch",
+      "expected": false,
+      "actual": false,
+      "valid": true,
+      "family": "baseline",
+      "evidence": {
+        "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/03-wrong_payload_mismatch.json",
+        "sha256": "1bf0140b1569332ed1e0d1aa50c4efb12d43ee67078d9ff10b610fdb2107d9bb"
+      }
+    },
+    {
+      "name": "wrong_debit",
+      "expected": false,
+      "actual": false,
+      "valid": true,
+      "family": "baseline",
+      "evidence": {
+        "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/04-wrong_debit.json",
+        "sha256": "bf38748d742a335589e54b733415fdcd7be4d8b6cc6865ad714f11467e37c246"
+      }
+    },
+    {
+      "name": "wrong_B_reply_sibling",
+      "expected": false,
+      "actual": false,
+      "valid": true,
+      "family": "sibling",
+      "evidence": {
+        "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/05-wrong_B_reply_sibling.json",
+        "sha256": "156be3526e39a75b1e61226a0ca2cb20444cab2c3c8be4d5dde232b66ca331f4"
+      }
+    }
+  ],
+  "execution_receipts": [
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/00-correct_applied.json",
+      "sha256": "9bedc58aab84ff962b04339b768668d58121016fb258e182d9ba8fd20a097185"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/01-correct_accepted.json",
+      "sha256": "3c00230b44f66cb32b6c05d3fcd3d4769d027634b6f3637e0aeddb001b324c83"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/02-missing_ledger.json",
+      "sha256": "f0034315c23be5f38fccaf18f501ea99dd2870d76e41e08ce5bc78835cd98863"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/03-wrong_payload_mismatch.json",
+      "sha256": "1bf0140b1569332ed1e0d1aa50c4efb12d43ee67078d9ff10b610fdb2107d9bb"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/04-wrong_debit.json",
+      "sha256": "bf38748d742a335589e54b733415fdcd7be4d8b6cc6865ad714f11467e37c246"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/05-wrong_B_reply_sibling.json",
+      "sha256": "156be3526e39a75b1e61226a0ca2cb20444cab2c3c8be4d5dde232b66ca331f4"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/06-independent_reference_core.json",
+      "sha256": "9938c6b73bbfb58cab72246c683ffe0eee81e095c84873fe44962721f6feeb31"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/07-independent_reference_concurrency.json",
+      "sha256": "c2b036a2710808b5661ba8b075729cf2c99581413c583318789fbc48cf379ab9"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H1/08-author_verification.json",
+      "sha256": "42b5a72c16802b92aaf06bcbc5a410b55bc5ea77255f96118f943dc20944959f"
+    }
+  ],
+  "instrument_observations": [],
+  "subject_unchanged": true,
+  "subject_before_sha256": {
+    ".gitignore": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793",
+    "EVALUATION-PROVENANCE.json": "b89d895c8fe56111c2ddfd771405b4bd643fe4d9cbf8da7773aa217037a8541c",
+    "MANIFEST.json": "5f38525a68615f92a667ff2ac5d03a77e1f7759945e8220b259ed533a3cb27ea",
+    "PROVENANCE.json": "b16d9b3da0364a2bf86f281985290973da518b8d7b3929f6a0e39c33e3540a6b",
+    "README.md": "1f835d3e95b4b75153ee66808438e8b42dd65b58be5d42a4522e4553320f70ed",
+    "REVIEW-RUBRIC.md": "dc057d9f413bd50762e240cb62c2d728530c3727d67c790ef4d0df1e9aedef01",
+    "VALIDATION.md": "4e15cb9ab9fb2b0fa7e41b384db7c506728945d4b4676bc4466b62030c0ccc77",
+    "benchmark.py": "08cfb613ee639da8c8a323299ca57b8747c7b7b4ca9fc5a115d33c7815a5ce22",
+    "evaluation/__init__.py": "9b19bfaf54aab1d777df2b8b6e9d64ea740f7f5805fcb0e4a41d32579291a653",
+    "evaluation/grader.py": "8c372b365f58f20a661581eb9b29c039cc84536fa77990d856bb45d799efe366",
+    "evaluation/inspector.py": "c471916b7a2f57861a90d29dcb807f411cd19ce89b628506536b33ac99fc02e3",
+    "evaluation/oracle.py": "1ed558d201c0d07132c696d6f524340f6ce43ac3fee56404587e894da4c994f6",
+    "evaluation/protocol.py": "160c51ce3a53911ad97800eeff27254f895a19fd3e888f710a0dcf7597b00a3f",
+    "evaluation/sandbox.py": "6d101a5cda5dc51f9c9b6fe583ec462fc004eed7c6886ecb82e0bb2a0b1b7dbe",
+    "evaluation/worker.py": "268d2415033fea85604e5cf29cf3e358687d9dbd8019a69fe2214a35d1b8f7db",
+    "examples/E1.json": "69c75534ba1c8b47c5aaa6dadfd5f1e37e58ac396d8d692bd5c6259548befe2b",
+    "examples/conditional_update_service.py": "ccb51e724d1ea79205b80c38025dead25bf97b84e5c41bd5aea280749644e04a",
+    "examples/reference_explanation.txt": "daccc0b9f07af3d2289c2d8f7cd57ed3d88334619c9607e0c4d283801aa53dc6",
+    "examples/reference_service.py": "55cf44169f5efead5af1a501825f0e68934be56b6697b88ac8af2c3e6f6f642f",
+    "input/E1.md": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+    "input/README.md": "4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77",
+    "prompt.md": "df6180cbe0ef1a14781dbf0b50e0d29490876cf466dc39a865f24ea9e64825d0",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/test_evaluation.py": "aa527d0ef790336bba327e5044c7c9360bb74c1cb108c9982be702c08778f1de",
+    "tests/test_integration.py": "77bbf73a377b433887a3ad8e38844b3bffe7b0cb4db829207cb1826e4402f742",
+    "validation-results.json": "37dcdaed3c42e6970c5e1e19b76feb08fe2dd09eea18a7565a3c8713558c5181",
+    "verify_evaluation.py": "e8084aecaf2fc0975aeb0b8a6ae0562b4edaf5e203a9caaa70746b851ee2ce43"
+  },
+  "human_review_complete": false,
+  "scope": "Executable meta-evaluation on the finite registered checks; unqualified semantic/boundary claims remain unresolved."
+}

@@ -1,0 +1,5 @@
+Implemented `settle_invoices` with strict ASCII validation, exact `Decimal` calculations, and the required rounding and aggregation. Added independent standard-library tests in [test_invoices.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s2-telecom-invoice/episodes/ep03-luna-main-draw3/workspace/test_invoices.py).
+
+The documented `tellib` behavior differed from the business rules in several areas, so the implementation follows the rules directly.
+
+Verification: `python3 -m unittest test_invoices test_visible` passed all 14 tests. **Tool calls: 13.**

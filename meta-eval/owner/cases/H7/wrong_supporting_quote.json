@@ -1,0 +1,61 @@
+{
+  "case_id": "H7",
+  "kind": "field_extraction",
+  "request": {
+    "target": {
+      "path": "Amber",
+      "load_profile": "Q1",
+      "activity": "seal inspections"
+    },
+    "fields": [
+      "path",
+      "load_profile",
+      "metric",
+      "value_ms",
+      "sample_count",
+      "time_scope",
+      "rejection_rate",
+      "deployment_region"
+    ],
+    "metric_vocabulary": {
+      "object_read_p95": "95th-percentile object-read latency",
+      "seal_inspection_p90": "90th-percentile seal-inspection latency"
+    },
+    "unknown": "unspecified"
+  },
+  "report": "A synthetic check measured Amber lane seal inspections under load Q1 at 14:05 UTC, using 4,900 requests.\nFor Amber in that run, the 90th-percentile seal-inspection completion time was 18.2 milliseconds.\nThe slowest tenth of Amber seal inspections began at 18.2 milliseconds.\nThe Amber average was 8.5 milliseconds; it was not 18.2 milliseconds.\nFor Silver under load Q1, the 90th-percentile seal-inspection completion time was 29.6 milliseconds from 1,200 requests.\nNo rejection rate was measured, and no deployment region is specified.\n",
+  "extraction": {
+    "path": {
+      "value": "Amber",
+      "quote": "Amber"
+    },
+    "load_profile": {
+      "value": "Q1",
+      "quote": "Q1"
+    },
+    "metric": {
+      "value": "seal_inspection_p90",
+      "quote": "For Amber in that run, the 90th-percentile seal-inspection completion time was 18.2 milliseconds."
+    },
+    "value_ms": {
+      "value": "18.2",
+      "quote": "8.5 milliseconds"
+    },
+    "sample_count": {
+      "value": "4900",
+      "quote": "4,900 requests"
+    },
+    "time_scope": {
+      "value": "14:05-UTC",
+      "quote": "14:05 UTC"
+    },
+    "rejection_rate": {
+      "value": "unspecified",
+      "quote": ""
+    },
+    "deployment_region": {
+      "value": "unspecified",
+      "quote": ""
+    }
+  }
+}

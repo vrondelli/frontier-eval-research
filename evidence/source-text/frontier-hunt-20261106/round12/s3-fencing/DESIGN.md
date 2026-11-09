@@ -1,0 +1,11 @@
+> Archived source excerpt. Original location: `frontier-hunt-20261106/round12/s3-fencing/DESIGN.md`. Relative links below describe original archive paths. This copy does not assert current live status.
+
+# S3 — Resumed obsolete-generation screen
+
+Eight implementation episodes, two surfaces × four draws, interleaved, no top-ups. Every output receives four deterministic logical traces. Gates and traces are checks, not additional model calls. HIT>=3/8 with primary on both surfaces; KILL0/8; 1–2 inconclusive. Any hit receives independent audit and fresh separately frozen confirmation. Model gpt-6-luna/high cap600; grader30 seconds on copied workspaces.
+
+Primary is a protected value that was correctly committed by newer generation B/C, then actually changes to the stale write payload from older generation A/B after that old owner resumes. Before value, after value, operation and token witness this. It requires before==the registered newer committed value and after==the stale payload, so unrelated corrupted outputs do not count. Rejection of current owners, exact-expiry errors, missing outputs, runtime failures and wrong generic payloads are secondary; control_pass separately reports ordinary expiry/acquire/renew correctness. A method's return alone does not establish mutation. Current lease activity never licenses older tokens.
+
+The task explicitly fixes generation allocation, busy/same-owner acquire, exact expiry now>=expiry, renewal and persistent resource-value behavior. No timing, network or scheduler luck. Independent pure transition reducer plus hand-derived finite table qualifies expected outputs; correct fencing reference passes, lease-only/no-fence comparator passes ordinary traces but changes stale data, reject-all/wrong-payload controls fail overall without primary, immutable-input tamper is separate.
+
+Nearest predecessors are R8 simultaneous shared-file atomicity and R10 process death/crash persistence. This paused-but-resumed live former owner is neither; distinct from S1 revision reconciliation and C2 uncertain commits. Local novelty is bounded, not publication novelty. Original rounds remain closed. Root owns independent review, freeze and model launches.

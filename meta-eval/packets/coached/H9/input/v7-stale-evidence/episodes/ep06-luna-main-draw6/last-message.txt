@@ -1,0 +1,3 @@
+Implemented both phases in [tags.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v7-stale-evidence/episodes/ep06-luna-main-draw6/workspace/tags.py) and [normalize.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v7-stale-evidence/episodes/ep06-luna-main-draw6/workspace/normalize.py). Tags are now deduplicated after normalization, empty results are dropped, and normalization removes at most one leading hash after whitespace.
+
+Verified the final implementation with `python3 -m unittest test_visible` (11 tests passed) and additional Phase 2 prefix checks.

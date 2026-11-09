@@ -1,0 +1,1650 @@
+OpenAI Codex v0.167.0
+--------
+workdir: /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace
+model: gpt-6-luna
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: high
+reasoning summaries: none
+session id: 01a1b78f-33bd-7ca0-b9ec-904693d17837
+--------
+user
+You are working in a workspace containing a small cron next-fire task. Use the available tools. Standard library only; use the standard library zoneinfo module for time zones. Do not modify test_visible.py or SPEC.md.
+
+TASK: Implement next_fire(expr, after_iso, tz_name) in cron_next.py in the workspace root, replacing the skeleton, exactly as specified in SPEC.md in the workspace. The full text of SPEC.md is reproduced below and is the requirement, exactly. A provided test file test_visible.py is also present in the workspace.
+
+No worked input-output pair for the daylight-saving, DOM/DOW-interaction, or horizon rules is supplied beyond what SPEC.md and test_visible.py state. Derive your own check cases from SPEC.md (see Deliverables there: you must also create test_own.py).
+
+----- SPEC.md -----
+
+# SPEC — cron next-fire
+
+Implement `next_fire(expr, after_iso, tz_name)` in `cron_next.py`.
+
+`next_fire` returns the next fire instant of a 5-field cron expression,
+strictly after a given instant, where matching is done on local
+wall-clock time in a named time zone. It returns that instant in UTC.
+
+## Signature and inputs
+
+- `expr` is a string: a 5-field cron expression (syntax below).
+- `after_iso` is a string giving a UTC instant in exactly the form
+  `YYYY-MM-DDTHH:MM:SSZ` (four-digit year, two-digit month, day, hour,
+  minute, second; letter `T` between date and time; letter `Z` at the
+  end; no offset, no other characters). The date/time must be real
+  (for example 30 February is not real) and seconds must be 00–59.
+- `tz_name` is a string giving an IANA time zone name such as
+  `America/New_York`, `Australia/Sydney`, or `UTC`. Use the standard
+  library `zoneinfo` module for time zones.
+
+Return value: a single string giving the fire instant as a UTC instant
+in exactly the form `YYYY-MM-DDTHH:MM:SSZ`. Fire instants are at minute
+resolution, so the seconds in the return value are always `00`.
+
+## Cron field syntax
+
+`expr` consists of exactly 5 fields, in this order:
+
+    minute  hour  day-of-month  month  day-of-week
+
+Leading and trailing whitespace in `expr` is ignored. Fields are
+separated by one or more whitespace characters. Anything else
+(including `@daily`-style nicknames, a seconds field, a year field,
+and the special characters `?`, `L`, `W`, `#`) is not supported and
+is invalid.
+
+Field ranges:
+
+| Field | Allowed values | Names |
+|---|---|---|
+| minute | 0–59 | none |
+| hour | 0–23 | none |
+| day-of-month (DOM) | 1–31 | none |
+| month | 1–12 | `JAN`–`DEC` |
+| day-of-week (DOW) | 0–7 | `SUN`–`SAT` |
+
+- Names are exactly three letters, case-insensitive (`jan`, `Jan`,
+  `JAN` are the same). Full names such as `JANUARY` or `MONDAY` are
+  invalid. A name is only valid in its own field (a month name in the
+  DOW field is invalid, and vice versa; any name in minute, hour, or
+  DOM is invalid).
+- Month names map `JAN`=1 … `DEC`=12. DOW names map `SUN`=0, `MON`=1,
+  `TUE`=2, `WED`=3, `THU`=4, `FRI`=5, `SAT`=6.
+- In DOW, both 0 and 7 mean Sunday.
+- Numbers are decimal digits only, with no sign. Leading zeros are
+  allowed (`05` means 5).
+
+Each field is a comma-separated list of one or more elements. There
+must be no empty element (no leading comma, trailing comma, or double
+comma). Duplicate values from overlapping elements have no effect.
+
+Each element is exactly one of:
+
+- `*` — every value in the field range.
+- `a` — a single value (a number, or a name where names are allowed).
+- `a-b` — the inclusive range from `a` to `b`. Endpoints may be names
+  where names are allowed (for example `MON-FRI`). After mapping
+  names to numbers, `a` must be less than or equal to `b`; wrapping
+  ranges are invalid (for example `FRI-MON` is invalid because 5 > 1,
+  and `5-2` is invalid). Note that because `SUN` maps to 0, the range
+  `FRI-SUN` is invalid; write `5-7` (or a list) for Friday through
+  Sunday.
+- `*/s` — every `s`-th value of the full field range, starting at the
+  smallest value of the range.
+- `a-b/s` — every `s`-th value of the inclusive range `a-b`, starting
+  at `a`: the values `a`, `a+s`, `a+2s`, … not exceeding `b`.
+  Example: in the minute field, `2-20/3` means 2, 5, 8, 11, 14, 17, 20.
+
+`s` (the step) must be a positive integer (1 or more). A single value
+with a step, such as `5/10`, is NOT a supported element form and is
+invalid; steps are allowed only as `*/s` and `a-b/s` above.
+
+For DOW, `*` means the full range 0–7 before Sunday is collapsed:
+values 0 and 7 are both Sunday, so `*`, `*/1`, and `0-7` all mean
+every day of the week, and for example `5-7` means Friday, Saturday,
+Sunday.
+
+## Matching: which local wall times fire
+
+A fire instant is determined by its local wall-clock time in the
+time zone named by `tz_name`. The wall time's minute, hour,
+day-of-month, and month must each be in the corresponding field's
+value set, and the date must satisfy the DOM/DOW rule below.
+
+DOM/DOW rule (read carefully — this is the classic cron trap):
+
+- A field is called *restricted* if its value set is not the full
+  range for that field. So `*`, `*/1`, `1-31` in DOM, and `*`, `*/1`,
+  `0-7` in DOW are unrestricted; any smaller set is restricted.
+- If BOTH day-of-month and day-of-week are restricted, a date matches
+  when day-of-month matches OR day-of-week matches (either one is
+  enough). For example `0 9 15 * MON` fires at 09:00 on the 15th of
+  every month AND at 09:00 on every Monday.
+- Otherwise (at least one of DOM and DOW is unrestricted), a date
+  matches when day-of-month matches AND day-of-week matches (an
+  unrestricted field always matches, so in this case the restricted
+  field, if any, alone decides).
+
+A day-of-month value that does not occur in a given month (such as
+31 in April, or 29 in February of a non-leap year) simply never
+matches in that month. By itself that is not an error.
+
+## DST: nonexistent and ambiguous local wall times
+
+Matching is on local wall time, and two special cases arise at
+daylight-saving transitions. They are part of the requirement:
+
+- Nonexistent wall times DO NOT fire. When clocks spring forward, a
+  range of local wall-clock times does not occur on that date. A
+  matching wall time in that range produces no fire at all (it is
+  not shifted to another time). The next fire is the next matching
+  wall time that does occur (which may be later on the same date).
+- Ambiguous wall times fire at their FIRST occurrence only. When
+  clocks fall back, a range of local wall-clock times occurs twice
+  on that date. A matching wall time in that range fires only at
+  the first of its two occurrences (the one with the earlier UTC
+  instant). The second occurrence is never a fire instant: in
+  particular, if `after_iso` is at or after the first occurrence
+  but before the second occurrence of a matching ambiguous wall
+  time, that wall time must not be returned again at its second
+  occurrence; the next later matching wall time is the answer.
+
+## Strictly after, and seconds
+
+The returned instant must be strictly after the instant given by
+`after_iso`, compared as instants. Fire instants always have seconds
+`00`, but `after_iso` may have non-zero seconds, and there is no
+rounding of `after_iso`: for example if a fire instant is at
+09:00:00Z, then `after_iso` = 08:59:59Z on that date returns that
+09:00:00Z instant, while `after_iso` equal to 09:00:00Z exactly, or
+09:00:01Z, or 09:00:30Z, returns the following fire instant.
+
+## Search horizon and errors
+
+Search for fire instants `t` with `after_iso < t <= after_iso + 1830
+days` (1830 days = 5 × 366 days, added in UTC). If no fire instant
+exists in that window — for example `0 0 30 2 *` (30 February never
+occurs) — raise `ValueError`.
+
+Raise `ValueError` (with any message) for every invalid input,
+including at least:
+
+- `expr` does not have exactly 5 fields, or is empty.
+- A field or list element is empty, or has an unknown token.
+- A numeric value is outside its field range (for example minute
+  `60`, hour `24`, DOM `0` or `32`, month `0` or `13`, DOW `8`).
+- A name is not one of the listed three-letter names, is a full name,
+  or appears in a field where names are not allowed / in the wrong
+  field.
+- A range is reversed or wrapping (`a > b` after name mapping).
+- A step is 0, negative, missing, or not a number.
+- A single value carries a step (`5/10` form), or any element does
+  not match one of the supported element forms above.
+- Unsupported syntax: `@`-nicknames, `?`, `L`, `W`, `#`, signs, or
+  extra fields.
+- `after_iso` is not in exactly the required form, or is not a real
+  date/time.
+- `tz_name` is not a known IANA time zone name.
+
+Do not raise `ValueError` for a valid expression merely because its
+next fire is far in the future, provided a fire instant exists
+within the 1830-day search window above (for example `0 12 29 2 *`
+must find the next 29 February).
+
+## Deliverables
+
+1. The completed `cron_next.py` implementing `next_fire` exactly as
+   specified above. Standard library only. Do not modify
+   `test_visible.py` or `SPEC.md`.
+2. Your own test file named `test_own.py` in the workspace root,
+   containing unittest tests you derived yourself from this SPEC,
+   covering cases beyond the provided visible tests, and passing
+   against your implementation when run with
+   `python3 -m unittest test_own`.
+
+----- end SPEC.md -----
+
+Deliverables: the completed cron_next.py, and your own test_own.py as described in SPEC.md.
+
+codex
+I’ll inspect the starter and visible tests, then implement the parser and UTC/local-time search with explicit DST handling. I’ll add independent `unittest` cases in `test_own.py` and run the required checks.
+exec
+/bin/bash -lc "pwd && rg --files -g 'cron_next.py' -g 'test_visible.py' -g 'SPEC.md' -g 'AGENTS.md'" in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace
+ succeeded in 0ms:
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace
+cron_next.py
+SPEC.md
+test_visible.py
+
+exec
+/bin/bash -lc 'cat cron_next.py && cat test_visible.py' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace
+ succeeded in 0ms:
+"""Cron next-fire. Implement next_fire below; see SPEC.md for the exact requirement."""
+
+
+def next_fire(expr, after_iso, tz_name):
+    """Return the next fire instant (UTC, YYYY-MM-DDTHH:MM:SSZ) strictly after after_iso."""
+    raise NotImplementedError
+# Provided visible tests: ordinary cases only.
+import unittest
+
+from cron_next import next_fire
+
+
+class TestVisible(unittest.TestCase):
+    def test_daily_utc(self):
+        self.assertEqual(next_fire("0 9 * * *", "2026-06-10T08:00:00Z", "UTC"),
+                         "2026-06-10T09:00:00Z")
+
+    def test_daily_ny_summer(self):
+        # June in New York is UTC-4.
+        self.assertEqual(next_fire("30 8 * * *", "2026-06-10T00:00:00Z", "America/New_York"),
+                         "2026-06-10T12:30:00Z")
+
+    def test_every_15_minutes(self):
+        self.assertEqual(next_fire("*/15 * * * *", "2026-06-10T09:07:00Z", "UTC"),
+                         "2026-06-10T09:15:00Z")
+
+    def test_weekday_name_range(self):
+        # 2026-06-13 is a Saturday; next MON-FRI 07:30 is Monday 2026-06-15.
+        self.assertEqual(next_fire("30 7 * * MON-FRI", "2026-06-13T08:00:00Z", "UTC"),
+                         "2026-06-15T07:30:00Z")
+
+    def test_monthly_first(self):
+        self.assertEqual(next_fire("0 0 1 * *", "2026-06-15T00:00:00Z", "UTC"),
+                         "2026-07-01T00:00:00Z")
+
+    def test_sydney_winter(self):
+        # June in Sydney is UTC+10.
+        self.assertEqual(next_fire("0 8 * * *", "2026-06-10T00:00:00Z", "Australia/Sydney"),
+                         "2026-06-10T22:00:00Z")
+
+    def test_strictly_after_exact(self):
+        self.assertEqual(next_fire("0 9 * * *", "2026-06-10T09:00:00Z", "UTC"),
+                         "2026-06-11T09:00:00Z")
+
+    def test_invalid_minute(self):
+        with self.assertRaises(ValueError):
+            next_fire("60 * * * *", "2026-06-10T00:00:00Z", "UTC")
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
+deleted file mode 100644
+index 2afff0b948788a07e5f9848cdf7313f192c9d9fe..0000000000000000000000000000000000000000
+--- a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
++++ /dev/null
+@@ -1,6 +0,0 @@
+-"""Cron next-fire. Implement next_fire below; see SPEC.md for the exact requirement."""
+-
+-
+-def next_fire(expr, after_iso, tz_name):
+-    """Return the next fire instant (UTC, YYYY-MM-DDTHH:MM:SSZ) strictly after after_iso."""
+-    raise NotImplementedError
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
+index 2afff0b948788a07e5f9848cdf7313f192c9d9fe..4cc19a7c1e8b9a562f43cdf2c8628d55836ea084
+--- a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
+@@ -1,6 +1,174 @@
+-"""Cron next-fire. Implement next_fire below; see SPEC.md for the exact requirement."""
++"""Find the next UTC fire instant for a five-field cron expression."""
++
++from datetime import date, datetime, time, timedelta, timezone
++import re
++from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
++
++
++_MONTHS = {
++    name: number
++    for number, name in enumerate(
++        ("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"),
++        1,
++    )
++}
++_DAYS = {name: number for number, name in enumerate(("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"))}
++_FIELD_RANGES = ((0, 59), (0, 23), (1, 31), (1, 12), (0, 7))
++
++
++def _value(text, field):
++    """Parse a numeric or named endpoint in a particular field."""
++    upper = text.upper()
++    if field == 3 and upper in _MONTHS:
++        return _MONTHS[upper]
++    if field == 4 and upper in _DAYS:
++        return _DAYS[upper]
++    if not re.fullmatch(r"[0-9]+", text):
++        raise ValueError("invalid cron value")
++    value = int(text)
++    low, high = _FIELD_RANGES[field]
++    if not low <= value <= high:
++        raise ValueError("cron value out of range")
++    return value
++
++
++def _parse_field(text, field):
++    low, high = _FIELD_RANGES[field]
++    values = set()
++    pieces = text.split(",")
++    if not pieces or any(not piece for piece in pieces):
++        raise ValueError("empty cron list element")
++
++    for piece in pieces:
++        if piece == "*":
++            values.update(range(low, high + 1))
++            continue
++
++        if piece.count("/") > 1:
++            raise ValueError("invalid cron step")
++        base, slash, step_text = piece.partition("/")
++        step = 1
++        if slash:
++            if not re.fullmatch(r"[0-9]+", step_text) or int(step_text) < 1:
++                raise ValueError("invalid cron step")
++            step = int(step_text)
++
++        if base == "*":
++            if not slash:
++                raise ValueError("invalid cron element")
++            values.update(range(low, high + 1, step))
++            continue
++
++        if "-" in base:
++            if base.count("-") != 1:
++                raise ValueError("invalid cron range")
++            left, right = base.split("-")
++            start, end = _value(left, field), _value(right, field)
++            if start > end:
++                raise ValueError("reversed cron range")
++            values.update(range(start, end + 1, step))
++            continue
++
++        if slash:
++            raise ValueError("step on a single value")
++        values.add(_value(base, field))
++
++    # DOW 7 is an alias for Sunday. Collapse it before matching and deciding
++    # whether the field is restricted.
++    if field == 4 and 7 in values:
++        values.remove(7)
++        values.add(0)
++    return values
++
++
++def _parse_expr(expr):
++    if not isinstance(expr, str):
++        raise ValueError("expression must be a string")
++    fields = expr.split()
++    if len(fields) != 5:
++        raise ValueError("cron expression must have five fields")
++    parsed = [_parse_field(part, index) for index, part in enumerate(fields)]
++    return parsed
++
++
++def _parse_after(after_iso):
++    if not isinstance(after_iso, str) or not re.fullmatch(
++        r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z", after_iso
++    ):
++        raise ValueError("after_iso has invalid format")
++    try:
++        parsed = datetime.strptime(after_iso, "%Y-%m-%dT%H:%M:%SZ")
++    except ValueError as exc:
++        raise ValueError("after_iso is not a real UTC date/time") from exc
++    return parsed.replace(tzinfo=timezone.utc)
+ 
+ 
+ def next_fire(expr, after_iso, tz_name):
+     """Return the next fire instant (UTC, YYYY-MM-DDTHH:MM:SSZ) strictly after after_iso."""
+-    raise NotImplementedError
++    minute_set, hour_set, dom_set, month_set, dow_set = _parse_expr(expr)
++    after = _parse_after(after_iso)
++    if not isinstance(tz_name, str):
++        raise ValueError("time zone must be a string")
++    try:
++        zone = ZoneInfo(tz_name)
++    except (ZoneInfoNotFoundError, ValueError, TypeError) as exc:
++        raise ValueError("unknown time zone") from exc
++
++    try:
++        horizon = after + timedelta(days=1830)
++        local_after = after.astimezone(zone)
++        local_horizon = horizon.astimezone(zone)
++    except (OverflowError, ValueError) as exc:
++        raise ValueError("search horizon is outside supported dates") from exc
++
++    dom_full = dom_set == set(range(1, 32))
++    dow_full = dow_set == set(range(0, 7))
++    both_restricted = not dom_full and not dow_full
++
++    # A large historical offset rollback can repeat a local calendar date.
++    # Starting two local days before the converted instant also covers such
++    # dates while candidates are ultimately bounded by their UTC instants.
++    start_date = local_after.date()
++    for _ in range(2):
++        try:
++            start_date -= timedelta(days=1)
++        except OverflowError:
++            break
++    end_date = local_horizon.date()
++    for _ in range(2):
++        try:
++            end_date += timedelta(days=1)
++        except OverflowError:
++            break
++
++    hours = sorted(hour_set)
++    minutes = sorted(minute_set)
++    current = start_date
++    while current <= end_date:
++        if current.month in month_set:
++            dom_matches = current.day in dom_set
++            # Python weekday: Monday=0; cron DOW: Sunday=0.
++            dow_matches = ((current.weekday() + 1) % 7) in dow_set
++            day_matches = (
++                dom_matches or dow_matches
++                if both_restricted
++                else dom_matches and dow_matches
++            )
++            if day_matches:
++                for hour in hours:
++                    for minute in minutes:
++                        wall = datetime.combine(current, time(hour, minute))
++                        # fold=0 chooses the first occurrence of an ambiguous
++                        # wall time. Round-tripping rejects nonexistent times.
++                        candidate = wall.replace(tzinfo=zone, fold=0)
++                        instant = candidate.astimezone(timezone.utc)
++                        if instant.astimezone(zone).replace(tzinfo=None) != wall:
++                            continue
++                        if after < instant <= horizon:
++                            return instant.strftime("%Y-%m-%dT%H:%M:%SZ")
++        try:
++            current += timedelta(days=1)
++        except OverflowError:
++            break
++
++    raise ValueError("no fire instant within the search horizon")
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
+index 2afff0b948788a07e5f9848cdf7313f192c9d9fe..4cc19a7c1e8b9a562f43cdf2c8628d55836ea084
+--- a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
+@@ -1,6 +1,174 @@
+-"""Cron next-fire. Implement next_fire below; see SPEC.md for the exact requirement."""
++"""Find the next UTC fire instant for a five-field cron expression."""
++
++from datetime import date, datetime, time, timedelta, timezone
++import re
++from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
++
++
++_MONTHS = {
++    name: number
++    for number, name in enumerate(
++        ("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"),
++        1,
++    )
++}
++_DAYS = {name: number for number, name in enumerate(("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"))}
++_FIELD_RANGES = ((0, 59), (0, 23), (1, 31), (1, 12), (0, 7))
++
++
++def _value(text, field):
++    """Parse a numeric or named endpoint in a particular field."""
++    upper = text.upper()
++    if field == 3 and upper in _MONTHS:
++        return _MONTHS[upper]
++    if field == 4 and upper in _DAYS:
++        return _DAYS[upper]
++    if not re.fullmatch(r"[0-9]+", text):
++        raise ValueError("invalid cron value")
++    value = int(text)
++    low, high = _FIELD_RANGES[field]
++    if not low <= value <= high:
++        raise ValueError("cron value out of range")
++    return value
++
++
++def _parse_field(text, field):
++    low, high = _FIELD_RANGES[field]
++    values = set()
++    pieces = text.split(",")
++    if not pieces or any(not piece for piece in pieces):
++        raise ValueError("empty cron list element")
++
++    for piece in pieces:
++        if piece == "*":
++            values.update(range(low, high + 1))
++            continue
++
++        if piece.count("/") > 1:
++            raise ValueError("invalid cron step")
++        base, slash, step_text = piece.partition("/")
++        step = 1
++        if slash:
++            if not re.fullmatch(r"[0-9]+", step_text) or int(step_text) < 1:
++                raise ValueError("invalid cron step")
++            step = int(step_text)
++
++        if base == "*":
++            if not slash:
++                raise ValueError("invalid cron element")
++            values.update(range(low, high + 1, step))
++            continue
++
++        if "-" in base:
++            if base.count("-") != 1:
++                raise ValueError("invalid cron range")
++            left, right = base.split("-")
++            start, end = _value(left, field), _value(right, field)
++            if start > end:
++                raise ValueError("reversed cron range")
++            values.update(range(start, end + 1, step))
++            continue
++
++        if slash:
++            raise ValueError("step on a single value")
++        values.add(_value(base, field))
++
++    # DOW 7 is an alias for Sunday. Collapse it before matching and deciding
++    # whether the field is restricted.
++    if field == 4 and 7 in values:
++        values.remove(7)
++        values.add(0)
++    return values
++
++
++def _parse_expr(expr):
++    if not isinstance(expr, str):
++        raise ValueError("expression must be a string")
++    fields = expr.split()
++    if len(fields) != 5:
++        raise ValueError("cron expression must have five fields")
++    parsed = [_parse_field(part, index) for index, part in enumerate(fields)]
++    return parsed
++
++
++def _parse_after(after_iso):
++    if not isinstance(after_iso, str) or not re.fullmatch(
++        r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z", after_iso
++    ):
++        raise ValueError("after_iso has invalid format")
++    try:
++        parsed = datetime.strptime(after_iso, "%Y-%m-%dT%H:%M:%SZ")
++    except ValueError as exc:
++        raise ValueError("after_iso is not a real UTC date/time") from exc
++    return parsed.replace(tzinfo=timezone.utc)
+ 
+ 
+ def next_fire(expr, after_iso, tz_name):
+     """Return the next fire instant (UTC, YYYY-MM-DDTHH:MM:SSZ) strictly after after_iso."""
+-    raise NotImplementedError
++    minute_set, hour_set, dom_set, month_set, dow_set = _parse_expr(expr)
++    after = _parse_after(after_iso)
++    if not isinstance(tz_name, str):
++        raise ValueError("time zone must be a string")
++    try:
++        zone = ZoneInfo(tz_name)
++    except (ZoneInfoNotFoundError, ValueError, TypeError) as exc:
++        raise ValueError("unknown time zone") from exc
++
++    try:
++        horizon = after + timedelta(days=1830)
++        local_after = after.astimezone(zone)
++        local_horizon = horizon.astimezone(zone)
++    except (OverflowError, ValueError) as exc:
++        raise ValueError("search horizon is outside supported dates") from exc
++
++    dom_full = dom_set == set(range(1, 32))
++    dow_full = dow_set == set(range(0, 7))
++    both_restricted = not dom_full and not dow_full
++
++    # A large historical offset rollback can repeat a local calendar date.
++    # Starting two local days before the converted instant also covers such
++    # dates while candidates are ultimately bounded by their UTC instants.
++    start_date = local_after.date()
++    for _ in range(2):
++        try:
++            start_date -= timedelta(days=1)
++        except OverflowError:
++            break
++    end_date = local_horizon.date()
++    for _ in range(2):
++        try:
++            end_date += timedelta(days=1)
++        except OverflowError:
++            break
++
++    hours = sorted(hour_set)
++    minutes = sorted(minute_set)
++    current = start_date
++    while current <= end_date:
++        if current.month in month_set:
++            dom_matches = current.day in dom_set
++            # Python weekday: Monday=0; cron DOW: Sunday=0.
++            dow_matches = ((current.weekday() + 1) % 7) in dow_set
++            day_matches = (
++                dom_matches or dow_matches
++                if both_restricted
++                else dom_matches and dow_matches
++            )
++            if day_matches:
++                for hour in hours:
++                    for minute in minutes:
++                        wall = datetime.combine(current, time(hour, minute))
++                        # fold=0 chooses the first occurrence of an ambiguous
++                        # wall time. Round-tripping rejects nonexistent times.
++                        candidate = wall.replace(tzinfo=zone, fold=0)
++                        instant = candidate.astimezone(timezone.utc)
++                        if instant.astimezone(zone).replace(tzinfo=None) != wall:
++                            continue
++                        if after < instant <= horizon:
++                            return instant.strftime("%Y-%m-%dT%H:%M:%SZ")
++        try:
++            current += timedelta(days=1)
++        except OverflowError:
++            break
++
++    raise ValueError("no fire instant within the search horizon")
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..2626496810df068f3364275497dd49372fad8dac
+--- /dev/null
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py
+@@ -0,0 +1,76 @@
++"""Additional requirement-derived tests for cron_next."""
++
++import unittest
++
++from cron_next import next_fire
++
++
++class TestCronNextOwn(unittest.TestCase):
++    def test_spring_gap_is_skipped(self):
++        self.assertEqual(
++            next_fire("30 2 * * *", "2026-03-08T05:00:00Z", "America/New_York"),
++            "2026-03-09T06:30:00Z",
++        )
++
++    def test_fall_fold_fires_only_first_occurrence(self):
++        # 01:30 happens first at 05:30Z and again at 06:30Z. After the first,
++        # the second one is suppressed, so the next fire is the next day.
++        self.assertEqual(
++            next_fire("30 1 * * *", "2026-11-01T05:45:00Z", "America/New_York"),
++            "2026-11-02T06:30:00Z",
++        )
++
++    def test_dom_dow_restricted_fields_use_or(self):
++        # Both fields are restricted: the Monday matches even though it is
++        # not the 15th.
++        self.assertEqual(
++            next_fire("0 9 15 * MON", "2026-06-16T00:00:00Z", "UTC"),
++            "2026-06-22T09:00:00Z",
++        )
++
++    def test_unrestricted_dom_makes_dow_decisive(self):
++        self.assertEqual(
++            next_fire("0 9 1-31 * MON", "2026-06-16T00:00:00Z", "UTC"),
++            "2026-06-22T09:00:00Z",
++        )
++
++    def test_leap_day_within_horizon(self):
++        self.assertEqual(
++            next_fire("0 12 29 2 *", "2025-03-01T00:00:00Z", "UTC"),
++            "2028-02-29T12:00:00Z",
++        )
++
++    def test_impossible_calendar_date_exhausts_horizon(self):
++        with self.assertRaises(ValueError):
++            next_fire("0 0 30 2 *", "2026-01-01T00:00:00Z", "UTC")
++
++    def test_dow_seven_is_sunday_and_aliases_collapse(self):
++        self.assertEqual(
++            next_fire("0 0 * * 7", "2026-06-13T00:00:00Z", "UTC"),
++            "2026-06-14T00:00:00Z",
++        )
++
++    def test_seconds_are_not_rounded(self):
++        self.assertEqual(
++            next_fire("0 9 * * *", "2026-06-10T08:59:59Z", "UTC"),
++            "2026-06-10T09:00:00Z",
++        )
++        self.assertEqual(
++            next_fire("0 9 * * *", "2026-06-10T09:00:01Z", "UTC"),
++            "2026-06-11T09:00:00Z",
++        )
++
++    def test_bad_list_and_range_forms(self):
++        for expression in (
++            "1,,2 * * * *",
++            "5/10 * * * *",
++            "0 0 * * FRI-MON",
++            "0 0 * * MONDAY",
++            "0 0 * JAN *",
++        ):
++            with self.subTest(expression=expression), self.assertRaises(ValueError):
++                next_fire(expression, "2026-06-10T00:00:00Z", "UTC")
++
++
++if __name__ == "__main__":
++    unittest.main()
+
+codex
+The core implementation and independent cases are in place. The search checks each matching local wall time by round-tripping through `zoneinfo`, which skips spring gaps and keeps only `fold=0` during fall overlaps; I’m running both the required own tests and the provided visible suite now.
+exec
+/bin/bash -lc 'python3 -m unittest test_own && python3 -m unittest test_visible' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace
+ exited 1 in 72ms:
+F........
+======================================================================
+FAIL: test_bad_list_and_range_forms (test_own.TestCronNextOwn.test_bad_list_and_range_forms) (expression='0 0 * JAN *')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py", line 71, in test_bad_list_and_range_forms
+    with self.subTest(expression=expression), self.assertRaises(ValueError):
+                                              ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.006s
+
+FAILED (failures=1)
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
+index 2afff0b948788a07e5f9848cdf7313f192c9d9fe..4cc19a7c1e8b9a562f43cdf2c8628d55836ea084
+--- a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
+@@ -1,6 +1,174 @@
+-"""Cron next-fire. Implement next_fire below; see SPEC.md for the exact requirement."""
++"""Find the next UTC fire instant for a five-field cron expression."""
++
++from datetime import date, datetime, time, timedelta, timezone
++import re
++from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
++
++
++_MONTHS = {
++    name: number
++    for number, name in enumerate(
++        ("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"),
++        1,
++    )
++}
++_DAYS = {name: number for number, name in enumerate(("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"))}
++_FIELD_RANGES = ((0, 59), (0, 23), (1, 31), (1, 12), (0, 7))
++
++
++def _value(text, field):
++    """Parse a numeric or named endpoint in a particular field."""
++    upper = text.upper()
++    if field == 3 and upper in _MONTHS:
++        return _MONTHS[upper]
++    if field == 4 and upper in _DAYS:
++        return _DAYS[upper]
++    if not re.fullmatch(r"[0-9]+", text):
++        raise ValueError("invalid cron value")
++    value = int(text)
++    low, high = _FIELD_RANGES[field]
++    if not low <= value <= high:
++        raise ValueError("cron value out of range")
++    return value
++
++
++def _parse_field(text, field):
++    low, high = _FIELD_RANGES[field]
++    values = set()
++    pieces = text.split(",")
++    if not pieces or any(not piece for piece in pieces):
++        raise ValueError("empty cron list element")
++
++    for piece in pieces:
++        if piece == "*":
++            values.update(range(low, high + 1))
++            continue
++
++        if piece.count("/") > 1:
++            raise ValueError("invalid cron step")
++        base, slash, step_text = piece.partition("/")
++        step = 1
++        if slash:
++            if not re.fullmatch(r"[0-9]+", step_text) or int(step_text) < 1:
++                raise ValueError("invalid cron step")
++            step = int(step_text)
++
++        if base == "*":
++            if not slash:
++                raise ValueError("invalid cron element")
++            values.update(range(low, high + 1, step))
++            continue
++
++        if "-" in base:
++            if base.count("-") != 1:
++                raise ValueError("invalid cron range")
++            left, right = base.split("-")
++            start, end = _value(left, field), _value(right, field)
++            if start > end:
++                raise ValueError("reversed cron range")
++            values.update(range(start, end + 1, step))
++            continue
++
++        if slash:
++            raise ValueError("step on a single value")
++        values.add(_value(base, field))
++
++    # DOW 7 is an alias for Sunday. Collapse it before matching and deciding
++    # whether the field is restricted.
++    if field == 4 and 7 in values:
++        values.remove(7)
++        values.add(0)
++    return values
++
++
++def _parse_expr(expr):
++    if not isinstance(expr, str):
++        raise ValueError("expression must be a string")
++    fields = expr.split()
++    if len(fields) != 5:
++        raise ValueError("cron expression must have five fields")
++    parsed = [_parse_field(part, index) for index, part in enumerate(fields)]
++    return parsed
++
++
++def _parse_after(after_iso):
++    if not isinstance(after_iso, str) or not re.fullmatch(
++        r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z", after_iso
++    ):
++        raise ValueError("after_iso has invalid format")
++    try:
++        parsed = datetime.strptime(after_iso, "%Y-%m-%dT%H:%M:%SZ")
++    except ValueError as exc:
++        raise ValueError("after_iso is not a real UTC date/time") from exc
++    return parsed.replace(tzinfo=timezone.utc)
+ 
+ 
+ def next_fire(expr, after_iso, tz_name):
+     """Return the next fire instant (UTC, YYYY-MM-DDTHH:MM:SSZ) strictly after after_iso."""
+-    raise NotImplementedError
++    minute_set, hour_set, dom_set, month_set, dow_set = _parse_expr(expr)
++    after = _parse_after(after_iso)
++    if not isinstance(tz_name, str):
++        raise ValueError("time zone must be a string")
++    try:
++        zone = ZoneInfo(tz_name)
++    except (ZoneInfoNotFoundError, ValueError, TypeError) as exc:
++        raise ValueError("unknown time zone") from exc
++
++    try:
++        horizon = after + timedelta(days=1830)
++        local_after = after.astimezone(zone)
++        local_horizon = horizon.astimezone(zone)
++    except (OverflowError, ValueError) as exc:
++        raise ValueError("search horizon is outside supported dates") from exc
++
++    dom_full = dom_set == set(range(1, 32))
++    dow_full = dow_set == set(range(0, 7))
++    both_restricted = not dom_full and not dow_full
++
++    # A large historical offset rollback can repeat a local calendar date.
++    # Starting two local days before the converted instant also covers such
++    # dates while candidates are ultimately bounded by their UTC instants.
++    start_date = local_after.date()
++    for _ in range(2):
++        try:
++            start_date -= timedelta(days=1)
++        except OverflowError:
++            break
++    end_date = local_horizon.date()
++    for _ in range(2):
++        try:
++            end_date += timedelta(days=1)
++        except OverflowError:
++            break
++
++    hours = sorted(hour_set)
++    minutes = sorted(minute_set)
++    current = start_date
++    while current <= end_date:
++        if current.month in month_set:
++            dom_matches = current.day in dom_set
++            # Python weekday: Monday=0; cron DOW: Sunday=0.
++            dow_matches = ((current.weekday() + 1) % 7) in dow_set
++            day_matches = (
++                dom_matches or dow_matches
++                if both_restricted
++                else dom_matches and dow_matches
++            )
++            if day_matches:
++                for hour in hours:
++                    for minute in minutes:
++                        wall = datetime.combine(current, time(hour, minute))
++                        # fold=0 chooses the first occurrence of an ambiguous
++                        # wall time. Round-tripping rejects nonexistent times.
++                        candidate = wall.replace(tzinfo=zone, fold=0)
++                        instant = candidate.astimezone(timezone.utc)
++                        if instant.astimezone(zone).replace(tzinfo=None) != wall:
++                            continue
++                        if after < instant <= horizon:
++                            return instant.strftime("%Y-%m-%dT%H:%M:%SZ")
++        try:
++            current += timedelta(days=1)
++        except OverflowError:
++            break
++
++    raise ValueError("no fire instant within the search horizon")
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..bd3e8fe36784e53f58573f00a689c55f23c70752
+--- /dev/null
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py
+@@ -0,0 +1,76 @@
++"""Additional requirement-derived tests for cron_next."""
++
++import unittest
++
++from cron_next import next_fire
++
++
++class TestCronNextOwn(unittest.TestCase):
++    def test_spring_gap_is_skipped(self):
++        self.assertEqual(
++            next_fire("30 2 * * *", "2026-03-08T05:00:00Z", "America/New_York"),
++            "2026-03-09T06:30:00Z",
++        )
++
++    def test_fall_fold_fires_only_first_occurrence(self):
++        # 01:30 happens first at 05:30Z and again at 06:30Z. After the first,
++        # the second one is suppressed, so the next fire is the next day.
++        self.assertEqual(
++            next_fire("30 1 * * *", "2026-11-01T05:45:00Z", "America/New_York"),
++            "2026-11-02T06:30:00Z",
++        )
++
++    def test_dom_dow_restricted_fields_use_or(self):
++        # Both fields are restricted: the Monday matches even though it is
++        # not the 15th.
++        self.assertEqual(
++            next_fire("0 9 15 * MON", "2026-06-16T00:00:00Z", "UTC"),
++            "2026-06-22T09:00:00Z",
++        )
++
++    def test_unrestricted_dom_makes_dow_decisive(self):
++        self.assertEqual(
++            next_fire("0 9 1-31 * MON", "2026-06-16T00:00:00Z", "UTC"),
++            "2026-06-22T09:00:00Z",
++        )
++
++    def test_leap_day_within_horizon(self):
++        self.assertEqual(
++            next_fire("0 12 29 2 *", "2025-03-01T00:00:00Z", "UTC"),
++            "2028-02-29T12:00:00Z",
++        )
++
++    def test_impossible_calendar_date_exhausts_horizon(self):
++        with self.assertRaises(ValueError):
++            next_fire("0 0 30 2 *", "2026-01-01T00:00:00Z", "UTC")
++
++    def test_dow_seven_is_sunday_and_aliases_collapse(self):
++        self.assertEqual(
++            next_fire("0 0 * * 7", "2026-06-13T00:00:00Z", "UTC"),
++            "2026-06-14T00:00:00Z",
++        )
++
++    def test_seconds_are_not_rounded(self):
++        self.assertEqual(
++            next_fire("0 9 * * *", "2026-06-10T08:59:59Z", "UTC"),
++            "2026-06-10T09:00:00Z",
++        )
++        self.assertEqual(
++            next_fire("0 9 * * *", "2026-06-10T09:00:01Z", "UTC"),
++            "2026-06-11T09:00:00Z",
++        )
++
++    def test_bad_list_and_range_forms(self):
++        for expression in (
++            "1,,2 * * * *",
++            "5/10 * * * *",
++            "0 0 * * FRI-MON",
++            "0 0 * * MONDAY",
++            "0 0 JAN * *",
++        ):
++            with self.subTest(expression=expression), self.assertRaises(ValueError):
++                next_fire(expression, "2026-06-10T00:00:00Z", "UTC")
++
++
++if __name__ == "__main__":
++    unittest.main()
+
+exec
+/bin/bash -lc 'python3 -m unittest test_own && python3 -m unittest test_visible' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace
+ succeeded in 243ms:
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.019s
+
+OK
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.014s
+
+OK
+
+exec
+/bin/bash -lc 'git diff -- cron_next.py test_own.py && git status --short' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace
+ succeeded in 70ms:
+ M ../../../../../../../README.md
+?? ../../../../../../coordinator-continuation-r2-20261107/
+?? ../../../../../
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/EXAMPLES.md
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/FINAL-MANIFEST.json
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/FINAL-VERIFICATION.json
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/FINALIZATION-STARTED.json
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/NEXT-DECISION.md
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/POST-RUN-REVIEW-B.json
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/RESULT.md
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/STRUCTURAL-VALIDATION.json
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/VALIDATOR-SOURCE.py
+?? ../../../../../../../simulation/s2-free-choice-context-v1/APPLICABILITY-REVIEW.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/BOUNDARY-CONTROLS.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/CLIENT-CHECK.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/CODEBOOK.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/CONTRACT.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/EXTRACTOR-WIRE.schema.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/FACT-PERMISSION-LEDGER.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/FRAME.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/METHOD.md
+?? ../../../../../../../../tools/check_s2_free_choice_context_v1.py
+?? ../../../../../../../../tools/run_s2_free_choice_context_v1.py
+?? ../../../../../../../../tools/s2_admission_metric_witness_v1.py
+
+exec
+/bin/bash -lc 'git status --short -- cron_next.py test_own.py && git ls-files -- cron_next.py test_own.py && ls -l cron_next.py test_own.py' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace
+ succeeded in 12ms:
+-rw-r--r-- 1 vlad_ vlad_ 6290 Nov  7 16:50 cron_next.py
+-rw-r--r-- 1 vlad_ vlad_ 2523 Nov  7 16:51 test_own.py
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
+index 2afff0b948788a07e5f9848cdf7313f192c9d9fe..67f392d13f5aef6ead964ffc6130220e2cd4e20c
+--- a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
+@@ -1,6 +1,177 @@
+-"""Cron next-fire. Implement next_fire below; see SPEC.md for the exact requirement."""
++"""Find the next UTC fire instant for a five-field cron expression."""
++
++from datetime import date, datetime, time, timedelta, timezone
++import re
++from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
++
++
++_MONTHS = {
++    name: number
++    for number, name in enumerate(
++        ("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"),
++        1,
++    )
++}
++_DAYS = {name: number for number, name in enumerate(("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"))}
++_FIELD_RANGES = ((0, 59), (0, 23), (1, 31), (1, 12), (0, 7))
++
++
++def _value(text, field):
++    """Parse a numeric or named endpoint in a particular field."""
++    upper = text.upper()
++    if field == 3 and upper in _MONTHS:
++        return _MONTHS[upper]
++    if field == 4 and upper in _DAYS:
++        return _DAYS[upper]
++    if not re.fullmatch(r"[0-9]+", text):
++        raise ValueError("invalid cron value")
++    value = int(text)
++    low, high = _FIELD_RANGES[field]
++    if not low <= value <= high:
++        raise ValueError("cron value out of range")
++    return value
++
++
++def _parse_field(text, field):
++    low, high = _FIELD_RANGES[field]
++    values = set()
++    pieces = text.split(",")
++    if not pieces or any(not piece for piece in pieces):
++        raise ValueError("empty cron list element")
++
++    for piece in pieces:
++        if piece == "*":
++            values.update(range(low, high + 1))
++            continue
++
++        if piece.count("/") > 1:
++            raise ValueError("invalid cron step")
++        base, slash, step_text = piece.partition("/")
++        step = 1
++        if slash:
++            if not re.fullmatch(r"[0-9]+", step_text) or int(step_text) < 1:
++                raise ValueError("invalid cron step")
++            step = int(step_text)
++
++        if base == "*":
++            if not slash:
++                raise ValueError("invalid cron element")
++            values.update(range(low, high + 1, step))
++            continue
++
++        if "-" in base:
++            if base.count("-") != 1:
++                raise ValueError("invalid cron range")
++            left, right = base.split("-")
++            start, end = _value(left, field), _value(right, field)
++            if start > end:
++                raise ValueError("reversed cron range")
++            values.update(range(start, end + 1, step))
++            continue
++
++        if slash:
++            raise ValueError("step on a single value")
++        values.add(_value(base, field))
++
++    # DOW 7 is an alias for Sunday. Collapse it before matching and deciding
++    # whether the field is restricted.
++    if field == 4 and 7 in values:
++        values.remove(7)
++        values.add(0)
++    return values
+ 
+ 
++def _parse_expr(expr):
++    if not isinstance(expr, str):
++        raise ValueError("expression must be a string")
++    fields = expr.split()
++    if len(fields) != 5:
++        raise ValueError("cron expression must have five fields")
++    parsed = [_parse_field(part, index) for index, part in enumerate(fields)]
++    return parsed
++
++
++def _parse_after(after_iso):
++    if not isinstance(after_iso, str) or not re.fullmatch(
++        r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z", after_iso
++    ):
++        raise ValueError("after_iso has invalid format")
++    try:
++        parsed = datetime.strptime(after_iso, "%Y-%m-%dT%H:%M:%SZ")
++    except ValueError as exc:
++        raise ValueError("after_iso is not a real UTC date/time") from exc
++    return parsed.replace(tzinfo=timezone.utc)
++
++
+ def next_fire(expr, after_iso, tz_name):
+     """Return the next fire instant (UTC, YYYY-MM-DDTHH:MM:SSZ) strictly after after_iso."""
+-    raise NotImplementedError
++    minute_set, hour_set, dom_set, month_set, dow_set = _parse_expr(expr)
++    after = _parse_after(after_iso)
++    if not isinstance(tz_name, str):
++        raise ValueError("time zone must be a string")
++    try:
++        zone = ZoneInfo(tz_name)
++    except (ZoneInfoNotFoundError, ValueError, TypeError) as exc:
++        raise ValueError("unknown time zone") from exc
++
++    try:
++        horizon = after + timedelta(days=1830)
++        local_after = after.astimezone(zone)
++        local_horizon = horizon.astimezone(zone)
++    except (OverflowError, ValueError) as exc:
++        raise ValueError("search horizon is outside supported dates") from exc
++
++    dom_full = dom_set == set(range(1, 32))
++    dow_full = dow_set == set(range(0, 7))
++    both_restricted = not dom_full and not dow_full
++
++    # A large historical offset rollback can repeat a local calendar date.
++    # Starting two local days before the converted instant also covers such
++    # dates while candidates are ultimately bounded by their UTC instants.
++    start_date = local_after.date()
++    for _ in range(2):
++        try:
++            start_date -= timedelta(days=1)
++        except OverflowError:
++            break
++    end_date = local_horizon.date()
++    for _ in range(2):
++        try:
++            end_date += timedelta(days=1)
++        except OverflowError:
++            break
++
++    hours = sorted(hour_set)
++    minutes = sorted(minute_set)
++    current = start_date
++    while current <= end_date:
++        if current.month in month_set:
++            dom_matches = current.day in dom_set
++            # Python weekday: Monday=0; cron DOW: Sunday=0.
++            dow_matches = ((current.weekday() + 1) % 7) in dow_set
++            day_matches = (
++                dom_matches or dow_matches
++                if both_restricted
++                else dom_matches and dow_matches
++            )
++            if day_matches:
++                for hour in hours:
++                    for minute in minutes:
++                        wall = datetime.combine(current, time(hour, minute))
++                        # fold=0 chooses the first occurrence of an ambiguous
++                        # wall time. Round-tripping rejects nonexistent times.
++                        candidate = wall.replace(tzinfo=zone, fold=0)
++                        instant = candidate.astimezone(timezone.utc)
++                        if instant.astimezone(zone).replace(tzinfo=None) != wall:
++                            continue
++                        if after < instant <= horizon:
++                            return (
++                                f"{instant.year:04d}-{instant.month:02d}-{instant.day:02d}T"
++                                f"{instant.hour:02d}:{instant.minute:02d}:00Z"
++                            )
++        try:
++            current += timedelta(days=1)
++        except OverflowError:
++            break
++
++    raise ValueError("no fire instant within the search horizon")
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..bd3e8fe36784e53f58573f00a689c55f23c70752
+--- /dev/null
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py
+@@ -0,0 +1,76 @@
++"""Additional requirement-derived tests for cron_next."""
++
++import unittest
++
++from cron_next import next_fire
++
++
++class TestCronNextOwn(unittest.TestCase):
++    def test_spring_gap_is_skipped(self):
++        self.assertEqual(
++            next_fire("30 2 * * *", "2026-03-08T05:00:00Z", "America/New_York"),
++            "2026-03-09T06:30:00Z",
++        )
++
++    def test_fall_fold_fires_only_first_occurrence(self):
++        # 01:30 happens first at 05:30Z and again at 06:30Z. After the first,
++        # the second one is suppressed, so the next fire is the next day.
++        self.assertEqual(
++            next_fire("30 1 * * *", "2026-11-01T05:45:00Z", "America/New_York"),
++            "2026-11-02T06:30:00Z",
++        )
++
++    def test_dom_dow_restricted_fields_use_or(self):
++        # Both fields are restricted: the Monday matches even though it is
++        # not the 15th.
++        self.assertEqual(
++            next_fire("0 9 15 * MON", "2026-06-16T00:00:00Z", "UTC"),
++            "2026-06-22T09:00:00Z",
++        )
++
++    def test_unrestricted_dom_makes_dow_decisive(self):
++        self.assertEqual(
++            next_fire("0 9 1-31 * MON", "2026-06-16T00:00:00Z", "UTC"),
++            "2026-06-22T09:00:00Z",
++        )
++
++    def test_leap_day_within_horizon(self):
++        self.assertEqual(
++            next_fire("0 12 29 2 *", "2025-03-01T00:00:00Z", "UTC"),
++            "2028-02-29T12:00:00Z",
++        )
++
++    def test_impossible_calendar_date_exhausts_horizon(self):
++        with self.assertRaises(ValueError):
++            next_fire("0 0 30 2 *", "2026-01-01T00:00:00Z", "UTC")
++
++    def test_dow_seven_is_sunday_and_aliases_collapse(self):
++        self.assertEqual(
++            next_fire("0 0 * * 7", "2026-06-13T00:00:00Z", "UTC"),
++            "2026-06-14T00:00:00Z",
++        )
++
++    def test_seconds_are_not_rounded(self):
++        self.assertEqual(
++            next_fire("0 9 * * *", "2026-06-10T08:59:59Z", "UTC"),
++            "2026-06-10T09:00:00Z",
++        )
++        self.assertEqual(
++            next_fire("0 9 * * *", "2026-06-10T09:00:01Z", "UTC"),
++            "2026-06-11T09:00:00Z",
++        )
++
++    def test_bad_list_and_range_forms(self):
++        for expression in (
++            "1,,2 * * * *",
++            "5/10 * * * *",
++            "0 0 * * FRI-MON",
++            "0 0 * * MONDAY",
++            "0 0 JAN * *",
++        ):
++            with self.subTest(expression=expression), self.assertRaises(ValueError):
++                next_fire(expression, "2026-06-10T00:00:00Z", "UTC")
++
++
++if __name__ == "__main__":
++    unittest.main()
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
+index 2afff0b948788a07e5f9848cdf7313f192c9d9fe..67f392d13f5aef6ead964ffc6130220e2cd4e20c
+--- a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py
+@@ -1,6 +1,177 @@
+-"""Cron next-fire. Implement next_fire below; see SPEC.md for the exact requirement."""
++"""Find the next UTC fire instant for a five-field cron expression."""
++
++from datetime import date, datetime, time, timedelta, timezone
++import re
++from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
++
++
++_MONTHS = {
++    name: number
++    for number, name in enumerate(
++        ("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"),
++        1,
++    )
++}
++_DAYS = {name: number for number, name in enumerate(("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"))}
++_FIELD_RANGES = ((0, 59), (0, 23), (1, 31), (1, 12), (0, 7))
++
++
++def _value(text, field):
++    """Parse a numeric or named endpoint in a particular field."""
++    upper = text.upper()
++    if field == 3 and upper in _MONTHS:
++        return _MONTHS[upper]
++    if field == 4 and upper in _DAYS:
++        return _DAYS[upper]
++    if not re.fullmatch(r"[0-9]+", text):
++        raise ValueError("invalid cron value")
++    value = int(text)
++    low, high = _FIELD_RANGES[field]
++    if not low <= value <= high:
++        raise ValueError("cron value out of range")
++    return value
++
++
++def _parse_field(text, field):
++    low, high = _FIELD_RANGES[field]
++    values = set()
++    pieces = text.split(",")
++    if not pieces or any(not piece for piece in pieces):
++        raise ValueError("empty cron list element")
++
++    for piece in pieces:
++        if piece == "*":
++            values.update(range(low, high + 1))
++            continue
++
++        if piece.count("/") > 1:
++            raise ValueError("invalid cron step")
++        base, slash, step_text = piece.partition("/")
++        step = 1
++        if slash:
++            if not re.fullmatch(r"[0-9]+", step_text) or int(step_text) < 1:
++                raise ValueError("invalid cron step")
++            step = int(step_text)
++
++        if base == "*":
++            if not slash:
++                raise ValueError("invalid cron element")
++            values.update(range(low, high + 1, step))
++            continue
++
++        if "-" in base:
++            if base.count("-") != 1:
++                raise ValueError("invalid cron range")
++            left, right = base.split("-")
++            start, end = _value(left, field), _value(right, field)
++            if start > end:
++                raise ValueError("reversed cron range")
++            values.update(range(start, end + 1, step))
++            continue
++
++        if slash:
++            raise ValueError("step on a single value")
++        values.add(_value(base, field))
++
++    # DOW 7 is an alias for Sunday. Collapse it before matching and deciding
++    # whether the field is restricted.
++    if field == 4 and 7 in values:
++        values.remove(7)
++        values.add(0)
++    return values
+ 
+ 
++def _parse_expr(expr):
++    if not isinstance(expr, str):
++        raise ValueError("expression must be a string")
++    fields = expr.split()
++    if len(fields) != 5:
++        raise ValueError("cron expression must have five fields")
++    parsed = [_parse_field(part, index) for index, part in enumerate(fields)]
++    return parsed
++
++
++def _parse_after(after_iso):
++    if not isinstance(after_iso, str) or not re.fullmatch(
++        r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z", after_iso
++    ):
++        raise ValueError("after_iso has invalid format")
++    try:
++        parsed = datetime.strptime(after_iso, "%Y-%m-%dT%H:%M:%SZ")
++    except ValueError as exc:
++        raise ValueError("after_iso is not a real UTC date/time") from exc
++    return parsed.replace(tzinfo=timezone.utc)
++
++
+ def next_fire(expr, after_iso, tz_name):
+     """Return the next fire instant (UTC, YYYY-MM-DDTHH:MM:SSZ) strictly after after_iso."""
+-    raise NotImplementedError
++    minute_set, hour_set, dom_set, month_set, dow_set = _parse_expr(expr)
++    after = _parse_after(after_iso)
++    if not isinstance(tz_name, str):
++        raise ValueError("time zone must be a string")
++    try:
++        zone = ZoneInfo(tz_name)
++    except (ZoneInfoNotFoundError, ValueError, TypeError) as exc:
++        raise ValueError("unknown time zone") from exc
++
++    try:
++        horizon = after + timedelta(days=1830)
++        local_after = after.astimezone(zone)
++        local_horizon = horizon.astimezone(zone)
++    except (OverflowError, ValueError) as exc:
++        raise ValueError("search horizon is outside supported dates") from exc
++
++    dom_full = dom_set == set(range(1, 32))
++    dow_full = dow_set == set(range(0, 7))
++    both_restricted = not dom_full and not dow_full
++
++    # A large historical offset rollback can repeat a local calendar date.
++    # Starting two local days before the converted instant also covers such
++    # dates while candidates are ultimately bounded by their UTC instants.
++    start_date = local_after.date()
++    for _ in range(2):
++        try:
++            start_date -= timedelta(days=1)
++        except OverflowError:
++            break
++    end_date = local_horizon.date()
++    for _ in range(2):
++        try:
++            end_date += timedelta(days=1)
++        except OverflowError:
++            break
++
++    hours = sorted(hour_set)
++    minutes = sorted(minute_set)
++    current = start_date
++    while current <= end_date:
++        if current.month in month_set:
++            dom_matches = current.day in dom_set
++            # Python weekday: Monday=0; cron DOW: Sunday=0.
++            dow_matches = ((current.weekday() + 1) % 7) in dow_set
++            day_matches = (
++                dom_matches or dow_matches
++                if both_restricted
++                else dom_matches and dow_matches
++            )
++            if day_matches:
++                for hour in hours:
++                    for minute in minutes:
++                        wall = datetime.combine(current, time(hour, minute))
++                        # fold=0 chooses the first occurrence of an ambiguous
++                        # wall time. Round-tripping rejects nonexistent times.
++                        candidate = wall.replace(tzinfo=zone, fold=0)
++                        instant = candidate.astimezone(timezone.utc)
++                        if instant.astimezone(zone).replace(tzinfo=None) != wall:
++                            continue
++                        if after < instant <= horizon:
++                            return (
++                                f"{instant.year:04d}-{instant.month:02d}-{instant.day:02d}T"
++                                f"{instant.hour:02d}:{instant.minute:02d}:00Z"
++                            )
++        try:
++            current += timedelta(days=1)
++        except OverflowError:
++            break
++
++    raise ValueError("no fire instant within the search horizon")
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..379da2b160cd1faf25be50b574ec2f06c46c31cc
+--- /dev/null
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py
+@@ -0,0 +1,82 @@
++"""Additional requirement-derived tests for cron_next."""
++
++import unittest
++
++from cron_next import next_fire
++
++
++class TestCronNextOwn(unittest.TestCase):
++    def test_spring_gap_is_skipped(self):
++        self.assertEqual(
++            next_fire("30 2 * * *", "2026-03-08T05:00:00Z", "America/New_York"),
++            "2026-03-09T06:30:00Z",
++        )
++
++    def test_fall_fold_fires_only_first_occurrence(self):
++        # 01:30 happens first at 05:30Z and again at 06:30Z. After the first,
++        # the second one is suppressed, so the next fire is the next day.
++        self.assertEqual(
++            next_fire("30 1 * * *", "2026-11-01T05:45:00Z", "America/New_York"),
++            "2026-11-02T06:30:00Z",
++        )
++
++    def test_dom_dow_restricted_fields_use_or(self):
++        # Both fields are restricted: the Monday matches even though it is
++        # not the 15th.
++        self.assertEqual(
++            next_fire("0 9 15 * MON", "2026-06-16T00:00:00Z", "UTC"),
++            "2026-06-22T09:00:00Z",
++        )
++
++    def test_unrestricted_dom_makes_dow_decisive(self):
++        self.assertEqual(
++            next_fire("0 9 1-31 * MON", "2026-06-16T00:00:00Z", "UTC"),
++            "2026-06-22T09:00:00Z",
++        )
++
++    def test_leap_day_within_horizon(self):
++        self.assertEqual(
++            next_fire("0 12 29 2 *", "2025-03-01T00:00:00Z", "UTC"),
++            "2028-02-29T12:00:00Z",
++        )
++
++    def test_impossible_calendar_date_exhausts_horizon(self):
++        with self.assertRaises(ValueError):
++            next_fire("0 0 30 2 *", "2026-01-01T00:00:00Z", "UTC")
++
++    def test_dow_seven_is_sunday_and_aliases_collapse(self):
++        self.assertEqual(
++            next_fire("0 0 * * 7", "2026-06-13T00:00:00Z", "UTC"),
++            "2026-06-14T00:00:00Z",
++        )
++
++    def test_seconds_are_not_rounded(self):
++        self.assertEqual(
++            next_fire("0 9 * * *", "2026-06-10T08:59:59Z", "UTC"),
++            "2026-06-10T09:00:00Z",
++        )
++        self.assertEqual(
++            next_fire("0 9 * * *", "2026-06-10T09:00:01Z", "UTC"),
++            "2026-06-11T09:00:00Z",
++        )
++
++    def test_four_digit_output_for_early_years(self):
++        self.assertEqual(
++            next_fire("0 0 1 1 *", "0001-01-01T00:00:00Z", "UTC"),
++            "0002-01-01T00:00:00Z",
++        )
++
++    def test_bad_list_and_range_forms(self):
++        for expression in (
++            "1,,2 * * * *",
++            "5/10 * * * *",
++            "0 0 * * FRI-MON",
++            "0 0 * * MONDAY",
++            "0 0 JAN * *",
++        ):
++            with self.subTest(expression=expression), self.assertRaises(ValueError):
++                next_fire(expression, "2026-06-10T00:00:00Z", "UTC")
++
++
++if __name__ == "__main__":
++    unittest.main()
+
+exec
+/bin/bash -lc 'python3 -m unittest test_own && python3 -m unittest test_visible' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace
+ succeeded in 467ms:
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.011s
+
+OK
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.021s
+
+OK
+
+codex
+Implemented `next_fire` in [cron_next.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py), including cron validation, DOM/DOW matching, the UTC search horizon, and DST gap/overlap handling.
+
+Added requirement-derived tests in [test_own.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py).
+
+Both suites pass: `python3 -m unittest test_own` (10 tests) and `python3 -m unittest test_visible` (8 tests).
+tokens used
+37,021
+Implemented `next_fire` in [cron_next.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/cron_next.py), including cron validation, DOM/DOW matching, the UTC search horizon, and DST gap/overlap handling.
+
+Added requirement-derived tests in [test_own.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-cron-next/episodes/ep04-luna-main-draw4/workspace/test_own.py).
+
+Both suites pass: `python3 -m unittest test_own` (10 tests) and `python3 -m unittest test_visible` (8 tests).

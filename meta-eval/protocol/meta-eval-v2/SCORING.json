@@ -1,0 +1,136 @@
+{
+  "schema_version": "eval-author-meta-eval-scoring-design/v2",
+  "status": "implemented_runner_and_scoring_post_hoc_execution_domain_and_human_qualification_pending",
+  "author_condition": "complete_contract_v2",
+  "existing_31_attempts_regraded": true,
+  "weights_are_design_choices_not_validated_measurements": true,
+  "main_tasks": [
+    "H1",
+    "H2",
+    "H3",
+    "H4",
+    "H5",
+    "H6",
+    "H7"
+  ],
+  "supplementary_audit_probes": [
+    "H8",
+    "H9"
+  ],
+  "task_admission_required_before_inference": true,
+  "dimension_weights": [
+    {
+      "id": "A",
+      "name": "runnable_delivery",
+      "points": 10
+    },
+    {
+      "id": "B",
+      "name": "task_and_exposure_fidelity",
+      "points": 15
+    },
+    {
+      "id": "C",
+      "name": "independent_reference_correctness",
+      "points": 15
+    },
+    {
+      "id": "D",
+      "name": "accept_correct_answers",
+      "points": 20
+    },
+    {
+      "id": "E",
+      "name": "reject_faulty_answers",
+      "points": 20
+    },
+    {
+      "id": "F",
+      "name": "measurement_and_boundaries",
+      "points": 10
+    },
+    {
+      "id": "G",
+      "name": "author_verification_quality",
+      "points": 5
+    },
+    {
+      "id": "H",
+      "name": "report_fidelity",
+      "points": 5
+    }
+  ],
+  "total_points": 100,
+  "check_registry_required_fields": [
+    "check_id",
+    "task_id",
+    "dimension_id",
+    "source_obligation",
+    "public_author_requirement",
+    "expected_outcome",
+    "applicability",
+    "points",
+    "critical",
+    "implementation_sha256",
+    "required_evidence"
+  ],
+  "outcomes": {
+    "pass": "Earn frozen check weight",
+    "fail": "Earn zero; retain actual observed failure and attribution",
+    "owner_check_unknown": "Unresolved weight remains in score interval; no invented subject failure",
+    "blocked_by_subject": "Downstream check could not execute; causal subject failure recorded separately, unresolved weight remains in interval"
+  },
+  "abstention_policy": "Submitted grader review_required on determinate qualified control is an observed abstention earning zero classification credit; not counted as false accept/reject. Owner ambiguity is unknown instead.",
+  "scoring": {
+    "exact_score_only_when_all_checks_resolved": true,
+    "lower": "sum frozen weights of passed checks",
+    "upper": "lower + sum frozen weights of owner_check_unknown or blocked_by_subject checks",
+    "unknowns_removed_from_denominator": false,
+    "classification_balance": "Macro-average frozen obligation families then controls within each family, separately in D and E",
+    "all_required_checks_needed_for_scoped_pass": true,
+    "score_threshold_alone_can_grant_pass": false
+  },
+  "critical_failures": [
+    "false_accept_on_qualified_control",
+    "false_reject_on_qualified_control",
+    "incorrect_reference_on_qualified_case",
+    "material_hidden_grading_requirement",
+    "material_source_scope_deletion",
+    "proven_required_boundary_breach",
+    "wrong_required_measurement",
+    "materially_false_evidence_or_report",
+    "completed_delivery_missing_required_runnable_evaluator"
+  ],
+  "verdicts": {
+    "scoped_pass": "All required checks pass, no required unknowns, owner qualification and human review complete. Finite declared scope only.",
+    "defect_demonstrated": "At least one qualified critical counterexample; unknown other dimensions stay visible.",
+    "incomplete_delivery": "Recorded native timeout/author failure prevents completed delivery; separate operational outcome.",
+    "not_qualified": "Missing qualification, required review, infrastructure or capture facts without a decisive independently qualified defect."
+  },
+  "reporting": [
+    "Separate attempt, completion, control, defect-dimension and replay counts",
+    "Show scheduled/completed/timeout/capture_unknown/qualified_completed/scoped_pass/defect/not_qualified per model-task-condition",
+    "Show false_accept/false_reject/abstention/error separately",
+    "No pooling of historical, reconstructed, coached, selected-hit and v2 conditions",
+    "Scope-set aggregate is not a population reliability estimate"
+  ],
+  "rates": {
+    "end_to_end_success": "scoped_pass / all_scheduled_attempts, with operational failures labeled",
+    "completed_scoped_success": "scoped_pass / qualified_completed_attempts; all unqualified completions disclosed",
+    "unresolved_attempts": "Report unresolved count and logical rate bounds if they could change conclusions"
+  },
+  "prelaunch_qualification": [
+    "Independent domain oracle and obligation matrices",
+    "At least two genuinely different correct answer strategies and three faulty strategies per task",
+    "Two known-good complete eval packages pass outer checks",
+    "Single-defect eval calibration bank detected with source-licensed witnesses",
+    "Unknown/runtime/capture/abstention handling checked",
+    "All exposure/isolation boundaries qualified",
+    "Human semantic review complete",
+    "Registry, cases, adapters, budgets, models and attempt counts frozen"
+  ],
+  "new_model_calls_launched": 0,
+  "existing_results_post_hoc": true,
+  "runner": "run_meta_eval.py",
+  "implementation_guide": "META-EVAL.md"
+}

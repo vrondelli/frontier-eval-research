@@ -1,0 +1,144 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 20.249061638998683,
+  "stdout": "{\"native_exit\": 0, \"stdout\": \"{\\n  \\\"oracle_checks\\\": 41,\\n  \\\"mutations\\\": {\\n    \\\"float\\\": {\\n      \\\"detected\\\": true,\\n      \\\"failed_cases\\\": [\\n        \\\"binary64_boundary\\\",\\n        \\\"cancellation_and_order\\\",\\n        \\\"beyond_float_range\\\"\\n      ]\\n    },\\n    \\\"booleans\\\": {\\n      \\\"detected\\\": true,\\n      \\\"failed_cases\\\": [\\n        \\\"net_units_true\\\",\\n        \\\"event_count_false\\\",\\n        \\\"largest_adjustment_true\\\"\\n      ]\\n    },\\n    \\\"duplicates\\\": {\\n      \\\"detected\\\": true,\\n      \\\"failed_cases\\\": [\\n        \\\"duplicate_root\\\",\\n        \\\"duplicate_identifier\\\",\\n        \\\"escaped_duplicate_identifier\\\",\\n        \\\"duplicate_turns\\\"\\n      ]\\n    },\\n    \\\"reject_decimals\\\": {\\n      \\\"detected\\\": true,\\n      \\\"failed_cases\\\": [\\n        \\\"integral_number_encodings\\\",\\n        \\\"binary64_boundary\\\"\\n      ]\\n    },\\n    \\\"dedup\\\": {\\n      \\\"detected\\\": true,\\n      \\\"failed_cases\\\": [\\n        \\\"identities_and_repetitions\\\",\\n        \\\"long_array\\\"\\n      ]\\n    },\\n    \\\"max_zero\\\": {\\n      \\\"detected\\\": true,\\n      \\\"failed_cases\\\": [\\n        \\\"identities_and_repetitions\\\",\\n        \\\"cancellation_and_order\\\"\\n      ]\\n    },\\n    \\\"count_without_validation\\\": {\\n      \\\"detected\\\": true,\\n      \\\"failed_cases\\\": [\\n        \\\"event_count_fraction\\\",\\n        \\\"event_count_true\\\",\\n        \\\"event_count_string\\\"\\n      ]\\n    },\\n    \\\"partial_failure\\\": {\\n      \\\"detected\\\": true,\\n      \\\"failed_cases\\\": [\\n        \\\"empty_max\\\",\\n        \\\"net_units_fraction\\\",\\n        \\\"duplicate_identifier\\\"\\n      ]\\n    }\\n  },\\n  \\\"positive_control\\\": {\\n    \\\"passed\\\": 93,\\n    \\\"total\\\": 93,\\n    \\\"categories\\\": {\\n      \\\"basic\\\": {\\n        \\\"passed\\\": 4,\\n        \\\"total\\\": 4\\n      },\\n      \\\"numeric\\\": {\\n        \\\"passed\\\": 9,\\n        \\\"total\\\": 9\\n      },\\n      \\\"generalization\\\": {\\n        \\\"passed\\\": 18,\\n        \\\"total\\\": 18\\n      },\\n      \\\"invalid\\\": {\\n        \\\"passed\\\": 62,\\n        \\\"total\\\": 62\\n      }\\n    }\\n  },\\n  \\\"all_passed\\\": true\\n}\\n\", \"stderr\": \"\", \"observed_execution_events\": {\"unittest_cases_entered\": 0, \"native_grader_calls\": 10}, \"verification_report\": {\"oracle_checks\": 41, \"mutations\": {\"float\": {\"detected\": true, \"failed_cases\": [\"binary64_boundary\", \"cancellation_and_order\", \"beyond_float_range\"]}, \"booleans\": {\"detected\": true, \"failed_cases\": [\"net_units_true\", \"event_count_false\", \"largest_adjustment_true\"]}, \"duplicates\": {\"detected\": true, \"failed_cases\": [\"duplicate_root\", \"duplicate_identifier\", \"escaped_duplicate_identifier\", \"duplicate_turns\"]}, \"reject_decimals\": {\"detected\": true, \"failed_cases\": [\"integral_number_encodings\", \"binary64_boundary\"]}, \"dedup\": {\"detected\": true, \"failed_cases\": [\"identities_and_repetitions\", \"long_array\"]}, \"max_zero\": {\"detected\": true, \"failed_cases\": [\"identities_and_repetitions\", \"cancellation_and_order\"]}, \"count_without_validation\": {\"detected\": true, \"failed_cases\": [\"event_count_fraction\", \"event_count_true\", \"event_count_string\"]}, \"partial_failure\": {\"detected\": true, \"failed_cases\": [\"empty_max\", \"net_units_fraction\", \"duplicate_identifier\"]}}, \"positive_control\": {\"passed\": 93, \"total\": 93, \"categories\": {\"basic\": {\"passed\": 4, \"total\": 4}, \"numeric\": {\"passed\": 9, \"total\": 9}, \"generalization\": {\"passed\": 18, \"total\": 18}, \"invalid\": {\"passed\": 62, \"total\": 62}}}, \"all_passed\": true}}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-27dc62d5b5ec4e29a5c958f57cd345e6",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/confirmation/gpt-6-astra/H6/draw2/delivery,target=/subject,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,os,shutil,subprocess,sys\nfrom pathlib import Path\nshutil.copytree('/subject','/tmp/eval');os.chdir('/tmp/eval');env=dict(os.environ);env['PYTHONPATH']='/tmp/eval:/tmp/eval/evaluation'\np=subprocess.run([sys.executable,'-B','-c',\"import json,runpy,sys,unittest\\nfrom pathlib import Path\\nevents={'unittest_cases_entered':0,'native_grader_calls':0}\\ncase_code=unittest.TestCase.run.__code__\\ndef observe(frame,event,arg):\\n if event=='call':\\n  if frame.f_code is case_code:events['unittest_cases_entered']+=1\\n  if frame.f_code.co_filename.startswith('/tmp/eval/')and frame.f_code.co_name in ['grade','evaluate','run_suite']:events['native_grader_calls']+=1\\nsys.argv=['evaluation/selftest.py'];status=0;sys.setprofile(observe)\\ntry:\\n if sys.argv[0]=='-m':\\n  module=sys.argv[1];sys.argv=sys.argv[1:];runpy.run_module(module,run_name='__main__',alter_sys=True)\\n else:runpy.run_path(sys.argv[0],run_name='__main__')\\nexcept SystemExit as e:status=e.code or 0\\nfinally:\\n sys.setprofile(None);Path('/tmp/owner-verification-events.json').write_text(json.dumps(events))\\nraise SystemExit(status)\\n\"],capture_output=True,text=True,env=env,timeout=180)\nreport=Path('/tmp/eval/evaluation/selftest-report.json')\nevents=Path('/tmp/owner-verification-events.json')\nprint(json.dumps({'native_exit':p.returncode,'stdout':p.stdout,'stderr':p.stderr,'observed_execution_events':json.loads(events.read_text())if events.exists()else None,'verification_report':json.loads(report.read_text())if report.exists()else None}))\n"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 3374,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "native_exit": 0,
+    "stdout": "{\n  \"oracle_checks\": 41,\n  \"mutations\": {\n    \"float\": {\n      \"detected\": true,\n      \"failed_cases\": [\n        \"binary64_boundary\",\n        \"cancellation_and_order\",\n        \"beyond_float_range\"\n      ]\n    },\n    \"booleans\": {\n      \"detected\": true,\n      \"failed_cases\": [\n        \"net_units_true\",\n        \"event_count_false\",\n        \"largest_adjustment_true\"\n      ]\n    },\n    \"duplicates\": {\n      \"detected\": true,\n      \"failed_cases\": [\n        \"duplicate_root\",\n        \"duplicate_identifier\",\n        \"escaped_duplicate_identifier\",\n        \"duplicate_turns\"\n      ]\n    },\n    \"reject_decimals\": {\n      \"detected\": true,\n      \"failed_cases\": [\n        \"integral_number_encodings\",\n        \"binary64_boundary\"\n      ]\n    },\n    \"dedup\": {\n      \"detected\": true,\n      \"failed_cases\": [\n        \"identities_and_repetitions\",\n        \"long_array\"\n      ]\n    },\n    \"max_zero\": {\n      \"detected\": true,\n      \"failed_cases\": [\n        \"identities_and_repetitions\",\n        \"cancellation_and_order\"\n      ]\n    },\n    \"count_without_validation\": {\n      \"detected\": true,\n      \"failed_cases\": [\n        \"event_count_fraction\",\n        \"event_count_true\",\n        \"event_count_string\"\n      ]\n    },\n    \"partial_failure\": {\n      \"detected\": true,\n      \"failed_cases\": [\n        \"empty_max\",\n        \"net_units_fraction\",\n        \"duplicate_identifier\"\n      ]\n    }\n  },\n  \"positive_control\": {\n    \"passed\": 93,\n    \"total\": 93,\n    \"categories\": {\n      \"basic\": {\n        \"passed\": 4,\n        \"total\": 4\n      },\n      \"numeric\": {\n        \"passed\": 9,\n        \"total\": 9\n      },\n      \"generalization\": {\n        \"passed\": 18,\n        \"total\": 18\n      },\n      \"invalid\": {\n        \"passed\": 62,\n        \"total\": 62\n      }\n    }\n  },\n  \"all_passed\": true\n}\n",
+    "stderr": "",
+    "observed_execution_events": {
+      "unittest_cases_entered": 0,
+      "native_grader_calls": 10
+    },
+    "verification_report": {
+      "oracle_checks": 41,
+      "mutations": {
+        "float": {
+          "detected": true,
+          "failed_cases": [
+            "binary64_boundary",
+            "cancellation_and_order",
+            "beyond_float_range"
+          ]
+        },
+        "booleans": {
+          "detected": true,
+          "failed_cases": [
+            "net_units_true",
+            "event_count_false",
+            "largest_adjustment_true"
+          ]
+        },
+        "duplicates": {
+          "detected": true,
+          "failed_cases": [
+            "duplicate_root",
+            "duplicate_identifier",
+            "escaped_duplicate_identifier",
+            "duplicate_turns"
+          ]
+        },
+        "reject_decimals": {
+          "detected": true,
+          "failed_cases": [
+            "integral_number_encodings",
+            "binary64_boundary"
+          ]
+        },
+        "dedup": {
+          "detected": true,
+          "failed_cases": [
+            "identities_and_repetitions",
+            "long_array"
+          ]
+        },
+        "max_zero": {
+          "detected": true,
+          "failed_cases": [
+            "identities_and_repetitions",
+            "cancellation_and_order"
+          ]
+        },
+        "count_without_validation": {
+          "detected": true,
+          "failed_cases": [
+            "event_count_fraction",
+            "event_count_true",
+            "event_count_string"
+          ]
+        },
+        "partial_failure": {
+          "detected": true,
+          "failed_cases": [
+            "empty_max",
+            "net_units_fraction",
+            "duplicate_identifier"
+          ]
+        }
+      },
+      "positive_control": {
+        "passed": 93,
+        "total": 93,
+        "categories": {
+          "basic": {
+            "passed": 4,
+            "total": 4
+          },
+          "numeric": {
+            "passed": 9,
+            "total": 9
+          },
+          "generalization": {
+            "passed": 18,
+            "total": 18
+          },
+          "invalid": {
+            "passed": 62,
+            "total": 62
+          }
+        }
+      },
+      "all_passed": true
+    }
+  },
+  "job_id": "author_verification",
+  "kind": "selftests",
+  "expected": null,
+  "family": null
+}

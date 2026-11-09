@@ -1,0 +1,636 @@
+{
+  "subject": {
+    "id": "initial_screen/gpt-6.1-sol/H4",
+    "case_id": "H4",
+    "cohort": "initial_screen",
+    "model": "gpt-6.1-sol",
+    "native_status": "completed",
+    "package": "runs/screen/gpt-6.1-sol/H4/delivery",
+    "jobs": [
+      {
+        "name": "accept_everything.json",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "h4-owner-1ba9d10476524664ad7127573bd58f24",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "64",
+          "--memory",
+          "256m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,noexec,nosuid,size=32m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H4/delivery,target=/subject,readonly",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/expansion-h4/accept_everything.json,target=/control.json,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import json,shutil,subprocess,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate');Path('/tmp/candidate/fares.py').write_text(c['assets']['reference_fares.py']);Path('/tmp/candidate/test_fares.py').write_text(c['test_code'])\np=subprocess.run([sys.executable,'/tmp/eval/evaluation/grade.py','/tmp/candidate',sys.argv[1],'/tmp/result.json'],capture_output=True,text=True,timeout=45)\nreport=json.load(open('/tmp/result.json'));print(json.dumps({'pass':report['automated_pass'],'report':report,'native_exit':p.returncode,'native_stdout':p.stdout,'native_stderr':p.stderr}))\n",
+          "--output"
+        ],
+        "kind": "control",
+        "expected": false,
+        "family": "baseline",
+        "mapping_source": "grades/owner-review/gpt-6.1-sol-H4-SUCCESSOR.json"
+      },
+      {
+        "name": "contaminated.json",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "h4-owner-891cda437a2645309cc3778922ced9cc",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "64",
+          "--memory",
+          "256m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,noexec,nosuid,size=32m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H4/delivery,target=/subject,readonly",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/expansion-h4/contaminated.json,target=/control.json,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import json,shutil,subprocess,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate');Path('/tmp/candidate/fares.py').write_text(c['assets']['reference_fares.py']);Path('/tmp/candidate/test_fares.py').write_text(c['test_code'])\np=subprocess.run([sys.executable,'/tmp/eval/evaluation/grade.py','/tmp/candidate',sys.argv[1],'/tmp/result.json'],capture_output=True,text=True,timeout=45)\nreport=json.load(open('/tmp/result.json'));print(json.dumps({'pass':report['automated_pass'],'report':report,'native_exit':p.returncode,'native_stdout':p.stdout,'native_stderr':p.stderr}))\n",
+          "--output"
+        ],
+        "kind": "control",
+        "expected": false,
+        "family": "baseline",
+        "mapping_source": "grades/owner-review/gpt-6.1-sol-H4-SUCCESSOR.json"
+      },
+      {
+        "name": "correct_independent.json",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "h4-owner-42333fc6c8ff412ca90f1ff6e5dce7ae",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "64",
+          "--memory",
+          "256m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,noexec,nosuid,size=32m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H4/delivery,target=/subject,readonly",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/expansion-h4/correct_independent.json,target=/control.json,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import json,shutil,subprocess,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate');Path('/tmp/candidate/fares.py').write_text(c['assets']['reference_fares.py']);Path('/tmp/candidate/test_fares.py').write_text(c['test_code'])\np=subprocess.run([sys.executable,'/tmp/eval/evaluation/grade.py','/tmp/candidate',sys.argv[1],'/tmp/result.json'],capture_output=True,text=True,timeout=45)\nreport=json.load(open('/tmp/result.json'));print(json.dumps({'pass':report['automated_pass'],'report':report,'native_exit':p.returncode,'native_stdout':p.stdout,'native_stderr':p.stderr}))\n",
+          "--output"
+        ],
+        "kind": "control",
+        "expected": true,
+        "family": "baseline",
+        "mapping_source": "grades/owner-review/gpt-6.1-sol-H4-SUCCESSOR.json"
+      },
+      {
+        "name": "correct_independent_alternate.json",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "h4-owner-fa933bfd90cc4329b492e619d9dec88d",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "64",
+          "--memory",
+          "256m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,noexec,nosuid,size=32m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H4/delivery,target=/subject,readonly",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/expansion-h4/correct_independent_alternate.json,target=/control.json,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import json,shutil,subprocess,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate');Path('/tmp/candidate/fares.py').write_text(c['assets']['reference_fares.py']);Path('/tmp/candidate/test_fares.py').write_text(c['test_code'])\np=subprocess.run([sys.executable,'/tmp/eval/evaluation/grade.py','/tmp/candidate',sys.argv[1],'/tmp/result.json'],capture_output=True,text=True,timeout=45)\nreport=json.load(open('/tmp/result.json'));print(json.dumps({'pass':report['automated_pass'],'report':report,'native_exit':p.returncode,'native_stdout':p.stdout,'native_stderr':p.stderr}))\n",
+          "--output"
+        ],
+        "kind": "control",
+        "expected": true,
+        "family": "baseline",
+        "mapping_source": "grades/owner-review/gpt-6.1-sol-H4-SUCCESSOR.json"
+      },
+      {
+        "name": "reject_everything.json",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "h4-owner-d655c33308ec496e80e6aabfdaa1d970",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "64",
+          "--memory",
+          "256m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,noexec,nosuid,size=32m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H4/delivery,target=/subject,readonly",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/expansion-h4/reject_everything.json,target=/control.json,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import json,shutil,subprocess,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate');Path('/tmp/candidate/fares.py').write_text(c['assets']['reference_fares.py']);Path('/tmp/candidate/test_fares.py').write_text(c['test_code'])\np=subprocess.run([sys.executable,'/tmp/eval/evaluation/grade.py','/tmp/candidate',sys.argv[1],'/tmp/result.json'],capture_output=True,text=True,timeout=45)\nreport=json.load(open('/tmp/result.json'));print(json.dumps({'pass':report['automated_pass'],'report':report,'native_exit':p.returncode,'native_stdout':p.stdout,'native_stderr':p.stderr}))\n",
+          "--output"
+        ],
+        "kind": "control",
+        "expected": false,
+        "family": "baseline",
+        "mapping_source": "grades/owner-review/gpt-6.1-sol-H4-SUCCESSOR.json"
+      },
+      {
+        "name": "author_verification",
+        "kind": "selftests",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-6ac261cf2d124f7db419a17c0ef27134",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H4/delivery,target=/subject,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import json,os,shutil,subprocess,sys\nfrom pathlib import Path\nshutil.copytree('/subject','/tmp/eval');os.chdir('/tmp/eval');env=dict(os.environ);env['PYTHONPATH']='/tmp/eval:/tmp/eval/evaluation'\np=subprocess.run([sys.executable,'-B','-c',\"import json,runpy,sys,unittest\\nfrom pathlib import Path\\nevents={'unittest_cases_entered':0,'native_grader_calls':0}\\ncase_code=unittest.TestCase.run.__code__\\ndef observe(frame,event,arg):\\n if event=='call':\\n  if frame.f_code is case_code:events['unittest_cases_entered']+=1\\n  if frame.f_code.co_filename.startswith('/tmp/eval/')and frame.f_code.co_name in ['grade','evaluate','run_suite']:events['native_grader_calls']+=1\\nsys.argv=['evaluation/test_evaluation.py'];status=0;sys.setprofile(observe)\\ntry:\\n if sys.argv[0]=='-m':\\n  module=sys.argv[1];sys.argv=sys.argv[1:];runpy.run_module(module,run_name='__main__',alter_sys=True)\\n else:runpy.run_path(sys.argv[0],run_name='__main__')\\nexcept SystemExit as e:status=e.code or 0\\nfinally:\\n sys.setprofile(None);Path('/tmp/owner-verification-events.json').write_text(json.dumps(events))\\nraise SystemExit(status)\\n\"],capture_output=True,text=True,env=env,timeout=180)\nreport=Path('/tmp/eval/evaluation/selftest-report.json')\nevents=Path('/tmp/owner-verification-events.json')\nprint(json.dumps({'native_exit':p.returncode,'stdout':p.stdout,'stderr':p.stderr,'observed_execution_events':json.loads(events.read_text())if events.exists()else None,'verification_report':json.loads(report.read_text())if report.exists()else None}))\n"
+        ],
+        "timeout": 210
+      }
+    ],
+    "review_evidence": [
+      "grades/owner-review/H4-REVIEW.md",
+      "grades/owner-review/gpt-6.1-sol-H4-SUCCESSOR.json"
+    ],
+    "historical_verified_dimensions": []
+  },
+  "scoring": {
+    "score_interval": [
+      45.0,
+      100.0
+    ],
+    "verdict": "not_qualified",
+    "critical_failures": [],
+    "qualified": false,
+    "points_observed_pass": 45.0,
+    "points_observed_fail": 0.0,
+    "points_unresolved": 55.0
+  },
+  "checks": [
+    {
+      "id": "A1",
+      "points": 5,
+      "description": "Delivered grader actually executes",
+      "status": "pass",
+      "reason": "Actual delivered grading functions executed on independently supplied controls.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/00-accept_everything.json.json",
+          "sha256": "7f63f8abe7764fbb19a9157bdb8f8e980c27808e816a4014b2785611885b57de"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/01-contaminated.json.json",
+          "sha256": "f814fa116c7412f0830fedaca7566d5925829313549a3187f41dae6f6ed34aa6"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/02-correct_independent.json.json",
+          "sha256": "acb4f3742663a2aa35f363201b393ec56ba9ab6a80a0ec80988a521dc34dcdb0"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/03-correct_independent_alternate.json.json",
+          "sha256": "e26b8addba3e1d4a4bf2ec5af42359c5235735e715f3e01f24151b35543745ee"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/04-reject_everything.json.json",
+          "sha256": "2684ccb5dbb9b85caf6419348c46d04da3125b2ab26ce49c7b80b6e6f806a466"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "A2",
+      "points": 5,
+      "description": "Delivered verification/runner executes in clean disposable state",
+      "status": "pass",
+      "reason": "Delivered verification suite reproduced in clean temporary copy under the supplied runtime; this does not establish all CLI paths.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/05-author_verification.json",
+          "sha256": "b5f765d412a5c7880733011763a4a3555210afce805b6d7cca8d514e7ce47b92"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "B1",
+      "points": 7.5,
+      "description": "Source requirements preserved",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "B2",
+      "points": 7.5,
+      "description": "Graded requirements exposed to solver",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "C1",
+      "points": 7.5,
+      "description": "Reference independently passes core semantics",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "C2",
+      "points": 7.5,
+      "description": "Reference independently passes boundary semantics",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "D1",
+      "points": 10,
+      "description": "Baseline correct control accepted",
+      "status": "pass",
+      "reason": "Independent baseline correct control under the recorded public interface.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/02-correct_independent.json.json",
+          "sha256": "acb4f3742663a2aa35f363201b393ec56ba9ab6a80a0ec80988a521dc34dcdb0"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "D2",
+      "points": 10,
+      "description": "Correct alternative/representation accepted",
+      "status": "pass",
+      "reason": "Independent correct alternatives/representations under the recorded public interface.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/03-correct_independent_alternate.json.json",
+          "sha256": "e26b8addba3e1d4a4bf2ec5af42359c5235735e715f3e01f24151b35543745ee"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "E1",
+      "points": 10,
+      "description": "Baseline faulty controls rejected",
+      "status": "pass",
+      "reason": "Actual native verdicts on independently labeled finite faulty-control family; controls macro-averaged within family.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/00-accept_everything.json.json",
+          "sha256": "7f63f8abe7764fbb19a9157bdb8f8e980c27808e816a4014b2785611885b57de"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/01-contaminated.json.json",
+          "sha256": "f814fa116c7412f0830fedaca7566d5925829313549a3187f41dae6f6ed34aa6"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/04-reject_everything.json.json",
+          "sha256": "2684ccb5dbb9b85caf6419348c46d04da3125b2ab26ce49c7b80b6e6f806a466"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "subchecks": [
+        {
+          "name": "accept_everything.json",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/00-accept_everything.json.json",
+              "sha256": "7f63f8abe7764fbb19a9157bdb8f8e980c27808e816a4014b2785611885b57de"
+            }
+          ],
+          "points": 3.3333333333333335
+        },
+        {
+          "name": "contaminated.json",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/01-contaminated.json.json",
+              "sha256": "f814fa116c7412f0830fedaca7566d5925829313549a3187f41dae6f6ed34aa6"
+            }
+          ],
+          "points": 3.3333333333333335
+        },
+        {
+          "name": "reject_everything.json",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/04-reject_everything.json.json",
+              "sha256": "2684ccb5dbb9b85caf6419348c46d04da3125b2ab26ce49c7b80b6e6f806a466"
+            }
+          ],
+          "points": 3.3333333333333335
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "points": 10,
+      "description": "Fresh sibling faults rejected",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "F1",
+      "points": 5,
+      "description": "Required isolation boundaries qualified",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "F2",
+      "points": 5,
+      "description": "Required measurement/accounting checked independently",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "G1",
+      "points": 2.5,
+      "description": "Delivered verification controls execute",
+      "status": "pass",
+      "reason": "Observed 17 actual unittest-case entries and 9 native grading calls under an owner-side profiler. Control-label correctness is a separate review.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/05-author_verification.json",
+          "sha256": "b5f765d412a5c7880733011763a4a3555210afce805b6d7cca8d514e7ce47b92"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "G2",
+      "points": 2.5,
+      "description": "Verification claims independently match observations",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "H1",
+      "points": 2.5,
+      "description": "Numerical claims agree with evidence",
+      "status": "pass",
+      "reason": "Stored authored unittest-count claim matches actual observed TestCase entries and successful native suite. This checks a numerical verification claim, not control-label correctness.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/05-author_verification.json",
+          "sha256": "b5f765d412a5c7880733011763a4a3555210afce805b6d7cca8d514e7ce47b92"
+        },
+        {
+          "path": "runs/screen/gpt-6.1-sol/H4/delivery/evaluation/validation.txt",
+          "sha256": "71db6f9c7d85e1648cfab054ba26fb704922df7db0ed6cfe13418fbe3929690b"
+        }
+      ],
+      "method": "executed_plus_artifact_inspection",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "H2",
+      "points": 2.5,
+      "description": "Material conclusions supported",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    }
+  ],
+  "native_control_results": [
+    {
+      "name": "accept_everything.json",
+      "expected": false,
+      "actual": false,
+      "valid": true,
+      "family": "baseline",
+      "evidence": {
+        "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/00-accept_everything.json.json",
+        "sha256": "7f63f8abe7764fbb19a9157bdb8f8e980c27808e816a4014b2785611885b57de"
+      }
+    },
+    {
+      "name": "contaminated.json",
+      "expected": false,
+      "actual": false,
+      "valid": true,
+      "family": "baseline",
+      "evidence": {
+        "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/01-contaminated.json.json",
+        "sha256": "f814fa116c7412f0830fedaca7566d5925829313549a3187f41dae6f6ed34aa6"
+      }
+    },
+    {
+      "name": "correct_independent.json",
+      "expected": true,
+      "actual": true,
+      "valid": true,
+      "family": "baseline",
+      "evidence": {
+        "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/02-correct_independent.json.json",
+        "sha256": "acb4f3742663a2aa35f363201b393ec56ba9ab6a80a0ec80988a521dc34dcdb0"
+      }
+    },
+    {
+      "name": "correct_independent_alternate.json",
+      "expected": true,
+      "actual": true,
+      "valid": true,
+      "family": "baseline",
+      "evidence": {
+        "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/03-correct_independent_alternate.json.json",
+        "sha256": "e26b8addba3e1d4a4bf2ec5af42359c5235735e715f3e01f24151b35543745ee"
+      }
+    },
+    {
+      "name": "reject_everything.json",
+      "expected": false,
+      "actual": false,
+      "valid": true,
+      "family": "baseline",
+      "evidence": {
+        "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/04-reject_everything.json.json",
+        "sha256": "2684ccb5dbb9b85caf6419348c46d04da3125b2ab26ce49c7b80b6e6f806a466"
+      }
+    }
+  ],
+  "execution_receipts": [
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/00-accept_everything.json.json",
+      "sha256": "7f63f8abe7764fbb19a9157bdb8f8e980c27808e816a4014b2785611885b57de"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/01-contaminated.json.json",
+      "sha256": "f814fa116c7412f0830fedaca7566d5925829313549a3187f41dae6f6ed34aa6"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/02-correct_independent.json.json",
+      "sha256": "acb4f3742663a2aa35f363201b393ec56ba9ab6a80a0ec80988a521dc34dcdb0"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/03-correct_independent_alternate.json.json",
+      "sha256": "e26b8addba3e1d4a4bf2ec5af42359c5235735e715f3e01f24151b35543745ee"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/04-reject_everything.json.json",
+      "sha256": "2684ccb5dbb9b85caf6419348c46d04da3125b2ab26ce49c7b80b6e6f806a466"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H4/05-author_verification.json",
+      "sha256": "b5f765d412a5c7880733011763a4a3555210afce805b6d7cca8d514e7ce47b92"
+    }
+  ],
+  "instrument_observations": [],
+  "subject_unchanged": true,
+  "subject_before_sha256": {
+    "MANIFEST.json": "96363d00b2cb8b6c290c455b381ce50f7e475a813d1e37d903ea1fdcc3a4abfa",
+    "PROVENANCE.json": "b3f6f928eb84884fab537f1ec02fcd0f2cede25219b2f3b48ccdece09bb6dc21",
+    "evaluation/README.md": "7271cdabe054c0c664a1e598bcc1d3a888439fe6837c08e5c39d9453fa724bac",
+    "evaluation/cases.py": "461289db094fd9b5941f62e09ce354dae8a9da2a188e412692a725950311da77",
+    "evaluation/controls.py": "5908460eea023672db4a07f7f3a63c53e73617d87d0fb0f3abcada3aaf7b48a3",
+    "evaluation/grade.py": "49a317c0a01a5acfabe2029c71f7f3ba851749b9dd0a2e82cfd80c990347f278",
+    "evaluation/oracle.py": "d6657279d2b27d3175ba3b9ade98cd45bf3327c122ed63f3f7a9a895de43a302",
+    "evaluation/test_evaluation.py": "0af21cdb0e3fa4bcedd991f39a8a0695124a372c2ed7d3dca66cbc12f7cb1fe7",
+    "evaluation/validation.json": "8120bffb679135e1a02604f1d148d14908b4881d0207032d1f166cb4fc09a8c3",
+    "evaluation/validation.txt": "71db6f9c7d85e1648cfab054ba26fb704922df7db0ed6cfe13418fbe3929690b",
+    "input/task.txt": "1be99e5ec715fe4f3821d2af5369ddb3fbc84dce767f50fe5e1560079cd39a3d",
+    "input/workspace/README.md": "d706e9e94b2d70ada8ad26fbd6bcb4a356745b4d1865900736e2d3f595fc32b6",
+    "input/workspace/TESTING.md": "ada11ea6a83d9170c6c37740189baf637f45c4db2f46af033c50be7725ae6b0d",
+    "input/workspace/farelib.pyc": "34faa5fbbb379297723724551a5a5a5e725bfec6c1dc0d155186f29920bce8e7",
+    "input/workspace/farelib.pyi": "702d7ffa250ddcdb7777bb826c43ebdb899a1af76b82599c7cdc815c3e18e6d0",
+    "input/workspace/fares.py": "e30423d584e95987ac3d113777f62662da75c5a983414ed6cc5a339e6738071d",
+    "prompt.md": "ef8b2719fa86ef6c1c873db7ded85ad02ff309f0696c158b5739fabaaa179dcb"
+  },
+  "human_review_complete": false,
+  "scope": "Executable meta-evaluation on the finite registered checks; unqualified semantic/boundary claims remain unresolved."
+}

@@ -1,0 +1,107 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 1.3411115350008913,
+  "stdout": "{\"ok\": true, \"repetitions\": [{\"pass\": true, \"replies\": [{\"key\": \"y\", \"reply\": {\"status\": \"accepted\", \"remaining\": 40}}, {\"key\": \"x\", \"reply\": {\"status\": \"rejected\", \"remaining\": 40}}]}, {\"pass\": true, \"replies\": [{\"key\": \"y\", \"reply\": {\"status\": \"accepted\", \"remaining\": 40}}, {\"key\": \"x\", \"reply\": {\"status\": \"rejected\", \"remaining\": 40}}]}, {\"pass\": true, \"replies\": [{\"key\": \"y\", \"reply\": {\"status\": \"accepted\", \"remaining\": 40}}, {\"key\": \"x\", \"reply\": {\"status\": \"rejected\", \"remaining\": 40}}]}]}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-dc78e551349b4f628234ee04a8ec5d7a",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/clean_screen/gpt-6.1-sol/H1/delivery/tests/fixtures/reference_service.py,target=/reference.py,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import importlib.util,json,multiprocessing,sqlite3,tempfile\nspec=importlib.util.spec_from_file_location('owner_checked_reference','/reference.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)\nrows=[]\nfor repeat in range(3):\n with tempfile.TemporaryDirectory()as folder:\n  path=folder+'/db';m.Service(path);ctx=multiprocessing.get_context('fork');gate=ctx.Barrier(2);q=ctx.Queue()\n  def worker(key):\n   try:\n    s=m.Service(path);gate.wait(timeout=6);r=s.apply({'key':key,'account':'A','amount':60});q.put({'key':key,'reply':r})\n   except Exception as e:q.put({'key':key,'error':repr(e)})\n  processes=[ctx.Process(target=worker,args=(key,))for key in ['x','y']]\n  for p in processes:p.start()\n  replies=[q.get(timeout=10)for _ in processes]\n  for p in processes:p.join(timeout=6)\n  ok=all('reply'in r for r in replies)\n  if ok:\n   accepted=sum(r['reply']['status']in ['accepted','applied']for r in replies);ok=accepted==1 and all(r['reply']['remaining']==40 for r in replies)\n   ok=ok and all(m.Service(path).apply({'key':r['key'],'account':'A','amount':60})==r['reply']for r in replies)\n  with sqlite3.connect(path)as db:ok=ok and db.execute(\"select remaining from accounts where account='A'\").fetchone()[0]==40 and db.execute('select count(*)from ledger').fetchone()[0]==1\n  rows.append({'pass':ok,'replies':replies})\nprint(json.dumps({'ok':all(r['pass']for r in rows),'repetitions':rows}))\n"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 501,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "ok": true,
+    "repetitions": [
+      {
+        "pass": true,
+        "replies": [
+          {
+            "key": "y",
+            "reply": {
+              "status": "accepted",
+              "remaining": 40
+            }
+          },
+          {
+            "key": "x",
+            "reply": {
+              "status": "rejected",
+              "remaining": 40
+            }
+          }
+        ]
+      },
+      {
+        "pass": true,
+        "replies": [
+          {
+            "key": "y",
+            "reply": {
+              "status": "accepted",
+              "remaining": 40
+            }
+          },
+          {
+            "key": "x",
+            "reply": {
+              "status": "rejected",
+              "remaining": 40
+            }
+          }
+        ]
+      },
+      {
+        "pass": true,
+        "replies": [
+          {
+            "key": "y",
+            "reply": {
+              "status": "accepted",
+              "remaining": 40
+            }
+          },
+          {
+            "key": "x",
+            "reply": {
+              "status": "rejected",
+              "remaining": 40
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "job_id": "independent_reference_concurrency",
+  "kind": "reference_boundary",
+  "expected": null,
+  "family": null
+}

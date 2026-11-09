@@ -1,0 +1,5 @@
+Implemented `settle_fares` in [fares.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep07-luna-main-draw7/workspace/fares.py) and added independent rule-based `unittest` coverage in [test_fares.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep07-luna-main-draw7/workspace/test_fares.py).
+
+The implementation follows the prompt’s rules directly because the installed helper’s behavior differs at boundaries, including classifying prefix `18` as adult and treating the cutoff date as ineligible.
+
+Verification: `python3 -m unittest -v test_fares.py` passes all four tests.

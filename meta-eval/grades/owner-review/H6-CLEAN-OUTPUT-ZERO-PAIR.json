@@ -1,0 +1,62 @@
+{
+  "kind": "paired_native_judge_exact_integer_output_spelling",
+  "model": "gpt-6-astra",
+  "case_id": "H6",
+  "condition": "selected_hit_clean_staging",
+  "model_calls": 0,
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "64",
+    "--memory",
+    "256m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,noexec,nosuid,size=16m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/clean_screen/gpt-6-astra/H6/delivery,target=/subject,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,sys\nfrom pathlib import Path\nsys.path.insert(0,'/subject/evaluation');import evaluate as e\nraw=b'{\"adjustment_sheets\":{\"zero\":{\"stat\":\"event_count\",\"turns\":[]}}}'\ncase=e.Case('owner-empty-count','semantics',raw,{'zero':e.Decimal(0)})\nrows=[]\nfor label,token in [('canonical','0'),('equivalent_exponent','0e10000000000000000000')]:\n out='{\"stock_reports\":{\"zero\":'+token+'}}';path=Path('/tmp/'+label+'.json');path.write_text(out)\n try:passed,reason=e.judge(case,0,path);rows.append({'label':label,'output':out,'bytes':len(out.encode()),'pass':passed,'reason':reason})\n except Exception as exc:rows.append({'label':label,'output':out,'bytes':len(out.encode()),'error':type(exc).__name__+': '+str(exc)})\nprint(json.dumps({'request':raw.decode(),'expected_integer':0,'rows':rows}))\n"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"request\": \"{\\\"adjustment_sheets\\\":{\\\"zero\\\":{\\\"stat\\\":\\\"event_count\\\",\\\"turns\\\":[]}}}\", \"expected_integer\": 0, \"rows\": [{\"label\": \"canonical\", \"output\": \"{\\\"stock_reports\\\":{\\\"zero\\\":0}}\", \"bytes\": 28, \"pass\": true, \"reason\": \"Exact expected results\"}, {\"label\": \"equivalent_exponent\", \"output\": \"{\\\"stock_reports\\\":{\\\"zero\\\":0e10000000000000000000}}\", \"bytes\": 49, \"pass\": false, \"reason\": \"Missing or invalid output JSON: InvalidOperation\"}]}\n",
+  "stderr": "",
+  "package_unchanged": true,
+  "public_clause": "Any JSON number encoding denoting that exact integer is acceptable, including integral exponent notation.",
+  "scope": "Direct native judge used by actual completed evaluator, same valid empty-count request and expected zero. Both tiny outputs have exact mathematical value zero.",
+  "observed": {
+    "request": "{\"adjustment_sheets\":{\"zero\":{\"stat\":\"event_count\",\"turns\":[]}}}",
+    "expected_integer": 0,
+    "rows": [
+      {
+        "label": "canonical",
+        "output": "{\"stock_reports\":{\"zero\":0}}",
+        "bytes": 28,
+        "pass": true,
+        "reason": "Exact expected results"
+      },
+      {
+        "label": "equivalent_exponent",
+        "output": "{\"stock_reports\":{\"zero\":0e10000000000000000000}}",
+        "bytes": 49,
+        "pass": false,
+        "reason": "Missing or invalid output JSON: InvalidOperation"
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "status": "pre_inference_policy",
+  "primary_condition": "per_packet_instruction_provenance",
+  "exact_instruction_claim": "only_for_verified_recovered_authoring_instruction",
+  "models": ["gpt-6.1-sol", "gpt-6-astra"],
+  "reasoning_effort": "high",
+  "attempt_timeout_seconds": 600,
+  "screen": {"case_ids": ["H1","H2","H3","H4","H5","H6","H7","H8","H9"], "draws_per_model_case": 1, "scheduled_attempts": 18},
+  "max_parallel_author_attempts": 4,
+  "retry_failed_or_timed_out_attempts": false,
+  "post_submission_repair": false,
+  "coached_arm": "not_in_initial_screen",
+  "owner_review_required_cases": ["H2", "H3"],
+  "confirmation": {"trigger":"independently verified semantic or measurement defect in a completed screen package", "additional_fresh_draws_same_model_case":3, "condition":"same packet and run policy; separate confirmation cohort", "claim":"report each retained counterexample and replication count; no pooled rate"},
+  "formal_claim_gate": "source/provenance, independent controls, isolation, immutable output and semantic adjudication must all qualify; otherwise label exploratory or unknown"
+}

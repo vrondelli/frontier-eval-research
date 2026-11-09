@@ -1,0 +1,64 @@
+{
+  "case_id": "H2",
+  "model": "gpt-6-astra",
+  "reviewer_type": "AI_semantic_review_not_human",
+  "reviewed_utc": "2026-11-09T01:38:05.909502+00:00",
+  "launch_status": "completed",
+  "condition": "exact_original_user_instruction_new_runtime_context",
+  "criteria_path": "research\\hackathon\\eval-author-meta-eval-20261108\\runs\\screen\\gpt-6-astra\\H2\\delivery\\criteria.md",
+  "criteria_sha256": "6d2f830639452974c56e3fd887fd53bf8a2a1630a51effdedc0b4063947a1a69",
+  "final_sha256": "90b299f7bf3926415984a22b0980fe70f24b050c6c8294d63c24d44f8f1fd121",
+  "judgment": "no_verified_objective_defect_in_reviewed_obligations",
+  "checks": {
+    "ordered_sections": true,
+    "eight_checks_present": true,
+    "calibration_inputs_unchanged": true,
+    "finite_semantic_review_no_prompt_violation_found": true,
+    "exactly_one_new_deliverable": true
+  },
+  "scoring_review": {
+    "check_count": 8,
+    "weights": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2
+    ],
+    "maximum_total": 10,
+    "mapping": "0-1=>0;2-3=>1;4-6=>2;7-10=>3",
+    "worked_totals": {
+      "CAL-A": 4,
+      "CAL-B": 4,
+      "CAL-C": 2,
+      "CAL-D": 5
+    },
+    "worked_scores": {
+      "CAL-A": 2,
+      "CAL-B": 2,
+      "CAL-C": 1,
+      "CAL-D": 2
+    },
+    "consistency": "All quoted CAL evidence, per-check assignments, sums and final scores are internally consistent under each delivered rubric. The model explicitly found and referred to input/CAL files."
+  },
+  "valid_alternatives": [
+    "Both rubrics operationalize novelty as text-supported comparative departure, not historical priority. They disclose this limit. The prompt does not supply a prior-art repertoire or fixed correct ranking.",
+    "Sol uses a fixed reference repertoire and weights novelty at4/10; Astra uses a conventional-comparator list and distinguishing-case condition. Neither alternative is privately disallowed by the original task."
+  ],
+  "construct_limits": [
+    "A high rubric score can still be earned by infeasible or falsely claimed content. Both deliveries disclose such failure modes; this is not by itself a contradiction of the explicit text-only task.",
+    "No independent human validation, universal mechanical-application proof or empirical inter-rater study performed."
+  ],
+  "context_limits": [
+    "CAL files are in input/ rather than workspace root. Both deliveries nevertheless read and score all four.",
+    "Metadata files newly visible and runtime changed; exact user instruction does not establish full-context replication."
+  ],
+  "actual_failure_witnesses": [],
+  "new_delivered_files": [
+    "criteria.md"
+  ],
+  "modified_existing_files": []
+}

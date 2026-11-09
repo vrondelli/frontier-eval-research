@@ -1,0 +1,1 @@
+Given integers a and b, accept an answer equal to their mathematical sum. Return a boolean.

@@ -1,0 +1,81 @@
+[
+  {
+    "defect": "noop",
+    "rejected": true,
+    "failed_checks": [
+      "public/selective reservation join/half-comparisons"
+    ]
+  },
+  {
+    "defect": "counter",
+    "rejected": true,
+    "failed_checks": [
+      "public/selective reservation join/ordinary",
+      "public/selective reservation join/optimized",
+      "public/selective reservation join/half-comparisons"
+    ]
+  },
+  {
+    "defect": "dedup",
+    "rejected": true,
+    "failed_checks": [
+      "scan/duplicates-null-unicode/ordinary",
+      "scan/duplicates-null-unicode/optimized"
+    ]
+  },
+  {
+    "defect": "outer",
+    "rejected": true,
+    "failed_checks": [
+      "outer/filter-right-gt/optimized",
+      "outer/filter-right-gt/optimizer-api"
+    ]
+  },
+  {
+    "defect": "mutate",
+    "rejected": true,
+    "failed_checks": [
+      "scan/duplicates-null-unicode/optimizer-api"
+    ]
+  },
+  {
+    "defect": "duplicate",
+    "rejected": true,
+    "failed_checks": [
+      "json/duplicate-root/ordinary",
+      "json/duplicate-root/optimized"
+    ]
+  },
+  {
+    "defect": "bool-counter",
+    "rejected": true,
+    "failed_checks": [
+      "scan/empty/ordinary",
+      "scan/empty/optimized"
+    ]
+  },
+  {
+    "defect": "bool-rows",
+    "rejected": true,
+    "failed_checks": [
+      "scan/duplicates-null-unicode/ordinary",
+      "scan/duplicates-null-unicode/optimized"
+    ]
+  },
+  {
+    "defect": "plan-lie",
+    "rejected": true,
+    "failed_checks": [
+      "public/selective reservation join/optimized",
+      "public/selective reservation join/half-comparisons"
+    ]
+  },
+  {
+    "defect": "invalid-stdout",
+    "rejected": true,
+    "failed_checks": [
+      "expr/empty/missing/ordinary",
+      "expr/empty/missing/optimized"
+    ]
+  }
+]

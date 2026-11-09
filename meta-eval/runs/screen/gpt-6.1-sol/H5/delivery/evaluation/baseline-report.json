@@ -1,0 +1,3240 @@
+{
+  "schema_version": "query-engine-evaluation/v1",
+  "candidate": "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-H5-9tokkkpv\\workspace\\input\\workspace",
+  "seed": 61371,
+  "generated_cases": 24,
+  "fixtures": 182,
+  "passed": false,
+  "summary": {
+    "passed": 380,
+    "total": 471,
+    "categories": {
+      "generated": {
+        "passed": 14,
+        "total": 48
+      },
+      "groups": {
+        "passed": 0,
+        "total": 24
+      },
+      "integrity": {
+        "passed": 2,
+        "total": 2
+      },
+      "joins": {
+        "passed": 10,
+        "total": 24
+      },
+      "logic": {
+        "passed": 72,
+        "total": 72
+      },
+      "optimizer_api": {
+        "passed": 104,
+        "total": 104
+      },
+      "optimizer_safety": {
+        "passed": 6,
+        "total": 12
+      },
+      "performance": {
+        "passed": 0,
+        "total": 1
+      },
+      "public": {
+        "passed": 2,
+        "total": 12
+      },
+      "semantics": {
+        "passed": 14,
+        "total": 14
+      },
+      "validation": {
+        "passed": 156,
+        "total": 158
+      }
+    }
+  },
+  "checks": [
+    {
+      "name": "integrity/before",
+      "category": "integrity",
+      "passed": true,
+      "detail": "protected hashes and regular local Python modules verified"
+    },
+    {
+      "name": "public/selective reservation join/ordinary",
+      "category": "public",
+      "passed": true,
+      "detail": {
+        "rows": 4,
+        "join_comparisons": 150
+      }
+    },
+    {
+      "name": "public/selective reservation join/optimized",
+      "category": "public",
+      "passed": true,
+      "detail": {
+        "rows": 4,
+        "join_comparisons": 150
+      }
+    },
+    {
+      "name": "public/selective reservation join/half-comparisons",
+      "category": "performance",
+      "passed": false,
+      "detail": "Invalid: useful optimization missing: 150 comparisons, baseline 150, limit 75"
+    },
+    {
+      "name": "public/all optional reservations/ordinary",
+      "category": "public",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "public/all optional reservations/optimized",
+      "category": "public",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "public/post outer nonnull filter/ordinary",
+      "category": "public",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "public/post outer nonnull filter/optimized",
+      "category": "public",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "public/missing reservations/ordinary",
+      "category": "public",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "public/missing reservations/optimized",
+      "category": "public",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "public/site reservation totals/ordinary",
+      "category": "public",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "public/site reservation totals/optimized",
+      "category": "public",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "public/available joined units/ordinary",
+      "category": "public",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "public/available joined units/optimized",
+      "category": "public",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "scan/duplicates-null-unicode/ordinary",
+      "category": "semantics",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "scan/duplicates-null-unicode/optimized",
+      "category": "semantics",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "scan/empty/ordinary",
+      "category": "semantics",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "scan/empty/optimized",
+      "category": "semantics",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "scan/zero-column-bag/ordinary",
+      "category": "semantics",
+      "passed": true,
+      "detail": {
+        "rows": 2,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "scan/zero-column-bag/optimized",
+      "category": "semantics",
+      "passed": true,
+      "detail": {
+        "rows": 2,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "project/empty-fields-bag/ordinary",
+      "category": "semantics",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "project/empty-fields-bag/optimized",
+      "category": "semantics",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "project/arithmetic-null-exact-int/ordinary",
+      "category": "semantics",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "project/arithmetic-null-exact-int/optimized",
+      "category": "semantics",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "project/output-referenced/ordinary",
+      "category": "semantics",
+      "passed": true,
+      "detail": {
+        "rows": 3,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "project/output-referenced/optimized",
+      "category": "semantics",
+      "passed": true,
+      "detail": {
+        "rows": 3,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "project/simultaneous-evaluation/ordinary",
+      "category": "semantics",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "project/simultaneous-evaluation/optimized",
+      "category": "semantics",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/eq/a.v/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 2,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/eq/a.v/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 2,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/eq/a.s/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 2,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/eq/a.s/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 2,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/ne/a.v/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 2,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/ne/a.v/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 2,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/ne/a.s/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 2,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/ne/a.s/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 2,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/lt/a.v/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 1,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/lt/a.v/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 1,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/lt/a.s/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 1,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/lt/a.s/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 1,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/le/a.v/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 3,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/le/a.v/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 3,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/le/a.s/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 3,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/le/a.s/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 3,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/gt/a.v/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 1,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/gt/a.v/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 1,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/gt/a.s/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 1,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/gt/a.s/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 1,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/ge/a.v/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 3,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/ge/a.v/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 3,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/ge/a.s/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 3,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/ge/a.s/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 3,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/is-null/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 1,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/is-null/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 1,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/not-unknown/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "predicate/not-unknown/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/not/0/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/not/0/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/0/0/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/0/0/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/0/0/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/0/0/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/0/1/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/0/1/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/0/1/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/0/1/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/0/2/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/0/2/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/0/2/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/0/2/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/not/1/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/not/1/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/1/0/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/1/0/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/1/0/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/1/0/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/1/1/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/1/1/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/1/1/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/1/1/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/1/2/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/1/2/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/1/2/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/1/2/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/not/2/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/not/2/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/2/0/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/2/0/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/2/0/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/2/0/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/2/1/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/2/1/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/2/1/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/2/1/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/2/2/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/and/2/2/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/2/2/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/or/2/2/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/nested-variadic/ordinary",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "logic/nested-variadic/optimized",
+      "category": "logic",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "join/inner/duplicate-and-null-keys/ordinary",
+      "category": "joins",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 25
+      }
+    },
+    {
+      "name": "join/inner/duplicate-and-null-keys/optimized",
+      "category": "joins",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "join_comparisons": 25
+      }
+    },
+    {
+      "name": "join/inner/empty-right-schema/ordinary",
+      "category": "joins",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "join/inner/empty-right-schema/optimized",
+      "category": "joins",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "join/inner/empty-left/ordinary",
+      "category": "joins",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "join/inner/empty-left/optimized",
+      "category": "joins",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 0
+      }
+    },
+    {
+      "name": "join/inner/strings/ordinary",
+      "category": "joins",
+      "passed": true,
+      "detail": {
+        "rows": 3,
+        "join_comparisons": 25
+      }
+    },
+    {
+      "name": "join/inner/strings/optimized",
+      "category": "joins",
+      "passed": true,
+      "detail": {
+        "rows": 3,
+        "join_comparisons": 25
+      }
+    },
+    {
+      "name": "join/left/duplicate-and-null-keys/ordinary",
+      "category": "joins",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "join/left/duplicate-and-null-keys/optimized",
+      "category": "joins",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "join/left/empty-right-schema/ordinary",
+      "category": "joins",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "join/left/empty-right-schema/optimized",
+      "category": "joins",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "join/left/empty-left/ordinary",
+      "category": "joins",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "join/left/empty-left/optimized",
+      "category": "joins",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "join/left/strings/ordinary",
+      "category": "joins",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "join/left/strings/optimized",
+      "category": "joins",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "join/empty-projected-right/ordinary",
+      "category": "joins",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "join/empty-projected-right/optimized",
+      "category": "joins",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "join/nested-comparison-accounting/ordinary",
+      "category": "joins",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "join/nested-comparison-accounting/optimized",
+      "category": "joins",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "join/child-cost-survives-empty-parent/ordinary",
+      "category": "joins",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 25
+      }
+    },
+    {
+      "name": "join/child-cost-survives-empty-parent/optimized",
+      "category": "joins",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 25
+      }
+    },
+    {
+      "name": "join/no-null-null-match/ordinary",
+      "category": "joins",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "join/no-null-null-match/optimized",
+      "category": "joins",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "outer/filter-is-null/ordinary",
+      "category": "optimizer_safety",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "outer/filter-is-null/optimized",
+      "category": "optimizer_safety",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "outer/filter-right-gt/ordinary",
+      "category": "optimizer_safety",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "outer/filter-right-gt/optimized",
+      "category": "optimizer_safety",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "outer/mixed-or/ordinary",
+      "category": "optimizer_safety",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "outer/mixed-or/optimized",
+      "category": "optimizer_safety",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "inner/mixed-or/ordinary",
+      "category": "optimizer_safety",
+      "passed": true,
+      "detail": {
+        "rows": 4,
+        "join_comparisons": 25
+      }
+    },
+    {
+      "name": "inner/mixed-or/optimized",
+      "category": "optimizer_safety",
+      "passed": true,
+      "detail": {
+        "rows": 4,
+        "join_comparisons": 25
+      }
+    },
+    {
+      "name": "inner/cross-side-expression/ordinary",
+      "category": "optimizer_safety",
+      "passed": true,
+      "detail": {
+        "rows": 4,
+        "join_comparisons": 25
+      }
+    },
+    {
+      "name": "inner/cross-side-expression/optimized",
+      "category": "optimizer_safety",
+      "passed": true,
+      "detail": {
+        "rows": 4,
+        "join_comparisons": 25
+      }
+    },
+    {
+      "name": "inner/nested-conjunction/ordinary",
+      "category": "optimizer_safety",
+      "passed": true,
+      "detail": {
+        "rows": 4,
+        "join_comparisons": 25
+      }
+    },
+    {
+      "name": "inner/nested-conjunction/optimized",
+      "category": "optimizer_safety",
+      "passed": true,
+      "detail": {
+        "rows": 4,
+        "join_comparisons": 25
+      }
+    },
+    {
+      "name": "group/global/ordinary",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/global/optimized",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/null-keys-duplicates/ordinary",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/null-keys-duplicates/optimized",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/empty-global/ordinary",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/empty-global/optimized",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/empty-keyed/ordinary",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/empty-keyed/optimized",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/all-null-sums/ordinary",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/all-null-sums/optimized",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/count-string-and-null-expression/ordinary",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/count-string-and-null-expression/optimized",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/outputs-reused/ordinary",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/outputs-reused/optimized",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/group-over-group/ordinary",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/group-over-group/optimized",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/outer-null-extension/ordinary",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "group/outer-null-extension/optimized",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "group/empty-aggregate-map/ordinary",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/empty-aggregate-map/optimized",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/empty-global-empty-map/ordinary",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/empty-global-empty-map/optimized",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/output-used-as-join-key/ordinary",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "group/output-used-as-join-key/optimized",
+      "category": "groups",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "request/not-object/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "request/not-object/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "request/missing-plan/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "request/missing-plan/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "request/extra-key/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "request/extra-key/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "request/tables-list/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "request/tables-list/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "table/shape/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "table/shape/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "table/not-object/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "table/not-object/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "table/columns-list/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "table/columns-list/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "table/rows-object/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "table/rows-object/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "column/dot/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "column/dot/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "column/empty/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "column/empty/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "column/type/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "column/type/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "row/missing/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "row/missing/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "row/extra/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "row/extra/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "row/not-object/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "row/not-object/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "row/bool/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "row/bool/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "row/float/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "row/float/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "row/wrong-string/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "row/wrong-string/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "json/malformed/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "json/malformed/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "json/trailing-document/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "json/trailing-document/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "json/duplicate-root/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "json/duplicate-root/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "json/duplicate-plan/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "json/duplicate-plan/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "json/duplicate-column/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "json/duplicate-column/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "json/duplicate-row/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "json/duplicate-row/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "json/nan-literal/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "json/nan-literal/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "plan/list/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "plan/list/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "plan/unknown/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "plan/unknown/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "scan/missing/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "scan/missing/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "scan/extra/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "scan/extra/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "scan/table/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "scan/table/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "scan/alias-empty/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "scan/alias-empty/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "scan/alias-dot/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "scan/alias-dot/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "scan/alias-type/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "scan/alias-type/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "project/fields-list/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "project/fields-list/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "join/kind/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "join/kind/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "join/overlap/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "join/overlap/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "join/wrong-side-field/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "join/wrong-side-field/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "join/missing-field/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "join/missing-field/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "join/types-empty/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "join/types-empty/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "filter/missing-predicate/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "filter/missing-predicate/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "filter/extra/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "filter/extra/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "group/duplicate-key/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "group/duplicate-key/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "group/missing-key/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "group/missing-key/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "group/collision/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "group/collision/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "group/keys-type/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "group/keys-type/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "group/aggregates-type/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "group/aggregates-type/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/missing/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/missing/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/bool/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/bool/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/float/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/float/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/list-literal/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/list-literal/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/object-literal/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/object-literal/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/shape/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/shape/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/unknown/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/unknown/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/col-type/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/col-type/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/add-arity/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/add-arity/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/sub-arity/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/sub-arity/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/arithmetic-string/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/arithmetic-string/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/arithmetic-null-string/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "expr/empty/arithmetic-null-string/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/unknown/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/unknown/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/shape/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/shape/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/bool/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/bool/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/arity/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/arity/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/and-arity/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/and-arity/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/or-arity/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/or-arity/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/not-shape/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/not-shape/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/is-null-missing/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/is-null-missing/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/mixed-types/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/mixed-types/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/short-circuit-and/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/short-circuit-and/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/short-circuit-or/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "predicate/empty/short-circuit-or/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "aggregate/empty/unknown/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "aggregate/empty/unknown/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "aggregate/empty/sum-string/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "aggregate/empty/sum-string/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "aggregate/empty/count-missing/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "aggregate/empty/count-missing/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "aggregate/empty/count-all-extra/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "aggregate/empty/count-all-extra/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "aggregate/empty/sum-missing-expr/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "aggregate/empty/sum-missing-expr/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "aggregate/empty/not-object/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "aggregate/empty/not-object/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "derived/null-arithmetic-still-int/ordinary",
+      "category": "validation",
+      "passed": false,
+      "detail": "Invalid: expected exit 2, got 0"
+    },
+    {
+      "name": "derived/null-arithmetic-still-int/optimized",
+      "category": "validation",
+      "passed": false,
+      "detail": "Invalid: expected exit 2, got 0"
+    },
+    {
+      "name": "derived/project-missing/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "derived/project-missing/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "derived/count-is-int/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "derived/count-is-int/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "derived/empty-parent-invalid-right/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "derived/empty-parent-invalid-right/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "derived/invalid-below-false-filter/ordinary",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "derived/invalid-below-false-filter/optimized",
+      "category": "validation",
+      "passed": true,
+      "detail": "exit 2, no stdout result"
+    },
+    {
+      "name": "generated/61371/000/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "generated/61371/000/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "generated/61371/001/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/001/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/002/ordinary",
+      "category": "generated",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 20
+      }
+    },
+    {
+      "name": "generated/61371/002/optimized",
+      "category": "generated",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 20
+      }
+    },
+    {
+      "name": "generated/61371/003/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "generated/61371/003/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "generated/61371/004/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/004/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/005/ordinary",
+      "category": "generated",
+      "passed": true,
+      "detail": {
+        "rows": 1,
+        "join_comparisons": 36
+      }
+    },
+    {
+      "name": "generated/61371/005/optimized",
+      "category": "generated",
+      "passed": true,
+      "detail": {
+        "rows": 1,
+        "join_comparisons": 36
+      }
+    },
+    {
+      "name": "generated/61371/006/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "generated/61371/006/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "generated/61371/007/ordinary",
+      "category": "generated",
+      "passed": true,
+      "detail": {
+        "rows": 2,
+        "join_comparisons": 24
+      }
+    },
+    {
+      "name": "generated/61371/007/optimized",
+      "category": "generated",
+      "passed": true,
+      "detail": {
+        "rows": 2,
+        "join_comparisons": 24
+      }
+    },
+    {
+      "name": "generated/61371/008/ordinary",
+      "category": "generated",
+      "passed": true,
+      "detail": {
+        "rows": 8,
+        "join_comparisons": 64
+      }
+    },
+    {
+      "name": "generated/61371/008/optimized",
+      "category": "generated",
+      "passed": true,
+      "detail": {
+        "rows": 8,
+        "join_comparisons": 64
+      }
+    },
+    {
+      "name": "generated/61371/009/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/009/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/010/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/010/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/011/ordinary",
+      "category": "generated",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 8
+      }
+    },
+    {
+      "name": "generated/61371/011/optimized",
+      "category": "generated",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 8
+      }
+    },
+    {
+      "name": "generated/61371/012/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "generated/61371/012/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "generated/61371/013/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/013/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/014/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/014/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/015/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "generated/61371/015/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "generated/61371/016/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/016/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/017/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/017/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/018/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/018/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/019/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/019/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/020/ordinary",
+      "category": "generated",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 54
+      }
+    },
+    {
+      "name": "generated/61371/020/optimized",
+      "category": "generated",
+      "passed": true,
+      "detail": {
+        "rows": 0,
+        "join_comparisons": 54
+      }
+    },
+    {
+      "name": "generated/61371/021/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "generated/61371/021/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\n"
+    },
+    {
+      "name": "generated/61371/022/ordinary",
+      "category": "generated",
+      "passed": true,
+      "detail": {
+        "rows": 2,
+        "join_comparisons": 30
+      }
+    },
+    {
+      "name": "generated/61371/022/optimized",
+      "category": "generated",
+      "passed": true,
+      "detail": {
+        "rows": 2,
+        "join_comparisons": 30
+      }
+    },
+    {
+      "name": "generated/61371/023/ordinary",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "generated/61371/023/optimized",
+      "category": "generated",
+      "passed": false,
+      "detail": "Invalid: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\n"
+    },
+    {
+      "name": "optimizer/api-import-and-calls",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "optimizer.optimize called directly in an isolated subprocess"
+    },
+    {
+      "name": "public/selective reservation join/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "public/all optional reservations/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "public/post outer nonnull filter/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "public/missing reservations/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "public/site reservation totals/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "public/available joined units/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "scan/duplicates-null-unicode/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "scan/empty/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "scan/zero-column-bag/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "project/empty-fields-bag/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "project/arithmetic-null-exact-int/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "project/output-referenced/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "project/simultaneous-evaluation/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "predicate/eq/a.v/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "predicate/eq/a.s/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "predicate/ne/a.v/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "predicate/ne/a.s/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "predicate/lt/a.v/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "predicate/lt/a.s/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "predicate/le/a.v/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "predicate/le/a.s/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "predicate/gt/a.v/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "predicate/gt/a.s/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "predicate/ge/a.v/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "predicate/ge/a.s/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "predicate/is-null/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "predicate/not-unknown/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/not/0/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/and/0/0/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/or/0/0/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/and/0/1/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/or/0/1/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/and/0/2/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/or/0/2/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/not/1/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/and/1/0/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/or/1/0/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/and/1/1/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/or/1/1/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/and/1/2/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/or/1/2/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/not/2/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/and/2/0/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/or/2/0/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/and/2/1/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/or/2/1/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/and/2/2/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/or/2/2/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "logic/nested-variadic/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "join/inner/duplicate-and-null-keys/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "join/inner/empty-right-schema/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "join/inner/empty-left/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "join/inner/strings/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "join/left/duplicate-and-null-keys/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "join/left/empty-right-schema/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "join/left/empty-left/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "join/left/strings/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "join/empty-projected-right/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "join/nested-comparison-accounting/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "join/child-cost-survives-empty-parent/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "join/no-null-null-match/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "outer/filter-is-null/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "outer/filter-right-gt/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "outer/mixed-or/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "inner/mixed-or/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "inner/cross-side-expression/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "inner/nested-conjunction/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "group/global/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "group/null-keys-duplicates/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "group/empty-global/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "group/empty-keyed/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "group/all-null-sums/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "group/count-string-and-null-expression/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "group/outputs-reused/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "group/group-over-group/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "group/outer-null-extension/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "group/empty-aggregate-map/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "group/empty-global-empty-map/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "group/output-used-as-join-key/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/000/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/001/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/002/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/003/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/004/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/005/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/006/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/007/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/008/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/009/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/010/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/011/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/012/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/013/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/014/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/015/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/016/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/017/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/018/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/019/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/020/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/021/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/022/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "generated/61371/023/optimizer-api",
+      "category": "optimizer_api",
+      "passed": true,
+      "detail": "valid equivalent plan; input unchanged"
+    },
+    {
+      "name": "integrity/after",
+      "category": "integrity",
+      "passed": true,
+      "detail": "protected hashes and regular local Python modules verified"
+    }
+  ]
+}

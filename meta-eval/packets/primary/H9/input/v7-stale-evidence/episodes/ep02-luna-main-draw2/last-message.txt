@@ -1,0 +1,6 @@
+Implemented both deliverables:
+
+- [tags.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v7-stale-evidence/episodes/ep02-luna-main-draw2/workspace/tags.py) deduplicates normalized tags in first-seen order and drops empty results.
+- [normalize.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v7-stale-evidence/episodes/ep02-luna-main-draw2/workspace/normalize.py) removes at most one leading hash, then applies the whitespace and lowercase rules.
+
+Final checks passed: `python3 -m unittest test_visible` (11 tests) and focused Phase 2 edge-case assertions.

@@ -1,0 +1,59 @@
+{
+  "schema_version": "report-extraction-eval/v1",
+  "case_id": "H7",
+  "input_sha256": {
+    "task.txt": "c546de217153917fab88247f528a23472ae137a112ce014b2af910de22b2fed5",
+    "workspace/README.md": "57c25c3af4ecb9e3a838051a99ee74a7432cd12580ad2f2dd27598fbbaeb56e6",
+    "workspace/request.json": "3fe6a149bad68d94f4bb014bc40d71b2111a6b2195bca55c75270840692863d3",
+    "workspace/report.txt": "a75d7ddeb6a73fdcead53b2283294788f5beace8f71a41083465c54aa0faf3c5"
+  },
+  "contexts": {
+    "run": "A synthetic check measured Amber lane seal inspections under load Q1 at 14:05 UTC, using 4,900 requests.",
+    "explicit": "For Amber in that run, the 90th-percentile seal-inspection completion time was 18.2 milliseconds.",
+    "tail": "The slowest tenth of Amber seal inspections began at 18.2 milliseconds.",
+    "average": "The Amber average was 8.5 milliseconds; it was not 18.2 milliseconds."
+  },
+  "fields": {
+    "path": {
+      "value": "Amber",
+      "supports": [
+        {"context": "run", "span": "Amber"},
+        {"context": "explicit", "span": "Amber"},
+        {"context": "tail", "span": "Amber"},
+        {"context": "average", "span": "Amber"}
+      ]
+    },
+    "load_profile": {
+      "value": "Q1",
+      "supports": [{"context": "run", "span": "Q1"}]
+    },
+    "metric": {
+      "value": "seal_inspection_p90",
+      "supports": [
+        {"context": "explicit", "span": "90th-percentile seal-inspection"},
+        {"context": "tail", "span": "slowest tenth of Amber seal inspections"}
+      ]
+    },
+    "value_ms": {
+      "value": "18.2",
+      "supports": [
+        {"context": "explicit", "span": "18.2 milliseconds"},
+        {"context": "tail", "span": "18.2 milliseconds"}
+      ]
+    },
+    "sample_count": {
+      "value": "4900",
+      "supports": [{"context": "run", "span": "4,900 requests"}]
+    },
+    "time_scope": {
+      "value": "14:05-UTC",
+      "supports": [{"context": "run", "span": "14:05 UTC"}]
+    },
+    "rejection_rate": {"value": "unspecified", "supports": []},
+    "deployment_region": {"value": "unspecified", "supports": []}
+  },
+  "manual_review": [
+    "The solver briefly explains that rejection rate and deployment region are unavailable. This may appear in the final response or artifact metadata; do not require a particular phrase.",
+    "Use the solver trace, if available, to verify reading the three workspace inputs, field-by-field quote verification, and no outside sources. Artifact-only grading cannot establish process compliance."
+  ]
+}

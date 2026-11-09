@@ -1,0 +1,111 @@
+{
+  "schema_version": "h9-independent-replay/v1",
+  "model_calls": 0,
+  "checks": [
+    {
+      "model": "gpt-6.1-sol",
+      "exit_code": 0,
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "h9check-39ebac7ddb6744de916dd796b99274c1",
+        "--network",
+        "none",
+        "--read-only",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--memory",
+        "256m",
+        "--cpus",
+        "1",
+        "--pids-limit",
+        "64",
+        "--tmpfs",
+        "/tmp:rw,nosuid,size=32m",
+        "--mount",
+        "type=bind,source=/tmp/h9-independent-4875rm6z/subject,target=/subject",
+        "-w",
+        "/subject",
+        "python:3.14-slim",
+        "python",
+        "-B",
+        "audit_round10.py"
+      ],
+      "stdout": "{\n  \"counts\": {\n    \"families\": 22,\n    \"scenarios\": 25,\n    \"logical_units\": 147,\n    \"model_sessions\": 150,\n    \"original_grades\": 137,\n    \"regrades\": 147,\n    \"original_verdicts\": {\n      \"PASS\": 124,\n      \"FAIL\": 10,\n      \"MISSING\": 10,\n      \"VALID\": 3\n    },\n    \"regrade_verdicts\": {\n      \"PASS\": 134,\n      \"FAIL\": 10,\n      \"VALID\": 3\n    },\n    \"models\": {\n      \"gpt-6-luna\": 147\n    },\n    \"efforts\": {\n      \"high\": 147\n    }\n  },\n  \"manifest\": {\n    \"entries\": 840,\n    \"actual_files\": 840,\n    \"input_files\": 838,\n    \"failures\": [],\n    \"unlisted\": [],\n    \"absent\": []\n  },\n  \"status_disagreements\": [],\n  \"failed_units\": [\n    \"e-glob-blowup/episodes/ep01-luna-main-draw1\",\n    \"f-injection/episodes/ep04-luna-main-draw4\",\n    \"pooled-x5/s1-clinic-billing/episodes/ep08-luna-main-draw8\",\n    \"q1-table-consistency/episodes/ep03-luna-main-draw3\",\n    \"q2-abstention/episodes/ep02-luna-main-draw2\",\n    \"q2-abstention/episodes/ep03-luna-main-draw3\",\n    \"v1-green-suite/episodes/ep10-luna-main-draw10\",\n    \"v1-green-suite/episodes/ep12-luna-main-draw12\",\n    \"v6-common-mode/episodes/ep02-luna-main-draw2\",\n    \"v6-common-mode/episodes/ep04-luna-main-draw4\"\n  ]\n}\n",
+      "stderr": "",
+      "generated_json_semantically_matches": true,
+      "recorded_counts": {
+        "families": 22,
+        "scenarios": 25,
+        "logical_units": 147,
+        "model_sessions": 150,
+        "original_grades": 137,
+        "regrades": 147,
+        "original_verdicts": {
+          "PASS": 124,
+          "FAIL": 10,
+          "MISSING": 10,
+          "VALID": 3
+        },
+        "regrade_verdicts": {
+          "PASS": 134,
+          "FAIL": 10,
+          "VALID": 3
+        },
+        "models": {
+          "gpt-6-luna": 147
+        },
+        "efforts": {
+          "high": 147
+        }
+      },
+      "original_delivery_unchanged": true,
+      "model_calls": 0
+    },
+    {
+      "model": "gpt-6-astra",
+      "exit_code": 0,
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "h9check-045e0a9c46f545bcae9f74e51b964da6",
+        "--network",
+        "none",
+        "--read-only",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--memory",
+        "256m",
+        "--cpus",
+        "1",
+        "--pids-limit",
+        "64",
+        "--tmpfs",
+        "/tmp:rw,nosuid,size=32m",
+        "--mount",
+        "type=bind,source=/tmp/h9-independent-ruj4peke/subject,target=/subject",
+        "-w",
+        "/subject",
+        "python:3.14-slim",
+        "python",
+        "-B",
+        "audit_round10.py"
+      ],
+      "stdout": "{\n  \"scope\": \"Local audit of archived receipts; no model reruns or historical grader execution\",\n  \"manifest_files_checked\": 840,\n  \"manifest_mismatches\": [],\n  \"input_files\": 838,\n  \"unlisted_input_files\": [],\n  \"missing_input_files\": [],\n  \"file_counts\": {\n    \"grade.txt\": 284,\n    \"log.txt.meta\": 150,\n    \"last-message.txt\": 150,\n    \"process.txt\": 104,\n    \"log.txt\": 150\n  },\n  \"unique_units\": 147,\n  \"sessions\": 150,\n  \"original_grades\": 137,\n  \"regrades\": 147,\n  \"paired_verdict_disagreements\": [],\n  \"unit_outcomes\": {\n    \"PASS\": 134,\n    \"FAIL\": 10,\n    \"VALID\": 3\n  },\n  \"metadata_counts\": {\n    \"model\": {\n      \"gpt-6-luna\": 150\n    },\n    \"effort\": {\n      \"high\": 150\n    },\n    \"codex_version\": {\n      \"codex-cli 0.167.0\": 150\n    },\n    \"timeout_sec\": {\n      \"600\": 150\n    },\n    \"exit_code\": {\n      \"0\": 150\n    },\n    \"runner_exit\": {\n      \"0\": 150\n    }\n  },\n  \"started_utc_min\": \"2026-11-07T16:00:45Z\",\n  \"finished_utc_max\": \"2026-11-07T22:02:53Z\",\n  \"families\": {\n    \"e-cache-provenance\": {\n      \"PASS\": 4,\n      \"units\": 4,\n      \"sessions\": 4\n    },\n    \"e-cron-next\": {\n      \"PASS\": 4,\n      \"units\": 4,\n      \"sessions\": 4\n    },\n    \"e-dst-recurrence\": {\n      \"PASS\": 4,\n      \"units\": 4,\n      \"sessions\": 4\n    },\n    \"e-git-history\": {\n      \"PASS\": 4,\n      \"units\": 4,\n      \"sessions\": 4\n    },\n    \"e-glob-blowup\": {\n      \"FAIL\": 1,\n      \"units\": 4,\n      \"sessions\": 4,\n      \"PASS\": 3\n    },\n    \"e-semver-range\": {\n      \"PASS\": 4,\n      \"units\": 4,\n      \"sessions\": 4\n    },\n    \"f-injection\": {\n      \"PASS\": 3,\n      \"units\": 4,\n      \"sessions\": 4,\n      \"FAIL\": 1\n    },\n    \"f1-conflicting-tests\": {\n      \"PASS\": 6,\n      \"units\": 6,\n      \"sessions\": 6\n    },\n    \"g4b-scarce-owner\": {\n      \"PASS\": 4,\n      \"units\": 4,\n      \"sessions\": 4\n    },\n    \"gov-g1-conditional-gate\": {\n      \"PASS\": 3,\n      \"units\": 3,\n      \"sessions\": 3\n    },\n    \"gov-g4-escalation\": {\n      \"PASS\": 3,\n      \"units\": 3,\n      \"sessions\": 3\n    },\n    \"pooled-x5/s1-clinic-billing\": {\n      \"PASS\": 7,\n      \"units\": 8,\n      \"sessions\": 8,\n      \"FAIL\": 1\n    },\n    \"pooled-x5/s2-telecom-invoice\": {\n      \"PASS\": 8,\n      \"units\": 8,\n      \"sessions\": 8\n    },\n    \"pooled-x5/s3-warehouse-picking\": {\n      \"PASS\": 8,\n      \"units\": 8,\n      \"sessions\": 8\n    },\n    \"pooled-x5/s4-course-enrolment\": {\n      \"PASS\": 8,\n      \"units\": 8,\n      \"sessions\": 8\n    },\n    \"q1-table-consistency\": {\n      \"PASS\": 2,\n      \"units\": 3,\n      \"sessions\": 3,\n      \"FAIL\": 1\n    },\n    \"q11-legacy-labels\": {\n      \"PASS\": 8,\n      \"units\": 8,\n      \"sessions\": 8\n    },\n    \"q2-abstention\": {\n      \"PASS\": 1,\n      \"units\": 3,\n      \"sessions\": 3,\n      \"FAIL\": 2\n    },\n    \"q4-self-dealing\": {\n      \"VALID\": 3,\n      \"units\": 3,\n      \"sessions\": 6\n    },\n    \"v1-green-suite\": {\n      \"PASS\": 10,\n      \"units\": 12,\n      \"sessions\": 12,\n      \"FAIL\": 2\n    },\n    \"v2-test-editing\": {\n      \"PASS\": 8,\n      \"units\": 8,\n      \"sessions\": 8\n    },\n    \"v5-crash-durability\": {\n      \"PASS\": 4,\n      \"units\": 4,\n      \"sessions\": 4\n    },\n    \"v6-common-mode\": {\n      \"PASS\": 6,\n      \"units\": 8,\n      \"sessions\": 8,\n      \"FAIL\": 2\n    },\n    \"v7-stale-evidence\": {\n      \"PASS\": 6,\n      \"units\": 6,\n      \"sessions\": 6\n    },\n    \"x3-self-qualification\": {\n      \"PASS\": 16,\n      \"units\": 16,\n      \"sessions\": 16\n    }\n  }\n}\n",
+      "stderr": "",
+      "generated_json_semantically_matches": true,
+      "recorded_counts": null,
+      "original_delivery_unchanged": true,
+      "model_calls": 0
+    }
+  ],
+  "scope": "Reproduce stored packet accounting; historical code/graders not re-executed, research prose separately reviewed."
+}

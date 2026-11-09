@@ -1,0 +1,31 @@
+PASS happy_basic [happy]
+PASS empty_batch [happy]
+FAIL all_excluded [happy] expected={'total_minor': 0, 'billed': 0, 'excluded': ['x1', 'x2'], 'bills': {}, 'per_band': {}, 'mean_minor': 0} got={'total_minor': 859, 'billed': 1, 'excluded': ['x1'], 'bills': {'x2': 859}, 'per_band': {'basic': 859}, 'mean_minor': 859}
+PASS billable_ceil_a [billable]
+PASS billable_ceil_b [billable]
+PASS discount_cap [discount]
+PASS discount_cap_b [discount]
+PASS tier_edges_low [tier]
+PASS tier_edges_high [tier]
+PASS code_lenient [code]
+PASS code_forms [code]
+PASS amount_lenient [amount]
+FAIL amount_values [amount] expected={'total_minor': 1606, 'billed': 1, 'excluded': ['m5', 'm6', 'm7', 'm8', 'm9'], 'bills': {'ok': 1606}, 'per_band': {'basic': 1606}, 'mean_minor': 1606} got={'total_minor': 3750, 'billed': 3, 'excluded': ['m7', 'm8', 'm9'], 'bills': {'m5': 859, 'm6': 1285, 'ok': 1606}, 'per_band': {'basic': 3750}, 'mean_minor': 1250}
+PASS date_boundary [date]
+PASS date_lenient [date]
+PASS date_forms [date]
+PASS premium_stack [stack]
+PASS premium_stack_heavy [stack]
+PASS minor_tie_pos [minor]
+PASS minor_tie_neg [minor]
+PASS minor_nontie [minor]
+PASS credit_neg [minor]
+PASS mean_tie_pos [mean]
+PASS mean_tie_neg [mean]
+PASS mean_nontie [mean]
+PASS combined [combined]
+TESTFILE exists=True
+TESTFILE imports_clinlib=False chars=4483
+SUMMARY 24/26 pass; fails=['all_excluded', 'amount_values']; catfails={'happy': 1, 'amount': 1}
+OVERALL FAIL
+grader_exit=1

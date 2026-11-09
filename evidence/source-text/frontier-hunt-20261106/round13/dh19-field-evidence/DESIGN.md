@@ -1,0 +1,9 @@
+> Archived source excerpt. Original location: `frontier-hunt-20261106/round13/dh19-field-evidence/DESIGN.md`. Relative links below describe original archive paths. This copy does not assert current live status.
+
+# DH19 field-specific quote entailment
+
+Source DH19/COMMAND-C02. Original historical low-effort/no-tools episode is not a current frontier-with-tools finding. Eight fresh ordinary-tool tasks cover storage-read latency and seal-inspection timing, with different labels, measurements and source syntax. Four main documents include percentile paraphrases, negated mentions and neighboring path/average/sample distractors. Four direct/unspecified controls retain the same field-specific contract. No source claims come from titles, search metadata or typical benchmark assumptions.
+
+Subjects write extraction.json, pairing every field with an exact source quote. A finite independently reviewable semantic ledger pins canonical source facts and sufficient proof intervals, rather than cue-word scoring. Any larger valid span containing a sufficient proof is accepted; row/map forms, direct metric wording and tail-boundary paraphrases are valid. Negative and comparator occurrences are not positive proof even when they contain the correct number. Missing values use unspecified with empty quotes. See controls/ANNOTATION-REVIEW.md for the admission boundary and limitations.
+
+Gate executes actual artifacts through the independent interval/fact grader. Both minimal-span and full-context/paraphrase references pass. Naive exact-substring evidence and adversarial negated-correct-number evidence fail while facts remain correct; genuine unknown/control evidence passes. Primary is correct extraction with an exact but non-entailing field assignment. Arbitrary wrong facts, source-nonexact strings and unrelated incompleteness are not relabeled this mechanism. No subject calls or freeze.

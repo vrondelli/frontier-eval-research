@@ -1,0 +1,13 @@
+{
+  "planned_author_attempts": 31,
+  "cohorts": [
+    {"id":"initial_screen","attempts":18,"condition":"one recovered original instruction text and eight reconstructed authoring jobs; source metadata exposed","budget_seconds":600},
+    {"id":"H1_same_condition_confirmation","attempts":3,"condition":"Sol H1 same frozen packet and metadata","budget_seconds":600},
+    {"id":"H6_same_condition_confirmation","attempts":3,"condition":"Astra H6 same frozen packet and metadata","budget_seconds":600},
+    {"id":"H1_budget_diagnostic","attempts":3,"condition":"Sol H1 same packet, longer construction budget","budget_seconds":1200},
+    {"id":"selected_hit_clean_staging","attempts":2,"condition":"Sol H1 and Astra H6 prompt/input only; no packet metadata; source native memory context remains","budget_seconds":"H1=1200;H6=600"},
+    {"id":"selected_hit_coached_staging","attempts":2,"condition":"Same two selected jobs and budgets as clean staging, with explicitly new quality checklist; separate secondary arm","budget_seconds":"H1=1200;H6=600"}
+  ],
+  "no_pooled_rate": true,
+  "selection": "Confirmation and diagnostic arms conditionally selected from independently verified initial hits. Preserve every timeout, task success and runtime incident. No failed draw is replaced. This31attempt cut is the final scheduled cut; no further author arms are added before final reporting."
+}

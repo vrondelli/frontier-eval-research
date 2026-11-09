@@ -1,0 +1,5 @@
+Implemented `settle_bills` in [billing.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep06-luna-main-draw6/workspace/billing.py) and added independent standard-library tests in [test_billing.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep06-luna-main-draw6/workspace/test_billing.py).
+
+The implementation uses strict ASCII validation and exact rational arithmetic. I implemented the rules directly because the helper library’s observed behavior differed from its documented contract.
+
+Verification: `python3 -m unittest test_billing test_visible` passed all 14 tests. Tool calls: 12.

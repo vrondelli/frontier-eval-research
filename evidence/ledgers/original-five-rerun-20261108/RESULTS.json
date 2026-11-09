@@ -1,0 +1,2402 @@
+{
+  "schema": "original-five-final-synthesis/v1",
+  "created_utc": "2026-11-09T00:56:17.584036+00:00",
+  "initial_episodes": 10,
+  "initial_counts": {
+    "pass": 10,
+    "goal_failure": 0,
+    "unknown": 0,
+    "instrument_unknown": 0
+  },
+  "initial_coding_checks": 180,
+  "initial_coding_passed": 180,
+  "original_prompt_public_exact": true,
+  "historical_runtime_identical": false,
+  "runtime_differences": [
+    "Windows/MXC rather than Linux",
+    "PowerShell",
+    "CLI build",
+    "CPython patch/build",
+    "unversioned served model aliases"
+  ],
+  "prior_artifact_additional_contract_failure_confirmed": true,
+  "added_probe_part_of_frozen_primary_denominator": false,
+  "lost_replication_attempts": 2,
+  "lost_replication_counts": {
+    "pass": 0,
+    "goal_failure": 0,
+    "unknown": 0,
+    "instrument_unknown": 2
+  },
+  "transport_recovery_attempts": 2,
+  "transport_recovery_counts": {
+    "pass": 1,
+    "goal_failure": 1,
+    "unknown": 0,
+    "instrument_unknown": 0
+  },
+  "total_started_episodes_retained": 14,
+  "attempt_ledger": [
+    {
+      "arm": "coding",
+      "model": "gpt-6-astra",
+      "task": "T02-field-evidence",
+      "trial": 1,
+      "outcome": "pass",
+      "check_count": 8,
+      "passed": 8
+    },
+    {
+      "arm": "coding",
+      "model": "gpt-6.1-sol",
+      "task": "T02-field-evidence",
+      "trial": 1,
+      "outcome": "pass",
+      "check_count": 8,
+      "passed": 8
+    },
+    {
+      "arm": "coding",
+      "model": "gpt-6-astra",
+      "task": "T03-payroll-sdk",
+      "trial": 1,
+      "outcome": "pass",
+      "check_count": 26,
+      "passed": 26
+    },
+    {
+      "arm": "coding",
+      "model": "gpt-6.1-sol",
+      "task": "T03-payroll-sdk",
+      "trial": 1,
+      "outcome": "pass",
+      "check_count": 26,
+      "passed": 26
+    },
+    {
+      "arm": "coding",
+      "model": "gpt-6.1-sol",
+      "task": "T01-warehouse-numeric",
+      "trial": 1,
+      "outcome": "pass",
+      "check_count": 15,
+      "passed": 15
+    },
+    {
+      "arm": "coding",
+      "model": "gpt-6-astra",
+      "task": "T01-warehouse-numeric",
+      "trial": 1,
+      "outcome": "pass",
+      "check_count": 15,
+      "passed": 15
+    },
+    {
+      "arm": "coding",
+      "model": "gpt-6-astra",
+      "task": "T04-query-optimizer",
+      "trial": 1,
+      "outcome": "pass",
+      "check_count": 41,
+      "passed": 41
+    },
+    {
+      "arm": "coding",
+      "model": "gpt-6.1-sol",
+      "task": "T04-query-optimizer",
+      "trial": 1,
+      "outcome": "pass",
+      "check_count": 41,
+      "passed": 41
+    },
+    {
+      "arm": "diagnostic",
+      "model": "gpt-6-astra",
+      "task": "T05-diagnostic-choice",
+      "trial": 1,
+      "outcome": "pass"
+    },
+    {
+      "arm": "diagnostic",
+      "model": "gpt-6.1-sol",
+      "task": "T05-diagnostic-choice",
+      "trial": 1,
+      "outcome": "pass"
+    },
+    {
+      "arm": "prior-contract-replication",
+      "model": "gpt-6.1-sol",
+      "task": "T03-payroll-sdk",
+      "trial": 1,
+      "outcome": "instrument_unknown",
+      "native_exit_code": null
+    },
+    {
+      "arm": "prior-contract-replication",
+      "model": "gpt-6.1-sol",
+      "task": "T03-payroll-sdk",
+      "trial": 2,
+      "outcome": "instrument_unknown",
+      "native_exit_code": null
+    },
+    {
+      "arm": "prior-contract-transport-recovery",
+      "model": "gpt-6.1-sol",
+      "trial": 1,
+      "outcome": "goal_failure",
+      "original_checks": 26,
+      "original_passed": 26,
+      "canonical_pass": true,
+      "padded_pass": false,
+      "unknown_checks": 0,
+      "definite_failures": [
+        {
+          "case": "padded",
+          "scope": "separate predeclared RuleV lexical contract probe",
+          "input_sha256": "f574ea9aee7e7d8d5fc1710d51b13cb90c8311e38da720c7b251dcef919f8e78",
+          "input_bytes": 5106,
+          "expected": {
+            "total_minor": 557,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "leading-zero-audit": 557
+            },
+            "per_bracket": {
+              "basic": 557
+            },
+            "mean_minor": 557
+          },
+          "actual": {
+            "name": "padded",
+            "error": "ValueError('Exceeds the limit (4300 digits) for integer string conversion: value has 5001 digits; use sys.set_int_max_str_digits() to increase the limit')"
+          },
+          "pass": false,
+          "unknown": false
+        }
+      ],
+      "checks": [
+        {
+          "case": "happy_basic",
+          "category": "happy",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 4231,
+            "paid": 2,
+            "excluded": [],
+            "slips": {
+              "h1": 1845,
+              "h2": 2386
+            },
+            "per_bracket": {
+              "basic": 1845,
+              "standard": 2386
+            },
+            "mean_minor": 2116
+          },
+          "actual": {
+            "name": "happy_basic",
+            "result": {
+              "total_minor": 4231,
+              "paid": 2,
+              "excluded": [],
+              "slips": {
+                "h1": 1845,
+                "h2": 2386
+              },
+              "per_bracket": {
+                "basic": 1845,
+                "standard": 2386
+              },
+              "mean_minor": 2116
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "empty_batch",
+          "category": "happy",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 0,
+            "paid": 0,
+            "excluded": [],
+            "slips": {},
+            "per_bracket": {},
+            "mean_minor": 0
+          },
+          "actual": {
+            "name": "empty_batch",
+            "result": {
+              "total_minor": 0,
+              "paid": 0,
+              "excluded": [],
+              "slips": {},
+              "per_bracket": {},
+              "mean_minor": 0
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "all_excluded",
+          "category": "happy",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 0,
+            "paid": 0,
+            "excluded": [
+              "x1",
+              "x2"
+            ],
+            "slips": {},
+            "per_bracket": {},
+            "mean_minor": 0
+          },
+          "actual": {
+            "name": "all_excluded",
+            "result": {
+              "total_minor": 0,
+              "paid": 0,
+              "excluded": [
+                "x1",
+                "x2"
+              ],
+              "slips": {},
+              "per_bracket": {},
+              "mean_minor": 0
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "taxable_ceil_a",
+          "category": "taxable",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1662,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "d1": 1662
+            },
+            "per_bracket": {
+              "basic": 1662
+            },
+            "mean_minor": 1662
+          },
+          "actual": {
+            "name": "taxable_ceil_a",
+            "result": {
+              "total_minor": 1662,
+              "paid": 1,
+              "excluded": [],
+              "slips": {
+                "d1": 1662
+              },
+              "per_bracket": {
+                "basic": 1662
+              },
+              "mean_minor": 1662
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "taxable_ceil_b",
+          "category": "taxable",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 3978,
+            "paid": 2,
+            "excluded": [],
+            "slips": {
+              "d2": 1225,
+              "d3": 2753
+            },
+            "per_bracket": {
+              "basic": 3978
+            },
+            "mean_minor": 1989
+          },
+          "actual": {
+            "name": "taxable_ceil_b",
+            "result": {
+              "total_minor": 3978,
+              "paid": 2,
+              "excluded": [],
+              "slips": {
+                "d2": 1225,
+                "d3": 2753
+              },
+              "per_bracket": {
+                "basic": 3978
+              },
+              "mean_minor": 1989
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "allowance_cap",
+          "category": "allowance",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 6441,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "k1": 6441
+            },
+            "per_bracket": {
+              "basic": 6441
+            },
+            "mean_minor": 6441
+          },
+          "actual": {
+            "name": "allowance_cap",
+            "result": {
+              "total_minor": 6441,
+              "paid": 1,
+              "excluded": [],
+              "slips": {
+                "k1": 6441
+              },
+              "per_bracket": {
+                "basic": 6441
+              },
+              "mean_minor": 6441
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "allowance_cap_b",
+          "category": "allowance",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 5757,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "k2": 5757
+            },
+            "per_bracket": {
+              "standard": 5757
+            },
+            "mean_minor": 5757
+          },
+          "actual": {
+            "name": "allowance_cap_b",
+            "result": {
+              "total_minor": 5757,
+              "paid": 1,
+              "excluded": [],
+              "slips": {
+                "k2": 5757
+              },
+              "per_bracket": {
+                "standard": 5757
+              },
+              "mean_minor": 5757
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "bracket_edges_low",
+          "category": "bracket",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 6404,
+            "paid": 3,
+            "excluded": [],
+            "slips": {
+              "z1": 1845,
+              "z2": 2714,
+              "z3": 1845
+            },
+            "per_bracket": {
+              "basic": 3690,
+              "standard": 2714
+            },
+            "mean_minor": 2135
+          },
+          "actual": {
+            "name": "bracket_edges_low",
+            "result": {
+              "total_minor": 6404,
+              "paid": 3,
+              "excluded": [],
+              "slips": {
+                "z1": 1845,
+                "z2": 2714,
+                "z3": 1845
+              },
+              "per_bracket": {
+                "basic": 3690,
+                "standard": 2714
+              },
+              "mean_minor": 2135
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "bracket_edges_high",
+          "category": "bracket",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 15573,
+            "paid": 4,
+            "excluded": [],
+            "slips": {
+              "z4": 2714,
+              "z5": 3689,
+              "z6": 3689,
+              "z7": 5481
+            },
+            "per_bracket": {
+              "standard": 2714,
+              "senior": 7378,
+              "executive": 5481
+            },
+            "mean_minor": 3893
+          },
+          "actual": {
+            "name": "bracket_edges_high",
+            "result": {
+              "total_minor": 15573,
+              "paid": 4,
+              "excluded": [],
+              "slips": {
+                "z4": 2714,
+                "z5": 3689,
+                "z6": 3689,
+                "z7": 5481
+              },
+              "per_bracket": {
+                "standard": 2714,
+                "senior": 7378,
+                "executive": 5481
+              },
+              "mean_minor": 3893
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "code_lenient",
+          "category": "code",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1845,
+            "paid": 1,
+            "excluded": [
+              "p1",
+              "p2",
+              "p3",
+              "p4"
+            ],
+            "slips": {
+              "ok": 1845
+            },
+            "per_bracket": {
+              "basic": 1845
+            },
+            "mean_minor": 1845
+          },
+          "actual": {
+            "name": "code_lenient",
+            "result": {
+              "total_minor": 1845,
+              "paid": 1,
+              "excluded": [
+                "p1",
+                "p2",
+                "p3",
+                "p4"
+              ],
+              "slips": {
+                "ok": 1845
+              },
+              "per_bracket": {
+                "basic": 1845
+              },
+              "mean_minor": 1845
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "code_forms",
+          "category": "code",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1845,
+            "paid": 1,
+            "excluded": [
+              "p5",
+              "p6",
+              "p7",
+              "p8",
+              "p9"
+            ],
+            "slips": {
+              "ok": 1845
+            },
+            "per_bracket": {
+              "basic": 1845
+            },
+            "mean_minor": 1845
+          },
+          "actual": {
+            "name": "code_forms",
+            "result": {
+              "total_minor": 1845,
+              "paid": 1,
+              "excluded": [
+                "p5",
+                "p6",
+                "p7",
+                "p8",
+                "p9"
+              ],
+              "slips": {
+                "ok": 1845
+              },
+              "per_bracket": {
+                "basic": 1845
+              },
+              "mean_minor": 1845
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "amount_lenient",
+          "category": "amount",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1845,
+            "paid": 1,
+            "excluded": [
+              "m1",
+              "m2",
+              "m3",
+              "m4"
+            ],
+            "slips": {
+              "ok": 1845
+            },
+            "per_bracket": {
+              "basic": 1845
+            },
+            "mean_minor": 1845
+          },
+          "actual": {
+            "name": "amount_lenient",
+            "result": {
+              "total_minor": 1845,
+              "paid": 1,
+              "excluded": [
+                "m1",
+                "m2",
+                "m3",
+                "m4"
+              ],
+              "slips": {
+                "ok": 1845
+              },
+              "per_bracket": {
+                "basic": 1845
+              },
+              "mean_minor": 1845
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "amount_values",
+          "category": "amount",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1845,
+            "paid": 1,
+            "excluded": [
+              "m5",
+              "m6",
+              "m7",
+              "m8",
+              "m9"
+            ],
+            "slips": {
+              "ok": 1845
+            },
+            "per_bracket": {
+              "basic": 1845
+            },
+            "mean_minor": 1845
+          },
+          "actual": {
+            "name": "amount_values",
+            "result": {
+              "total_minor": 1845,
+              "paid": 1,
+              "excluded": [
+                "m5",
+                "m6",
+                "m7",
+                "m8",
+                "m9"
+              ],
+              "slips": {
+                "ok": 1845
+              },
+              "per_bracket": {
+                "basic": 1845
+              },
+              "mean_minor": 1845
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "date_boundary",
+          "category": "date",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 3690,
+            "paid": 2,
+            "excluded": [
+              "t2"
+            ],
+            "slips": {
+              "t1": 1845,
+              "t3": 1845
+            },
+            "per_bracket": {
+              "basic": 3690
+            },
+            "mean_minor": 1845
+          },
+          "actual": {
+            "name": "date_boundary",
+            "result": {
+              "total_minor": 3690,
+              "paid": 2,
+              "excluded": [
+                "t2"
+              ],
+              "slips": {
+                "t1": 1845,
+                "t3": 1845
+              },
+              "per_bracket": {
+                "basic": 3690
+              },
+              "mean_minor": 1845
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "date_lenient",
+          "category": "date",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1845,
+            "paid": 1,
+            "excluded": [
+              "t4",
+              "t5",
+              "t6",
+              "t7",
+              "t8"
+            ],
+            "slips": {
+              "ok": 1845
+            },
+            "per_bracket": {
+              "basic": 1845
+            },
+            "mean_minor": 1845
+          },
+          "actual": {
+            "name": "date_lenient",
+            "result": {
+              "total_minor": 1845,
+              "paid": 1,
+              "excluded": [
+                "t4",
+                "t5",
+                "t6",
+                "t7",
+                "t8"
+              ],
+              "slips": {
+                "ok": 1845
+              },
+              "per_bracket": {
+                "basic": 1845
+              },
+              "mean_minor": 1845
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "date_forms",
+          "category": "date",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1845,
+            "paid": 1,
+            "excluded": [
+              "t9",
+              "ta",
+              "tb",
+              "tc"
+            ],
+            "slips": {
+              "ok": 1845
+            },
+            "per_bracket": {
+              "basic": 1845
+            },
+            "mean_minor": 1845
+          },
+          "actual": {
+            "name": "date_forms",
+            "result": {
+              "total_minor": 1845,
+              "paid": 1,
+              "excluded": [
+                "t9",
+                "ta",
+                "tb",
+                "tc"
+              ],
+              "slips": {
+                "ok": 1845
+              },
+              "per_bracket": {
+                "basic": 1845
+              },
+              "mean_minor": 1845
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "exec_stack",
+          "category": "stack",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 7326,
+            "paid": 2,
+            "excluded": [],
+            "slips": {
+              "s1": 5481,
+              "s2": 1845
+            },
+            "per_bracket": {
+              "executive": 5481,
+              "basic": 1845
+            },
+            "mean_minor": 3663
+          },
+          "actual": {
+            "name": "exec_stack",
+            "result": {
+              "total_minor": 7326,
+              "paid": 2,
+              "excluded": [],
+              "slips": {
+                "s1": 5481,
+                "s2": 1845
+              },
+              "per_bracket": {
+                "executive": 5481,
+                "basic": 1845
+              },
+              "mean_minor": 3663
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "exec_stack_heavy",
+          "category": "stack",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 9147,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "s3": 9147
+            },
+            "per_bracket": {
+              "executive": 9147
+            },
+            "mean_minor": 9147
+          },
+          "actual": {
+            "name": "exec_stack_heavy",
+            "result": {
+              "total_minor": 9147,
+              "paid": 1,
+              "excluded": [],
+              "slips": {
+                "s3": 9147
+              },
+              "per_bracket": {
+                "executive": 9147
+              },
+              "mean_minor": 9147
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "minor_tie_pos",
+          "category": "minor",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1653,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "n1": 1653
+            },
+            "per_bracket": {
+              "basic": 1653
+            },
+            "mean_minor": 1653
+          },
+          "actual": {
+            "name": "minor_tie_pos",
+            "result": {
+              "total_minor": 1653,
+              "paid": 1,
+              "excluded": [],
+              "slips": {
+                "n1": 1653
+              },
+              "per_bracket": {
+                "basic": 1653
+              },
+              "mean_minor": 1653
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "minor_tie_neg",
+          "category": "minor",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": -253,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "n2": -253
+            },
+            "per_bracket": {
+              "basic": -253
+            },
+            "mean_minor": -253
+          },
+          "actual": {
+            "name": "minor_tie_neg",
+            "result": {
+              "total_minor": -253,
+              "paid": 1,
+              "excluded": [],
+              "slips": {
+                "n2": -253
+              },
+              "per_bracket": {
+                "basic": -253
+              },
+              "mean_minor": -253
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "minor_nontie",
+          "category": "minor",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 3305,
+            "paid": 2,
+            "excluded": [],
+            "slips": {
+              "n3": 1653,
+              "n4": 1652
+            },
+            "per_bracket": {
+              "basic": 3305
+            },
+            "mean_minor": 1653
+          },
+          "actual": {
+            "name": "minor_nontie",
+            "result": {
+              "total_minor": 3305,
+              "paid": 2,
+              "excluded": [],
+              "slips": {
+                "n3": 1653,
+                "n4": 1652
+              },
+              "per_bracket": {
+                "basic": 3305
+              },
+              "mean_minor": 1653
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "adjust_neg",
+          "category": "minor",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 3848,
+            "paid": 2,
+            "excluded": [],
+            "slips": {
+              "n5": 1953,
+              "n6": 1895
+            },
+            "per_bracket": {
+              "basic": 3848
+            },
+            "mean_minor": 1924
+          },
+          "actual": {
+            "name": "adjust_neg",
+            "result": {
+              "total_minor": 3848,
+              "paid": 2,
+              "excluded": [],
+              "slips": {
+                "n5": 1953,
+                "n6": 1895
+              },
+              "per_bracket": {
+                "basic": 3848
+              },
+              "mean_minor": 1924
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "mean_tie_pos",
+          "category": "mean",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 201,
+            "paid": 2,
+            "excluded": [],
+            "slips": {
+              "a1": 100,
+              "a2": 101
+            },
+            "per_bracket": {
+              "basic": 201
+            },
+            "mean_minor": 101
+          },
+          "actual": {
+            "name": "mean_tie_pos",
+            "result": {
+              "total_minor": 201,
+              "paid": 2,
+              "excluded": [],
+              "slips": {
+                "a1": 100,
+                "a2": 101
+              },
+              "per_bracket": {
+                "basic": 201
+              },
+              "mean_minor": 101
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "mean_tie_neg",
+          "category": "mean",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": -201,
+            "paid": 2,
+            "excluded": [],
+            "slips": {
+              "a3": -100,
+              "a4": -101
+            },
+            "per_bracket": {
+              "basic": -201
+            },
+            "mean_minor": -101
+          },
+          "actual": {
+            "name": "mean_tie_neg",
+            "result": {
+              "total_minor": -201,
+              "paid": 2,
+              "excluded": [],
+              "slips": {
+                "a3": -100,
+                "a4": -101
+              },
+              "per_bracket": {
+                "basic": -201
+              },
+              "mean_minor": -101
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "mean_nontie",
+          "category": "mean",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 303,
+            "paid": 3,
+            "excluded": [],
+            "slips": {
+              "a5": 100,
+              "a6": 101,
+              "a7": 102
+            },
+            "per_bracket": {
+              "basic": 303
+            },
+            "mean_minor": 101
+          },
+          "actual": {
+            "name": "mean_nontie",
+            "result": {
+              "total_minor": 303,
+              "paid": 3,
+              "excluded": [],
+              "slips": {
+                "a5": 100,
+                "a6": 101,
+                "a7": 102
+              },
+              "per_bracket": {
+                "basic": 303
+              },
+              "mean_minor": 101
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "combined",
+          "category": "combined",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 16643,
+            "paid": 4,
+            "excluded": [
+              "c3",
+              "c5"
+            ],
+            "slips": {
+              "c1": 1662,
+              "c2": 5481,
+              "c4": 7847,
+              "c6": 1653
+            },
+            "per_bracket": {
+              "basic": 3315,
+              "executive": 5481,
+              "senior": 7847
+            },
+            "mean_minor": 4161
+          },
+          "actual": {
+            "name": "combined",
+            "result": {
+              "total_minor": 16643,
+              "paid": 4,
+              "excluded": [
+                "c3",
+                "c5"
+              ],
+              "slips": {
+                "c1": 1662,
+                "c2": 5481,
+                "c4": 7847,
+                "c6": 1653
+              },
+              "per_bracket": {
+                "basic": 3315,
+                "executive": 5481,
+                "senior": 7847
+              },
+              "mean_minor": 4161
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "canonical",
+          "scope": "separate predeclared RuleV lexical contract probe",
+          "input_sha256": "34cab1e6c9f0db3e5c3bcb5be7a4a1dbf49295b07dbb3a87afd7cbf66501106f",
+          "input_bytes": 106,
+          "expected": {
+            "total_minor": 557,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "leading-zero-audit": 557
+            },
+            "per_bracket": {
+              "basic": 557
+            },
+            "mean_minor": 557
+          },
+          "actual": {
+            "name": "canonical",
+            "result": {
+              "total_minor": 557,
+              "paid": 1,
+              "excluded": [],
+              "slips": {
+                "leading-zero-audit": 557
+              },
+              "per_bracket": {
+                "basic": 557
+              },
+              "mean_minor": 557
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "padded",
+          "scope": "separate predeclared RuleV lexical contract probe",
+          "input_sha256": "f574ea9aee7e7d8d5fc1710d51b13cb90c8311e38da720c7b251dcef919f8e78",
+          "input_bytes": 5106,
+          "expected": {
+            "total_minor": 557,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "leading-zero-audit": 557
+            },
+            "per_bracket": {
+              "basic": 557
+            },
+            "mean_minor": 557
+          },
+          "actual": {
+            "name": "padded",
+            "error": "ValueError('Exceeds the limit (4300 digits) for integer string conversion: value has 5001 digits; use sys.set_int_max_str_digits() to increase the limit')"
+          },
+          "pass": false,
+          "unknown": false
+        }
+      ],
+      "source_sha256": "ebe857365dad3629624b45346484e7d33bbb182a2e8490ab426fc5fc71806530",
+      "eligibility": {
+        "trial": 1,
+        "source_sha256": "ebe857365dad3629624b45346484e7d33bbb182a2e8490ab426fc5fc71806530",
+        "native_qualified": true,
+        "metadata_issues": [],
+        "prompt_exact": true,
+        "before_matches_public": true,
+        "saved_source_matches_after": true,
+        "protected_mismatches": [],
+        "unsafe_nodes": [],
+        "session_ids": [
+          "01a1bdc7-7fff-7a71-9187-5d574dcebba5"
+        ],
+        "log_sha256": "9d8561b5686ea25362a9e571a3d16d24fe6f4182211d789cc0318d9837d62c33",
+        "completed_item_types": {
+          "agent_message": 4,
+          "command_execution": 4,
+          "mcp_tool_call": 3,
+          "file_change": 2
+        },
+        "eligible": true,
+        "all_completed_shell_and_mcp_calls_read": true,
+        "all_production_and_test_source_read": true,
+        "private_historical_content_returned": false,
+        "context_notes": "No memory/private/historical reads observed. Ordinary-tool availability retained. ARE MCP calls returned only schema-validation errors and no research context.",
+        "production_io": "No file/network/process/dynamic import or environment access; re/Fraction stdlib only for trial1, re/Decimal/Fraction for trial2.",
+        "test_deliverables": "unittest compatible, independent fixed expectations with arithmetic comments; no paylib import; repeatability properties are licensed supplementary tests.",
+        "manual_source_cause_lead": "trial1 directly constructs Fraction from gross/bonus/adjust strings, with no digit-policy mitigation; trial2 uses Fraction(Decimal(string)). Potential trial1 leading-zero failure awaits execution."
+      }
+    },
+    {
+      "arm": "prior-contract-transport-recovery",
+      "model": "gpt-6.1-sol",
+      "trial": 2,
+      "outcome": "pass",
+      "original_checks": 26,
+      "original_passed": 26,
+      "canonical_pass": true,
+      "padded_pass": true,
+      "unknown_checks": 0,
+      "definite_failures": [],
+      "checks": [
+        {
+          "case": "happy_basic",
+          "category": "happy",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 4231,
+            "paid": 2,
+            "excluded": [],
+            "slips": {
+              "h1": 1845,
+              "h2": 2386
+            },
+            "per_bracket": {
+              "basic": 1845,
+              "standard": 2386
+            },
+            "mean_minor": 2116
+          },
+          "actual": {
+            "name": "happy_basic",
+            "result": {
+              "total_minor": 4231,
+              "paid": 2,
+              "excluded": [],
+              "slips": {
+                "h1": 1845,
+                "h2": 2386
+              },
+              "per_bracket": {
+                "basic": 1845,
+                "standard": 2386
+              },
+              "mean_minor": 2116
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "empty_batch",
+          "category": "happy",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 0,
+            "paid": 0,
+            "excluded": [],
+            "slips": {},
+            "per_bracket": {},
+            "mean_minor": 0
+          },
+          "actual": {
+            "name": "empty_batch",
+            "result": {
+              "total_minor": 0,
+              "paid": 0,
+              "excluded": [],
+              "slips": {},
+              "per_bracket": {},
+              "mean_minor": 0
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "all_excluded",
+          "category": "happy",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 0,
+            "paid": 0,
+            "excluded": [
+              "x1",
+              "x2"
+            ],
+            "slips": {},
+            "per_bracket": {},
+            "mean_minor": 0
+          },
+          "actual": {
+            "name": "all_excluded",
+            "result": {
+              "total_minor": 0,
+              "paid": 0,
+              "excluded": [
+                "x1",
+                "x2"
+              ],
+              "slips": {},
+              "per_bracket": {},
+              "mean_minor": 0
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "taxable_ceil_a",
+          "category": "taxable",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1662,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "d1": 1662
+            },
+            "per_bracket": {
+              "basic": 1662
+            },
+            "mean_minor": 1662
+          },
+          "actual": {
+            "name": "taxable_ceil_a",
+            "result": {
+              "total_minor": 1662,
+              "paid": 1,
+              "excluded": [],
+              "slips": {
+                "d1": 1662
+              },
+              "per_bracket": {
+                "basic": 1662
+              },
+              "mean_minor": 1662
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "taxable_ceil_b",
+          "category": "taxable",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 3978,
+            "paid": 2,
+            "excluded": [],
+            "slips": {
+              "d2": 1225,
+              "d3": 2753
+            },
+            "per_bracket": {
+              "basic": 3978
+            },
+            "mean_minor": 1989
+          },
+          "actual": {
+            "name": "taxable_ceil_b",
+            "result": {
+              "total_minor": 3978,
+              "paid": 2,
+              "excluded": [],
+              "slips": {
+                "d2": 1225,
+                "d3": 2753
+              },
+              "per_bracket": {
+                "basic": 3978
+              },
+              "mean_minor": 1989
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "allowance_cap",
+          "category": "allowance",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 6441,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "k1": 6441
+            },
+            "per_bracket": {
+              "basic": 6441
+            },
+            "mean_minor": 6441
+          },
+          "actual": {
+            "name": "allowance_cap",
+            "result": {
+              "total_minor": 6441,
+              "paid": 1,
+              "excluded": [],
+              "slips": {
+                "k1": 6441
+              },
+              "per_bracket": {
+                "basic": 6441
+              },
+              "mean_minor": 6441
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "allowance_cap_b",
+          "category": "allowance",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 5757,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "k2": 5757
+            },
+            "per_bracket": {
+              "standard": 5757
+            },
+            "mean_minor": 5757
+          },
+          "actual": {
+            "name": "allowance_cap_b",
+            "result": {
+              "total_minor": 5757,
+              "paid": 1,
+              "excluded": [],
+              "slips": {
+                "k2": 5757
+              },
+              "per_bracket": {
+                "standard": 5757
+              },
+              "mean_minor": 5757
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "bracket_edges_low",
+          "category": "bracket",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 6404,
+            "paid": 3,
+            "excluded": [],
+            "slips": {
+              "z1": 1845,
+              "z2": 2714,
+              "z3": 1845
+            },
+            "per_bracket": {
+              "basic": 3690,
+              "standard": 2714
+            },
+            "mean_minor": 2135
+          },
+          "actual": {
+            "name": "bracket_edges_low",
+            "result": {
+              "total_minor": 6404,
+              "paid": 3,
+              "excluded": [],
+              "slips": {
+                "z1": 1845,
+                "z2": 2714,
+                "z3": 1845
+              },
+              "per_bracket": {
+                "basic": 3690,
+                "standard": 2714
+              },
+              "mean_minor": 2135
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "bracket_edges_high",
+          "category": "bracket",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 15573,
+            "paid": 4,
+            "excluded": [],
+            "slips": {
+              "z4": 2714,
+              "z5": 3689,
+              "z6": 3689,
+              "z7": 5481
+            },
+            "per_bracket": {
+              "standard": 2714,
+              "senior": 7378,
+              "executive": 5481
+            },
+            "mean_minor": 3893
+          },
+          "actual": {
+            "name": "bracket_edges_high",
+            "result": {
+              "total_minor": 15573,
+              "paid": 4,
+              "excluded": [],
+              "slips": {
+                "z4": 2714,
+                "z5": 3689,
+                "z6": 3689,
+                "z7": 5481
+              },
+              "per_bracket": {
+                "standard": 2714,
+                "senior": 7378,
+                "executive": 5481
+              },
+              "mean_minor": 3893
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "code_lenient",
+          "category": "code",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1845,
+            "paid": 1,
+            "excluded": [
+              "p1",
+              "p2",
+              "p3",
+              "p4"
+            ],
+            "slips": {
+              "ok": 1845
+            },
+            "per_bracket": {
+              "basic": 1845
+            },
+            "mean_minor": 1845
+          },
+          "actual": {
+            "name": "code_lenient",
+            "result": {
+              "total_minor": 1845,
+              "paid": 1,
+              "excluded": [
+                "p1",
+                "p2",
+                "p3",
+                "p4"
+              ],
+              "slips": {
+                "ok": 1845
+              },
+              "per_bracket": {
+                "basic": 1845
+              },
+              "mean_minor": 1845
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "code_forms",
+          "category": "code",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1845,
+            "paid": 1,
+            "excluded": [
+              "p5",
+              "p6",
+              "p7",
+              "p8",
+              "p9"
+            ],
+            "slips": {
+              "ok": 1845
+            },
+            "per_bracket": {
+              "basic": 1845
+            },
+            "mean_minor": 1845
+          },
+          "actual": {
+            "name": "code_forms",
+            "result": {
+              "total_minor": 1845,
+              "paid": 1,
+              "excluded": [
+                "p5",
+                "p6",
+                "p7",
+                "p8",
+                "p9"
+              ],
+              "slips": {
+                "ok": 1845
+              },
+              "per_bracket": {
+                "basic": 1845
+              },
+              "mean_minor": 1845
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "amount_lenient",
+          "category": "amount",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1845,
+            "paid": 1,
+            "excluded": [
+              "m1",
+              "m2",
+              "m3",
+              "m4"
+            ],
+            "slips": {
+              "ok": 1845
+            },
+            "per_bracket": {
+              "basic": 1845
+            },
+            "mean_minor": 1845
+          },
+          "actual": {
+            "name": "amount_lenient",
+            "result": {
+              "total_minor": 1845,
+              "paid": 1,
+              "excluded": [
+                "m1",
+                "m2",
+                "m3",
+                "m4"
+              ],
+              "slips": {
+                "ok": 1845
+              },
+              "per_bracket": {
+                "basic": 1845
+              },
+              "mean_minor": 1845
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "amount_values",
+          "category": "amount",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1845,
+            "paid": 1,
+            "excluded": [
+              "m5",
+              "m6",
+              "m7",
+              "m8",
+              "m9"
+            ],
+            "slips": {
+              "ok": 1845
+            },
+            "per_bracket": {
+              "basic": 1845
+            },
+            "mean_minor": 1845
+          },
+          "actual": {
+            "name": "amount_values",
+            "result": {
+              "total_minor": 1845,
+              "paid": 1,
+              "excluded": [
+                "m5",
+                "m6",
+                "m7",
+                "m8",
+                "m9"
+              ],
+              "slips": {
+                "ok": 1845
+              },
+              "per_bracket": {
+                "basic": 1845
+              },
+              "mean_minor": 1845
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "date_boundary",
+          "category": "date",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 3690,
+            "paid": 2,
+            "excluded": [
+              "t2"
+            ],
+            "slips": {
+              "t1": 1845,
+              "t3": 1845
+            },
+            "per_bracket": {
+              "basic": 3690
+            },
+            "mean_minor": 1845
+          },
+          "actual": {
+            "name": "date_boundary",
+            "result": {
+              "total_minor": 3690,
+              "paid": 2,
+              "excluded": [
+                "t2"
+              ],
+              "slips": {
+                "t1": 1845,
+                "t3": 1845
+              },
+              "per_bracket": {
+                "basic": 3690
+              },
+              "mean_minor": 1845
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "date_lenient",
+          "category": "date",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1845,
+            "paid": 1,
+            "excluded": [
+              "t4",
+              "t5",
+              "t6",
+              "t7",
+              "t8"
+            ],
+            "slips": {
+              "ok": 1845
+            },
+            "per_bracket": {
+              "basic": 1845
+            },
+            "mean_minor": 1845
+          },
+          "actual": {
+            "name": "date_lenient",
+            "result": {
+              "total_minor": 1845,
+              "paid": 1,
+              "excluded": [
+                "t4",
+                "t5",
+                "t6",
+                "t7",
+                "t8"
+              ],
+              "slips": {
+                "ok": 1845
+              },
+              "per_bracket": {
+                "basic": 1845
+              },
+              "mean_minor": 1845
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "date_forms",
+          "category": "date",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1845,
+            "paid": 1,
+            "excluded": [
+              "t9",
+              "ta",
+              "tb",
+              "tc"
+            ],
+            "slips": {
+              "ok": 1845
+            },
+            "per_bracket": {
+              "basic": 1845
+            },
+            "mean_minor": 1845
+          },
+          "actual": {
+            "name": "date_forms",
+            "result": {
+              "total_minor": 1845,
+              "paid": 1,
+              "excluded": [
+                "t9",
+                "ta",
+                "tb",
+                "tc"
+              ],
+              "slips": {
+                "ok": 1845
+              },
+              "per_bracket": {
+                "basic": 1845
+              },
+              "mean_minor": 1845
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "exec_stack",
+          "category": "stack",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 7326,
+            "paid": 2,
+            "excluded": [],
+            "slips": {
+              "s1": 5481,
+              "s2": 1845
+            },
+            "per_bracket": {
+              "executive": 5481,
+              "basic": 1845
+            },
+            "mean_minor": 3663
+          },
+          "actual": {
+            "name": "exec_stack",
+            "result": {
+              "total_minor": 7326,
+              "paid": 2,
+              "excluded": [],
+              "slips": {
+                "s1": 5481,
+                "s2": 1845
+              },
+              "per_bracket": {
+                "executive": 5481,
+                "basic": 1845
+              },
+              "mean_minor": 3663
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "exec_stack_heavy",
+          "category": "stack",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 9147,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "s3": 9147
+            },
+            "per_bracket": {
+              "executive": 9147
+            },
+            "mean_minor": 9147
+          },
+          "actual": {
+            "name": "exec_stack_heavy",
+            "result": {
+              "total_minor": 9147,
+              "paid": 1,
+              "excluded": [],
+              "slips": {
+                "s3": 9147
+              },
+              "per_bracket": {
+                "executive": 9147
+              },
+              "mean_minor": 9147
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "minor_tie_pos",
+          "category": "minor",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 1653,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "n1": 1653
+            },
+            "per_bracket": {
+              "basic": 1653
+            },
+            "mean_minor": 1653
+          },
+          "actual": {
+            "name": "minor_tie_pos",
+            "result": {
+              "total_minor": 1653,
+              "paid": 1,
+              "excluded": [],
+              "slips": {
+                "n1": 1653
+              },
+              "per_bracket": {
+                "basic": 1653
+              },
+              "mean_minor": 1653
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "minor_tie_neg",
+          "category": "minor",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": -253,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "n2": -253
+            },
+            "per_bracket": {
+              "basic": -253
+            },
+            "mean_minor": -253
+          },
+          "actual": {
+            "name": "minor_tie_neg",
+            "result": {
+              "total_minor": -253,
+              "paid": 1,
+              "excluded": [],
+              "slips": {
+                "n2": -253
+              },
+              "per_bracket": {
+                "basic": -253
+              },
+              "mean_minor": -253
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "minor_nontie",
+          "category": "minor",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 3305,
+            "paid": 2,
+            "excluded": [],
+            "slips": {
+              "n3": 1653,
+              "n4": 1652
+            },
+            "per_bracket": {
+              "basic": 3305
+            },
+            "mean_minor": 1653
+          },
+          "actual": {
+            "name": "minor_nontie",
+            "result": {
+              "total_minor": 3305,
+              "paid": 2,
+              "excluded": [],
+              "slips": {
+                "n3": 1653,
+                "n4": 1652
+              },
+              "per_bracket": {
+                "basic": 3305
+              },
+              "mean_minor": 1653
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "adjust_neg",
+          "category": "minor",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 3848,
+            "paid": 2,
+            "excluded": [],
+            "slips": {
+              "n5": 1953,
+              "n6": 1895
+            },
+            "per_bracket": {
+              "basic": 3848
+            },
+            "mean_minor": 1924
+          },
+          "actual": {
+            "name": "adjust_neg",
+            "result": {
+              "total_minor": 3848,
+              "paid": 2,
+              "excluded": [],
+              "slips": {
+                "n5": 1953,
+                "n6": 1895
+              },
+              "per_bracket": {
+                "basic": 3848
+              },
+              "mean_minor": 1924
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "mean_tie_pos",
+          "category": "mean",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 201,
+            "paid": 2,
+            "excluded": [],
+            "slips": {
+              "a1": 100,
+              "a2": 101
+            },
+            "per_bracket": {
+              "basic": 201
+            },
+            "mean_minor": 101
+          },
+          "actual": {
+            "name": "mean_tie_pos",
+            "result": {
+              "total_minor": 201,
+              "paid": 2,
+              "excluded": [],
+              "slips": {
+                "a1": 100,
+                "a2": 101
+              },
+              "per_bracket": {
+                "basic": 201
+              },
+              "mean_minor": 101
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "mean_tie_neg",
+          "category": "mean",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": -201,
+            "paid": 2,
+            "excluded": [],
+            "slips": {
+              "a3": -100,
+              "a4": -101
+            },
+            "per_bracket": {
+              "basic": -201
+            },
+            "mean_minor": -101
+          },
+          "actual": {
+            "name": "mean_tie_neg",
+            "result": {
+              "total_minor": -201,
+              "paid": 2,
+              "excluded": [],
+              "slips": {
+                "a3": -100,
+                "a4": -101
+              },
+              "per_bracket": {
+                "basic": -201
+              },
+              "mean_minor": -101
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "mean_nontie",
+          "category": "mean",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 303,
+            "paid": 3,
+            "excluded": [],
+            "slips": {
+              "a5": 100,
+              "a6": 101,
+              "a7": 102
+            },
+            "per_bracket": {
+              "basic": 303
+            },
+            "mean_minor": 101
+          },
+          "actual": {
+            "name": "mean_nontie",
+            "result": {
+              "total_minor": 303,
+              "paid": 3,
+              "excluded": [],
+              "slips": {
+                "a5": 100,
+                "a6": 101,
+                "a7": 102
+              },
+              "per_bracket": {
+                "basic": 303
+              },
+              "mean_minor": 101
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "combined",
+          "category": "combined",
+          "scope": "unchanged original CASES+expected",
+          "expected": {
+            "total_minor": 16643,
+            "paid": 4,
+            "excluded": [
+              "c3",
+              "c5"
+            ],
+            "slips": {
+              "c1": 1662,
+              "c2": 5481,
+              "c4": 7847,
+              "c6": 1653
+            },
+            "per_bracket": {
+              "basic": 3315,
+              "executive": 5481,
+              "senior": 7847
+            },
+            "mean_minor": 4161
+          },
+          "actual": {
+            "name": "combined",
+            "result": {
+              "total_minor": 16643,
+              "paid": 4,
+              "excluded": [
+                "c3",
+                "c5"
+              ],
+              "slips": {
+                "c1": 1662,
+                "c2": 5481,
+                "c4": 7847,
+                "c6": 1653
+              },
+              "per_bracket": {
+                "basic": 3315,
+                "executive": 5481,
+                "senior": 7847
+              },
+              "mean_minor": 4161
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "canonical",
+          "scope": "separate predeclared RuleV lexical contract probe",
+          "input_sha256": "34cab1e6c9f0db3e5c3bcb5be7a4a1dbf49295b07dbb3a87afd7cbf66501106f",
+          "input_bytes": 106,
+          "expected": {
+            "total_minor": 557,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "leading-zero-audit": 557
+            },
+            "per_bracket": {
+              "basic": 557
+            },
+            "mean_minor": 557
+          },
+          "actual": {
+            "name": "canonical",
+            "result": {
+              "total_minor": 557,
+              "paid": 1,
+              "excluded": [],
+              "slips": {
+                "leading-zero-audit": 557
+              },
+              "per_bracket": {
+                "basic": 557
+              },
+              "mean_minor": 557
+            }
+          },
+          "pass": true,
+          "unknown": false
+        },
+        {
+          "case": "padded",
+          "scope": "separate predeclared RuleV lexical contract probe",
+          "input_sha256": "f574ea9aee7e7d8d5fc1710d51b13cb90c8311e38da720c7b251dcef919f8e78",
+          "input_bytes": 5106,
+          "expected": {
+            "total_minor": 557,
+            "paid": 1,
+            "excluded": [],
+            "slips": {
+              "leading-zero-audit": 557
+            },
+            "per_bracket": {
+              "basic": 557
+            },
+            "mean_minor": 557
+          },
+          "actual": {
+            "name": "padded",
+            "result": {
+              "total_minor": 557,
+              "paid": 1,
+              "excluded": [],
+              "slips": {
+                "leading-zero-audit": 557
+              },
+              "per_bracket": {
+                "basic": 557
+              },
+              "mean_minor": 557
+            }
+          },
+          "pass": true,
+          "unknown": false
+        }
+      ],
+      "source_sha256": "c1c1793a7735027ca95f8fc93aa094adb91b658a489de1e9bb9c795f36620322",
+      "eligibility": {
+        "trial": 2,
+        "source_sha256": "c1c1793a7735027ca95f8fc93aa094adb91b658a489de1e9bb9c795f36620322",
+        "native_qualified": true,
+        "metadata_issues": [],
+        "prompt_exact": true,
+        "before_matches_public": true,
+        "saved_source_matches_after": true,
+        "protected_mismatches": [],
+        "unsafe_nodes": [],
+        "session_ids": [
+          "01a1bdc7-7ffe-7e91-a577-d58c50400db3"
+        ],
+        "log_sha256": "bc85d3fd419e1b4d9b04891ffca557be9efc377339637f3b3dff208753c06e6f",
+        "completed_item_types": {
+          "agent_message": 4,
+          "command_execution": 6,
+          "mcp_tool_call": 2,
+          "file_change": 2
+        },
+        "eligible": true,
+        "all_completed_shell_and_mcp_calls_read": true,
+        "all_production_and_test_source_read": true,
+        "private_historical_content_returned": false,
+        "context_notes": "No memory/private/historical reads observed. Ordinary-tool availability retained. ARE MCP calls returned only schema-validation errors and no research context.",
+        "production_io": "No file/network/process/dynamic import or environment access; re/Fraction stdlib only for trial1, re/Decimal/Fraction for trial2.",
+        "test_deliverables": "unittest compatible, independent fixed expectations with arithmetic comments; no paylib import; repeatability properties are licensed supplementary tests.",
+        "manual_source_cause_lead": "trial1 directly constructs Fraction from gross/bonus/adjust strings, with no digit-policy mitigation; trial2 uses Fraction(Decimal(string)). Potential trial1 leading-zero failure awaits execution."
+      }
+    }
+  ],
+  "receipt_sha256": {
+    "ALL10-TERMINAL.json": "075e7c4a6a383f14084d367e797750ee1a4a00b0d811f1ff5a90106081143aed",
+    "coding/RESULTS.json": "9cd5a7c82154ecddb2184449ed5fd9045fb7e0741dc4c54370e34cbdf9244a6d",
+    "diagnostic/initial/AUDIT.json": "a81e91334841adcda8cc16dca07e5688c3e1a3a53f1ea14502ba52e7ee2266e8",
+    "diagnostic/ORIGINAL-ORACLE-AUDIT.json": "4862b156900818fb9c199b75d6bea5cb5dec78364e230cee528611b85f42e4cc",
+    "audit/POST-BARRIER-CONDITIONS.json": "2dcb3ecd189052169561d5016197bea088022fef27f1c5dcd3281206c3338cca",
+    "audit/FINAL-DELIVERABLE-REVIEW.json": "1cdec71cb779d425b8058b06b4a3ad28dc6f7d6c73339d4584341322912e4bf6",
+    "audit/contract-probes/payroll-leading-zero/PRIOR-CONTROL-RESULT.json": "e20c6ff73742950122a877361399e9e66694c7d9408865c20c0413e921c13022",
+    "audit/contract-probes/payroll-leading-zero/PAIRED-RESULT.json": "27c29491418c829cabb083b83a5ab6acae2b0e0b628747edc1f2e89431cd0c74",
+    "prior-contract-replication/runtime/fixed-job/TERMINAL.json": "7c1c978a22a206f01030865a996ce9ecc84798cde95125fd62dd8a67f39bc79c",
+    "prior-contract-transport-recovery/runtime/fixed-job/TERMINAL.json": "53658dc5cea631e32d5e913b95333c1cca7bfa73b6e7a0a82cd0bb79b1a7933b",
+    "prior-contract-transport-recovery/RESULTS.json": "3a1ab5993a59866cc767f54563f3f6cd08b96e565b1b1d28c041787b81b425d1",
+    "audit/FINAL-CUSTODY.json": "3b05ec0435108705635b2481cde9539b51d596615e8eae2bd24e6c16c56b85fe"
+  },
+  "new_general_grader": false,
+  "externally_submitted": false,
+  "limits": "Finite original checks and source review; no universal correctness or reliability-rate claim."
+}

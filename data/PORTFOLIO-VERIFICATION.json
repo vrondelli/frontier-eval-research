@@ -1,0 +1,100 @@
+{
+  "schema": "portfolio-checkout-verification/v1",
+  "created_utc": "2026-11-09T16:25:11.388374+00:00",
+  "all_passed": true,
+  "verified_index_tree": "6e2a0565386efc2c563488a4f765c2ed35309166",
+  "raw_archive_absent_from_checked_clone": true,
+  "model_calls": 0,
+  "new_native_subject_trials": 0,
+  "full_114_job_replay_repeated_now": false,
+  "note": "This migration rechecks identities, original unit tests/runtime and all retained execution receipts; historical 114-job cold replay is bound by releases/SCORED-CLEAN-VERIFICATION.json. The proof file itself is added after the checked tree to avoid self-reference.",
+  "checks": [
+    {
+      "name": "portfolio coverage and identities",
+      "command": [
+        "/usr/bin/python3",
+        "tools/validate_portfolio.py"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "stdout": "{\n  \"schema\": \"portfolio-validation/v1\",\n  \"all_passed\": true,\n  \"checks_passed\": 8717,\n  \"failures\": [],\n  \"campaigns\": 55,\n  \"r1_r10_protocols\": 67,\n  \"r1_r10_counted_episodes\": 295,\n  \"authored_protocols\": 151,\n  \"meta_author_attempts\": 31,\n  \"scored_packages\": 19,\n  \"release_files_checked\": 7411,\n  \"curated_document_links_checked\": 599,\n  \"source_exports_checked\": 311,\n  \"local_archive_present\": true,\n  \"human_review_complete\": false,\n  \"model_calls\": 0\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "limited publication pattern scan",
+      "command": [
+        "/usr/bin/python3",
+        "tools/scan_publication.py"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "stdout": "{\n  \"schema\": \"portfolio-pattern-scan/v1\",\n  \"candidate_files\": 7816,\n  \"content_objects_scanned\": 15277,\n  \"nested_zip_entries_scanned\": 7461,\n  \"findings\": [],\n  \"skipped\": [],\n  \"all_patterns_clear\": true,\n  \"scope\": \"Limited offline secret/media patterns, not a universal privacy or rights audit. Full raw archive ignored. No matching values printed.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "meta-eval unit tests",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "meta_eval/tests",
+        "-v"
+      ],
+      "cwd": "meta-eval",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_duplicate_input_fields_rejected (test_scoring.ScoringTests.test_duplicate_input_fields_rejected) ... ok\ntest_exact_alternatives_and_signed_max (test_scoring.ScoringTests.test_exact_alternatives_and_signed_max) ... ok\ntest_exact_score_requires_review_and_qualification (test_scoring.ScoringTests.test_exact_score_requires_review_and_qualification) ... ok\ntest_family_cannot_hide_failure_in_parent (test_scoring.ScoringTests.test_family_cannot_hide_failure_in_parent) ... ok\ntest_family_partial_credit_retains_critical_failure (test_scoring.ScoringTests.test_family_partial_credit_retains_critical_failure) ... ok\ntest_high_score_does_not_hide_wrong_reference (test_scoring.ScoringTests.test_high_score_does_not_hide_wrong_reference) ... ok\ntest_infeasible_nonzero_is_owner_unknown_not_fake_failure (test_scoring.ScoringTests.test_infeasible_nonzero_is_owner_unknown_not_fake_failure) ... ok\ntest_json_pointer_escaping (test_scoring.ScoringTests.test_json_pointer_escaping) ... ok\ntest_log_flood_is_capped_not_parsed_as_verdict (test_scoring.ScoringTests.test_log_flood_is_capped_not_parsed_as_verdict) ... ok\ntest_missing_evidence_cannot_pass (test_scoring.ScoringTests.test_missing_evidence_cannot_pass) ... ok\ntest_missing_or_changed_weights_rejected (test_scoring.ScoringTests.test_missing_or_changed_weights_rejected) ... ok\ntest_native_boolean_and_review_verdicts_distinguished (test_scoring.ScoringTests.test_native_boolean_and_review_verdicts_distinguished) ... ok\ntest_nonintegral_and_boolean_rejected (test_scoring.ScoringTests.test_nonintegral_and_boolean_rejected) ... ok\ntest_protected_pyc_is_in_package_identity (test_scoring.ScoringTests.test_protected_pyc_is_in_package_identity) ... ok\ntest_reference_resource_unknown_keeps_family_membership (test_scoring.ScoringTests.test_reference_resource_unknown_keeps_family_membership) ... ok\ntest_root_symlink_refused (test_scoring.ScoringTests.test_root_symlink_refused) ... ok\ntest_timeout_is_not_semantic_failure (test_scoring.ScoringTests.test_timeout_is_not_semantic_failure) ... ok\ntest_unknowns_are_not_renormalized (test_scoring.ScoringTests.test_unknowns_are_not_renormalized) ... ok\ntest_zero_exponent_does_not_expand (test_scoring.ScoringTests.test_zero_exponent_does_not_expand) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 0.211s\n\nOK\n"
+    },
+    {
+      "name": "declared runtime",
+      "command": [
+        "/usr/bin/python3",
+        "run_meta_eval.py",
+        "doctor"
+      ],
+      "cwd": "meta-eval",
+      "exit_code": 0,
+      "stdout": "{\n  \"platform\": \"posix\",\n  \"linux_required\": true,\n  \"docker\": true,\n  \"bubblewrap\": true,\n  \"image\": \"python:3.14-slim\",\n  \"image_id\": \"sha256:cd89c30eda26ee911a4611b18680086e0ea42e6f5f8cbe653d07fa7958c9cec8\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "31 records and 114 receipts",
+      "command": [
+        "/usr/bin/python3",
+        "validate_meta_eval_report.py",
+        "grades/scored-v2-final/REPORT.json",
+        "--all-existing"
+      ],
+      "cwd": "meta-eval",
+      "exit_code": 0,
+      "stdout": "{\"attempts_verified\": 31, \"execution_receipts_verified\": 114, \"all_existing\": true, \"model_calls\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "name": "staged checkout without raw archive",
+      "command": [
+        "/usr/bin/python3",
+        "tools/validate_portfolio.py"
+      ],
+      "cwd": ".local/verified-checkout-20261109T162503659043",
+      "exit_code": 0,
+      "stdout": "{\n  \"schema\": \"portfolio-validation/v1\",\n  \"all_passed\": true,\n  \"checks_passed\": 8405,\n  \"failures\": [],\n  \"campaigns\": 55,\n  \"r1_r10_protocols\": 67,\n  \"r1_r10_counted_episodes\": 295,\n  \"authored_protocols\": 151,\n  \"meta_author_attempts\": 31,\n  \"scored_packages\": 19,\n  \"release_files_checked\": 7411,\n  \"curated_document_links_checked\": 599,\n  \"source_exports_checked\": 311,\n  \"local_archive_present\": false,\n  \"human_review_complete\": false,\n  \"model_calls\": 0\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "staged checkout execution receipt completeness",
+      "command": [
+        "/usr/bin/python3",
+        "validate_meta_eval_report.py",
+        "grades/scored-v2-final/REPORT.json",
+        "--all-existing"
+      ],
+      "cwd": ".local/verified-checkout-20261109T162503659043/meta-eval",
+      "exit_code": 0,
+      "stdout": "{\"attempts_verified\": 31, \"execution_receipts_verified\": 114, \"all_existing\": true, \"model_calls\": 0}\n",
+      "stderr": ""
+    }
+  ]
+}

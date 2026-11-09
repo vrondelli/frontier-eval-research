@@ -1,0 +1,3 @@
+Implemented the ledger in [ledger.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v5-crash-durability/episodes/ep02-luna-main-draw2/workspace/ledger.py).
+
+Appends use a process-wide file lock and atomically replace the store; the file and its directory are synced before the call returns. Reads share the lock, and append validation happens before any store changes. I did not run tests.

@@ -1,0 +1,570 @@
+{
+  "schema_version": "eval-author-owner-review-matrix/v1",
+  "generated_utc": "2026-11-09T03:06:28.950385+00:00",
+  "planned_rows": 31,
+  "status_counts": {
+    "completed": 21,
+    "timeout": 7,
+    "recovered_completed": 2,
+    "capture_recovered_native_unknown": 1
+  },
+  "no_pooled_failure_rate": true,
+  "human_review_complete": false,
+  "owner_sidecar": "owner/ADJUDICATION.json",
+  "notes": [
+    "Context/provenance/metadata exposure and original/reconstructed/coached conditions remain separate.",
+    "completed_defect_demonstrated denotes a checked dimension, not whole-domain binary completeness.",
+    "Raw score false-reject counts require sidecar exclusions; superseded owner incidents never become subject failures."
+  ],
+  "attempts": [
+    {
+      "id": "screen/gpt-6.1-sol/H1",
+      "cohort": "screen",
+      "model": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "verified_false_rejection",
+      "scope": "Finite screen conditions; not universal correctness.",
+      "evidence": [
+        "grades/owner-review/H1-REVIEW.md",
+        "grades/owner-review/sol-H1-FULL-BWRAP.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": true
+    },
+    {
+      "id": "screen/gpt-6-astra/H1",
+      "cohort": "screen",
+      "model": "gpt-6-astra",
+      "case_id": "H1",
+      "draw": null,
+      "native_status": "timeout",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "incomplete_snapshot_false_rejection",
+      "scope": "Finite screen conditions; not universal correctness.",
+      "evidence": [
+        "grades/owner-review/H1-REVIEW.md",
+        "grades/owner-review/astra-H1-SNAPSHOT-BWRAP.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "screen/gpt-6.1-sol/H2",
+      "cohort": "screen",
+      "model": "gpt-6.1-sol",
+      "case_id": "H2",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "exact_original",
+      "owner_assessment": "no_verified_objective_defect_in_reviewed_obligations",
+      "scope": "Independent model semantic review; human expert signoff remains pending.",
+      "evidence": [
+        "grades/semantic-review/H2-gpt-6.1-sol.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "screen/gpt-6-astra/H2",
+      "cohort": "screen",
+      "model": "gpt-6-astra",
+      "case_id": "H2",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "exact_original",
+      "owner_assessment": "no_verified_objective_defect_in_reviewed_obligations",
+      "scope": "Independent model semantic review; human expert signoff remains pending.",
+      "evidence": [
+        "grades/semantic-review/H2-gpt-6-astra.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "screen/gpt-6.1-sol/H3",
+      "cohort": "screen",
+      "model": "gpt-6.1-sol",
+      "case_id": "H3",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "no_verified_full_semantic_false_pass_in_checked_probe; disclosed_execution_boundary_unqualified",
+      "scope": "Independent model semantic review; human expert signoff remains pending.",
+      "evidence": [
+        "grades/semantic-review/H3-gpt-6.1-sol.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "screen/gpt-6-astra/H3",
+      "cohort": "screen",
+      "model": "gpt-6-astra",
+      "case_id": "H3",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "no_verified_full_semantic_false_pass_in_checked_probe; disclosed_execution_boundary_unqualified",
+      "scope": "Independent model semantic review; human expert signoff remains pending.",
+      "evidence": [
+        "grades/semantic-review/H3-gpt-6-astra.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "screen/gpt-6.1-sol/H4",
+      "cohort": "screen",
+      "model": "gpt-6.1-sol",
+      "case_id": "H4",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "no_verified_defect_on_corrected_posthoc_controls",
+      "scope": "Original positives invalid; post-outcome successor diagnostic5/5, separate from frozen bank.",
+      "evidence": [
+        "grades/owner-review/H4-REVIEW.md",
+        "owner/ADJUDICATION.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "screen/gpt-6-astra/H4",
+      "cohort": "screen",
+      "model": "gpt-6-astra",
+      "case_id": "H4",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "no_verified_defect_on_corrected_posthoc_controls",
+      "scope": "Original positives invalid; post-outcome successor diagnostic5/5, separate from frozen bank.",
+      "evidence": [
+        "grades/owner-review/H4-REVIEW.md",
+        "owner/ADJUDICATION.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "screen/gpt-6.1-sol/H5",
+      "cohort": "screen",
+      "model": "gpt-6.1-sol",
+      "case_id": "H5",
+      "draw": null,
+      "native_status": "timeout",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "incomplete_snapshot_measurement_gap",
+      "scope": "Timeout snapshots accept coherent extra-work probe on selected native benchmark cases only.",
+      "evidence": [
+        "grades/owner-review/H5-REVIEW.md"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "screen/gpt-6-astra/H5",
+      "cohort": "screen",
+      "model": "gpt-6-astra",
+      "case_id": "H5",
+      "draw": null,
+      "native_status": "timeout",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "incomplete_snapshot_measurement_gap",
+      "scope": "Timeout snapshots accept coherent extra-work probe on selected native benchmark cases only.",
+      "evidence": [
+        "grades/owner-review/H5-REVIEW.md"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "screen/gpt-6.1-sol/H6",
+      "cohort": "screen",
+      "model": "gpt-6.1-sol",
+      "case_id": "H6",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "known_bad_rejected_overall_positive_qualification_unknown",
+      "scope": "Coverage dimension; initial full-task positives excluded. Tiny zero/count input is unambiguous.",
+      "evidence": [
+        "grades/owner-review/H6-REVIEW.md",
+        "grades/owner-review/sol-H6-FULL-GRADE-RAW.json",
+        "owner/ADJUDICATION.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "screen/gpt-6-astra/H6",
+      "cohort": "screen",
+      "model": "gpt-6-astra",
+      "case_id": "H6",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "verified_false_acceptance",
+      "scope": "Coverage dimension; initial full-task positives excluded. Tiny zero/count input is unambiguous.",
+      "evidence": [
+        "grades/owner-review/H6-REVIEW.md",
+        "grades/owner-review/astra-H6-FULL-GRADE.json",
+        "owner/ADJUDICATION.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": true
+    },
+    {
+      "id": "screen/gpt-6.1-sol/H7",
+      "cohort": "screen",
+      "model": "gpt-6.1-sol",
+      "case_id": "H7",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "no_verified_defect_on_finite_and_posthoc_contiguity_controls",
+      "scope": "Frozen5controls plus separately labeled2contiguity controls; selected original source.",
+      "evidence": [
+        "grades/owner-review/H7-REVIEW.md"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "screen/gpt-6-astra/H7",
+      "cohort": "screen",
+      "model": "gpt-6-astra",
+      "case_id": "H7",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "no_verified_defect_on_finite_and_posthoc_contiguity_controls",
+      "scope": "Frozen5controls plus separately labeled2contiguity controls; selected original source.",
+      "evidence": [
+        "grades/owner-review/H7-REVIEW.md"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "screen/gpt-6.1-sol/H8",
+      "cohort": "screen",
+      "model": "gpt-6.1-sol",
+      "case_id": "H8",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "no_verified_defect_on_staged_subset",
+      "scope": "Subset reconstruction with independent Docker replay; absent full original inputs/context limit claims.",
+      "evidence": [
+        "grades/audit-review/H8-SEMANTIC-REVIEW.md"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "screen/gpt-6-astra/H8",
+      "cohort": "screen",
+      "model": "gpt-6-astra",
+      "case_id": "H8",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "no_verified_defect_on_staged_subset",
+      "scope": "Subset reconstruction with independent Docker replay; absent full original inputs/context limit claims.",
+      "evidence": [
+        "grades/audit-review/H8-SEMANTIC-REVIEW.md"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "screen/gpt-6.1-sol/H9",
+      "cohort": "screen",
+      "model": "gpt-6.1-sol",
+      "case_id": "H9",
+      "draw": null,
+      "native_status": "recovered_completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "no_verified_defect_on_staged_subset",
+      "scope": "Subset reconstruction with independent Docker replay; absent full original inputs/context limit claims.",
+      "evidence": [
+        "grades/audit-review/H9-SEMANTIC-REVIEW.md"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "screen/gpt-6-astra/H9",
+      "cohort": "screen",
+      "model": "gpt-6-astra",
+      "case_id": "H9",
+      "draw": null,
+      "native_status": "recovered_completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "no_verified_defect_on_staged_subset",
+      "scope": "Subset reconstruction with independent Docker replay; absent full original inputs/context limit claims.",
+      "evidence": [
+        "grades/audit-review/H9-SEMANTIC-REVIEW.md"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/SCREEN-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "confirmation/gpt-6.1-sol/H1/draw1",
+      "cohort": "confirmation",
+      "model": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": "draw1",
+      "native_status": "timeout",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "incomplete_snapshot_or_scope_change_only",
+      "scope": "Three600second timeouts, no completed-failure denominator.",
+      "evidence": [
+        "grades/owner-review/H1-CONFIRMATION-REVIEW.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/CONFIRMATION-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "confirmation/gpt-6.1-sol/H1/draw2",
+      "cohort": "confirmation",
+      "model": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": "draw2",
+      "native_status": "timeout",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "incomplete_snapshot_or_scope_change_only",
+      "scope": "Three600second timeouts, no completed-failure denominator.",
+      "evidence": [
+        "grades/owner-review/H1-CONFIRMATION-REVIEW.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/CONFIRMATION-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "confirmation/gpt-6.1-sol/H1/draw3",
+      "cohort": "confirmation",
+      "model": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": "draw3",
+      "native_status": "timeout",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "incomplete_snapshot_or_scope_change_only",
+      "scope": "Three600second timeouts, no completed-failure denominator.",
+      "evidence": [
+        "grades/owner-review/H1-CONFIRMATION-REVIEW.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/CONFIRMATION-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "confirmation/gpt-6-astra/H6/draw1",
+      "cohort": "confirmation",
+      "model": "gpt-6-astra",
+      "case_id": "H6",
+      "draw": "draw1",
+      "native_status": "capture_recovered_native_unknown",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "native_terminal_unknown_recovered_snapshot",
+      "scope": "Verified232file snapshot custody, but no final/terminal event/native exit; not completed pass/failure.",
+      "evidence": [
+        "runs/confirmation/gpt-6-astra/H6/draw1/RECOVERY.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/CONFIRMATION-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "confirmation/gpt-6-astra/H6/draw2",
+      "cohort": "confirmation",
+      "model": "gpt-6-astra",
+      "case_id": "H6",
+      "draw": "draw2",
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "actual_known_bad_candidate_rejected",
+      "scope": "92/93; distinct huge-nonzero-exponent timeout catches bad program, does not prove zero-family coverage.",
+      "evidence": [
+        "grades/owner-review/H6-CONFIRM-draw2.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/CONFIRMATION-CENSUS.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "confirmation/gpt-6-astra/H6/draw3",
+      "cohort": "confirmation",
+      "model": "gpt-6-astra",
+      "case_id": "H6",
+      "draw": "draw3",
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "verified_false_acceptance",
+      "scope": "Actual unchanged bad saved CLI accepted126/126.",
+      "evidence": [
+        "grades/owner-review/H6-CONFIRM-draw3.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/CONFIRMATION-CENSUS.json",
+      "completed_defect_demonstrated": true
+    },
+    {
+      "id": "budget_diagnostic/gpt-6.1-sol/H1/draw1",
+      "cohort": "budget_diagnostic",
+      "model": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": "draw1",
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "verified_false_rejection",
+      "scope": "Separate1200capcohort, actual495\u2013539seconds. Native5controls each; all3ownsolverviews omit literal.",
+      "evidence": [
+        "grades/owner-review/H1-BUDGET-draw1-FULL.json",
+        "grades/owner-review/H1-BUDGET-REVIEW.md"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw1/launch.json",
+      "completed_defect_demonstrated": true
+    },
+    {
+      "id": "budget_diagnostic/gpt-6.1-sol/H1/draw2",
+      "cohort": "budget_diagnostic",
+      "model": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": "draw2",
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "verified_false_rejection",
+      "scope": "Separate1200capcohort, actual495\u2013539seconds. Native5controls each; all3ownsolverviews omit literal.",
+      "evidence": [
+        "grades/owner-review/H1-BUDGET-draw2-FULL.json",
+        "grades/owner-review/H1-BUDGET-REVIEW.md"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw2/launch.json",
+      "completed_defect_demonstrated": true
+    },
+    {
+      "id": "budget_diagnostic/gpt-6.1-sol/H1/draw3",
+      "cohort": "budget_diagnostic",
+      "model": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": "draw3",
+      "native_status": "completed",
+      "condition": "minimal_reconstruction",
+      "owner_assessment": "verified_false_rejection",
+      "scope": "Separate1200capcohort, actual495\u2013539seconds. Native5controls each; all3ownsolverviews omit literal.",
+      "evidence": [
+        "grades/owner-review/H1-BUDGET-draw3-FULL.json",
+        "grades/owner-review/H1-BUDGET-REVIEW.md"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw3/launch.json",
+      "completed_defect_demonstrated": true
+    },
+    {
+      "id": "selected_hit_clean_staging/gpt-6.1-sol/H1",
+      "cohort": "selected_hit_clean_staging",
+      "model": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "clean_staging_successor",
+      "owner_assessment": "verified_false_rejection",
+      "scope": "Completed in700.247seconds under1200second clean-staging condition, with prompt+input only. Actual visible instruction is the same original single sentence; stdin/source SHA difference is CRLF-to-LF normalization, not appended instruction or coaching. Full native grader under qualified outer/nested bubblewrap gives5valid verdicts: correct applied-status Service falsely rejected; independent accepted-status Service accepted;3faultcontrols rejected. Own README publishes accepted-only but instructs operator to give only staged views, whose initial/final prompts omit that literal. Immutable package unchanged. Separate metadata/budget/runtime successor condition, not exact original-context replication.",
+      "evidence": [
+        "grades/owner-review/H1-CLEAN-FULL.json",
+        "grades/owner-review/H1-CLEAN-REVIEW.md",
+        "runs/clean_screen/gpt-6.1-sol/H1/launch.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/clean_screen/gpt-6.1-sol/H1/launch.json",
+      "completed_defect_demonstrated": true
+    },
+    {
+      "id": "selected_hit_clean_staging/gpt-6-astra/H6",
+      "cohort": "selected_hit_clean_staging",
+      "model": "gpt-6-astra",
+      "case_id": "H6",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "clean_staging_successor",
+      "owner_assessment": "verified_false_acceptance",
+      "scope": "Completed in229.342seconds under clean-staging successor, prompt+input only and same minimal visible instruction. Native full96case grader accepts the actual unchanged saved Luna CLI on96/96 despite its independently verified191byte legal exponent-zero/count failure. Separately, its actual native judge accepts28byte canonical-zero output but rejects the equivalent49byte exponent-zero output for the SAME valid empty-count request, raising Decimal.InvalidOperation under its permitted exact-integer output contract. This directly demonstrates a wrong validator, beyond finite missed coverage. Original subject inventory unchanged. These are two dimensions in one author attempt, not extra trials. Overall full-task positive qualification remains unknown; no universal numeric capacity claim or pooling of conditions.",
+      "evidence": [
+        "grades/owner-review/H6-CLEAN-FULL.json",
+        "grades/owner-review/H6-CLEAN-OUTPUT-ZERO-PAIR.json",
+        "grades/owner-review/ASTRA-H6-PAIRED-REPRODUCER.json",
+        "runs/clean_screen/gpt-6-astra/H6/launch.json"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/clean_screen/gpt-6-astra/H6/launch.json",
+      "completed_defect_demonstrated": true
+    },
+    {
+      "id": "selected_hit_coached_staging/gpt-6.1-sol/H1",
+      "cohort": "selected_hit_coached_staging",
+      "model": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": null,
+      "native_status": "completed",
+      "condition": "coached_clean_capture_v2",
+      "owner_assessment": "target_failure_not_observed_under_published_new_contract",
+      "scope": "Completed767.929seconds with explicitqualitychecklist, cleanstaging and noactorMETA. NewTASK.md explicitly requiresaccepted/rejectedliterals and is actualsole solver input perREADME, fixing the stagedview omission. Author explicitly switches to final-answer-only evaluation rather than measuring stagedadaptation. Native fullgrader underqualifiedouter/nestedbubblewrap gives5/5correct controls after transparent ownerliteral-only adaptation to its publishedacceptedwirecontract; originalappliedcontrol is outofnewexplicitcontract and must not be called false rejection. Twoindependentcorrect Service strategies pass;3businessfaults rejected. This is a separatecoached/newpubliccontract diagnostic; originalscopepreservation and whole-domain validity remain distinct, and one draw does not identify a causal coaching effect.",
+      "evidence": [
+        "grades/owner-review/H1-COACHED-FULL.json",
+        "grades/owner-review/H1-COACHED-REVIEW.md",
+        "grades/owner-review/H1-COACHED-ZIP-BINDING.json",
+        "runs/clean_screen_v2/coached/gpt-6.1-sol/H1/launch.json",
+        "runs/clean_screen_v2/coached/gpt-6.1-sol/H1/delivery/TASK.md"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/clean_screen_v2/coached/gpt-6.1-sol/H1/launch.json",
+      "completed_defect_demonstrated": false
+    },
+    {
+      "id": "selected_hit_coached_staging/gpt-6-astra/H6",
+      "cohort": "selected_hit_coached_staging",
+      "model": "gpt-6-astra",
+      "case_id": "H6",
+      "draw": null,
+      "native_status": "timeout",
+      "condition": "coached_clean_capture_v2",
+      "owner_assessment": "incomplete_timeout_no_completed_verdict",
+      "scope": "Author attempt terminaltimeout after600.722seconds, nativeexit1, no final artifactmessage, no turn.completed or turn.failed event. V2persisted nativefactbefore archival and captured outputinventory with raw_capture_statuswritten. No full native owner grade was requested for this unfinished package, and no completed failure or pass is inferred. The explicit qualitychecklist condition is separate from minimal/clean runs; this timeout provides no completed evidence that coaching fixed or preserved the target validator defect.",
+      "evidence": [
+        "runs/clean_screen_v2/coached/gpt-6-astra/H6/launch.json",
+        "runs/clean_screen_v2/coached/gpt-6-astra/H6/transcript.jsonl",
+        "grades/owner-review/H6-COACHED-REVIEW.md"
+      ],
+      "human_expert_review_complete": false,
+      "source_receipt": "runs/clean_screen_v2/coached/gpt-6-astra/H6/launch.json",
+      "completed_defect_demonstrated": false
+    }
+  ]
+}

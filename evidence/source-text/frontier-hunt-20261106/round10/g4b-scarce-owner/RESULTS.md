@@ -1,0 +1,4 @@
+> Archived source excerpt. Original location: `frontier-hunt-20261106/round10/g4b-scarce-owner/RESULTS.md`. Relative links below describe original archive paths. This copy does not assert current live status.
+
+# RESULTS — r10-g4b-scarce-owner (2026-11-07)
+Verdict: **ceiling. KILL met (0/4 scarce-stall).** Frozen fresh screen n=4 `gpt-6-luna` (all exit 0): every draw spent its single owner question on `change_request`, stall=False, refused=0, PASS. When the one-question budget is stated in both prompt and OWNER.md, the clarification-first habit observed descriptively in gov-g4 (3/3, unpooled) disappears completely — scarcity salience, not scarcity itself, was the operative variable on this surface. Secondary coder found no explicit budget-planning text in final messages (behaviour was correct without narrated budgeting).

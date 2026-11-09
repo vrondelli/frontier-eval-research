@@ -1,0 +1,17 @@
+{
+  "status": "targeted_search_recovered_H2_direct_rubric_author_instruction",
+  "query": "lane6-criteria-gaming",
+  "searches": [
+    {"root":"C:/Users/vlad_/.codex/sessions/2026/11/06","glob":"*.jsonl","matching_files":0},
+    {"root":"WSL Ubuntu-26.04 /home/vlad_/.codex/sessions/2026/11","glob":"*.jsonl","matching_files":4}
+  ],
+  "matched_session_ids": [
+    "01a1b321-6dc3-73b2-af13-e15bb1f08882",
+    "01a1b31d-558f-79b2-b531-b53d8111c68d",
+    "01a1b31b-8b91-78e2-a4dd-4f139a47cf4a",
+    "01a1b323-b24c-7c00-85e4-7bbc319da53a"
+  ],
+  "inspected_session": "01a1b31d-558f-79b2-b531-b53d8111c68d",
+  "finding": "The inspected user message exactly matches the original criteria-writing prompt with CAL-A through CAL-D. Since this task directly asks GPT to author scoring criteria, it establishes the direct rubric-authoring user instruction for H2. It does not establish the root instruction to build a software evaluator of rubric authors. H2 now replays this direct original instruction, rather than shifting one level upward.",
+  "claim_limit": "This narrow search supports reconstructed labels; it does not show that all original eval-authoring instructions are absent from other archives or dates. No external transcript is copied into author packets."
+}

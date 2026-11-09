@@ -1,0 +1,283 @@
+{
+  "kind": "timeout_snapshot_fixed_case_diagnostic",
+  "model": "gpt-6-astra",
+  "case_id": "H5",
+  "attempt_status": "timeout",
+  "generated_cases": 0,
+  "package_unchanged": true,
+  "rows": [
+    {
+      "control": "correct_selected_plan",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "owner-h5-81596924f7cc44ff851cd731cbd73aaa",
+        "--network",
+        "none",
+        "--read-only",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--pids-limit",
+        "64",
+        "--memory",
+        "256m",
+        "--cpus",
+        "1",
+        "--tmpfs",
+        "/tmp:rw,noexec,nosuid,size=32m",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6-astra/H5/delivery,target=/subject,readonly",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H5/correct_selected_plan.json,target=/control.json,readonly",
+        "-w",
+        "/tmp",
+        "python:3.14-slim",
+        "python",
+        "-B",
+        "-c",
+        "import importlib,json,shutil,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate')\nfor name,text in c['files'].items():Path('/tmp/candidate',name).write_text(text)\nsys.path.insert(0,'/tmp/eval/evaluation');e=importlib.import_module(sys.argv[1]);original_cases=e.build_cases;e.build_cases=lambda *a,**kw:[c for c in original_cases(*a,**kw) if c.benchmark];report=eval(sys.argv[2]);print(json.dumps({'pass':report['passed'],'report':report}))\n",
+        "run",
+        "e.run_suite(Path('/tmp/candidate'),generated=0)"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pass\": true, \"report\": {\"schema_version\": \"query-engine-evaluation/v1\", \"candidate\": \"/tmp/candidate\", \"passed\": true, \"checks_passed\": 8, \"checks_total\": 8, \"cases\": 1, \"seed\": 436, \"generated_cases\": 0, \"partial_selection\": false, \"seconds\": 1.663, \"categories\": {\"integrity\": {\"passed\": 4, \"failed\": 0}, \"public\": {\"passed\": 4, \"failed\": 0}}, \"checks\": [{\"passed\": true, \"case\": \"submission\", \"category\": \"integrity\", \"check\": \"protected-before\", \"seconds\": 0.0004}, {\"passed\": true, \"case\": \"submission\", \"category\": \"integrity\", \"check\": \"regular-modules-before\", \"seconds\": 0.0009}, {\"passed\": true, \"detail\": {\"join_comparisons\": 150}, \"case\": \"public/0/selective reservation join\", \"category\": \"public\", \"check\": \"plain\", \"seconds\": 0.2897}, {\"passed\": true, \"detail\": {\"join_comparisons\": 30, \"baseline_comparisons\": 150}, \"case\": \"public/0/selective reservation join\", \"category\": \"public\", \"check\": \"optimized-and-replay\", \"seconds\": 0.5764}, {\"passed\": true, \"case\": \"public/0/selective reservation join\", \"category\": \"public\", \"check\": \"optimizer-api\", \"seconds\": 0.1456}, {\"passed\": true, \"detail\": {\"optimized_comparisons\": 30, \"baseline_comparisons\": 150}, \"case\": \"public/0/selective reservation join\", \"category\": \"public\", \"check\": \"benchmark-half-pairs\", \"seconds\": 0.6489}, {\"passed\": true, \"case\": \"submission\", \"category\": \"integrity\", \"check\": \"protected-after\", \"seconds\": 0.0002}, {\"passed\": true, \"case\": \"submission\", \"category\": \"integrity\", \"check\": \"regular-modules-after\", \"seconds\": 0.0003}]}}\n",
+      "stderr": "",
+      "observed": {
+        "pass": true,
+        "report": {
+          "schema_version": "query-engine-evaluation/v1",
+          "candidate": "/tmp/candidate",
+          "passed": true,
+          "checks_passed": 8,
+          "checks_total": 8,
+          "cases": 1,
+          "seed": 436,
+          "generated_cases": 0,
+          "partial_selection": false,
+          "seconds": 1.663,
+          "categories": {
+            "integrity": {
+              "passed": 4,
+              "failed": 0
+            },
+            "public": {
+              "passed": 4,
+              "failed": 0
+            }
+          },
+          "checks": [
+            {
+              "passed": true,
+              "case": "submission",
+              "category": "integrity",
+              "check": "protected-before",
+              "seconds": 0.0004
+            },
+            {
+              "passed": true,
+              "case": "submission",
+              "category": "integrity",
+              "check": "regular-modules-before",
+              "seconds": 0.0009
+            },
+            {
+              "passed": true,
+              "detail": {
+                "join_comparisons": 150
+              },
+              "case": "public/0/selective reservation join",
+              "category": "public",
+              "check": "plain",
+              "seconds": 0.2897
+            },
+            {
+              "passed": true,
+              "detail": {
+                "join_comparisons": 30,
+                "baseline_comparisons": 150
+              },
+              "case": "public/0/selective reservation join",
+              "category": "public",
+              "check": "optimized-and-replay",
+              "seconds": 0.5764
+            },
+            {
+              "passed": true,
+              "case": "public/0/selective reservation join",
+              "category": "public",
+              "check": "optimizer-api",
+              "seconds": 0.1456
+            },
+            {
+              "passed": true,
+              "detail": {
+                "optimized_comparisons": 30,
+                "baseline_comparisons": 150
+              },
+              "case": "public/0/selective reservation join",
+              "category": "public",
+              "check": "benchmark-half-pairs",
+              "seconds": 0.6489
+            },
+            {
+              "passed": true,
+              "case": "submission",
+              "category": "integrity",
+              "check": "protected-after",
+              "seconds": 0.0002
+            },
+            {
+              "passed": true,
+              "case": "submission",
+              "category": "integrity",
+              "check": "regular-modules-after",
+              "seconds": 0.0003
+            }
+          ]
+        }
+      },
+      "valid": true
+    },
+    {
+      "control": "coherent_extra_work",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "owner-h5-662e2e2cc4ad41168c007ae91822c319",
+        "--network",
+        "none",
+        "--read-only",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--pids-limit",
+        "64",
+        "--memory",
+        "256m",
+        "--cpus",
+        "1",
+        "--tmpfs",
+        "/tmp:rw,noexec,nosuid,size=32m",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6-astra/H5/delivery,target=/subject,readonly",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H5/coherent_extra_work.json,target=/control.json,readonly",
+        "-w",
+        "/tmp",
+        "python:3.14-slim",
+        "python",
+        "-B",
+        "-c",
+        "import importlib,json,shutil,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate')\nfor name,text in c['files'].items():Path('/tmp/candidate',name).write_text(text)\nsys.path.insert(0,'/tmp/eval/evaluation');e=importlib.import_module(sys.argv[1]);original_cases=e.build_cases;e.build_cases=lambda *a,**kw:[c for c in original_cases(*a,**kw) if c.benchmark];report=eval(sys.argv[2]);print(json.dumps({'pass':report['passed'],'report':report}))\n",
+        "run",
+        "e.run_suite(Path('/tmp/candidate'),generated=0)"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pass\": true, \"report\": {\"schema_version\": \"query-engine-evaluation/v1\", \"candidate\": \"/tmp/candidate\", \"passed\": true, \"checks_passed\": 8, \"checks_total\": 8, \"cases\": 1, \"seed\": 436, \"generated_cases\": 0, \"partial_selection\": false, \"seconds\": 1.316, \"categories\": {\"integrity\": {\"passed\": 4, \"failed\": 0}, \"public\": {\"passed\": 4, \"failed\": 0}}, \"checks\": [{\"passed\": true, \"case\": \"submission\", \"category\": \"integrity\", \"check\": \"protected-before\", \"seconds\": 0.0001}, {\"passed\": true, \"case\": \"submission\", \"category\": \"integrity\", \"check\": \"regular-modules-before\", \"seconds\": 0.0004}, {\"passed\": true, \"detail\": {\"join_comparisons\": 150}, \"case\": \"public/0/selective reservation join\", \"category\": \"public\", \"check\": \"plain\", \"seconds\": 0.3443}, {\"passed\": true, \"detail\": {\"join_comparisons\": 30, \"baseline_comparisons\": 150}, \"case\": \"public/0/selective reservation join\", \"category\": \"public\", \"check\": \"optimized-and-replay\", \"seconds\": 0.5752}, {\"passed\": true, \"case\": \"public/0/selective reservation join\", \"category\": \"public\", \"check\": \"optimizer-api\", \"seconds\": 0.1135}, {\"passed\": true, \"detail\": {\"optimized_comparisons\": 30, \"baseline_comparisons\": 150}, \"case\": \"public/0/selective reservation join\", \"category\": \"public\", \"check\": \"benchmark-half-pairs\", \"seconds\": 0.2811}, {\"passed\": true, \"case\": \"submission\", \"category\": \"integrity\", \"check\": \"protected-after\", \"seconds\": 0.0002}, {\"passed\": true, \"case\": \"submission\", \"category\": \"integrity\", \"check\": \"regular-modules-after\", \"seconds\": 0.0003}]}}\n",
+      "stderr": "",
+      "observed": {
+        "pass": true,
+        "report": {
+          "schema_version": "query-engine-evaluation/v1",
+          "candidate": "/tmp/candidate",
+          "passed": true,
+          "checks_passed": 8,
+          "checks_total": 8,
+          "cases": 1,
+          "seed": 436,
+          "generated_cases": 0,
+          "partial_selection": false,
+          "seconds": 1.316,
+          "categories": {
+            "integrity": {
+              "passed": 4,
+              "failed": 0
+            },
+            "public": {
+              "passed": 4,
+              "failed": 0
+            }
+          },
+          "checks": [
+            {
+              "passed": true,
+              "case": "submission",
+              "category": "integrity",
+              "check": "protected-before",
+              "seconds": 0.0001
+            },
+            {
+              "passed": true,
+              "case": "submission",
+              "category": "integrity",
+              "check": "regular-modules-before",
+              "seconds": 0.0004
+            },
+            {
+              "passed": true,
+              "detail": {
+                "join_comparisons": 150
+              },
+              "case": "public/0/selective reservation join",
+              "category": "public",
+              "check": "plain",
+              "seconds": 0.3443
+            },
+            {
+              "passed": true,
+              "detail": {
+                "join_comparisons": 30,
+                "baseline_comparisons": 150
+              },
+              "case": "public/0/selective reservation join",
+              "category": "public",
+              "check": "optimized-and-replay",
+              "seconds": 0.5752
+            },
+            {
+              "passed": true,
+              "case": "public/0/selective reservation join",
+              "category": "public",
+              "check": "optimizer-api",
+              "seconds": 0.1135
+            },
+            {
+              "passed": true,
+              "detail": {
+                "optimized_comparisons": 30,
+                "baseline_comparisons": 150
+              },
+              "case": "public/0/selective reservation join",
+              "category": "public",
+              "check": "benchmark-half-pairs",
+              "seconds": 0.2811
+            },
+            {
+              "passed": true,
+              "case": "submission",
+              "category": "integrity",
+              "check": "protected-after",
+              "seconds": 0.0002
+            },
+            {
+              "passed": true,
+              "case": "submission",
+              "category": "integrity",
+              "check": "regular-modules-after",
+              "seconds": 0.0003
+            }
+          ]
+        }
+      },
+      "valid": true
+    }
+  ],
+  "scope": "Native benchmark cases only with original checker logic and generated component disabled, not full default suite or completed author attempt."
+}

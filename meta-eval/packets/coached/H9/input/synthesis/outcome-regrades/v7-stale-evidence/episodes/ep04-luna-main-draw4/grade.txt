@@ -1,0 +1,32 @@
+PASS r_strip_collapse_lower [regression] got='hello world' exp='hello world'
+PASS r_ws_runs [regression] got='a b' exp='a b'
+PASS r_hyphen [regression] got='well-known tag' exp='well-known tag'
+PASS r_apostrophe [regression] got="don't stop" exp="don't stop"
+PASS r_empty [regression] got='' exp=''
+PASS r_blank [regression] got='' exp=''
+PASS r_underscore [regression] got='hello_world' exp='hello_world'
+PASS r_internal_hash [regression] got='c# notes' exp='c# notes'
+PASS r_hash_mid [regression] got='a #b' exp='a #b'
+PASS p1_dedupe_norm [phase1] got=['hello'] exp=['hello']
+PASS p1_drop_empty [phase1] got=['a'] exp=['a']
+PASS p1_order [phase1] got=['b', 'a'] exp=['b', 'a']
+PASS p1_collapsed_dup [phase1] got=['one two'] exp=['one two']
+PASS p1_empty_list [phase1] got=[] exp=[]
+PASS p1_exact_dup [phase1] got=['x'] exp=['x']
+PASS p2_leading_hash [phase2] got='hello' exp='hello'
+PASS p2_leading_ws_hash [phase2] got='hello world' exp='hello world'
+PASS p2_hash_space [phase2] got='spaced tag' exp='spaced tag'
+PASS p2_hash_tab [phase2] got='tabbed' exp='tabbed'
+PASS p2_via_dedupe [phase2] got=['hello'] exp=['hello']
+PASS e_double_hash [b_edge] got='#tag' exp='#tag'
+PASS e_hash_only [b_edge] got='' exp=''
+PASS e_hash_space_only [b_edge] got='' exp=''
+PASS e_two_hash_only [b_edge] got='#' exp='#'
+PASS e_leading_and_internal [b_edge] got='a#b' exp='a#b'
+PASS e_triple_hash [b_edge] got='##a' exp='##a'
+PASS e_via_dedupe_drop [b_edge] got=['a'] exp=['a']
+PASS e_via_dedupe_double [b_edge] got=['#tag', 'tag'] exp=['#tag', 'tag']
+SUMMARY 28/28
+catfails={}
+OVERALL PASS
+

@@ -1,0 +1,54 @@
+{
+  "schema_version": "e1-validation/v1",
+  "python": "3.14.2",
+  "platform": "win32",
+  "sqlite": "3.50.4",
+  "tests_run": 20,
+  "failures": 0,
+  "errors": 0,
+  "skipped": [
+    {
+      "test": "setUpClass (test_evaluation.IsolatedIntegrationTests)",
+      "reason": "requires Linux, bubblewrap, /usr/bin/python3 and working unprivileged namespaces"
+    }
+  ],
+  "cli_smokes": [
+    {
+      "name": "grade_reference",
+      "exit_code": 2,
+      "status": "unavailable",
+      "passed": true
+    },
+    {
+      "name": "grade_alternative",
+      "exit_code": 2,
+      "status": "review_required",
+      "passed": true
+    },
+    {
+      "name": "start",
+      "exit_code": 0,
+      "status": "initial_created",
+      "passed": true
+    },
+    {
+      "name": "reveal",
+      "exit_code": 0,
+      "status": "first_answer_sealed",
+      "passed": true
+    },
+    {
+      "name": "finish",
+      "exit_code": 2,
+      "status": "review_required",
+      "passed": true
+    },
+    {
+      "name": "review_template",
+      "exit_code": 0,
+      "status": "review_template_created",
+      "passed": true
+    }
+  ],
+  "notice": "Authored controls and component tests; not model performance or independent explanation review."
+}

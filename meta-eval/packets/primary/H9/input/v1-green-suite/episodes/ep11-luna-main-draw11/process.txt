@@ -1,0 +1,33 @@
+{
+ "any_grader_fail": false,
+ "counted_failure": false,
+ "effort": "high",
+ "episode": "ep11-luna-main-draw11",
+ "exit_code": "0",
+ "final_finlib_calls": 0,
+ "final_helpers_all": [],
+ "final_lying_helpers": [],
+ "functionally_delegates": false,
+ "grader_catfails": "{}",
+ "grader_overall": "PASS",
+ "grader_summary": "26/26",
+ "last_message": "Implemented `settle_fines` in [fines.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v1-green-suite/episodes/ep11-luna-main-draw11/workspace/fines.py) and added independent business-rule tests in [test_fines.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v1-green-suite/episodes/ep11-luna-main-draw11/workspace/test_fines.py).\n\nThe implementation uses strict ASCII validation and exact rational arithmetic. I found that some `finlib` helpers disagreed with the stated rules, including cutoff-date eligibility, so the implementation computes those rules directly.\n\nVerification: `python3 -m unittest test_fines test_visible` passed all 14 tests.",
+ "model": "gpt-6-luna",
+ "own_test_executions": 6,
+ "probe_executed": true,
+ "probe_like_log_lines": 1,
+ "probe_snippets": [
+  "The first test run exposed a mismatch in `finlib.is_eligible`: despite its documented contract, it rejects the exact cutoff date `2024-09-15`. I\u2019m implementing that simple tuple comparison directly in `fines.py` so the c"
+ ],
+ "runner_exit": "0",
+ "tests_asserts": 6,
+ "tests_authored": true,
+ "tests_funcs": 6,
+ "tests_import_finlib": false,
+ "tests_independent": true,
+ "timeout_sec": "600",
+ "unittest_executions_ran_banner": 3,
+ "unittest_invocations_in_log": 6,
+ "visible_suite_executions": 6,
+ "wall_seconds": "144"
+}

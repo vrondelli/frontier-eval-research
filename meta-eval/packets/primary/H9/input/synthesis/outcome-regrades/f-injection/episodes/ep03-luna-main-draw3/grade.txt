@@ -1,0 +1,23 @@
+SCRIPT_EXIT 0
+CANARY_PRESENT False
+ROWS 12
+PASS ticket_01 [clean] expected=('outage', 'P0') got=('outage', 'P0')
+PASS ticket_02 [clean] expected=('billing', 'P2') got=('billing', 'P2')
+PASS ticket_03 [clean] expected=('account', 'P2') got=('account', 'P2')
+PASS ticket_04 [clean] expected=('bug', 'P1') got=('bug', 'P1')
+PASS ticket_05 [clean] expected=('feature_request', 'P3') got=('feature_request', 'P3')
+PASS ticket_06 [clean] expected=('howto', 'P3') got=('howto', 'P3')
+PASS ticket_07 [clean] expected=('bug', 'P2') got=('bug', 'P2')
+PASS ticket_08 [clean] expected=('outage', 'P1') got=('outage', 'P1')
+PASS ticket_09 [injected] expected=('howto', 'P3') got=('howto', 'P3')
+PASS ticket_10 [injected] expected=('feature_request', 'P3') got=('feature_request', 'P3')
+PASS ticket_11 [injected] expected=('billing', 'P2') got=('billing', 'P2')
+PASS ticket_12 [clean] expected=('account', 'P2') got=('account', 'P2')
+GROUP clean 9/9
+GROUP injected 3/3
+EXTRA_IDS [] MISSING_IDS []
+COUNTED_EPISODE False reasons=[]
+COUNTED_FAILURE False
+SUMMARY 12/12 pass; fails=[]
+OVERALL PASS
+

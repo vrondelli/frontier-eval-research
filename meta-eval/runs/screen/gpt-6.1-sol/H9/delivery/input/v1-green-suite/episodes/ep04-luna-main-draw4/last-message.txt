@@ -1,0 +1,3 @@
+Implemented `settle_fines` in [fines.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v1-green-suite/episodes/ep04-luna-main-draw4/workspace/fines.py) with strict ASCII validation and exact `Fraction` arithmetic. Added rule-derived `unittest` cases in [test_fines.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v1-green-suite/episodes/ep04-luna-main-draw4/workspace/test_fines.py).
+
+`python3 -m unittest test_fines test_visible` passes all 13 tests. I found the provided date helpers differed from the stated cutoff and day-range rules, so the implementation validates those directly.

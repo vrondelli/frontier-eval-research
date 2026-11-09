@@ -1,0 +1,424 @@
+{
+  "domain": "inventory",
+  "draw": 1,
+  "tables": {
+    "stock_436a0cfc06_1": {
+      "columns": {
+        "sku": "int",
+        "site": "str",
+        "units": "int",
+        "enabled": "int"
+      },
+      "rows": [
+        {
+          "sku": 673199,
+          "site": "inventory-f-af851ec49d20",
+          "units": 7,
+          "enabled": 1
+        },
+        {
+          "sku": 673200,
+          "site": "inventory-f-6ca76a0d7018",
+          "units": 10,
+          "enabled": 1
+        },
+        {
+          "sku": 673201,
+          "site": "inventory-f-9dc7fa6f90ad",
+          "units": 10,
+          "enabled": 0
+        },
+        {
+          "sku": 673202,
+          "site": "inventory-f-af851ec49d20",
+          "units": 32,
+          "enabled": 0
+        },
+        {
+          "sku": 673203,
+          "site": "inventory-f-6ca76a0d7018",
+          "units": 23,
+          "enabled": 0
+        },
+        {
+          "sku": 673204,
+          "site": "inventory-f-9dc7fa6f90ad",
+          "units": 13,
+          "enabled": 0
+        },
+        {
+          "sku": 673205,
+          "site": "inventory-f-af851ec49d20",
+          "units": 38,
+          "enabled": 0
+        },
+        {
+          "sku": 673206,
+          "site": "inventory-f-6ca76a0d7018",
+          "units": 31,
+          "enabled": 0
+        },
+        {
+          "sku": 673207,
+          "site": "inventory-f-9dc7fa6f90ad",
+          "units": 8,
+          "enabled": 0
+        },
+        {
+          "sku": 673208,
+          "site": "inventory-f-af851ec49d20",
+          "units": 26,
+          "enabled": 0
+        }
+      ]
+    },
+    "reservations_436a0cfc06_1": {
+      "columns": {
+        "sku": "int",
+        "reserved": "int",
+        "kind": "str"
+      },
+      "rows": [
+        {
+          "sku": 673199,
+          "reserved": 3,
+          "kind": "order"
+        },
+        {
+          "sku": 673200,
+          "reserved": 3,
+          "kind": "hold"
+        },
+        {
+          "sku": 673201,
+          "reserved": 1,
+          "kind": "order"
+        },
+        {
+          "sku": 673202,
+          "reserved": 1,
+          "kind": "hold"
+        },
+        {
+          "sku": 673203,
+          "reserved": 2,
+          "kind": "order"
+        },
+        {
+          "sku": 673204,
+          "reserved": 3,
+          "kind": "hold"
+        },
+        {
+          "sku": 673205,
+          "reserved": 2,
+          "kind": "order"
+        },
+        {
+          "sku": 673199,
+          "reserved": 4,
+          "kind": "hold"
+        },
+        {
+          "sku": 673200,
+          "reserved": 1,
+          "kind": "order"
+        },
+        {
+          "sku": 673201,
+          "reserved": 1,
+          "kind": "hold"
+        },
+        {
+          "sku": 673202,
+          "reserved": 2,
+          "kind": "order"
+        },
+        {
+          "sku": 673203,
+          "reserved": 1,
+          "kind": "hold"
+        },
+        {
+          "sku": 673204,
+          "reserved": 4,
+          "kind": "order"
+        },
+        {
+          "sku": 673205,
+          "reserved": 2,
+          "kind": "hold"
+        },
+        {
+          "sku": null,
+          "reserved": 3,
+          "kind": "hold"
+        }
+      ]
+    },
+    "sites_436a0cfc06_1": {
+      "columns": {
+        "site": "str",
+        "fee": "int"
+      },
+      "rows": [
+        {
+          "site": "inventory-f-af851ec49d20",
+          "fee": 0
+        },
+        {
+          "site": "inventory-f-6ca76a0d7018",
+          "fee": 1
+        },
+        {
+          "site": "inventory-f-9dc7fa6f90ad",
+          "fee": 2
+        }
+      ]
+    }
+  },
+  "queries": [
+    {
+      "name": "selective reservation join",
+      "benchmark": true,
+      "plan": {
+        "op": "filter",
+        "input": {
+          "op": "join",
+          "kind": "inner",
+          "left": {
+            "op": "scan",
+            "table": "stock_436a0cfc06_1",
+            "as": "s_436a0cfc06_1"
+          },
+          "right": {
+            "op": "scan",
+            "table": "reservations_436a0cfc06_1",
+            "as": "r_436a0cfc06_1"
+          },
+          "left_on": "s_436a0cfc06_1.sku",
+          "right_on": "r_436a0cfc06_1.sku"
+        },
+        "predicate": {
+          "and": [
+            {
+              "eq": [
+                {
+                  "col": "s_436a0cfc06_1.enabled"
+                },
+                {
+                  "lit": 1
+                }
+              ]
+            },
+            {
+              "gt": [
+                {
+                  "col": "r_436a0cfc06_1.reserved"
+                },
+                {
+                  "lit": 0
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "all optional reservations",
+      "benchmark": false,
+      "plan": {
+        "op": "project",
+        "input": {
+          "op": "join",
+          "kind": "left",
+          "left": {
+            "op": "scan",
+            "table": "stock_436a0cfc06_1",
+            "as": "s_436a0cfc06_1"
+          },
+          "right": {
+            "op": "scan",
+            "table": "reservations_436a0cfc06_1",
+            "as": "r_436a0cfc06_1"
+          },
+          "left_on": "s_436a0cfc06_1.sku",
+          "right_on": "r_436a0cfc06_1.sku"
+        },
+        "fields": {
+          "sku": {
+            "col": "s_436a0cfc06_1.sku"
+          },
+          "reserved": {
+            "col": "r_436a0cfc06_1.reserved"
+          }
+        }
+      }
+    },
+    {
+      "name": "post outer nonnull filter",
+      "benchmark": false,
+      "plan": {
+        "op": "filter",
+        "input": {
+          "op": "join",
+          "kind": "left",
+          "left": {
+            "op": "scan",
+            "table": "stock_436a0cfc06_1",
+            "as": "s_436a0cfc06_1"
+          },
+          "right": {
+            "op": "scan",
+            "table": "reservations_436a0cfc06_1",
+            "as": "r_436a0cfc06_1"
+          },
+          "left_on": "s_436a0cfc06_1.sku",
+          "right_on": "r_436a0cfc06_1.sku"
+        },
+        "predicate": {
+          "gt": [
+            {
+              "col": "r_436a0cfc06_1.reserved"
+            },
+            {
+              "lit": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "missing reservations",
+      "benchmark": false,
+      "plan": {
+        "op": "project",
+        "input": {
+          "op": "filter",
+          "input": {
+            "op": "join",
+            "kind": "left",
+            "left": {
+              "op": "scan",
+              "table": "stock_436a0cfc06_1",
+              "as": "s_436a0cfc06_1"
+            },
+            "right": {
+              "op": "scan",
+              "table": "reservations_436a0cfc06_1",
+              "as": "r_436a0cfc06_1"
+            },
+            "left_on": "s_436a0cfc06_1.sku",
+            "right_on": "r_436a0cfc06_1.sku"
+          },
+          "predicate": {
+            "is_null": {
+              "col": "r_436a0cfc06_1.sku"
+            }
+          }
+        },
+        "fields": {
+          "sku": {
+            "col": "s_436a0cfc06_1.sku"
+          }
+        }
+      }
+    },
+    {
+      "name": "site reservation totals",
+      "benchmark": false,
+      "plan": {
+        "op": "group",
+        "input": {
+          "op": "join",
+          "kind": "left",
+          "left": {
+            "op": "scan",
+            "table": "stock_436a0cfc06_1",
+            "as": "s_436a0cfc06_1"
+          },
+          "right": {
+            "op": "scan",
+            "table": "reservations_436a0cfc06_1",
+            "as": "r_436a0cfc06_1"
+          },
+          "left_on": "s_436a0cfc06_1.sku",
+          "right_on": "r_436a0cfc06_1.sku"
+        },
+        "keys": [
+          "s_436a0cfc06_1.site"
+        ],
+        "aggregates": {
+          "reserved": {
+            "fn": "sum",
+            "expr": {
+              "col": "r_436a0cfc06_1.reserved"
+            }
+          },
+          "matches": {
+            "fn": "count",
+            "expr": {
+              "col": "r_436a0cfc06_1.sku"
+            }
+          },
+          "occurrences": {
+            "fn": "count_all"
+          }
+        }
+      }
+    },
+    {
+      "name": "available joined units",
+      "benchmark": false,
+      "plan": {
+        "op": "project",
+        "input": {
+          "op": "join",
+          "kind": "inner",
+          "left": {
+            "op": "join",
+            "kind": "left",
+            "left": {
+              "op": "scan",
+              "table": "stock_436a0cfc06_1",
+              "as": "s_436a0cfc06_1"
+            },
+            "right": {
+              "op": "scan",
+              "table": "reservations_436a0cfc06_1",
+              "as": "r_436a0cfc06_1"
+            },
+            "left_on": "s_436a0cfc06_1.sku",
+            "right_on": "r_436a0cfc06_1.sku"
+          },
+          "right": {
+            "op": "scan",
+            "table": "sites_436a0cfc06_1",
+            "as": "w_436a0cfc06_1"
+          },
+          "left_on": "s_436a0cfc06_1.site",
+          "right_on": "w_436a0cfc06_1.site"
+        },
+        "fields": {
+          "site": {
+            "col": "s_436a0cfc06_1.site"
+          },
+          "net": {
+            "sub": [
+              {
+                "col": "s_436a0cfc06_1.units"
+              },
+              {
+                "col": "r_436a0cfc06_1.reserved"
+              }
+            ]
+          },
+          "fee": {
+            "col": "w_436a0cfc06_1.fee"
+          }
+        }
+      }
+    }
+  ]
+}

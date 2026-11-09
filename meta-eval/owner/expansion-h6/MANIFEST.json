@@ -1,0 +1,16 @@
+{
+  "status": "post_outcome_diagnostic",
+  "reason": "Test published exact-integer spelling equivalence on input and output after finding new grader usesDecimal and omits written-exponentzero. These are authoredcontrols, not subjectmodel outcomes.",
+  "cases": [
+    {
+      "id": "legal_zero_output",
+      "path": "owner/expansion-h6/legal_zero_output.json",
+      "expected_pass": true
+    },
+    {
+      "id": "zero_input_only_rejection",
+      "path": "owner/expansion-h6/zero_input_only_rejection.json",
+      "expected_pass": false
+    }
+  ]
+}

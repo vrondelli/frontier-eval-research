@@ -1,0 +1,441 @@
+{
+  "snapshot_utc": "2026-11-09T03:11:36.589873+00:00",
+  "reviewer_type": "AI_prepared_review_pack_not_human_review",
+  "human_review": {
+    "status": "pending",
+    "user_response": "Not reviewed yet; keep building",
+    "scope": "User has not yet personally reviewed the task meanings and grading rules. Continue authorized build and verification; do not claim human validation.",
+    "human_review_completed": false,
+    "AI_reviews_are_not_human_signoff": true
+  },
+  "initial_screen_terminal": true,
+  "raw_terminal_scheduled": 18,
+  "cohorts": [
+    {
+      "id": "initial_screen",
+      "attempts": 18,
+      "condition": "one recovered original instruction text and eight reconstructed authoring jobs; source metadata exposed",
+      "budget_seconds": 600,
+      "effective_status_counts": {
+        "completed": 13,
+        "timeout": 3,
+        "recovered_completed_turn_delivery": 2
+      },
+      "raw_status_counts": {
+        "completed": 13,
+        "timeout": 3,
+        "runtime_error": 2
+      },
+      "semantic_outcome_counts": {
+        "verified_false_reject": 1,
+        "timeout_snapshot_diagnostic_only": 3,
+        "no_objective_defect_established": 2,
+        "no_objective_defect_established_scoped": 2,
+        "no_defect_on_post_outcome_successor_controls": 2,
+        "no_established_failure_on_licensed_witness": 1,
+        "verified_false_green_and_isolated_false_reject": 1,
+        "no_defect_on_selected_controls": 2,
+        "no_material_defect_established_scoped": 2,
+        "no_material_defect_established_recovered": 2
+      },
+      "all_terminal_capture": true,
+      "usage_reported_attempts": 15,
+      "native_reported_usage_field_sums": {
+        "input_tokens": 12412339,
+        "cached_input_tokens": 11777408,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 229513,
+        "reasoning_output_tokens": 50427
+      },
+      "verified_defect_output_count": 2,
+      "verified_dimension_occurrences": {
+        "hidden_required_status_literal_false_reject": 1,
+        "actual_bad_numeric_cli_false_green": 1,
+        "legal_numeric_output_false_reject": 1
+      },
+      "all_semantically_adjudicated": true
+    },
+    {
+      "id": "H1_same_condition_confirmation",
+      "attempts": 3,
+      "condition": "Sol H1 same frozen packet and metadata",
+      "budget_seconds": 600,
+      "effective_status_counts": {
+        "timeout": 3
+      },
+      "raw_status_counts": {
+        "timeout": 3
+      },
+      "semantic_outcome_counts": {
+        "timeout_no_completed_recurrence_verdict": 3
+      },
+      "all_terminal_capture": true,
+      "usage_reported_attempts": 0,
+      "native_reported_usage_field_sums": {},
+      "verified_defect_output_count": 0,
+      "verified_dimension_occurrences": {},
+      "all_semantically_adjudicated": true
+    },
+    {
+      "id": "H6_same_condition_confirmation",
+      "attempts": 3,
+      "condition": "Astra H6 same frozen packet and metadata",
+      "budget_seconds": 600,
+      "effective_status_counts": {
+        "capture_unknown_native_terminal": 1,
+        "completed": 2
+      },
+      "raw_status_counts": {
+        "runtime_error": 1,
+        "completed": 2
+      },
+      "semantic_outcome_counts": {
+        "capture_unknown_no_model_verdict": 1,
+        "known_bad_rejected_distinct_defect": 1,
+        "verified_fresh_false_green": 1
+      },
+      "all_terminal_capture": true,
+      "usage_reported_attempts": 2,
+      "native_reported_usage_field_sums": {
+        "input_tokens": 1060425,
+        "cached_input_tokens": 1016960,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 28988,
+        "reasoning_output_tokens": 6617
+      },
+      "verified_defect_output_count": 1,
+      "verified_dimension_occurrences": {
+        "actual_bad_numeric_cli_false_green": 1
+      },
+      "all_semantically_adjudicated": true
+    },
+    {
+      "id": "H1_budget_diagnostic",
+      "attempts": 3,
+      "condition": "Sol H1 same packet, longer construction budget",
+      "budget_seconds": 1200,
+      "effective_status_counts": {
+        "completed": 3
+      },
+      "raw_status_counts": {
+        "completed": 3
+      },
+      "semantic_outcome_counts": {
+        "verified_false_reject": 3
+      },
+      "all_terminal_capture": true,
+      "usage_reported_attempts": 3,
+      "native_reported_usage_field_sums": {
+        "input_tokens": 2325269,
+        "cached_input_tokens": 2193152,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 79760,
+        "reasoning_output_tokens": 19844
+      },
+      "verified_defect_output_count": 3,
+      "verified_dimension_occurrences": {
+        "hidden_required_status_literal_false_reject": 3
+      },
+      "all_semantically_adjudicated": true
+    },
+    {
+      "id": "selected_hit_clean_staging",
+      "attempts": 2,
+      "condition": "Sol H1 and Astra H6 prompt/input only; no packet metadata; source native memory context remains",
+      "budget_seconds": "H1=1200;H6=600",
+      "effective_status_counts": {
+        "completed": 2
+      },
+      "raw_status_counts": {
+        "completed": 2
+      },
+      "semantic_outcome_counts": {
+        "verified_false_rejection": 1,
+        "verified_false_acceptance": 1
+      },
+      "all_terminal_capture": true,
+      "usage_reported_attempts": 2,
+      "native_reported_usage_field_sums": {
+        "input_tokens": 1344255,
+        "cached_input_tokens": 1287680,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 45752,
+        "reasoning_output_tokens": 13073
+      },
+      "verified_defect_output_count": 2,
+      "verified_dimension_occurrences": {
+        "hidden_required_status_literal_false_reject": 1,
+        "actual_bad_numeric_cli_false_green": 1,
+        "legal_numeric_output_false_reject": 1
+      },
+      "all_semantically_adjudicated": true
+    },
+    {
+      "id": "selected_hit_coached_staging",
+      "attempts": 2,
+      "condition": "Same two selected jobs and budgets as clean staging, with explicitly new quality checklist; separate secondary arm",
+      "budget_seconds": "H1=1200;H6=600",
+      "effective_status_counts": {
+        "completed": 1,
+        "timeout": 1
+      },
+      "raw_status_counts": {
+        "completed": 1,
+        "timeout": 1
+      },
+      "semantic_outcome_counts": {
+        "target_failure_not_observed_under_published_new_contract": 1,
+        "incomplete_timeout_no_completed_verdict": 1
+      },
+      "all_terminal_capture": true,
+      "usage_reported_attempts": 1,
+      "native_reported_usage_field_sums": {
+        "input_tokens": 1569493,
+        "cached_input_tokens": 1541248,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 35822,
+        "reasoning_output_tokens": 11410
+      },
+      "verified_defect_output_count": 0,
+      "verified_dimension_occurrences": {},
+      "all_semantically_adjudicated": true
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "H1",
+      "name": "Ledger task and hidden status literal",
+      "condition": "minimal_reconstruction",
+      "human_review_status": "pending",
+      "models": {
+        "gpt-6.1-sol": {
+          "status": "completed",
+          "raw_controller_status": "completed",
+          "exit_code": 0,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        },
+        "gpt-6-astra": {
+          "status": "timeout",
+          "raw_controller_status": "timeout",
+          "exit_code": 1,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        }
+      },
+      "semantic_reports": [
+        "H1-INDEPENDENT.json"
+      ]
+    },
+    {
+      "case_id": "H2",
+      "name": "Original rubric-author task",
+      "condition": "exact_original",
+      "human_review_status": "pending",
+      "models": {
+        "gpt-6.1-sol": {
+          "status": "completed",
+          "raw_controller_status": "completed",
+          "exit_code": 0,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        },
+        "gpt-6-astra": {
+          "status": "completed",
+          "raw_controller_status": "completed",
+          "exit_code": 0,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        }
+      },
+      "semantic_reports": [
+        "H2-gpt-6-astra.json",
+        "H2-gpt-6.1-sol.json"
+      ]
+    },
+    {
+      "case_id": "H3",
+      "name": "Intake-time prediction evaluation",
+      "condition": "minimal_reconstruction",
+      "human_review_status": "pending",
+      "models": {
+        "gpt-6.1-sol": {
+          "status": "completed",
+          "raw_controller_status": "completed",
+          "exit_code": 0,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        },
+        "gpt-6-astra": {
+          "status": "completed",
+          "raw_controller_status": "completed",
+          "exit_code": 0,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        }
+      },
+      "semantic_reports": [
+        "H3-gpt-6.1-sol.json",
+        "H3-gpt-6-astra.json"
+      ]
+    },
+    {
+      "case_id": "H4",
+      "name": "Ferry code and own-test quality",
+      "condition": "minimal_reconstruction",
+      "human_review_status": "pending",
+      "models": {
+        "gpt-6.1-sol": {
+          "status": "completed",
+          "raw_controller_status": "completed",
+          "exit_code": 0,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        },
+        "gpt-6-astra": {
+          "status": "completed",
+          "raw_controller_status": "completed",
+          "exit_code": 0,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        }
+      },
+      "semantic_reports": []
+    },
+    {
+      "case_id": "H5",
+      "name": "Query semantics, work and isolation",
+      "condition": "minimal_reconstruction",
+      "human_review_status": "pending",
+      "models": {
+        "gpt-6.1-sol": {
+          "status": "timeout",
+          "raw_controller_status": "timeout",
+          "exit_code": 1,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        },
+        "gpt-6-astra": {
+          "status": "timeout",
+          "raw_controller_status": "timeout",
+          "exit_code": 1,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        }
+      },
+      "semantic_reports": []
+    },
+    {
+      "case_id": "H6",
+      "name": "Exact numeric export",
+      "condition": "minimal_reconstruction",
+      "human_review_status": "pending",
+      "models": {
+        "gpt-6.1-sol": {
+          "status": "completed",
+          "raw_controller_status": "completed",
+          "exit_code": 0,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        },
+        "gpt-6-astra": {
+          "status": "completed",
+          "raw_controller_status": "completed",
+          "exit_code": 0,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        }
+      },
+      "semantic_reports": [
+        "H6-INDEPENDENT.json"
+      ]
+    },
+    {
+      "case_id": "H7",
+      "name": "Field evidence and output shape",
+      "condition": "minimal_reconstruction",
+      "human_review_status": "pending",
+      "models": {
+        "gpt-6.1-sol": {
+          "status": "completed",
+          "raw_controller_status": "completed",
+          "exit_code": 0,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        },
+        "gpt-6-astra": {
+          "status": "completed",
+          "raw_controller_status": "completed",
+          "exit_code": 0,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        }
+      },
+      "semantic_reports": []
+    },
+    {
+      "case_id": "H8",
+      "name": "Snapshot evidence discovery",
+      "condition": "minimal_reconstruction",
+      "human_review_status": "pending",
+      "models": {
+        "gpt-6.1-sol": {
+          "status": "completed",
+          "raw_controller_status": "completed",
+          "exit_code": 0,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        },
+        "gpt-6-astra": {
+          "status": "completed",
+          "raw_controller_status": "completed",
+          "exit_code": 0,
+          "native_turn_completed_event": null,
+          "delivery_custody_verified": null,
+          "formal_claim_eligible": false
+        }
+      },
+      "semantic_reports": []
+    },
+    {
+      "case_id": "H9",
+      "name": "Research synthesis and counts",
+      "condition": "minimal_reconstruction",
+      "human_review_status": "pending",
+      "models": {
+        "gpt-6.1-sol": {
+          "status": "transport_completed_delivery_recovered",
+          "raw_controller_status": "runtime_error",
+          "exit_code": "not_persisted_before_copy_fault",
+          "native_turn_completed_event": true,
+          "delivery_custody_verified": true,
+          "formal_claim_eligible": false
+        },
+        "gpt-6-astra": {
+          "status": "transport_completed_delivery_recovered",
+          "raw_controller_status": "runtime_error",
+          "exit_code": "not_persisted_before_copy_fault",
+          "native_turn_completed_event": true,
+          "delivery_custody_verified": true,
+          "formal_claim_eligible": false
+        }
+      },
+      "semantic_reports": []
+    }
+  ]
+}

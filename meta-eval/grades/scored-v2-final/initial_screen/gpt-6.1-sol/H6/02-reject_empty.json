@@ -1,0 +1,943 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 71.08306432599966,
+  "stdout": "{\"pass_verdict\": false, \"report\": {\"evaluation\": \"warehouse-numeric-export-v1\", \"passed\": 114, \"total\": 121, \"score\": 0, \"pass_rate\": 0.9421487603305785, \"success\": false, \"groups\": {\"semantics\": {\"passed\": 6, \"total\": 7}, \"exact_numbers\": {\"passed\": 17, \"total\": 21}, \"generated\": {\"passed\": 12, \"total\": 12}, \"byte_limit\": {\"passed\": 1, \"total\": 3}, \"validation\": {\"passed\": 71, \"total\": 71}, \"duplicates\": {\"passed\": 5, \"total\": 5}, \"failure_atomicity\": {\"passed\": 2, \"total\": 2}}, \"cases\": [{\"name\": \"public_example\", \"group\": \"semantics\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"empty_sum_and_count\", \"group\": \"semantics\", \"passed\": false, \"returncode\": 1, \"seconds\": 0.317, \"reason\": \"valid input exited 1\", \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/candidate/summarize.py\\\", line 26, in <module>\\n    if not v:raise ValueError('empty')\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: empty\\n\"}, {\"name\": \"repetitions_are_events\", \"group\": \"semantics\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"singletons_and_zero\", \"group\": \"semantics\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"identifier_preservation\", \"group\": \"semantics\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"all_sheets_and_order\", \"group\": \"semantics\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"long_array\", \"group\": \"semantics\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"integral_decimals\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"integral_exponents\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"negative_zero\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"encoded_repetitions\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.165}, {\"name\": \"encoded_negative_maximum\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"binary64_integer_boundary\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"binary64_decimal_boundary\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"binary64_maximum_boundary\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.216}, {\"name\": \"signed64_overflow\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"decimal_context_cancellation\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.165}, {\"name\": \"decimal_context_order\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.165}, {\"name\": \"exponent_overflow_cancellation\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"exponent_overflow_max\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"negative_exponent_order\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"beyond_default_digit_limit\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"large_exponent_sum\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"large_exponent_cancellation\", \"group\": \"exact_numbers\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"extreme_exponent_singleton\", \"group\": \"exact_numbers\", \"passed\": false, \"reason\": \"command exceeded 10s\", \"seconds\": 10.007}, {\"name\": \"extreme_exponent_count\", \"group\": \"exact_numbers\", \"passed\": false, \"reason\": \"command exceeded 10s\", \"seconds\": 10.007}, {\"name\": \"extreme_exponent_cancel\", \"group\": \"exact_numbers\", \"passed\": false, \"reason\": \"command exceeded 10s\", \"seconds\": 10.006}, {\"name\": \"extreme_exponent_max\", \"group\": \"exact_numbers\", \"passed\": false, \"reason\": \"command exceeded 10s\", \"seconds\": 10.006}, {\"name\": \"generated_00\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.216}, {\"name\": \"generated_01\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"generated_02\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"generated_03\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.168}, {\"name\": \"generated_04\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.219}, {\"name\": \"generated_05\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"generated_06\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"generated_07\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.267}, {\"name\": \"generated_08\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.165}, {\"name\": \"generated_09\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.166}, {\"name\": \"generated_10\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.217}, {\"name\": \"generated_11\", \"group\": \"generated\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.216}, {\"name\": \"exactly_8192_bytes\", \"group\": \"byte_limit\", \"passed\": true, \"returncode\": 0, \"seconds\": 0.165}, {\"name\": \"8193_bytes\", \"group\": \"byte_limit\", \"passed\": false, \"returncode\": 0, \"seconds\": 0.166, \"reason\": \"invalid input exited zero\", \"stderr\": \"\"}, {\"name\": \"utf8_bytes_not_characters\", \"group\": \"byte_limit\", \"passed\": false, \"returncode\": 0, \"seconds\": 0.166, \"reason\": \"invalid input exited zero\", \"stderr\": \"\"}, {\"name\": \"empty_identifier\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.317}, {\"name\": \"empty_sheets\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"sheet_not_object\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"missing_stat\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"missing_turns\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"unknown_stat\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"stat_not_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"extra_sheet_member\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.317}, {\"name\": \"empty_maximum\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"net_units_boolean_true\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"net_units_boolean_false\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.317}, {\"name\": \"net_units_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"net_units_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"net_units_object\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"net_units_array\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"net_units_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"net_units_turns_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"net_units_turns_object\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.367}, {\"name\": \"net_units_turns_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"net_units_turns_number\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"event_count_boolean_true\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"event_count_boolean_false\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.366}, {\"name\": \"event_count_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"event_count_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"event_count_object\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"event_count_array\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.267}, {\"name\": \"event_count_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.267}, {\"name\": \"event_count_turns_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.318}, {\"name\": \"event_count_turns_object\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"event_count_turns_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"event_count_turns_number\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"largest_adjustment_boolean_true\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"largest_adjustment_boolean_false\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.317}, {\"name\": \"largest_adjustment_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"largest_adjustment_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"largest_adjustment_object\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"largest_adjustment_array\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"largest_adjustment_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.367}, {\"name\": \"largest_adjustment_turns_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"largest_adjustment_turns_object\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.317}, {\"name\": \"largest_adjustment_turns_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"largest_adjustment_turns_number\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"root_array\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"root_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"root_string\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"missing_sheets\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"sheets_null\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"sheets_array\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"extra_root_member\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"truncated_json\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.267}, {\"name\": \"empty_file\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"trailing_document\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"comment\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"trailing_comma\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"rounded_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.265}, {\"name\": \"tiny_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.317}, {\"name\": \"extreme_tiny_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"decimal_hidden_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"NaN\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.367}, {\"name\": \"positive_infinity\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.317}, {\"name\": \"negative_infinity\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"leading_zero\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"plus_sign\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"leading_dot\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"trailing_dot\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"event_count_rounded_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"event_count_tiny_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"largest_adjustment_rounded_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.317}, {\"name\": \"largest_adjustment_tiny_fraction\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.317}, {\"name\": \"duplicate_root\", \"group\": \"duplicates\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.317}, {\"name\": \"duplicate_identifier\", \"group\": \"duplicates\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"escaped_duplicate_identifier\", \"group\": \"duplicates\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.366}, {\"name\": \"duplicate_stat\", \"group\": \"duplicates\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"duplicate_turns\", \"group\": \"duplicates\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"invalid_utf8\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.266}, {\"name\": \"utf16_document\", \"group\": \"validation\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"late_invalid_sheet\", \"group\": \"failure_atomicity\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}, {\"name\": \"late_invalid_value\", \"group\": \"failure_atomicity\", \"passed\": true, \"returncode\": 1, \"seconds\": 0.316}]}}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-ef9549eae604453cbba246e93ad89b01",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H6/delivery,target=/subject,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H6/reject_empty.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import importlib,json,os,shutil,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir();script=Path('/tmp/candidate/summarize.py');script.write_text(c['code']);sys.path.insert(0,'/tmp/eval/evaluation');os.chdir('/tmp');e=importlib.import_module('evaluate');r=e.evaluate([sys.executable,str(script)],cwd=script.parent);print(json.dumps({'pass_verdict':r['success'],'report':r}))\n"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 13876,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "pass_verdict": false,
+    "report": {
+      "evaluation": "warehouse-numeric-export-v1",
+      "passed": 114,
+      "total": 121,
+      "score": 0,
+      "pass_rate": 0.9421487603305785,
+      "success": false,
+      "groups": {
+        "semantics": {
+          "passed": 6,
+          "total": 7
+        },
+        "exact_numbers": {
+          "passed": 17,
+          "total": 21
+        },
+        "generated": {
+          "passed": 12,
+          "total": 12
+        },
+        "byte_limit": {
+          "passed": 1,
+          "total": 3
+        },
+        "validation": {
+          "passed": 71,
+          "total": 71
+        },
+        "duplicates": {
+          "passed": 5,
+          "total": 5
+        },
+        "failure_atomicity": {
+          "passed": 2,
+          "total": 2
+        }
+      },
+      "cases": [
+        {
+          "name": "public_example",
+          "group": "semantics",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "empty_sum_and_count",
+          "group": "semantics",
+          "passed": false,
+          "returncode": 1,
+          "seconds": 0.317,
+          "reason": "valid input exited 1",
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 26, in <module>\n    if not v:raise ValueError('empty')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: empty\n"
+        },
+        {
+          "name": "repetitions_are_events",
+          "group": "semantics",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "singletons_and_zero",
+          "group": "semantics",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "identifier_preservation",
+          "group": "semantics",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "all_sheets_and_order",
+          "group": "semantics",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "long_array",
+          "group": "semantics",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "integral_decimals",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "integral_exponents",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "negative_zero",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "encoded_repetitions",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.165
+        },
+        {
+          "name": "encoded_negative_maximum",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "binary64_integer_boundary",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "binary64_decimal_boundary",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "binary64_maximum_boundary",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.216
+        },
+        {
+          "name": "signed64_overflow",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "decimal_context_cancellation",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.165
+        },
+        {
+          "name": "decimal_context_order",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.165
+        },
+        {
+          "name": "exponent_overflow_cancellation",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "exponent_overflow_max",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "negative_exponent_order",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "beyond_default_digit_limit",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "large_exponent_sum",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "large_exponent_cancellation",
+          "group": "exact_numbers",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "extreme_exponent_singleton",
+          "group": "exact_numbers",
+          "passed": false,
+          "reason": "command exceeded 10s",
+          "seconds": 10.007
+        },
+        {
+          "name": "extreme_exponent_count",
+          "group": "exact_numbers",
+          "passed": false,
+          "reason": "command exceeded 10s",
+          "seconds": 10.007
+        },
+        {
+          "name": "extreme_exponent_cancel",
+          "group": "exact_numbers",
+          "passed": false,
+          "reason": "command exceeded 10s",
+          "seconds": 10.006
+        },
+        {
+          "name": "extreme_exponent_max",
+          "group": "exact_numbers",
+          "passed": false,
+          "reason": "command exceeded 10s",
+          "seconds": 10.006
+        },
+        {
+          "name": "generated_00",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.216
+        },
+        {
+          "name": "generated_01",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "generated_02",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "generated_03",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.168
+        },
+        {
+          "name": "generated_04",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.219
+        },
+        {
+          "name": "generated_05",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "generated_06",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "generated_07",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.267
+        },
+        {
+          "name": "generated_08",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.165
+        },
+        {
+          "name": "generated_09",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.166
+        },
+        {
+          "name": "generated_10",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.217
+        },
+        {
+          "name": "generated_11",
+          "group": "generated",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.216
+        },
+        {
+          "name": "exactly_8192_bytes",
+          "group": "byte_limit",
+          "passed": true,
+          "returncode": 0,
+          "seconds": 0.165
+        },
+        {
+          "name": "8193_bytes",
+          "group": "byte_limit",
+          "passed": false,
+          "returncode": 0,
+          "seconds": 0.166,
+          "reason": "invalid input exited zero",
+          "stderr": ""
+        },
+        {
+          "name": "utf8_bytes_not_characters",
+          "group": "byte_limit",
+          "passed": false,
+          "returncode": 0,
+          "seconds": 0.166,
+          "reason": "invalid input exited zero",
+          "stderr": ""
+        },
+        {
+          "name": "empty_identifier",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.317
+        },
+        {
+          "name": "empty_sheets",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "sheet_not_object",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "missing_stat",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "missing_turns",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "unknown_stat",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "stat_not_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "extra_sheet_member",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.317
+        },
+        {
+          "name": "empty_maximum",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "net_units_boolean_true",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "net_units_boolean_false",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.317
+        },
+        {
+          "name": "net_units_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "net_units_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "net_units_object",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "net_units_array",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "net_units_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "net_units_turns_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "net_units_turns_object",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.367
+        },
+        {
+          "name": "net_units_turns_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "net_units_turns_number",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "event_count_boolean_true",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "event_count_boolean_false",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.366
+        },
+        {
+          "name": "event_count_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "event_count_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "event_count_object",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "event_count_array",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.267
+        },
+        {
+          "name": "event_count_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.267
+        },
+        {
+          "name": "event_count_turns_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.318
+        },
+        {
+          "name": "event_count_turns_object",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "event_count_turns_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "event_count_turns_number",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "largest_adjustment_boolean_true",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "largest_adjustment_boolean_false",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.317
+        },
+        {
+          "name": "largest_adjustment_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "largest_adjustment_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "largest_adjustment_object",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "largest_adjustment_array",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "largest_adjustment_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.367
+        },
+        {
+          "name": "largest_adjustment_turns_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "largest_adjustment_turns_object",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.317
+        },
+        {
+          "name": "largest_adjustment_turns_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "largest_adjustment_turns_number",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "root_array",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "root_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "root_string",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "missing_sheets",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "sheets_null",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "sheets_array",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "extra_root_member",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "truncated_json",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.267
+        },
+        {
+          "name": "empty_file",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "trailing_document",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "comment",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "trailing_comma",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "rounded_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.265
+        },
+        {
+          "name": "tiny_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.317
+        },
+        {
+          "name": "extreme_tiny_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "decimal_hidden_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "NaN",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.367
+        },
+        {
+          "name": "positive_infinity",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.317
+        },
+        {
+          "name": "negative_infinity",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "leading_zero",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "plus_sign",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "leading_dot",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "trailing_dot",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "event_count_rounded_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "event_count_tiny_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "largest_adjustment_rounded_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.317
+        },
+        {
+          "name": "largest_adjustment_tiny_fraction",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.317
+        },
+        {
+          "name": "duplicate_root",
+          "group": "duplicates",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.317
+        },
+        {
+          "name": "duplicate_identifier",
+          "group": "duplicates",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "escaped_duplicate_identifier",
+          "group": "duplicates",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.366
+        },
+        {
+          "name": "duplicate_stat",
+          "group": "duplicates",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "duplicate_turns",
+          "group": "duplicates",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "invalid_utf8",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.266
+        },
+        {
+          "name": "utf16_document",
+          "group": "validation",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "late_invalid_sheet",
+          "group": "failure_atomicity",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        },
+        {
+          "name": "late_invalid_value",
+          "group": "failure_atomicity",
+          "passed": true,
+          "returncode": 1,
+          "seconds": 0.316
+        }
+      ]
+    }
+  },
+  "job_id": "reject_empty",
+  "kind": "control",
+  "expected": false,
+  "family": "sibling"
+}

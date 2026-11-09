@@ -1,0 +1,90 @@
+{
+  "oracle_checks": 41,
+  "mutations": {
+    "float": {
+      "detected": true,
+      "failed_cases": [
+        "binary64_boundary",
+        "cancellation_and_order",
+        "beyond_float_range"
+      ]
+    },
+    "booleans": {
+      "detected": true,
+      "failed_cases": [
+        "net_units_true",
+        "event_count_false",
+        "largest_adjustment_true"
+      ]
+    },
+    "duplicates": {
+      "detected": true,
+      "failed_cases": [
+        "duplicate_root",
+        "duplicate_identifier",
+        "escaped_duplicate_identifier",
+        "duplicate_turns"
+      ]
+    },
+    "reject_decimals": {
+      "detected": true,
+      "failed_cases": [
+        "integral_number_encodings",
+        "binary64_boundary"
+      ]
+    },
+    "dedup": {
+      "detected": true,
+      "failed_cases": [
+        "identities_and_repetitions",
+        "long_array"
+      ]
+    },
+    "max_zero": {
+      "detected": true,
+      "failed_cases": [
+        "identities_and_repetitions",
+        "cancellation_and_order"
+      ]
+    },
+    "count_without_validation": {
+      "detected": true,
+      "failed_cases": [
+        "event_count_fraction",
+        "event_count_true",
+        "event_count_string"
+      ]
+    },
+    "partial_failure": {
+      "detected": true,
+      "failed_cases": [
+        "empty_max",
+        "net_units_fraction",
+        "duplicate_identifier"
+      ]
+    }
+  },
+  "positive_control": {
+    "passed": 93,
+    "total": 93,
+    "categories": {
+      "basic": {
+        "passed": 4,
+        "total": 4
+      },
+      "numeric": {
+        "passed": 9,
+        "total": 9
+      },
+      "generalization": {
+        "passed": 18,
+        "total": 18
+      },
+      "invalid": {
+        "passed": 62,
+        "total": 62
+      }
+    }
+  },
+  "all_passed": true
+}

@@ -1,0 +1,387 @@
+OpenAI Codex v0.167.0
+--------
+workdir: /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep02-luna-main-draw2/workspace
+model: gpt-6-luna
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: high
+reasoning summaries: none
+session id: 01a1b6ec-005f-7cb1-adef-0d443d7f09a2
+--------
+user
+You are working in a workspace containing a small programming task. Use the available tools.
+
+The workspace root contains `globmatch.py` (a skeleton to complete), `test_globmatch.py` (visible tests), and `README.md`.
+
+TASK: Implement the function `glob_match(pattern, text)` in `globmatch.py`. It takes two strings and returns a bool: True if the glob pattern matches the whole text, and False otherwise. The match is a full-string match: the pattern must account for every character of the text, with nothing left over at either end. Matching is case-sensitive, and characters are ordinary Python string characters.
+
+Pattern syntax:
+- An ordinary character matches itself. The empty pattern matches only the empty text.
+- `?` matches exactly one character (any single character).
+- `*` matches any sequence of characters, including the empty sequence.
+- A character class `[...]` matches exactly one character. `[abc]` matches one of `a`, `b`, or `c`. Inside a class, `x-y` is a range matching any character `ch` with `x <= ch <= y` by Unicode code point; if `x > y` the range matches no character. `[!...]` matches any single character that is not in the class. A `^` inside a class is an ordinary character and does not negate the class.
+- A character class starts with `[` and ends at the next unescaped `]` that is not the first character of the class (after an optional `!`). So `[]]` is a class containing only `]`, and `[!]]` matches any single character except `]`. If there is no such closing `]`, the `[` is an ordinary literal character.
+- A `-` that is the first or last character of a class, or that is escaped, is a literal `-`. An escaped character inside a class is a literal member of the class.
+- A backslash escapes the next character: `\` followed by any character matches that character literally, so `\*` matches a literal `*` and `\a` matches `a`. This applies inside character classes as well. A backslash at the very end of the pattern matches a literal backslash.
+
+Use only the Python standard library.
+
+Robustness requirement: `glob_match` must answer within a few seconds for patterns and texts up to a few hundred characters, including patterns with many stars.
+
+Do not modify `test_globmatch.py` or `README.md`.
+
+Deliverable: the completed `globmatch.py` in the workspace root.
+
+codex
+I’ll inspect the skeleton and visible tests, then implement the matcher with bounded behavior for star-heavy inputs.
+exec
+/bin/bash -lc "sed -n '1,240p' globmatch.py && sed -n '1,260p' test_globmatch.py && pwd" in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep02-luna-main-draw2/workspace
+ succeeded in 0ms:
+"""Glob pattern matching (skeleton — complete glob_match)."""
+
+
+def glob_match(pattern, text):
+    """Return True if the glob `pattern` matches the whole of `text`.
+
+    Syntax: literal characters match themselves; `?` matches exactly one
+    character; `*` matches any sequence (including empty); `[...]` is a
+    character class (`[!...]` negates, `x-y` is a range); a backslash
+    escapes the next character. See README.md / prompt for the full spec.
+    """
+    raise NotImplementedError
+"""Visible tests for globmatch — small correctness cases only."""
+import unittest
+
+from globmatch import glob_match
+
+
+class TestGlobMatch(unittest.TestCase):
+    def test_literals_and_empty(self):
+        self.assertTrue(glob_match("", ""))
+        self.assertFalse(glob_match("", "a"))
+        self.assertTrue(glob_match("abc", "abc"))
+        self.assertFalse(glob_match("abc", "abd"))
+
+    def test_question(self):
+        self.assertTrue(glob_match("a?c", "abc"))
+        self.assertFalse(glob_match("a?c", "ac"))
+
+    def test_star(self):
+        self.assertTrue(glob_match("*", ""))
+        self.assertTrue(glob_match("a*c", "abbbc"))
+        self.assertFalse(glob_match("a*c", "abbb"))
+        self.assertTrue(glob_match("*.py", "x.py"))
+        self.assertFalse(glob_match("*.py", "x.pyc"))
+
+    def test_classes(self):
+        self.assertTrue(glob_match("[abc]x", "bx"))
+        self.assertFalse(glob_match("[abc]x", "dx"))
+        self.assertTrue(glob_match("[a-z]9", "q9"))
+        self.assertFalse(glob_match("[a-z]9", "Q9"))
+        self.assertTrue(glob_match("[!a-z]9", "Q9"))
+
+    def test_escape(self):
+        self.assertTrue(glob_match(r"\*", "*"))
+        self.assertFalse(glob_match(r"\*", "x"))
+        self.assertTrue(glob_match(r"a\?b", "a?b"))
+
+    def test_multiple_stars_small(self):
+        self.assertTrue(glob_match("*a*a*b", "aaab"))
+        self.assertFalse(glob_match("*a*a*b", "aaa"))
+
+
+if __name__ == "__main__":
+    unittest.main()
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep02-luna-main-draw2/workspace
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep02-luna-main-draw2/workspace/globmatch.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep02-luna-main-draw2/workspace/globmatch.py b/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep02-luna-main-draw2/workspace/globmatch.py
+index cd71079ea0d5bc55144a6b2556eba7bc79355a27..d941d99be71135d6160a77a58e24bf0c4c672c4c
+--- a/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep02-luna-main-draw2/workspace/globmatch.py
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep02-luna-main-draw2/workspace/globmatch.py
+@@ -9,4 +9,117 @@
+     character class (`[!...]` negates, `x-y` is a range); a backslash
+     escapes the next character. See README.md / prompt for the full spec.
+     """
+-    raise NotImplementedError
++    # Compile the pattern to a small list of tokens first.  In particular, do
++    # not expand stars by trying every possible substring: that can become
++    # exponential when a pattern contains many stars.
++    tokens = []
++    i = 0
++    while i < len(pattern):
++        char = pattern[i]
++
++        if char == "\\":
++            if i + 1 < len(pattern):
++                tokens.append(("literal", pattern[i + 1]))
++                i += 2
++            else:
++                tokens.append(("literal", "\\"))
++                i += 1
++            continue
++
++        if char == "*":
++            # Consecutive stars have exactly the same meaning as one star.
++            if not tokens or tokens[-1][0] != "star":
++                tokens.append(("star",))
++            i += 1
++            continue
++
++        if char == "?":
++            tokens.append(("any",))
++            i += 1
++            continue
++
++        if char == "[":
++            negated = i + 1 < len(pattern) and pattern[i + 1] == "!"
++            content_start = i + 2 if negated else i + 1
++
++            # A closing bracket is special only after at least one class
++            # character. Backslash protects the following character here.
++            j = content_start
++            close = None
++            while j < len(pattern):
++                if pattern[j] == "\\":
++                    j += 2
++                elif pattern[j] == "]":
++                    if j > content_start:
++                        close = j
++                        break
++                    j += 1
++                else:
++                    j += 1
++
++            if close is not None:
++                units = []
++                j = content_start
++                while j < close:
++                    if pattern[j] == "\\" and j + 1 < close:
++                        units.append((pattern[j + 1], True))
++                        j += 2
++                    else:
++                        units.append((pattern[j], False))
++                        j += 1
++
++                members = set()
++                ranges = []
++                k = 0
++                while k < len(units):
++                    if (k + 2 < len(units)
++                            and units[k + 1] == ("-", False)):
++                        ranges.append((units[k][0], units[k + 2][0]))
++                        k += 3
++                    else:
++                        members.add(units[k][0])
++                        k += 1
++
++                tokens.append(("class", negated, frozenset(members), tuple(ranges)))
++                i = close + 1
++                continue
++
++            # An unmatched '[' is an ordinary literal; parse the rest of the
++            # pattern normally on subsequent iterations.
++            tokens.append(("literal", "["))
++            i += 1
++            continue
++
++        tokens.append(("literal", char))
++        i += 1
++
++    # Dynamic programming over text prefixes.  `previous[j]` says whether the
++    # tokens processed so far match text[:j].  Each token costs O(len(text)),
++    # so even star-heavy inputs take O(pattern length * text length) time.
++    previous = [False] * (len(text) + 1)
++    previous[0] = True
++    for token in tokens:
++        current = [False] * (len(text) + 1)
++        kind = token[0]
++        if kind == "star":
++            current[0] = previous[0]
++            for j in range(1, len(text) + 1):
++                current[j] = previous[j] or current[j - 1]
++        else:
++            for j in range(1, len(text) + 1):
++                if not previous[j - 1]:
++                    continue
++                char = text[j - 1]
++                if kind == "any":
++                    current[j] = True
++                elif kind == "literal":
++                    current[j] = char == token[1]
++                else:
++                    _, negated, members, ranges = token
++                    matched = char in members or any(
++                        start <= char <= end for start, end in ranges
++                    )
++                    current[j] = not matched if negated else matched
++        previous = current
++
++    return previous[len(text)]
+
+codex
+The implementation now tokenizes escapes and classes, then uses a prefix dynamic program. Consecutive stars are collapsed, keeping matching time proportional to pattern length × text length.
+exec
+/bin/bash -lc 'git diff -- globmatch.py' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep02-luna-main-draw2/workspace
+ succeeded in 0ms:
+exec
+/bin/bash -lc "git status --short && sed -n '1,260p' globmatch.py" in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep02-luna-main-draw2/workspace
+ succeeded in 455ms:
+ M ../../../../../../../README.md
+?? ../../../../../../coordinator-continuation-r2-20261107/
+?? ../../../../../
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/EXAMPLES.md
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/FINAL-MANIFEST.json
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/FINAL-VERIFICATION.json
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/FINALIZATION-STARTED.json
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/NEXT-DECISION.md
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/POST-RUN-REVIEW-B.json
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/RESULT.md
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/STRUCTURAL-VALIDATION.json
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/VALIDATOR-SOURCE.py
+?? ../../../../../../../simulation/s2-free-choice-context-v1/APPLICABILITY-REVIEW.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/BOUNDARY-CONTROLS.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/CLIENT-CHECK.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/CODEBOOK.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/CONTRACT.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/EXTRACTOR-WIRE.schema.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/FACT-PERMISSION-LEDGER.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/FRAME.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/METHOD.md
+?? ../../../../../../../../tools/check_s2_free_choice_context_v1.py
+?? ../../../../../../../../tools/run_s2_free_choice_context_v1.py
+?? ../../../../../../../../tools/s2_admission_metric_witness_v1.py
+"""Glob pattern matching (skeleton — complete glob_match)."""
+
+
+def glob_match(pattern, text):
+    """Return True if the glob `pattern` matches the whole of `text`.
+
+    Syntax: literal characters match themselves; `?` matches exactly one
+    character; `*` matches any sequence (including empty); `[...]` is a
+    character class (`[!...]` negates, `x-y` is a range); a backslash
+    escapes the next character. See README.md / prompt for the full spec.
+    """
+    # Compile the pattern to a small list of tokens first.  In particular, do
+    # not expand stars by trying every possible substring: that can become
+    # exponential when a pattern contains many stars.
+    tokens = []
+    i = 0
+    while i < len(pattern):
+        char = pattern[i]
+
+        if char == "\\":
+            if i + 1 < len(pattern):
+                tokens.append(("literal", pattern[i + 1]))
+                i += 2
+            else:
+                tokens.append(("literal", "\\"))
+                i += 1
+            continue
+
+        if char == "*":
+            # Consecutive stars have exactly the same meaning as one star.
+            if not tokens or tokens[-1][0] != "star":
+                tokens.append(("star",))
+            i += 1
+            continue
+
+        if char == "?":
+            tokens.append(("any",))
+            i += 1
+            continue
+
+        if char == "[":
+            negated = i + 1 < len(pattern) and pattern[i + 1] == "!"
+            content_start = i + 2 if negated else i + 1
+
+            # A closing bracket is special only after at least one class
+            # character. Backslash protects the following character here.
+            j = content_start
+            close = None
+            while j < len(pattern):
+                if pattern[j] == "\\":
+                    j += 2
+                elif pattern[j] == "]":
+                    if j > content_start:
+                        close = j
+                        break
+                    j += 1
+                else:
+                    j += 1
+
+            if close is not None:
+                units = []
+                j = content_start
+                while j < close:
+                    if pattern[j] == "\\" and j + 1 < close:
+                        units.append((pattern[j + 1], True))
+                        j += 2
+                    else:
+                        units.append((pattern[j], False))
+                        j += 1
+
+                members = set()
+                ranges = []
+                k = 0
+                while k < len(units):
+                    if (k + 2 < len(units)
+                            and units[k + 1] == ("-", False)):
+                        ranges.append((units[k][0], units[k + 2][0]))
+                        k += 3
+                    else:
+                        members.add(units[k][0])
+                        k += 1
+
+                tokens.append(("class", negated, frozenset(members), tuple(ranges)))
+                i = close + 1
+                continue
+
+            # An unmatched '[' is an ordinary literal; parse the rest of the
+            # pattern normally on subsequent iterations.
+            tokens.append(("literal", "["))
+            i += 1
+            continue
+
+        tokens.append(("literal", char))
+        i += 1
+
+    # Dynamic programming over text prefixes.  `previous[j]` says whether the
+    # tokens processed so far match text[:j].  Each token costs O(len(text)),
+    # so even star-heavy inputs take O(pattern length * text length) time.
+    previous = [False] * (len(text) + 1)
+    previous[0] = True
+    for token in tokens:
+        current = [False] * (len(text) + 1)
+        kind = token[0]
+        if kind == "star":
+            current[0] = previous[0]
+            for j in range(1, len(text) + 1):
+                current[j] = previous[j] or current[j - 1]
+        else:
+            for j in range(1, len(text) + 1):
+                if not previous[j - 1]:
+                    continue
+                char = text[j - 1]
+                if kind == "any":
+                    current[j] = True
+                elif kind == "literal":
+                    current[j] = char == token[1]
+                else:
+                    _, negated, members, ranges = token
+                    matched = char in members or any(
+                        start <= char <= end for start, end in ranges
+                    )
+                    current[j] = not matched if negated else matched
+        previous = current
+
+    return previous[len(text)]
+
+codex
+Implemented `glob_match` in [globmatch.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep02-luna-main-draw2/workspace/globmatch.py). It handles full-string matching, escapes, character classes and ranges, and uses dynamic programming to keep star-heavy matching bounded. I did not run the tests.
+tokens used
+12,554
+Implemented `glob_match` in [globmatch.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep02-luna-main-draw2/workspace/globmatch.py). It handles full-string matching, escapes, character classes and ranges, and uses dynamic programming to keep star-heavy matching bounded. I did not run the tests.

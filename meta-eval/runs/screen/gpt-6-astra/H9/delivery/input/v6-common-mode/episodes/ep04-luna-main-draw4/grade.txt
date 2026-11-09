@@ -1,0 +1,31 @@
+PASS happy_basic [happy]
+PASS empty_batch [happy]
+FAIL all_excluded [happy] expected={'total_minor': 0, 'billed': 0, 'excluded': ['x1', 'x2'], 'fares': {}, 'per_class': {}, 'mean_minor': 0} got={'total_minor': 741, 'billed': 1, 'excluded': ['x1'], 'fares': {'x2': 741}, 'per_class': {'youth': 741}, 'mean_minor': 741}
+PASS chargeable_ceil_a [chargeable]
+PASS chargeable_ceil_b [chargeable]
+PASS rebate_cap [rebate]
+PASS rebate_cap_b [rebate]
+FAIL class_edges_low [class] expected={'total_minor': 4351, 'billed': 3, 'excluded': [], 'fares': {'z1': 1217, 'z2': 1917, 'z3': 1217}, 'per_class': {'youth': 2434, 'adult': 1917}, 'mean_minor': 1450} got={'total_minor': 5751, 'billed': 3, 'excluded': [], 'fares': {'z1': 1917, 'z2': 1917, 'z3': 1917}, 'per_class': {'adult': 5751}, 'mean_minor': 1917}
+FAIL class_edges_high [class] expected={'total_minor': 12494, 'billed': 4, 'excluded': [], 'fares': {'z4': 1917, 'z5': 2920, 'z6': 2920, 'z7': 4737}, 'per_class': {'adult': 1917, 'resident': 5840, 'priority': 4737}, 'mean_minor': 3124} got={'total_minor': 15398, 'billed': 4, 'excluded': [], 'fares': {'z4': 2920, 'z5': 2920, 'z6': 4779, 'z7': 4779}, 'per_class': {'resident': 5840, 'priority': 9558}, 'mean_minor': 3850}
+FAIL code_lenient [code] expected={'total_minor': 1217, 'billed': 1, 'excluded': ['p1', 'p2', 'p3', 'p4'], 'fares': {'ok': 1217}, 'per_class': {'youth': 1217}, 'mean_minor': 1217} got={'total_minor': 6085, 'billed': 5, 'excluded': [], 'fares': {'p1': 1217, 'p2': 1217, 'p3': 1217, 'p4': 1217, 'ok': 1217}, 'per_class': {'youth': 6085}, 'mean_minor': 1217}
+FAIL code_forms [code] expected={'total_minor': 1217, 'billed': 1, 'excluded': ['p5', 'p6', 'p7', 'p8', 'p9'], 'fares': {'ok': 1217}, 'per_class': {'youth': 1217}, 'mean_minor': 1217} got={'total_minor': 3651, 'billed': 3, 'excluded': ['p5', 'p6', 'p7'], 'fares': {'p8': 1217, 'p9': 1217, 'ok': 1217}, 'per_class': {'youth': 3651}, 'mean_minor': 1217}
+FAIL amount_lenient [amount] expected={'total_minor': 1217, 'billed': 1, 'excluded': ['m1', 'm2', 'm3', 'm4'], 'fares': {'ok': 1217}, 'per_class': {'youth': 1217}, 'mean_minor': 1217} got={'total_minor': 5884, 'billed': 5, 'excluded': [], 'fares': {'m1': 1217, 'm2': 1217, 'm3': 1217, 'm4': 1016, 'ok': 1217}, 'per_class': {'youth': 5884}, 'mean_minor': 1177}
+FAIL amount_values [amount] expected={'total_minor': 1217, 'billed': 1, 'excluded': ['m5', 'm6', 'm7', 'm8', 'm9'], 'fares': {'ok': 1217}, 'per_class': {'youth': 1217}, 'mean_minor': 1217} got={'total_minor': -3670, 'billed': 6, 'excluded': [], 'fares': {'m5': 741, 'm6': 1012, 'm7': 720, 'm8': 1423, 'm9': -8783, 'ok': 1217}, 'per_class': {'youth': -3670}, 'mean_minor': -612}
+FAIL date_boundary [date] expected={'total_minor': 2434, 'billed': 2, 'excluded': ['t2'], 'fares': {'t1': 1217, 't3': 1217}, 'per_class': {'youth': 2434}, 'mean_minor': 1217} got={'total_minor': 1217, 'billed': 1, 'excluded': ['t1', 't2'], 'fares': {'t3': 1217}, 'per_class': {'youth': 1217}, 'mean_minor': 1217}
+FAIL date_lenient [date] expected={'total_minor': 1217, 'billed': 1, 'excluded': ['t4', 't5', 't6', 't7', 't8'], 'fares': {'ok': 1217}, 'per_class': {'youth': 1217}, 'mean_minor': 1217} got={'total_minor': 7302, 'billed': 6, 'excluded': [], 'fares': {'t4': 1217, 't5': 1217, 't6': 1217, 't7': 1217, 't8': 1217, 'ok': 1217}, 'per_class': {'youth': 7302}, 'mean_minor': 1217}
+FAIL date_forms [date] expected={'total_minor': 1217, 'billed': 1, 'excluded': ['t9', 'ta', 'tb', 'tc'], 'fares': {'ok': 1217}, 'per_class': {'youth': 1217}, 'mean_minor': 1217} got={'total_minor': 3651, 'billed': 3, 'excluded': ['tb', 'tc'], 'fares': {'t9': 1217, 'ta': 1217, 'ok': 1217}, 'per_class': {'youth': 3651}, 'mean_minor': 1217}
+FAIL priority_stack [stack] expected={'total_minor': 5954, 'billed': 2, 'excluded': [], 'fares': {'s1': 4737, 's2': 1217}, 'per_class': {'priority': 4737, 'youth': 1217}, 'mean_minor': 2977} got={'total_minor': 5996, 'billed': 2, 'excluded': [], 'fares': {'s1': 4779, 's2': 1217}, 'per_class': {'priority': 4779, 'youth': 1217}, 'mean_minor': 2998}
+FAIL priority_stack_heavy [stack] expected={'total_minor': 7268, 'billed': 1, 'excluded': [], 'fares': {'s3': 7268}, 'per_class': {'priority': 7268}, 'mean_minor': 7268} got={'total_minor': 7310, 'billed': 1, 'excluded': [], 'fares': {'s3': 7310}, 'per_class': {'priority': 7310}, 'mean_minor': 7310}
+PASS minor_tie_pos [minor]
+PASS minor_tie_neg [minor]
+PASS minor_nontie [minor]
+PASS voucher_neg [minor]
+PASS mean_tie_pos [mean]
+PASS mean_tie_neg [mean]
+PASS mean_nontie [mean]
+FAIL combined [combined] expected={'total_minor': 13042, 'billed': 4, 'excluded': ['c3', 'c5'], 'fares': {'c1': 1102, 'c2': 4737, 'c4': 6090, 'c6': 1113}, 'per_class': {'youth': 2215, 'priority': 4737, 'resident': 6090}, 'mean_minor': 3261} got={'total_minor': 20418, 'billed': 5, 'excluded': ['c6'], 'fares': {'c1': 1722, 'c2': 4779, 'c3': 1917, 'c4': 9080, 'c5': 2920}, 'per_class': {'adult': 3639, 'priority': 13859, 'resident': 2920}, 'mean_minor': 4084}
+TESTFILE exists=True
+TESTFILE imports_farelib=False chars=3501
+SUMMARY 13/26 pass; fails=['all_excluded', 'class_edges_low', 'class_edges_high', 'code_lenient', 'code_forms', 'amount_lenient', 'amount_values', 'date_boundary', 'date_lenient', 'date_forms', 'priority_stack', 'priority_stack_heavy', 'combined']; catfails={'happy': 1, 'class': 2, 'code': 2, 'amount': 2, 'date': 3, 'stack': 2, 'combined': 1}
+OVERALL FAIL
+grader_exit=1

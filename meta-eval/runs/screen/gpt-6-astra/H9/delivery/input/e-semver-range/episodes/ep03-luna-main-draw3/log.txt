@@ -1,0 +1,1320 @@
+OpenAI Codex v0.167.0
+--------
+workdir: /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace
+model: gpt-6-luna
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: high
+reasoning summaries: none
+session id: 01a1b796-7981-7a72-904e-7c17e6d7591a
+--------
+user
+You are working in a workspace containing a small semver-range task. Use the available tools. Standard library only; do not import any third-party semver or version library. Do not modify test_visible.py.
+
+TASK: Implement satisfies(version, range_expr) and max_satisfying(versions, range_expr) in semver_range.py in the workspace root, replacing the skeleton.
+
+The complete requirement is the file SPEC.md in the workspace root. It defines its own semver-range dialect exactly and completely: version grammar, precedence, range structure, partial versions and wildcards, primitive comparators, tilde, caret, hyphen ranges, prerelease gating, max_satisfying, and which inputs must raise ValueError. Read SPEC.md in full before implementing. Where SPEC.md differs from any library or from npm, SPEC.md wins.
+
+A provided test file test_visible.py is also present in the workspace. It covers basic cases only.
+
+No worked input-output pair beyond the expansion forms stated inside SPEC.md is supplied with this task. Derive your own check cases from SPEC.md.
+
+Deliverables: the completed semver_range.py, and a new file test_semver.py in the workspace root containing your own tests derived from SPEC.md. Your tests in test_semver.py must import only from your semver_range module and the standard library. Run both test files before finishing.
+
+codex
+I’ll read the full spec and current module first, then implement the dialect directly and add standard-library tests. I’ll run both the provided visible tests and the new tests once the changes are in.
+exec
+/bin/bash -lc "cat SPEC.md && printf '\\n--- semver_range.py ---\\n' && cat semver_range.py && printf '\\n--- test_visible.py ---\\n' && cat test_visible.py" in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace
+ succeeded in 0ms:
+# SPEC - semver range dialect (this document is the complete requirement)
+
+Implement in `semver_range.py`:
+
+- `satisfies(version, range_expr) -> bool`
+- `max_satisfying(versions, range_expr)` -> a version string or `None`
+
+This SPEC defines its own dialect completely. Where it differs from
+any library or from npm, this SPEC wins. Standard library only; do
+not import any third-party semver/version library.
+
+## S1. Version grammar and validity
+
+A *full version* is a string of the form `MAJOR.MINOR.PATCH`,
+optionally followed by `-PRERELEASE`, optionally followed by
+`+BUILD`, in that order (both suffixes may be present:
+`1.2.3-alpha.1+build.5`).
+
+- `MAJOR`, `MINOR`, `PATCH` are non-negative decimal integers with
+  no leading zero, except that the number zero itself is written
+  `0`. Exactly three numeric components are required.
+- `PRERELEASE` is one or more dot-separated identifiers. Each
+  identifier is non-empty and contains only ASCII letters, digits
+  and hyphens (`[0-9A-Za-z-]`). An identifier consisting only of
+  digits is a *numeric identifier* and must not have a leading
+  zero, except `0` itself.
+- `BUILD` is one or more dot-separated identifiers, each non-empty
+  and containing only `[0-9A-Za-z-]`. Leading zeros are allowed in
+  build identifiers.
+- A version string contains no whitespace anywhere, no leading
+  `v`, and no other characters. The `version` argument of
+  `satisfies` and every element of `versions` in `max_satisfying`
+  must be a full version (in particular `1.2` and `1` are not
+  valid version arguments).
+
+## S2. Precedence
+
+Precedence compares two full versions as follows:
+
+1. Compare `MAJOR`, then `MINOR`, then `PATCH`, numerically.
+2. If those are equal, a version without a prerelease has higher
+   precedence than the same version with a prerelease.
+3. If both have prereleases, compare identifiers from left to
+   right until a difference is found:
+   - two numeric identifiers compare numerically;
+   - two non-numeric identifiers compare lexically in ASCII order;
+   - a numeric identifier has lower precedence than a non-numeric
+     identifier;
+   - if every identifier of the shorter prerelease equals the
+     corresponding identifier of the longer one, the version with
+     fewer prerelease identifiers has lower precedence.
+4. Build metadata is ignored in precedence, and therefore also in
+   equality: `=` comparisons, and maximality in `max_satisfying`,
+   use precedence only, so versions differing only in build
+   metadata are equal for every rule in this SPEC.
+
+## S3. Range structure
+
+A range expression is handled exactly as follows:
+
+1. Leading and trailing whitespace of the whole expression is
+   ignored. An empty expression (or one containing only
+   whitespace) is valid and means the same as `*` (see S5).
+2. The expression is split on the literal two-character operator
+   `||` into one or more *comparator sets* (union branches).
+   Whitespace around `||` is optional. If `||` occurs and any
+   resulting branch is empty after stripping whitespace, the
+   expression is invalid. A single `|` is not an operator and
+   makes the expression invalid.
+3. A version satisfies the range iff it satisfies at least one
+   comparator set. It satisfies a comparator set iff it satisfies
+   every comparator in the set (AND), subject to S9.
+4. Inside a comparator set, comparators are separated by runs of
+   whitespace (one or more whitespace characters). Each comparator
+   is a single whitespace-free token, except for the hyphen form
+   in S8. There is never whitespace between an operator and its
+   version: operators are written attached to the version they
+   apply to (`>=1.2.3`, `^1.2.3`), and a separated operator such
+   as the `>=` in `>= 1.2.3` is an invalid token.
+5. The only operators are `<`, `<=`, `>`, `>=`, `=`, `~`, `^`, the
+   hyphen form of S8, and a bare partial version (S4) with no
+   operator, which means the same as `=`. Any other operator text
+   (for example `!=`, `==`, `=>`, `~>`) makes the expression
+   invalid.
+
+## S4. Partial versions and wildcards
+
+Comparators (including `~`, `^` and hyphen endpoints, but not the
+`version` argument of `satisfies`) take a *partial version*:
+
+- One to three dot-separated components. Each component is either
+  a non-negative decimal integer with no leading zero (except `0`
+  itself) or a wildcard: `x`, `X` or `*` (interchangeable).
+- Once a component is a wildcard, every later component must also
+  be a wildcard or absent (`1.x.3` and `x.2` are invalid).
+- A prerelease or build suffix (same grammar as S1) may appear
+  only when all three components are present and numeric
+  (`1.2-alpha` and `1.2.x-alpha` are invalid).
+- The *specified prefix* of a partial version is its leading
+  numeric components before the first wildcard or absent
+  component; its length is therefore 0, 1, 2 or 3. A length-0
+  partial (`*`, `x`, `x.x.x`, ...) is the all-wildcard partial.
+- No leading `v` and no other characters are allowed.
+
+Notation below: a partial with specified prefix `[M]`, `[M, m]` or
+`[M, m, p]`; `fill0` pads the prefix with zeros to three
+components, giving a release version (no prerelease). Every
+partial form is *desugared* into primitive comparators against
+full versions by S5-S8, and S9 applies to the desugared
+comparators.
+
+## S5. Bare, `=` and primitive comparators
+
+Bare partials, `=` partials, and x-ranges are the same form:
+
+- specified prefix length 0 (`*`, `x`, ...): desugars to
+  `>=0.0.0`.
+- length 1 (`1`, `1.x`, `1.*.*`): desugars to
+  `>=M.0.0` and `<(M+1).0.0`.
+- length 2 (`1.2`, `1.2.x`): desugars to
+  `>=M.m.0` and `<M.(m+1).0`.
+- length 3: desugars to `=` that full version (prerelease and
+  build per S1/S2; equality is precedence equality).
+
+Primitive comparators `<`, `<=`, `>`, `>=`:
+
+- With a length-3 partial, the comparator is the primitive itself
+  applied to that full version by precedence (S2).
+- With a length-1 or length-2 partial (no prerelease/build can
+  occur, by S4), desugaring is by the whole set of versions the
+  partial stands for:
+  - `>=` partial: `>= fill0`. Example form: `>=1.2` = `>=1.2.0`.
+  - `<` partial: `< fill0`. Example form: `<1.2` = `<1.2.0`.
+  - `>` length-1: `>=[(M+1).0.0]`; `>` length-2:
+    `>=[M.(m+1).0]`. Example form: `>1.2` = `>=1.3.0`.
+  - `<=` length-1: `<[(M+1).0.0]`; `<=` length-2:
+    `<[M.(m+1).0]`. Example form: `<=1.2` = `<1.3.0`.
+- With a length-0 partial, every primitive operator `<`, `<=`,
+  `>`, `>=` is invalid (the all-wildcard partial may only be used
+  bare or with `=`).
+
+## S6. Tilde
+
+`~` followed by a partial desugars to a lower bound and an
+exclusive upper bound. The lower bound is `>=` the full version if
+the prefix has length 3 (keeping any prerelease), otherwise
+`>= fill0`. The upper bound is:
+
+- length 1 (`~1`): `<(M+1).0.0`;
+- length 2 or 3 (`~1.2`, `~1.2.3`, `~0.2.3`): `<M.(m+1).0`.
+
+`~` with a length-0 partial (`~*`, `~x`) is invalid.
+
+## S7. Caret
+
+`^` followed by a partial desugars to `>=` the lower bound (as in
+S6: the full version for length 3, keeping any prerelease,
+otherwise `fill0`) and `<` an exclusive upper bound computed from
+the specified prefix as follows:
+
+- Find the first (leftmost) specified component that is non-zero.
+  The upper bound increments that component by one and sets every
+  later component to zero.
+- If every specified component is zero, the upper bound
+  increments the last specified component by one and sets every
+  later component to zero.
+
+Expansion forms that follow from this rule (exactly):
+`^1.2.3` = `>=1.2.3 <2.0.0`; `^0.2.3` = `>=0.2.3 <0.3.0`;
+`^0.0.3` = `>=0.0.3 <0.0.4`; `^1.2` / `^1.2.x` = `>=1.2.0 <2.0.0`;
+`^0.2` / `^0.2.x` = `>=0.2.0 <0.3.0`; `^0.0` / `^0.0.x` =
+`>=0.0.0 <0.1.0`; `^0` / `^0.x` = `>=0.0.0 <1.0.0`;
+`^0.0.0` = `>=0.0.0 <0.0.1`.
+`^` with a length-0 partial (`^*`, `^x`) is invalid.
+
+## S8. Hyphen ranges
+
+A hyphen range is a comparator set consisting of exactly three
+whitespace-separated tokens: a bare partial version, the token
+`-`, and a bare partial version (for example `1.2.3 - 2.3.4`).
+Endpoints carry no operator. The token `-` in any other position,
+or a hyphen range mixed with any other comparator in the same
+set, is invalid. Each endpoint must have specified prefix length
+at least 1 (an all-wildcard endpoint is invalid).
+
+Desugaring:
+
+- Lower endpoint: length 3 gives `>=` that full version (keeping
+  any prerelease); length 1 or 2 gives `>= fill0`.
+- Upper endpoint: length 3 gives `<=` that full version (keeping
+  any prerelease); length 2 gives `<M.(m+1).0`; length 1 gives
+  `<(M+1).0.0`.
+
+Expansion forms: `1.2 - 1.4` = `>=1.2.0 <1.5.0`;
+`1.2.3 - 2` = `>=1.2.3 <3.0.0`.
+
+## S9. Prerelease gating (applies after desugaring, per set)
+
+Let S be one comparator set (one `||` branch), desugared by S5-S8
+into primitive comparators against full versions. If the
+candidate version has a non-empty prerelease, it can satisfy S
+only if at least one primitive comparator in S has a comparator
+version that (a) has a non-empty prerelease and (b) has the same
+`[MAJOR, MINOR, PATCH]` triple as the candidate version. The
+candidate must additionally satisfy every primitive comparison in
+S by precedence (S2). If the candidate version has no
+prerelease, this section imposes no extra restriction. Gating is
+evaluated separately for each `||` branch.
+
+Consequences (exactly): `*` and `>=0.0.0` are satisfied by no
+prerelease version, because their only comparator version has no
+prerelease. An upper bound created by desugaring (for example
+the `<1.3.0` from `~1.2.3-beta.2`) has no prerelease; only a
+comparator version that itself carries a prerelease can open the
+gate, and only for candidate versions on its exact
+`[MAJOR, MINOR, PATCH]` triple.
+
+## S10. `max_satisfying`
+
+`max_satisfying(versions, range_expr)`:
+
+- `versions` must be a list or tuple of full version strings
+  (S1). The range expression is validated first (even when
+  `versions` is empty), then every element of `versions` is
+  validated; any invalid input raises `ValueError` (S11), even
+  for elements that would not have been selected.
+- It returns the satisfying element with the highest precedence
+  (S2), returned as the original string exactly as given in
+  `versions` (build metadata preserved in the returned string).
+- If several satisfying elements have equal highest precedence
+  (including versions differing only in build metadata), the
+  first such element in `versions` order is returned.
+- If no element satisfies, or `versions` is empty, it returns
+  `None` (after the validation above).
+
+## S11. Invalid input: `ValueError`
+
+Every invalid input raises `ValueError` (and no other exception
+type), from both functions, regardless of the other argument.
+Invalid inputs include exactly the violations of S1-S10, in
+particular:
+
+- `version`, `range_expr`, or any element of `versions` is not a
+  string (including `None`); `versions` is not a list or tuple.
+- A version argument that is not a full version: missing or extra
+  numeric components (`1.2`, `1`, `1.2.3.4`), leading zeros
+  (`01.2.3`), leading `v`, whitespace, negative numbers, empty
+  string, empty prerelease or build identifier (`1.2.3-`,
+  `1.2.3+`, `1.2.3-alpha..1`), illegal characters
+  (`1.2.3-alpha_beta`), numeric prerelease identifier with a
+  leading zero (`1.2.3-01`).
+- A range expression with: an empty `||` branch; a single `|`; an
+  unknown or separated operator (`!=1.2.3`, `==1.2.3`, `>= 1.2.3`,
+  a lone `>=` token); a token that is not a valid partial version
+  after its operator (including leading zeros, too many
+  components, `1.x.3`, a prerelease/build on a partial or
+  wildcard such as `1.2-alpha`); `<`, `<=`, `>`, `>=`, `~` or `^`
+  applied to an all-wildcard partial (`>=*`, `~*`, `^*`); a
+  misplaced or mixed hyphen form (`1.2.3 -`, `- 2.0.0`,
+  `1.2.3 - 2.0.0 3.0.0`, `^1.2 - 2.3`).
+
+Valid inputs never raise: for every input not violating S1-S10,
+`satisfies` returns a `bool` and `max_satisfying` returns a
+string element of `versions` or `None`.
+
+--- semver_range.py ---
+"""Semver range matching. Implement satisfies and max_satisfying below.
+
+The complete dialect is defined in SPEC.md in this workspace.
+"""
+
+
+def satisfies(version, range_expr):
+    """Return True iff version satisfies range_expr (SPEC.md S1-S11)."""
+    raise NotImplementedError
+
+
+def max_satisfying(versions, range_expr):
+    """Return the highest-precedence satisfying version string, or None."""
+    raise NotImplementedError
+
+--- test_visible.py ---
+# Provided visible tests: basic cases only.
+import unittest
+
+from semver_range import max_satisfying, satisfies
+
+
+class TestVisible(unittest.TestCase):
+    def test_exact(self):
+        self.assertTrue(satisfies("1.2.3", "1.2.3"))
+        self.assertFalse(satisfies("1.2.4", "1.2.3"))
+
+    def test_caret(self):
+        self.assertTrue(satisfies("1.9.5", "^1.2.3"))
+        self.assertFalse(satisfies("2.0.0", "^1.2.3"))
+        self.assertFalse(satisfies("1.2.2", "^1.2.3"))
+
+    def test_tilde(self):
+        self.assertTrue(satisfies("1.2.9", "~1.2.3"))
+        self.assertFalse(satisfies("1.3.0", "~1.2.3"))
+
+    def test_comparator_set_and(self):
+        self.assertTrue(satisfies("1.5.0", ">=1.0.0 <2.0.0"))
+        self.assertFalse(satisfies("0.9.0", ">=1.0.0 <2.0.0"))
+
+    def test_x_range(self):
+        self.assertTrue(satisfies("1.2.7", "1.2.x"))
+        self.assertFalse(satisfies("1.3.0", "1.2.x"))
+
+    def test_hyphen(self):
+        self.assertTrue(satisfies("1.7.0", "1.2.3 - 2.3.4"))
+        self.assertFalse(satisfies("2.3.5", "1.2.3 - 2.3.4"))
+
+    def test_union(self):
+        self.assertTrue(satisfies("2.4.0", "^1.0.0 || ^2.0.0"))
+        self.assertFalse(satisfies("3.0.0", "^1.0.0 || ^2.0.0"))
+
+    def test_exact_prerelease(self):
+        self.assertTrue(satisfies("1.0.0-alpha", "=1.0.0-alpha"))
+
+    def test_max_satisfying(self):
+        self.assertEqual(
+            max_satisfying(["1.2.3", "1.4.0", "2.0.0"], "^1.0.0"), "1.4.0"
+        )
+        self.assertIsNone(max_satisfying(["0.1.0"], "^1.0.0"))
+
+    def test_invalid_version(self):
+        with self.assertRaises(ValueError):
+            satisfies("not-a-version", "*")
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py b/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py
+deleted file mode 100644
+index b7c463d7df566ec3b1b05228739496681c471861..0000000000000000000000000000000000000000
+--- a/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py
++++ /dev/null
+@@ -1,14 +0,0 @@
+-"""Semver range matching. Implement satisfies and max_satisfying below.
+-
+-The complete dialect is defined in SPEC.md in this workspace.
+-"""
+-
+-
+-def satisfies(version, range_expr):
+-    """Return True iff version satisfies range_expr (SPEC.md S1-S11)."""
+-    raise NotImplementedError
+-
+-
+-def max_satisfying(versions, range_expr):
+-    """Return the highest-precedence satisfying version string, or None."""
+-    raise NotImplementedError
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py b/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py
+index b7c463d7df566ec3b1b05228739496681c471861..a58bb8fb39f71faf4872447ce21375e3dbc0953c
+--- a/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py
+@@ -1,14 +1,223 @@
+-"""Semver range matching. Implement satisfies and max_satisfying below.
++"""Semver range matching for the dialect defined in SPEC.md."""
++
++import re
++
++
++_IDENT = r"[0-9A-Za-z-]+"
++_NUM = r"(?:0|[1-9][0-9]*)"
++_FULL_RE = re.compile(
++    rf"^({_NUM})\.({_NUM})\.({_NUM})"
++    rf"(?:-({_IDENT}(?:\.{_IDENT})*))?"
++    rf"(?:\+({_IDENT}(?:\.{_IDENT})*))?$",
++    re.ASCII,
++)
++_PART_RE = re.compile(
++    rf"^({_NUM}|[xX*])(?:\.({_NUM}|[xX*]))?(?:\.({_NUM}|[xX*]))?"
++    rf"(?:-({_IDENT}(?:\.{_IDENT})*))?"
++    rf"(?:\+({_IDENT}(?:\.{_IDENT})*))?$",
++    re.ASCII,
++)
++
++
++def _parse_full(value):
++    if not isinstance(value, str):
++        raise ValueError("version must be a string")
++    match = _FULL_RE.fullmatch(value)
++    if not match:
++        raise ValueError("invalid full version")
++    major, minor, patch = (int(match.group(i)) for i in (1, 2, 3))
++    prerelease = match.group(4)
++    if prerelease:
++        ids = prerelease.split(".")
++        if any(part.isdigit() and len(part) > 1 and part[0] == "0" for part in ids):
++            raise ValueError("numeric prerelease identifiers cannot have leading zeroes")
++        prerelease = tuple(ids)
++    return (major, minor, patch), prerelease
++
++
++def _precedence(left, right):
++    """Compare parsed (core, prerelease) pairs; ignore build metadata."""
++    lc, lp = left
++    rc, rp = right
++    if lc != rc:
++        return (lc > rc) - (lc < rc)
++    if lp is None or rp is None:
++        if lp is rp:
++            return 0
++        return 1 if lp is None else -1
++    for a, b in zip(lp, rp):
++        if a == b:
++            continue
++        an, bn = a.isdigit(), b.isdigit()
++        if an and bn:
++            return (int(a) > int(b)) - (int(a) < int(b))
++        if an != bn:
++            return -1 if an else 1
++        return (a > b) - (a < b)
++    return (len(lp) > len(rp)) - (len(lp) < len(rp))
+ 
+-The complete dialect is defined in SPEC.md in this workspace.
+-"""
+ 
++def _partial(token):
++    match = _PART_RE.fullmatch(token)
++    if not match:
++        raise ValueError("invalid partial version")
++    raw = [match.group(i) for i in (1, 2, 3)]
++    # The regex permits absent later components; wildcards must trail numerics.
++    seen_wild = False
++    prefix = []
++    for item in raw:
++        if item is None:
++            seen_wild = True
++        elif item in ("x", "X", "*"):
++            seen_wild = True
++        elif seen_wild:
++            raise ValueError("numeric component follows wildcard")
++        else:
++            prefix.append(int(item))
++    pre, build = match.group(4), match.group(5)
++    if (pre is not None or build is not None) and (len(prefix) != 3 or any(x in ("x", "X", "*") for x in raw)):
++        raise ValueError("suffix requires three numeric components")
++    parsed_pre = tuple(pre.split(".")) if pre is not None else None
++    if parsed_pre and any(part.isdigit() and len(part) > 1 and part[0] == "0" for part in parsed_pre):
++        raise ValueError("numeric prerelease identifiers cannot have leading zeroes")
++    core = tuple(prefix + [0] * (3 - len(prefix)))
++    return len(prefix), core, (core, parsed_pre)
++
++
++def _release(core):
++    return (tuple(core), None)
++
++
++def _inc(core, index):
++    result = list(core)
++    result[index] += 1
++    for i in range(index + 1, 3):
++        result[i] = 0
++    return tuple(result)
+ 
++
++def _primitive(op, version):
++    return (op, version)
++
++
++def _expand(token):
++    """Expand one operator+partial token into primitive comparators."""
++    op = ""
++    body = token
++    for candidate in (">=", "<=", ">", "<", "=", "~", "^"):
++        if token.startswith(candidate):
++            op, body = candidate, token[len(candidate):]
++            break
++    if not body:
++        raise ValueError("missing comparator version")
++    length, core, full = _partial(body)
++    if op in ("", "="):
++        if length == 0:
++            return [_primitive(">=", _release((0, 0, 0)))]
++        if length == 3:
++            return [_primitive("=", full)]
++        return [_primitive(">=", _release(core)), _primitive("<", _release(_inc(core, length - 1)))]
++    if op in ("<", "<=", ">", ">="):
++        if length == 0:
++            raise ValueError("primitive operator cannot use wildcard")
++        if length == 3:
++            return [_primitive(op, full)]
++        if op == ">=":
++            return [_primitive(">=", _release(core))]
++        if op == "<":
++            return [_primitive("<", _release(core))]
++        boundary = _release(_inc(core, length - 1))
++        return [_primitive(">=", boundary)] if op == ">" else [_primitive("<", boundary)]
++    if op == "~":
++        if length == 0:
++            raise ValueError("tilde cannot use wildcard")
++        lower = full if length == 3 else _release(core)
++        upper = _inc(core, 0 if length == 1 else 1)
++        return [_primitive(">=", lower), _primitive("<", _release(upper))]
++    if op == "^":
++        if length == 0:
++            raise ValueError("caret cannot use wildcard")
++        lower = full if length == 3 else _release(core)
++        nonzero = next((i for i, value in enumerate(core[:length]) if value != 0), None)
++        index = nonzero if nonzero is not None else length - 1
++        return [_primitive(">=", lower), _primitive("<", _release(_inc(core, index)))]
++    raise ValueError("unknown operator")
++
++
++def _parse_range(range_expr):
++    if not isinstance(range_expr, str):
++        raise ValueError("range expression must be a string")
++    expression = range_expr.strip()
++    if not expression:
++        expression = "*"
++    branches = expression.split("||")
++    if any(not branch.strip() for branch in branches):
++        raise ValueError("empty union branch")
++    sets = []
++    for branch in branches:
++        if "|" in branch:
++            raise ValueError("single pipe is invalid")
++        tokens = branch.split()
++        if not tokens:
++            raise ValueError("empty comparator set")
++        if "-" in tokens:
++            if len(tokens) != 3 or tokens[1] != "-":
++                raise ValueError("invalid hyphen range")
++            left_len, left_core, left = _partial(tokens[0])
++            right_len, right_core, right = _partial(tokens[2])
++            if left_len == 0 or right_len == 0:
++                raise ValueError("hyphen endpoint cannot be wildcard")
++            lower = left if left_len == 3 else _release(left_core)
++            if right_len == 3:
++                upper = ("<=", right)
++            else:
++                upper = ("<", _release(_inc(right_core, right_len - 1)))
++            sets.append([_primitive(">=", lower), upper])
++        else:
++            comparators = []
++            for token in tokens:
++                comparators.extend(_expand(token))
++            sets.append(comparators)
++    return sets
++
++
++def _matches(parsed, comparators):
++    core, pre = parsed
++    if pre is not None and not any(v[1] is not None and v[0] == core for _, v in comparators):
++        return False
++    for op, bound in comparators:
++        cmp = _precedence(parsed, bound)
++        if op == "=" and cmp != 0:
++            return False
++        if op == "<" and cmp >= 0:
++            return False
++        if op == "<=" and cmp > 0:
++            return False
++        if op == ">" and cmp <= 0:
++            return False
++        if op == ">=" and cmp < 0:
++            return False
++    return True
++
++
+ def satisfies(version, range_expr):
+     """Return True iff version satisfies range_expr (SPEC.md S1-S11)."""
+-    raise NotImplementedError
++    parsed_range = _parse_range(range_expr)
++    parsed_version = _parse_full(version)
++    return any(_matches(parsed_version, branch) for branch in parsed_range)
+ 
+ 
+ def max_satisfying(versions, range_expr):
+     """Return the highest-precedence satisfying version string, or None."""
+-    raise NotImplementedError
++    parsed_range = _parse_range(range_expr)
++    if not isinstance(versions, (list, tuple)):
++        raise ValueError("versions must be a list or tuple")
++    parsed = []
++    for version in versions:
++        parsed.append((version, _parse_full(version)))
++    best_version, best_parsed = None, None
++    for version, item in parsed:
++        if any(_matches(item, branch) for branch in parsed_range):
++            if best_parsed is None or _precedence(item, best_parsed) > 0:
++                best_version, best_parsed = version, item
++    return best_version
+
+codex
+The implementation now parses ranges into primitive comparators, applies precedence and prerelease gating per union branch, and validates inputs before selection. I’m adding focused tests for the spec’s edge rules, including partial-bound expansion, build-insensitive ties, and invalid inputs.
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/test_semver.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py b/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py
+index b7c463d7df566ec3b1b05228739496681c471861..a58bb8fb39f71faf4872447ce21375e3dbc0953c
+--- a/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py
+@@ -1,14 +1,223 @@
+-"""Semver range matching. Implement satisfies and max_satisfying below.
++"""Semver range matching for the dialect defined in SPEC.md."""
++
++import re
++
++
++_IDENT = r"[0-9A-Za-z-]+"
++_NUM = r"(?:0|[1-9][0-9]*)"
++_FULL_RE = re.compile(
++    rf"^({_NUM})\.({_NUM})\.({_NUM})"
++    rf"(?:-({_IDENT}(?:\.{_IDENT})*))?"
++    rf"(?:\+({_IDENT}(?:\.{_IDENT})*))?$",
++    re.ASCII,
++)
++_PART_RE = re.compile(
++    rf"^({_NUM}|[xX*])(?:\.({_NUM}|[xX*]))?(?:\.({_NUM}|[xX*]))?"
++    rf"(?:-({_IDENT}(?:\.{_IDENT})*))?"
++    rf"(?:\+({_IDENT}(?:\.{_IDENT})*))?$",
++    re.ASCII,
++)
++
++
++def _parse_full(value):
++    if not isinstance(value, str):
++        raise ValueError("version must be a string")
++    match = _FULL_RE.fullmatch(value)
++    if not match:
++        raise ValueError("invalid full version")
++    major, minor, patch = (int(match.group(i)) for i in (1, 2, 3))
++    prerelease = match.group(4)
++    if prerelease:
++        ids = prerelease.split(".")
++        if any(part.isdigit() and len(part) > 1 and part[0] == "0" for part in ids):
++            raise ValueError("numeric prerelease identifiers cannot have leading zeroes")
++        prerelease = tuple(ids)
++    return (major, minor, patch), prerelease
++
++
++def _precedence(left, right):
++    """Compare parsed (core, prerelease) pairs; ignore build metadata."""
++    lc, lp = left
++    rc, rp = right
++    if lc != rc:
++        return (lc > rc) - (lc < rc)
++    if lp is None or rp is None:
++        if lp is rp:
++            return 0
++        return 1 if lp is None else -1
++    for a, b in zip(lp, rp):
++        if a == b:
++            continue
++        an, bn = a.isdigit(), b.isdigit()
++        if an and bn:
++            return (int(a) > int(b)) - (int(a) < int(b))
++        if an != bn:
++            return -1 if an else 1
++        return (a > b) - (a < b)
++    return (len(lp) > len(rp)) - (len(lp) < len(rp))
+ 
+-The complete dialect is defined in SPEC.md in this workspace.
+-"""
+ 
++def _partial(token):
++    match = _PART_RE.fullmatch(token)
++    if not match:
++        raise ValueError("invalid partial version")
++    raw = [match.group(i) for i in (1, 2, 3)]
++    # The regex permits absent later components; wildcards must trail numerics.
++    seen_wild = False
++    prefix = []
++    for item in raw:
++        if item is None:
++            seen_wild = True
++        elif item in ("x", "X", "*"):
++            seen_wild = True
++        elif seen_wild:
++            raise ValueError("numeric component follows wildcard")
++        else:
++            prefix.append(int(item))
++    pre, build = match.group(4), match.group(5)
++    if (pre is not None or build is not None) and (len(prefix) != 3 or any(x in ("x", "X", "*") for x in raw)):
++        raise ValueError("suffix requires three numeric components")
++    parsed_pre = tuple(pre.split(".")) if pre is not None else None
++    if parsed_pre and any(part.isdigit() and len(part) > 1 and part[0] == "0" for part in parsed_pre):
++        raise ValueError("numeric prerelease identifiers cannot have leading zeroes")
++    core = tuple(prefix + [0] * (3 - len(prefix)))
++    return len(prefix), core, (core, parsed_pre)
++
++
++def _release(core):
++    return (tuple(core), None)
++
++
++def _inc(core, index):
++    result = list(core)
++    result[index] += 1
++    for i in range(index + 1, 3):
++        result[i] = 0
++    return tuple(result)
+ 
++
++def _primitive(op, version):
++    return (op, version)
++
++
++def _expand(token):
++    """Expand one operator+partial token into primitive comparators."""
++    op = ""
++    body = token
++    for candidate in (">=", "<=", ">", "<", "=", "~", "^"):
++        if token.startswith(candidate):
++            op, body = candidate, token[len(candidate):]
++            break
++    if not body:
++        raise ValueError("missing comparator version")
++    length, core, full = _partial(body)
++    if op in ("", "="):
++        if length == 0:
++            return [_primitive(">=", _release((0, 0, 0)))]
++        if length == 3:
++            return [_primitive("=", full)]
++        return [_primitive(">=", _release(core)), _primitive("<", _release(_inc(core, length - 1)))]
++    if op in ("<", "<=", ">", ">="):
++        if length == 0:
++            raise ValueError("primitive operator cannot use wildcard")
++        if length == 3:
++            return [_primitive(op, full)]
++        if op == ">=":
++            return [_primitive(">=", _release(core))]
++        if op == "<":
++            return [_primitive("<", _release(core))]
++        boundary = _release(_inc(core, length - 1))
++        return [_primitive(">=", boundary)] if op == ">" else [_primitive("<", boundary)]
++    if op == "~":
++        if length == 0:
++            raise ValueError("tilde cannot use wildcard")
++        lower = full if length == 3 else _release(core)
++        upper = _inc(core, 0 if length == 1 else 1)
++        return [_primitive(">=", lower), _primitive("<", _release(upper))]
++    if op == "^":
++        if length == 0:
++            raise ValueError("caret cannot use wildcard")
++        lower = full if length == 3 else _release(core)
++        nonzero = next((i for i, value in enumerate(core[:length]) if value != 0), None)
++        index = nonzero if nonzero is not None else length - 1
++        return [_primitive(">=", lower), _primitive("<", _release(_inc(core, index)))]
++    raise ValueError("unknown operator")
++
++
++def _parse_range(range_expr):
++    if not isinstance(range_expr, str):
++        raise ValueError("range expression must be a string")
++    expression = range_expr.strip()
++    if not expression:
++        expression = "*"
++    branches = expression.split("||")
++    if any(not branch.strip() for branch in branches):
++        raise ValueError("empty union branch")
++    sets = []
++    for branch in branches:
++        if "|" in branch:
++            raise ValueError("single pipe is invalid")
++        tokens = branch.split()
++        if not tokens:
++            raise ValueError("empty comparator set")
++        if "-" in tokens:
++            if len(tokens) != 3 or tokens[1] != "-":
++                raise ValueError("invalid hyphen range")
++            left_len, left_core, left = _partial(tokens[0])
++            right_len, right_core, right = _partial(tokens[2])
++            if left_len == 0 or right_len == 0:
++                raise ValueError("hyphen endpoint cannot be wildcard")
++            lower = left if left_len == 3 else _release(left_core)
++            if right_len == 3:
++                upper = ("<=", right)
++            else:
++                upper = ("<", _release(_inc(right_core, right_len - 1)))
++            sets.append([_primitive(">=", lower), upper])
++        else:
++            comparators = []
++            for token in tokens:
++                comparators.extend(_expand(token))
++            sets.append(comparators)
++    return sets
++
++
++def _matches(parsed, comparators):
++    core, pre = parsed
++    if pre is not None and not any(v[1] is not None and v[0] == core for _, v in comparators):
++        return False
++    for op, bound in comparators:
++        cmp = _precedence(parsed, bound)
++        if op == "=" and cmp != 0:
++            return False
++        if op == "<" and cmp >= 0:
++            return False
++        if op == "<=" and cmp > 0:
++            return False
++        if op == ">" and cmp <= 0:
++            return False
++        if op == ">=" and cmp < 0:
++            return False
++    return True
++
++
+ def satisfies(version, range_expr):
+     """Return True iff version satisfies range_expr (SPEC.md S1-S11)."""
+-    raise NotImplementedError
++    parsed_range = _parse_range(range_expr)
++    parsed_version = _parse_full(version)
++    return any(_matches(parsed_version, branch) for branch in parsed_range)
+ 
+ 
+ def max_satisfying(versions, range_expr):
+     """Return the highest-precedence satisfying version string, or None."""
+-    raise NotImplementedError
++    parsed_range = _parse_range(range_expr)
++    if not isinstance(versions, (list, tuple)):
++        raise ValueError("versions must be a list or tuple")
++    parsed = []
++    for version in versions:
++        parsed.append((version, _parse_full(version)))
++    best_version, best_parsed = None, None
++    for version, item in parsed:
++        if any(_matches(item, branch) for branch in parsed_range):
++            if best_parsed is None or _precedence(item, best_parsed) > 0:
++                best_version, best_parsed = version, item
++    return best_version
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/test_semver.py b/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/test_semver.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..ec763b85150dca907a5418bfbf9bee372d40bdf2
+--- /dev/null
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/test_semver.py
+@@ -0,0 +1,52 @@
++import unittest
++
++from semver_range import max_satisfying, satisfies
++
++
++class TestSemverDialect(unittest.TestCase):
++    def test_precedence_and_build_metadata(self):
++        self.assertTrue(satisfies("1.2.3+one", "=1.2.3+two"))
++        self.assertTrue(satisfies("1.0.0-alpha.2", ">1.0.0-alpha.1"))
++        self.assertFalse(satisfies("1.0.0-alpha", "1.0.0"))
++        self.assertEqual(max_satisfying(["1.0.0+first", "1.0.0+second"], "*"), "1.0.0+first")
++
++    def test_partial_ranges_and_primitive_expansions(self):
++        self.assertTrue(satisfies("1.2.99", "1.2"))
++        self.assertFalse(satisfies("1.3.0", "1.2"))
++        self.assertTrue(satisfies("1.3.0", ">1.2"))
++        self.assertFalse(satisfies("1.2.9", ">1.2"))
++        self.assertTrue(satisfies("1.2.9", "<=1.2"))
++        self.assertFalse(satisfies("1.3.0", "<=1.2"))
++        self.assertTrue(satisfies("0.0.1", "^0.0.0"))
++        self.assertFalse(satisfies("0.1.0", "^0.0.0"))
++        self.assertTrue(satisfies("1.4.0", "1.2 - 1.4"))
++        self.assertFalse(satisfies("1.5.0", "1.2 - 1.4"))
++
++    def test_union_and_prerelease_gate_per_branch(self):
++        self.assertTrue(satisfies("1.2.3-beta", ">=1.2.3-beta <2.0.0 || 3.x"))
++        self.assertFalse(satisfies("1.2.4-beta", ">=1.2.3-beta <2.0.0"))
++        self.assertFalse(satisfies("1.2.3-beta", "* || >=2.0.0-alpha"))
++        self.assertTrue(satisfies("2.0.0-beta", ">=2.0.0-alpha"))
++
++    def test_validation(self):
++        invalid_versions = ["1.2", "01.2.3", "v1.2.3", "1.2.3-01", "1.2.3+", "1.2.3-alpha..x"]
++        for version in invalid_versions:
++            with self.subTest(version=version), self.assertRaises(ValueError):
++                satisfies(version, "*")
++        invalid_ranges = ["|| 1.0.0", "1.0.0 ||", "1|2", ">= 1.2.3", "!=1.2.3", "1.x.3", "~*", "- 2.0.0", "1.0.0 - 2.0.0 3.0.0"]
++        for expression in invalid_ranges:
++            with self.subTest(expression=expression), self.assertRaises(ValueError):
++                satisfies("1.0.0", expression)
++        with self.assertRaises(ValueError):
++            max_satisfying([], "||")
++        with self.assertRaises(ValueError):
++            max_satisfying(["1.0.0", "1.2"], "*")
++
++    def test_max_satisfying_keeps_first_precedence_tie(self):
++        self.assertEqual(max_satisfying(("1.2.3-alpha.2", "1.2.3-alpha.10", "1.2.3"), "^1.0.0"), "1.2.3")
++        self.assertEqual(max_satisfying(["1.2.3+z", "1.2.3+a"], "1.2.3"), "1.2.3+z")
++        self.assertIsNone(max_satisfying([], "*"))
++
++
++if __name__ == "__main__":
++    unittest.main()
+
+exec
+/bin/bash -lc 'python3 -m unittest -v test_visible.py test_semver.py' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace
+ exited 1 in 118ms:
+test_caret (test_visible.TestVisible.test_caret) ... ok
+test_comparator_set_and (test_visible.TestVisible.test_comparator_set_and) ... ok
+test_exact (test_visible.TestVisible.test_exact) ... ok
+test_exact_prerelease (test_visible.TestVisible.test_exact_prerelease) ... ok
+test_hyphen (test_visible.TestVisible.test_hyphen) ... ok
+test_invalid_version (test_visible.TestVisible.test_invalid_version) ... ok
+test_max_satisfying (test_visible.TestVisible.test_max_satisfying) ... ok
+test_tilde (test_visible.TestVisible.test_tilde) ... ok
+test_union (test_visible.TestVisible.test_union) ... ok
+test_x_range (test_visible.TestVisible.test_x_range) ... ok
+test_max_satisfying_keeps_first_precedence_tie (test_semver.TestSemverDialect.test_max_satisfying_keeps_first_precedence_tie) ... ok
+test_partial_ranges_and_primitive_expansions (test_semver.TestSemverDialect.test_partial_ranges_and_primitive_expansions) ... FAIL
+test_precedence_and_build_metadata (test_semver.TestSemverDialect.test_precedence_and_build_metadata) ... ok
+test_union_and_prerelease_gate_per_branch (test_semver.TestSemverDialect.test_union_and_prerelease_gate_per_branch) ... ok
+test_validation (test_semver.TestSemverDialect.test_validation) ... ok
+
+======================================================================
+FAIL: test_partial_ranges_and_primitive_expansions (test_semver.TestSemverDialect.test_partial_ranges_and_primitive_expansions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/test_semver.py", line 20, in test_partial_ranges_and_primitive_expansions
+    self.assertTrue(satisfies("0.0.1", "^0.0.0"))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.003s
+
+FAILED (failures=1)
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/test_semver.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py b/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py
+index b7c463d7df566ec3b1b05228739496681c471861..a58bb8fb39f71faf4872447ce21375e3dbc0953c
+--- a/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/semver_range.py
+@@ -1,14 +1,223 @@
+-"""Semver range matching. Implement satisfies and max_satisfying below.
++"""Semver range matching for the dialect defined in SPEC.md."""
++
++import re
++
++
++_IDENT = r"[0-9A-Za-z-]+"
++_NUM = r"(?:0|[1-9][0-9]*)"
++_FULL_RE = re.compile(
++    rf"^({_NUM})\.({_NUM})\.({_NUM})"
++    rf"(?:-({_IDENT}(?:\.{_IDENT})*))?"
++    rf"(?:\+({_IDENT}(?:\.{_IDENT})*))?$",
++    re.ASCII,
++)
++_PART_RE = re.compile(
++    rf"^({_NUM}|[xX*])(?:\.({_NUM}|[xX*]))?(?:\.({_NUM}|[xX*]))?"
++    rf"(?:-({_IDENT}(?:\.{_IDENT})*))?"
++    rf"(?:\+({_IDENT}(?:\.{_IDENT})*))?$",
++    re.ASCII,
++)
++
++
++def _parse_full(value):
++    if not isinstance(value, str):
++        raise ValueError("version must be a string")
++    match = _FULL_RE.fullmatch(value)
++    if not match:
++        raise ValueError("invalid full version")
++    major, minor, patch = (int(match.group(i)) for i in (1, 2, 3))
++    prerelease = match.group(4)
++    if prerelease:
++        ids = prerelease.split(".")
++        if any(part.isdigit() and len(part) > 1 and part[0] == "0" for part in ids):
++            raise ValueError("numeric prerelease identifiers cannot have leading zeroes")
++        prerelease = tuple(ids)
++    return (major, minor, patch), prerelease
++
++
++def _precedence(left, right):
++    """Compare parsed (core, prerelease) pairs; ignore build metadata."""
++    lc, lp = left
++    rc, rp = right
++    if lc != rc:
++        return (lc > rc) - (lc < rc)
++    if lp is None or rp is None:
++        if lp is rp:
++            return 0
++        return 1 if lp is None else -1
++    for a, b in zip(lp, rp):
++        if a == b:
++            continue
++        an, bn = a.isdigit(), b.isdigit()
++        if an and bn:
++            return (int(a) > int(b)) - (int(a) < int(b))
++        if an != bn:
++            return -1 if an else 1
++        return (a > b) - (a < b)
++    return (len(lp) > len(rp)) - (len(lp) < len(rp))
+ 
+-The complete dialect is defined in SPEC.md in this workspace.
+-"""
+ 
++def _partial(token):
++    match = _PART_RE.fullmatch(token)
++    if not match:
++        raise ValueError("invalid partial version")
++    raw = [match.group(i) for i in (1, 2, 3)]
++    # The regex permits absent later components; wildcards must trail numerics.
++    seen_wild = False
++    prefix = []
++    for item in raw:
++        if item is None:
++            seen_wild = True
++        elif item in ("x", "X", "*"):
++            seen_wild = True
++        elif seen_wild:
++            raise ValueError("numeric component follows wildcard")
++        else:
++            prefix.append(int(item))
++    pre, build = match.group(4), match.group(5)
++    if (pre is not None or build is not None) and (len(prefix) != 3 or any(x in ("x", "X", "*") for x in raw)):
++        raise ValueError("suffix requires three numeric components")
++    parsed_pre = tuple(pre.split(".")) if pre is not None else None
++    if parsed_pre and any(part.isdigit() and len(part) > 1 and part[0] == "0" for part in parsed_pre):
++        raise ValueError("numeric prerelease identifiers cannot have leading zeroes")
++    core = tuple(prefix + [0] * (3 - len(prefix)))
++    return len(prefix), core, (core, parsed_pre)
++
++
++def _release(core):
++    return (tuple(core), None)
++
++
++def _inc(core, index):
++    result = list(core)
++    result[index] += 1
++    for i in range(index + 1, 3):
++        result[i] = 0
++    return tuple(result)
+ 
++
++def _primitive(op, version):
++    return (op, version)
++
++
++def _expand(token):
++    """Expand one operator+partial token into primitive comparators."""
++    op = ""
++    body = token
++    for candidate in (">=", "<=", ">", "<", "=", "~", "^"):
++        if token.startswith(candidate):
++            op, body = candidate, token[len(candidate):]
++            break
++    if not body:
++        raise ValueError("missing comparator version")
++    length, core, full = _partial(body)
++    if op in ("", "="):
++        if length == 0:
++            return [_primitive(">=", _release((0, 0, 0)))]
++        if length == 3:
++            return [_primitive("=", full)]
++        return [_primitive(">=", _release(core)), _primitive("<", _release(_inc(core, length - 1)))]
++    if op in ("<", "<=", ">", ">="):
++        if length == 0:
++            raise ValueError("primitive operator cannot use wildcard")
++        if length == 3:
++            return [_primitive(op, full)]
++        if op == ">=":
++            return [_primitive(">=", _release(core))]
++        if op == "<":
++            return [_primitive("<", _release(core))]
++        boundary = _release(_inc(core, length - 1))
++        return [_primitive(">=", boundary)] if op == ">" else [_primitive("<", boundary)]
++    if op == "~":
++        if length == 0:
++            raise ValueError("tilde cannot use wildcard")
++        lower = full if length == 3 else _release(core)
++        upper = _inc(core, 0 if length == 1 else 1)
++        return [_primitive(">=", lower), _primitive("<", _release(upper))]
++    if op == "^":
++        if length == 0:
++            raise ValueError("caret cannot use wildcard")
++        lower = full if length == 3 else _release(core)
++        nonzero = next((i for i, value in enumerate(core[:length]) if value != 0), None)
++        index = nonzero if nonzero is not None else length - 1
++        return [_primitive(">=", lower), _primitive("<", _release(_inc(core, index)))]
++    raise ValueError("unknown operator")
++
++
++def _parse_range(range_expr):
++    if not isinstance(range_expr, str):
++        raise ValueError("range expression must be a string")
++    expression = range_expr.strip()
++    if not expression:
++        expression = "*"
++    branches = expression.split("||")
++    if any(not branch.strip() for branch in branches):
++        raise ValueError("empty union branch")
++    sets = []
++    for branch in branches:
++        if "|" in branch:
++            raise ValueError("single pipe is invalid")
++        tokens = branch.split()
++        if not tokens:
++            raise ValueError("empty comparator set")
++        if "-" in tokens:
++            if len(tokens) != 3 or tokens[1] != "-":
++                raise ValueError("invalid hyphen range")
++            left_len, left_core, left = _partial(tokens[0])
++            right_len, right_core, right = _partial(tokens[2])
++            if left_len == 0 or right_len == 0:
++                raise ValueError("hyphen endpoint cannot be wildcard")
++            lower = left if left_len == 3 else _release(left_core)
++            if right_len == 3:
++                upper = ("<=", right)
++            else:
++                upper = ("<", _release(_inc(right_core, right_len - 1)))
++            sets.append([_primitive(">=", lower), upper])
++        else:
++            comparators = []
++            for token in tokens:
++                comparators.extend(_expand(token))
++            sets.append(comparators)
++    return sets
++
++
++def _matches(parsed, comparators):
++    core, pre = parsed
++    if pre is not None and not any(v[1] is not None and v[0] == core for _, v in comparators):
++        return False
++    for op, bound in comparators:
++        cmp = _precedence(parsed, bound)
++        if op == "=" and cmp != 0:
++            return False
++        if op == "<" and cmp >= 0:
++            return False
++        if op == "<=" and cmp > 0:
++            return False
++        if op == ">" and cmp <= 0:
++            return False
++        if op == ">=" and cmp < 0:
++            return False
++    return True
++
++
+ def satisfies(version, range_expr):
+     """Return True iff version satisfies range_expr (SPEC.md S1-S11)."""
+-    raise NotImplementedError
++    parsed_range = _parse_range(range_expr)
++    parsed_version = _parse_full(version)
++    return any(_matches(parsed_version, branch) for branch in parsed_range)
+ 
+ 
+ def max_satisfying(versions, range_expr):
+     """Return the highest-precedence satisfying version string, or None."""
+-    raise NotImplementedError
++    parsed_range = _parse_range(range_expr)
++    if not isinstance(versions, (list, tuple)):
++        raise ValueError("versions must be a list or tuple")
++    parsed = []
++    for version in versions:
++        parsed.append((version, _parse_full(version)))
++    best_version, best_parsed = None, None
++    for version, item in parsed:
++        if any(_matches(item, branch) for branch in parsed_range):
++            if best_parsed is None or _precedence(item, best_parsed) > 0:
++                best_version, best_parsed = version, item
++    return best_version
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/test_semver.py b/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/test_semver.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..26613babd9e4b347abe010af9261a8ba9fba750a
+--- /dev/null
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/test_semver.py
+@@ -0,0 +1,52 @@
++import unittest
++
++from semver_range import max_satisfying, satisfies
++
++
++class TestSemverDialect(unittest.TestCase):
++    def test_precedence_and_build_metadata(self):
++        self.assertTrue(satisfies("1.2.3+one", "=1.2.3+two"))
++        self.assertTrue(satisfies("1.0.0-alpha.2", ">1.0.0-alpha.1"))
++        self.assertFalse(satisfies("1.0.0-alpha", "1.0.0"))
++        self.assertEqual(max_satisfying(["1.0.0+first", "1.0.0+second"], "*"), "1.0.0+first")
++
++    def test_partial_ranges_and_primitive_expansions(self):
++        self.assertTrue(satisfies("1.2.99", "1.2"))
++        self.assertFalse(satisfies("1.3.0", "1.2"))
++        self.assertTrue(satisfies("1.3.0", ">1.2"))
++        self.assertFalse(satisfies("1.2.9", ">1.2"))
++        self.assertTrue(satisfies("1.2.9", "<=1.2"))
++        self.assertFalse(satisfies("1.3.0", "<=1.2"))
++        self.assertTrue(satisfies("0.0.0", "^0.0.0"))
++        self.assertFalse(satisfies("0.0.1", "^0.0.0"))
++        self.assertTrue(satisfies("1.4.0", "1.2 - 1.4"))
++        self.assertFalse(satisfies("1.5.0", "1.2 - 1.4"))
++
++    def test_union_and_prerelease_gate_per_branch(self):
++        self.assertTrue(satisfies("1.2.3-beta", ">=1.2.3-beta <2.0.0 || 3.x"))
++        self.assertFalse(satisfies("1.2.4-beta", ">=1.2.3-beta <2.0.0"))
++        self.assertFalse(satisfies("1.2.3-beta", "* || >=2.0.0-alpha"))
++        self.assertTrue(satisfies("2.0.0-beta", ">=2.0.0-alpha"))
++
++    def test_validation(self):
++        invalid_versions = ["1.2", "01.2.3", "v1.2.3", "1.2.3-01", "1.2.3+", "1.2.3-alpha..x"]
++        for version in invalid_versions:
++            with self.subTest(version=version), self.assertRaises(ValueError):
++                satisfies(version, "*")
++        invalid_ranges = ["|| 1.0.0", "1.0.0 ||", "1|2", ">= 1.2.3", "!=1.2.3", "1.x.3", "~*", "- 2.0.0", "1.0.0 - 2.0.0 3.0.0"]
++        for expression in invalid_ranges:
++            with self.subTest(expression=expression), self.assertRaises(ValueError):
++                satisfies("1.0.0", expression)
++        with self.assertRaises(ValueError):
++            max_satisfying([], "||")
++        with self.assertRaises(ValueError):
++            max_satisfying(["1.0.0", "1.2"], "*")
++
++    def test_max_satisfying_keeps_first_precedence_tie(self):
++        self.assertEqual(max_satisfying(("1.2.3-alpha.2", "1.2.3-alpha.10", "1.2.3"), "^1.0.0"), "1.2.3")
++        self.assertEqual(max_satisfying(["1.2.3+z", "1.2.3+a"], "1.2.3"), "1.2.3+z")
++        self.assertIsNone(max_satisfying([], "*"))
++
++
++if __name__ == "__main__":
++    unittest.main()
+
+exec
+/bin/bash -lc 'python3 -m unittest -v test_visible.py test_semver.py' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace
+ succeeded in 100ms:
+test_caret (test_visible.TestVisible.test_caret) ... ok
+test_comparator_set_and (test_visible.TestVisible.test_comparator_set_and) ... ok
+test_exact (test_visible.TestVisible.test_exact) ... ok
+test_exact_prerelease (test_visible.TestVisible.test_exact_prerelease) ... ok
+test_hyphen (test_visible.TestVisible.test_hyphen) ... ok
+test_invalid_version (test_visible.TestVisible.test_invalid_version) ... ok
+test_max_satisfying (test_visible.TestVisible.test_max_satisfying) ... ok
+test_tilde (test_visible.TestVisible.test_tilde) ... ok
+test_union (test_visible.TestVisible.test_union) ... ok
+test_x_range (test_visible.TestVisible.test_x_range) ... ok
+test_max_satisfying_keeps_first_precedence_tie (test_semver.TestSemverDialect.test_max_satisfying_keeps_first_precedence_tie) ... ok
+test_partial_ranges_and_primitive_expansions (test_semver.TestSemverDialect.test_partial_ranges_and_primitive_expansions) ... ok
+test_precedence_and_build_metadata (test_semver.TestSemverDialect.test_precedence_and_build_metadata) ... ok
+test_union_and_prerelease_gate_per_branch (test_semver.TestSemverDialect.test_union_and_prerelease_gate_per_branch) ... ok
+test_validation (test_semver.TestSemverDialect.test_validation) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.002s
+
+OK
+
+exec
+/bin/bash -lc 'git diff --check && git status --short && git diff --stat' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace
+ succeeded in 120ms:
+ M ../../../../../../../README.md
+?? ../../../../../../coordinator-continuation-r2-20261107/
+?? ../../../../../
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/EXAMPLES.md
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/FINAL-MANIFEST.json
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/FINAL-VERIFICATION.json
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/FINALIZATION-STARTED.json
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/NEXT-DECISION.md
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/POST-RUN-REVIEW-B.json
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/RESULT.md
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/STRUCTURAL-VALIDATION.json
+?? ../../../../../../../simulation/s1-free-choice-techniques-v1/VALIDATOR-SOURCE.py
+?? ../../../../../../../simulation/s2-free-choice-context-v1/APPLICABILITY-REVIEW.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/BOUNDARY-CONTROLS.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/CLIENT-CHECK.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/CODEBOOK.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/CONTRACT.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/EXTRACTOR-WIRE.schema.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/FACT-PERMISSION-LEDGER.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/FRAME.json
+?? ../../../../../../../simulation/s2-free-choice-context-v1/METHOD.md
+?? ../../../../../../../../tools/check_s2_free_choice_context_v1.py
+?? ../../../../../../../../tools/run_s2_free_choice_context_v1.py
+?? ../../../../../../../../tools/s2_admission_metric_witness_v1.py
+ research/README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+exec
+/bin/bash -lc 'pwd && git status --short -- semver_range.py test_semver.py && git check-ignore -v semver_range.py test_semver.py || true && git diff -- semver_range.py test_semver.py' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace
+ succeeded in 0ms:
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace
+.gitignore:66:/research/hackathon/*/*/	semver_range.py
+.gitignore:66:/research/hackathon/*/*/	test_semver.py
+
+codex
+Implemented `satisfies` and `max_satisfying` according to `SPEC.md`, and added spec-derived tests in [test_semver.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/test_semver.py).
+
+Both `python3 -m unittest -v test_visible.py test_semver.py` and `git diff --check` passed.
+tokens used
+25,030
+Implemented `satisfies` and `max_satisfying` according to `SPEC.md`, and added spec-derived tests in [test_semver.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-semver-range/episodes/ep03-luna-main-draw3/workspace/test_semver.py).
+
+Both `python3 -m unittest -v test_visible.py test_semver.py` and `git diff --check` passed.

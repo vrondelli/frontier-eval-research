@@ -1,0 +1,19 @@
+2026-11-09T02:06:20.084855Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-11-09T02:06:20.084941Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-11-09T02:06:20.109824Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-11-09T02:06:20.803508Z ERROR codex_core::session::session: failed to load skill C:\Users\vlad_\.codex\skills\arcanum-bootstrap\SKILL.md: missing field `description`
+2026-11-09T02:06:20.803583Z ERROR codex_core::session::session: failed to load skill C:\Users\vlad_\.codex\skills\discovery-to-inventory\SKILL.md: missing field `description`
+2026-11-09T02:06:20.803588Z ERROR codex_core::session::session: failed to load skill C:\Users\vlad_\.codex\skills\guide-architecture\SKILL.md: missing field `description`
+2026-11-09T02:06:20.803592Z ERROR codex_core::session::session: failed to load skill C:\Users\vlad_\.codex\skills\implementation-readiness\SKILL.md: missing field `description`
+2026-11-09T02:06:20.803596Z ERROR codex_core::session::session: failed to load skill C:\Users\vlad_\.codex\skills\necronomicon\SKILL.md: missing field `description`
+2026-11-09T02:06:20.803599Z ERROR codex_core::session::session: failed to load skill C:\Users\vlad_\.codex\skills\observed-invocation-loop\SKILL.md: missing field `description`
+2026-11-09T02:06:20.803602Z ERROR codex_core::session::session: failed to load skill C:\Users\vlad_\.codex\skills\ontology-harness\SKILL.md: missing field `description`
+2026-11-09T02:06:20.803605Z ERROR codex_core::session::session: failed to load skill C:\Users\vlad_\.codex\skills\repository-harness\SKILL.md: missing field `description`
+2026-11-09T02:06:20.803608Z ERROR codex_core::session::session: failed to load skill C:\Users\vlad_\.codex\skills\sigil-maintenance-loop\SKILL.md: missing field `description`
+2026-11-09T02:06:20.803610Z ERROR codex_core::session::session: failed to load skill C:\Users\vlad_\.codex\skills\whisper\SKILL.md: missing field `description`
+2026-11-09T02:06:20.899220Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-11-09T02:06:20.899370Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-11-09T02:06:22.984221Z ERROR codex_memories_write::phase2: Phase 2 no changes
+2026-11-09T02:11:26.014444Z  WARN codex_sandboxing::violation: recorded sandbox violation: resource=filesystem backend=windows_mxc reason=policy_denied path=unknown
+2026-11-09T02:11:36.367905Z  WARN codex_sandboxing::violation: recorded sandbox violation: resource=filesystem backend=windows_mxc reason=policy_denied path=unknown
+2026-11-09T02:16:07.708067Z ERROR codex_core::tools::router: error=exec_command failed: CreateProcess { message: "Rejected(\"`\\\"C:\\\\\\\\Program Files\\\\\\\\WindowsApps\\\\\\\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command \\\"@'\\nimport hashlib, json, pathlib, re\\nroot = pathlib.Path.cwd()\\nmanifest = json.loads((root/'MANIFEST.json').read_text())\\nfor entry in manifest['files']:\\n    path = r…621 chars truncated…on modules compile.')\\n'@ | python -\\n\\\"'$workspacePath = (Resolve-Path '\\\"'.').Path\\n\\\"'$scratchPath = [System.IO.Path]::GetFullPath((Join-Path $workspacePath '\\\"'.tmp'))\\nif (\\\"'$scratchPath -ne (Join-Path $workspacePath '\\\"'.tmp')) { throw 'Unexpected scratch path' }\\nif (Test-Path -LiteralPath \\\"'$scratchPath) { Remove-Item -LiteralPath $scratchPath -Recurse -Force }\\nGet-ChildItem -Name'` rejected: blocked by policy\")" }

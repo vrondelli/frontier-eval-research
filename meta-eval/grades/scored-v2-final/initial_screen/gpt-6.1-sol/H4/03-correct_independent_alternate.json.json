@@ -1,0 +1,122 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 5.357392299001731,
+  "stdout": "{\"pass\": true, \"report\": {\"automated_pass\": true, \"artifact_checks\": {\"unchanged_farelib.pyc\": true, \"unchanged_farelib.pyi\": true, \"unchanged_README.md\": true, \"unchanged_TESTING.md\": true, \"exists_fares.py\": true, \"exists_test_fares.py\": true, \"test_source_parses\": true, \"tests_do_not_import_farelib\": true}, \"artifact_checks_after_execution\": {\"unchanged_farelib.pyc\": true, \"unchanged_farelib.pyi\": true, \"unchanged_README.md\": true, \"unchanged_TESTING.md\": true, \"exists_fares.py\": true, \"exists_test_fares.py\": true, \"test_source_parses\": true, \"tests_do_not_import_farelib\": true}, \"behavior\": {\"groups\": {\"K\": {\"passed\": 327, \"total\": 327}, \"V\": {\"passed\": 101, \"total\": 101}, \"D\": {\"passed\": 41, \"total\": 41}, \"T\": {\"passed\": 70, \"total\": 70}, \"W\": {\"passed\": 22, \"total\": 22}, \"R\": {\"passed\": 80, \"total\": 80}}, \"failures\": [], \"passed\": 641, \"total\": 641, \"log\": \"\"}, \"submitted_tests\": {\"tests_run\": 2, \"discovered\": 2, \"failures\": 0, \"errors\": 0, \"skipped\": 0, \"successful\": true, \"log\": \"test_cutoff_inclusive (test_fares.Independent.test_cutoff_inclusive) ... ok\\ntest_fraction_ceiling (test_fares.Independent.test_fraction_ceiling) ... ok\\n\\n----------------------------------------------------------------------\\nRan 2 tests in 0.001s\\n\\nOK\\n\"}, \"manual_review\": [\"Check test expectations were derived independently from the rules.\", \"Check only the Python standard library and supplied farelib are used.\"]}, \"native_exit\": 0, \"native_stdout\": \"{\\n  \\\"automated_pass\\\": true,\\n  \\\"artifact_checks\\\": {\\n    \\\"unchanged_farelib.pyc\\\": true,\\n    \\\"unchanged_farelib.pyi\\\": true,\\n    \\\"unchanged_README.md\\\": true,\\n    \\\"unchanged_TESTING.md\\\": true,\\n    \\\"exists_fares.py\\\": true,\\n    \\\"exists_test_fares.py\\\": true,\\n    \\\"test_source_parses\\\": true,\\n    \\\"tests_do_not_import_farelib\\\": true\\n  },\\n  \\\"artifact_checks_after_execution\\\": {\\n    \\\"unchanged_farelib.pyc\\\": true,\\n    \\\"unchanged_farelib.pyi\\\": true,\\n    \\\"unchanged_README.md\\\": true,\\n    \\\"unchanged_TESTING.md\\\": true,\\n    \\\"exists_fares.py\\\": true,\\n    \\\"exists_test_fares.py\\\": true,\\n    \\\"test_source_parses\\\": true,\\n    \\\"tests_do_not_import_farelib\\\": true\\n  },\\n  \\\"behavior\\\": {\\n    \\\"groups\\\": {\\n      \\\"K\\\": {\\n        \\\"passed\\\": 327,\\n        \\\"total\\\": 327\\n      },\\n      \\\"V\\\": {\\n        \\\"passed\\\": 101,\\n        \\\"total\\\": 101\\n      },\\n      \\\"D\\\": {\\n        \\\"passed\\\": 41,\\n        \\\"total\\\": 41\\n      },\\n      \\\"T\\\": {\\n        \\\"passed\\\": 70,\\n        \\\"total\\\": 70\\n      },\\n      \\\"W\\\": {\\n        \\\"passed\\\": 22,\\n        \\\"total\\\": 22\\n      },\\n      \\\"R\\\": {\\n        \\\"passed\\\": 80,\\n        \\\"total\\\": 80\\n      }\\n    },\\n    \\\"failures\\\": [],\\n    \\\"passed\\\": 641,\\n    \\\"total\\\": 641,\\n    \\\"log\\\": \\\"\\\"\\n  },\\n  \\\"submitted_tests\\\": {\\n    \\\"tests_run\\\": 2,\\n    \\\"discovered\\\": 2,\\n    \\\"failures\\\": 0,\\n    \\\"errors\\\": 0,\\n    \\\"skipped\\\": 0,\\n    \\\"successful\\\": true,\\n    \\\"log\\\": \\\"test_cutoff_inclusive (test_fares.Independent.test_cutoff_inclusive) ... ok\\\\ntest_fraction_ceiling (test_fares.Independent.test_fraction_ceiling) ... ok\\\\n\\\\n----------------------------------------------------------------------\\\\nRan 2 tests in 0.001s\\\\n\\\\nOK\\\\n\\\"\\n  },\\n  \\\"manual_review\\\": [\\n    \\\"Check test expectations were derived independently from the rules.\\\",\\n    \\\"Check only the Python standard library and supplied farelib are used.\\\"\\n  ]\\n}\\n\", \"native_stderr\": \"\"}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-4dc43cd8d7be4b31b0db41a584862fde",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "64",
+    "--memory",
+    "256m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,noexec,nosuid,size=32m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H4/delivery,target=/subject,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/expansion-h4/correct_independent_alternate.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,shutil,subprocess,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate');Path('/tmp/candidate/fares.py').write_text(c['assets']['reference_fares.py']);Path('/tmp/candidate/test_fares.py').write_text(c['test_code'])\np=subprocess.run([sys.executable,'/tmp/eval/evaluation/grade.py','/tmp/candidate',sys.argv[1],'/tmp/result.json'],capture_output=True,text=True,timeout=45)\nreport=json.load(open('/tmp/result.json'));print(json.dumps({'pass':report['automated_pass'],'report':report,'native_exit':p.returncode,'native_stdout':p.stdout,'native_stderr':p.stderr}))\n",
+    "--output"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 3415,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "pass": true,
+    "report": {
+      "automated_pass": true,
+      "artifact_checks": {
+        "unchanged_farelib.pyc": true,
+        "unchanged_farelib.pyi": true,
+        "unchanged_README.md": true,
+        "unchanged_TESTING.md": true,
+        "exists_fares.py": true,
+        "exists_test_fares.py": true,
+        "test_source_parses": true,
+        "tests_do_not_import_farelib": true
+      },
+      "artifact_checks_after_execution": {
+        "unchanged_farelib.pyc": true,
+        "unchanged_farelib.pyi": true,
+        "unchanged_README.md": true,
+        "unchanged_TESTING.md": true,
+        "exists_fares.py": true,
+        "exists_test_fares.py": true,
+        "test_source_parses": true,
+        "tests_do_not_import_farelib": true
+      },
+      "behavior": {
+        "groups": {
+          "K": {
+            "passed": 327,
+            "total": 327
+          },
+          "V": {
+            "passed": 101,
+            "total": 101
+          },
+          "D": {
+            "passed": 41,
+            "total": 41
+          },
+          "T": {
+            "passed": 70,
+            "total": 70
+          },
+          "W": {
+            "passed": 22,
+            "total": 22
+          },
+          "R": {
+            "passed": 80,
+            "total": 80
+          }
+        },
+        "failures": [],
+        "passed": 641,
+        "total": 641,
+        "log": ""
+      },
+      "submitted_tests": {
+        "tests_run": 2,
+        "discovered": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "successful": true,
+        "log": "test_cutoff_inclusive (test_fares.Independent.test_cutoff_inclusive) ... ok\ntest_fraction_ceiling (test_fares.Independent.test_fraction_ceiling) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nOK\n"
+      },
+      "manual_review": [
+        "Check test expectations were derived independently from the rules.",
+        "Check only the Python standard library and supplied farelib are used."
+      ]
+    },
+    "native_exit": 0,
+    "native_stdout": "{\n  \"automated_pass\": true,\n  \"artifact_checks\": {\n    \"unchanged_farelib.pyc\": true,\n    \"unchanged_farelib.pyi\": true,\n    \"unchanged_README.md\": true,\n    \"unchanged_TESTING.md\": true,\n    \"exists_fares.py\": true,\n    \"exists_test_fares.py\": true,\n    \"test_source_parses\": true,\n    \"tests_do_not_import_farelib\": true\n  },\n  \"artifact_checks_after_execution\": {\n    \"unchanged_farelib.pyc\": true,\n    \"unchanged_farelib.pyi\": true,\n    \"unchanged_README.md\": true,\n    \"unchanged_TESTING.md\": true,\n    \"exists_fares.py\": true,\n    \"exists_test_fares.py\": true,\n    \"test_source_parses\": true,\n    \"tests_do_not_import_farelib\": true\n  },\n  \"behavior\": {\n    \"groups\": {\n      \"K\": {\n        \"passed\": 327,\n        \"total\": 327\n      },\n      \"V\": {\n        \"passed\": 101,\n        \"total\": 101\n      },\n      \"D\": {\n        \"passed\": 41,\n        \"total\": 41\n      },\n      \"T\": {\n        \"passed\": 70,\n        \"total\": 70\n      },\n      \"W\": {\n        \"passed\": 22,\n        \"total\": 22\n      },\n      \"R\": {\n        \"passed\": 80,\n        \"total\": 80\n      }\n    },\n    \"failures\": [],\n    \"passed\": 641,\n    \"total\": 641,\n    \"log\": \"\"\n  },\n  \"submitted_tests\": {\n    \"tests_run\": 2,\n    \"discovered\": 2,\n    \"failures\": 0,\n    \"errors\": 0,\n    \"skipped\": 0,\n    \"successful\": true,\n    \"log\": \"test_cutoff_inclusive (test_fares.Independent.test_cutoff_inclusive) ... ok\\ntest_fraction_ceiling (test_fares.Independent.test_fraction_ceiling) ... ok\\n\\n----------------------------------------------------------------------\\nRan 2 tests in 0.001s\\n\\nOK\\n\"\n  },\n  \"manual_review\": [\n    \"Check test expectations were derived independently from the rules.\",\n    \"Check only the Python standard library and supplied farelib are used.\"\n  ]\n}\n",
+    "native_stderr": ""
+  },
+  "job_id": "correct_independent_alternate.json",
+  "kind": "control",
+  "expected": true,
+  "family": "baseline"
+}

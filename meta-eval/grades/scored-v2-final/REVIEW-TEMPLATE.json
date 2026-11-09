@@ -1,0 +1,1543 @@
+{
+  "schema_version": "meta-eval-human-review/v1",
+  "subjects": {
+    "initial_screen/gpt-6.1-sol/H1": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        ".gitignore": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793",
+        "EVALUATION-PROVENANCE.json": "b89d895c8fe56111c2ddfd771405b4bd643fe4d9cbf8da7773aa217037a8541c",
+        "MANIFEST.json": "5f38525a68615f92a667ff2ac5d03a77e1f7759945e8220b259ed533a3cb27ea",
+        "PROVENANCE.json": "b16d9b3da0364a2bf86f281985290973da518b8d7b3929f6a0e39c33e3540a6b",
+        "README.md": "1f835d3e95b4b75153ee66808438e8b42dd65b58be5d42a4522e4553320f70ed",
+        "REVIEW-RUBRIC.md": "dc057d9f413bd50762e240cb62c2d728530c3727d67c790ef4d0df1e9aedef01",
+        "VALIDATION.md": "4e15cb9ab9fb2b0fa7e41b384db7c506728945d4b4676bc4466b62030c0ccc77",
+        "benchmark.py": "08cfb613ee639da8c8a323299ca57b8747c7b7b4ca9fc5a115d33c7815a5ce22",
+        "evaluation/__init__.py": "9b19bfaf54aab1d777df2b8b6e9d64ea740f7f5805fcb0e4a41d32579291a653",
+        "evaluation/grader.py": "8c372b365f58f20a661581eb9b29c039cc84536fa77990d856bb45d799efe366",
+        "evaluation/inspector.py": "c471916b7a2f57861a90d29dcb807f411cd19ce89b628506536b33ac99fc02e3",
+        "evaluation/oracle.py": "1ed558d201c0d07132c696d6f524340f6ce43ac3fee56404587e894da4c994f6",
+        "evaluation/protocol.py": "160c51ce3a53911ad97800eeff27254f895a19fd3e888f710a0dcf7597b00a3f",
+        "evaluation/sandbox.py": "6d101a5cda5dc51f9c9b6fe583ec462fc004eed7c6886ecb82e0bb2a0b1b7dbe",
+        "evaluation/worker.py": "268d2415033fea85604e5cf29cf3e358687d9dbd8019a69fe2214a35d1b8f7db",
+        "examples/E1.json": "69c75534ba1c8b47c5aaa6dadfd5f1e37e58ac396d8d692bd5c6259548befe2b",
+        "examples/conditional_update_service.py": "ccb51e724d1ea79205b80c38025dead25bf97b84e5c41bd5aea280749644e04a",
+        "examples/reference_explanation.txt": "daccc0b9f07af3d2289c2d8f7cd57ed3d88334619c9607e0c4d283801aa53dc6",
+        "examples/reference_service.py": "55cf44169f5efead5af1a501825f0e68934be56b6697b88ac8af2c3e6f6f642f",
+        "input/E1.md": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+        "input/README.md": "4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77",
+        "prompt.md": "df6180cbe0ef1a14781dbf0b50e0d29490876cf466dc39a865f24ea9e64825d0",
+        "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tests/test_evaluation.py": "aa527d0ef790336bba327e5044c7c9360bb74c1cb108c9982be702c08778f1de",
+        "tests/test_integration.py": "77bbf73a377b433887a3ad8e38844b3bffe7b0cb4db829207cb1826e4402f742",
+        "validation-results.json": "37dcdaed3c42e6970c5e1e19b76feb08fe2dd09eea18a7565a3c8713558c5181",
+        "verify_evaluation.py": "e8084aecaf2fc0975aeb0b8a6ae0562b4edaf5e203a9caaa70746b851ee2ce43"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "B2": "fail",
+        "C1": "pass",
+        "C2": "pass",
+        "D1": "pass",
+        "D2": "fail",
+        "E1": "pass",
+        "E2": "pass",
+        "G1": "pass"
+      }
+    },
+    "initial_screen/gpt-6.1-sol/H2": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        "MANIFEST.json": "f08c6afbdc4cb2c548c1499d63c02ac92d4418b11599c82b2bc2d6c35f2d1d7b",
+        "PROVENANCE.json": "11d31fc11bc6672c044116e9636d1c2fce878ccf389b16db388ddf988b89ad57",
+        "criteria.md": "ff42d6cac964d4b2209fa7f49e5e5a2eaf5419bb9c8c5575ae4c80251fdd1a94",
+        "input/CAL-A.txt": "cd45bc45a390a940c4abc3e4e8225043bedbe47bbc60eda1577a088e0291e734",
+        "input/CAL-B.txt": "54f9f2b99d0e9788879d529e168eea371b0ea81e5577ce3a8e88098cf94b76ef",
+        "input/CAL-C.txt": "48867aaf20e515d4c2ec0f327b670e5ebfb5574657a5b437b01a4de616766ff7",
+        "input/CAL-D.txt": "6ec8ce50d36aac0660445fae9af24c0231438fe62b5f27b4b5b46eb8a8d87d3e",
+        "prompt.md": "0182ef779589e4f150257f7a56daafa17aa067e6aca7f4d8b816d689263bb5ce"
+      },
+      "decisions": {
+        "A1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "A2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "B2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "D1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "D2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "E1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "E2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "B1": "pass",
+        "H1": "pass"
+      }
+    },
+    "initial_screen/gpt-6-astra/H2": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        "MANIFEST.json": "f08c6afbdc4cb2c548c1499d63c02ac92d4418b11599c82b2bc2d6c35f2d1d7b",
+        "PROVENANCE.json": "11d31fc11bc6672c044116e9636d1c2fce878ccf389b16db388ddf988b89ad57",
+        "criteria.md": "6d2f830639452974c56e3fd887fd53bf8a2a1630a51effdedc0b4063947a1a69",
+        "input/CAL-A.txt": "cd45bc45a390a940c4abc3e4e8225043bedbe47bbc60eda1577a088e0291e734",
+        "input/CAL-B.txt": "54f9f2b99d0e9788879d529e168eea371b0ea81e5577ce3a8e88098cf94b76ef",
+        "input/CAL-C.txt": "48867aaf20e515d4c2ec0f327b670e5ebfb5574657a5b437b01a4de616766ff7",
+        "input/CAL-D.txt": "6ec8ce50d36aac0660445fae9af24c0231438fe62b5f27b4b5b46eb8a8d87d3e",
+        "prompt.md": "0182ef779589e4f150257f7a56daafa17aa067e6aca7f4d8b816d689263bb5ce"
+      },
+      "decisions": {
+        "A1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "A2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "B2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "D1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "D2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "E1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "E2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "B1": "pass",
+        "H1": "pass"
+      }
+    },
+    "initial_screen/gpt-6.1-sol/H3": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        "MANIFEST.json": "d553efa45941129c30632c08236c9b06d69fdbaf76696926e7858db8f9bda8ff",
+        "PROVENANCE.json": "4c8656cb8246a55e02403b62802fa7a4d9fbdb8d7b4fb0b3f3ab4d0841ebff29",
+        "evaluation/README.md": "e6f331e3596a79869b620afef9c888afb18d5cb37ae04c8834b0134cd58d45d7",
+        "evaluation/VALIDATION.md": "01bb706b9fc50f051fa22b72351210c29c104bc84fe1af11245de2001fe2db13",
+        "evaluation/data_audit.json": "27a51870d322dee44c1e57ee8500e9234029e90ab1b6a665e84ea0a407a67950",
+        "evaluation/evaluate.py": "28c78ed5871314300d377ed9a2af36a872138c15f434879ea6e85faa3b7511df",
+        "evaluation/test_evaluation.py": "966badfc167a6e6aaa56240ad7130083d15da3055c1bff68326c5ce8905a0e32",
+        "input/task.txt": "abe1d858caa8782808bde25d00c26c8f41bffe15a4d2c8de6f84b8af496f9eb7",
+        "input/workspace/README.md": "ef71fa95120099ce39e4c2102efe21c7059b94df37c06f51d726f279065315fd",
+        "input/workspace/field_record_times.csv": "c7620e64267755c1d6898799b8c06a1d061dc55e4a5a48b87dc6322b25a7a88d",
+        "input/workspace/train.csv": "85a3017a6a687690c1c5ba955fc2641b1b024be738610e11ab9b7e5c1ff7d7a0",
+        "prompt.md": "07bec617563de89626c30c439367bb3038cf21e4a1ddf159f4bd703d0ae0f359"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "B2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "D1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "D2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "E1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "E2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "G1": "pass"
+      }
+    },
+    "initial_screen/gpt-6-astra/H3": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        "EVALUATION.md": "ff6a90ceca07386511a9408e80af3347b2c32ed3f8109c52d43eb441a327515a",
+        "MANIFEST.json": "d553efa45941129c30632c08236c9b06d69fdbaf76696926e7858db8f9bda8ff",
+        "PROVENANCE.json": "4c8656cb8246a55e02403b62802fa7a4d9fbdb8d7b4fb0b3f3ab4d0841ebff29",
+        "data_audit.json": "a59ecda9666be61e3124c3f205671a0e00ff61dc07801f0e6e22e39b9641153c",
+        "evaluate.py": "1bdf55de9a25dc3af6478f85bdf1051d6311d762e5b2f8fd87fdadcc0622a012",
+        "input/task.txt": "abe1d858caa8782808bde25d00c26c8f41bffe15a4d2c8de6f84b8af496f9eb7",
+        "input/workspace/README.md": "ef71fa95120099ce39e4c2102efe21c7059b94df37c06f51d726f279065315fd",
+        "input/workspace/field_record_times.csv": "c7620e64267755c1d6898799b8c06a1d061dc55e4a5a48b87dc6322b25a7a88d",
+        "input/workspace/train.csv": "85a3017a6a687690c1c5ba955fc2641b1b024be738610e11ab9b7e5c1ff7d7a0",
+        "prompt.md": "07bec617563de89626c30c439367bb3038cf21e4a1ddf159f4bd703d0ae0f359",
+        "reference/REPORT.md": "708de00e3df214dede9bf7d3a60e676c825a0c1e1ec06be08be869d83616cfad",
+        "reference/features.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "reference/pipeline.py": "6279419134c3a7376b263746a70a8b756a57d27907e7f20326ac5ce8c3de0d39",
+        "reference_evaluation.json": "9e930f40a2dd4116cfb57764f330841098220b1c27cb176f27223b98266bbe74",
+        "reference_review.md": "e395345f5e86696e8daa4b7d0a841602a9306eea257cb75ea25c2b791141cbe2",
+        "test_evaluate.py": "c0e1dab6a7adf69cf8a65afac6d0efef73b77ac14de2f43ff59af0b052f8399b",
+        "test_results.txt": "7882fcf43bca3a11feaafba44305bc97bf4dc58e58c7166c02b6ef712bd8bfa5"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "B2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "D1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "D2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "E1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "E2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "G1": "pass",
+        "H1": "pass"
+      }
+    },
+    "initial_screen/gpt-6.1-sol/H4": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        "MANIFEST.json": "96363d00b2cb8b6c290c455b381ce50f7e475a813d1e37d903ea1fdcc3a4abfa",
+        "PROVENANCE.json": "b3f6f928eb84884fab537f1ec02fcd0f2cede25219b2f3b48ccdece09bb6dc21",
+        "evaluation/README.md": "7271cdabe054c0c664a1e598bcc1d3a888439fe6837c08e5c39d9453fa724bac",
+        "evaluation/cases.py": "461289db094fd9b5941f62e09ce354dae8a9da2a188e412692a725950311da77",
+        "evaluation/controls.py": "5908460eea023672db4a07f7f3a63c53e73617d87d0fb0f3abcada3aaf7b48a3",
+        "evaluation/grade.py": "49a317c0a01a5acfabe2029c71f7f3ba851749b9dd0a2e82cfd80c990347f278",
+        "evaluation/oracle.py": "d6657279d2b27d3175ba3b9ade98cd45bf3327c122ed63f3f7a9a895de43a302",
+        "evaluation/test_evaluation.py": "0af21cdb0e3fa4bcedd991f39a8a0695124a372c2ed7d3dca66cbc12f7cb1fe7",
+        "evaluation/validation.json": "8120bffb679135e1a02604f1d148d14908b4881d0207032d1f166cb4fc09a8c3",
+        "evaluation/validation.txt": "71db6f9c7d85e1648cfab054ba26fb704922df7db0ed6cfe13418fbe3929690b",
+        "input/task.txt": "1be99e5ec715fe4f3821d2af5369ddb3fbc84dce767f50fe5e1560079cd39a3d",
+        "input/workspace/README.md": "d706e9e94b2d70ada8ad26fbd6bcb4a356745b4d1865900736e2d3f595fc32b6",
+        "input/workspace/TESTING.md": "ada11ea6a83d9170c6c37740189baf637f45c4db2f46af033c50be7725ae6b0d",
+        "input/workspace/farelib.pyc": "34faa5fbbb379297723724551a5a5a5e725bfec6c1dc0d155186f29920bce8e7",
+        "input/workspace/farelib.pyi": "702d7ffa250ddcdb7777bb826c43ebdb899a1af76b82599c7cdc815c3e18e6d0",
+        "input/workspace/fares.py": "e30423d584e95987ac3d113777f62662da75c5a983414ed6cc5a339e6738071d",
+        "prompt.md": "ef8b2719fa86ef6c1c873db7ded85ad02ff309f0696c158b5739fabaaa179dcb"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "B2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "E2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "D1": "pass",
+        "D2": "pass",
+        "E1": "pass",
+        "G1": "pass",
+        "H1": "pass"
+      }
+    },
+    "initial_screen/gpt-6-astra/H4": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        "MANIFEST.json": "96363d00b2cb8b6c290c455b381ce50f7e475a813d1e37d903ea1fdcc3a4abfa",
+        "PROVENANCE.json": "b3f6f928eb84884fab537f1ec02fcd0f2cede25219b2f3b48ccdece09bb6dc21",
+        "evaluation/README.md": "6ef6156c2bfdeb3e968c21447fb7d3be8b35aaa9218f063eb809935a2125b48e",
+        "evaluation/cases.py": "233d6bf1f44bd86efa51555e13b254d137fbec7c5757b0ae14ca38208a007edd",
+        "evaluation/control_solution.py": "0336f7a2182aa4e147c91350302f5765ff48b114ef2685bc37ac067818fba331",
+        "evaluation/grade.py": "df709fe35fe17e881732cdb8cbbe4844cac862f28723a073a2f9d955df4b47db",
+        "evaluation/oracle.py": "61b9a3c5824d33dbe82be12ec0ae2147c06bc0715215914a7fdcf2c14984a937",
+        "evaluation/submission_tests.py": "79bb3c147fcfd18028baa79079615da1e814b3bbf6644892b3e7e67c140d4aeb",
+        "evaluation/test_evaluation.py": "c2542894345e2cfec5dc5880498e8c0571eb0ba8b1113dbd26d816dc79ddee01",
+        "evaluation/test_fares.py": "f7f4a29cc9e76e847ff4564b915041f61e95435623355ac85f5a31b1163b32a2",
+        "evaluation/validation_report.json": "8f103cab1513f4668d130c683b71ec351b67d292484dc53bdfe4f03b17144925",
+        "input/task.txt": "1be99e5ec715fe4f3821d2af5369ddb3fbc84dce767f50fe5e1560079cd39a3d",
+        "input/workspace/README.md": "d706e9e94b2d70ada8ad26fbd6bcb4a356745b4d1865900736e2d3f595fc32b6",
+        "input/workspace/TESTING.md": "ada11ea6a83d9170c6c37740189baf637f45c4db2f46af033c50be7725ae6b0d",
+        "input/workspace/farelib.pyc": "34faa5fbbb379297723724551a5a5a5e725bfec6c1dc0d155186f29920bce8e7",
+        "input/workspace/farelib.pyi": "702d7ffa250ddcdb7777bb826c43ebdb899a1af76b82599c7cdc815c3e18e6d0",
+        "input/workspace/fares.py": "e30423d584e95987ac3d113777f62662da75c5a983414ed6cc5a339e6738071d",
+        "prompt.md": "ef8b2719fa86ef6c1c873db7ded85ad02ff309f0696c158b5739fabaaa179dcb"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "B2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "E2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "D1": "pass",
+        "D2": "pass",
+        "E1": "pass",
+        "G1": "pass"
+      }
+    },
+    "initial_screen/gpt-6.1-sol/H6": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        "MANIFEST.json": "b8d456092a610308085192119c74120c6d9123a592c8931c33a268fd193bd1f2",
+        "PROVENANCE.json": "a6a03f7a01d2dcd617518f7a538ad5fa7a044cf6787919a95644338514d4b40a",
+        "evaluation/README.md": "2486876d602b9ba15e75d70ab67900d4685aec2c66a12a503f2a3addb5e86a62",
+        "evaluation/cases.json": "1e51dcc774f7f36e653f4c77875e12b54815142a6e73d31757254fc3096ac77d",
+        "evaluation/control_cli.py": "10fd9b5348730b3e548f14813b4b3c203c3cdae5be84ee9261703b7b58d1741e",
+        "evaluation/evaluate.py": "545cb9a6daade395c7ed2e963d2ac50b4fbc5c180c0cf7843f5b9f6a374704af",
+        "evaluation/selftest.log": "168a69c2f6232762426cd1cf363f215a4f0c381f7a8923787c02dfd8d06f9255",
+        "evaluation/test_evaluation.py": "45b238448f3308e7921df4ff2023bbd57ece8fad2f1b2596361598793c50b0c1",
+        "input/task.txt": "a14f6d6510d66ed96ad0124d3563ac1c2ea02f9686399bb97324e1fc7c3811f5",
+        "input/workspace/README.md": "b62e2fa1926a5d39e749a09cae70ede342275855e4ca3f81318483c42c399cc7",
+        "input/workspace/example.json": "81e6c582cb892db6a2457cd88a005d45689a10835ff089041083eb3363ae1d62",
+        "input/workspace/input.schema.json": "22e4954dd62b1f6b7368d8d16875ebdfcda0dd5ae9c973bc21f2b7e1b445ada5",
+        "input/workspace/output.schema.json": "1b02c59bce9547a3240d0fb6b32d118e11e34d862597eb2e80013c7001c5b4cf",
+        "prompt.md": "b445955764503d0f388b8471f5740124bcc06bd9f00014f071735cd031a05b4d"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "B2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "D1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "C1": "pass",
+        "D2": "pass",
+        "E1": "pass",
+        "E2": "pass",
+        "G1": "pass",
+        "H1": "pass"
+      }
+    },
+    "initial_screen/gpt-6-astra/H6": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        "MANIFEST.json": "b8d456092a610308085192119c74120c6d9123a592c8931c33a268fd193bd1f2",
+        "PROVENANCE.json": "a6a03f7a01d2dcd617518f7a538ad5fa7a044cf6787919a95644338514d4b40a",
+        "evaluation/README.md": "c2768fa3ca074a8a4ae037183498ec6f0f284090bd1de07d60042544a24505fc",
+        "evaluation/VALIDATION.md": "ba37c67146d701768b18ef37f1bacd7e9d6299184a215164bed017db1351ecaa",
+        "evaluation/cases.py": "16a656150021bdb3c000c6d26a1f435f580fa2d72a29e90dc6a716759df1fe0a",
+        "evaluation/evaluate.py": "c391d10055b8fe0ed49515d5ea189e87f1c3a9209357151b672fad235ba94598",
+        "evaluation/tests/control_cli.py": "6a2903e37810739316f26e49eb598832417ee8cdc8dc890db2da06b06c271bf4",
+        "evaluation/tests/test_evaluation.py": "e2ce6a9881ba1680b1dcca54425dcf9e027714a5c2b1c5d7e997f173ea9a6e5b",
+        "input/task.txt": "a14f6d6510d66ed96ad0124d3563ac1c2ea02f9686399bb97324e1fc7c3811f5",
+        "input/workspace/README.md": "b62e2fa1926a5d39e749a09cae70ede342275855e4ca3f81318483c42c399cc7",
+        "input/workspace/example.json": "81e6c582cb892db6a2457cd88a005d45689a10835ff089041083eb3363ae1d62",
+        "input/workspace/input.schema.json": "22e4954dd62b1f6b7368d8d16875ebdfcda0dd5ae9c973bc21f2b7e1b445ada5",
+        "input/workspace/output.schema.json": "1b02c59bce9547a3240d0fb6b32d118e11e34d862597eb2e80013c7001c5b4cf",
+        "prompt.md": "b445955764503d0f388b8471f5740124bcc06bd9f00014f071735cd031a05b4d"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "B2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "D1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "C1": "pass",
+        "C2": "pass",
+        "D2": "fail",
+        "E1": "fail",
+        "E2": "pass",
+        "G1": "pass"
+      }
+    },
+    "initial_screen/gpt-6.1-sol/H7": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        "MANIFEST.json": "89fb06377aa743963cfb06c834235d2df65361ff05ea9aa44827134d9c25f0fb",
+        "PROVENANCE.json": "350b20ac695a89ae1e28efa9ee1839aa448d70904b46c3318e89e6e870321806",
+        "evaluation/README.md": "38bf3dc61021e91aafea26390a3aec5ddd86878e47bd9fbf6608b48f31252eb7",
+        "evaluation/grade.py": "f6cd0ae33b8074b6c62c52efff316b7d0a4d2666b987cf2f572340e082ffd3aa",
+        "evaluation/reference-result.json": "cb032fe970e1f8abe131022f2bfbdb3372cfeb04aa2171f805cdf043aa9f0a01",
+        "evaluation/reference.json": "15c3259c0e7707611af25f6efbc7f681dc45eb2515782a0a1e7799b8dbb2981a",
+        "evaluation/spec.json": "3344012f230dc82ed954cf0ccc4b3594eef98b4e69aaccd4b61d0993670dd076",
+        "evaluation/test_grade.py": "0cea77d46789eb5dd6bfef75e1755779365af1565f1b258129466683e1bace2f",
+        "input/task.txt": "c546de217153917fab88247f528a23472ae137a112ce014b2af910de22b2fed5",
+        "input/workspace/README.md": "57c25c3af4ecb9e3a838051a99ee74a7432cd12580ad2f2dd27598fbbaeb56e6",
+        "input/workspace/report.txt": "a75d7ddeb6a73fdcead53b2283294788f5beace8f71a41083465c54aa0faf3c5",
+        "input/workspace/request.json": "3fe6a149bad68d94f4bb014bc40d71b2111a6b2195bca55c75270840692863d3",
+        "prompt.md": "7886bbd764b2bff1b4ad102153d4c844ed4b40f037b20a634ee4a25aca48408d"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "B2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "C1": "pass",
+        "C2": "pass",
+        "D1": "pass",
+        "D2": "pass",
+        "E1": "pass",
+        "E2": "pass",
+        "G1": "pass"
+      }
+    },
+    "initial_screen/gpt-6-astra/H7": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        "MANIFEST.json": "89fb06377aa743963cfb06c834235d2df65361ff05ea9aa44827134d9c25f0fb",
+        "PROVENANCE.json": "350b20ac695a89ae1e28efa9ee1839aa448d70904b46c3318e89e6e870321806",
+        "evaluation/README.md": "f2dac2047c222715bd1d944041d059af4334afb043cfcbeb791845ddf8b963e0",
+        "evaluation/grade.py": "c14933971ac963c2f1d8ca3ae4a7313ecf29aa4725c250c79012d2f4d9593717",
+        "evaluation/reference.json": "e968e5982eadb705843c4f97e5c0d462f98846a95a96e084ea93f48666b21a7b",
+        "evaluation/test_grade.py": "f0cf86ed5810691ed95f7102e1a8441f16995b497ab81a7a25b8875bc3f17865",
+        "input/task.txt": "c546de217153917fab88247f528a23472ae137a112ce014b2af910de22b2fed5",
+        "input/workspace/README.md": "57c25c3af4ecb9e3a838051a99ee74a7432cd12580ad2f2dd27598fbbaeb56e6",
+        "input/workspace/report.txt": "a75d7ddeb6a73fdcead53b2283294788f5beace8f71a41083465c54aa0faf3c5",
+        "input/workspace/request.json": "3fe6a149bad68d94f4bb014bc40d71b2111a6b2195bca55c75270840692863d3",
+        "prompt.md": "7886bbd764b2bff1b4ad102153d4c844ed4b40f037b20a634ee4a25aca48408d"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "B2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "C1": "pass",
+        "C2": "pass",
+        "D1": "pass",
+        "D2": "pass",
+        "E1": "pass",
+        "E2": "pass",
+        "G1": "pass"
+      }
+    },
+    "H6_same_condition_confirmation/gpt-6-astra/H6/draw2": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        "MANIFEST.json": "b8d456092a610308085192119c74120c6d9123a592c8931c33a268fd193bd1f2",
+        "PROVENANCE.json": "a6a03f7a01d2dcd617518f7a538ad5fa7a044cf6787919a95644338514d4b40a",
+        "evaluation/README.md": "4b69ce27f1ce3a4a7c1bb122aef599bf89831c4c7f5f83485b6fcabdbd7f0bcf",
+        "evaluation/cases.py": "5a5aff4070168bfe625f61de50a24e5c0a2e4295b4080ccb7b53308caed48bf5",
+        "evaluation/control_cli.py": "0e5914c9f4066d0d5a8f1fbf0171bf4bb92e6298ba23143c64cafaa84a3b0391",
+        "evaluation/evaluate.py": "c3715083a598193a4a149d198281a85e762e099ba0fea6150cb3207e29c3a578",
+        "evaluation/numbers_exact.py": "093e9307d5125cd03ac2a57f054ac10af8c1e567ce7b773201fdb4da96de2b7e",
+        "evaluation/positive-control-report.json": "50aaead1690129a9c8c71cc77424871210beb46ace1db85660594e1692972628",
+        "evaluation/selftest-report.json": "04fe7806bc4f85e7a6f51c91533938ce866a61f42fed1cdf7b25c75960720c50",
+        "evaluation/selftest.py": "f23d194236edfd9924dcbc9b56dc825d3ecb63a3a11c463a7adc6afed8136521",
+        "input/task.txt": "a14f6d6510d66ed96ad0124d3563ac1c2ea02f9686399bb97324e1fc7c3811f5",
+        "input/workspace/README.md": "b62e2fa1926a5d39e749a09cae70ede342275855e4ca3f81318483c42c399cc7",
+        "input/workspace/example.json": "81e6c582cb892db6a2457cd88a005d45689a10835ff089041083eb3363ae1d62",
+        "input/workspace/input.schema.json": "22e4954dd62b1f6b7368d8d16875ebdfcda0dd5ae9c973bc21f2b7e1b445ada5",
+        "input/workspace/output.schema.json": "1b02c59bce9547a3240d0fb6b32d118e11e34d862597eb2e80013c7001c5b4cf",
+        "prompt.md": "b445955764503d0f388b8471f5740124bcc06bd9f00014f071735cd031a05b4d"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "B2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "D1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "C1": "pass",
+        "D2": "pass",
+        "E1": "pass",
+        "E2": "pass",
+        "G1": "pass"
+      }
+    },
+    "H6_same_condition_confirmation/gpt-6-astra/H6/draw3": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        "MANIFEST.json": "b8d456092a610308085192119c74120c6d9123a592c8931c33a268fd193bd1f2",
+        "PROVENANCE.json": "a6a03f7a01d2dcd617518f7a538ad5fa7a044cf6787919a95644338514d4b40a",
+        "evaluation/README.md": "21b889f75884e5e4021c9fb9474b3eacac0bce25d3a5971f098f8ce5d407fb5b",
+        "evaluation/cases.py": "5bff178f4b66052b473f13be33eba3ba2ef5620e7b3e14ea3101b73948d82cd9",
+        "evaluation/control-report.json": "57c64bb0e455d1b38469c93ae467bd3d5ec4bf678e9d203ae6e879699048b7cc",
+        "evaluation/control_cli.py": "57306e9f1bb688bd6a43ac001ec28fce00725959e070e3beda49f80379a3408f",
+        "evaluation/run_eval.py": "0c43702fd1d4c75eddcc958867cb89b401d6a6b62956a0488d46ed2c8ed0286d",
+        "evaluation/selftest-report.json": "14ed0735d92ace57499a9400cc6f376760e938608fab9a8ac5c4129389abcc49",
+        "evaluation/selftest.py": "8bab8d322e024d483f578b9c0f56af2568790208f72cdc6001cdf60b01d1334b",
+        "input/task.txt": "a14f6d6510d66ed96ad0124d3563ac1c2ea02f9686399bb97324e1fc7c3811f5",
+        "input/workspace/README.md": "b62e2fa1926a5d39e749a09cae70ede342275855e4ca3f81318483c42c399cc7",
+        "input/workspace/example.json": "81e6c582cb892db6a2457cd88a005d45689a10835ff089041083eb3363ae1d62",
+        "input/workspace/input.schema.json": "22e4954dd62b1f6b7368d8d16875ebdfcda0dd5ae9c973bc21f2b7e1b445ada5",
+        "input/workspace/output.schema.json": "1b02c59bce9547a3240d0fb6b32d118e11e34d862597eb2e80013c7001c5b4cf",
+        "prompt.md": "b445955764503d0f388b8471f5740124bcc06bd9f00014f071735cd031a05b4d"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "B2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "D1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "C1": "pass",
+        "C2": "pass",
+        "D2": "pass",
+        "E1": "fail",
+        "E2": "pass",
+        "G1": "pass"
+      }
+    },
+    "H1_budget_diagnostic/gpt-6.1-sol/H1/draw1": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        ".gitignore": "3477c1bd8ba604fe7f2bf7b3c4725ee66a5c326f8d5afacbc930a62aeb1e5b2b",
+        "MANIFEST.json": "5f38525a68615f92a667ff2ac5d03a77e1f7759945e8220b259ed533a3cb27ea",
+        "PROVENANCE.json": "b16d9b3da0364a2bf86f281985290973da518b8d7b3929f6a0e39c33e3540a6b",
+        "README.md": "103790cbe8db5f0b7a488a14cb507e4e99bd1228f6e864be0901053d1f31319e",
+        "REVIEW-RUBRIC.md": "27f519f24258d73c4cf1dbc82db7ae59f8247b38128c641b8209b5e3e1e87c35",
+        "VALIDATION.md": "6934906fa18990ac5225ce0941e1f8b805542b5511d013caf78f75fd5b39139c",
+        "controls.py": "21d4b1171f48266b1c7ff66086f58acb95e0ba459860449f0462b034510b6f00",
+        "evaluate.py": "90d95d91f26e8666a53f6ac44acef05136ead15a27f8778e2d82f0264f62b071",
+        "input/E1.md": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+        "input/README.md": "4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77",
+        "inspect_db.py": "0fdf7b0026ac65b0bce120371b48d207ffc08e3e81fddceecdeebeebda9c7457",
+        "isolation.py": "56e2003b924e38caccf4cc5ba8ecac0bde80fe486ba3b7e34964d1cf805befe6",
+        "oracle.py": "f7e8fcbdfce4fefcd1e469d47ec270663e6127a93c057de8fb1d7211d3e6eb0a",
+        "prompt.md": "df6180cbe0ef1a14781dbf0b50e0d29490876cf466dc39a865f24ea9e64825d0",
+        "staged.py": "de8c2088c82383a373d8d1d8ca19b2efd52c0c0113e7b852954fdb1ef28a3d76",
+        "test_evaluation.py": "3330ec7e545181fec6ad70902e35d142568ab8dc6d407b450f29afa2624e3667",
+        "validation/reference-result.json": "08cc66fbc475e76444b6518294eb2ede55f81bc405e3f8a8fcfe5925c43f1149",
+        "validation/summary.json": "537902375dc7c1409e5298ea79cb5dc119d7649fb95ddeaba97059af8bfe43dd",
+        "validation/unittest.txt": "256da7b10ec193763c9df45698fe16efe94955729ec6da18bb8c7f08a344f172",
+        "verify_evaluation.py": "4143c9a18c25dbca04590eae8c95a73e5864e28abe569cbc4e915d79c68c6917",
+        "worker.py": "133d5dfd7b942f2695bfa4fea217d6e5a19fa75d319b9ef9f22bfb9b6fb52998"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "B2": "fail",
+        "D1": "pass",
+        "D2": "fail",
+        "E1": "pass",
+        "E2": "pass",
+        "G1": "pass"
+      }
+    },
+    "H1_budget_diagnostic/gpt-6.1-sol/H1/draw2": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        ".gitignore": "d414252c6a6ae2b472a77e0269ffacea89e2e07f8451552c56dbc8382af85742",
+        "MANIFEST.json": "5f38525a68615f92a667ff2ac5d03a77e1f7759945e8220b259ed533a3cb27ea",
+        "PROVENANCE.json": "b16d9b3da0364a2bf86f281985290973da518b8d7b3929f6a0e39c33e3540a6b",
+        "README.md": "4e27381a7fb66e389f2351f982a767a8f891b269ad0f0f2ea4dadcf0dd84a97c",
+        "REVIEW-RUBRIC.md": "5991164b69ed4d70d2a7432ff172bc1c7ff0a20ed6c60e88b3c1d50b20998c3e",
+        "VALIDATION.md": "5f80c84c281376a7c6365e998b3ea43f639bda616c9ddde69b1711cf89713171",
+        "controls/reference.py": "6c479fe157411d565b418ec84b4d5ff14d562dfa3003cef095fba906f26e6818",
+        "controls.py": "871bea1f95e5c588faf346050cc4ac10a572142dc973547d4e9ddc9ce351e8aa",
+        "evaluate.py": "26fabf2ead5c894d6f75a88a6a6460cf97cd91c0f6a195b7a96021d35f856226",
+        "generated-controls/alternative.json": "47e4f002d8818e581beb04b3226469c177c0c175c34e9063f2b273b0b7fa5bcf",
+        "generated-controls/always-reject.json": "cb856259c721f66828bc4759258e7a9deea7294877f63439f1c1770f323c7c38",
+        "generated-controls/current-replay.json": "a5703ed6de26a7331a9bb2cc49b65bea9fb207b5c3083ffaab6860af9fedfa88",
+        "generated-controls/database-error-as-rejection.json": "030506aff20c0be5516c667fb252cbc97a9b865aea166be8f464e61603cb1ee1",
+        "generated-controls/ignores-payload.json": "dd7856a131383cee8056d98d34e6f3025fb4e648271c0c1b7cd99ab857277c27",
+        "generated-controls/lost-rejection.json": "9ff43bee1a1caad989edea09183a4bcda1caa58f250b72aedaf5cab0df428894",
+        "generated-controls/no-ledger.json": "b2db719797fce773b0344b185c6dbc587d7abe417b22798f882358d5144463d1",
+        "generated-controls/overspend.json": "435a2a01a518472b13ef285e418df5c2d0c8138d8fbc26b8d87e90fe0a6d7e20",
+        "generated-controls/process-local.json": "24d948de43de562009a9e491cf7263bdf65ddb5594387c0efb063f9924c67dc7",
+        "generated-controls/reference.json": "a164baa3fd0f2100a8bd39598460c965505a43078f34474fc2ba2580613645b7",
+        "generated-controls/resets-on-init.json": "3dbbed878ff37a8a2038e487a21dd5592381bb117a999c291b93b4ddc4ecbcc0",
+        "initial-state.json": "c5403723f7174bfbdf5dcdbdd85cdd36b2dc82c594a9eabf570737a9911baef9",
+        "input/E1.md": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+        "input/README.md": "4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77",
+        "inspect_db.py": "84fc66aaf8bfdf4d3675a2d3fef172a5ccc1d452a4ea0b2f4f710cc72b1347da",
+        "oracle.py": "bbc84c607cfe426253cdc5798b937af389e8442f78b9fd4d23373d3e2d0f5d49",
+        "prompt.md": "df6180cbe0ef1a14781dbf0b50e0d29490876cf466dc39a865f24ea9e64825d0",
+        "revealed-state.json": "ea782abedf34c6bea50a15ae377d4cb27a6c2e1f11935c3cb5c52f7d4a467688",
+        "runtime-check.json": "e8baece4091938c046cf746d38d22e3aa268eb2936a5ababb0160aa91d31728c",
+        "sandbox.py": "01ac80280c1829e8f127c26f94f424a4351172b06e064f5c810379385de852da",
+        "staged-check.json": "236efdc4c3ae4f51836d0f66c0635a2fbc2dd90393a733bfa14788aa4656f9f9",
+        "stages.py": "316b56500b1927501b32d19c343e3da012e8d98fe071ea56fd59d88ee6edd09c",
+        "test_evaluation.py": "f6b37a229095f5736a92c6f27a6f2fb92218bebb023a13da38676c87794b0289",
+        "validation-tests.txt": "a658e8ad05dea7e83e86175171312dd80c93092376e54af0fec8b85e61326069",
+        "worker.py": "5a1f6cfe44c3d183b86c256b1f731dde6880f043a7f049015b7e7e05ad6c22df"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "B2": "fail",
+        "C1": "pass",
+        "C2": "pass",
+        "D1": "pass",
+        "D2": "fail",
+        "E1": "pass",
+        "E2": "pass",
+        "G1": "pass"
+      }
+    },
+    "H1_budget_diagnostic/gpt-6.1-sol/H1/draw3": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        ".gitignore": "6feaded4e28ea86e001a6751b4e3d960e8b7c31b9616ff9936b79297086e809b",
+        "MANIFEST.json": "5f38525a68615f92a667ff2ac5d03a77e1f7759945e8220b259ed533a3cb27ea",
+        "PROVENANCE.json": "b16d9b3da0364a2bf86f281985290973da518b8d7b3929f6a0e39c33e3540a6b",
+        "README.md": "5d2cc503bff3ba7d9015199f52cb1c0a4807a6d76810283d106b196a0ea93eaf",
+        "REVIEW-RUBRIC.md": "c26d46909d3524b971d8ac39dae741bbe54090e62a5b83bf91e156f7db2f5c25",
+        "VALIDATION.md": "15fb3fad6534a6fd515e43117be94bf12be9203e2fa4bffb00199d0e854ded15",
+        "evaluate.py": "4716dfef58bbdbe22f903fe20956c84422c9e96863f50d41bc9aefae3cff96f5",
+        "input/E1.md": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+        "input/README.md": "4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77",
+        "inspector.py": "8a209c0f672864a9f902c7a86e227bdbf0cb9de1696a5093f6de5d80948b7c38",
+        "prompt.md": "df6180cbe0ef1a14781dbf0b50e0d29490876cf466dc39a865f24ea9e64825d0",
+        "protocol.py": "78b69d5316f2cdf8c9723c4a920d2bb41fd0bfc399958614de7dec37c3d0b2fd",
+        "test_evaluation.py": "3fb599ccf900849811d09016a3b698ed46350f36b85af4b7a5b3f930308ed0bc",
+        "tests/fixtures/reference.py": "4f7714c157a25dee851d0b7f78aba2046d18f12451f01a1d1893c5c397c1a4e7",
+        "validation/cli-invalid.json": "b7c86a11cd4c0028e57ca6571bc12c762189a6505eed34867343d063bb0aabbd",
+        "validation/cli-review-required.json": "18870e9a4c94d09f2ba0ccf4874a04d82f5008207bf04a0a09d7dd6aa28ab2ed",
+        "validation/cli-unavailable.json": "88a913648330892e535db897ec1a6e0c1a133fcce0ab349e5d9d0c027a0235cc",
+        "validation/summary.json": "fd53ae4793bec83a9e18fda9b77dcde49f4e797e6d19dc219a6319daef7b5b73",
+        "validation/unittest.txt": "35fb353a2ecbed2cedcb880c98187aaaae5e1f6764596e2fc8c11b997a9b972f",
+        "worker.py": "b8e6635f76598eaf4d86abe2202f421562999f7c92d77a96af9c182010f549dc"
+      },
+      "decisions": {
+        "A2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "B2": "fail",
+        "C1": "pass",
+        "C2": "pass",
+        "D1": "fail",
+        "D2": "fail",
+        "E1": "pass",
+        "E2": "pass",
+        "G1": "pass"
+      }
+    },
+    "selected_hit_clean_staging/gpt-6.1-sol/H1": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        ".gitignore": "5695f276ec2794a4c03b70be166a3fe44f5207c1dc3d61660d02d841de5792a7",
+        "README.md": "899461ef630948731e71b8a9494039811f459d2011b2e3f4c102629a451dd705",
+        "REVIEW-RUBRIC.md": "3e9168de79a9290e15bdde1b2afd64c36c6d29d9f3f89efd09ab73a464bb3fab",
+        "VALIDATION.md": "2cace2ef0931542070cbd1d9878151010cb68f9e5efd835994e092ba9b20fb66",
+        "e1eval/__init__.py": "9f59b696a1bd40601e4d3d5f9c9de71267fef2fb012e864cc525d2b759acfb68",
+        "e1eval/inspect_db.py": "91d7dfb88007cc518389fa64164250ff2c333d10a88dbca5ef1693a9778e5efa",
+        "e1eval/oracle.py": "59f7b2989bdb97e46c8c016b4409ca9cf488486afd2fee5170278f414bf52701",
+        "e1eval/runner.py": "e69bb38847a746e208fea9f071605017e3694e50f49a856644ba476f637d7c8b",
+        "e1eval/worker.py": "876304677eb929bb49f14489e574d1eff49015ca7232ac1ac6c3dceb686761dd",
+        "evaluator.py": "6a697417090c7b7d5c00d2161057002924a3e95957bf15256801c7b393e517d6",
+        "input/E1.md": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+        "input/README.md": "4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77",
+        "prompt.md": "df6180cbe0ef1a14781dbf0b50e0d29490876cf466dc39a865f24ea9e64825d0",
+        "staged.py": "023e61c8ce8e0da20fc89ce95e1f78540f47c694e3083f0f5293ea445fa8277d",
+        "tests/fixtures/reference_explanation.md": "06e8a907254c7c5b97ea3187096477d9ef05cad470b78d082b99d41a64a59636",
+        "tests/fixtures/reference_service.py": "d1b502efb608da0179b7a7eebf20a4f8306fb6c290e02bfdd039a4b7c406863c",
+        "tests/test_evaluation.py": "a7d3dcca5a4419cf98107f546e4369786b84f3fc7b3195e4b7831456b16f5766",
+        "tools/make_control.py": "46d2a8d2c3e56cdf10de25810f5ce7a49973409fa792dd0993ffd41aedc5d214",
+        "validation/case-0.json": "2ef8769afc8aedc7d82919349e892a9cadd03b65dd606cab2618df65ff5d1633",
+        "validation/case-1.json": "7e80958c6d5188ba4039dd7bab8b93708d7f5b24bd90bf0459a96b2a1555d81a",
+        "validation/cli-smoke.json": "89151cfbeb3795dc73525eb5f58583c421a51418a6dea42a09335792d5a69d40",
+        "validation/reference-control.json": "c0ed3c22614133db7503cd79d347697d42963ef4a2b79052bb0bf7e7ab2bc463",
+        "validation/reference-report.json": "6d170f07246f47064dda490e669a1cd1377381cb9b550035dfb315fe93fb4581",
+        "validation/review-template.json": "fa4f3c8bd889aff7bf02e951fe868c0d0acfa01ce7142e6003b99505b988d458",
+        "validation/staged-report.json": "5a62f62a9f9f9f79c995dcea9a2e2e31dd4b7dac17a38b4f6c54a5f6e93393dc",
+        "validation/unit-tests.txt": "de0aaf28151eb566cff56ac8f4309749de4dac423ae96d94d6549825210a3282"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "B2": "fail",
+        "C1": "pass",
+        "C2": "pass",
+        "D1": "pass",
+        "D2": "fail",
+        "E1": "pass",
+        "E2": "pass",
+        "G1": "pass"
+      }
+    },
+    "selected_hit_clean_staging/gpt-6-astra/H6": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        "evaluation/README.md": "778007b7b7041aa1af5b2e5cd94cd47c1141de9626ebb76460704928b16c9296",
+        "evaluation/VALIDATION.md": "08a43f967a5b3548e0b80b6e07adaf27bc099f0fe30a62615058f000db59b410",
+        "evaluation/evaluate.py": "9b174107fee4c95a1a6db3c63ca9ad6eecbcfef2fc92de4eeaaadff24eadb99a",
+        "evaluation/test_evaluation.py": "4a03731d7e253abd907244294d4e54a6bc1300ad1618c1f96685ed8ef2b088af",
+        "input/task.txt": "a14f6d6510d66ed96ad0124d3563ac1c2ea02f9686399bb97324e1fc7c3811f5",
+        "input/workspace/README.md": "b62e2fa1926a5d39e749a09cae70ede342275855e4ca3f81318483c42c399cc7",
+        "input/workspace/example.json": "81e6c582cb892db6a2457cd88a005d45689a10835ff089041083eb3363ae1d62",
+        "input/workspace/input.schema.json": "22e4954dd62b1f6b7368d8d16875ebdfcda0dd5ae9c973bc21f2b7e1b445ada5",
+        "input/workspace/output.schema.json": "1b02c59bce9547a3240d0fb6b32d118e11e34d862597eb2e80013c7001c5b4cf",
+        "prompt.md": "b445955764503d0f388b8471f5740124bcc06bd9f00014f071735cd031a05b4d"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "B2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "C2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "D1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "C1": "pass",
+        "D2": "fail",
+        "E1": "fail",
+        "E2": "pass",
+        "G1": "pass",
+        "H1": "pass"
+      }
+    },
+    "selected_hit_coached_staging/gpt-6.1-sol/H1": {
+      "kind": "human",
+      "reviewer": "",
+      "completed": false,
+      "owner_qualification_complete": false,
+      "package_hashes": {
+        ".e1-clean-cgsxcn9t/candidate.py": "bbf8c7db1b8d4a1b695b63ce5d9f05f24ef74558aa55543426eeff1b60967c11",
+        ".e1-clean-cgsxcn9t/trial-0/ledger.db": "23edb3c9eaef26dd3e508b2ea155592d82ac2e54552ae5fa2b8e0cab8a5f0251",
+        ".e1-clean-cgsxcn9t/trial-1/ledger.db": "7835ecf90c9765b6ac8ace264397e3219de1d18017b311195027a540e84a1431",
+        ".e1-clean-cgsxcn9t/trial-2/ledger.db": "e2e6014dd7fcc036d8d8ab18b64713e005b120a8849dc1eded5db4dca2d108b1",
+        ".e1-test-00fs7osk/candidate.py": "bbf8c7db1b8d4a1b695b63ce5d9f05f24ef74558aa55543426eeff1b60967c11",
+        ".e1-test-00fs7osk/state/ledger.db": "ac91f6c34c5f45d33637e771d644b8caf65d7007bb1826bc8f76d5189fa3e92e",
+        ".e1-test-6u9zdq11/candidate.py": "bbf8c7db1b8d4a1b695b63ce5d9f05f24ef74558aa55543426eeff1b60967c11",
+        ".e1-test-6u9zdq11/state/ledger.db": "1ac9210d0ac0daa498c8c5d17b07e9d9a0bd79ea6ae5de73b0fcb6cf5daa5d7b",
+        ".e1-test-pkwy2sr2/candidate.py": "bbf8c7db1b8d4a1b695b63ce5d9f05f24ef74558aa55543426eeff1b60967c11",
+        ".e1-test-pkwy2sr2/state/ledger.db": "3b7975e016743f361b1751f0438c07dfea66074e0b18cafb95280014367ad8c0",
+        "CONTROLS.md": "f400419b8096bf054e649a8d31d44edddd1a904a0d06c88f9d01263c63144a7b",
+        "README.md": "44251ba01972a7f4fb9c254be62b95d0335899410e30c5c210915d8dd845101e",
+        "REVIEW-RUBRIC.md": "b8988f52446a2b12495815f14499f697d2a05cb1c980dbb7832ceda515e5cd8b",
+        "TASK.md": "f3f287c91f2a12cf4dd2e766865ca826aa75bf83ee20d9f942e7924c6eb0a132",
+        "VERIFICATION.md": "0abc3040486877348f74df38c179752a65d8a37ca09be335bbd8b8415fc9e6c0",
+        "clean-verification.json": "f3839d79721acf713d7e62e85ea629e3f029d9aa008c8460b5adb593b83cbf9c",
+        "e1-eval.zip": "c56adf750228dd517c86c99d22bbf3e55bc569a98ba2a48606de3f30e74fefdf",
+        "e1eval/__init__.py": "2ebbe325fa4cee935f5fae6235c1f7eb6168f443aef35538b14dac9123f4c546",
+        "e1eval/__main__.py": "3c8868ac54d90ab5af1bce0b0286d573d0e6af5f46b0d3957fe19188f7fe8569",
+        "e1eval/conditional.py": "7b8bd2e61bb23958786c218f0b0de821b84905f9a1fc9535f01cc0ffcc2912bd",
+        "e1eval/controls.py": "7c7471857f31472c40ea972703313f9119411e7143ab2cb0602ff2cb4c33481f",
+        "e1eval/grader.py": "efd43d2d455a3d5e6aa5070aa13ce7860ab4866bd19eec9e436a091e54b52de6",
+        "e1eval/oracle.py": "564bbdcc31ca6c8c7abdd80cb8c829c0884ed188404ba42a5d84e05a24e9ffbc",
+        "e1eval/reference.py": "4335270cd1b5447d31ee00c7d9c5106f3d304ef7b4e83f202554e8a0813470d4",
+        "e1eval/report.schema.json": "e2f8da5842f11d0eef1b6af78704aab4447f8e63bb4279b39826ef1620dc389e",
+        "e1eval/runner.py": "2141cad6174926601205a9172a61587b1c9fbc434fc201d7c1828c90bc7e7e30",
+        "e1eval/schema.py": "f559c8ae612b9b9e862994f2ed4bb9fc250a214b3895c1a274e7ff7fbbb58c8a",
+        "e1eval/test_eval.py": "969eca83a63b6207df8613bd2b078746ca08d9aa56d441c2bdb2548921cf71a0",
+        "e1eval/verify.py": "49cfdf869ba1476da65460b392b402f2fe0b81f88cae048fa22b6515115ae3c0",
+        "e1eval/worker.py": "611ba65f5fb9c0a1ef317f25a55abd050e5ff5a9d443f6a30f4e122d209ccd15",
+        "input/E1.md": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+        "input/README.md": "4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77",
+        "prompt.md": "fc471c01bb862afd9a3b7541bb651ee4d87ae258d5916c1510daac3be38273f3",
+        "tools/clean_check.py": "a5c4af4c067fe9912a2b0f238042daaa6351712873ef32a319e663a9e09e6618",
+        "tools/package.py": "ffc09e154dff8a3d38d6529ef31150c3473ce9d9692bd5ed4ad6d0db1cd3fe17",
+        "verification.json": "1ef51f451501c0fd5b2084bbcc348c1f2e55d30495118149b5e450c4d8991abe"
+      },
+      "decisions": {
+        "B1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "B2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "F2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "G2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H1": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        },
+        "H2": {
+          "status": "unknown",
+          "rationale": "",
+          "evidence": []
+        }
+      },
+      "existing_executed_findings": {
+        "A1": "pass",
+        "A2": "pass",
+        "C1": "pass",
+        "C2": "pass",
+        "D1": "pass",
+        "D2": "pass",
+        "E1": "pass",
+        "E2": "pass",
+        "G1": "pass"
+      }
+    }
+  },
+  "instruction": "Fill only judgments actually reviewed. Bind every decision to existing evidence hashes. Do not silently override executed findings. No form authenticates identity or expertise."
+}

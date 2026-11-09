@@ -1,0 +1,41 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 0.746532932998889,
+  "stdout": "{\"value\": true}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-a6a0a55cb54c4fd9b5dbaae66e1b5849",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/grades/meta-eval-final-calibration/fixtures/always_pass,target=/subject,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import importlib.util,json\ns=importlib.util.spec_from_file_location('subject_module','/subject/grader.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);value=m.grade({'a': 2, 'b': 3, 'answer': 6});print(json.dumps({'value':value}))"
+  ],
+  "decoded": {
+    "value": true
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "schema_version": "meta-eval-executable-calibration/v2",
+  "model_calls": 0,
+  "all_passed": true,
+  "fixtures": [
+    {
+      "fixture": "good_add",
+      "expected_target_failure": null,
+      "observed_failures": [],
+      "score_interval": [
+        100.0,
+        100.0
+      ],
+      "calibration_passed": true
+    },
+    {
+      "fixture": "good_inverse",
+      "expected_target_failure": null,
+      "observed_failures": [],
+      "score_interval": [
+        100.0,
+        100.0
+      ],
+      "calibration_passed": true
+    },
+    {
+      "fixture": "always_pass",
+      "expected_target_failure": "E1",
+      "observed_failures": [
+        "E1",
+        "E2",
+        "G2",
+        "H1",
+        "H2"
+      ],
+      "score_interval": [
+        72.5,
+        72.5
+      ],
+      "calibration_passed": true
+    },
+    {
+      "fixture": "always_fail",
+      "expected_target_failure": "D1",
+      "observed_failures": [
+        "D1",
+        "D2",
+        "G2",
+        "H1",
+        "H2"
+      ],
+      "score_interval": [
+        72.5,
+        72.5
+      ],
+      "calibration_passed": true
+    },
+    {
+      "fixture": "wrong_reference",
+      "expected_target_failure": "C1",
+      "observed_failures": [
+        "C1",
+        "C2"
+      ],
+      "score_interval": [
+        85.0,
+        85.0
+      ],
+      "calibration_passed": true
+    },
+    {
+      "fixture": "common_mode_bug",
+      "expected_target_failure": "C1",
+      "observed_failures": [
+        "C1",
+        "C2",
+        "D1",
+        "D2",
+        "E1",
+        "E2",
+        "G2",
+        "H1",
+        "H2"
+      ],
+      "score_interval": [
+        37.5,
+        37.5
+      ],
+      "calibration_passed": true
+    },
+    {
+      "fixture": "hidden_rule",
+      "expected_target_failure": "B2",
+      "observed_failures": [
+        "B2",
+        "D1",
+        "D2",
+        "G2",
+        "H1",
+        "H2"
+      ],
+      "score_interval": [
+        65.0,
+        65.0
+      ],
+      "calibration_passed": true
+    },
+    {
+      "fixture": "scope_deleted",
+      "expected_target_failure": "B1",
+      "observed_failures": [
+        "B1"
+      ],
+      "score_interval": [
+        92.5,
+        92.5
+      ],
+      "calibration_passed": true
+    },
+    {
+      "fixture": "fake_runner",
+      "expected_target_failure": "A2",
+      "observed_failures": [
+        "A2"
+      ],
+      "score_interval": [
+        95.0,
+        95.0
+      ],
+      "calibration_passed": true
+    },
+    {
+      "fixture": "false_measurement",
+      "expected_target_failure": "F2",
+      "observed_failures": [
+        "F2"
+      ],
+      "score_interval": [
+        95.0,
+        95.0
+      ],
+      "calibration_passed": true
+    },
+    {
+      "fixture": "false_report",
+      "expected_target_failure": "H1",
+      "observed_failures": [
+        "H1"
+      ],
+      "score_interval": [
+        97.5,
+        97.5
+      ],
+      "calibration_passed": true
+    },
+    {
+      "fixture": "outer_frame_tamper",
+      "expected_target_failure": "E1",
+      "observed_failures": [
+        "E1",
+        "E2",
+        "G2",
+        "H1",
+        "H2"
+      ],
+      "score_interval": [
+        72.5,
+        72.5
+      ],
+      "calibration_passed": true
+    }
+  ],
+  "domain_control_qualification": [
+    {
+      "task": "H1",
+      "control": "owner/cases/H1/correct_accepted.json",
+      "expected_pass": true,
+      "observed_pass": true,
+      "qualified": true
+    },
+    {
+      "task": "H1",
+      "control": "meta_eval/controls/H1/wrong_B_reply_v2.json",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true
+    },
+    {
+      "task": "H6",
+      "control": "owner/cases/H6/saved_luna_decimal.json",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true
+    }
+  ],
+  "comparison_boundary": "Owner expected values and aggregate score checks remain in host process. Subject modules receive one candidate/input at a time in isolated child containers.",
+  "scope": "Framework and finite detector calibration, not full seven-domain oracle or human-review certification."
+}

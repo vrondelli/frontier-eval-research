@@ -1,0 +1,195 @@
+{
+  "schema_version": "ferry-evaluation-validation/v1",
+  "python": "3.14.2 (main, Dec 17 2025, 21:10:36) [MSC v.1944 64 bit (AMD64)]",
+  "self_checks_run": 10,
+  "passed": true,
+  "behavioral_cases": 507,
+  "mutations": [
+    {
+      "mutation": "trim_strings",
+      "killed_by": "pass_invalid_15",
+      "reason": "AssertionError: {'total_minor': 1898, 'billed': 1, 'excluded': [], 'fares[60 chars]1898} != {'total_minor': 0, 'billed': 0, 'excluded': ['p'], 'fares[35 chars]': 0}\n- {'billed': 1,\n?            ^\n\n+ {'billed': 0,\n?            ^\n\n-  'excluded': [],\n+  'excluded': ['p'],\n?               +++\n\n-  'fares"
+    },
+    {
+      "mutation": "unicode_digits",
+      "killed_by": "pass_invalid_20",
+      "reason": "AssertionError: {'total_minor': 1898, 'billed': 1, 'excluded': [], 'fares[60 chars]1898} != {'total_minor': 0, 'billed': 0, 'excluded': ['p'], 'fares[35 chars]': 0}\n- {'billed': 1,\n?            ^\n\n+ {'billed': 0,\n?            ^\n\n-  'excluded': [],\n+  'excluded': ['p'],\n?               +++\n\n-  'fares"
+    },
+    {
+      "mutation": "optional_hyphen",
+      "killed_by": "pass_invalid_04",
+      "reason": "AssertionError: {'total_minor': 1898, 'billed': 1, 'excluded': [], 'fares[60 chars]1898} != {'total_minor': 0, 'billed': 0, 'excluded': ['p'], 'fares[35 chars]': 0}\n- {'billed': 1,\n?            ^\n\n+ {'billed': 0,\n?            ^\n\n-  'excluded': [],\n+  'excluded': ['p'],\n?               +++\n\n-  'fares"
+    },
+    {
+      "mutation": "dollar_anchor",
+      "killed_by": "pass_invalid_17",
+      "reason": "AssertionError: {'total_minor': 1898, 'billed': 1, 'excluded': [], 'fares[60 chars]1898} != {'total_minor': 0, 'billed': 0, 'excluded': ['p'], 'fares[35 chars]': 0}\n- {'billed': 1,\n?            ^\n\n+ {'billed': 0,\n?            ^\n\n-  'excluded': [],\n+  'excluded': ['p'],\n?               +++\n\n-  'fares"
+    },
+    {
+      "mutation": "zero_fare",
+      "killed_by": "fare_invalid_27",
+      "reason": "AssertionError: {'total_minor': 1917, 'billed': 1, 'excluded': [], 'fares[60 chars]1917} != {'total_minor': 0, 'billed': 0, 'excluded': ['p'], 'fares[35 chars]': 0}\n- {'billed': 1,\n?            ^\n\n+ {'billed': 0,\n?            ^\n\n-  'excluded': [],\n+  'excluded': ['p'],\n?               +++\n\n-  'fares"
+    },
+    {
+      "mutation": "zero_baggage",
+      "killed_by": "baggage_invalid_27",
+      "reason": "AssertionError: {'total_minor': 1917, 'billed': 1, 'excluded': [], 'fares[60 chars]1917} != {'total_minor': 0, 'billed': 0, 'excluded': ['p'], 'fares[35 chars]': 0}\n- {'billed': 1,\n?            ^\n\n+ {'billed': 0,\n?            ^\n\n-  'excluded': [],\n+  'excluded': ['p'],\n?               +++\n\n-  'fares"
+    },
+    {
+      "mutation": "reject_negative_voucher",
+      "killed_by": "voucher_valid_06",
+      "reason": "AssertionError: {'total_minor': 0, 'billed': 0, 'excluded': ['p'], 'fares[35 chars]': 0} != {'total_minor': 3211, 'billed': 1, 'excluded': [], 'fares[60 chars]3211}\n- {'billed': 0,\n?            ^\n\n+ {'billed': 1,\n?            ^\n\n-  'excluded': ['p'],\n?               ---\n\n+  'excluded': [],\n-  'fares"
+    },
+    {
+      "mutation": "exclusive_cutoff",
+      "killed_by": "hand_all_classes",
+      "reason": "AssertionError: {'total_minor': 0, 'billed': 0, 'excluded': ['youth', 'ad[72 chars]': 0} != {'total_minor': 17022, 'billed': 4, 'excluded': [], 'fare[167 chars]4256}\n- {'billed': 0,\n?            ^\n\n+ {'billed': 4,\n?            ^\n\n-  'excluded': ['youth', 'adult', 'resident', 'priority'],\n-  'fares':"
+    },
+    {
+      "mutation": "calendar_validation",
+      "killed_by": "date_valid_00",
+      "reason": "AssertionError: {'total_minor': 0, 'billed': 0, 'excluded': ['p'], 'fares[35 chars]': 0} != {'total_minor': 3086, 'billed': 1, 'excluded': [], 'fares[60 chars]3086}\n- {'billed': 0,\n?            ^\n\n+ {'billed': 1,\n?            ^\n\n-  'excluded': ['p'],\n?               ---\n\n+  'excluded': [],\n-  'fares"
+    },
+    {
+      "mutation": "date_component_comparison",
+      "killed_by": "date_valid_01",
+      "reason": "AssertionError: {'total_minor': 0, 'billed': 0, 'excluded': ['p'], 'fares[35 chars]': 0} != {'total_minor': 3086, 'billed': 1, 'excluded': [], 'fares[60 chars]3086}\n- {'billed': 0,\n?            ^\n\n+ {'billed': 1,\n?            ^\n\n-  'excluded': ['p'],\n?               ---\n\n+  'excluded': [],\n-  'fares"
+    },
+    {
+      "mutation": "class_boundary",
+      "killed_by": "hand_small_youth",
+      "reason": "AssertionError: {'total_minor': 762, 'billed': 1, 'excluded': [], 'fares'[56 chars] 762} != {'total_minor': 542, 'billed': 1, 'excluded': [], 'fares'[56 chars] 542}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'p': 762},\n?                 ^^\n\n+  'fares': {'p': 542},\n?                 ^^\n\n-  'mean"
+    },
+    {
+      "mutation": "omit_baggage",
+      "killed_by": "hand_all_classes",
+      "reason": "AssertionError: {'total_minor': 10791, 'billed': 4, 'excluded': [], 'fares[166 chars]2698} != {'total_minor': 17022, 'billed': 4, 'excluded': [], 'fares[166 chars]4256}\nDiff is 1080 characters long. Set self.maxDiff to None to see it."
+    },
+    {
+      "mutation": "uncapped_rebate",
+      "killed_by": "charge_10_00000",
+      "reason": "AssertionError: {'total_minor': 1900, 'billed': 1, 'excluded': [], 'fares': [57 chars]1900} != {'total_minor': 1902, 'billed': 1, 'excluded': [], 'fares': [57 chars]1902}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'p': 1900},\n?                    ^\n\n+  'fares': {'p': 1902},\n?                   "
+    },
+    {
+      "mutation": "rebate_per_component",
+      "killed_by": "charge_10_00000",
+      "reason": "AssertionError: {'total_minor': 1900, 'billed': 1, 'excluded': [], 'fares': [57 chars]1900} != {'total_minor': 1902, 'billed': 1, 'excluded': [], 'fares': [57 chars]1902}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'p': 1900},\n?                    ^\n\n+  'fares': {'p': 1902},\n?                   "
+    },
+    {
+      "mutation": "rebate_rounded",
+      "killed_by": "seeded_batch_02",
+      "reason": "AssertionError: {'total_minor': 88845, 'billed': 13, 'excluded': ['b2-3', 'b2[309 chars]6834} != {'total_minor': 88842, 'billed': 13, 'excluded': ['b2-3', 'b2[309 chars]6834}\nDiff is 858 characters long. Set self.maxDiff to None to see it."
+    },
+    {
+      "mutation": "quarter_nearest",
+      "killed_by": "fare_valid_02",
+      "reason": "AssertionError: {'total_minor': 1917, 'billed': 1, 'excluded': [], 'fares':[58 chars]1917} != {'total_minor': 1921, 'billed': 1, 'excluded': [], 'fares':[58 chars]1921}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'p': 1917},\n?                    -\n\n+  'fares': {'p': 1921},\n?                   +\n"
+    },
+    {
+      "mutation": "exact_quarter_advanced",
+      "killed_by": "hand_all_classes",
+      "reason": "AssertionError: {'total_minor': 17039, 'billed': 4, 'excluded': [], 'fares':[164 chars]4260} != {'total_minor': 17022, 'billed': 4, 'excluded': [], 'fares':[164 chars]4256}\nDiff is 1082 characters long. Set self.maxDiff to None to see it."
+    },
+    {
+      "mutation": "no_quarter_rounding",
+      "killed_by": "fare_valid_00",
+      "reason": "AssertionError: {'total_minor': 1929, 'billed': 1, 'excluded': [], 'fares':[58 chars]1929} != {'total_minor': 1930, 'billed': 1, 'excluded': [], 'fares':[58 chars]1930}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'p': 1929},\n?                   ^^\n\n+  'fares': {'p': 1930},\n?                   ^^"
+    },
+    {
+      "mutation": "omit_handling",
+      "killed_by": "hand_all_classes",
+      "reason": "AssertionError: {'total_minor': 16166, 'billed': 4, 'excluded': [], 'fares[166 chars]4042} != {'total_minor': 17022, 'billed': 4, 'excluded': [], 'fares[166 chars]4256}\nDiff is 1081 characters long. Set self.maxDiff to None to see it."
+    },
+    {
+      "mutation": "early_rounding",
+      "killed_by": "charge_02_50000",
+      "reason": "AssertionError: {'total_minor': 1532, 'billed': 1, 'excluded': [], 'fares': [60 chars]1532} != {'total_minor': 1533, 'billed': 1, 'excluded': [], 'fares': [60 chars]1533}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'p': 1532},\n?                    ^\n\n+  'fares': {'p': 1533},\n?                   "
+    },
+    {
+      "mutation": "priority_surcharged",
+      "killed_by": "hand_all_classes",
+      "reason": "AssertionError: {'total_minor': 17064, 'billed': 4, 'excluded': [], 'fares':[164 chars]4266} != {'total_minor': 17022, 'billed': 4, 'excluded': [], 'fares':[164 chars]4256}\nDiff is 717 characters long. Set self.maxDiff to None to see it."
+    },
+    {
+      "mutation": "voucher_before_surcharge",
+      "killed_by": "voucher_valid_00",
+      "reason": "AssertionError: {'total_minor': 2979, 'billed': 1, 'excluded': [], 'fares':[58 chars]2979} != {'total_minor': 2986, 'billed': 1, 'excluded': [], 'fares':[58 chars]2986}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'p': 2979},\n?                   ^^\n\n+  'fares': {'p': 2986},\n?                   ^^"
+    },
+    {
+      "mutation": "voucher_added",
+      "killed_by": "voucher_valid_00",
+      "reason": "AssertionError: {'total_minor': 3186, 'billed': 1, 'excluded': [], 'fares[60 chars]3186} != {'total_minor': 2986, 'billed': 1, 'excluded': [], 'fares[60 chars]2986}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'p': 3186},\n?                 ^^\n\n+  'fares': {'p': 2986},\n?                 ^^\n\n-  'me"
+    },
+    {
+      "mutation": "negative_clamped",
+      "killed_by": "tie_00000_negative",
+      "reason": "AssertionError: {'total_minor': 0, 'billed': 1, 'excluded': [], 'fares': [48 chars]': 0} != {'total_minor': -101, 'billed': 1, 'excluded': [], 'fares[60 chars]-101}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'p': 0},\n+  'fares': {'p': -101},\n?                 ++ +\n\n-  'mean_minor': 0,\n+  'mean_"
+    },
+    {
+      "mutation": "half_even",
+      "killed_by": "tie_00000_positive",
+      "reason": "AssertionError: {'total_minor': 100, 'billed': 1, 'excluded': [], 'fares': [54 chars] 100} != {'total_minor': 101, 'billed': 1, 'excluded': [], 'fares': [54 chars] 101}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'p': 100},\n?                   ^\n\n+  'fares': {'p': 101},\n?                   ^\n\n- "
+    },
+    {
+      "mutation": "binary_float",
+      "killed_by": "charge_11_00000",
+      "reason": "AssertionError: {'tot[22 chars]000003810693143828836516888576, 'billed': 1, '[192 chars]8576} != {'tot[22 chars]000000000000000000000000000400, 'billed': 1, '[192 chars]0400}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'p': 74900000000000003810693143828836516888576},\n-  'mean_minor': 74900000000"
+    },
+    {
+      "mutation": "truncate_minor",
+      "killed_by": "hand_all_classes",
+      "reason": "AssertionError: {'total_minor': 17021, 'billed': 4, 'excluded': [], 'fares': [163 chars]4255} != {'total_minor': 17022, 'billed': 4, 'excluded': [], 'fares': [163 chars]4256}\nDiff is 674 characters long. Set self.maxDiff to None to see it."
+    },
+    {
+      "mutation": "decimal_context_loss",
+      "killed_by": "charge_04_00000",
+      "reason": "AssertionError: {'total_minor': 705, 'billed': 1, 'excluded': [], 'fares': [54 chars] 705} != {'total_minor': 707, 'billed': 1, 'excluded': [], 'fares': [54 chars] 707}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'p': 705},\n?                   ^\n\n+  'fares': {'p': 707},\n?                   ^\n\n- "
+    },
+    {
+      "mutation": "excluded_in_mean",
+      "killed_by": "mixed_order_identifiers",
+      "reason": "AssertionError: {'tot[175 chars]-6914, 'priority': 7268, 'resident': 4770}, 'mean_minor': 1003} != {'tot[175 chars]-6914, 'priority': 7268, 'resident': 4770}, 'mean_minor': 1756}\n  {'billed': 4,\n   'excluded': ['z', 'a', 'bad-many'],\n   'fares': {'': 1898, 'None': 7268, 'total_minor': 4770, '\u00e9/\u6e21\u8239': "
+    },
+    {
+      "mutation": "mean_half_even",
+      "killed_by": "positive_mean_tie",
+      "reason": "AssertionError: {'tot[60 chars]100, '1': 101}, 'per_class': {'youth': 201}, 'mean_minor': 100} != {'tot[60 chars]100, '1': 101}, 'per_class': {'youth': 201}, 'mean_minor': 101}\n  {'billed': 2,\n   'excluded': [],\n   'fares': {'0': 100, '1': 101},\n-  'mean_minor': 100,\n?                  ^\n\n+  'mean_m"
+    },
+    {
+      "mutation": "mean_truncated",
+      "killed_by": "hand_all_classes",
+      "reason": "AssertionError: {'tot[161 chars] 3086, 'resident': 4770, 'priority': 7268}, 'mean_minor': 4255} != {'tot[161 chars] 3086, 'resident': 4770, 'priority': 7268}, 'mean_minor': 4256}\n  {'billed': 4,\n   'excluded': [],\n   'fares': {'adult': 3086, 'priority': 7268, 'resident': 4770, 'youth': 1898},\n-  'me"
+    },
+    {
+      "mutation": "sort_exclusions",
+      "killed_by": "mixed_order_identifiers",
+      "reason": "AssertionError: {'tot[39 chars]': ['a', 'bad-many', 'z'], 'fares': {'': 1898,[148 chars]1756} != {'tot[39 chars]': ['z', 'a', 'bad-many'], 'fares': {'': 1898,[148 chars]1756}\n  {'billed': 4,\n-  'excluded': ['a', 'bad-many', 'z'],\n?                              -----\n\n+  'excluded': ['z', 'a', 'bad-m"
+    },
+    {
+      "mutation": "duplicate_exclusion",
+      "killed_by": "hand_quarter_rounding",
+      "reason": "AssertionError: {'tot[34 chars]ed': ['p', 'p'], 'fares': {}, 'per_class': {}, 'mean_minor': 0} != {'tot[34 chars]ed': ['p'], 'fares': {}, 'per_class': {}, 'mean_minor': 0}\n  {'billed': 0,\n-  'excluded': ['p', 'p'],\n?               -----\n\n+  'excluded': ['p'],\n   'fares': {},\n   'mean_minor': 0,\n   '"
+    },
+    {
+      "mutation": "all_class_keys",
+      "killed_by": "empty",
+      "reason": "AssertionError: {'tot[65 chars]s': {'youth': 0, 'adult': 0, 'resident': 0, 'p[25 chars]': 0} != {'tot[65 chars]s': {}, 'mean_minor': 0}\n  {'billed': 0,\n   'excluded': [],\n   'fares': {},\n   'mean_minor': 0,\n-  'per_class': {'adult': 0, 'priority': 0, 'resident': 0, 'youth': 0},\n+  'per_class': {},\n "
+    },
+    {
+      "mutation": "extra_key",
+      "killed_by": "empty",
+      "reason": "AssertionError: Items in the first set but not the second:\n'extra' : Exact top-level keys"
+    },
+    {
+      "mutation": "float_result",
+      "killed_by": "empty",
+      "reason": "AssertionError: <class 'float'> is not <class 'int'> : total_minor must be int, not bool/float/Decimal"
+    },
+    {
+      "mutation": "bool_result",
+      "killed_by": "empty",
+      "reason": "AssertionError: <class 'bool'> is not <class 'int'> : billed must be int, not bool/float/Decimal"
+    }
+  ],
+  "failures": []
+}

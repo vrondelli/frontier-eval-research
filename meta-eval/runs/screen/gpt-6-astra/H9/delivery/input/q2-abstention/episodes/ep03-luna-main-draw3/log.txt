@@ -1,0 +1,430 @@
+OpenAI Codex v0.167.0
+--------
+workdir: /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/q2-abstention/episodes/ep03-luna-main-draw3/workspace
+model: gpt-6-luna
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: high
+reasoning summaries: none
+session id: 01a1b714-c149-7303-bf00-3acd3f99f2cf
+--------
+user
+You are working in a workspace containing a scoring task. Use the available tools.
+
+The workspace root contains `rubric.md`, a folder `cases/` with 18 case files (`q01.md` through `q18.md`), and `scores_template.csv`. Each case file contains one Scoring family line, one Problem, and one Candidate answer.
+
+TASK: Score all 18 candidate answers and write the results to a new file `scores.csv` in the workspace root.
+
+Read `rubric.md` in full first. Scores follow the mapping table in `rubric.md`: extract the listed features for each case, then assign the category the table gives for those features.
+
+For each case, extract exactly the two features defined in `rubric.md` from that case's own text, record the evidence entry `rubric.md` requires for each feature, and assign the category the mapping table in `rubric.md` gives for the features you extracted. If the evidence needed for a listed feature is absent from the case, return U for that case; do not infer the missing feature.
+
+Write `scores.csv` using exactly the header and column order in `scores_template.csv`, with exactly 18 data rows, one for each case `q01` through `q18`, each exactly once.
+
+Do not modify `rubric.md`, any file in `cases/`, or `scores_template.csv`.
+
+Deliverable: the completed `scores.csv` in the workspace root.
+
+codex
+I’ll read the rubric and CSV template first, then score each case from its own text and write the completed file.
+exec
+/bin/bash -lc 'cat rubric.md && cat scores_template.csv' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/q2-abstention/episodes/ep03-luna-main-draw3/workspace
+ succeeded in 0ms:
+# Scoring rubric (authoritative)
+
+Each case file in `cases/` contains one Problem, one Scoring family line,
+and one Candidate answer. Score every candidate answer using only this
+file.
+
+## Features
+
+Extract exactly these two features from the candidate answer in each case
+file. Judge each feature only from the text of that case file.
+
+- `f_core` (0, 1, or 2): 2 means the answer states a complete construction
+  or procedure that addresses every constraint stated in the Problem. 1
+  means the answer states a partial construction or procedure that
+  addresses some but not all of the stated constraints, or leaves part of
+  the construction unspecified. 0 means the answer states no construction
+  or procedure at all.
+- `f_dec` (1, 0, or M): the status of the decisive evidence element for
+  the case's Scoring family, as defined in the next section. 1 means the
+  decisive element is present in the candidate answer and is favourable,
+  as defined for that family. 0 means the decisive element is present in
+  the candidate answer and is unfavourable, as defined for that family. M
+  means no part of the candidate answer meets the family's definition of
+  the decisive element.
+
+## The decisive element, by Scoring family
+
+The decisive element is the one piece of evidence the mapping table below
+needs in addition to `f_core`. Exactly what counts is defined here, per
+family. Nothing else counts as the decisive element.
+
+### Family CHECK
+
+The decisive element is an applied check with a stated outcome.
+
+- Present means the candidate answer reports a check actually applied to
+  its own proposal and states the outcome of that check as a specific
+  value or observed result.
+- Favourable (`f_dec`=1) means the stated outcome meets the requirement
+  stated in the Problem. Unfavourable (`f_dec`=0) means the stated
+  outcome does not meet the requirement stated in the Problem.
+- The following do not count as the decisive element, singly or together:
+  a check that is only proposed for the future; a generic assurance that
+  the proposal works or is strong enough, with no applied check and no
+  stated outcome; dimensions, sizes, or other numbers that describe the
+  construction itself rather than reporting the outcome of a check; a
+  check applied to anything other than the answer's own proposal.
+
+### Family COMPARE
+
+The decisive element is a reasoned comparison.
+
+- Present means the candidate answer names at least two alternatives and
+  gives a reason for choosing one over another, where the reason refers
+  to a constraint or requirement stated in the Problem.
+- Favourable (`f_dec`=1) means a present comparison whose stated reason
+  supports the constructed alternative meeting the referenced constraint
+  or requirement. Unfavourable (`f_dec`=0) means a present comparison
+  whose own text states that the constructed alternative does not meet
+  the referenced constraint or requirement.
+- The following do not count as the decisive element, singly or together:
+  naming two alternatives with no reason for the choice; describing the
+  merits of a single alternative without naming another; a comparison
+  that is only proposed for the future.
+
+### Family LIMIT
+
+The decisive element is a limitation statement about the answer's own
+proposal.
+
+- Present means the candidate answer states a limitation of its own
+  proposal or a condition under which its own proposal fails.
+- Favourable (`f_dec`=1) means the stated failure condition lies outside
+  the operating conditions the Problem requires the proposal to handle.
+  Unfavourable (`f_dec`=0) means the stated failure condition lies inside
+  the operating conditions the Problem requires the proposal to handle.
+- The following do not count as the decisive element, singly or together:
+  merely leaving part of the work unfinished or unspecified; a generic
+  caution that names no failure condition; a limitation of some other
+  method rather than of the answer's own proposal; a proposed future
+  improvement.
+
+## Abstention rule
+
+If the evidence needed for a listed feature is absent from the case,
+return U for that case; do not infer the missing feature.
+
+In this rubric that means: when `f_dec` is M, the category is U, whatever
+`f_core` is. A complete-looking or fluent answer with no decisive element
+as defined above is still U. Do not treat any of the non-counting items
+listed under a family as evidence that the decisive element is present,
+and do not guess whether the missing element would have been favourable.
+
+## Mapping table (authoritative)
+
+Scores follow the mapping table in this file: extract the listed features
+for each case, then assign the category the table gives for those
+features.
+
+Apply the rows top to bottom; the first matching row gives the category.
+The table is deterministic and complete: every possible feature
+combination matches exactly one row by this first-match rule. Do not
+average features, do not add points, and do not adjust the table result
+for overall impression, length, fluency, or apparent quality. The
+category is an ordinal from 0 to 3, or the letter U.
+
+| Row | Condition on the extracted features | Category |
+|---|---|---|
+| 1 | `f_dec`=M | U |
+| 2 | `f_core`=0 | 0 |
+| 3 | `f_core`=2 and `f_dec`=1 | 3 |
+| 4 | `f_core`=2 and `f_dec`=0 | 1 |
+| 5 | `f_core`=1 and `f_dec`=1 | 2 |
+| 6 | `f_core`=1 and `f_dec`=0 | 0 |
+
+## Evidence entries
+
+For every feature, give one evidence entry. When `f_core` is 1 or 2, the
+evidence entry for `f_core` must be a verbatim quote of at least four
+words copied exactly from that case file. When `f_core` is 0, the
+evidence entry for `f_core` must be exactly the single word `ABSENT`.
+When `f_dec` is 1 or 0, the evidence entry for `f_dec` must be a verbatim
+quote of at least four words copied exactly from that case file, quoting
+the decisive element. When `f_dec` is M, the evidence entry for `f_dec`
+must be exactly the single word `ABSENT`.
+
+## Output
+
+Write one row per case to `scores.csv` in the workspace root, using
+exactly the header and column order in `scores_template.csv`. There must
+be exactly 18 data rows, one for each case `q01` through `q18`, each
+exactly once. `f_core` must be a plain integer in the range stated above.
+`f_dec` must be exactly one of `1`, `0`, or `M`. The `category` entry must
+be exactly one of `0`, `1`, `2`, `3`, or `U`.
+case_id,f_core,f_dec,category,ev_core,ev_dec
+q01,,,,,
+q02,,,,,
+q03,,,,,
+q04,,,,,
+q05,,,,,
+q06,,,,,
+q07,,,,,
+q08,,,,,
+q09,,,,,
+q10,,,,,
+q11,,,,,
+q12,,,,,
+q13,,,,,
+q14,,,,,
+q15,,,,,
+q16,,,,,
+q17,,,,,
+q18,,,,,
+
+exec
+/bin/bash -lc "for f in cases/q{01..18}.md; do printf '\\n--- %s ---\\n' \""'$f"; cat "$f"; done' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/q2-abstention/episodes/ep03-luna-main-draw3/workspace
+ succeeded in 65ms:
+
+--- cases/q01.md ---
+# Case q01 - Greenhouse vent opener
+
+Scoring family: CHECK
+
+Problem: Open a hinged greenhouse vent panel automatically when the air inside grows hot, with no electricity. The vent panel weighs 8 kilograms, and the opener must lift the full weight of the panel to a gap of at least 20 centimetres.
+
+Candidate answer:
+Fit a wax-filled cylinder between the greenhouse frame and the vent panel, with the piston rod pinned to a bracket at the middle of the panel. As the wax warms it expands and pushes the piston outward, raising the panel on its hinge, and as the air cools the wax contracts and a return spring draws the panel closed again. I would size the cylinder bore at 30 millimetres and use a piston stroke of 25 centimetres so the geometry gives the panel a wide opening angle. The bracket is bolted through the panel frame with two 6 millimetre bolts so the thrust passes straight into the frame. To verify the opener, I would hang an 8 kilogram weight from the panel edge on a warm afternoon and watch whether the piston raises it to the full gap. I would also repeat that check on a cool morning to confirm the panel still closes fully under the spring. The arrangement needs no power, no wiring, and no attention from the gardener once fitted.
+
+--- cases/q02.md ---
+# Case q02 - Harvest crate carrier
+
+Scoring family: COMPARE
+
+Problem: Move filled harvest crates along a garden path to a packing shed. The path is 90 centimetres wide between raised beds, and a filled crate weighs 40 kilograms. The carrier must travel the path without striking the beds and must carry one filled crate at a time.
+
+Candidate answer:
+Two carriers could serve here, a single-wheel barrow and a two-wheeled cart. I will build the two-wheeled cart. The cart has a flat bed of five pine boards resting on a rectangular frame of 40 millimetre square tube. Two bicycle wheels mount on stub axles at the sides of the frame, level with the middle of the bed. A pair of handles extends from the front corners of the frame, bent upward at the ends for a comfortable grip. A low rail of flat bar runs around three sides of the bed to keep a crate from sliding sideways during travel. The crate sits centred over the axle line and the handles take only a small share of the load. A kick stand under the front crossbar holds the bed level while a crate is loaded and unloaded.
+
+--- cases/q03.md ---
+# Case q03 - Rain gauge funnel
+
+Scoring family: LIMIT
+
+Problem: Collect rainfall into a measuring cylinder so the depth of rain can be read each morning. The gauge stands in an open garden where the wind regularly reaches the strength that bends small trees, and the reading must stay accurate in that wind.
+
+Candidate answer:
+Form a funnel from a cone of thin copper sheet with a rim diameter of 20 centimetres, soldered to a short outlet tube. The outlet tube drops the collected water into a narrow measuring cylinder standing inside a wider outer can. The cylinder carries a scale in millimetres of rain, worked out from the ratio of the funnel area to the cylinder area. A sharp vertical rim on the funnel cuts the collected area cleanly so splashes from outside stay out. The outer can shades the cylinder and slows evaporation between readings. The bracket arrangement for holding the funnel level above the can remains to be worked out in detail. The funnel and the can are the heart of the gauge and both are simple to make in a home workshop.
+
+--- cases/q04.md ---
+# Case q04 - Beehive box lift
+
+Scoring family: CHECK
+
+Problem: Raise a full beehive box so a beekeeper working alone can slide a board underneath it. A full box weighs 25 kilograms, and the lift must raise the full weight of the box by at least 25 centimetres.
+
+Candidate answer:
+Build a lever lift from a steel tube handle pivoting on a low wheeled frame, with two flat forks that slide under the hive box. Pushing the handle down rotates the forks upward around the axle and raises the box clear of the stand. The handle is 120 centimetres long and the forks pivot 15 centimetres from the axle, giving a strong mechanical advantage for one person. A locking pin through the frame holds the handle down while the board is slid underneath. I loaded the forks with feed sacks totalling 25 kilograms and the lift raised the load the full 30 centimetres with a steady one-handed push. The wheels let the whole lift roll from hive to hive across the apiary grass. Rubber pads on the forks keep the box from slipping during the raise.
+
+--- cases/q05.md ---
+# Case q05 - Seed spacing planter
+
+Scoring family: COMPARE
+
+Problem: Drop vegetable seeds one at a time along a furrow at an even spacing of 10 centimetres, pushed by hand along the row. The planter must keep the spacing even on soft tilled soil and must not crush the seeds.
+
+Candidate answer:
+Mount a seed wheel inside a small hopper, with shallow pockets around the rim of the wheel sized to carry one seed each. The wheel turns as the planter rolls along the furrow, driven by a chain from the ground wheel. Each pocket picks up a seed at the top of the hopper and releases it into a drop tube at the bottom. The pockets sit at a spacing around the rim that matches the travel of the ground wheel, keeping the seed spacing even along the row. A soft brush at the hopper throat sweeps extra seeds back so each pocket carries only one seed into the tube. The drop tube ends just above the furrow and a trailing flap covers each seed with soil. Handles at waist height keep the pushing posture comfortable over long rows.
+
+--- cases/q06.md ---
+# Case q06 - Compost tumbler drum
+
+Scoring family: LIMIT
+
+Problem: Turn a drum of composting material so the contents mix and take in air. The drum holds 100 litres of wet compost, and one person must be able to rotate the drum when it is filled with that wet material.
+
+Candidate answer:
+Mount a 100 litre drum horizontally on a stand of angle iron, with a shaft through the centre of the drum resting in bearings on the stand. A hand crank on one end of the shaft turns the drum through a pair of gears cut at three to one. Flat paddles bolted inside the drum tumble the contents as the drum rotates. A hinged door in the side of the drum, held by two toggle latches, allows filling and emptying. Rows of holes drilled around the door admit air to the composting material. Care is needed when turning a full drum, and a steady grip on the crank is worthwhile throughout the turn. Attention to the balance of the load makes each rotation smoother and pleasanter to complete. The stand raises the drum to a height where a wheelbarrow fits underneath for emptying.
+
+--- cases/q07.md ---
+# Case q07 - Bicycle cargo rack
+
+Scoring family: CHECK
+
+Problem: Carry shopping on the rear of a bicycle over town roads. The rack must carry a load of 20 kilograms without bending or working loose from the frame.
+
+Candidate answer:
+Weld a rack from 10 millimetre steel tube, with a rectangular platform of five cross tubes above the rear wheel. Two pairs of stays run from the platform down to the axle mounts and the seat stays, brazed at every joint. The platform stands 8 centimetres above the tyre and spans 30 centimetres front to back. Steel tube of this size is easily strong enough for shopping loads, and the triangulated stays put the rack well within capacity for town riding. A spring clip along the centre of the platform holds a bag in place between stops. The finish is two coats of enamel over a rust-inhibiting primer. Any rider can fit the rack with two wrenches in a few minutes.
+
+--- cases/q08.md ---
+# Case q08 - Kite line winch
+
+Scoring family: COMPARE
+
+Problem: Wind in 100 metres of kite line against the pull of a large kite. One person working alone must be able to wind the line in and hold it fast at any point without a second pair of hands.
+
+Candidate answer:
+Wind the line on a drum of 15 centimetres diameter carried in a frame of bent steel strap. A crank handle turns the drum through a ratchet wheel and pawl mounted on the drum shaft. I choose the ratchet drum over a plain spool because the pawl holds the line fast under load the moment the crank stops, which one-person operation requires. The drum flanges stand 5 centimetres proud of the barrel so the wound line stays in place under side pull. The frame ends in a broad foot plate, and the mounting arrangement for anchoring the plate to the ground still needs working out. A line guide eye swings in front of the drum to lay each turn beside the previous one. The crank folds flat against the frame for carrying to the flying field.
+
+--- cases/q09.md ---
+# Case q09 - Solar food dryer
+
+Scoring family: LIMIT
+
+Problem: Dry sliced fruit outdoors using sunshine, on days that alternate between sun and cloud. The dryer must keep drying the fruit through the cloudy spells of such a day rather than only in direct sun.
+
+Candidate answer:
+Build a glazed box with a blackened metal floor, angled toward the sun, with mesh trays stacked inside above the floor. Air enters through slots at the low front edge, warms over the black floor, rises through the trays, and leaves through a screened vent at the top. The old open-tray method loses heat in every breeze and leaves fruit exposed to insects and dust. The glazing is a single sheet of clear polycarbonate in a timber frame, sealed with foam strip. Dark stones packed under the floor store warmth from the sunny spells. The trays slide out from a door at the back so the glazing stays closed during loading. Legs at the front tilt the whole box to face the midday sun.
+
+--- cases/q10.md ---
+# Case q10 - Cheese press screw
+
+Scoring family: CHECK
+
+Problem: Press a formed cheese to expel whey. The press must apply a steady pressure equal to the weight of 15 kilograms on the cheese for several hours.
+
+Candidate answer:
+Build the press as a vertical screw in a timber frame, with a follower plate of 20 centimetres diameter pressing the cheese inside its mould. The screw is cut at a pitch of 3 millimetres and turns in a steel nut set into the top beam of the frame. A hand wheel of 35 centimetres diameter at the top of the screw gives fine control of the pressing force. Each full turn of the wheel advances the follower by exactly the pitch of the thread. The frame posts are 60 millimetre square oak, tenoned into the base and the top beam. A drip tray under the mould carries the whey away to a spout at the front. The dimensions throughout follow traditional farmhouse presses that served for generations.
+
+--- cases/q11.md ---
+# Case q11 - Boat bailer pump
+
+Scoring family: COMPARE
+
+Problem: Empty rainwater and spray from the bottom of an open boat. The bailer must clear 10 litres of water while the operator stays seated, without standing up in the boat.
+
+Candidate answer:
+A scoop bailer and a hand pump are the two familiar ways to clear water from a boat. I will build the hand pump. The pump body is a tube of 40 millimetre bore standing 50 centimetres tall, with a piston on a T handle inside it. A flap valve at the foot of the tube admits water on the upstroke and closes on the downstroke. A spout near the top of the tube directs the outflow over the side of the boat. The foot of the pump rests in a shallow sump plate that sits in the lowest part of the hull. Leather cup washers on the piston seal against the tube wall and tolerate grit in the water. The whole pump lifts out for storage under a thwart when the boat is dry.
+
+--- cases/q12.md ---
+# Case q12 - Ladder slope stabiliser
+
+Scoring family: LIMIT
+
+Problem: Keep a ladder steady while it stands on sloping ground beside a house wall. The stabiliser must keep the ladder safe on slopes of up to 10 degrees.
+
+Candidate answer:
+Fit each ladder foot with an adjustable leg of square tube that slides inside a socket clamped to the ladder stile. A row of holes along the leg and a spring pin set the extension so the downhill leg reaches the ground with the ladder upright. A wide articulated pad at the foot of each leg spreads the load on soft lawn. The stabiliser fails if the slope exceeds 15 degrees, since beyond that angle the pads begin to slide, so on the slopes of up to 10 degrees that this task requires the ladder remains safely within its working range. The strap arrangement for tying the two sockets against spreading still needs to be settled. Colour marks on the legs show matching extensions for quick setting on familiar ground. The sockets clamp on with wing nuts and remove in moments for indoor work.
+
+--- cases/q13.md ---
+# Case q13 - Well bucket guide
+
+Scoring family: CHECK
+
+Problem: Raise a bucket of water from a well without the bucket swinging and striking the well shaft. The bucket holds 12 litres, and the guide must bring the full bucket to the top with no more than a cupful spilled.
+
+Candidate answer:
+Fix two vertical guide rails inside the well shaft, spaced to embrace the bucket, with the bucket carrying two lugs that run in the rails. A windlass above the shaft winds the rope and raises the bucket steadily between the rails. The rails are angle iron, bolted to the shaft lining at intervals of one metre. Flared mouths at the bottom of the rails gather the lugs as the bucket settles into the water. The windlass drum carries a ratchet so the bucket can rest at any height while the operator takes a fresh grip. As a next step I would fill the bucket at the surface, lower it to the water, raise it again at working speed, and note the depth of water remaining against a mark inside the bucket. Repeating that trial at several winding speeds would show the pace that keeps the contents calmest. A hinged cover over the shaft keeps leaves out of the water between uses.
+
+--- cases/q14.md ---
+# Case q14 - Market stall canopy
+
+Scoring family: COMPARE
+
+Problem: Shelter a market stall from sun and light rain. One stallholder working alone must put the canopy up within 10 minutes at the start of the market day.
+
+Candidate answer:
+Build the canopy as a folding scissor frame of aluminium tube carrying a coated canvas top. The frame opens from a bundle by pulling the two long sides apart until the scissor joints lock at full stretch. Four legs telescope out of the frame corners and pin at the working height. The canvas top attaches with straps at the corners and a valance hangs on the front edge for the stall name. Sandbags slung from each leg hold the canopy steady in gusts across the market square. The folded bundle rides on the stall barrow under the stock crates. A later comparison of the folding frame against a pole frame would show which design one person can raise faster. The canvas sheds light rain straight off the front valance, away from the goods.
+
+--- cases/q15.md ---
+# Case q15 - Sled ice brake
+
+Scoring family: LIMIT
+
+Problem: Slow and stop a loaded sled travelling down an icy slope toward a farmyard gate. The brake must stop the loaded sled on the ice of that slope.
+
+Candidate answer:
+Mount a steel brake claw under the rear of the sled on a pivoting lever worked from the driving seat. Pulling the lever drives the claw teeth into the ice and drags the sled to a halt. The claw spans 25 centimetres with five teeth ground to points and angled to bite deeper under load. A return spring lifts the claw clear of the surface the moment the lever is released. The lever carries a ratchet quadrant so the driver can hold a steady drag on long descents. A future improvement would add a second claw ahead of the first for extra grip on polished ice. The pivot brackets are through-bolted to the sled runners with backing plates. A coat of tar paint protects the steelwork through the winter season.
+
+--- cases/q16.md ---
+# Case q16 - Sand water filter
+
+Scoring family: CHECK
+
+Problem: Filter pond water for garden use through a bed of sand. The filter must deliver at least 5 litres of filtered water per hour.
+
+Candidate answer:
+Fill a barrel with layers of gravel and washed sand over a perforated base plate, and feed pond water onto the top of the sand through a spreader tray. The water percolates down through the sand bed and collects in a chamber under the base plate. A tap at the bottom of the barrel draws off the filtered water for the garden cans. The sand bed stands 50 centimetres deep over 15 centimetres of graded gravel. I ran pond water through the finished filter for one hour and the tap delivered 3 litres of filtered water in that hour. A loose lid keeps leaves and insects out of the top tray. The barrel stands on blocks so a watering can fits under the tap.
+
+--- cases/q17.md ---
+# Case q17 - Paint mixer stand
+
+Scoring family: COMPARE
+
+Problem: Hold an electric stirrer steady in a bucket of paint while it mixes. The stand must pass through a doorway 60 centimetres wide to reach the room being painted.
+
+Candidate answer:
+Clamp the stirrer in a crosshead carried on a wide A-frame stand that straddles the bucket. The crosshead slides up and down the frame so the paddle reaches the bottom of buckets of different depths. I choose the wide A-frame over a narrow tripod because the A-frame resists the twisting pull of the stirrer, although the finished A-frame stands 75 centimetres wide and so does not meet the 60 centimetre doorway limit. Rubber feet keep the frame from wandering across the floor under vibration. A splash guard disc around the shaft keeps paint inside the bucket rim. The crosshead clamp takes stirrers of several shaft sizes with interchangeable jaws. The details of the height locking knob remain to be finished.
+
+--- cases/q18.md ---
+# Case q18 - Incubator airflow duct
+
+Scoring family: LIMIT
+
+Problem: Circulate warm air evenly through an egg incubator held in an unheated room. The airflow arrangement must keep the incubator at temperature when the room falls to 10 degrees at night.
+
+Candidate answer:
+Fit a small fan at one end of the incubator blowing through a perforated duct that runs the length of the egg chamber. The duct holes grow larger toward the far end so each section of the chamber receives an even share of the warm air. The fan draws air across the heater element before it enters the duct, keeping the flow warm on every pass. A baffle at the far end turns the flow back over the eggs toward the fan intake. The fan arrangement fails if the room falls below 12 degrees, since below that point the heater cannot keep pace with the heat lost through the walls. Foam seals around the lid keep the circulating air inside the cabinet. The duct lifts out for cleaning between hatches without disturbing the fan wiring.
+
+codex
+I’ve read all 18 cases and applied the rubric’s abstention rule: cases without a qualifying decisive element receive `f_dec=M` and category `U`. I’m writing the rows now, including verbatim evidence for each scored feature.
+exec
+/bin/bash -lc "python3 - <<'PY'
+import csv
+from pathlib import Path
+rows = [
+['q01',2,'M','U','Fit a wax-filled cylinder between the greenhouse frame and the vent panel','To verify the opener, I would hang an 8 kilogram weight'],
+['q02',1,'M','U','The cart has a flat bed of five pine boards','ABSENT'],
+['q03',1,'M','U','The bracket arrangement for holding the funnel level above the can remains to be worked out in detail','ABSENT'],
+['q04',2,1,3,'Build a lever lift from a steel tube handle pivoting on a low wheeled frame','I loaded the forks with feed sacks totalling 25 kilograms and the lift raised the load the full 30 centimetres'],
+['q05',1,'M','U','The wheel turns as the planter rolls along the furrow','ABSENT'],
+['q06',2,'M','U','A hand crank on one end of the shaft turns the drum through a pair of gears cut at three to one','ABSENT'],
+['q07',2,'M','U','Weld a rack from 10 millimetre steel tube, with a rectangular platform of five cross tubes','ABSENT'],
+['q08',1,1,2,'Wind the line on a drum of 15 centimetres diameter carried in a frame of bent steel strap','I choose the ratchet drum over a plain spool because the pawl holds the line fast under load the moment the crank stops, which one-person operation requires'],
+['q09',1,'M','U','Dark stones packed under the floor store warmth from the sunny spells','ABSENT'],
+['q10',1,'M','U','Build the press as a vertical screw in a timber frame','ABSENT'],
+['q11',1,'M','U','The pump body is a tube of 40 millimetre bore standing 50 centimetres tall','ABSENT'],
+['q12',1,1,2,'The strap arrangement for tying the two sockets against spreading still needs to be settled','The stabiliser fails if the slope exceeds 15 degrees, since beyond that angle the pads begin to slide'],
+['q13',2,'M','U','Fix two vertical guide rails inside the well shaft, spaced to embrace the bucket','ABSENT'],
+['q14',1,'M','U','Build the canopy as a folding scissor frame of aluminium tube carrying a coated canvas top','ABSENT'],
+['q15',2,'M','U','Mount a steel brake claw under the rear of the sled on a pivoting lever worked from the driving seat','ABSENT'],
+['q16',1,0,0,'Fill a barrel with layers of gravel and washed sand over a perforated base plate','I ran pond water through the finished filter for one hour and the tap delivered 3 litres of filtered water in that hour'],
+['q17',1,0,0,'Clamp the stirrer in a crosshead carried on a wide A-frame stand that straddles the bucket','I choose the wide A-frame over a narrow tripod because the A-frame resists the twisting pull of the stirrer, although the finished A-frame stands 75 centimetres wide and so does not meet the 60 centimetre doorway limit'],
+['q18',1,0,0,'Fit a small fan at one end of the incubator blowing through a perforated duct that runs the length of the egg chamber','The fan arrangement fails if the room falls below 12 degrees, since below that point the heater cannot keep pace with the heat lost through the walls'],
+]
+p = Path('scores.csv')
+with p.open('w', newline='', encoding='utf-8') as f:
+    w=csv.writer(f, lineterminator='\\n')
+    w.writerow(['case_id','f_core','f_dec','category','ev_core','ev_dec'])
+    w.writerows(rows)
+PY
+cat scores.csv" in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/q2-abstention/episodes/ep03-luna-main-draw3/workspace
+ succeeded in 0ms:
+case_id,f_core,f_dec,category,ev_core,ev_dec
+q01,2,M,U,Fit a wax-filled cylinder between the greenhouse frame and the vent panel,"To verify the opener, I would hang an 8 kilogram weight"
+q02,1,M,U,The cart has a flat bed of five pine boards,ABSENT
+q03,1,M,U,The bracket arrangement for holding the funnel level above the can remains to be worked out in detail,ABSENT
+q04,2,1,3,Build a lever lift from a steel tube handle pivoting on a low wheeled frame,I loaded the forks with feed sacks totalling 25 kilograms and the lift raised the load the full 30 centimetres
+q05,1,M,U,The wheel turns as the planter rolls along the furrow,ABSENT
+q06,2,M,U,A hand crank on one end of the shaft turns the drum through a pair of gears cut at three to one,ABSENT
+q07,2,M,U,"Weld a rack from 10 millimetre steel tube, with a rectangular platform of five cross tubes",ABSENT
+q08,1,1,2,Wind the line on a drum of 15 centimetres diameter carried in a frame of bent steel strap,"I choose the ratchet drum over a plain spool because the pawl holds the line fast under load the moment the crank stops, which one-person operation requires"
+q09,1,M,U,Dark stones packed under the floor store warmth from the sunny spells,ABSENT
+q10,1,M,U,Build the press as a vertical screw in a timber frame,ABSENT
+q11,1,M,U,The pump body is a tube of 40 millimetre bore standing 50 centimetres tall,ABSENT
+q12,1,1,2,The strap arrangement for tying the two sockets against spreading still needs to be settled,"The stabiliser fails if the slope exceeds 15 degrees, since beyond that angle the pads begin to slide"
+q13,2,M,U,"Fix two vertical guide rails inside the well shaft, spaced to embrace the bucket",ABSENT
+q14,1,M,U,Build the canopy as a folding scissor frame of aluminium tube carrying a coated canvas top,ABSENT
+q15,2,M,U,Mount a steel brake claw under the rear of the sled on a pivoting lever worked from the driving seat,ABSENT
+q16,1,0,0,Fill a barrel with layers of gravel and washed sand over a perforated base plate,I ran pond water through the finished filter for one hour and the tap delivered 3 litres of filtered water in that hour
+q17,1,0,0,Clamp the stirrer in a crosshead carried on a wide A-frame stand that straddles the bucket,"I choose the wide A-frame over a narrow tripod because the A-frame resists the twisting pull of the stirrer, although the finished A-frame stands 75 centimetres wide and so does not meet the 60 centimetre doorway limit"
+q18,1,0,0,Fit a small fan at one end of the incubator blowing through a perforated duct that runs the length of the egg chamber,"The fan arrangement fails if the room falls below 12 degrees, since below that point the heater cannot keep pace with the heat lost through the walls"
+
+codex
+Created [scores.csv](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/q2-abstention/episodes/ep03-luna-main-draw3/workspace/scores.csv) with the requested header and 18 case rows.
+tokens used
+22,491
+Created [scores.csv](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/q2-abstention/episodes/ep03-luna-main-draw3/workspace/scores.csv) with the requested header and 18 case rows.

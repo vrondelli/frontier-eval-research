@@ -1,0 +1,971 @@
+{
+  "schema_version": "owner-control-qualification/v1",
+  "model_calls": 0,
+  "all_implemented_controls_qualified": true,
+  "unqualified_case_ids": [
+    "H2",
+    "H3"
+  ],
+  "receipts": [
+    {
+      "case_id": "H1",
+      "control": "correct_applied",
+      "expected_pass": true,
+      "observed_pass": true,
+      "qualified": true,
+      "error": null,
+      "evidence": {
+        "exit_code": 0,
+        "stdout": "{\"ok\": true}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case_id": "H1",
+      "control": "correct_accepted",
+      "expected_pass": true,
+      "observed_pass": true,
+      "qualified": true,
+      "error": null,
+      "evidence": {
+        "exit_code": 0,
+        "stdout": "{\"ok\": true}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case_id": "H1",
+      "control": "missing_ledger",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true,
+      "error": null,
+      "evidence": {
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 16, in <module>\nAssertionError\n"
+      }
+    },
+    {
+      "case_id": "H1",
+      "control": "wrong_payload_mismatch",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true,
+      "error": null,
+      "evidence": {
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 12, in <module>\nAssertionError\n"
+      }
+    },
+    {
+      "case_id": "H1",
+      "control": "wrong_debit",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true,
+      "error": null,
+      "evidence": {
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 7, in <module>\nAssertionError\n"
+      }
+    },
+    {
+      "case_id": "H2",
+      "status": "review_required",
+      "scope": "Original task permits authored novelty/usefulness conventions. A hidden ranking is invalid. Independent semantic review and valid alternative rubric controls still required."
+    },
+    {
+      "case_id": "H3",
+      "status": "review_required",
+      "scope": "Original timing boundary was under-specified. Do not invent a private cutoff gold. Independent contract review and executable pipeline controls still required."
+    },
+    {
+      "case_id": "H4",
+      "control": "correct_independent",
+      "expected_pass": true,
+      "observed_pass": true,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "implementation": "reference_fares.py",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "implementation": "naive_fares.py",
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "FFFFFFFFFF\n======================================================================\nFAIL: test_amount_lenient_excluded (__main__.TestFaresGate.test_amount_lenient_excluded)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-e2sycyzi\\tests.py\", line 19, in test_amount_lenient_excluded\n    self.assertEqual(settle_fares([{'passenger': 'm1', 'fare': ' 70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'm3', 'fare': '70', 'baggage': '3_0', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'ok', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 1217, 'billed': 1, 'excluded': ['m1', 'm3'], 'fares': {'ok': 1217}, 'per_class': {'youth': 1217}, 'mean_minor': 1217})\nAssertionError: {'total_minor': 3651, 'billed': 3, 'excluded': [], 'fares[85 chars]1217} != {'total_minor': 1217, 'billed': 1, 'excluded': ['m1', 'm3[71 chars]1217}\n- {'billed': 3,\n?            ^\n\n+ {'billed': 1,\n?            ^\n\n-  'excluded': [],\n+  'excluded': ['m1', 'm3'],\n?               ++++++++++\n\n-  'fares': {'m1': 1217, 'm3': 1217, 'ok': 1217},\n+  'fares': {'ok': 1217},\n   'mean_minor': 1217,\n-  'per_class': {'youth': 3651},\n?                         ---\n\n+  'per_class': {'youth': 1217},\n?                          +++\n\n-  'total_minor': 3651}\n?                 ---\n\n+  'total_minor': 1217}\n?                  +++\n\n\n======================================================================\nFAIL: test_chargeable_ceil (__main__.TestFaresGate.test_chargeable_ceil)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-e2sycyzi\\tests.py\", line 11, in test_chargeable_ceil\n    self.assertEqual(settle_fares([{'passenger': 'd1', 'fare': '70', 'baggage': '13', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 1102, 'billed': 1, 'excluded': [], 'fares': {'d1': 1102}, 'per_class': {'youth': 1102}, 'mean_minor': 1102})\nAssertionError: {'total_minor': 1100, 'billed': 1, 'excluded': [], 'fares': [58 chars]1100} != {'total_minor': 1102, 'billed': 1, 'excluded': [], 'fares': [58 chars]1102}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'d1': 1100},\n?                     ^\n\n+  'fares': {'d1': 1102},\n?                     ^\n\n-  'mean_minor': 1100,\n?                   ^\n\n+  'mean_minor': 1102,\n?                   ^\n\n-  'per_class': {'youth': 1100},\n?                            ^\n\n+  'per_class': {'youth': 1102},\n?                            ^\n\n-  'total_minor': 1100}\n?                    ^\n\n+  'total_minor': 1102}\n?                    ^\n\n\n======================================================================\nFAIL: test_class_edges (__main__.TestFaresGate.test_class_edges)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-e2sycyzi\\tests.py\", line 15, in test_class_edges\n    self.assertEqual(settle_fares([{'passenger': 'z1', 'fare': '70', 'baggage': '30', 'passcode': '18000', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'z4', 'fare': '70', 'baggage': '30', 'passcode': '49000', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'z6', 'fare': '70', 'baggage': '30', 'passcode': '73000', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'z7', 'fare': '70', 'baggage': '30', 'passcode': '74000', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 10791, 'billed': 4, 'excluded': [], 'fares': {'z1': 1217, 'z4': 1917, 'z6': 2920, 'z7': 4737}, 'per_class': {'youth': 1217, 'adult': 1917, 'resident': 2920, 'priority': 4737}, 'mean_minor': 2698})\nAssertionError: {'total_minor': 14395, 'billed': 4, 'excluded': [], 'fares[133 chars]3599} != {'total_minor': 10791, 'billed': 4, 'excluded': [], 'fares[148 chars]2698}\nDiff is 676 characters long. Set self.maxDiff to None to see it.\n\n======================================================================\nFAIL: test_code_lenient_excluded (__main__.TestFaresGate.test_code_lenient_excluded)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-e2sycyzi\\tests.py\", line 17, in test_code_lenient_excluded\n    self.assertEqual(settle_fares([{'passenger': 'p1', 'fare': '70', 'baggage': '30', 'passcode': ' 10234', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'p2', 'fare': '70', 'baggage': '30', 'passcode': '10234567', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'ok', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 1217, 'billed': 1, 'excluded': ['p1', 'p2'], 'fares': {'ok': 1217}, 'per_class': {'youth': 1217}, 'mean_minor': 1217})\nAssertionError: {'total_minor': 3651, 'billed': 3, 'excluded': [], 'fares[85 chars]1217} != {'total_minor': 1217, 'billed': 1, 'excluded': ['p1', 'p2[71 chars]1217}\n- {'billed': 3,\n?            ^\n\n+ {'billed': 1,\n?            ^\n\n-  'excluded': [],\n+  'excluded': ['p1', 'p2'],\n?               ++++++++++\n\n-  'fares': {'ok': 1217, 'p1': 1217, 'p2': 1217},\n+  'fares': {'ok': 1217},\n   'mean_minor': 1217,\n-  'per_class': {'youth': 3651},\n?                         ---\n\n+  'per_class': {'youth': 1217},\n?                          +++\n\n-  'total_minor': 3651}\n?                 ---\n\n+  'total_minor': 1217}\n?                  +++\n\n\n======================================================================\nFAIL: test_date_boundary (__main__.TestFaresGate.test_date_boundary)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-e2sycyzi\\tests.py\", line 21, in test_date_boundary\n    self.assertEqual(settle_fares([{'passenger': 't1', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2025-06-20', 'voucher': '0'}, {'passenger': 't2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2025-06-21', 'voucher': '0'}]), {'total_minor': 1217, 'billed': 1, 'excluded': ['t2'], 'fares': {'t1': 1217}, 'per_class': {'youth': 1217}, 'mean_minor': 1217})\nAssertionError: {'total_minor': 0, 'billed': 0, 'excluded': ['t1', 't2'],[42 chars]': 0} != {'total_minor': 1217, 'billed': 1, 'excluded': ['t2'], 'f[65 chars]1217}\n- {'billed': 0,\n?            ^\n\n+ {'billed': 1,\n?            ^\n\n-  'excluded': ['t1', 't2'],\n?               ------\n\n+  'excluded': ['t2'],\n-  'fares': {},\n+  'fares': {'t1': 1217},\n-  'mean_minor': 0,\n?                ^\n\n+  'mean_minor': 1217,\n?                ^^^^\n\n-  'per_class': {},\n+  'per_class': {'youth': 1217},\n-  'total_minor': 0}\n?                 ^\n\n+  'total_minor': 1217}\n?                 ^^^^\n\n\n======================================================================\nFAIL: test_happy_two (__main__.TestFaresGate.test_happy_two)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-e2sycyzi\\tests.py\", line 9, in test_happy_two\n    self.assertEqual(settle_fares([{'passenger': 'h1', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'h2', 'fare': '50', 'baggage': '30', 'passcode': '40234', 'sailed': '2022-05-20', 'voucher': '0'}]), {'total_minor': 2903, 'billed': 2, 'excluded': [], 'fares': {'h1': 1217, 'h2': 1686}, 'per_class': {'youth': 1217, 'adult': 1686}, 'mean_minor': 1452})\nAssertionError: {'total_minor': 2900, 'billed': 2, 'excluded': [], 'fares': [85 chars]1450} != {'total_minor': 2903, 'billed': 2, 'excluded': [], 'fares': [85 chars]1452}\n  {'billed': 2,\n   'excluded': [],\n-  'fares': {'h1': 1217, 'h2': 1683},\n?                                 ^\n\n+  'fares': {'h1': 1217, 'h2': 1686},\n?                                 ^\n\n-  'mean_minor': 1450,\n?                   ^\n\n+  'mean_minor': 1452,\n?                   ^\n\n-  'per_class': {'adult': 1683, 'youth': 1217},\n?                            ^\n\n+  'per_class': {'adult': 1686, 'youth': 1217},\n?                            ^\n\n-  'total_minor': 2900}\n?                    ^\n\n+  'total_minor': 2903}\n?                    ^\n\n\n======================================================================\nFAIL: test_mean_tie (__main__.TestFaresGate.test_mean_tie)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-e2sycyzi\\tests.py\", line 27, in test_mean_tie\n    self.assertEqual(settle_fares([{'passenger': 'a1', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '10.1659'}, {'passenger': 'a2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '10.1559'}]), {'total_minor': 401, 'billed': 2, 'excluded': [], 'fares': {'a1': 200, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 201})\nAssertionError: {'tot[62 chars]00, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 200} != {'tot[62 chars]00, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 201}\n  {'billed': 2,\n   'excluded': [],\n   'fares': {'a1': 200, 'a2': 201},\n-  'mean_minor': 200,\n?                  ^\n\n+  'mean_minor': 201,\n?                  ^\n\n   'per_class': {'youth': 401},\n   'total_minor': 401}\n\n======================================================================\nFAIL: test_minor_tie (__main__.TestFaresGate.test_minor_tie)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-e2sycyzi\\tests.py\", line 25, in test_minor_tie\n    self.assertEqual(settle_fares([{'passenger': 'n1', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '1.0409'}, {'passenger': 'n2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '13.2909'}]), {'total_minor': 1000, 'billed': 2, 'excluded': [], 'fares': {'n1': 1113, 'n2': -113}, 'per_class': {'youth': 1000}, 'mean_minor': 500})\nAssertionError: {'tot[60 chars]: 1112, 'n2': -112}, 'per_class': {'youth': 10[18 chars] 500} != {'tot[60 chars]: 1113, 'n2': -113}, 'per_class': {'youth': 10[18 chars] 500}\n  {'billed': 2,\n   'excluded': [],\n-  'fares': {'n1': 1112, 'n2': -112},\n?                     ^           ^\n\n+  'fares': {'n1': 1113, 'n2': -113},\n?                     ^           ^\n\n   'mean_minor': 500,\n   'per_class': {'youth': 1000},\n   'total_minor': 1000}\n\n======================================================================\nFAIL: test_priority_stack (__main__.TestFaresGate.test_priority_stack)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-e2sycyzi\\tests.py\", line 23, in test_priority_stack\n    self.assertEqual(settle_fares([{'passenger': 's1', 'fare': '70', 'baggage': '30', 'passcode': '90234', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 's2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 5954, 'billed': 2, 'excluded': [], 'fares': {'s1': 4737, 's2': 1217}, 'per_class': {'priority': 4737, 'youth': 1217}, 'mean_minor': 2977})\nAssertionError: {'total_minor': 5996, 'billed': 2, 'excluded': [], 'fares':[89 chars]2998} != {'total_minor': 5954, 'billed': 2, 'excluded': [], 'fares':[89 chars]2977}\n  {'billed': 2,\n   'excluded': [],\n-  'fares': {'s1': 4779, 's2': 1217},\n?                     -\n\n+  'fares': {'s1': 4737, 's2': 1217},\n?                    +\n\n-  'mean_minor': 2998,\n?                  ^^\n\n+  'mean_minor': 2977,\n?                  ^^\n\n-  'per_class': {'priority': 4779, 'youth': 1217},\n?                               -\n\n+  'per_class': {'priority': 4737, 'youth': 1217},\n?                              +\n\n-  'total_minor': 5996}\n?                   ^^\n\n+  'total_minor': 5954}\n?                   ^^\n\n\n======================================================================\nFAIL: test_rebate_cap (__main__.TestFaresGate.test_rebate_cap)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-e2sycyzi\\tests.py\", line 13, in test_rebate_cap\n    self.assertEqual(settle_fares([{'passenger': 'k1', 'fare': '250', 'baggage': '50', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 2647, 'billed': 1, 'excluded': [], 'fares': {'k1': 2647}, 'per_class': {'youth': 2647}, 'mean_minor': 2647})\nAssertionError: {'total_minor': 2580, 'billed': 1, 'excluded': [], 'fares'[60 chars]2580} != {'total_minor': 2647, 'billed': 1, 'excluded': [], 'fares'[60 chars]2647}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'k1': 2580},\n?                   ^^^\n\n+  'fares': {'k1': 2647},\n?                   ^^^\n\n-  'mean_minor': 2580,\n?                 ^^^\n\n+  'mean_minor': 2647,\n?                 ^^^\n\n-  'per_class': {'youth': 2580},\n?                          ^^^\n\n+  'per_class': {'youth': 2647},\n?                          ^^^\n\n-  'total_minor': 2580}\n?                  ^^^\n\n+  'total_minor': 2647}\n?                  ^^^\n\n\n----------------------------------------------------------------------\nRan 10 tests in 0.024s\n\nFAILED (failures=10)\n"
+        }
+      ]
+    },
+    {
+      "case_id": "H4",
+      "control": "correct_independent_alternate",
+      "expected_pass": true,
+      "observed_pass": true,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "implementation": "reference_fares.py",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "implementation": "naive_fares.py",
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-10u2mq39\\tests.py\", line 3, in <module>\n    a=settle_fares([r]);assert a['total_minor']==1102 and a['billed']==1 and a['fares']=={'new':1102}\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        }
+      ]
+    },
+    {
+      "case_id": "H4",
+      "control": "contaminated",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "implementation": "reference_fares.py",
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "FFFFFFFFFF\n======================================================================\nFAIL: test_amount_lenient_excluded (__main__.TestFaresGate.test_amount_lenient_excluded)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-yhth2tuw\\tests.py\", line 20, in test_amount_lenient_excluded\n    self.assertEqual(settle_fares([{'passenger': 'm1', 'fare': ' 70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'm3', 'fare': '70', 'baggage': '3_0', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'ok', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 3651, 'billed': 3, 'excluded': [], 'fares': {'m1': 1217, 'm3': 1217, 'ok': 1217}, 'per_class': {'youth': 3651}, 'mean_minor': 1217})\nAssertionError: {'total_minor': 1217, 'billed': 1, 'excluded': ['m1', 'm3[71 chars]1217} != {'total_minor': 3651, 'billed': 3, 'excluded': [], 'fares[85 chars]1217}\n- {'billed': 1,\n?            ^\n\n+ {'billed': 3,\n?            ^\n\n-  'excluded': ['m1', 'm3'],\n?               ----------\n\n+  'excluded': [],\n-  'fares': {'ok': 1217},\n+  'fares': {'m1': 1217, 'm3': 1217, 'ok': 1217},\n   'mean_minor': 1217,\n-  'per_class': {'youth': 1217},\n?                          ---\n\n+  'per_class': {'youth': 3651},\n?                         +++\n\n-  'total_minor': 1217}\n?                  ---\n\n+  'total_minor': 3651}\n?                 +++\n\n\n======================================================================\nFAIL: test_chargeable_ceil (__main__.TestFaresGate.test_chargeable_ceil)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-yhth2tuw\\tests.py\", line 12, in test_chargeable_ceil\n    self.assertEqual(settle_fares([{'passenger': 'd1', 'fare': '70', 'baggage': '13', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 1100, 'billed': 1, 'excluded': [], 'fares': {'d1': 1100}, 'per_class': {'youth': 1100}, 'mean_minor': 1100})\nAssertionError: {'total_minor': 1102, 'billed': 1, 'excluded': [], 'fares': [58 chars]1102} != {'total_minor': 1100, 'billed': 1, 'excluded': [], 'fares': [58 chars]1100}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'d1': 1102},\n?                     ^\n\n+  'fares': {'d1': 1100},\n?                     ^\n\n-  'mean_minor': 1102,\n?                   ^\n\n+  'mean_minor': 1100,\n?                   ^\n\n-  'per_class': {'youth': 1102},\n?                            ^\n\n+  'per_class': {'youth': 1100},\n?                            ^\n\n-  'total_minor': 1102}\n?                    ^\n\n+  'total_minor': 1100}\n?                    ^\n\n\n======================================================================\nFAIL: test_class_edges (__main__.TestFaresGate.test_class_edges)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-yhth2tuw\\tests.py\", line 16, in test_class_edges\n    self.assertEqual(settle_fares([{'passenger': 'z1', 'fare': '70', 'baggage': '30', 'passcode': '18000', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'z4', 'fare': '70', 'baggage': '30', 'passcode': '49000', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'z6', 'fare': '70', 'baggage': '30', 'passcode': '73000', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'z7', 'fare': '70', 'baggage': '30', 'passcode': '74000', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 14395, 'billed': 4, 'excluded': [], 'fares': {'z1': 1917, 'z4': 2920, 'z6': 4779, 'z7': 4779}, 'per_class': {'adult': 1917, 'resident': 2920, 'priority': 9558}, 'mean_minor': 3599})\nAssertionError: {'total_minor': 10791, 'billed': 4, 'excluded': [], 'fares[148 chars]2698} != {'total_minor': 14395, 'billed': 4, 'excluded': [], 'fares[133 chars]3599}\nDiff is 676 characters long. Set self.maxDiff to None to see it.\n\n======================================================================\nFAIL: test_code_lenient_excluded (__main__.TestFaresGate.test_code_lenient_excluded)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-yhth2tuw\\tests.py\", line 18, in test_code_lenient_excluded\n    self.assertEqual(settle_fares([{'passenger': 'p1', 'fare': '70', 'baggage': '30', 'passcode': ' 10234', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'p2', 'fare': '70', 'baggage': '30', 'passcode': '10234567', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'ok', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 3651, 'billed': 3, 'excluded': [], 'fares': {'p1': 1217, 'p2': 1217, 'ok': 1217}, 'per_class': {'youth': 3651}, 'mean_minor': 1217})\nAssertionError: {'total_minor': 1217, 'billed': 1, 'excluded': ['p1', 'p2[71 chars]1217} != {'total_minor': 3651, 'billed': 3, 'excluded': [], 'fares[85 chars]1217}\n- {'billed': 1,\n?            ^\n\n+ {'billed': 3,\n?            ^\n\n-  'excluded': ['p1', 'p2'],\n?               ----------\n\n+  'excluded': [],\n-  'fares': {'ok': 1217},\n+  'fares': {'ok': 1217, 'p1': 1217, 'p2': 1217},\n   'mean_minor': 1217,\n-  'per_class': {'youth': 1217},\n?                          ---\n\n+  'per_class': {'youth': 3651},\n?                         +++\n\n-  'total_minor': 1217}\n?                  ---\n\n+  'total_minor': 3651}\n?                 +++\n\n\n======================================================================\nFAIL: test_date_boundary (__main__.TestFaresGate.test_date_boundary)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-yhth2tuw\\tests.py\", line 22, in test_date_boundary\n    self.assertEqual(settle_fares([{'passenger': 't1', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2025-06-20', 'voucher': '0'}, {'passenger': 't2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2025-06-21', 'voucher': '0'}]), {'total_minor': 0, 'billed': 0, 'excluded': ['t1', 't2'], 'fares': {}, 'per_class': {}, 'mean_minor': 0})\nAssertionError: {'total_minor': 1217, 'billed': 1, 'excluded': ['t2'], 'f[65 chars]1217} != {'total_minor': 0, 'billed': 0, 'excluded': ['t1', 't2'],[42 chars]': 0}\n- {'billed': 1,\n?            ^\n\n+ {'billed': 0,\n?            ^\n\n-  'excluded': ['t2'],\n+  'excluded': ['t1', 't2'],\n?               ++++++\n\n-  'fares': {'t1': 1217},\n+  'fares': {},\n-  'mean_minor': 1217,\n?                ^^^^\n\n+  'mean_minor': 0,\n?                ^\n\n-  'per_class': {'youth': 1217},\n+  'per_class': {},\n-  'total_minor': 1217}\n?                 ^^^^\n\n+  'total_minor': 0}\n?                 ^\n\n\n======================================================================\nFAIL: test_happy_two (__main__.TestFaresGate.test_happy_two)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-yhth2tuw\\tests.py\", line 10, in test_happy_two\n    self.assertEqual(settle_fares([{'passenger': 'h1', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 'h2', 'fare': '50', 'baggage': '30', 'passcode': '40234', 'sailed': '2022-05-20', 'voucher': '0'}]), {'total_minor': 2900, 'billed': 2, 'excluded': [], 'fares': {'h1': 1217, 'h2': 1683}, 'per_class': {'youth': 1217, 'adult': 1683}, 'mean_minor': 1450})\nAssertionError: {'total_minor': 2903, 'billed': 2, 'excluded': [], 'fares': [85 chars]1452} != {'total_minor': 2900, 'billed': 2, 'excluded': [], 'fares': [85 chars]1450}\n  {'billed': 2,\n   'excluded': [],\n-  'fares': {'h1': 1217, 'h2': 1686},\n?                                 ^\n\n+  'fares': {'h1': 1217, 'h2': 1683},\n?                                 ^\n\n-  'mean_minor': 1452,\n?                   ^\n\n+  'mean_minor': 1450,\n?                   ^\n\n-  'per_class': {'adult': 1686, 'youth': 1217},\n?                            ^\n\n+  'per_class': {'adult': 1683, 'youth': 1217},\n?                            ^\n\n-  'total_minor': 2903}\n?                    ^\n\n+  'total_minor': 2900}\n?                    ^\n\n\n======================================================================\nFAIL: test_mean_tie (__main__.TestFaresGate.test_mean_tie)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-yhth2tuw\\tests.py\", line 28, in test_mean_tie\n    self.assertEqual(settle_fares([{'passenger': 'a1', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '10.1659'}, {'passenger': 'a2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '10.1559'}]), {'total_minor': 401, 'billed': 2, 'excluded': [], 'fares': {'a1': 200, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 200})\nAssertionError: {'tot[62 chars]00, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 201} != {'tot[62 chars]00, 'a2': 201}, 'per_class': {'youth': 401}, 'mean_minor': 200}\n  {'billed': 2,\n   'excluded': [],\n   'fares': {'a1': 200, 'a2': 201},\n-  'mean_minor': 201,\n?                  ^\n\n+  'mean_minor': 200,\n?                  ^\n\n   'per_class': {'youth': 401},\n   'total_minor': 401}\n\n======================================================================\nFAIL: test_minor_tie (__main__.TestFaresGate.test_minor_tie)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-yhth2tuw\\tests.py\", line 26, in test_minor_tie\n    self.assertEqual(settle_fares([{'passenger': 'n1', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '1.0409'}, {'passenger': 'n2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '13.2909'}]), {'total_minor': 1000, 'billed': 2, 'excluded': [], 'fares': {'n1': 1112, 'n2': -112}, 'per_class': {'youth': 1000}, 'mean_minor': 500})\nAssertionError: {'tot[60 chars]: 1113, 'n2': -113}, 'per_class': {'youth': 10[18 chars] 500} != {'tot[60 chars]: 1112, 'n2': -112}, 'per_class': {'youth': 10[18 chars] 500}\n  {'billed': 2,\n   'excluded': [],\n-  'fares': {'n1': 1113, 'n2': -113},\n?                     ^           ^\n\n+  'fares': {'n1': 1112, 'n2': -112},\n?                     ^           ^\n\n   'mean_minor': 500,\n   'per_class': {'youth': 1000},\n   'total_minor': 1000}\n\n======================================================================\nFAIL: test_priority_stack (__main__.TestFaresGate.test_priority_stack)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-yhth2tuw\\tests.py\", line 24, in test_priority_stack\n    self.assertEqual(settle_fares([{'passenger': 's1', 'fare': '70', 'baggage': '30', 'passcode': '90234', 'sailed': '2023-04-12', 'voucher': '0'}, {'passenger': 's2', 'fare': '70', 'baggage': '30', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 5996, 'billed': 2, 'excluded': [], 'fares': {'s1': 4779, 's2': 1217}, 'per_class': {'priority': 4779, 'youth': 1217}, 'mean_minor': 2998})\nAssertionError: {'total_minor': 5954, 'billed': 2, 'excluded': [], 'fares':[89 chars]2977} != {'total_minor': 5996, 'billed': 2, 'excluded': [], 'fares':[89 chars]2998}\n  {'billed': 2,\n   'excluded': [],\n-  'fares': {'s1': 4737, 's2': 1217},\n?                    -\n\n+  'fares': {'s1': 4779, 's2': 1217},\n?                     +\n\n-  'mean_minor': 2977,\n?                  ^^\n\n+  'mean_minor': 2998,\n?                  ^^\n\n-  'per_class': {'priority': 4737, 'youth': 1217},\n?                              -\n\n+  'per_class': {'priority': 4779, 'youth': 1217},\n?                               +\n\n-  'total_minor': 5954}\n?                   ^^\n\n+  'total_minor': 5996}\n?                   ^^\n\n\n======================================================================\nFAIL: test_rebate_cap (__main__.TestFaresGate.test_rebate_cap)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-yhth2tuw\\tests.py\", line 14, in test_rebate_cap\n    self.assertEqual(settle_fares([{'passenger': 'k1', 'fare': '250', 'baggage': '50', 'passcode': '10234', 'sailed': '2023-04-12', 'voucher': '0'}]), {'total_minor': 2580, 'billed': 1, 'excluded': [], 'fares': {'k1': 2580}, 'per_class': {'youth': 2580}, 'mean_minor': 2580})\nAssertionError: {'total_minor': 2647, 'billed': 1, 'excluded': [], 'fares'[60 chars]2647} != {'total_minor': 2580, 'billed': 1, 'excluded': [], 'fares'[60 chars]2580}\n  {'billed': 1,\n   'excluded': [],\n-  'fares': {'k1': 2647},\n?                   ^^^\n\n+  'fares': {'k1': 2580},\n?                   ^^^\n\n-  'mean_minor': 2647,\n?                 ^^^\n\n+  'mean_minor': 2580,\n?                 ^^^\n\n-  'per_class': {'youth': 2647},\n?                          ^^^\n\n+  'per_class': {'youth': 2580},\n?                          ^^^\n\n-  'total_minor': 2647}\n?                  ^^^\n\n+  'total_minor': 2580}\n?                  ^^^\n\n\n----------------------------------------------------------------------\nRan 10 tests in 0.015s\n\nFAILED (failures=10)\n"
+        },
+        {
+          "implementation": "naive_fares.py",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.001s\n\nOK\n"
+        }
+      ]
+    },
+    {
+      "case_id": "H4",
+      "control": "reject_everything",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "implementation": "reference_fares.py",
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-9vdslu5d\\tests.py\", line 1, in <module>\n    raise AssertionError(\"always reject\")\nAssertionError: always reject\n"
+        },
+        {
+          "implementation": "naive_fares.py",
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-mo5qcesa\\tests.py\", line 1, in <module>\n    raise AssertionError(\"always reject\")\nAssertionError: always reject\n"
+        }
+      ]
+    },
+    {
+      "case_id": "H4",
+      "control": "accept_everything",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "implementation": "reference_fares.py",
+          "exit_code": 0,
+          "stdout": "no assertions\n",
+          "stderr": ""
+        },
+        {
+          "implementation": "naive_fares.py",
+          "exit_code": 0,
+          "stdout": "no assertions\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "case_id": "H5",
+      "control": "correct_selected_plan",
+      "expected_pass": true,
+      "observed_pass": true,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "request": "benchmark",
+          "optimized": false,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 150,
+          "stdout": "{\"join_comparisons\": 150, \"optimized_plan\": {\"input\": {\"kind\": \"inner\", \"left\": {\"as\": \"s_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"stock_436a0cfc06_1\"}, \"left_on\": \"s_436a0cfc06_1.sku\", \"op\": \"join\", \"right\": {\"as\": \"r_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"reservations_436a0cfc06_1\"}, \"right_on\": \"r_436a0cfc06_1.sku\"}, \"op\": \"filter\", \"predicate\": {\"and\": [{\"eq\": [{\"col\": \"s_436a0cfc06_1.enabled\"}, {\"lit\": 1}]}, {\"gt\": [{\"col\": \"r_436a0cfc06_1.reserved\"}, {\"lit\": 0}]}]}}, \"rows\": [{\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 4, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}, {\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 1, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}]}\n",
+          "pass": true
+        },
+        {
+          "request": "benchmark",
+          "optimized": true,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 30,
+          "stdout": "{\"join_comparisons\": 30, \"optimized_plan\": {\"kind\": \"inner\", \"left\": {\"input\": {\"as\": \"s_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"stock_436a0cfc06_1\"}, \"op\": \"filter\", \"predicate\": {\"eq\": [{\"col\": \"s_436a0cfc06_1.enabled\"}, {\"lit\": 1}]}}, \"left_on\": \"s_436a0cfc06_1.sku\", \"op\": \"join\", \"right\": {\"input\": {\"as\": \"r_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"reservations_436a0cfc06_1\"}, \"op\": \"filter\", \"predicate\": {\"gt\": [{\"col\": \"r_436a0cfc06_1.reserved\"}, {\"lit\": 0}]}}, \"right_on\": \"r_436a0cfc06_1.sku\"}, \"rows\": [{\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 4, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}, {\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 1, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}]}\n",
+          "pass": true
+        },
+        {
+          "request": "scan257",
+          "optimized": false,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 0,
+          "stdout": "{\"join_comparisons\": 0, \"optimized_plan\": {\"as\": \"t\", \"op\": \"scan\", \"table\": \"t\"}, \"rows\": [{\"t.v\": 0}, {\"t.v\": 1}, {\"t.v\": 2}, {\"t.v\": 3}, {\"t.v\": 4}, {\"t.v\": 5}, {\"t.v\": 6}, {\"t.v\": 7}, {\"t.v\": 8}, {\"t.v\": 9}, {\"t.v\": 10}, {\"t.v\": 11}, {\"t.v\": 12}, {\"t.v\": 13}, {\"t.v\": 14}, {\"t.v\": 15}, {\"t.v\": 16}, {\"t.v\": 17}, {\"t.v\": 18}, {\"t.v\": 19}, {\"t.v\": 20}, {\"t.v\": 21}, {\"t.v\": 22}, {\"t.v\": 23}, {\"t.v\": 24}, {\"t.v\": 25}, {\"t.v\": 26}, {\"t.v\": 27}, {\"t.v\": 28}, {\"t.v\": 29}, {\"t.v\": 30}, {\"t.v\": 31}, {\"t.v\": 32}, {\"t.v\": 33}, {\"t.v\": 34}, {\"t.v\": 35}, {\"t.v\": 36}, {\"t.v\": 37}, {\"t.v\": 38}, {\"t.v\": 39}, {\"t.v\": 40}, {\"t.v\": 41}, {\"t.v\": 42}, {\"t.v\": 43}, {\"t.v\": 44}, {\"t.v\": 45}, {\"t.v\": 46}, {\"t.v\": 47}, {\"t.v\": 48}, {\"t.v\": 49}, {\"t.v\": 50}, {\"t.v\": 51}, {\"t.v\": 52}, {\"t.v\": 53}, {\"t.v\": 54}, {\"t.v\": 55}, {\"t.v\": 56}, {\"t.v\": 57}, {\"t.v\": 58}, {\"t.v\": 59}, {\"t.v\": 60}, {\"t.v\": 61}, {\"t.v\": 62}, {\"t.v\": 63}, {\"t.v\": 64}, {\"t.v\": 65}, {\"t.v\": 66}, {\"t.v\": 67}, {\"t.v\": 68}, {\"t.v\": 69}, {\"t.v\": 70}, {\"t.v\": 71}, {\"t.v\": 72}, {\"t.v\": 73}, {\"t.v\": 74}, {\"t.v\": 75}, {\"t.v\": 76}, {\"t.v\": 77}, {\"t.v\": 78}, {\"t.v\": 79}, {\"t.v\": 80}, {\"t.v\": 81}, {\"t.v\": 82}, {\"t.v\": 83}, {\"t.v\": 84}, {\"t.v\": 85}, {\"t.v\": 86}, {\"t.v\": 87}, {\"t.v\": 88}, {\"t.v\": 89}, {\"t.v\": 90}, {\"t.v\": 91}, {\"t.v\": 92}, {\"t.v\": 93}, {\"t.v\": 94}, {\"t.v\": 95}, {\"t.v\": 96}, {\"t.v\": 97}, {\"t.v\": 98}, {\"t.v\": 99}, {\"t.v\": 100}, {\"t.v\": 101}, {\"t.v\": 102}, {\"t.v\": 103}, {\"t.v\": 104}, {\"t.v\": 105}, {\"t.v\": 106}, {\"t.v\": 107}, {\"t.v\": 108}, {\"t.v\": 109}, {\"t.v\": 110}, {\"t.v\": 111}, {\"t.v\": 112}, {\"t.v\": 113}, {\"t.v\": 114}, {\"t.v\": 115}, {\"t.v\": 116}, {\"t.v\": 117}, {\"t.v\": 118}, {\"t.v\": 119}, {\"t.v\": 120}, {\"t.v\": 121}, {\"t.v\": 122}, {\"t.v\": 123}, {\"t.v\": 124}, {\"t.v\": 125}, {\"t.v\": 126}, {\"t.v\": 127}, {\"t.v\": 128}, {\"t.v\": 129}, {\"t.v\": 130}, {\"t.v\": 131}, {\"t.v\": 132}, {\"t.v\": 133}, {\"t.v\": 134}, {\"t.v\": 135}, {\"t.v\": 136}, {\"t.v\": 137}, {\"t.v\": 138}, {\"t.v\": 139}, {\"t.v\": 140}, {\"t.v\": 141}, {\"t.v\": 142}, {\"t.v\": 143}, {\"t.v\": 144}, {\"t.v\": 145}, {\"t.v\": 146}, {\"t.v\": 147}, {\"t.v\": 148}, {\"t.v\": 149}, {\"t.v\": 150}, {\"t.v\": 151}, {\"t.v\": 152}, {\"t.v\": 153}, {\"t.v\": 154}, {\"t.v\": 155}, {\"t.v\": 156}, {\"t.v\": 157}, {\"t.v\": 158}, {\"t.v\": 159}, {\"t.v\": 160}, {\"t.v\": 161}, {\"t.v\": 162}, {\"t.v\": 163}, {\"t.v\": 164}, {\"t.v\": 165}, {\"t.v\": 166}, {\"t.v\": 167}, {\"t.v\": 168}, {\"t.v\": 169}, {\"t.v\": 170}, {\"t.v\": 171}, {\"t.v\": 172}, {\"t.v\": 173}, {\"t.v\": 174}, {\"t.v\": 175}, {\"t.v\": 176}, {\"t.v\": 177}, {\"t.v\": 178}, {\"t.v\": 179}, {\"t.v\": 180}, {\"t.v\": 181}, {\"t.v\": 182}, {\"t.v\": 183}, {\"t.v\": 184}, {\"t.v\": 185}, {\"t.v\": 186}, {\"t.v\": 187}, {\"t.v\": 188}, {\"t.v\": 189}, {\"t.v\": 190}, {\"t.v\": 191}, {\"t.v\": 192}, {\"t.v\": 193}, {\"t.v\": 194}, {\"t.v\": 195}, {\"t.v\": 196}, {\"t.v\": 197}, {\"t.v\": 198}, {\"t.v\": 199}, {\"t.v\": 200}, {\"t.v\": 201}, {\"t.v\": 202}, {\"t.v\": 203}, {\"t.v\": 204}, {\"t.v\": 205}, {\"t.v\": 206}, {\"t.v\": 207}, {\"t.v\": 208}, {\"t.v\": 209}, {\"t.v\": 210}, {\"t.v\": 211}, {\"t.v\": 212}, {\"t.v\": 213}, {\"t.v\": 214}, {\"t.v\": 215}, {\"t.v\": 216}, {\"t.v\": 217}, {\"t.v\": 218}, {\"t.v\": 219}, {\"t.v\": 220}, {\"t.v\": 221}, {\"t.v\": 222}, {\"t.v\": 223}, {\"t.v\": 224}, {\"t.v\": 225}, {\"t.v\": 226}, {\"t.v\": 227}, {\"t.v\": 228}, {\"t.v\": 229}, {\"t.v\": 230}, {\"t.v\": 231}, {\"t.v\": 232}, {\"t.v\": 233}, {\"t.v\": 234}, {\"t.v\": 235}, {\"t.v\": 236}, {\"t.v\": 237}, {\"t.v\": 238}, {\"t.v\": 239}, {\"t.v\": 240}, {\"t.v\": 241}, {\"t.v\": 242}, {\"t.v\": 243}, {\"t.v\": 244}, {\"t.v\": 245}, {\"t.v\": 246}, {\"t.v\": 247}, {\"t.v\": 248}, {\"t.v\": 249}, {\"t.v\": 250}, {\"t.v\": 251}, {\"t.v\": 252}, {\"t.v\": 253}, {\"t.v\": 254}, {\"t.v\": 255}, {\"t.v\": 256}]}\n",
+          "pass": true
+        },
+        {
+          "request": "scan257",
+          "optimized": true,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 0,
+          "stdout": "{\"join_comparisons\": 0, \"optimized_plan\": {\"as\": \"t\", \"op\": \"scan\", \"table\": \"t\"}, \"rows\": [{\"t.v\": 0}, {\"t.v\": 1}, {\"t.v\": 2}, {\"t.v\": 3}, {\"t.v\": 4}, {\"t.v\": 5}, {\"t.v\": 6}, {\"t.v\": 7}, {\"t.v\": 8}, {\"t.v\": 9}, {\"t.v\": 10}, {\"t.v\": 11}, {\"t.v\": 12}, {\"t.v\": 13}, {\"t.v\": 14}, {\"t.v\": 15}, {\"t.v\": 16}, {\"t.v\": 17}, {\"t.v\": 18}, {\"t.v\": 19}, {\"t.v\": 20}, {\"t.v\": 21}, {\"t.v\": 22}, {\"t.v\": 23}, {\"t.v\": 24}, {\"t.v\": 25}, {\"t.v\": 26}, {\"t.v\": 27}, {\"t.v\": 28}, {\"t.v\": 29}, {\"t.v\": 30}, {\"t.v\": 31}, {\"t.v\": 32}, {\"t.v\": 33}, {\"t.v\": 34}, {\"t.v\": 35}, {\"t.v\": 36}, {\"t.v\": 37}, {\"t.v\": 38}, {\"t.v\": 39}, {\"t.v\": 40}, {\"t.v\": 41}, {\"t.v\": 42}, {\"t.v\": 43}, {\"t.v\": 44}, {\"t.v\": 45}, {\"t.v\": 46}, {\"t.v\": 47}, {\"t.v\": 48}, {\"t.v\": 49}, {\"t.v\": 50}, {\"t.v\": 51}, {\"t.v\": 52}, {\"t.v\": 53}, {\"t.v\": 54}, {\"t.v\": 55}, {\"t.v\": 56}, {\"t.v\": 57}, {\"t.v\": 58}, {\"t.v\": 59}, {\"t.v\": 60}, {\"t.v\": 61}, {\"t.v\": 62}, {\"t.v\": 63}, {\"t.v\": 64}, {\"t.v\": 65}, {\"t.v\": 66}, {\"t.v\": 67}, {\"t.v\": 68}, {\"t.v\": 69}, {\"t.v\": 70}, {\"t.v\": 71}, {\"t.v\": 72}, {\"t.v\": 73}, {\"t.v\": 74}, {\"t.v\": 75}, {\"t.v\": 76}, {\"t.v\": 77}, {\"t.v\": 78}, {\"t.v\": 79}, {\"t.v\": 80}, {\"t.v\": 81}, {\"t.v\": 82}, {\"t.v\": 83}, {\"t.v\": 84}, {\"t.v\": 85}, {\"t.v\": 86}, {\"t.v\": 87}, {\"t.v\": 88}, {\"t.v\": 89}, {\"t.v\": 90}, {\"t.v\": 91}, {\"t.v\": 92}, {\"t.v\": 93}, {\"t.v\": 94}, {\"t.v\": 95}, {\"t.v\": 96}, {\"t.v\": 97}, {\"t.v\": 98}, {\"t.v\": 99}, {\"t.v\": 100}, {\"t.v\": 101}, {\"t.v\": 102}, {\"t.v\": 103}, {\"t.v\": 104}, {\"t.v\": 105}, {\"t.v\": 106}, {\"t.v\": 107}, {\"t.v\": 108}, {\"t.v\": 109}, {\"t.v\": 110}, {\"t.v\": 111}, {\"t.v\": 112}, {\"t.v\": 113}, {\"t.v\": 114}, {\"t.v\": 115}, {\"t.v\": 116}, {\"t.v\": 117}, {\"t.v\": 118}, {\"t.v\": 119}, {\"t.v\": 120}, {\"t.v\": 121}, {\"t.v\": 122}, {\"t.v\": 123}, {\"t.v\": 124}, {\"t.v\": 125}, {\"t.v\": 126}, {\"t.v\": 127}, {\"t.v\": 128}, {\"t.v\": 129}, {\"t.v\": 130}, {\"t.v\": 131}, {\"t.v\": 132}, {\"t.v\": 133}, {\"t.v\": 134}, {\"t.v\": 135}, {\"t.v\": 136}, {\"t.v\": 137}, {\"t.v\": 138}, {\"t.v\": 139}, {\"t.v\": 140}, {\"t.v\": 141}, {\"t.v\": 142}, {\"t.v\": 143}, {\"t.v\": 144}, {\"t.v\": 145}, {\"t.v\": 146}, {\"t.v\": 147}, {\"t.v\": 148}, {\"t.v\": 149}, {\"t.v\": 150}, {\"t.v\": 151}, {\"t.v\": 152}, {\"t.v\": 153}, {\"t.v\": 154}, {\"t.v\": 155}, {\"t.v\": 156}, {\"t.v\": 157}, {\"t.v\": 158}, {\"t.v\": 159}, {\"t.v\": 160}, {\"t.v\": 161}, {\"t.v\": 162}, {\"t.v\": 163}, {\"t.v\": 164}, {\"t.v\": 165}, {\"t.v\": 166}, {\"t.v\": 167}, {\"t.v\": 168}, {\"t.v\": 169}, {\"t.v\": 170}, {\"t.v\": 171}, {\"t.v\": 172}, {\"t.v\": 173}, {\"t.v\": 174}, {\"t.v\": 175}, {\"t.v\": 176}, {\"t.v\": 177}, {\"t.v\": 178}, {\"t.v\": 179}, {\"t.v\": 180}, {\"t.v\": 181}, {\"t.v\": 182}, {\"t.v\": 183}, {\"t.v\": 184}, {\"t.v\": 185}, {\"t.v\": 186}, {\"t.v\": 187}, {\"t.v\": 188}, {\"t.v\": 189}, {\"t.v\": 190}, {\"t.v\": 191}, {\"t.v\": 192}, {\"t.v\": 193}, {\"t.v\": 194}, {\"t.v\": 195}, {\"t.v\": 196}, {\"t.v\": 197}, {\"t.v\": 198}, {\"t.v\": 199}, {\"t.v\": 200}, {\"t.v\": 201}, {\"t.v\": 202}, {\"t.v\": 203}, {\"t.v\": 204}, {\"t.v\": 205}, {\"t.v\": 206}, {\"t.v\": 207}, {\"t.v\": 208}, {\"t.v\": 209}, {\"t.v\": 210}, {\"t.v\": 211}, {\"t.v\": 212}, {\"t.v\": 213}, {\"t.v\": 214}, {\"t.v\": 215}, {\"t.v\": 216}, {\"t.v\": 217}, {\"t.v\": 218}, {\"t.v\": 219}, {\"t.v\": 220}, {\"t.v\": 221}, {\"t.v\": 222}, {\"t.v\": 223}, {\"t.v\": 224}, {\"t.v\": 225}, {\"t.v\": 226}, {\"t.v\": 227}, {\"t.v\": 228}, {\"t.v\": 229}, {\"t.v\": 230}, {\"t.v\": 231}, {\"t.v\": 232}, {\"t.v\": 233}, {\"t.v\": 234}, {\"t.v\": 235}, {\"t.v\": 236}, {\"t.v\": 237}, {\"t.v\": 238}, {\"t.v\": 239}, {\"t.v\": 240}, {\"t.v\": 241}, {\"t.v\": 242}, {\"t.v\": 243}, {\"t.v\": 244}, {\"t.v\": 245}, {\"t.v\": 246}, {\"t.v\": 247}, {\"t.v\": 248}, {\"t.v\": 249}, {\"t.v\": 250}, {\"t.v\": 251}, {\"t.v\": 252}, {\"t.v\": 253}, {\"t.v\": 254}, {\"t.v\": 255}, {\"t.v\": 256}]}\n",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "H5",
+      "control": "correct_alternate",
+      "expected_pass": true,
+      "observed_pass": true,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "request": "benchmark",
+          "optimized": false,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 150,
+          "stdout": "{\"join_comparisons\": 150, \"optimized_plan\": {\"input\": {\"kind\": \"inner\", \"left\": {\"as\": \"s_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"stock_436a0cfc06_1\"}, \"left_on\": \"s_436a0cfc06_1.sku\", \"op\": \"join\", \"right\": {\"as\": \"r_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"reservations_436a0cfc06_1\"}, \"right_on\": \"r_436a0cfc06_1.sku\"}, \"op\": \"filter\", \"predicate\": {\"and\": [{\"eq\": [{\"col\": \"s_436a0cfc06_1.enabled\"}, {\"lit\": 1}]}, {\"gt\": [{\"col\": \"r_436a0cfc06_1.reserved\"}, {\"lit\": 0}]}]}}, \"rows\": [{\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 4, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}, {\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 1, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}]}\n",
+          "pass": true
+        },
+        {
+          "request": "benchmark",
+          "optimized": true,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 30,
+          "stdout": "{\"join_comparisons\": 30, \"optimized_plan\": {\"kind\": \"inner\", \"left\": {\"input\": {\"as\": \"s_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"stock_436a0cfc06_1\"}, \"op\": \"filter\", \"predicate\": {\"eq\": [{\"col\": \"s_436a0cfc06_1.enabled\"}, {\"lit\": 1}]}}, \"left_on\": \"s_436a0cfc06_1.sku\", \"op\": \"join\", \"right\": {\"input\": {\"as\": \"r_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"reservations_436a0cfc06_1\"}, \"op\": \"filter\", \"predicate\": {\"gt\": [{\"col\": \"r_436a0cfc06_1.reserved\"}, {\"lit\": 0}]}}, \"right_on\": \"r_436a0cfc06_1.sku\"}, \"rows\": [{\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 4, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}, {\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 1, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}]}\n",
+          "pass": true
+        },
+        {
+          "request": "scan257",
+          "optimized": false,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 0,
+          "stdout": "{\"join_comparisons\": 0, \"optimized_plan\": {\"as\": \"t\", \"op\": \"scan\", \"table\": \"t\"}, \"rows\": [{\"t.v\": 0}, {\"t.v\": 1}, {\"t.v\": 2}, {\"t.v\": 3}, {\"t.v\": 4}, {\"t.v\": 5}, {\"t.v\": 6}, {\"t.v\": 7}, {\"t.v\": 8}, {\"t.v\": 9}, {\"t.v\": 10}, {\"t.v\": 11}, {\"t.v\": 12}, {\"t.v\": 13}, {\"t.v\": 14}, {\"t.v\": 15}, {\"t.v\": 16}, {\"t.v\": 17}, {\"t.v\": 18}, {\"t.v\": 19}, {\"t.v\": 20}, {\"t.v\": 21}, {\"t.v\": 22}, {\"t.v\": 23}, {\"t.v\": 24}, {\"t.v\": 25}, {\"t.v\": 26}, {\"t.v\": 27}, {\"t.v\": 28}, {\"t.v\": 29}, {\"t.v\": 30}, {\"t.v\": 31}, {\"t.v\": 32}, {\"t.v\": 33}, {\"t.v\": 34}, {\"t.v\": 35}, {\"t.v\": 36}, {\"t.v\": 37}, {\"t.v\": 38}, {\"t.v\": 39}, {\"t.v\": 40}, {\"t.v\": 41}, {\"t.v\": 42}, {\"t.v\": 43}, {\"t.v\": 44}, {\"t.v\": 45}, {\"t.v\": 46}, {\"t.v\": 47}, {\"t.v\": 48}, {\"t.v\": 49}, {\"t.v\": 50}, {\"t.v\": 51}, {\"t.v\": 52}, {\"t.v\": 53}, {\"t.v\": 54}, {\"t.v\": 55}, {\"t.v\": 56}, {\"t.v\": 57}, {\"t.v\": 58}, {\"t.v\": 59}, {\"t.v\": 60}, {\"t.v\": 61}, {\"t.v\": 62}, {\"t.v\": 63}, {\"t.v\": 64}, {\"t.v\": 65}, {\"t.v\": 66}, {\"t.v\": 67}, {\"t.v\": 68}, {\"t.v\": 69}, {\"t.v\": 70}, {\"t.v\": 71}, {\"t.v\": 72}, {\"t.v\": 73}, {\"t.v\": 74}, {\"t.v\": 75}, {\"t.v\": 76}, {\"t.v\": 77}, {\"t.v\": 78}, {\"t.v\": 79}, {\"t.v\": 80}, {\"t.v\": 81}, {\"t.v\": 82}, {\"t.v\": 83}, {\"t.v\": 84}, {\"t.v\": 85}, {\"t.v\": 86}, {\"t.v\": 87}, {\"t.v\": 88}, {\"t.v\": 89}, {\"t.v\": 90}, {\"t.v\": 91}, {\"t.v\": 92}, {\"t.v\": 93}, {\"t.v\": 94}, {\"t.v\": 95}, {\"t.v\": 96}, {\"t.v\": 97}, {\"t.v\": 98}, {\"t.v\": 99}, {\"t.v\": 100}, {\"t.v\": 101}, {\"t.v\": 102}, {\"t.v\": 103}, {\"t.v\": 104}, {\"t.v\": 105}, {\"t.v\": 106}, {\"t.v\": 107}, {\"t.v\": 108}, {\"t.v\": 109}, {\"t.v\": 110}, {\"t.v\": 111}, {\"t.v\": 112}, {\"t.v\": 113}, {\"t.v\": 114}, {\"t.v\": 115}, {\"t.v\": 116}, {\"t.v\": 117}, {\"t.v\": 118}, {\"t.v\": 119}, {\"t.v\": 120}, {\"t.v\": 121}, {\"t.v\": 122}, {\"t.v\": 123}, {\"t.v\": 124}, {\"t.v\": 125}, {\"t.v\": 126}, {\"t.v\": 127}, {\"t.v\": 128}, {\"t.v\": 129}, {\"t.v\": 130}, {\"t.v\": 131}, {\"t.v\": 132}, {\"t.v\": 133}, {\"t.v\": 134}, {\"t.v\": 135}, {\"t.v\": 136}, {\"t.v\": 137}, {\"t.v\": 138}, {\"t.v\": 139}, {\"t.v\": 140}, {\"t.v\": 141}, {\"t.v\": 142}, {\"t.v\": 143}, {\"t.v\": 144}, {\"t.v\": 145}, {\"t.v\": 146}, {\"t.v\": 147}, {\"t.v\": 148}, {\"t.v\": 149}, {\"t.v\": 150}, {\"t.v\": 151}, {\"t.v\": 152}, {\"t.v\": 153}, {\"t.v\": 154}, {\"t.v\": 155}, {\"t.v\": 156}, {\"t.v\": 157}, {\"t.v\": 158}, {\"t.v\": 159}, {\"t.v\": 160}, {\"t.v\": 161}, {\"t.v\": 162}, {\"t.v\": 163}, {\"t.v\": 164}, {\"t.v\": 165}, {\"t.v\": 166}, {\"t.v\": 167}, {\"t.v\": 168}, {\"t.v\": 169}, {\"t.v\": 170}, {\"t.v\": 171}, {\"t.v\": 172}, {\"t.v\": 173}, {\"t.v\": 174}, {\"t.v\": 175}, {\"t.v\": 176}, {\"t.v\": 177}, {\"t.v\": 178}, {\"t.v\": 179}, {\"t.v\": 180}, {\"t.v\": 181}, {\"t.v\": 182}, {\"t.v\": 183}, {\"t.v\": 184}, {\"t.v\": 185}, {\"t.v\": 186}, {\"t.v\": 187}, {\"t.v\": 188}, {\"t.v\": 189}, {\"t.v\": 190}, {\"t.v\": 191}, {\"t.v\": 192}, {\"t.v\": 193}, {\"t.v\": 194}, {\"t.v\": 195}, {\"t.v\": 196}, {\"t.v\": 197}, {\"t.v\": 198}, {\"t.v\": 199}, {\"t.v\": 200}, {\"t.v\": 201}, {\"t.v\": 202}, {\"t.v\": 203}, {\"t.v\": 204}, {\"t.v\": 205}, {\"t.v\": 206}, {\"t.v\": 207}, {\"t.v\": 208}, {\"t.v\": 209}, {\"t.v\": 210}, {\"t.v\": 211}, {\"t.v\": 212}, {\"t.v\": 213}, {\"t.v\": 214}, {\"t.v\": 215}, {\"t.v\": 216}, {\"t.v\": 217}, {\"t.v\": 218}, {\"t.v\": 219}, {\"t.v\": 220}, {\"t.v\": 221}, {\"t.v\": 222}, {\"t.v\": 223}, {\"t.v\": 224}, {\"t.v\": 225}, {\"t.v\": 226}, {\"t.v\": 227}, {\"t.v\": 228}, {\"t.v\": 229}, {\"t.v\": 230}, {\"t.v\": 231}, {\"t.v\": 232}, {\"t.v\": 233}, {\"t.v\": 234}, {\"t.v\": 235}, {\"t.v\": 236}, {\"t.v\": 237}, {\"t.v\": 238}, {\"t.v\": 239}, {\"t.v\": 240}, {\"t.v\": 241}, {\"t.v\": 242}, {\"t.v\": 243}, {\"t.v\": 244}, {\"t.v\": 245}, {\"t.v\": 246}, {\"t.v\": 247}, {\"t.v\": 248}, {\"t.v\": 249}, {\"t.v\": 250}, {\"t.v\": 251}, {\"t.v\": 252}, {\"t.v\": 253}, {\"t.v\": 254}, {\"t.v\": 255}, {\"t.v\": 256}]}\n",
+          "pass": true
+        },
+        {
+          "request": "scan257",
+          "optimized": true,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 0,
+          "stdout": "{\"join_comparisons\": 0, \"optimized_plan\": {\"as\": \"t\", \"op\": \"scan\", \"table\": \"t\"}, \"rows\": [{\"t.v\": 0}, {\"t.v\": 1}, {\"t.v\": 2}, {\"t.v\": 3}, {\"t.v\": 4}, {\"t.v\": 5}, {\"t.v\": 6}, {\"t.v\": 7}, {\"t.v\": 8}, {\"t.v\": 9}, {\"t.v\": 10}, {\"t.v\": 11}, {\"t.v\": 12}, {\"t.v\": 13}, {\"t.v\": 14}, {\"t.v\": 15}, {\"t.v\": 16}, {\"t.v\": 17}, {\"t.v\": 18}, {\"t.v\": 19}, {\"t.v\": 20}, {\"t.v\": 21}, {\"t.v\": 22}, {\"t.v\": 23}, {\"t.v\": 24}, {\"t.v\": 25}, {\"t.v\": 26}, {\"t.v\": 27}, {\"t.v\": 28}, {\"t.v\": 29}, {\"t.v\": 30}, {\"t.v\": 31}, {\"t.v\": 32}, {\"t.v\": 33}, {\"t.v\": 34}, {\"t.v\": 35}, {\"t.v\": 36}, {\"t.v\": 37}, {\"t.v\": 38}, {\"t.v\": 39}, {\"t.v\": 40}, {\"t.v\": 41}, {\"t.v\": 42}, {\"t.v\": 43}, {\"t.v\": 44}, {\"t.v\": 45}, {\"t.v\": 46}, {\"t.v\": 47}, {\"t.v\": 48}, {\"t.v\": 49}, {\"t.v\": 50}, {\"t.v\": 51}, {\"t.v\": 52}, {\"t.v\": 53}, {\"t.v\": 54}, {\"t.v\": 55}, {\"t.v\": 56}, {\"t.v\": 57}, {\"t.v\": 58}, {\"t.v\": 59}, {\"t.v\": 60}, {\"t.v\": 61}, {\"t.v\": 62}, {\"t.v\": 63}, {\"t.v\": 64}, {\"t.v\": 65}, {\"t.v\": 66}, {\"t.v\": 67}, {\"t.v\": 68}, {\"t.v\": 69}, {\"t.v\": 70}, {\"t.v\": 71}, {\"t.v\": 72}, {\"t.v\": 73}, {\"t.v\": 74}, {\"t.v\": 75}, {\"t.v\": 76}, {\"t.v\": 77}, {\"t.v\": 78}, {\"t.v\": 79}, {\"t.v\": 80}, {\"t.v\": 81}, {\"t.v\": 82}, {\"t.v\": 83}, {\"t.v\": 84}, {\"t.v\": 85}, {\"t.v\": 86}, {\"t.v\": 87}, {\"t.v\": 88}, {\"t.v\": 89}, {\"t.v\": 90}, {\"t.v\": 91}, {\"t.v\": 92}, {\"t.v\": 93}, {\"t.v\": 94}, {\"t.v\": 95}, {\"t.v\": 96}, {\"t.v\": 97}, {\"t.v\": 98}, {\"t.v\": 99}, {\"t.v\": 100}, {\"t.v\": 101}, {\"t.v\": 102}, {\"t.v\": 103}, {\"t.v\": 104}, {\"t.v\": 105}, {\"t.v\": 106}, {\"t.v\": 107}, {\"t.v\": 108}, {\"t.v\": 109}, {\"t.v\": 110}, {\"t.v\": 111}, {\"t.v\": 112}, {\"t.v\": 113}, {\"t.v\": 114}, {\"t.v\": 115}, {\"t.v\": 116}, {\"t.v\": 117}, {\"t.v\": 118}, {\"t.v\": 119}, {\"t.v\": 120}, {\"t.v\": 121}, {\"t.v\": 122}, {\"t.v\": 123}, {\"t.v\": 124}, {\"t.v\": 125}, {\"t.v\": 126}, {\"t.v\": 127}, {\"t.v\": 128}, {\"t.v\": 129}, {\"t.v\": 130}, {\"t.v\": 131}, {\"t.v\": 132}, {\"t.v\": 133}, {\"t.v\": 134}, {\"t.v\": 135}, {\"t.v\": 136}, {\"t.v\": 137}, {\"t.v\": 138}, {\"t.v\": 139}, {\"t.v\": 140}, {\"t.v\": 141}, {\"t.v\": 142}, {\"t.v\": 143}, {\"t.v\": 144}, {\"t.v\": 145}, {\"t.v\": 146}, {\"t.v\": 147}, {\"t.v\": 148}, {\"t.v\": 149}, {\"t.v\": 150}, {\"t.v\": 151}, {\"t.v\": 152}, {\"t.v\": 153}, {\"t.v\": 154}, {\"t.v\": 155}, {\"t.v\": 156}, {\"t.v\": 157}, {\"t.v\": 158}, {\"t.v\": 159}, {\"t.v\": 160}, {\"t.v\": 161}, {\"t.v\": 162}, {\"t.v\": 163}, {\"t.v\": 164}, {\"t.v\": 165}, {\"t.v\": 166}, {\"t.v\": 167}, {\"t.v\": 168}, {\"t.v\": 169}, {\"t.v\": 170}, {\"t.v\": 171}, {\"t.v\": 172}, {\"t.v\": 173}, {\"t.v\": 174}, {\"t.v\": 175}, {\"t.v\": 176}, {\"t.v\": 177}, {\"t.v\": 178}, {\"t.v\": 179}, {\"t.v\": 180}, {\"t.v\": 181}, {\"t.v\": 182}, {\"t.v\": 183}, {\"t.v\": 184}, {\"t.v\": 185}, {\"t.v\": 186}, {\"t.v\": 187}, {\"t.v\": 188}, {\"t.v\": 189}, {\"t.v\": 190}, {\"t.v\": 191}, {\"t.v\": 192}, {\"t.v\": 193}, {\"t.v\": 194}, {\"t.v\": 195}, {\"t.v\": 196}, {\"t.v\": 197}, {\"t.v\": 198}, {\"t.v\": 199}, {\"t.v\": 200}, {\"t.v\": 201}, {\"t.v\": 202}, {\"t.v\": 203}, {\"t.v\": 204}, {\"t.v\": 205}, {\"t.v\": 206}, {\"t.v\": 207}, {\"t.v\": 208}, {\"t.v\": 209}, {\"t.v\": 210}, {\"t.v\": 211}, {\"t.v\": 212}, {\"t.v\": 213}, {\"t.v\": 214}, {\"t.v\": 215}, {\"t.v\": 216}, {\"t.v\": 217}, {\"t.v\": 218}, {\"t.v\": 219}, {\"t.v\": 220}, {\"t.v\": 221}, {\"t.v\": 222}, {\"t.v\": 223}, {\"t.v\": 224}, {\"t.v\": 225}, {\"t.v\": 226}, {\"t.v\": 227}, {\"t.v\": 228}, {\"t.v\": 229}, {\"t.v\": 230}, {\"t.v\": 231}, {\"t.v\": 232}, {\"t.v\": 233}, {\"t.v\": 234}, {\"t.v\": 235}, {\"t.v\": 236}, {\"t.v\": 237}, {\"t.v\": 238}, {\"t.v\": 239}, {\"t.v\": 240}, {\"t.v\": 241}, {\"t.v\": 242}, {\"t.v\": 243}, {\"t.v\": 244}, {\"t.v\": 245}, {\"t.v\": 246}, {\"t.v\": 247}, {\"t.v\": 248}, {\"t.v\": 249}, {\"t.v\": 250}, {\"t.v\": 251}, {\"t.v\": 252}, {\"t.v\": 253}, {\"t.v\": 254}, {\"t.v\": 255}, {\"t.v\": 256}]}\n",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "H5",
+      "control": "coherent_extra_work",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "request": "benchmark",
+          "optimized": false,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 150,
+          "stdout": "{\"join_comparisons\": 150, \"optimized_plan\": {\"input\": {\"kind\": \"inner\", \"left\": {\"as\": \"s_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"stock_436a0cfc06_1\"}, \"left_on\": \"s_436a0cfc06_1.sku\", \"op\": \"join\", \"right\": {\"as\": \"r_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"reservations_436a0cfc06_1\"}, \"right_on\": \"r_436a0cfc06_1.sku\"}, \"op\": \"filter\", \"predicate\": {\"and\": [{\"eq\": [{\"col\": \"s_436a0cfc06_1.enabled\"}, {\"lit\": 1}]}, {\"gt\": [{\"col\": \"r_436a0cfc06_1.reserved\"}, {\"lit\": 0}]}]}}, \"rows\": [{\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 4, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}, {\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 1, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}]}\n",
+          "pass": true
+        },
+        {
+          "request": "benchmark",
+          "optimized": true,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 180,
+          "stdout": "{\"join_comparisons\": 30, \"optimized_plan\": {\"kind\": \"inner\", \"left\": {\"input\": {\"as\": \"s_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"stock_436a0cfc06_1\"}, \"op\": \"filter\", \"predicate\": {\"eq\": [{\"col\": \"s_436a0cfc06_1.enabled\"}, {\"lit\": 1}]}}, \"left_on\": \"s_436a0cfc06_1.sku\", \"op\": \"join\", \"right\": {\"input\": {\"as\": \"r_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"reservations_436a0cfc06_1\"}, \"op\": \"filter\", \"predicate\": {\"gt\": [{\"col\": \"r_436a0cfc06_1.reserved\"}, {\"lit\": 0}]}}, \"right_on\": \"r_436a0cfc06_1.sku\"}, \"rows\": [{\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 4, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}, {\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 1, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}]}\n",
+          "pass": false
+        },
+        {
+          "request": "scan257",
+          "optimized": false,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 0,
+          "stdout": "{\"join_comparisons\": 0, \"optimized_plan\": {\"as\": \"t\", \"op\": \"scan\", \"table\": \"t\"}, \"rows\": [{\"t.v\": 0}, {\"t.v\": 1}, {\"t.v\": 2}, {\"t.v\": 3}, {\"t.v\": 4}, {\"t.v\": 5}, {\"t.v\": 6}, {\"t.v\": 7}, {\"t.v\": 8}, {\"t.v\": 9}, {\"t.v\": 10}, {\"t.v\": 11}, {\"t.v\": 12}, {\"t.v\": 13}, {\"t.v\": 14}, {\"t.v\": 15}, {\"t.v\": 16}, {\"t.v\": 17}, {\"t.v\": 18}, {\"t.v\": 19}, {\"t.v\": 20}, {\"t.v\": 21}, {\"t.v\": 22}, {\"t.v\": 23}, {\"t.v\": 24}, {\"t.v\": 25}, {\"t.v\": 26}, {\"t.v\": 27}, {\"t.v\": 28}, {\"t.v\": 29}, {\"t.v\": 30}, {\"t.v\": 31}, {\"t.v\": 32}, {\"t.v\": 33}, {\"t.v\": 34}, {\"t.v\": 35}, {\"t.v\": 36}, {\"t.v\": 37}, {\"t.v\": 38}, {\"t.v\": 39}, {\"t.v\": 40}, {\"t.v\": 41}, {\"t.v\": 42}, {\"t.v\": 43}, {\"t.v\": 44}, {\"t.v\": 45}, {\"t.v\": 46}, {\"t.v\": 47}, {\"t.v\": 48}, {\"t.v\": 49}, {\"t.v\": 50}, {\"t.v\": 51}, {\"t.v\": 52}, {\"t.v\": 53}, {\"t.v\": 54}, {\"t.v\": 55}, {\"t.v\": 56}, {\"t.v\": 57}, {\"t.v\": 58}, {\"t.v\": 59}, {\"t.v\": 60}, {\"t.v\": 61}, {\"t.v\": 62}, {\"t.v\": 63}, {\"t.v\": 64}, {\"t.v\": 65}, {\"t.v\": 66}, {\"t.v\": 67}, {\"t.v\": 68}, {\"t.v\": 69}, {\"t.v\": 70}, {\"t.v\": 71}, {\"t.v\": 72}, {\"t.v\": 73}, {\"t.v\": 74}, {\"t.v\": 75}, {\"t.v\": 76}, {\"t.v\": 77}, {\"t.v\": 78}, {\"t.v\": 79}, {\"t.v\": 80}, {\"t.v\": 81}, {\"t.v\": 82}, {\"t.v\": 83}, {\"t.v\": 84}, {\"t.v\": 85}, {\"t.v\": 86}, {\"t.v\": 87}, {\"t.v\": 88}, {\"t.v\": 89}, {\"t.v\": 90}, {\"t.v\": 91}, {\"t.v\": 92}, {\"t.v\": 93}, {\"t.v\": 94}, {\"t.v\": 95}, {\"t.v\": 96}, {\"t.v\": 97}, {\"t.v\": 98}, {\"t.v\": 99}, {\"t.v\": 100}, {\"t.v\": 101}, {\"t.v\": 102}, {\"t.v\": 103}, {\"t.v\": 104}, {\"t.v\": 105}, {\"t.v\": 106}, {\"t.v\": 107}, {\"t.v\": 108}, {\"t.v\": 109}, {\"t.v\": 110}, {\"t.v\": 111}, {\"t.v\": 112}, {\"t.v\": 113}, {\"t.v\": 114}, {\"t.v\": 115}, {\"t.v\": 116}, {\"t.v\": 117}, {\"t.v\": 118}, {\"t.v\": 119}, {\"t.v\": 120}, {\"t.v\": 121}, {\"t.v\": 122}, {\"t.v\": 123}, {\"t.v\": 124}, {\"t.v\": 125}, {\"t.v\": 126}, {\"t.v\": 127}, {\"t.v\": 128}, {\"t.v\": 129}, {\"t.v\": 130}, {\"t.v\": 131}, {\"t.v\": 132}, {\"t.v\": 133}, {\"t.v\": 134}, {\"t.v\": 135}, {\"t.v\": 136}, {\"t.v\": 137}, {\"t.v\": 138}, {\"t.v\": 139}, {\"t.v\": 140}, {\"t.v\": 141}, {\"t.v\": 142}, {\"t.v\": 143}, {\"t.v\": 144}, {\"t.v\": 145}, {\"t.v\": 146}, {\"t.v\": 147}, {\"t.v\": 148}, {\"t.v\": 149}, {\"t.v\": 150}, {\"t.v\": 151}, {\"t.v\": 152}, {\"t.v\": 153}, {\"t.v\": 154}, {\"t.v\": 155}, {\"t.v\": 156}, {\"t.v\": 157}, {\"t.v\": 158}, {\"t.v\": 159}, {\"t.v\": 160}, {\"t.v\": 161}, {\"t.v\": 162}, {\"t.v\": 163}, {\"t.v\": 164}, {\"t.v\": 165}, {\"t.v\": 166}, {\"t.v\": 167}, {\"t.v\": 168}, {\"t.v\": 169}, {\"t.v\": 170}, {\"t.v\": 171}, {\"t.v\": 172}, {\"t.v\": 173}, {\"t.v\": 174}, {\"t.v\": 175}, {\"t.v\": 176}, {\"t.v\": 177}, {\"t.v\": 178}, {\"t.v\": 179}, {\"t.v\": 180}, {\"t.v\": 181}, {\"t.v\": 182}, {\"t.v\": 183}, {\"t.v\": 184}, {\"t.v\": 185}, {\"t.v\": 186}, {\"t.v\": 187}, {\"t.v\": 188}, {\"t.v\": 189}, {\"t.v\": 190}, {\"t.v\": 191}, {\"t.v\": 192}, {\"t.v\": 193}, {\"t.v\": 194}, {\"t.v\": 195}, {\"t.v\": 196}, {\"t.v\": 197}, {\"t.v\": 198}, {\"t.v\": 199}, {\"t.v\": 200}, {\"t.v\": 201}, {\"t.v\": 202}, {\"t.v\": 203}, {\"t.v\": 204}, {\"t.v\": 205}, {\"t.v\": 206}, {\"t.v\": 207}, {\"t.v\": 208}, {\"t.v\": 209}, {\"t.v\": 210}, {\"t.v\": 211}, {\"t.v\": 212}, {\"t.v\": 213}, {\"t.v\": 214}, {\"t.v\": 215}, {\"t.v\": 216}, {\"t.v\": 217}, {\"t.v\": 218}, {\"t.v\": 219}, {\"t.v\": 220}, {\"t.v\": 221}, {\"t.v\": 222}, {\"t.v\": 223}, {\"t.v\": 224}, {\"t.v\": 225}, {\"t.v\": 226}, {\"t.v\": 227}, {\"t.v\": 228}, {\"t.v\": 229}, {\"t.v\": 230}, {\"t.v\": 231}, {\"t.v\": 232}, {\"t.v\": 233}, {\"t.v\": 234}, {\"t.v\": 235}, {\"t.v\": 236}, {\"t.v\": 237}, {\"t.v\": 238}, {\"t.v\": 239}, {\"t.v\": 240}, {\"t.v\": 241}, {\"t.v\": 242}, {\"t.v\": 243}, {\"t.v\": 244}, {\"t.v\": 245}, {\"t.v\": 246}, {\"t.v\": 247}, {\"t.v\": 248}, {\"t.v\": 249}, {\"t.v\": 250}, {\"t.v\": 251}, {\"t.v\": 252}, {\"t.v\": 253}, {\"t.v\": 254}, {\"t.v\": 255}, {\"t.v\": 256}]}\n",
+          "pass": true
+        },
+        {
+          "request": "scan257",
+          "optimized": true,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 0,
+          "stdout": "{\"join_comparisons\": 0, \"optimized_plan\": {\"as\": \"t\", \"op\": \"scan\", \"table\": \"t\"}, \"rows\": [{\"t.v\": 0}, {\"t.v\": 1}, {\"t.v\": 2}, {\"t.v\": 3}, {\"t.v\": 4}, {\"t.v\": 5}, {\"t.v\": 6}, {\"t.v\": 7}, {\"t.v\": 8}, {\"t.v\": 9}, {\"t.v\": 10}, {\"t.v\": 11}, {\"t.v\": 12}, {\"t.v\": 13}, {\"t.v\": 14}, {\"t.v\": 15}, {\"t.v\": 16}, {\"t.v\": 17}, {\"t.v\": 18}, {\"t.v\": 19}, {\"t.v\": 20}, {\"t.v\": 21}, {\"t.v\": 22}, {\"t.v\": 23}, {\"t.v\": 24}, {\"t.v\": 25}, {\"t.v\": 26}, {\"t.v\": 27}, {\"t.v\": 28}, {\"t.v\": 29}, {\"t.v\": 30}, {\"t.v\": 31}, {\"t.v\": 32}, {\"t.v\": 33}, {\"t.v\": 34}, {\"t.v\": 35}, {\"t.v\": 36}, {\"t.v\": 37}, {\"t.v\": 38}, {\"t.v\": 39}, {\"t.v\": 40}, {\"t.v\": 41}, {\"t.v\": 42}, {\"t.v\": 43}, {\"t.v\": 44}, {\"t.v\": 45}, {\"t.v\": 46}, {\"t.v\": 47}, {\"t.v\": 48}, {\"t.v\": 49}, {\"t.v\": 50}, {\"t.v\": 51}, {\"t.v\": 52}, {\"t.v\": 53}, {\"t.v\": 54}, {\"t.v\": 55}, {\"t.v\": 56}, {\"t.v\": 57}, {\"t.v\": 58}, {\"t.v\": 59}, {\"t.v\": 60}, {\"t.v\": 61}, {\"t.v\": 62}, {\"t.v\": 63}, {\"t.v\": 64}, {\"t.v\": 65}, {\"t.v\": 66}, {\"t.v\": 67}, {\"t.v\": 68}, {\"t.v\": 69}, {\"t.v\": 70}, {\"t.v\": 71}, {\"t.v\": 72}, {\"t.v\": 73}, {\"t.v\": 74}, {\"t.v\": 75}, {\"t.v\": 76}, {\"t.v\": 77}, {\"t.v\": 78}, {\"t.v\": 79}, {\"t.v\": 80}, {\"t.v\": 81}, {\"t.v\": 82}, {\"t.v\": 83}, {\"t.v\": 84}, {\"t.v\": 85}, {\"t.v\": 86}, {\"t.v\": 87}, {\"t.v\": 88}, {\"t.v\": 89}, {\"t.v\": 90}, {\"t.v\": 91}, {\"t.v\": 92}, {\"t.v\": 93}, {\"t.v\": 94}, {\"t.v\": 95}, {\"t.v\": 96}, {\"t.v\": 97}, {\"t.v\": 98}, {\"t.v\": 99}, {\"t.v\": 100}, {\"t.v\": 101}, {\"t.v\": 102}, {\"t.v\": 103}, {\"t.v\": 104}, {\"t.v\": 105}, {\"t.v\": 106}, {\"t.v\": 107}, {\"t.v\": 108}, {\"t.v\": 109}, {\"t.v\": 110}, {\"t.v\": 111}, {\"t.v\": 112}, {\"t.v\": 113}, {\"t.v\": 114}, {\"t.v\": 115}, {\"t.v\": 116}, {\"t.v\": 117}, {\"t.v\": 118}, {\"t.v\": 119}, {\"t.v\": 120}, {\"t.v\": 121}, {\"t.v\": 122}, {\"t.v\": 123}, {\"t.v\": 124}, {\"t.v\": 125}, {\"t.v\": 126}, {\"t.v\": 127}, {\"t.v\": 128}, {\"t.v\": 129}, {\"t.v\": 130}, {\"t.v\": 131}, {\"t.v\": 132}, {\"t.v\": 133}, {\"t.v\": 134}, {\"t.v\": 135}, {\"t.v\": 136}, {\"t.v\": 137}, {\"t.v\": 138}, {\"t.v\": 139}, {\"t.v\": 140}, {\"t.v\": 141}, {\"t.v\": 142}, {\"t.v\": 143}, {\"t.v\": 144}, {\"t.v\": 145}, {\"t.v\": 146}, {\"t.v\": 147}, {\"t.v\": 148}, {\"t.v\": 149}, {\"t.v\": 150}, {\"t.v\": 151}, {\"t.v\": 152}, {\"t.v\": 153}, {\"t.v\": 154}, {\"t.v\": 155}, {\"t.v\": 156}, {\"t.v\": 157}, {\"t.v\": 158}, {\"t.v\": 159}, {\"t.v\": 160}, {\"t.v\": 161}, {\"t.v\": 162}, {\"t.v\": 163}, {\"t.v\": 164}, {\"t.v\": 165}, {\"t.v\": 166}, {\"t.v\": 167}, {\"t.v\": 168}, {\"t.v\": 169}, {\"t.v\": 170}, {\"t.v\": 171}, {\"t.v\": 172}, {\"t.v\": 173}, {\"t.v\": 174}, {\"t.v\": 175}, {\"t.v\": 176}, {\"t.v\": 177}, {\"t.v\": 178}, {\"t.v\": 179}, {\"t.v\": 180}, {\"t.v\": 181}, {\"t.v\": 182}, {\"t.v\": 183}, {\"t.v\": 184}, {\"t.v\": 185}, {\"t.v\": 186}, {\"t.v\": 187}, {\"t.v\": 188}, {\"t.v\": 189}, {\"t.v\": 190}, {\"t.v\": 191}, {\"t.v\": 192}, {\"t.v\": 193}, {\"t.v\": 194}, {\"t.v\": 195}, {\"t.v\": 196}, {\"t.v\": 197}, {\"t.v\": 198}, {\"t.v\": 199}, {\"t.v\": 200}, {\"t.v\": 201}, {\"t.v\": 202}, {\"t.v\": 203}, {\"t.v\": 204}, {\"t.v\": 205}, {\"t.v\": 206}, {\"t.v\": 207}, {\"t.v\": 208}, {\"t.v\": 209}, {\"t.v\": 210}, {\"t.v\": 211}, {\"t.v\": 212}, {\"t.v\": 213}, {\"t.v\": 214}, {\"t.v\": 215}, {\"t.v\": 216}, {\"t.v\": 217}, {\"t.v\": 218}, {\"t.v\": 219}, {\"t.v\": 220}, {\"t.v\": 221}, {\"t.v\": 222}, {\"t.v\": 223}, {\"t.v\": 224}, {\"t.v\": 225}, {\"t.v\": 226}, {\"t.v\": 227}, {\"t.v\": 228}, {\"t.v\": 229}, {\"t.v\": 230}, {\"t.v\": 231}, {\"t.v\": 232}, {\"t.v\": 233}, {\"t.v\": 234}, {\"t.v\": 235}, {\"t.v\": 236}, {\"t.v\": 237}, {\"t.v\": 238}, {\"t.v\": 239}, {\"t.v\": 240}, {\"t.v\": 241}, {\"t.v\": 242}, {\"t.v\": 243}, {\"t.v\": 244}, {\"t.v\": 245}, {\"t.v\": 246}, {\"t.v\": 247}, {\"t.v\": 248}, {\"t.v\": 249}, {\"t.v\": 250}, {\"t.v\": 251}, {\"t.v\": 252}, {\"t.v\": 253}, {\"t.v\": 254}, {\"t.v\": 255}, {\"t.v\": 256}]}\n",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "H5",
+      "control": "zero_counter",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "request": "benchmark",
+          "optimized": false,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 150,
+          "stdout": "{\"join_comparisons\": 0, \"optimized_plan\": {\"input\": {\"kind\": \"inner\", \"left\": {\"as\": \"s_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"stock_436a0cfc06_1\"}, \"left_on\": \"s_436a0cfc06_1.sku\", \"op\": \"join\", \"right\": {\"as\": \"r_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"reservations_436a0cfc06_1\"}, \"right_on\": \"r_436a0cfc06_1.sku\"}, \"op\": \"filter\", \"predicate\": {\"and\": [{\"eq\": [{\"col\": \"s_436a0cfc06_1.enabled\"}, {\"lit\": 1}]}, {\"gt\": [{\"col\": \"r_436a0cfc06_1.reserved\"}, {\"lit\": 0}]}]}}, \"rows\": [{\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 4, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}, {\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 1, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}]}\n",
+          "pass": false
+        },
+        {
+          "request": "benchmark",
+          "optimized": true,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 30,
+          "stdout": "{\"join_comparisons\": 0, \"optimized_plan\": {\"kind\": \"inner\", \"left\": {\"input\": {\"as\": \"s_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"stock_436a0cfc06_1\"}, \"op\": \"filter\", \"predicate\": {\"eq\": [{\"col\": \"s_436a0cfc06_1.enabled\"}, {\"lit\": 1}]}}, \"left_on\": \"s_436a0cfc06_1.sku\", \"op\": \"join\", \"right\": {\"input\": {\"as\": \"r_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"reservations_436a0cfc06_1\"}, \"op\": \"filter\", \"predicate\": {\"gt\": [{\"col\": \"r_436a0cfc06_1.reserved\"}, {\"lit\": 0}]}}, \"right_on\": \"r_436a0cfc06_1.sku\"}, \"rows\": [{\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 4, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}, {\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 1, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}]}\n",
+          "pass": false
+        },
+        {
+          "request": "scan257",
+          "optimized": false,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 0,
+          "stdout": "{\"join_comparisons\": 0, \"optimized_plan\": {\"as\": \"t\", \"op\": \"scan\", \"table\": \"t\"}, \"rows\": [{\"t.v\": 0}, {\"t.v\": 1}, {\"t.v\": 2}, {\"t.v\": 3}, {\"t.v\": 4}, {\"t.v\": 5}, {\"t.v\": 6}, {\"t.v\": 7}, {\"t.v\": 8}, {\"t.v\": 9}, {\"t.v\": 10}, {\"t.v\": 11}, {\"t.v\": 12}, {\"t.v\": 13}, {\"t.v\": 14}, {\"t.v\": 15}, {\"t.v\": 16}, {\"t.v\": 17}, {\"t.v\": 18}, {\"t.v\": 19}, {\"t.v\": 20}, {\"t.v\": 21}, {\"t.v\": 22}, {\"t.v\": 23}, {\"t.v\": 24}, {\"t.v\": 25}, {\"t.v\": 26}, {\"t.v\": 27}, {\"t.v\": 28}, {\"t.v\": 29}, {\"t.v\": 30}, {\"t.v\": 31}, {\"t.v\": 32}, {\"t.v\": 33}, {\"t.v\": 34}, {\"t.v\": 35}, {\"t.v\": 36}, {\"t.v\": 37}, {\"t.v\": 38}, {\"t.v\": 39}, {\"t.v\": 40}, {\"t.v\": 41}, {\"t.v\": 42}, {\"t.v\": 43}, {\"t.v\": 44}, {\"t.v\": 45}, {\"t.v\": 46}, {\"t.v\": 47}, {\"t.v\": 48}, {\"t.v\": 49}, {\"t.v\": 50}, {\"t.v\": 51}, {\"t.v\": 52}, {\"t.v\": 53}, {\"t.v\": 54}, {\"t.v\": 55}, {\"t.v\": 56}, {\"t.v\": 57}, {\"t.v\": 58}, {\"t.v\": 59}, {\"t.v\": 60}, {\"t.v\": 61}, {\"t.v\": 62}, {\"t.v\": 63}, {\"t.v\": 64}, {\"t.v\": 65}, {\"t.v\": 66}, {\"t.v\": 67}, {\"t.v\": 68}, {\"t.v\": 69}, {\"t.v\": 70}, {\"t.v\": 71}, {\"t.v\": 72}, {\"t.v\": 73}, {\"t.v\": 74}, {\"t.v\": 75}, {\"t.v\": 76}, {\"t.v\": 77}, {\"t.v\": 78}, {\"t.v\": 79}, {\"t.v\": 80}, {\"t.v\": 81}, {\"t.v\": 82}, {\"t.v\": 83}, {\"t.v\": 84}, {\"t.v\": 85}, {\"t.v\": 86}, {\"t.v\": 87}, {\"t.v\": 88}, {\"t.v\": 89}, {\"t.v\": 90}, {\"t.v\": 91}, {\"t.v\": 92}, {\"t.v\": 93}, {\"t.v\": 94}, {\"t.v\": 95}, {\"t.v\": 96}, {\"t.v\": 97}, {\"t.v\": 98}, {\"t.v\": 99}, {\"t.v\": 100}, {\"t.v\": 101}, {\"t.v\": 102}, {\"t.v\": 103}, {\"t.v\": 104}, {\"t.v\": 105}, {\"t.v\": 106}, {\"t.v\": 107}, {\"t.v\": 108}, {\"t.v\": 109}, {\"t.v\": 110}, {\"t.v\": 111}, {\"t.v\": 112}, {\"t.v\": 113}, {\"t.v\": 114}, {\"t.v\": 115}, {\"t.v\": 116}, {\"t.v\": 117}, {\"t.v\": 118}, {\"t.v\": 119}, {\"t.v\": 120}, {\"t.v\": 121}, {\"t.v\": 122}, {\"t.v\": 123}, {\"t.v\": 124}, {\"t.v\": 125}, {\"t.v\": 126}, {\"t.v\": 127}, {\"t.v\": 128}, {\"t.v\": 129}, {\"t.v\": 130}, {\"t.v\": 131}, {\"t.v\": 132}, {\"t.v\": 133}, {\"t.v\": 134}, {\"t.v\": 135}, {\"t.v\": 136}, {\"t.v\": 137}, {\"t.v\": 138}, {\"t.v\": 139}, {\"t.v\": 140}, {\"t.v\": 141}, {\"t.v\": 142}, {\"t.v\": 143}, {\"t.v\": 144}, {\"t.v\": 145}, {\"t.v\": 146}, {\"t.v\": 147}, {\"t.v\": 148}, {\"t.v\": 149}, {\"t.v\": 150}, {\"t.v\": 151}, {\"t.v\": 152}, {\"t.v\": 153}, {\"t.v\": 154}, {\"t.v\": 155}, {\"t.v\": 156}, {\"t.v\": 157}, {\"t.v\": 158}, {\"t.v\": 159}, {\"t.v\": 160}, {\"t.v\": 161}, {\"t.v\": 162}, {\"t.v\": 163}, {\"t.v\": 164}, {\"t.v\": 165}, {\"t.v\": 166}, {\"t.v\": 167}, {\"t.v\": 168}, {\"t.v\": 169}, {\"t.v\": 170}, {\"t.v\": 171}, {\"t.v\": 172}, {\"t.v\": 173}, {\"t.v\": 174}, {\"t.v\": 175}, {\"t.v\": 176}, {\"t.v\": 177}, {\"t.v\": 178}, {\"t.v\": 179}, {\"t.v\": 180}, {\"t.v\": 181}, {\"t.v\": 182}, {\"t.v\": 183}, {\"t.v\": 184}, {\"t.v\": 185}, {\"t.v\": 186}, {\"t.v\": 187}, {\"t.v\": 188}, {\"t.v\": 189}, {\"t.v\": 190}, {\"t.v\": 191}, {\"t.v\": 192}, {\"t.v\": 193}, {\"t.v\": 194}, {\"t.v\": 195}, {\"t.v\": 196}, {\"t.v\": 197}, {\"t.v\": 198}, {\"t.v\": 199}, {\"t.v\": 200}, {\"t.v\": 201}, {\"t.v\": 202}, {\"t.v\": 203}, {\"t.v\": 204}, {\"t.v\": 205}, {\"t.v\": 206}, {\"t.v\": 207}, {\"t.v\": 208}, {\"t.v\": 209}, {\"t.v\": 210}, {\"t.v\": 211}, {\"t.v\": 212}, {\"t.v\": 213}, {\"t.v\": 214}, {\"t.v\": 215}, {\"t.v\": 216}, {\"t.v\": 217}, {\"t.v\": 218}, {\"t.v\": 219}, {\"t.v\": 220}, {\"t.v\": 221}, {\"t.v\": 222}, {\"t.v\": 223}, {\"t.v\": 224}, {\"t.v\": 225}, {\"t.v\": 226}, {\"t.v\": 227}, {\"t.v\": 228}, {\"t.v\": 229}, {\"t.v\": 230}, {\"t.v\": 231}, {\"t.v\": 232}, {\"t.v\": 233}, {\"t.v\": 234}, {\"t.v\": 235}, {\"t.v\": 236}, {\"t.v\": 237}, {\"t.v\": 238}, {\"t.v\": 239}, {\"t.v\": 240}, {\"t.v\": 241}, {\"t.v\": 242}, {\"t.v\": 243}, {\"t.v\": 244}, {\"t.v\": 245}, {\"t.v\": 246}, {\"t.v\": 247}, {\"t.v\": 248}, {\"t.v\": 249}, {\"t.v\": 250}, {\"t.v\": 251}, {\"t.v\": 252}, {\"t.v\": 253}, {\"t.v\": 254}, {\"t.v\": 255}, {\"t.v\": 256}]}\n",
+          "pass": true
+        },
+        {
+          "request": "scan257",
+          "optimized": true,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 0,
+          "stdout": "{\"join_comparisons\": 0, \"optimized_plan\": {\"as\": \"t\", \"op\": \"scan\", \"table\": \"t\"}, \"rows\": [{\"t.v\": 0}, {\"t.v\": 1}, {\"t.v\": 2}, {\"t.v\": 3}, {\"t.v\": 4}, {\"t.v\": 5}, {\"t.v\": 6}, {\"t.v\": 7}, {\"t.v\": 8}, {\"t.v\": 9}, {\"t.v\": 10}, {\"t.v\": 11}, {\"t.v\": 12}, {\"t.v\": 13}, {\"t.v\": 14}, {\"t.v\": 15}, {\"t.v\": 16}, {\"t.v\": 17}, {\"t.v\": 18}, {\"t.v\": 19}, {\"t.v\": 20}, {\"t.v\": 21}, {\"t.v\": 22}, {\"t.v\": 23}, {\"t.v\": 24}, {\"t.v\": 25}, {\"t.v\": 26}, {\"t.v\": 27}, {\"t.v\": 28}, {\"t.v\": 29}, {\"t.v\": 30}, {\"t.v\": 31}, {\"t.v\": 32}, {\"t.v\": 33}, {\"t.v\": 34}, {\"t.v\": 35}, {\"t.v\": 36}, {\"t.v\": 37}, {\"t.v\": 38}, {\"t.v\": 39}, {\"t.v\": 40}, {\"t.v\": 41}, {\"t.v\": 42}, {\"t.v\": 43}, {\"t.v\": 44}, {\"t.v\": 45}, {\"t.v\": 46}, {\"t.v\": 47}, {\"t.v\": 48}, {\"t.v\": 49}, {\"t.v\": 50}, {\"t.v\": 51}, {\"t.v\": 52}, {\"t.v\": 53}, {\"t.v\": 54}, {\"t.v\": 55}, {\"t.v\": 56}, {\"t.v\": 57}, {\"t.v\": 58}, {\"t.v\": 59}, {\"t.v\": 60}, {\"t.v\": 61}, {\"t.v\": 62}, {\"t.v\": 63}, {\"t.v\": 64}, {\"t.v\": 65}, {\"t.v\": 66}, {\"t.v\": 67}, {\"t.v\": 68}, {\"t.v\": 69}, {\"t.v\": 70}, {\"t.v\": 71}, {\"t.v\": 72}, {\"t.v\": 73}, {\"t.v\": 74}, {\"t.v\": 75}, {\"t.v\": 76}, {\"t.v\": 77}, {\"t.v\": 78}, {\"t.v\": 79}, {\"t.v\": 80}, {\"t.v\": 81}, {\"t.v\": 82}, {\"t.v\": 83}, {\"t.v\": 84}, {\"t.v\": 85}, {\"t.v\": 86}, {\"t.v\": 87}, {\"t.v\": 88}, {\"t.v\": 89}, {\"t.v\": 90}, {\"t.v\": 91}, {\"t.v\": 92}, {\"t.v\": 93}, {\"t.v\": 94}, {\"t.v\": 95}, {\"t.v\": 96}, {\"t.v\": 97}, {\"t.v\": 98}, {\"t.v\": 99}, {\"t.v\": 100}, {\"t.v\": 101}, {\"t.v\": 102}, {\"t.v\": 103}, {\"t.v\": 104}, {\"t.v\": 105}, {\"t.v\": 106}, {\"t.v\": 107}, {\"t.v\": 108}, {\"t.v\": 109}, {\"t.v\": 110}, {\"t.v\": 111}, {\"t.v\": 112}, {\"t.v\": 113}, {\"t.v\": 114}, {\"t.v\": 115}, {\"t.v\": 116}, {\"t.v\": 117}, {\"t.v\": 118}, {\"t.v\": 119}, {\"t.v\": 120}, {\"t.v\": 121}, {\"t.v\": 122}, {\"t.v\": 123}, {\"t.v\": 124}, {\"t.v\": 125}, {\"t.v\": 126}, {\"t.v\": 127}, {\"t.v\": 128}, {\"t.v\": 129}, {\"t.v\": 130}, {\"t.v\": 131}, {\"t.v\": 132}, {\"t.v\": 133}, {\"t.v\": 134}, {\"t.v\": 135}, {\"t.v\": 136}, {\"t.v\": 137}, {\"t.v\": 138}, {\"t.v\": 139}, {\"t.v\": 140}, {\"t.v\": 141}, {\"t.v\": 142}, {\"t.v\": 143}, {\"t.v\": 144}, {\"t.v\": 145}, {\"t.v\": 146}, {\"t.v\": 147}, {\"t.v\": 148}, {\"t.v\": 149}, {\"t.v\": 150}, {\"t.v\": 151}, {\"t.v\": 152}, {\"t.v\": 153}, {\"t.v\": 154}, {\"t.v\": 155}, {\"t.v\": 156}, {\"t.v\": 157}, {\"t.v\": 158}, {\"t.v\": 159}, {\"t.v\": 160}, {\"t.v\": 161}, {\"t.v\": 162}, {\"t.v\": 163}, {\"t.v\": 164}, {\"t.v\": 165}, {\"t.v\": 166}, {\"t.v\": 167}, {\"t.v\": 168}, {\"t.v\": 169}, {\"t.v\": 170}, {\"t.v\": 171}, {\"t.v\": 172}, {\"t.v\": 173}, {\"t.v\": 174}, {\"t.v\": 175}, {\"t.v\": 176}, {\"t.v\": 177}, {\"t.v\": 178}, {\"t.v\": 179}, {\"t.v\": 180}, {\"t.v\": 181}, {\"t.v\": 182}, {\"t.v\": 183}, {\"t.v\": 184}, {\"t.v\": 185}, {\"t.v\": 186}, {\"t.v\": 187}, {\"t.v\": 188}, {\"t.v\": 189}, {\"t.v\": 190}, {\"t.v\": 191}, {\"t.v\": 192}, {\"t.v\": 193}, {\"t.v\": 194}, {\"t.v\": 195}, {\"t.v\": 196}, {\"t.v\": 197}, {\"t.v\": 198}, {\"t.v\": 199}, {\"t.v\": 200}, {\"t.v\": 201}, {\"t.v\": 202}, {\"t.v\": 203}, {\"t.v\": 204}, {\"t.v\": 205}, {\"t.v\": 206}, {\"t.v\": 207}, {\"t.v\": 208}, {\"t.v\": 209}, {\"t.v\": 210}, {\"t.v\": 211}, {\"t.v\": 212}, {\"t.v\": 213}, {\"t.v\": 214}, {\"t.v\": 215}, {\"t.v\": 216}, {\"t.v\": 217}, {\"t.v\": 218}, {\"t.v\": 219}, {\"t.v\": 220}, {\"t.v\": 221}, {\"t.v\": 222}, {\"t.v\": 223}, {\"t.v\": 224}, {\"t.v\": 225}, {\"t.v\": 226}, {\"t.v\": 227}, {\"t.v\": 228}, {\"t.v\": 229}, {\"t.v\": 230}, {\"t.v\": 231}, {\"t.v\": 232}, {\"t.v\": 233}, {\"t.v\": 234}, {\"t.v\": 235}, {\"t.v\": 236}, {\"t.v\": 237}, {\"t.v\": 238}, {\"t.v\": 239}, {\"t.v\": 240}, {\"t.v\": 241}, {\"t.v\": 242}, {\"t.v\": 243}, {\"t.v\": 244}, {\"t.v\": 245}, {\"t.v\": 246}, {\"t.v\": 247}, {\"t.v\": 248}, {\"t.v\": 249}, {\"t.v\": 250}, {\"t.v\": 251}, {\"t.v\": 252}, {\"t.v\": 253}, {\"t.v\": 254}, {\"t.v\": 255}, {\"t.v\": 256}]}\n",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "H5",
+      "control": "wrong_257_scan",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "request": "benchmark",
+          "optimized": false,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 150,
+          "stdout": "{\"join_comparisons\": 150, \"optimized_plan\": {\"input\": {\"kind\": \"inner\", \"left\": {\"as\": \"s_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"stock_436a0cfc06_1\"}, \"left_on\": \"s_436a0cfc06_1.sku\", \"op\": \"join\", \"right\": {\"as\": \"r_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"reservations_436a0cfc06_1\"}, \"right_on\": \"r_436a0cfc06_1.sku\"}, \"op\": \"filter\", \"predicate\": {\"and\": [{\"eq\": [{\"col\": \"s_436a0cfc06_1.enabled\"}, {\"lit\": 1}]}, {\"gt\": [{\"col\": \"r_436a0cfc06_1.reserved\"}, {\"lit\": 0}]}]}}, \"rows\": [{\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 4, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}, {\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 1, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}]}\n",
+          "pass": true
+        },
+        {
+          "request": "benchmark",
+          "optimized": true,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 30,
+          "stdout": "{\"join_comparisons\": 30, \"optimized_plan\": {\"kind\": \"inner\", \"left\": {\"input\": {\"as\": \"s_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"stock_436a0cfc06_1\"}, \"op\": \"filter\", \"predicate\": {\"eq\": [{\"col\": \"s_436a0cfc06_1.enabled\"}, {\"lit\": 1}]}}, \"left_on\": \"s_436a0cfc06_1.sku\", \"op\": \"join\", \"right\": {\"input\": {\"as\": \"r_436a0cfc06_1\", \"op\": \"scan\", \"table\": \"reservations_436a0cfc06_1\"}, \"op\": \"filter\", \"predicate\": {\"gt\": [{\"col\": \"r_436a0cfc06_1.reserved\"}, {\"lit\": 0}]}}, \"right_on\": \"r_436a0cfc06_1.sku\"}, \"rows\": [{\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 4, \"r_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-af851ec49d20\", \"s_436a0cfc06_1.sku\": 673199, \"s_436a0cfc06_1.units\": 7}, {\"r_436a0cfc06_1.kind\": \"hold\", \"r_436a0cfc06_1.reserved\": 3, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}, {\"r_436a0cfc06_1.kind\": \"order\", \"r_436a0cfc06_1.reserved\": 1, \"r_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.enabled\": 1, \"s_436a0cfc06_1.site\": \"inventory-f-6ca76a0d7018\", \"s_436a0cfc06_1.sku\": 673200, \"s_436a0cfc06_1.units\": 10}]}\n",
+          "pass": true
+        },
+        {
+          "request": "scan257",
+          "optimized": false,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 0,
+          "stdout": "{\"join_comparisons\": 0, \"optimized_plan\": {\"as\": \"t\", \"op\": \"scan\", \"table\": \"t\"}, \"rows\": []}\n",
+          "pass": false
+        },
+        {
+          "request": "scan257",
+          "optimized": true,
+          "process_exit": 0,
+          "stderr": "",
+          "exit_code": 0,
+          "observed_pairs": 0,
+          "stdout": "{\"join_comparisons\": 0, \"optimized_plan\": {\"as\": \"t\", \"op\": \"scan\", \"table\": \"t\"}, \"rows\": []}\n",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "case_id": "H6",
+      "control": "correct_lexical_integer",
+      "expected_pass": true,
+      "observed_pass": true,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "probe": "zero_exponent",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "a": 1,
+              "b": 3
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "canonical",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "a": 1,
+              "b": 3
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "empty",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "e": 0,
+              "c": 0
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "integral",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "s": 29,
+              "m": -2
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "boolean",
+          "pass": true,
+          "exit_code": 1,
+          "output": null,
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-rkcb48c1\\summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n"
+        }
+      ]
+    },
+    {
+      "case_id": "H6",
+      "control": "correct_fraction_parser",
+      "expected_pass": true,
+      "observed_pass": true,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "probe": "zero_exponent",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "a": 1,
+              "b": 3
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "canonical",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "a": 1,
+              "b": 3
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "empty",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "e": 0,
+              "c": 0
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "integral",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "s": 29,
+              "m": -2
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "boolean",
+          "pass": true,
+          "exit_code": 1,
+          "output": null,
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-c3inson9\\summarize.py\", line 24, in <module>\n    values=list(map(parse,row['turns']));op=row['stat']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-c3inson9\\summarize.py\", line 7, in parse\n    if type(n)is not Number:raise ValueError('numeric token required')\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: numeric token required\n"
+        }
+      ]
+    },
+    {
+      "case_id": "H6",
+      "control": "saved_luna_decimal",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "probe": "zero_exponent",
+          "pass": false,
+          "exit_code": 1,
+          "output": null,
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-4gkcz6ja\\summarize.py\", line 125, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-4gkcz6ja\\summarize.py\", line 108, in main\n    document = json.loads(\n               ^^^^^^^^^^^\n  File \"C:\\Users\\vlad_\\AppData\\Roaming\\uv\\python\\cpython-3.12.12-windows-x86_64-none\\Lib\\json\\__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\vlad_\\AppData\\Roaming\\uv\\python\\cpython-3.12.12-windows-x86_64-none\\Lib\\json\\decoder.py\", line 338, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\vlad_\\AppData\\Roaming\\uv\\python\\cpython-3.12.12-windows-x86_64-none\\Lib\\json\\decoder.py\", line 354, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\n"
+        },
+        {
+          "probe": "canonical",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "a": 1,
+              "b": 3
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "empty",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "e": 0,
+              "c": 0
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "integral",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "s": 29,
+              "m": -2
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "boolean",
+          "pass": true,
+          "exit_code": 1,
+          "output": null,
+          "stderr": "summarize.py: sheet 's' contains a non-integer turn\n"
+        }
+      ]
+    },
+    {
+      "case_id": "H6",
+      "control": "wrong_count",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "probe": "zero_exponent",
+          "pass": false,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "a": 2,
+              "b": 4
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "canonical",
+          "pass": false,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "a": 2,
+              "b": 4
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "empty",
+          "pass": false,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "e": 0,
+              "c": 1
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "integral",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "s": 29,
+              "m": -2
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "boolean",
+          "pass": true,
+          "exit_code": 1,
+          "output": null,
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-spe9j3yl\\summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n"
+        }
+      ]
+    },
+    {
+      "case_id": "H6",
+      "control": "reject_empty",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "probe": "zero_exponent",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "a": 1,
+              "b": 3
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "canonical",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "a": 1,
+              "b": 3
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "empty",
+          "pass": false,
+          "exit_code": 1,
+          "output": null,
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-f0wxskw0\\summarize.py\", line 26, in <module>\n    if not v:raise ValueError('empty')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: empty\n"
+        },
+        {
+          "probe": "integral",
+          "pass": true,
+          "exit_code": 0,
+          "output": {
+            "stock_reports": {
+              "s": 29,
+              "m": -2
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "probe": "boolean",
+          "pass": true,
+          "exit_code": 1,
+          "output": null,
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-owner-msdg7cze\\summarize.py\", line 24, in <module>\n    if not k or set(r)!={'stat','turns'} or not isinstance(r['turns'],list) or any(type(v)is not int for v in r['turns']):raise ValueError('row')\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: row\n"
+        }
+      ]
+    },
+    {
+      "case_id": "H7",
+      "control": "correct_flat",
+      "expected_pass": true,
+      "observed_pass": true,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "field": "path",
+          "pass": true
+        },
+        {
+          "field": "load_profile",
+          "pass": true
+        },
+        {
+          "field": "metric",
+          "pass": true
+        },
+        {
+          "field": "value_ms",
+          "pass": true
+        },
+        {
+          "field": "sample_count",
+          "pass": true
+        },
+        {
+          "field": "time_scope",
+          "pass": true
+        },
+        {
+          "field": "rejection_rate",
+          "pass": true
+        },
+        {
+          "field": "deployment_region",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "H7",
+      "control": "correct_list",
+      "expected_pass": true,
+      "observed_pass": true,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "field": "path",
+          "pass": true
+        },
+        {
+          "field": "load_profile",
+          "pass": true
+        },
+        {
+          "field": "metric",
+          "pass": true
+        },
+        {
+          "field": "value_ms",
+          "pass": true
+        },
+        {
+          "field": "sample_count",
+          "pass": true
+        },
+        {
+          "field": "time_scope",
+          "pass": true
+        },
+        {
+          "field": "rejection_rate",
+          "pass": true
+        },
+        {
+          "field": "deployment_region",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "H7",
+      "control": "wrong_neighbor_value",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "field": "path",
+          "pass": true
+        },
+        {
+          "field": "load_profile",
+          "pass": true
+        },
+        {
+          "field": "metric",
+          "pass": true
+        },
+        {
+          "field": "value_ms",
+          "pass": false
+        },
+        {
+          "field": "sample_count",
+          "pass": true
+        },
+        {
+          "field": "time_scope",
+          "pass": true
+        },
+        {
+          "field": "rejection_rate",
+          "pass": true
+        },
+        {
+          "field": "deployment_region",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "H7",
+      "control": "wrong_supporting_quote",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "field": "path",
+          "pass": true
+        },
+        {
+          "field": "load_profile",
+          "pass": true
+        },
+        {
+          "field": "metric",
+          "pass": true
+        },
+        {
+          "field": "value_ms",
+          "pass": false
+        },
+        {
+          "field": "sample_count",
+          "pass": true
+        },
+        {
+          "field": "time_scope",
+          "pass": true
+        },
+        {
+          "field": "rejection_rate",
+          "pass": true
+        },
+        {
+          "field": "deployment_region",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "H7",
+      "control": "invented_absent",
+      "expected_pass": false,
+      "observed_pass": false,
+      "qualified": true,
+      "error": null,
+      "evidence": [
+        {
+          "field": "path",
+          "pass": true
+        },
+        {
+          "field": "load_profile",
+          "pass": true
+        },
+        {
+          "field": "metric",
+          "pass": true
+        },
+        {
+          "field": "value_ms",
+          "pass": true
+        },
+        {
+          "field": "sample_count",
+          "pass": true
+        },
+        {
+          "field": "time_scope",
+          "pass": true
+        },
+        {
+          "field": "rejection_rate",
+          "pass": true
+        },
+        {
+          "field": "deployment_region",
+          "pass": false
+        }
+      ]
+    }
+  ]
+}

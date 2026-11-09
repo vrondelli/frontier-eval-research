@@ -1,0 +1,20 @@
+# Full original archive: moved intact, kept local, never staged by default.
+/research/
+/.local/
+__pycache__/
+.pytest_cache/
+node_modules/
+.env
+.env.*
+!.env.example
+**/auth.json
+**/credentials.json
+**/session.key
+*.pem
+*.key
+*.p12
+*.pfx
+.DS_Store
+Thumbs.db
+# Do not broadly ignore *.pyc or evidence logs: the verified bundle contains
+# authoritative sourceless Python helpers and hash-bound execution receipts.

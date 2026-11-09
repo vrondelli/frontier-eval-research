@@ -1,0 +1,76 @@
+{
+  "kind": "independent_direct_judge_output_spelling_pair",
+  "condition": "post_outcome_semantic_diagnostic",
+  "reviewer_type": "AI_reviewer_not_human",
+  "model_calls": 0,
+  "command": [
+    "wsl.exe",
+    "--distribution",
+    "Ubuntu-26.04",
+    "--user",
+    "vlad_",
+    "--exec",
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--memory",
+    "256m",
+    "--cpus",
+    "1",
+    "--pids-limit",
+    "64",
+    "--tmpfs",
+    "/tmp:rw,noexec,nosuid,size=16m",
+    "-v",
+    "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6-astra/H6/delivery:/subject:ro",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,sys\nsys.path.insert(0,'/subject/evaluation')\nfrom cases import Case\nfrom evaluate import judge\nraw='{\"adjustment_sheets\":{\"zero\":{\"stat\":\"event_count\",\"turns\":[]}}}'\ncase=Case('independent-empty-count','independent-output-spelling',raw,{'zero':0})\ncanonical=b'{\"stock_reports\":{\"zero\":0}}'\nexponent=b'{\"stock_reports\":{\"zero\":0e10000000000000000000}}'\nrows=[]\nfor name,out in [('canonical_zero',canonical),('exponent_zero',exponent)]:\n passed,reason=judge(case,0,out)\n rows.append({'spelling':name,'input':raw,'input_bytes':len(raw.encode()),'candidate_exit':0,'output':out.decode(),'output_bytes':len(out),'expected_exact_value':0,'judge_passed':passed,'judge_reason':reason})\nprint(json.dumps({'case_expected':case.expected,'receipts':rows}))\n"
+  ],
+  "exit_code": 0,
+  "stderr": "",
+  "package_unchanged": true,
+  "judge_source_sha256": "c391d10055b8fe0ed49515d5ea189e87f1c3a9209357151b672fad235ba94598",
+  "source_case_sha256": "16a656150021bdb3c000c6d26a1f435f580fa2d72a29e90dc6a716759df1fe0a",
+  "scope": "One legal empty-count output case, identical mathematicalvalue0 under two explicitly permitted representations. No assertion that an entire authored output-spelling CLI is universally correct.",
+  "observed": {
+    "case_expected": {
+      "zero": 0
+    },
+    "receipts": [
+      {
+        "spelling": "canonical_zero",
+        "input": "{\"adjustment_sheets\":{\"zero\":{\"stat\":\"event_count\",\"turns\":[]}}}",
+        "input_bytes": 64,
+        "candidate_exit": 0,
+        "output": "{\"stock_reports\":{\"zero\":0}}",
+        "output_bytes": 28,
+        "expected_exact_value": 0,
+        "judge_passed": true,
+        "judge_reason": "exact results matched"
+      },
+      {
+        "spelling": "exponent_zero",
+        "input": "{\"adjustment_sheets\":{\"zero\":{\"stat\":\"event_count\",\"turns\":[]}}}",
+        "input_bytes": 64,
+        "candidate_exit": 0,
+        "output": "{\"stock_reports\":{\"zero\":0e10000000000000000000}}",
+        "output_bytes": 49,
+        "expected_exact_value": 0,
+        "judge_passed": false,
+        "judge_reason": "invalid output JSON: [<class 'decimal.InvalidOperation'>]"
+      }
+    ]
+  }
+}

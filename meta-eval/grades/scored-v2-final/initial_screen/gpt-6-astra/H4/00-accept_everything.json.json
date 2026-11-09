@@ -1,0 +1,150 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 4.983038790000137,
+  "stdout": "{\"pass\": false, \"report\": {\"schema_version\": \"ferry-evaluation/v1\", \"candidate\": \"/tmp/candidate\", \"runtime\": {\"python\": \"3.14.10 (main, Oct 28 2026, 01:59:47) [GCC 14.2.0]\", \"executable\": \"/usr/local/bin/python\", \"host_magic\": \"2b0e0d0a\", \"library_magic\": \"2b0e0d0a\", \"bytecode_compatible\": true}, \"integrity\": {\"protected_files\": {\"farelib.pyc\": true, \"farelib.pyi\": true, \"README.md\": true, \"TESTING.md\": true}, \"issues\": [], \"imports\": {\"fares.py\": [\"re\", \"fractions\"], \"test_fares.py\": []}, \"passed\": true, \"after_execution\": {\"protected_files\": {\"farelib.pyc\": true, \"farelib.pyi\": true, \"README.md\": true, \"TESTING.md\": true}, \"issues\": [], \"imports\": {\"fares.py\": [\"re\", \"fractions\"], \"test_fares.py\": []}, \"passed\": true}}, \"behavior\": {\"planned\": 507, \"run\": 507, \"failures\": [], \"passed\": true, \"exit_code\": 0, \"stdout\": \"\", \"stderr\": \"...........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................\\n----------------------------------------------------------------------\\nRan 507 tests in 0.181s\\n\\nOK\\n\"}, \"submitted_tests\": {\"run\": 0, \"skipped\": 0, \"passed\": false, \"failures\": [], \"exit_code\": 1, \"stdout\": \"no assertions\\n\", \"stderr\": \"\\n----------------------------------------------------------------------\\nRan 0 tests in 0.000s\\n\\nNO TESTS RAN\\n\"}, \"rule_coverage\": {\"D\": {\"passed\": 43, \"total\": 43}, \"K\": {\"passed\": 227, \"total\": 227}, \"R\": {\"passed\": 50, \"total\": 50}, \"T\": {\"passed\": 54, \"total\": 54}, \"V\": {\"passed\": 107, \"total\": 107}, \"W\": {\"passed\": 25, \"total\": 25}}, \"behavioral_score\": 1.0, \"automated_pass\": false, \"manual_review_required\": [\"Expected values in submitted tests come from independent business-rule reasoning/arithmetic, not recorded helper or solution output.\", \"Only standard library and the provided farelib are used, including dynamic imports and any local support modules.\", \"Tests contain meaningful assertions and do not bypass unittest or alter the implementation to make assertions pass.\"]}, \"native_exit\": 1, \"native_stdout\": \"{\\n  \\\"automated_pass\\\": false,\\n  \\\"behavioral_score\\\": 1.0,\\n  \\\"rule_coverage\\\": {\\n    \\\"D\\\": {\\n      \\\"passed\\\": 43,\\n      \\\"total\\\": 43\\n    },\\n    \\\"K\\\": {\\n      \\\"passed\\\": 227,\\n      \\\"total\\\": 227\\n    },\\n    \\\"R\\\": {\\n      \\\"passed\\\": 50,\\n      \\\"total\\\": 50\\n    },\\n    \\\"T\\\": {\\n      \\\"passed\\\": 54,\\n      \\\"total\\\": 54\\n    },\\n    \\\"V\\\": {\\n      \\\"passed\\\": 107,\\n      \\\"total\\\": 107\\n    },\\n    \\\"W\\\": {\\n      \\\"passed\\\": 25,\\n      \\\"total\\\": 25\\n    }\\n  }\\n}\\nReport: /tmp/result.json\\n\", \"native_stderr\": \"\"}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-22cbdb426701469a80f53d58fed5c5bb",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "64",
+    "--memory",
+    "256m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,noexec,nosuid,size=32m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6-astra/H4/delivery,target=/subject,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/expansion-h4/accept_everything.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,shutil,subprocess,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate');Path('/tmp/candidate/fares.py').write_text(c['assets']['reference_fares.py']);Path('/tmp/candidate/test_fares.py').write_text(c['test_code'])\np=subprocess.run([sys.executable,'/tmp/eval/evaluation/grade.py','/tmp/candidate',sys.argv[1],'/tmp/result.json'],capture_output=True,text=True,timeout=45)\nreport=json.load(open('/tmp/result.json'));print(json.dumps({'pass':report['automated_pass'],'report':report,'native_exit':p.returncode,'native_stdout':p.stdout,'native_stderr':p.stderr}))\n",
+    "--report"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 2971,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "pass": false,
+    "report": {
+      "schema_version": "ferry-evaluation/v1",
+      "candidate": "/tmp/candidate",
+      "runtime": {
+        "python": "3.14.10 (main, Oct 28 2026, 01:59:47) [GCC 14.2.0]",
+        "executable": "/usr/local/bin/python",
+        "host_magic": "2b0e0d0a",
+        "library_magic": "2b0e0d0a",
+        "bytecode_compatible": true
+      },
+      "integrity": {
+        "protected_files": {
+          "farelib.pyc": true,
+          "farelib.pyi": true,
+          "README.md": true,
+          "TESTING.md": true
+        },
+        "issues": [],
+        "imports": {
+          "fares.py": [
+            "re",
+            "fractions"
+          ],
+          "test_fares.py": []
+        },
+        "passed": true,
+        "after_execution": {
+          "protected_files": {
+            "farelib.pyc": true,
+            "farelib.pyi": true,
+            "README.md": true,
+            "TESTING.md": true
+          },
+          "issues": [],
+          "imports": {
+            "fares.py": [
+              "re",
+              "fractions"
+            ],
+            "test_fares.py": []
+          },
+          "passed": true
+        }
+      },
+      "behavior": {
+        "planned": 507,
+        "run": 507,
+        "failures": [],
+        "passed": true,
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "...........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................\n----------------------------------------------------------------------\nRan 507 tests in 0.181s\n\nOK\n"
+      },
+      "submitted_tests": {
+        "run": 0,
+        "skipped": 0,
+        "passed": false,
+        "failures": [],
+        "exit_code": 1,
+        "stdout": "no assertions\n",
+        "stderr": "\n----------------------------------------------------------------------\nRan 0 tests in 0.000s\n\nNO TESTS RAN\n"
+      },
+      "rule_coverage": {
+        "D": {
+          "passed": 43,
+          "total": 43
+        },
+        "K": {
+          "passed": 227,
+          "total": 227
+        },
+        "R": {
+          "passed": 50,
+          "total": 50
+        },
+        "T": {
+          "passed": 54,
+          "total": 54
+        },
+        "V": {
+          "passed": 107,
+          "total": 107
+        },
+        "W": {
+          "passed": 25,
+          "total": 25
+        }
+      },
+      "behavioral_score": 1.0,
+      "automated_pass": false,
+      "manual_review_required": [
+        "Expected values in submitted tests come from independent business-rule reasoning/arithmetic, not recorded helper or solution output.",
+        "Only standard library and the provided farelib are used, including dynamic imports and any local support modules.",
+        "Tests contain meaningful assertions and do not bypass unittest or alter the implementation to make assertions pass."
+      ]
+    },
+    "native_exit": 1,
+    "native_stdout": "{\n  \"automated_pass\": false,\n  \"behavioral_score\": 1.0,\n  \"rule_coverage\": {\n    \"D\": {\n      \"passed\": 43,\n      \"total\": 43\n    },\n    \"K\": {\n      \"passed\": 227,\n      \"total\": 227\n    },\n    \"R\": {\n      \"passed\": 50,\n      \"total\": 50\n    },\n    \"T\": {\n      \"passed\": 54,\n      \"total\": 54\n    },\n    \"V\": {\n      \"passed\": 107,\n      \"total\": 107\n    },\n    \"W\": {\n      \"passed\": 25,\n      \"total\": 25\n    }\n  }\n}\nReport: /tmp/result.json\n",
+    "native_stderr": ""
+  },
+  "job_id": "accept_everything.json",
+  "kind": "control",
+  "expected": false,
+  "family": "baseline"
+}

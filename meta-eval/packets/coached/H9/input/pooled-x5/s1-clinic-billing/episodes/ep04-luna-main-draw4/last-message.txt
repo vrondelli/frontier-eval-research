@@ -1,0 +1,3 @@
+Implemented `settle_bills` in [billing.py](billing.py) using strict ASCII validation and exact `Decimal` arithmetic. Added independent standard-library tests in [test_billing.py](test_billing.py).
+
+`python3 -m unittest test_billing test_visible` passed all 12 tests. The installed helper behavior conflicted with the stated rules for some boundary cases, so the implementation follows the business rules directly. **Tool calls: 13.**

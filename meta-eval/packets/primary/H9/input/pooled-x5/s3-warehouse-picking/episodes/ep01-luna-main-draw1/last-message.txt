@@ -1,0 +1,5 @@
+Implemented `settle_picking` in [picking.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s3-warehouse-picking/episodes/ep01-luna-main-draw1/workspace/picking.py) and added independent standard-library tests in [test_picking.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s3-warehouse-picking/episodes/ep01-luna-main-draw1/workspace/test_picking.py).
+
+The implementation uses exact fractions for charge calculations and validates inputs against the stated rules. The installed helper’s runtime disagreed with its documentation on zone boundaries and cutoff eligibility, so those checks are implemented directly.
+
+Verification passed: `python3 -m unittest test_picking test_visible` (14 tests). **Tool calls: 14.**

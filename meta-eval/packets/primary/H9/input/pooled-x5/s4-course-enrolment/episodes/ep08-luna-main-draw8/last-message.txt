@@ -1,0 +1,5 @@
+Implemented `settle_enrolment` with strict ASCII validation, exact decimal calculations, and the specified rounding rules in [enrolment.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s4-course-enrolment/episodes/ep08-luna-main-draw8/workspace/enrolment.py). Added independent standard-library tests in [test_enrolment.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s4-course-enrolment/episodes/ep08-luna-main-draw8/workspace/test_enrolment.py).
+
+The documented library helpers didn’t consistently match the required validation and band rules, so the implementation applies those rules directly. `python3 -m unittest test_enrolment test_visible` passed all 13 tests.
+
+**Tool calls: 10.**

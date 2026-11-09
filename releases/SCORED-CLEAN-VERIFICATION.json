@@ -1,0 +1,104 @@
+{
+  "archive_sha256": "fb4fca7b22311573f65337f83fb17ad63fa0cce4225505f2727ffc6506cf1c45",
+  "archive_bytes": 25923702,
+  "archive_unchanged": true,
+  "model_calls": 0,
+  "clean_extraction": true,
+  "checks": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "verify_release.py"
+      ],
+      "exit_code": 0,
+      "seconds": 13.265764846999446,
+      "stdout": "{\"archive_hashes_verified\": 7410, \"public_packets_verified\": 9, \"historical_finite_owner_checks_reproduce\": true, \"excluded_full_task_owner_controls\": 7, \"complete_task_gold_claim\": false, \"audit_controls_verified\": 10, \"model_calls\": 0, \"scope\": \"offline authored controls; not a claim all generated model evals are correct\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "meta_eval/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "seconds": 0.17423257900009048,
+      "stdout": "",
+      "stderr": "test_duplicate_input_fields_rejected (test_scoring.ScoringTests.test_duplicate_input_fields_rejected) ... ok\ntest_exact_alternatives_and_signed_max (test_scoring.ScoringTests.test_exact_alternatives_and_signed_max) ... ok\ntest_exact_score_requires_review_and_qualification (test_scoring.ScoringTests.test_exact_score_requires_review_and_qualification) ... ok\ntest_family_cannot_hide_failure_in_parent (test_scoring.ScoringTests.test_family_cannot_hide_failure_in_parent) ... ok\ntest_family_partial_credit_retains_critical_failure (test_scoring.ScoringTests.test_family_partial_credit_retains_critical_failure) ... ok\ntest_high_score_does_not_hide_wrong_reference (test_scoring.ScoringTests.test_high_score_does_not_hide_wrong_reference) ... ok\ntest_infeasible_nonzero_is_owner_unknown_not_fake_failure (test_scoring.ScoringTests.test_infeasible_nonzero_is_owner_unknown_not_fake_failure) ... ok\ntest_json_pointer_escaping (test_scoring.ScoringTests.test_json_pointer_escaping) ... ok\ntest_log_flood_is_capped_not_parsed_as_verdict (test_scoring.ScoringTests.test_log_flood_is_capped_not_parsed_as_verdict) ... ok\ntest_missing_evidence_cannot_pass (test_scoring.ScoringTests.test_missing_evidence_cannot_pass) ... ok\ntest_missing_or_changed_weights_rejected (test_scoring.ScoringTests.test_missing_or_changed_weights_rejected) ... ok\ntest_native_boolean_and_review_verdicts_distinguished (test_scoring.ScoringTests.test_native_boolean_and_review_verdicts_distinguished) ... ok\ntest_nonintegral_and_boolean_rejected (test_scoring.ScoringTests.test_nonintegral_and_boolean_rejected) ... ok\ntest_protected_pyc_is_in_package_identity (test_scoring.ScoringTests.test_protected_pyc_is_in_package_identity) ... ok\ntest_reference_resource_unknown_keeps_family_membership (test_scoring.ScoringTests.test_reference_resource_unknown_keeps_family_membership) ... ok\ntest_root_symlink_refused (test_scoring.ScoringTests.test_root_symlink_refused) ... ok\ntest_timeout_is_not_semantic_failure (test_scoring.ScoringTests.test_timeout_is_not_semantic_failure) ... ok\ntest_unknowns_are_not_renormalized (test_scoring.ScoringTests.test_unknowns_are_not_renormalized) ... ok\ntest_zero_exponent_does_not_expand (test_scoring.ScoringTests.test_zero_exponent_does_not_expand) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 0.083s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "run_meta_eval.py",
+        "qualify",
+        "--output",
+        "clean-qualification"
+      ],
+      "exit_code": 0,
+      "seconds": 107.4367758870012,
+      "stdout": "{\"fixture\": \"good_add\", \"expected_target_failure\": null, \"observed_failures\": [], \"score_interval\": [100.0, 100.0], \"calibration_passed\": true}\n{\"fixture\": \"good_inverse\", \"expected_target_failure\": null, \"observed_failures\": [], \"score_interval\": [100.0, 100.0], \"calibration_passed\": true}\n{\"fixture\": \"always_pass\", \"expected_target_failure\": \"E1\", \"observed_failures\": [\"E1\", \"E2\", \"G2\", \"H1\", \"H2\"], \"score_interval\": [72.5, 72.5], \"calibration_passed\": true}\n{\"fixture\": \"always_fail\", \"expected_target_failure\": \"D1\", \"observed_failures\": [\"D1\", \"D2\", \"G2\", \"H1\", \"H2\"], \"score_interval\": [72.5, 72.5], \"calibration_passed\": true}\n{\"fixture\": \"wrong_reference\", \"expected_target_failure\": \"C1\", \"observed_failures\": [\"C1\", \"C2\"], \"score_interval\": [85.0, 85.0], \"calibration_passed\": true}\n{\"fixture\": \"common_mode_bug\", \"expected_target_failure\": \"C1\", \"observed_failures\": [\"C1\", \"C2\", \"D1\", \"D2\", \"E1\", \"E2\", \"G2\", \"H1\", \"H2\"], \"score_interval\": [37.5, 37.5], \"calibration_passed\": true}\n{\"fixture\": \"hidden_rule\", \"expected_target_failure\": \"B2\", \"observed_failures\": [\"B2\", \"D1\", \"D2\", \"G2\", \"H1\", \"H2\"], \"score_interval\": [65.0, 65.0], \"calibration_passed\": true}\n{\"fixture\": \"scope_deleted\", \"expected_target_failure\": \"B1\", \"observed_failures\": [\"B1\"], \"score_interval\": [92.5, 92.5], \"calibration_passed\": true}\n{\"fixture\": \"fake_runner\", \"expected_target_failure\": \"A2\", \"observed_failures\": [\"A2\"], \"score_interval\": [95.0, 95.0], \"calibration_passed\": true}\n{\"fixture\": \"false_measurement\", \"expected_target_failure\": \"F2\", \"observed_failures\": [\"F2\"], \"score_interval\": [95.0, 95.0], \"calibration_passed\": true}\n{\"fixture\": \"false_report\", \"expected_target_failure\": \"H1\", \"observed_failures\": [\"H1\"], \"score_interval\": [97.5, 97.5], \"calibration_passed\": true}\n{\"fixture\": \"outer_frame_tamper\", \"expected_target_failure\": \"E1\", \"observed_failures\": [\"E1\", \"E2\", \"G2\", \"H1\", \"H2\"], \"score_interval\": [72.5, 72.5], \"calibration_passed\": true}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "run_meta_eval.py",
+        "run",
+        "--output",
+        "clean-scored",
+        "--jobs",
+        "3"
+      ],
+      "exit_code": 0,
+      "seconds": 357.9969807769994,
+      "stdout": "{\"subject\": \"initial_screen/gpt-6.1-sol/H2\", \"verdict\": \"not_qualified\", \"score_interval\": [10.0, 100.0]}\n{\"subject\": \"initial_screen/gpt-6-astra/H2\", \"verdict\": \"not_qualified\", \"score_interval\": [10.0, 100.0]}\n{\"subject\": \"initial_screen/gpt-6.1-sol/H1\", \"verdict\": \"counterexample_reproduced_review_pending\", \"score_interval\": [57.5, 82.5]}\n{\"subject\": \"initial_screen/gpt-6-astra/H3\", \"verdict\": \"not_qualified\", \"score_interval\": [15.0, 100.0]}\n{\"subject\": \"initial_screen/gpt-6.1-sol/H4\", \"verdict\": \"not_qualified\", \"score_interval\": [45.0, 100.0]}\n{\"subject\": \"initial_screen/gpt-6-astra/H4\", \"verdict\": \"not_qualified\", \"score_interval\": [42.5, 100.0]}\n{\"subject\": \"initial_screen/gpt-6.1-sol/H3\", \"verdict\": \"not_qualified\", \"score_interval\": [12.5, 100.0]}\n{\"subject\": \"initial_screen/gpt-6.1-sol/H7\", \"verdict\": \"not_qualified\", \"score_interval\": [67.5, 100.0]}\n{\"subject\": \"initial_screen/gpt-6-astra/H7\", \"verdict\": \"not_qualified\", \"score_interval\": [67.5, 100.0]}\n{\"subject\": \"initial_screen/gpt-6-astra/H6\", \"verdict\": \"counterexample_reproduced_review_pending\", \"score_interval\": [37.5, 80.0]}\n{\"subject\": \"H6_same_condition_confirmation/gpt-6-astra/H6/draw2\", \"verdict\": \"not_qualified\", \"score_interval\": [57.15909091, 100.0]}\n{\"subject\": \"H1_budget_diagnostic/gpt-6.1-sol/H1/draw1\", \"verdict\": \"counterexample_reproduced_review_pending\", \"score_interval\": [42.5, 82.5]}\n{\"subject\": \"H1_budget_diagnostic/gpt-6.1-sol/H1/draw2\", \"verdict\": \"counterexample_reproduced_review_pending\", \"score_interval\": [57.5, 82.5]}\n{\"subject\": \"initial_screen/gpt-6.1-sol/H6\", \"verdict\": \"not_qualified\", \"score_interval\": [58.5, 100.0]}\n{\"subject\": \"selected_hit_clean_staging/gpt-6.1-sol/H1\", \"verdict\": \"counterexample_reproduced_review_pending\", \"score_interval\": [57.5, 82.5]}\n{\"subject\": \"H6_same_condition_confirmation/gpt-6-astra/H6/draw3\", \"verdict\": \"counterexample_reproduced_review_pending\", \"score_interval\": [47.5, 90.0]}\n{\"subject\": \"H1_budget_diagnostic/gpt-6.1-sol/H1/draw3\", \"verdict\": \"counterexample_reproduced_review_pending\", \"score_interval\": [57.5, 82.5]}\n{\"subject\": \"selected_hit_coached_staging/gpt-6.1-sol/H1\", \"verdict\": \"not_qualified\", \"score_interval\": [67.5, 100.0]}\n{\"subject\": \"selected_hit_clean_staging/gpt-6-astra/H6\", \"verdict\": \"counterexample_reproduced_review_pending\", \"score_interval\": [37.5, 80.0]}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "validate_meta_eval_report.py",
+        "clean-scored/REPORT.json",
+        "--all-existing"
+      ],
+      "exit_code": 0,
+      "seconds": 0.08707260200026212,
+      "stdout": "{\"attempts_verified\": 31, \"execution_receipts_verified\": 114, \"all_existing\": true, \"model_calls\": 0}\n",
+      "stderr": ""
+    }
+  ],
+  "replay_summary": {
+    "attempts": 31,
+    "fresh_native_jobs": 114,
+    "decisive_results_match_packaged_report": false,
+    "stable_semantic_results_reproduced": true,
+    "operational_variations": [
+      {
+        "subject": "H1_budget_diagnostic/gpt-6.1-sol/H1/draw3",
+        "packaged": [
+          "B2",
+          "D1",
+          "D2"
+        ],
+        "replayed": [
+          "B2",
+          "D2"
+        ],
+        "reason": "Observed native grader worker-protocol flakiness on the same correct control; original/replayed outcomes both retained. Not a new author trial."
+      }
+    ],
+    "unexpected_differences": [],
+    "runner_unchanged": true,
+    "invalid_native_jobs": []
+  },
+  "all_passed": true
+}

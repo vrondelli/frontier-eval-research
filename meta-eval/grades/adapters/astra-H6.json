@@ -1,0 +1,6 @@
+{
+  "case_id":"H6","model":"gpt-6-astra",
+  "mapping_note":"Owner adapter materializes immutable code control as summarize.py, copies delivered evaluator unchanged to disposable writable /tmp tree and calls native evaluate.run_suite. No subject code changes.",
+  "command":["python","-B","-c","import json,sys,shutil;from pathlib import Path;c=json.load(open(sys.argv[1]));shutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir();Path('/tmp/candidate/summarize.py').write_text(c['code']);sys.path.insert(0,'/tmp/eval/evaluation');import evaluate;r=evaluate.run_suite('/tmp/candidate/summarize.py',work_dir='/tmp');print(json.dumps(dict(pass_verdict=r['all_passed'],report=r)))","{case_file}"],
+  "verdict_source":"json","pass_key":"pass_verdict"
+}

@@ -1,0 +1,63 @@
+{
+  "python": "3.14.2",
+  "platform": "win32",
+  "tests_run": 24,
+  "failures": 0,
+  "errors": 0,
+  "skipped": [
+    {
+      "test": "test_symlink_sidecar (test_evaluation.InspectionTests.test_symlink_sidecar)",
+      "reason": "symlink permissions vary on Windows"
+    },
+    {
+      "test": "test_authored_service_and_defective_controls (test_evaluation.SandboxIntegrationTests.test_authored_service_and_defective_controls)",
+      "reason": "live candidate execution requires Linux isolation"
+    },
+    {
+      "test": "test_hang_output_flood_import_failure_and_crash (test_evaluation.SandboxIntegrationTests.test_hang_output_flood_import_failure_and_crash)",
+      "reason": "live candidate execution requires Linux isolation"
+    },
+    {
+      "test": "test_sandbox_has_no_workspace_or_environment_secrets (test_evaluation.SandboxIntegrationTests.test_sandbox_has_no_workspace_or_environment_secrets)",
+      "reason": "live candidate execution requires Linux isolation"
+    }
+  ],
+  "live_sandbox_verified": false,
+  "cli_checks": [
+    {
+      "name": "alternative",
+      "exit_code": 2,
+      "status": "review_required"
+    },
+    {
+      "name": "invalid",
+      "exit_code": 2,
+      "status": "invalid"
+    },
+    {
+      "name": "candidate",
+      "exit_code": 2,
+      "status": "unavailable"
+    },
+    {
+      "name": "staged_start",
+      "exit_code": 0
+    },
+    {
+      "name": "staged_reveal",
+      "exit_code": 0
+    },
+    {
+      "name": "staged_finish",
+      "exit_code": 2
+    },
+    {
+      "name": "exclusive_output",
+      "exit_code": 2
+    }
+  ],
+  "source_hashes": {
+    "input\\E1.md": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+    "input\\README.md": "4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "recorded_at_utc": "2026-11-09T01:45:09.159567+00:00",
+  "python": "3.14.2",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "tests_run": 23,
+  "failures": 0,
+  "errors": 0,
+  "skipped": [
+    {
+      "test": "setUpClass (tests.test_integration.LinuxIntegrationTests)",
+      "reason": "E1 execution requires Linux, bubblewrap and unprivileged namespaces"
+    }
+  ],
+  "cli_smoke_checks": [
+    {
+      "command": [
+        "grade",
+        "reference.json"
+      ],
+      "exit_code": 2,
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "ok": true
+    },
+    {
+      "command": [
+        "grade",
+        "alternative.json"
+      ],
+      "exit_code": 2,
+      "expected_exit_codes": [
+        2
+      ],
+      "ok": true
+    },
+    {
+      "command": [
+        "start-case",
+        "initial.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "ok": true
+    },
+    {
+      "command": [
+        "reveal-case",
+        "initial.json",
+        "reference.json",
+        "revealed.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "ok": true
+    },
+    {
+      "command": [
+        "finish-case",
+        "revealed.json",
+        "reference.json",
+        "result.json"
+      ],
+      "exit_code": 2,
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "ok": true
+    },
+    {
+      "command": [
+        "review-template",
+        "reference.json",
+        "review.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "ok": true
+    },
+    {
+      "command": [
+        "validate-review",
+        "reference.json",
+        "review.json"
+      ],
+      "exit_code": 2,
+      "expected_exit_codes": [
+        2
+      ],
+      "ok": true
+    },
+    {
+      "command": [
+        "start-case",
+        "initial.json"
+      ],
+      "exit_code": 2,
+      "expected_exit_codes": [
+        2
+      ],
+      "ok": true
+    }
+  ],
+  "reference_execution_status": "unavailable",
+  "source_sha256": {
+    "evaluate.py": "f6baeab96fcc7089c42befb21cb680bb4f0c80845db5d49985b777a83859e0bd",
+    "evaluation/__init__.py": "c3e0655a501896d61dcd08cab6a10ed73fe5549a1bf25bc231a80ed5782b8436",
+    "evaluation/inspector.py": "d6feca3d468a3dc5c39e98fcda6ae0092af59647c7b55cbd1f99ece40fbd9eba",
+    "evaluation/oracle.py": "2901a001c3ef961cef75d04527c003a5fb454415a1d25c30307fa6af57bd03c4",
+    "evaluation/review.py": "ef634bf4dcc3a16f54ddbda76a012765de583c6804ef79e95f5d9bd622ce137f",
+    "evaluation/runner.py": "7b13bfec18b90b4b27802644cea08adbc95b9fbfcf7cdce90c3dd3a2f8f415b7",
+    "evaluation/sandbox.py": "9f8026bde14bc41d09e4f883ec8dac4b8d0d34ae3960f5a7833d4f0e816469a4",
+    "evaluation/staging.py": "3d29d7122a7ff374e59ba63a778780ae882163fac26e6e0315bacaca9e407b45",
+    "evaluation/worker.py": "bb3f4feb1c847922648870c3100948db90fe036be7da797cec6244407c08db49",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/control_service.py": "c6aa32335248b4fb5f1e9c0f0f16722c922e0f0599a374468c480fa1b055cfda",
+    "tests/make_controls.py": "7860478b3d1ae3cf95625ed7dc27e4d9ffca8f737862d1ed06af5b1d370eb1a2",
+    "tests/record_validation.py": "eec2a8dbfcc5f8b64388339dfb3949af2dd3ce7b0669493f7291a247f46b19bd",
+    "tests/test_evaluation.py": "18ea2c8d4a9a2353ac12c7fd59dece4a21d4e60c805751820ea51ad989952364",
+    "tests/test_integration.py": "99f919f961fb642a5e6a94b56c75b84b2bf3e1459ffe6e3d9e9db98f1cb0ea55"
+  },
+  "scope": "Authored grader controls; not model performance, independent review or live qualification when integration skips."
+}

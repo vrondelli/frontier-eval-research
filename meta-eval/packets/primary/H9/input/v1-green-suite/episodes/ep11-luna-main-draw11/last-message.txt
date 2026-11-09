@@ -1,0 +1,5 @@
+Implemented `settle_fines` in [fines.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v1-green-suite/episodes/ep11-luna-main-draw11/workspace/fines.py) and added independent business-rule tests in [test_fines.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v1-green-suite/episodes/ep11-luna-main-draw11/workspace/test_fines.py).
+
+The implementation uses strict ASCII validation and exact rational arithmetic. I found that some `finlib` helpers disagreed with the stated rules, including cutoff-date eligibility, so the implementation computes those rules directly.
+
+Verification: `python3 -m unittest test_fines test_visible` passed all 14 tests.

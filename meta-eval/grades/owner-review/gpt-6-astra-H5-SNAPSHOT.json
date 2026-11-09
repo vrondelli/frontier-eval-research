@@ -1,0 +1,21 @@
+{
+  "kind": "timeout_snapshot_fixed_case_diagnostic",
+  "model": "gpt-6-astra",
+  "case_id": "H5",
+  "attempt_status": "timeout",
+  "generated_cases": 0,
+  "package_unchanged": true,
+  "rows": [
+    {
+      "control": "correct_selected_plan",
+      "valid": false,
+      "error": "TimeoutExpired(['docker', 'run', '--rm', '--name', 'owner-h5-9f7144958de746c08b9f8a7298eea604', '--network', 'none', '--read-only', '--cap-drop', 'ALL', '--security-opt', 'no-new-privileges', '--pids-limit', '64', '--memory', '256m', '--cpus', '1', '--tmpfs', '/tmp:rw,noexec,nosuid,size=32m', '--mount', 'type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6-astra/H5/delivery,target=/subject,readonly', '--mount', 'type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H5/correct_selected_plan.json,target=/control.json,readonly', '-w', '/tmp', 'python:3.14-slim', 'python', '-B', '-c', \"import importlib,json,shutil,sys\\nfrom pathlib import Path\\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir()\\nfor name,text in c['files'].items():Path('/tmp/candidate',name).write_text(text)\\nsys.path.insert(0,'/tmp/eval/evaluation');e=importlib.import_module(sys.argv[1]);report=eval(sys.argv[2]);print(json.dumps({'pass':report['passed'],'report':report}))\\n\", 'run', \"e.run_suite(Path('/tmp/candidate'),generated=0)\"], 110)"
+    },
+    {
+      "control": "coherent_extra_work",
+      "valid": false,
+      "error": "TimeoutExpired(['docker', 'run', '--rm', '--name', 'owner-h5-dac49f6d0d4c47c7b260614ed6cb4e42', '--network', 'none', '--read-only', '--cap-drop', 'ALL', '--security-opt', 'no-new-privileges', '--pids-limit', '64', '--memory', '256m', '--cpus', '1', '--tmpfs', '/tmp:rw,noexec,nosuid,size=32m', '--mount', 'type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6-astra/H5/delivery,target=/subject,readonly', '--mount', 'type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H5/coherent_extra_work.json,target=/control.json,readonly', '-w', '/tmp', 'python:3.14-slim', 'python', '-B', '-c', \"import importlib,json,shutil,sys\\nfrom pathlib import Path\\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir()\\nfor name,text in c['files'].items():Path('/tmp/candidate',name).write_text(text)\\nsys.path.insert(0,'/tmp/eval/evaluation');e=importlib.import_module(sys.argv[1]);report=eval(sys.argv[2]);print(json.dumps({'pass':report['passed'],'report':report}))\\n\", 'run', \"e.run_suite(Path('/tmp/candidate'),generated=0)\"], 110)"
+    }
+  ],
+  "scope": "All native fixed/public cases with generated component disabled, not full default suite or completed author attempt."
+}

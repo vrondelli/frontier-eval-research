@@ -1,0 +1,2108 @@
+{
+  "schema_version": "eval-author-results/v1",
+  "refreshed_utc": "2026-11-09T03:07:44.918366+00:00",
+  "planned_author_attempts": 31,
+  "no_pooled_rate": true,
+  "software_runs_and_adjudications_complete": true,
+  "formal_human_qualification_complete": false,
+  "release_delivery_status": "See COMPLETION-AUDIT.json for current exact-archive verification; research runs, software delivery and human qualification are separate.",
+  "human_review": {
+    "status": "pending",
+    "user_response": "Not reviewed yet; keep building",
+    "scope": "User has not yet personally reviewed the task meanings and grading rules. Continue authorized build and verification; do not claim human validation.",
+    "human_review_completed": false,
+    "AI_reviews_are_not_human_signoff": true
+  },
+  "review_kind": "AI semantic review plus executable independent replay; no human signoff",
+  "owner_instrument_audit": {
+    "source": "owner/ADJUDICATION.json",
+    "excluded_full_task_control_count": 7,
+    "excluded_controls": [
+      {
+        "case_id": "H4",
+        "control_id": "correct_independent_alternate",
+        "path": "owner/cases/H4/correct_independent_alternate.json",
+        "reason": "Standalone assertions violate original task requirement to run with unittest; also inherited production reference is not full-domain qualified.",
+        "retained_scope": "Original receipt only establishes finite reference/naive discrimination, not a full-task positive."
+      },
+      {
+        "case_id": "H4",
+        "control_id": "correct_independent",
+        "path": "owner/cases/H4/correct_independent.json",
+        "reason": "Inherited reference uses re.match final-newline acceptance and Decimal precision; cannot supply full-domain positive gold for richer new graders.",
+        "retained_scope": "Finite original test-suite discrimination only."
+      },
+      {
+        "case_id": "H4",
+        "control_id": "contaminated",
+        "path": "owner/cases/H4/contaminated.json",
+        "reason": "Native complete-candidate wrapper would pair suite with inherited production reference; its rejection cannot isolate test-quality mechanism.",
+        "retained_scope": "Targeted suite failure against preserved original reference/naive only."
+      },
+      {
+        "case_id": "H4",
+        "control_id": "reject_everything",
+        "path": "owner/cases/H4/reject_everything.json",
+        "reason": "Native complete-candidate wrapper uses unqualified inherited production reference; retain as component negative only.",
+        "retained_scope": "Suite rejects correct selected behavior; not independent full-task grading."
+      },
+      {
+        "case_id": "H4",
+        "control_id": "accept_everything",
+        "path": "owner/cases/H4/accept_everything.json",
+        "reason": "Native complete-candidate wrapper uses unqualified inherited production reference; retain as component negative only.",
+        "retained_scope": "Suite has no meaningful assertions; full-task native positive/negative gold deferred to successor."
+      },
+      {
+        "case_id": "H6",
+        "control_id": "correct_lexical_integer",
+        "path": "owner/cases/H6/correct_lexical_integer.json",
+        "reason": "Finite owner positive expands10**written_exponent before count; cannot qualify full original numeric domain even on feasible-output extreme-exponent count. Full-task false-reject scoring is invalid.",
+        "retained_scope": "Independent finite bounded-output owner probes only; not a universally correct implementation."
+      },
+      {
+        "case_id": "H6",
+        "control_id": "correct_fraction_parser",
+        "path": "owner/cases/H6/correct_fraction_parser.json",
+        "reason": "Fraction-based finite positive expands huge nonzero exponent before count; full-domain correctness is unqualified and runtime may exhaust resources.",
+        "retained_scope": "Independent finite bounded-output owner probes only; not full-task positive gold."
+      }
+    ],
+    "recorded_build_incidents": [
+      {
+        "id": "OWNER-H1-WINDOWS-CLEANUP",
+        "kind": "owner_instrument_error",
+        "resolution": "Verifier closes sqlite connection; initial failed receipt retained."
+      },
+      {
+        "id": "OWNER-H4-UNLICENSED-ALTERNATE",
+        "kind": "invalid_positive_control",
+        "resolution": "Frozen control excluded by this sidecar; licensed unittest successor explicitly marked post-outcome."
+      },
+      {
+        "id": "OWNER-H4-INHERITED-REFERENCE",
+        "kind": "incomplete_positive_qualification",
+        "resolution": "Original full-domain correctness not established; source-derived exact-rational successor built and separately qualified after output inspection."
+      },
+      {
+        "id": "OWNER-H6-FINITE-POSITIVES",
+        "kind": "incomplete_positive_qualification",
+        "resolution": "Initial positives satisfy selected bounded-output probes but expand extreme nonzero exponents before count. Exclude full-task positive labels. Preserve decisive known-bad acceptance and legalzero counterexamples as coverage/error dimensions; overall positive qualification unknown."
+      }
+    ],
+    "scope": "Research/owner-instrument defects are retained separately from fresh author-attempt verdicts. This is the cited sidecar inventory, not an exhaustive historical incident count."
+  },
+  "source_instruction_fidelity": {
+    "exact_recovered_text_jobs": [
+      "H2"
+    ],
+    "reconstructed_jobs": [
+      "H1",
+      "H3",
+      "H4",
+      "H5",
+      "H6",
+      "H7",
+      "H8",
+      "H9"
+    ],
+    "exact_original_session_replication": false
+  },
+  "usage_policy": "Sum only actual turn.completed usage fields. Missing terminal usage is unknown, never zero. Cached/reasoning fields are retained as reported, not added again to parent fields. No USD cost inferred.",
+  "cohorts": [
+    {
+      "id": "initial_screen",
+      "attempts": 18,
+      "condition": "one recovered original instruction text and eight reconstructed authoring jobs; source metadata exposed",
+      "budget_seconds": 600,
+      "effective_status_counts": {
+        "completed": 13,
+        "timeout": 3,
+        "recovered_completed_turn_delivery": 2
+      },
+      "raw_status_counts": {
+        "completed": 13,
+        "timeout": 3,
+        "runtime_error": 2
+      },
+      "semantic_outcome_counts": {
+        "verified_false_reject": 1,
+        "timeout_snapshot_diagnostic_only": 3,
+        "no_objective_defect_established": 2,
+        "no_objective_defect_established_scoped": 2,
+        "no_defect_on_post_outcome_successor_controls": 2,
+        "no_established_failure_on_licensed_witness": 1,
+        "verified_false_green_and_isolated_false_reject": 1,
+        "no_defect_on_selected_controls": 2,
+        "no_material_defect_established_scoped": 2,
+        "no_material_defect_established_recovered": 2
+      },
+      "all_terminal_capture": true,
+      "usage_reported_attempts": 15,
+      "native_reported_usage_field_sums": {
+        "input_tokens": 12412339,
+        "cached_input_tokens": 11777408,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 229513,
+        "reasoning_output_tokens": 50427
+      },
+      "verified_defect_output_count": 2,
+      "verified_dimension_occurrences": {
+        "hidden_required_status_literal_false_reject": 1,
+        "actual_bad_numeric_cli_false_green": 1,
+        "legal_numeric_output_false_reject": 1
+      },
+      "all_semantically_adjudicated": true
+    },
+    {
+      "id": "H1_same_condition_confirmation",
+      "attempts": 3,
+      "condition": "Sol H1 same frozen packet and metadata",
+      "budget_seconds": 600,
+      "effective_status_counts": {
+        "timeout": 3
+      },
+      "raw_status_counts": {
+        "timeout": 3
+      },
+      "semantic_outcome_counts": {
+        "timeout_no_completed_recurrence_verdict": 3
+      },
+      "all_terminal_capture": true,
+      "usage_reported_attempts": 0,
+      "native_reported_usage_field_sums": {},
+      "verified_defect_output_count": 0,
+      "verified_dimension_occurrences": {},
+      "all_semantically_adjudicated": true
+    },
+    {
+      "id": "H6_same_condition_confirmation",
+      "attempts": 3,
+      "condition": "Astra H6 same frozen packet and metadata",
+      "budget_seconds": 600,
+      "effective_status_counts": {
+        "capture_unknown_native_terminal": 1,
+        "completed": 2
+      },
+      "raw_status_counts": {
+        "runtime_error": 1,
+        "completed": 2
+      },
+      "semantic_outcome_counts": {
+        "capture_unknown_no_model_verdict": 1,
+        "known_bad_rejected_distinct_defect": 1,
+        "verified_fresh_false_green": 1
+      },
+      "all_terminal_capture": true,
+      "usage_reported_attempts": 2,
+      "native_reported_usage_field_sums": {
+        "input_tokens": 1060425,
+        "cached_input_tokens": 1016960,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 28988,
+        "reasoning_output_tokens": 6617
+      },
+      "verified_defect_output_count": 1,
+      "verified_dimension_occurrences": {
+        "actual_bad_numeric_cli_false_green": 1
+      },
+      "all_semantically_adjudicated": true
+    },
+    {
+      "id": "H1_budget_diagnostic",
+      "attempts": 3,
+      "condition": "Sol H1 same packet, longer construction budget",
+      "budget_seconds": 1200,
+      "effective_status_counts": {
+        "completed": 3
+      },
+      "raw_status_counts": {
+        "completed": 3
+      },
+      "semantic_outcome_counts": {
+        "verified_false_reject": 3
+      },
+      "all_terminal_capture": true,
+      "usage_reported_attempts": 3,
+      "native_reported_usage_field_sums": {
+        "input_tokens": 2325269,
+        "cached_input_tokens": 2193152,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 79760,
+        "reasoning_output_tokens": 19844
+      },
+      "verified_defect_output_count": 3,
+      "verified_dimension_occurrences": {
+        "hidden_required_status_literal_false_reject": 3
+      },
+      "all_semantically_adjudicated": true
+    },
+    {
+      "id": "selected_hit_clean_staging",
+      "attempts": 2,
+      "condition": "Sol H1 and Astra H6 prompt/input only; no packet metadata; source native memory context remains",
+      "budget_seconds": "H1=1200;H6=600",
+      "effective_status_counts": {
+        "completed": 2
+      },
+      "raw_status_counts": {
+        "completed": 2
+      },
+      "semantic_outcome_counts": {
+        "verified_false_rejection": 1,
+        "verified_false_acceptance": 1
+      },
+      "all_terminal_capture": true,
+      "usage_reported_attempts": 2,
+      "native_reported_usage_field_sums": {
+        "input_tokens": 1344255,
+        "cached_input_tokens": 1287680,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 45752,
+        "reasoning_output_tokens": 13073
+      },
+      "verified_defect_output_count": 2,
+      "verified_dimension_occurrences": {
+        "hidden_required_status_literal_false_reject": 1,
+        "actual_bad_numeric_cli_false_green": 1,
+        "legal_numeric_output_false_reject": 1
+      },
+      "all_semantically_adjudicated": true
+    },
+    {
+      "id": "selected_hit_coached_staging",
+      "attempts": 2,
+      "condition": "Same two selected jobs and budgets as clean staging, with explicitly new quality checklist; separate secondary arm",
+      "budget_seconds": "H1=1200;H6=600",
+      "effective_status_counts": {
+        "completed": 1,
+        "timeout": 1
+      },
+      "raw_status_counts": {
+        "completed": 1,
+        "timeout": 1
+      },
+      "semantic_outcome_counts": {
+        "target_failure_not_observed_under_published_new_contract": 1,
+        "incomplete_timeout_no_completed_verdict": 1
+      },
+      "all_terminal_capture": true,
+      "usage_reported_attempts": 1,
+      "native_reported_usage_field_sums": {
+        "input_tokens": 1569493,
+        "cached_input_tokens": 1541248,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 35822,
+        "reasoning_output_tokens": 11410
+      },
+      "verified_defect_output_count": 0,
+      "verified_dimension_occurrences": {},
+      "all_semantically_adjudicated": true
+    }
+  ],
+  "attempts": [
+    {
+      "id": "initial_screen/gpt-6.1-sol/H1",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 573.0087486000266,
+      "exit_code": 0,
+      "launch": "runs/screen/gpt-6.1-sol/H1/launch.json",
+      "directory": "runs/screen/gpt-6.1-sol/H1",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6.1-sol/H1/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 66,
+            "usage": {
+              "input_tokens": 1072594,
+              "cached_input_tokens": 1018752,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 32106,
+              "reasoning_output_tokens": 7473
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "verified_false_reject",
+      "semantic_summary": "Correct applied-status Service rejected; accepted-only grading literal omitted from the package's documented solver views. Literal-only paired replay changes FAIL to PASS.",
+      "review_evidence": [
+        "grades/semantic-review/H1-INDEPENDENT.json",
+        "grades/semantic-review/H1-SOL-LITERAL-PAIR.json",
+        "grades/owner-review/sol-H1-FULL-BWRAP.json"
+      ],
+      "verified_dimensions": [
+        "hidden_required_status_literal_false_reject"
+      ]
+    },
+    {
+      "id": "initial_screen/gpt-6-astra/H1",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6-astra",
+      "case_id": "H1",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "timeout",
+      "effective_status": "timeout",
+      "seconds": 600.9177287999773,
+      "exit_code": 1,
+      "launch": "runs/screen/gpt-6-astra/H1/launch.json",
+      "directory": "runs/screen/gpt-6-astra/H1",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6-astra/H1/transcript.jsonl",
+        "turn_completed_events": [],
+        "usage_known": false,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "timeout_snapshot_diagnostic_only",
+      "semantic_summary": "600s timeout. Snapshot shows related staged-view issue; not a second completed author failure.",
+      "review_evidence": [
+        "grades/owner-review/H1-REVIEW.md"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "initial_screen/gpt-6.1-sol/H2",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H2",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 129.7091753000277,
+      "exit_code": 0,
+      "launch": "runs/screen/gpt-6.1-sol/H2/launch.json",
+      "directory": "runs/screen/gpt-6.1-sol/H2",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6.1-sol/H2/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 18,
+            "usage": {
+              "input_tokens": 164841,
+              "cached_input_tokens": 151168,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 5449,
+              "reasoning_output_tokens": 1652
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "no_objective_defect_established",
+      "semantic_summary": "Exact recovered rubric instruction text, changed runtime/context. Required headings, score mapping, worked arithmetic and calibration reviewed; valid alternative criteria preserved.",
+      "review_evidence": [
+        "grades/semantic-review/H2-gpt-6.1-sol.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "initial_screen/gpt-6-astra/H2",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6-astra",
+      "case_id": "H2",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 107.16491859999951,
+      "exit_code": 0,
+      "launch": "runs/screen/gpt-6-astra/H2/launch.json",
+      "directory": "runs/screen/gpt-6-astra/H2",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6-astra/H2/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 18,
+            "usage": {
+              "input_tokens": 189954,
+              "cached_input_tokens": 175616,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 4022,
+              "reasoning_output_tokens": 767
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "no_objective_defect_established",
+      "semantic_summary": "Exact recovered rubric instruction text, changed runtime/context. Required headings, score mapping, worked arithmetic and calibration reviewed; valid alternative criteria preserved.",
+      "review_evidence": [
+        "grades/semantic-review/H2-gpt-6-astra.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "initial_screen/gpt-6.1-sol/H3",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H3",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 428.5441683999961,
+      "exit_code": 0,
+      "launch": "runs/screen/gpt-6.1-sol/H3/launch.json",
+      "directory": "runs/screen/gpt-6.1-sol/H3",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6.1-sol/H3/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 58,
+            "usage": {
+              "input_tokens": 959224,
+              "cached_input_tokens": 924416,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 20232,
+              "reasoning_output_tokens": 5806
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "no_objective_defect_established_scoped",
+      "semantic_summary": "Task semantics reviewed. Intake-window ambiguity and missing OS isolation disclosed. Public-training-label lookup probe did not establish private-label theft or a semantic false pass.",
+      "review_evidence": [
+        "grades/semantic-review/H3-gpt-6.1-sol.json",
+        "grades/semantic-review/H3-TIMING-WITNESS.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "initial_screen/gpt-6-astra/H3",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6-astra",
+      "case_id": "H3",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 352.49772959999973,
+      "exit_code": 0,
+      "launch": "runs/screen/gpt-6-astra/H3/launch.json",
+      "directory": "runs/screen/gpt-6-astra/H3",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6-astra/H3/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 57,
+            "usage": {
+              "input_tokens": 616327,
+              "cached_input_tokens": 593152,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 16363,
+              "reasoning_output_tokens": 2999
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "no_objective_defect_established_scoped",
+      "semantic_summary": "Task semantics reviewed. Intake-window ambiguity and missing OS isolation disclosed. Public-training-label lookup probe did not establish private-label theft or a semantic false pass.",
+      "review_evidence": [
+        "grades/semantic-review/H3-gpt-6-astra.json",
+        "grades/semantic-review/H3-TIMING-WITNESS.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "initial_screen/gpt-6.1-sol/H4",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H4",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 362.4700379999704,
+      "exit_code": 0,
+      "launch": "runs/screen/gpt-6.1-sol/H4/launch.json",
+      "directory": "runs/screen/gpt-6.1-sol/H4",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6.1-sol/H4/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 50,
+            "usage": {
+              "input_tokens": 678339,
+              "cached_input_tokens": 648576,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 19441,
+              "reasoning_output_tokens": 4253
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "no_defect_on_post_outcome_successor_controls",
+      "semantic_summary": "Original five full-task controls invalidated. Both delivered graders distinguish all five separately qualified successor controls; finite post-outcome evidence only.",
+      "review_evidence": [
+        "grades/owner-review/H4-REVIEW.md",
+        "grades/owner-review/gpt-6.1-sol-H4-SUCCESSOR.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "initial_screen/gpt-6-astra/H4",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6-astra",
+      "case_id": "H4",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 323.2993475999683,
+      "exit_code": 0,
+      "launch": "runs/screen/gpt-6-astra/H4/launch.json",
+      "directory": "runs/screen/gpt-6-astra/H4",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6-astra/H4/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 38,
+            "usage": {
+              "input_tokens": 488830,
+              "cached_input_tokens": 456064,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 18249,
+              "reasoning_output_tokens": 3428
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "no_defect_on_post_outcome_successor_controls",
+      "semantic_summary": "Original five full-task controls invalidated. Both delivered graders distinguish all five separately qualified successor controls; finite post-outcome evidence only.",
+      "review_evidence": [
+        "grades/owner-review/H4-REVIEW.md",
+        "grades/owner-review/gpt-6-astra-H4-SUCCESSOR.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "initial_screen/gpt-6.1-sol/H5",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H5",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "timeout",
+      "effective_status": "timeout",
+      "seconds": 601.502525799966,
+      "exit_code": 1,
+      "launch": "runs/screen/gpt-6.1-sol/H5/launch.json",
+      "directory": "runs/screen/gpt-6.1-sol/H5",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6.1-sol/H5/transcript.jsonl",
+        "turn_completed_events": [],
+        "usage_known": false,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "timeout_snapshot_diagnostic_only",
+      "semantic_summary": "600s timeout. Restricted benchmark-only snapshot probe accepts a coherent underreported-work fixture. Full-suite completed failure not established.",
+      "review_evidence": [
+        "grades/owner-review/H5-REVIEW.md",
+        "grades/owner-review/gpt-6.1-sol-H5-BENCHMARK-SNAPSHOT.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "initial_screen/gpt-6-astra/H5",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6-astra",
+      "case_id": "H5",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "timeout",
+      "effective_status": "timeout",
+      "seconds": 601.4425396000152,
+      "exit_code": 1,
+      "launch": "runs/screen/gpt-6-astra/H5/launch.json",
+      "directory": "runs/screen/gpt-6-astra/H5",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6-astra/H5/transcript.jsonl",
+        "turn_completed_events": [],
+        "usage_known": false,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "timeout_snapshot_diagnostic_only",
+      "semantic_summary": "600s timeout. Restricted benchmark-only snapshot probe accepts a coherent underreported-work fixture. Full-suite completed failure not established.",
+      "review_evidence": [
+        "grades/owner-review/H5-REVIEW.md",
+        "grades/owner-review/gpt-6-astra-H5-BENCHMARK-SNAPSHOT.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "initial_screen/gpt-6.1-sol/H6",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H6",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 514.8015495000291,
+      "exit_code": 0,
+      "launch": "runs/screen/gpt-6.1-sol/H6/launch.json",
+      "directory": "runs/screen/gpt-6.1-sol/H6",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6.1-sol/H6/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 65,
+            "usage": {
+              "input_tokens": 1059774,
+              "cached_input_tokens": 1028992,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 21505,
+              "reasoning_output_tokens": 7002
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "no_established_failure_on_licensed_witness",
+      "semantic_summary": "Symbolic parser handles the decisive zero family. Original finite positive controls are not full-domain gold and their rejection is excluded.",
+      "review_evidence": [
+        "grades/owner-review/H6-REVIEW.md",
+        "owner/ADJUDICATION.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "initial_screen/gpt-6-astra/H6",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6-astra",
+      "case_id": "H6",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 260.58716250001453,
+      "exit_code": 0,
+      "launch": "runs/screen/gpt-6-astra/H6/launch.json",
+      "directory": "runs/screen/gpt-6-astra/H6",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6-astra/H6/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 40,
+            "usage": {
+              "input_tokens": 463723,
+              "cached_input_tokens": 438656,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 11512,
+              "reasoning_output_tokens": 1648
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "verified_false_green_and_isolated_false_reject",
+      "semantic_summary": "Actual historical bad CLI passes 84/84 new checks but fails tiny legal exponent-zero input. Separate legal-zero OUTPUT notation is falsely rejected by output parser; not an extra author attempt.",
+      "review_evidence": [
+        "grades/owner-review/ASTRA-H6-PAIRED-REPRODUCER.json",
+        "grades/semantic-review/H6-INDEPENDENT.json",
+        "grades/semantic-review/H6-OUTPUT-ZERO-PAIR.json"
+      ],
+      "verified_dimensions": [
+        "actual_bad_numeric_cli_false_green",
+        "legal_numeric_output_false_reject"
+      ]
+    },
+    {
+      "id": "initial_screen/gpt-6.1-sol/H7",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H7",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 306.4394813000108,
+      "exit_code": 0,
+      "launch": "runs/screen/gpt-6.1-sol/H7/launch.json",
+      "directory": "runs/screen/gpt-6.1-sol/H7",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6.1-sol/H7/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 34,
+            "usage": {
+              "input_tokens": 430495,
+              "cached_input_tokens": 399488,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 13929,
+              "reasoning_output_tokens": 4084
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "no_defect_on_selected_controls",
+      "semantic_summary": "All five selected extraction controls classified correctly. Universal paraphrase coverage and prose/tool behavior remain outside this finite result.",
+      "review_evidence": [
+        "grades/owner-review/H7-REVIEW.md"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "initial_screen/gpt-6-astra/H7",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6-astra",
+      "case_id": "H7",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 159.19914379995316,
+      "exit_code": 0,
+      "launch": "runs/screen/gpt-6-astra/H7/launch.json",
+      "directory": "runs/screen/gpt-6-astra/H7",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6-astra/H7/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 29,
+            "usage": {
+              "input_tokens": 199999,
+              "cached_input_tokens": 183296,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 6968,
+              "reasoning_output_tokens": 1141
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "no_defect_on_selected_controls",
+      "semantic_summary": "All five selected extraction controls classified correctly. Universal paraphrase coverage and prose/tool behavior remain outside this finite result.",
+      "review_evidence": [
+        "grades/owner-review/H7-REVIEW.md"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "initial_screen/gpt-6.1-sol/H8",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H8",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 347.416880499979,
+      "exit_code": 0,
+      "launch": "runs/screen/gpt-6.1-sol/H8/launch.json",
+      "directory": "runs/screen/gpt-6.1-sol/H8",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6.1-sol/H8/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 53,
+            "usage": {
+              "input_tokens": 1062646,
+              "cached_input_tokens": 1007360,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 14918,
+              "reasoning_output_tokens": 2641
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "no_material_defect_established_scoped",
+      "semantic_summary": "Both delivered auditors distinguish 232 stored turns from 228 formal turns; original plus two mutations per model replayed correctly. Missing workspace bodies limit semantic certificates.",
+      "review_evidence": [
+        "grades/audit-review/H8-SEMANTIC-REVIEW.md",
+        "grades/audit-review/H8-INDEPENDENT-REPLAY.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "initial_screen/gpt-6-astra/H8",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6-astra",
+      "case_id": "H8",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 252.70682640001178,
+      "exit_code": 0,
+      "launch": "runs/screen/gpt-6-astra/H8/launch.json",
+      "directory": "runs/screen/gpt-6-astra/H8",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/screen/gpt-6-astra/H8/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 39,
+            "usage": {
+              "input_tokens": 533163,
+              "cached_input_tokens": 496128,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 10513,
+              "reasoning_output_tokens": 1011
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "no_material_defect_established_scoped",
+      "semantic_summary": "Both delivered auditors distinguish 232 stored turns from 228 formal turns; original plus two mutations per model replayed correctly. Missing workspace bodies limit semantic certificates.",
+      "review_evidence": [
+        "grades/audit-review/H8-SEMANTIC-REVIEW.md",
+        "grades/audit-review/H8-INDEPENDENT-REPLAY.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "initial_screen/gpt-6.1-sol/H9",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H9",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "runtime_error",
+      "effective_status": "recovered_completed_turn_delivery",
+      "seconds": null,
+      "exit_code": null,
+      "launch": "runs/screen/gpt-6.1-sol/H9/launch.json",
+      "directory": "runs/screen/gpt-6.1-sol/H9",
+      "runtime_error_receipt": "runs/screen/gpt-6.1-sol/H9/runtime-error.json",
+      "recovery_receipt": "runs/screen/gpt-6.1-sol/H9/RECOVERY.json",
+      "native_usage": {
+        "source": "runs/screen/gpt-6.1-sol/H9/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 69,
+            "usage": {
+              "input_tokens": 2610379,
+              "cached_input_tokens": 2481280,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 18749,
+              "reasoning_output_tokens": 4132
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "no_material_defect_established_recovered",
+      "semantic_summary": "Native turn completed; delivery recovered after UNC MAXPATH copy fault. Native exit code unpersisted. Accurate staged 147-unit/150-session accounting and regenerated auditor output; not full R10 153-call gold.",
+      "review_evidence": [
+        "grades/audit-review/H9-SEMANTIC-REVIEW.md",
+        "grades/audit-review/H9-INDEPENDENT-REPLAY.json",
+        "runs/screen/gpt-6.1-sol/H9/RECOVERY.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "initial_screen/gpt-6-astra/H9",
+      "cohort": "initial_screen",
+      "model_requested": "gpt-6-astra",
+      "case_id": "H9",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "runtime_error",
+      "effective_status": "recovered_completed_turn_delivery",
+      "seconds": null,
+      "exit_code": null,
+      "launch": "runs/screen/gpt-6-astra/H9/launch.json",
+      "directory": "runs/screen/gpt-6-astra/H9",
+      "runtime_error_receipt": "runs/screen/gpt-6-astra/H9/runtime-error.json",
+      "recovery_receipt": "runs/screen/gpt-6-astra/H9/RECOVERY.json",
+      "native_usage": {
+        "source": "runs/screen/gpt-6-astra/H9/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 65,
+            "usage": {
+              "input_tokens": 1882051,
+              "cached_input_tokens": 1774464,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 15557,
+              "reasoning_output_tokens": 2390
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "no_material_defect_established_recovered",
+      "semantic_summary": "Native turn completed; delivery recovered after UNC MAXPATH copy fault. Native exit code unpersisted. Accurate staged 147-unit/150-session accounting and regenerated auditor output; not full R10 153-call gold.",
+      "review_evidence": [
+        "grades/audit-review/H9-SEMANTIC-REVIEW.md",
+        "grades/audit-review/H9-INDEPENDENT-REPLAY.json",
+        "runs/screen/gpt-6-astra/H9/RECOVERY.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "H1_same_condition_confirmation/gpt-6.1-sol/H1/draw1",
+      "cohort": "H1_same_condition_confirmation",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": "draw1",
+      "budget_seconds": 600,
+      "raw_status": "timeout",
+      "effective_status": "timeout",
+      "seconds": 601.56177749997,
+      "exit_code": 1,
+      "launch": "runs/confirmation/gpt-6.1-sol/H1/draw1/launch.json",
+      "directory": "runs/confirmation/gpt-6.1-sol/H1/draw1",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/confirmation/gpt-6.1-sol/H1/draw1/transcript.jsonl",
+        "turn_completed_events": [],
+        "usage_known": false,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "timeout_no_completed_recurrence_verdict",
+      "semantic_summary": "All three 600s fresh attempts timed out. Draws1/3 snapshots omit the grader literal; draw2 explicitly publishes it. No completed recurrence or disappearance rate.",
+      "review_evidence": [
+        "grades/owner-review/H1-CONFIRMATION-REVIEW.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "H1_same_condition_confirmation/gpt-6.1-sol/H1/draw2",
+      "cohort": "H1_same_condition_confirmation",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": "draw2",
+      "budget_seconds": 600,
+      "raw_status": "timeout",
+      "effective_status": "timeout",
+      "seconds": 601.331086900027,
+      "exit_code": 1,
+      "launch": "runs/confirmation/gpt-6.1-sol/H1/draw2/launch.json",
+      "directory": "runs/confirmation/gpt-6.1-sol/H1/draw2",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/confirmation/gpt-6.1-sol/H1/draw2/transcript.jsonl",
+        "turn_completed_events": [],
+        "usage_known": false,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "timeout_no_completed_recurrence_verdict",
+      "semantic_summary": "All three 600s fresh attempts timed out. Draws1/3 snapshots omit the grader literal; draw2 explicitly publishes it. No completed recurrence or disappearance rate.",
+      "review_evidence": [
+        "grades/owner-review/H1-CONFIRMATION-REVIEW.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "H1_same_condition_confirmation/gpt-6.1-sol/H1/draw3",
+      "cohort": "H1_same_condition_confirmation",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": "draw3",
+      "budget_seconds": 600,
+      "raw_status": "timeout",
+      "effective_status": "timeout",
+      "seconds": 601.4080730000278,
+      "exit_code": 1,
+      "launch": "runs/confirmation/gpt-6.1-sol/H1/draw3/launch.json",
+      "directory": "runs/confirmation/gpt-6.1-sol/H1/draw3",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/confirmation/gpt-6.1-sol/H1/draw3/transcript.jsonl",
+        "turn_completed_events": [],
+        "usage_known": false,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "timeout_no_completed_recurrence_verdict",
+      "semantic_summary": "All three 600s fresh attempts timed out. Draws1/3 snapshots omit the grader literal; draw2 explicitly publishes it. No completed recurrence or disappearance rate.",
+      "review_evidence": [
+        "grades/owner-review/H1-CONFIRMATION-REVIEW.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "H6_same_condition_confirmation/gpt-6-astra/H6/draw1",
+      "cohort": "H6_same_condition_confirmation",
+      "model_requested": "gpt-6-astra",
+      "case_id": "H6",
+      "draw": "draw1",
+      "budget_seconds": 600,
+      "raw_status": "runtime_error",
+      "effective_status": "capture_unknown_native_terminal",
+      "seconds": null,
+      "exit_code": null,
+      "launch": "runs/confirmation/gpt-6-astra/H6/draw1/launch.json",
+      "directory": "runs/confirmation/gpt-6-astra/H6/draw1",
+      "runtime_error_receipt": "runs/confirmation/gpt-6-astra/H6/draw1/runtime-error.json",
+      "recovery_receipt": "runs/confirmation/gpt-6-astra/H6/draw1/RECOVERY.json",
+      "native_usage": {
+        "source": "runs/confirmation/gpt-6-astra/H6/draw1/transcript.jsonl",
+        "turn_completed_events": [],
+        "usage_known": false,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "capture_unknown_no_model_verdict",
+      "semantic_summary": "Native PID absent; runtime-error.json reports copytree races on transient self-test scratch files. Runtime recovery captured232stablefiles with two source observations and unchanged-after-copy evidence, retaining the initial faulty capture. Native exit was not persisted, final.txt is absent and neither turn.completed nor turn.failed was observed. Snapshot custody is verified; native completion remains unknown. This is not a completed negative or model verdict.",
+      "review_evidence": [
+        "grades/owner-review/H6-CONFIRMATION-REVIEW.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "H6_same_condition_confirmation/gpt-6-astra/H6/draw2",
+      "cohort": "H6_same_condition_confirmation",
+      "model_requested": "gpt-6-astra",
+      "case_id": "H6",
+      "draw": "draw2",
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 300.37421079998603,
+      "exit_code": 0,
+      "launch": "runs/confirmation/gpt-6-astra/H6/draw2/launch.json",
+      "directory": "runs/confirmation/gpt-6-astra/H6/draw2",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/confirmation/gpt-6-astra/H6/draw2/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 42,
+            "usage": {
+              "input_tokens": 456760,
+              "cached_input_tokens": 435456,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 13903,
+              "reasoning_output_tokens": 2963
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "known_bad_rejected_distinct_defect",
+      "semantic_summary": "The new eval catches a real distinct defect. This does not show the extreme-exponent-zero input was covered; do not call the original zero family disproved.",
+      "review_evidence": [
+        "grades/owner-review/H6-CONFIRMATION-REVIEW.json"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "H6_same_condition_confirmation/gpt-6-astra/H6/draw3",
+      "cohort": "H6_same_condition_confirmation",
+      "model_requested": "gpt-6-astra",
+      "case_id": "H6",
+      "draw": "draw3",
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 378.2462445999845,
+      "exit_code": 0,
+      "launch": "runs/confirmation/gpt-6-astra/H6/draw3/launch.json",
+      "directory": "runs/confirmation/gpt-6-astra/H6/draw3",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/confirmation/gpt-6-astra/H6/draw3/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 47,
+            "usage": {
+              "input_tokens": 603665,
+              "cached_input_tokens": 581504,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 15085,
+              "reasoning_output_tokens": 3654
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "verified_fresh_false_green",
+      "semantic_summary": "Fresh completed false green: actual same preserved Luna CLI passes all126new checks yet independently fails the short legal exponent-zero/count input. Canonical-zero input returns expected counts1/3. This reproduces the eval-coverage defect.",
+      "review_evidence": [
+        "grades/owner-review/H6-CONFIRMATION-REVIEW.json"
+      ],
+      "verified_dimensions": [
+        "actual_bad_numeric_cli_false_green"
+      ]
+    },
+    {
+      "id": "H1_budget_diagnostic/gpt-6.1-sol/H1/draw1",
+      "cohort": "H1_budget_diagnostic",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": "draw1",
+      "budget_seconds": 1200,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 538.0629722999875,
+      "exit_code": 0,
+      "launch": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw1/launch.json",
+      "directory": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw1",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw1/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 62,
+            "usage": {
+              "input_tokens": 694050,
+              "cached_input_tokens": 653440,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 27479,
+              "reasoning_output_tokens": 6044
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "verified_false_reject",
+      "semantic_summary": "Completed 1200s-cap author: correct applied-status control rejected; all five controls valid. Staged views omit required accepted literal. Actual runtime under600s does not merge this selected new-cap cohort with prior600s timeouts.",
+      "review_evidence": [
+        "grades/owner-review/H1-BUDGET-NATIVE-SUMMARY.json",
+        "grades/owner-review/H1-BUDGET-draw1-FULL.json",
+        "grades/owner-review/H1-BUDGET-REVIEW.md"
+      ],
+      "verified_dimensions": [
+        "hidden_required_status_literal_false_reject"
+      ]
+    },
+    {
+      "id": "H1_budget_diagnostic/gpt-6.1-sol/H1/draw2",
+      "cohort": "H1_budget_diagnostic",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": "draw2",
+      "budget_seconds": 1200,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 539.4425257999683,
+      "exit_code": 0,
+      "launch": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw2/launch.json",
+      "directory": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw2",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw2/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 72,
+            "usage": {
+              "input_tokens": 906512,
+              "cached_input_tokens": 856192,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 27319,
+              "reasoning_output_tokens": 5968
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "verified_false_reject",
+      "semantic_summary": "Completed 1200s-cap author: correct applied-status control rejected; all five controls valid. Staged views omit required accepted literal. Actual runtime under600s does not merge this selected new-cap cohort with prior600s timeouts.",
+      "review_evidence": [
+        "grades/owner-review/H1-BUDGET-NATIVE-SUMMARY.json",
+        "grades/owner-review/H1-BUDGET-draw2-FULL.json",
+        "grades/owner-review/H1-BUDGET-REVIEW.md"
+      ],
+      "verified_dimensions": [
+        "hidden_required_status_literal_false_reject"
+      ]
+    },
+    {
+      "id": "H1_budget_diagnostic/gpt-6.1-sol/H1/draw3",
+      "cohort": "H1_budget_diagnostic",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": "draw3",
+      "budget_seconds": 1200,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 495.27450250001857,
+      "exit_code": 0,
+      "launch": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw3/launch.json",
+      "directory": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw3",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw3/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 56,
+            "usage": {
+              "input_tokens": 724707,
+              "cached_input_tokens": 683520,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 24962,
+              "reasoning_output_tokens": 7832
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "verified_false_reject",
+      "semantic_summary": "Completed 1200s-cap author: correct applied-status control rejected; all five controls valid. Staged views omit required accepted literal. Actual runtime under600s does not merge this selected new-cap cohort with prior600s timeouts.",
+      "review_evidence": [
+        "grades/owner-review/H1-BUDGET-NATIVE-SUMMARY.json",
+        "grades/owner-review/H1-BUDGET-draw3-FULL.json",
+        "grades/owner-review/H1-BUDGET-REVIEW.md"
+      ],
+      "verified_dimensions": [
+        "hidden_required_status_literal_false_reject"
+      ]
+    },
+    {
+      "id": "selected_hit_clean_staging/gpt-6.1-sol/H1",
+      "cohort": "selected_hit_clean_staging",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": null,
+      "budget_seconds": 1200,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 700.24705060001,
+      "exit_code": 0,
+      "launch": "runs/clean_screen/gpt-6.1-sol/H1/launch.json",
+      "directory": "runs/clean_screen/gpt-6.1-sol/H1",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/clean_screen/gpt-6.1-sol/H1/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 77,
+            "usage": {
+              "input_tokens": 993388,
+              "cached_input_tokens": 954752,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 34393,
+              "reasoning_output_tokens": 11224
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "verified_false_rejection",
+      "semantic_summary": "Completed in700.247seconds under1200second clean-staging condition, with prompt+input only. Actual visible instruction is the same original single sentence; stdin/source SHA difference is CRLF-to-LF normalization, not appended instruction or coaching. Full native grader under qualified outer/nested bubblewrap gives5valid verdicts: correct applied-status Service falsely rejected; independent accepted-status Service accepted;3faultcontrols rejected. Own README publishes accepted-only but instructs operator to give only staged views, whose initial/final prompts omit that literal. Immutable package unchanged. Separate metadata/budget/runtime successor condition, not exact original-context replication.",
+      "review_evidence": [
+        "grades/owner-review/H1-CLEAN-FULL.json",
+        "grades/owner-review/H1-CLEAN-REVIEW.md",
+        "runs/clean_screen/gpt-6.1-sol/H1/launch.json"
+      ],
+      "verified_dimensions": [
+        "hidden_required_status_literal_false_reject"
+      ]
+    },
+    {
+      "id": "selected_hit_clean_staging/gpt-6-astra/H6",
+      "cohort": "selected_hit_clean_staging",
+      "model_requested": "gpt-6-astra",
+      "case_id": "H6",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 229.34235799999442,
+      "exit_code": 0,
+      "launch": "runs/clean_screen/gpt-6-astra/H6/launch.json",
+      "directory": "runs/clean_screen/gpt-6-astra/H6",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/clean_screen/gpt-6-astra/H6/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 36,
+            "usage": {
+              "input_tokens": 350867,
+              "cached_input_tokens": 332928,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 11359,
+              "reasoning_output_tokens": 1849
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "verified_false_acceptance",
+      "semantic_summary": "Completed in229.342seconds under clean-staging successor, prompt+input only and same minimal visible instruction. Native full96case grader accepts the actual unchanged saved Luna CLI on96/96 despite its independently verified191byte legal exponent-zero/count failure. Separately, its actual native judge accepts28byte canonical-zero output but rejects the equivalent49byte exponent-zero output for the SAME valid empty-count request, raising Decimal.InvalidOperation under its permitted exact-integer output contract. This directly demonstrates a wrong validator, beyond finite missed coverage. Original subject inventory unchanged. These are two dimensions in one author attempt, not extra trials. Overall full-task positive qualification remains unknown; no universal numeric capacity claim or pooling of conditions.",
+      "review_evidence": [
+        "grades/owner-review/H6-CLEAN-FULL.json",
+        "grades/owner-review/H6-CLEAN-OUTPUT-ZERO-PAIR.json",
+        "grades/owner-review/ASTRA-H6-PAIRED-REPRODUCER.json",
+        "runs/clean_screen/gpt-6-astra/H6/launch.json"
+      ],
+      "additional_semantic_outcomes": [
+        "verified_false_rejection"
+      ],
+      "verified_dimensions": [
+        "actual_bad_numeric_cli_false_green",
+        "legal_numeric_output_false_reject"
+      ]
+    },
+    {
+      "id": "selected_hit_coached_staging/gpt-6.1-sol/H1",
+      "cohort": "selected_hit_coached_staging",
+      "model_requested": "gpt-6.1-sol",
+      "case_id": "H1",
+      "draw": null,
+      "budget_seconds": 1200,
+      "raw_status": "completed",
+      "effective_status": "completed",
+      "seconds": 767.9291330000269,
+      "exit_code": 0,
+      "launch": "runs/clean_screen_v2/coached/gpt-6.1-sol/H1/launch.json",
+      "directory": "runs/clean_screen_v2/coached/gpt-6.1-sol/H1",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/clean_screen_v2/coached/gpt-6.1-sol/H1/transcript.jsonl",
+        "turn_completed_events": [
+          {
+            "line": 87,
+            "usage": {
+              "input_tokens": 1569493,
+              "cached_input_tokens": 1541248,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 35822,
+              "reasoning_output_tokens": 11410
+            }
+          }
+        ],
+        "usage_known": true,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "target_failure_not_observed_under_published_new_contract",
+      "semantic_summary": "Completed767.929seconds with explicitqualitychecklist, cleanstaging and noactorMETA. NewTASK.md explicitly requiresaccepted/rejectedliterals and is actualsole solver input perREADME, fixing the stagedview omission. Author explicitly switches to final-answer-only evaluation rather than measuring stagedadaptation. Native fullgrader underqualifiedouter/nestedbubblewrap gives5/5correct controls after transparent ownerliteral-only adaptation to its publishedacceptedwirecontract; originalappliedcontrol is outofnewexplicitcontract and must not be called false rejection. Twoindependentcorrect Service strategies pass;3businessfaults rejected. This is a separatecoached/newpubliccontract diagnostic; originalscopepreservation and whole-domain validity remain distinct, and one draw does not identify a causal coaching effect.",
+      "review_evidence": [
+        "grades/owner-review/H1-COACHED-FULL.json",
+        "grades/owner-review/H1-COACHED-REVIEW.md",
+        "grades/owner-review/H1-COACHED-ZIP-BINDING.json",
+        "runs/clean_screen_v2/coached/gpt-6.1-sol/H1/launch.json",
+        "runs/clean_screen_v2/coached/gpt-6.1-sol/H1/delivery/TASK.md"
+      ],
+      "verified_dimensions": []
+    },
+    {
+      "id": "selected_hit_coached_staging/gpt-6-astra/H6",
+      "cohort": "selected_hit_coached_staging",
+      "model_requested": "gpt-6-astra",
+      "case_id": "H6",
+      "draw": null,
+      "budget_seconds": 600,
+      "raw_status": "timeout",
+      "effective_status": "timeout",
+      "seconds": 600.7223129000049,
+      "exit_code": 1,
+      "launch": "runs/clean_screen_v2/coached/gpt-6-astra/H6/launch.json",
+      "directory": "runs/clean_screen_v2/coached/gpt-6-astra/H6",
+      "runtime_error_receipt": null,
+      "recovery_receipt": null,
+      "native_usage": {
+        "source": "runs/clean_screen_v2/coached/gpt-6-astra/H6/transcript.jsonl",
+        "turn_completed_events": [],
+        "usage_known": false,
+        "usd_cost": null,
+        "cost_status": "not reported; no inferred pricing"
+      },
+      "semantic_outcome": "incomplete_timeout_no_completed_verdict",
+      "semantic_summary": "Author attempt terminaltimeout after600.722seconds, nativeexit1, no final artifactmessage, no turn.completed or turn.failed event. V2persisted nativefactbefore archival and captured outputinventory with raw_capture_statuswritten. No full native owner grade was requested for this unfinished package, and no completed failure or pass is inferred. The explicit qualitychecklist condition is separate from minimal/clean runs; this timeout provides no completed evidence that coaching fixed or preserved the target validator defect.",
+      "review_evidence": [
+        "runs/clean_screen_v2/coached/gpt-6-astra/H6/launch.json",
+        "runs/clean_screen_v2/coached/gpt-6-astra/H6/transcript.jsonl",
+        "grades/owner-review/H6-COACHED-REVIEW.md"
+      ],
+      "verified_dimensions": []
+    }
+  ],
+  "scope_limits": [
+    "Conditional hit selection; no estimate of general model reliability or an unavoidable frontier limitation.",
+    "Native model aliases are not immutable weight identities; native memory/context remains possible.",
+    "Initial packet MANIFEST/PROVENANCE metadata was supplied and some read; no proven owner-bank read, no cryptographic context confinement.",
+    "Clean staging removes packet metadata only; coached staging adds an explicit new quality checklist. Neither is pooled with original/minimal prompts.",
+    "Clean H1 visible instruction is the same single sentence as primary. Raw-file versus stdin SHA differences reflect CRLF-to-LF normalization, not an appended instruction; this is text fidelity, not byte-for-byte full-session replication.",
+    "H4 original five full-task controls and H6 two full-domain positive labels are excluded by owner/ADJUDICATION.json; frozen old receipts preserved.",
+    "H2/H3 ten semantic successor controls and H4 corrected successor bank were created post-outcome, with component/finite qualification only.",
+    "H5 timeout snapshot benchmark diagnostic is not a completed author verdict or full-suite false green.",
+    "H6 enormous nonzero output resource ambiguity is separate from decisive short zero/count witnesses.",
+    "H8 stored232/formal228 and H9 staged147/150 are distinct populations; historical full R10 153 calls are not staged gold.",
+    "Human task-meaning and criterion review is explicitly pending."
+  ],
+  "pending": [],
+  "source_receipts": [
+    {
+      "path": "grades/RESULTS-SUCCESSOR-ADJUDICATIONS.json",
+      "exists": true,
+      "sha256": "1b29e7075c4eac4586ae2c445addf15852d73090f38b64a05b3d9c7996fbe065"
+    },
+    {
+      "path": "grades/audit-review/H8-INDEPENDENT-REPLAY.json",
+      "exists": true,
+      "sha256": "f1102640073422d45ac09e84616ff0884d955e84e4758d7d400211242d5915ec"
+    },
+    {
+      "path": "grades/audit-review/H8-SEMANTIC-REVIEW.md",
+      "exists": true,
+      "sha256": "47fca02b01eb6119e4ea39f8a7a0309f4019a0e18b24f00c0590b36ccb658f38"
+    },
+    {
+      "path": "grades/audit-review/H9-INDEPENDENT-REPLAY.json",
+      "exists": true,
+      "sha256": "2c52472cead244621ab4fba33248c98dd5a002fa09dbb3ec47441d62955a0e35"
+    },
+    {
+      "path": "grades/audit-review/H9-SEMANTIC-REVIEW.md",
+      "exists": true,
+      "sha256": "1b07f05da5f560a3480e56c2211054a61d3de7a46f5b4f0295795dc5e4b32a82"
+    },
+    {
+      "path": "grades/audit-review/METADATA-EXPOSURE.json",
+      "exists": true,
+      "sha256": "89159ca454ecb4e3f482115e8b1403d573389714ea548e3abea469f497f2c794"
+    },
+    {
+      "path": "grades/owner-review/ASTRA-H6-PAIRED-REPRODUCER.json",
+      "exists": true,
+      "sha256": "1c53ae7085514244322da76126738b1aae8e56a9c4e67481ff15a77b70854e0d"
+    },
+    {
+      "path": "grades/owner-review/EXPOSURE-PATH-CENSUS.json",
+      "exists": true,
+      "sha256": "4e23cc4ade8115587a35cc7cac988a2926b79ca22ff37c6c4ff5bdff88513c5c"
+    },
+    {
+      "path": "grades/owner-review/H1-BUDGET-NATIVE-SUMMARY.json",
+      "exists": true,
+      "sha256": "ba2c765d849be4b69f7b539b0821ba098687773b07fc3196a6c914e4a8a51f4a"
+    },
+    {
+      "path": "grades/owner-review/H1-BUDGET-REVIEW.md",
+      "exists": true,
+      "sha256": "2e8af0a51029ba762ae2432f4adaf1945dac0e72d9ba5aebe60502c9b2a1826c"
+    },
+    {
+      "path": "grades/owner-review/H1-BUDGET-draw1-FULL.json",
+      "exists": true,
+      "sha256": "b5bbc15ea6d85a439d7009cf2bbc6b7c06fd6bd7eeb196d0cef2f4146eb51eeb"
+    },
+    {
+      "path": "grades/owner-review/H1-BUDGET-draw2-FULL.json",
+      "exists": true,
+      "sha256": "a87f56856ec9f01fc0bfdb7c5b6694c1cbc8a60a65fec99005745f32ceeae1e4"
+    },
+    {
+      "path": "grades/owner-review/H1-BUDGET-draw3-FULL.json",
+      "exists": true,
+      "sha256": "582aee8aa57e77a8b820c93a60aae5e503a513e22fadea3ce96a8db2745ab13b"
+    },
+    {
+      "path": "grades/owner-review/H1-CLEAN-FULL.json",
+      "exists": true,
+      "sha256": "8c51118b459b8a33e99c7993e896a834f2b57ea6c2a5d9ba6bfd6805ebcf3d84"
+    },
+    {
+      "path": "grades/owner-review/H1-CLEAN-REVIEW.md",
+      "exists": true,
+      "sha256": "2b14f065b77b418fc798a444b29396d12bba65320ca2c2c04c4c82b950f5d30b"
+    },
+    {
+      "path": "grades/owner-review/H1-COACHED-FULL.json",
+      "exists": true,
+      "sha256": "d314ba4f35744aa5243f9a72a82b552bc10d2578861887bce8b62b26617710be"
+    },
+    {
+      "path": "grades/owner-review/H1-COACHED-REVIEW.md",
+      "exists": true,
+      "sha256": "a37d400f5aea597181d3feca1a8d1741cb81206a4eccc58167728b4d3828d572"
+    },
+    {
+      "path": "grades/owner-review/H1-COACHED-ZIP-BINDING.json",
+      "exists": true,
+      "sha256": "2d96c129ad01cb2321da333808edc0d6a6e6ee8c794bd28e9674849357d65324"
+    },
+    {
+      "path": "grades/owner-review/H1-CONFIRMATION-REVIEW.json",
+      "exists": true,
+      "sha256": "d8233916e668f79d1440df8f29d96617a4e443e7fd0b1ea2b21e446f9731f3bc"
+    },
+    {
+      "path": "grades/owner-review/H1-REVIEW.md",
+      "exists": true,
+      "sha256": "dcd9f6bc5a1cf9c27055b2bae6416f245736d5e52ed359c6704c26e9dc19f207"
+    },
+    {
+      "path": "grades/owner-review/H4-REVIEW.md",
+      "exists": true,
+      "sha256": "fa2b6d19081067a23bc2645e4a273c0df9ed093911d8e07faef519eb59be2b50"
+    },
+    {
+      "path": "grades/owner-review/H5-REVIEW.md",
+      "exists": true,
+      "sha256": "b6239dd193e27178b22815583aeb09053650a35cf7d9802ffc78747c9694936f"
+    },
+    {
+      "path": "grades/owner-review/H6-CLEAN-FULL.json",
+      "exists": true,
+      "sha256": "c37d0f2081a53fa0e95e5d8aa8f1491ee07faf983dcff7f97415cbdf79716238"
+    },
+    {
+      "path": "grades/owner-review/H6-CLEAN-OUTPUT-ZERO-PAIR.json",
+      "exists": true,
+      "sha256": "e4fa6f1fe1c0328905447ac1c7c20571c06e4ca63be7994d97288d77d23e39bf"
+    },
+    {
+      "path": "grades/owner-review/H6-COACHED-REVIEW.md",
+      "exists": true,
+      "sha256": "48c66d6a8e5dc6bf3777227af6ad237d462fa94b04b1317856ec7c5f5c1d2cdf"
+    },
+    {
+      "path": "grades/owner-review/H6-CONFIRMATION-REVIEW.json",
+      "exists": true,
+      "sha256": "ab70d72a56d9563d47f6443a8388021df2fbfc70f4fab250fe02927fb5c3d997"
+    },
+    {
+      "path": "grades/owner-review/H6-REVIEW.md",
+      "exists": true,
+      "sha256": "b0b75b72e7cd27de8dfe8dc7c70b1a2bee010c14eaa2b7ecfeccec580d2842ba"
+    },
+    {
+      "path": "grades/owner-review/H7-REVIEW.md",
+      "exists": true,
+      "sha256": "8a6a09a14751771e7a8eee03bce95a3b9b112bde1b2aef7908cce16572945727"
+    },
+    {
+      "path": "grades/owner-review/gpt-6-astra-H4-SUCCESSOR.json",
+      "exists": true,
+      "sha256": "7b9dc3672471b4770290bcfa6ef37eb83f826e99ce4f5511fc377e57cc1476a1"
+    },
+    {
+      "path": "grades/owner-review/gpt-6-astra-H5-BENCHMARK-SNAPSHOT.json",
+      "exists": true,
+      "sha256": "a0d3d4f54c16e39203e1e3ce79ef3619dbacd460c7e489b064601c29cc357cad"
+    },
+    {
+      "path": "grades/owner-review/gpt-6.1-sol-H4-SUCCESSOR.json",
+      "exists": true,
+      "sha256": "7317c1442ffa0b3c49f7a4152bf2533ec87ac90bec6e6b392e72f5f5ff09f5bb"
+    },
+    {
+      "path": "grades/owner-review/gpt-6.1-sol-H5-BENCHMARK-SNAPSHOT.json",
+      "exists": true,
+      "sha256": "b87bf4797418f9fb119093ae388a32e392c7691f21e3da407a8edfd3f36c2ffe"
+    },
+    {
+      "path": "grades/owner-review/sol-H1-FULL-BWRAP.json",
+      "exists": true,
+      "sha256": "06a77639543c23b1fd757dc677f7fa5a16fe3578a58bcb43fe828ccbb6c32b84"
+    },
+    {
+      "path": "grades/semantic-review/H1-INDEPENDENT.json",
+      "exists": true,
+      "sha256": "3fee0b5334a5d6848c1f4cc90d6e619d31b639beeb4aea7796fc75abe25f1f3c"
+    },
+    {
+      "path": "grades/semantic-review/H1-SOL-LITERAL-PAIR.json",
+      "exists": true,
+      "sha256": "3427ee7d38cc38389d7a1831618682a5a78b7f0f939f52d35f8b0ca153d14dcd"
+    },
+    {
+      "path": "grades/semantic-review/H2-gpt-6-astra.json",
+      "exists": true,
+      "sha256": "7881aecc36b9e9ca2efb22aa1577988b7a61354f7b336617645fa2a6dbceef7f"
+    },
+    {
+      "path": "grades/semantic-review/H2-gpt-6.1-sol.json",
+      "exists": true,
+      "sha256": "68c68408b605864a644b9ebf69cf3f78daa6e6aeee999cbb118106daa506b373"
+    },
+    {
+      "path": "grades/semantic-review/H3-TIMING-WITNESS.json",
+      "exists": true,
+      "sha256": "047a8e855eb3cfbb6b826aa9eb944bc93017b4a582de5f53c8de42c1d35336c7"
+    },
+    {
+      "path": "grades/semantic-review/H3-gpt-6-astra.json",
+      "exists": true,
+      "sha256": "752b2659aece6e6ba30b241422aac58a76cc232bec38ff87393f725c5e5af266"
+    },
+    {
+      "path": "grades/semantic-review/H3-gpt-6.1-sol.json",
+      "exists": true,
+      "sha256": "ff79df6c887f3d33cb3bab5345d50ee8dc3559d6ef39aef1e4609b47a4c380a1"
+    },
+    {
+      "path": "grades/semantic-review/H6-INDEPENDENT.json",
+      "exists": true,
+      "sha256": "16fd24d1f8db3df377a16650246ea7e7dd550457fd0e321a3dce0984f890157e"
+    },
+    {
+      "path": "grades/semantic-review/H6-OUTPUT-ZERO-PAIR.json",
+      "exists": true,
+      "sha256": "3577256328bd3a4ae19bd55e295cd2e605208e52e755afa7060f6de60b94fd11"
+    },
+    {
+      "path": "grades/semantic-review/HUMAN-REVIEW-STATUS.json",
+      "exists": true,
+      "sha256": "cec5594cd7c6b3662251c77aca768b1b395d71340163669d0402a7521a16c012"
+    },
+    {
+      "path": "owner/ADJUDICATION.json",
+      "exists": true,
+      "sha256": "6e05954954507dffcdcfc9b8ab63585450a39d5db57b1e5885dbc093f10fa597"
+    },
+    {
+      "path": "owner/semantic-successor/QUALIFICATION-PORTABLE.json",
+      "exists": true,
+      "sha256": "409feefb0c33d2b3667c2ceddfc13d23c9865f481d562917ae48db40d03dea60"
+    },
+    {
+      "path": "protocol/COHORT-INDEX.json",
+      "exists": true,
+      "sha256": "310d5464c76ef1df058deed3302c9cc09c7ab0e6f8bcd8ae86902453e46f88e7"
+    },
+    {
+      "path": "protocol/RUN-POLICY.json",
+      "exists": true,
+      "sha256": "28ef363d30160a5d8ec6733411930174784bc0959e1d7fddfed395f467032fc6"
+    },
+    {
+      "path": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw1/launch.json",
+      "exists": true,
+      "sha256": "dff8476b469313e3b6b90cc85cd0f92f9b64411de4f9f6ec7fa5e657ad37873a"
+    },
+    {
+      "path": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw1/transcript.jsonl",
+      "exists": true,
+      "sha256": "93fce1727ed17b22b92ac26d69dddd05159995e773ae0d8bbe8ff379881b7f38"
+    },
+    {
+      "path": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw2/launch.json",
+      "exists": true,
+      "sha256": "0b43ad43ceedc3b1f8da178ad7c1260b4429a1dd2611745155133529e26c0e34"
+    },
+    {
+      "path": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw2/transcript.jsonl",
+      "exists": true,
+      "sha256": "26098f182e16a85d5a45aa995138db6f156933e69cbd9cf5fccd09b8d626e884"
+    },
+    {
+      "path": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw3/launch.json",
+      "exists": true,
+      "sha256": "dfd38050abd12456e26a945451fb01f5a23719fe8d92a5bb6c581140be7c61c6"
+    },
+    {
+      "path": "runs/budget-diagnostic/gpt-6.1-sol/H1/draw3/transcript.jsonl",
+      "exists": true,
+      "sha256": "0f3fe8845b1870fbd7c94c5393a58872afa36743aa61d13a7ef7536cf0fcb208"
+    },
+    {
+      "path": "runs/clean_screen/gpt-6-astra/H6/launch.json",
+      "exists": true,
+      "sha256": "8c8fec254a65dd78995d1d0f9c426c79e356f4805a76a74081172c8894e741fe"
+    },
+    {
+      "path": "runs/clean_screen/gpt-6-astra/H6/transcript.jsonl",
+      "exists": true,
+      "sha256": "457c77fa9191ecf6078aa5cc90fdfbb15e028e2d4e9d87c38caa834740be1ee0"
+    },
+    {
+      "path": "runs/clean_screen/gpt-6.1-sol/H1/launch.json",
+      "exists": true,
+      "sha256": "63595705fc5117cafab33ed183f24e5b224446e84e621fa473e2763b17278fab"
+    },
+    {
+      "path": "runs/clean_screen/gpt-6.1-sol/H1/transcript.jsonl",
+      "exists": true,
+      "sha256": "5585b2fa6dd30da5501d7c1084433e0856acd92593d2b52486207e32d95ac7df"
+    },
+    {
+      "path": "runs/clean_screen_v2/coached/gpt-6-astra/H6/launch.json",
+      "exists": true,
+      "sha256": "a6d87d127f2597e5dac66c6b70c94f3c57c321f776a06032e16732f3db55c487"
+    },
+    {
+      "path": "runs/clean_screen_v2/coached/gpt-6-astra/H6/transcript.jsonl",
+      "exists": true,
+      "sha256": "64f49b4780e535a70f3ecb2134b3c7215402ec5ecf8527cace4f2d529fa4464b"
+    },
+    {
+      "path": "runs/clean_screen_v2/coached/gpt-6.1-sol/H1/delivery/TASK.md",
+      "exists": true,
+      "sha256": "f3f287c91f2a12cf4dd2e766865ca826aa75bf83ee20d9f942e7924c6eb0a132"
+    },
+    {
+      "path": "runs/clean_screen_v2/coached/gpt-6.1-sol/H1/launch.json",
+      "exists": true,
+      "sha256": "a5ab0caeb6afba73e4819b128a650e45c8f98a94f4b0eccd312ea782975f39af"
+    },
+    {
+      "path": "runs/clean_screen_v2/coached/gpt-6.1-sol/H1/transcript.jsonl",
+      "exists": true,
+      "sha256": "48a67725b10b5e56cf625e540060c87f2c831cb187b2c57f8f9a6547947f597a"
+    },
+    {
+      "path": "runs/confirmation/gpt-6-astra/H6/draw1/RECOVERY.json",
+      "exists": true,
+      "sha256": "1608e53b9500e4413037d3de0b9170ea90415ef0e9b597fdc0db6be20285b85f"
+    },
+    {
+      "path": "runs/confirmation/gpt-6-astra/H6/draw1/launch.json",
+      "exists": true,
+      "sha256": "fc89e1be411f7ec89b3671f3932939fd4016cd4e8cc5b447c00a3825bb69ab95"
+    },
+    {
+      "path": "runs/confirmation/gpt-6-astra/H6/draw1/runtime-error.json",
+      "exists": true,
+      "sha256": "29d6b810f50526e38d7ae4e6dfe231ab9aee2378be8ef60f274cfbe4b5c77299"
+    },
+    {
+      "path": "runs/confirmation/gpt-6-astra/H6/draw1/transcript.jsonl",
+      "exists": true,
+      "sha256": "1fd5a7d2821fe96c1bf88d9c00f69c552455c20c14978797e2c600a10a862244"
+    },
+    {
+      "path": "runs/confirmation/gpt-6-astra/H6/draw2/launch.json",
+      "exists": true,
+      "sha256": "92ebf298377409e18fb1b6a98ff068b5ff0aac825207a2e3b68fcdca3725b144"
+    },
+    {
+      "path": "runs/confirmation/gpt-6-astra/H6/draw2/transcript.jsonl",
+      "exists": true,
+      "sha256": "7efdae3b8cc7e05640895f3e8ce252f0ce1b8dba62e5082560985dff19b5bc5b"
+    },
+    {
+      "path": "runs/confirmation/gpt-6-astra/H6/draw3/launch.json",
+      "exists": true,
+      "sha256": "93a790714b76b3e44e928bc5733caf5a18acdd7160a24596cbea1225d5287b7e"
+    },
+    {
+      "path": "runs/confirmation/gpt-6-astra/H6/draw3/transcript.jsonl",
+      "exists": true,
+      "sha256": "49dca3b9586769bf424685b4753645689fb6bf1d85465846fec65599a080aa1c"
+    },
+    {
+      "path": "runs/confirmation/gpt-6.1-sol/H1/draw1/launch.json",
+      "exists": true,
+      "sha256": "04e7d609beb7f791c4ca458a1485ee9d1434c2b29d3d4deb796a28bd134ad17f"
+    },
+    {
+      "path": "runs/confirmation/gpt-6.1-sol/H1/draw1/transcript.jsonl",
+      "exists": true,
+      "sha256": "2ecf30e2c973da0566b88f1260b2a3ffa4252dfe8e58e71308e9cc1353630699"
+    },
+    {
+      "path": "runs/confirmation/gpt-6.1-sol/H1/draw2/launch.json",
+      "exists": true,
+      "sha256": "05fb81b0ff1075e07418055364b0bfb89f2b2c29b9d91117881e046c3244e686"
+    },
+    {
+      "path": "runs/confirmation/gpt-6.1-sol/H1/draw2/transcript.jsonl",
+      "exists": true,
+      "sha256": "9da8a939810f67063c42a8aa2435457b39c94314bf033d52d752ffea2c34cad5"
+    },
+    {
+      "path": "runs/confirmation/gpt-6.1-sol/H1/draw3/launch.json",
+      "exists": true,
+      "sha256": "4cae39d4701e97c3f08cab29ac0592a8092ec93d583ce05f535e94f0d5ebd967"
+    },
+    {
+      "path": "runs/confirmation/gpt-6.1-sol/H1/draw3/transcript.jsonl",
+      "exists": true,
+      "sha256": "0b9ccc1dcf2eabf0e24b29d82e3eca694ee36909b049bd022eb5f6a749ac5a29"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H1/launch.json",
+      "exists": true,
+      "sha256": "04d12dfdcd61ea1097376ecb68919fceb1a6ad47bc6a929f84fa69290708eb7d"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H1/transcript.jsonl",
+      "exists": true,
+      "sha256": "87c3c1bcfddf486356e0ece5ebe7ddde2e49a8b5757da0982ab742f23b1da9a7"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H2/launch.json",
+      "exists": true,
+      "sha256": "c3de73e06dea8b4897097915437322d0813f2d2602cc423381eca0af0c147480"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H2/transcript.jsonl",
+      "exists": true,
+      "sha256": "001dd45c48e4a15e596c5b27605dbd995341ee08ae3112914ed2da8cbd487a27"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H3/launch.json",
+      "exists": true,
+      "sha256": "8678892efac798f10f01f36f66dfe64721d9908e9110e3b804ed5069916a58f7"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H3/transcript.jsonl",
+      "exists": true,
+      "sha256": "dde6fd4a8fae87d8b406ff26cd2e2970e5c761fd18fdc8eaa3aef44753c2ae1c"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H4/launch.json",
+      "exists": true,
+      "sha256": "40d40e3e949d96277e3d9837fad0110e983fa1e4a420da00dc4d822cbdc9cce3"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H4/transcript.jsonl",
+      "exists": true,
+      "sha256": "5dbe52152e0e14629f06926c1c0e091cb1f13855120773e7dea4d7f48a24b945"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H5/launch.json",
+      "exists": true,
+      "sha256": "2f246df282520b422d6c70fdd8d11584f80120bbe82beb2962ff480ddd49f1a0"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H5/transcript.jsonl",
+      "exists": true,
+      "sha256": "cec15c9c9d35061635978b28bcc807c37d3e06a47959ba8dd0d12e14a4b8b91a"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H6/launch.json",
+      "exists": true,
+      "sha256": "458e56ecc5948ae5cb4cdb6cf59957cc24facbcfd4669753cc3ecac9a0ab4239"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H6/transcript.jsonl",
+      "exists": true,
+      "sha256": "9938f33d2b8a655e3e183bdec51b6c2661047bcfbddcb731a90131f44156eede"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H7/launch.json",
+      "exists": true,
+      "sha256": "9cc63f715b0fb99bfcfa031bf6251a84bd0921ce1d51f1972f7d0b6edece6c4d"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H7/transcript.jsonl",
+      "exists": true,
+      "sha256": "2d5d3c3c005d760a03f6c43eb2b42333a47b69c088971815de29722bb8de7461"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H8/launch.json",
+      "exists": true,
+      "sha256": "5f6b506c70432ace1cdf8b2df3695a3073738ea36fb7f627e8fadc70f5d544cf"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H8/transcript.jsonl",
+      "exists": true,
+      "sha256": "03eb7f50409e1b36620c6a9623c160a366b1c241b88c4472ba3ade91dce10fea"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H9/RECOVERY.json",
+      "exists": true,
+      "sha256": "cb33cc67fbeca1cdb9a999181d7e7d803b86aefa14b440a470e07b33aef9b9f6"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H9/launch.json",
+      "exists": true,
+      "sha256": "7a6bed1d5e84a99536b0a73f27aefe389a11a4e07725c2d6337a83a629d56e39"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H9/runtime-error.json",
+      "exists": true,
+      "sha256": "5f7520fdb201a88977dc0041098f5dd9f72bd610c25a1026a4c599514c27fb99"
+    },
+    {
+      "path": "runs/screen/gpt-6-astra/H9/transcript.jsonl",
+      "exists": true,
+      "sha256": "d2d052f904cd343ce2c890f0dca36e21d2dac45985660e318b8a4c5ce7bd747d"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H1/launch.json",
+      "exists": true,
+      "sha256": "093d596477af5086699bcc628dff6ea85f08041e0b083bea12c6860b43f46ce7"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H1/transcript.jsonl",
+      "exists": true,
+      "sha256": "33ec3bdc841bed3956d8bf9f5e86ac026368403a17957c024f91825354fc06dc"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H2/launch.json",
+      "exists": true,
+      "sha256": "02d53d232e946783664c951f799967c38f991db8a60f9b0b92a35cf2ea51e187"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H2/transcript.jsonl",
+      "exists": true,
+      "sha256": "733f8e3ebbc6fc5c2c4061fd72616f6615fdd4ff81ecf2c60a6bfaebda140010"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H3/launch.json",
+      "exists": true,
+      "sha256": "73d9d9d575048ea3c6cde17d1b655d51bea9af1d4c94668c819d8f1eb9728fd9"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H3/transcript.jsonl",
+      "exists": true,
+      "sha256": "ebc569d720c81fb7a3434d70b54c2b7ea9b90b7f8848a1bf9e894b40489dab6a"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H4/launch.json",
+      "exists": true,
+      "sha256": "c549925c0637d6c2d45c0d43b85e9bea9ab89928b579c80eba75cfe22c81e309"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H4/transcript.jsonl",
+      "exists": true,
+      "sha256": "f988c21af0524fc80b38e67d60e676db99f615c62ebaa7aa2d403b42a72a0c8c"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H5/launch.json",
+      "exists": true,
+      "sha256": "2d723f945465f3f3462777530e8defe1159fd39b1e5f50cbe48930d111323076"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H5/transcript.jsonl",
+      "exists": true,
+      "sha256": "2d161051f42747d87809af28a8e5c6f89a2f4a0ebffa5ae364ae3e6687f1afd2"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H6/launch.json",
+      "exists": true,
+      "sha256": "036cabdf000fed53e8e291f9cfe6415ab0375bc3585aa14747689551dd47e65b"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H6/transcript.jsonl",
+      "exists": true,
+      "sha256": "638d440eaf2245d127b6a4eceab3f4104d417f2248a3432663e2c93614727988"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H7/launch.json",
+      "exists": true,
+      "sha256": "33cd6be462de4205e4977751298e240dcd00d553b90e8ec04cb062d480a8c11f"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H7/transcript.jsonl",
+      "exists": true,
+      "sha256": "3bd559e59378c5b70595aee82bc0038c910d48f28eb3df1853fb71d21728c10a"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H8/launch.json",
+      "exists": true,
+      "sha256": "339c34d77d94cdde02f54183d7fabfb1f5ccec5b6161a1749812c1d721f6e649"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H8/transcript.jsonl",
+      "exists": true,
+      "sha256": "f697f5e7fb5eb433789227c3506b99ff183f68f23e3dd0860ef02405903c1766"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H9/RECOVERY.json",
+      "exists": true,
+      "sha256": "cd54d7eeaa455a285b451897c348e51a65ece8ba1a2169fdd05b37dd9a4663b2"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H9/launch.json",
+      "exists": true,
+      "sha256": "7203ce01fdc7b4506398fe65988819a539738fd3c7b2d27fa01165d6eef44c4d"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H9/runtime-error.json",
+      "exists": true,
+      "sha256": "b514a53a0e9093c964e03fdd410f62e248b9130e9856f711cae30b4cf9f3c293"
+    },
+    {
+      "path": "runs/screen/gpt-6.1-sol/H9/transcript.jsonl",
+      "exists": true,
+      "sha256": "f21ee0fc25ef583c700a2fb8c9a5126923724d53e5c0b87e05910274baf90801"
+    }
+  ]
+}

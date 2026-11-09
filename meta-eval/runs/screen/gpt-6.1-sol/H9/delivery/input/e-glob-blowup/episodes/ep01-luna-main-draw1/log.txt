@@ -1,0 +1,274 @@
+OpenAI Codex v0.167.0
+--------
+workdir: /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace
+model: gpt-6-luna
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: high
+reasoning summaries: none
+session id: 01a1b6eb-0513-7ba0-b716-85c5362452a2
+--------
+user
+You are working in a workspace containing a small programming task. Use the available tools.
+
+The workspace root contains `globmatch.py` (a skeleton to complete), `test_globmatch.py` (visible tests), and `README.md`.
+
+TASK: Implement the function `glob_match(pattern, text)` in `globmatch.py`. It takes two strings and returns a bool: True if the glob pattern matches the whole text, and False otherwise. The match is a full-string match: the pattern must account for every character of the text, with nothing left over at either end. Matching is case-sensitive, and characters are ordinary Python string characters.
+
+Pattern syntax:
+- An ordinary character matches itself. The empty pattern matches only the empty text.
+- `?` matches exactly one character (any single character).
+- `*` matches any sequence of characters, including the empty sequence.
+- A character class `[...]` matches exactly one character. `[abc]` matches one of `a`, `b`, or `c`. Inside a class, `x-y` is a range matching any character `ch` with `x <= ch <= y` by Unicode code point; if `x > y` the range matches no character. `[!...]` matches any single character that is not in the class. A `^` inside a class is an ordinary character and does not negate the class.
+- A character class starts with `[` and ends at the next unescaped `]` that is not the first character of the class (after an optional `!`). So `[]]` is a class containing only `]`, and `[!]]` matches any single character except `]`. If there is no such closing `]`, the `[` is an ordinary literal character.
+- A `-` that is the first or last character of a class, or that is escaped, is a literal `-`. An escaped character inside a class is a literal member of the class.
+- A backslash escapes the next character: `\` followed by any character matches that character literally, so `\*` matches a literal `*` and `\a` matches `a`. This applies inside character classes as well. A backslash at the very end of the pattern matches a literal backslash.
+
+Use only the Python standard library.
+
+Robustness requirement: `glob_match` must answer within a few seconds for patterns and texts up to a few hundred characters, including patterns with many stars.
+
+Do not modify `test_globmatch.py` or `README.md`.
+
+Deliverable: the completed `globmatch.py` in the workspace root.
+
+codex
+I’ll inspect the starter and visible tests, then implement the matcher with a bounded-time approach so repeated stars don’t cause exponential backtracking.
+exec
+/bin/bash -lc "pwd && rg --files -g 'globmatch.py' -g 'test_globmatch.py' -g 'README.md' -g 'AGENTS.md'" in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace
+ succeeded in 0ms:
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace
+test_globmatch.py
+README.md
+globmatch.py
+
+exec
+/bin/bash -lc 'cat globmatch.py && cat test_globmatch.py' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace
+ succeeded in 0ms:
+"""Glob pattern matching (skeleton — complete glob_match)."""
+
+
+def glob_match(pattern, text):
+    """Return True if the glob `pattern` matches the whole of `text`.
+
+    Syntax: literal characters match themselves; `?` matches exactly one
+    character; `*` matches any sequence (including empty); `[...]` is a
+    character class (`[!...]` negates, `x-y` is a range); a backslash
+    escapes the next character. See README.md / prompt for the full spec.
+    """
+    raise NotImplementedError
+"""Visible tests for globmatch — small correctness cases only."""
+import unittest
+
+from globmatch import glob_match
+
+
+class TestGlobMatch(unittest.TestCase):
+    def test_literals_and_empty(self):
+        self.assertTrue(glob_match("", ""))
+        self.assertFalse(glob_match("", "a"))
+        self.assertTrue(glob_match("abc", "abc"))
+        self.assertFalse(glob_match("abc", "abd"))
+
+    def test_question(self):
+        self.assertTrue(glob_match("a?c", "abc"))
+        self.assertFalse(glob_match("a?c", "ac"))
+
+    def test_star(self):
+        self.assertTrue(glob_match("*", ""))
+        self.assertTrue(glob_match("a*c", "abbbc"))
+        self.assertFalse(glob_match("a*c", "abbb"))
+        self.assertTrue(glob_match("*.py", "x.py"))
+        self.assertFalse(glob_match("*.py", "x.pyc"))
+
+    def test_classes(self):
+        self.assertTrue(glob_match("[abc]x", "bx"))
+        self.assertFalse(glob_match("[abc]x", "dx"))
+        self.assertTrue(glob_match("[a-z]9", "q9"))
+        self.assertFalse(glob_match("[a-z]9", "Q9"))
+        self.assertTrue(glob_match("[!a-z]9", "Q9"))
+
+    def test_escape(self):
+        self.assertTrue(glob_match(r"\*", "*"))
+        self.assertFalse(glob_match(r"\*", "x"))
+        self.assertTrue(glob_match(r"a\?b", "a?b"))
+
+    def test_multiple_stars_small(self):
+        self.assertTrue(glob_match("*a*a*b", "aaab"))
+        self.assertFalse(glob_match("*a*a*b", "aaa"))
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace/globmatch.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace/globmatch.py b/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace/globmatch.py
+deleted file mode 100644
+index cd71079ea0d5bc55144a6b2556eba7bc79355a27..0000000000000000000000000000000000000000
+--- a/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace/globmatch.py
++++ /dev/null
+@@ -1,12 +0,0 @@
+-"""Glob pattern matching (skeleton — complete glob_match)."""
+-
+-
+-def glob_match(pattern, text):
+-    """Return True if the glob `pattern` matches the whole of `text`.
+-
+-    Syntax: literal characters match themselves; `?` matches exactly one
+-    character; `*` matches any sequence (including empty); `[...]` is a
+-    character class (`[!...]` negates, `x-y` is a range); a backslash
+-    escapes the next character. See README.md / prompt for the full spec.
+-    """
+-    raise NotImplementedError
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace/globmatch.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace/globmatch.py b/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace/globmatch.py
+index cd71079ea0d5bc55144a6b2556eba7bc79355a27..c8dd2858fba3e8d86483abf3366311164af2c626
+--- a/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace/globmatch.py
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace/globmatch.py
+@@ -1,12 +1,123 @@
+-"""Glob pattern matching (skeleton — complete glob_match)."""
++"""Glob pattern matching with full-string semantics."""
++
++
++def _parse_class(pattern, start):
++    """Parse a class beginning at ``start``; return (token, end) or None."""
++    i = start + 1
++    negate = False
++    if i < len(pattern) and pattern[i] == "!":
++        negate = True
++        i += 1
+ 
++    # Keep escaped characters distinct from syntax characters. The first
++    # character is allowed to be ']', but cannot close the class.
++    items = []
++    first = True
++    while i < len(pattern):
++        ch = pattern[i]
++        if ch == "\\":
++            if i + 1 < len(pattern):
++                items.append((pattern[i + 1], True))
++                i += 2
++            else:
++                items.append(("\\", True))
++                i += 1
++            first = False
++            continue
++        if ch == "]" and not first:
++            break
++        items.append((ch, False))
++        i += 1
++        first = False
+ 
++    if i >= len(pattern):
++        return None
++
++    # A class with no members still has a closing bracket only when the
++    # bracket was permitted to close; the first-character rule above handles
++    # the special forms []] and [!]].
++    ranges = []
++    literals = set()
++    j = 0
++    while j < len(items):
++        ch, escaped = items[j]
++        if (j + 2 < len(items) and ch != "-"
++                and items[j + 1] == ("-", False)
++                and items[j + 2][0] != "-"):
++            ranges.append((ord(ch), ord(items[j + 2][0])))
++            j += 3
++        else:
++            literals.add(ch)
++            j += 1
++
++    def matches(character):
++        code = ord(character)
++        contained = character in literals or any(lo <= code <= hi for lo, hi in ranges)
++        return not contained if negate else contained
++
++    return ("class", matches), i + 1
++
++
++def _parse_pattern(pattern):
++    tokens = []
++    i = 0
++    while i < len(pattern):
++        ch = pattern[i]
++        if ch == "\\":
++            if i + 1 < len(pattern):
++                tokens.append(("literal", pattern[i + 1]))
++                i += 2
++            else:
++                tokens.append(("literal", "\\"))
++                i += 1
++        elif ch == "*":
++            # Coalesce adjacent stars; this is also useful for keeping the
++            # dynamic program small for patterns containing many stars.
++            if not tokens or tokens[-1][0] != "star":
++                tokens.append(("star", None))
++            i += 1
++        elif ch == "?":
++            tokens.append(("any", None))
++            i += 1
++        elif ch == "[":
++            parsed = _parse_class(pattern, i)
++            if parsed is None:
++                tokens.append(("literal", "["))
++                i += 1
++            else:
++                token, i = parsed
++                tokens.append(token)
++        else:
++            tokens.append(("literal", ch))
++            i += 1
++    return tokens
++
++
+ def glob_match(pattern, text):
+-    """Return True if the glob `pattern` matches the whole of `text`.
++    """Return whether glob ``pattern`` matches all of ``text``.
+ 
+-    Syntax: literal characters match themselves; `?` matches exactly one
+-    character; `*` matches any sequence (including empty); `[...]` is a
+-    character class (`[!...]` negates, `x-y` is a range); a backslash
+-    escapes the next character. See README.md / prompt for the full spec.
++    Matching uses dynamic programming over pattern tokens and text prefixes,
++    so runs of stars do not trigger exponential backtracking.
+     """
+-    raise NotImplementedError
++    tokens = _parse_pattern(pattern)
++    previous = [False] * (len(text) + 1)
++    previous[0] = True
++
++    for kind, value in tokens:
++        current = [False] * (len(text) + 1)
++        if kind == "star":
++            current[0] = previous[0]
++            for j in range(1, len(text) + 1):
++                current[j] = previous[j] or current[j - 1]
++        else:
++            for j in range(1, len(text) + 1):
++                if kind == "any":
++                    matched = True
++                elif kind == "literal":
++                    matched = text[j - 1] == value
++                else:
++                    matched = value[1](text[j - 1])
++                current[j] = previous[j - 1] and matched
++        previous = current
++
++    return previous[len(text)]
+
+codex
+Implemented `glob_match` in [globmatch.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace/globmatch.py). It parses escapes and character classes, then uses dynamic programming for full-string matching with `*`.
+
+I did not run the visible tests.
+tokens used
+15,202
+Implemented `glob_match` in [globmatch.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-glob-blowup/episodes/ep01-luna-main-draw1/workspace/globmatch.py). It parses escapes and character classes, then uses dynamic programming for full-string matching with `*`.
+
+I did not run the visible tests.

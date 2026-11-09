@@ -1,0 +1,4255 @@
+{
+  "schema_version": "query-engine-evaluation/v1",
+  "candidate": "C:\\Users\\vlad_\\AppData\\Local\\Temp\\eval-author-H5-fcy4pow6\\workspace\\input\\workspace",
+  "passed": false,
+  "checks_passed": 433,
+  "checks_total": 534,
+  "cases": 214,
+  "seed": 436,
+  "generated_cases": 24,
+  "partial_selection": false,
+  "seconds": 207.229,
+  "categories": {
+    "integrity": {
+      "passed": 4,
+      "failed": 0
+    },
+    "public": {
+      "passed": 8,
+      "failed": 11
+    },
+    "semantics": {
+      "passed": 15,
+      "failed": 0
+    },
+    "logic": {
+      "passed": 75,
+      "failed": 0
+    },
+    "join": {
+      "passed": 27,
+      "failed": 12
+    },
+    "group": {
+      "passed": 14,
+      "failed": 28
+    },
+    "optimizer-safety": {
+      "passed": 28,
+      "failed": 14
+    },
+    "generated": {
+      "passed": 38,
+      "failed": 34
+    },
+    "validation": {
+      "passed": 224,
+      "failed": 2
+    }
+  },
+  "checks": [
+    {
+      "passed": true,
+      "case": "submission",
+      "category": "integrity",
+      "check": "protected-before",
+      "seconds": 0.0118
+    },
+    {
+      "passed": true,
+      "case": "submission",
+      "category": "integrity",
+      "check": "regular-modules-before",
+      "seconds": 0.0128
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 150
+      },
+      "case": "public/0/selective reservation join",
+      "category": "public",
+      "check": "plain",
+      "seconds": 0.6566
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 150,
+        "baseline_comparisons": 150
+      },
+      "case": "public/0/selective reservation join",
+      "category": "public",
+      "check": "optimized-and-replay",
+      "seconds": 1.3062
+    },
+    {
+      "passed": true,
+      "case": "public/0/selective reservation join",
+      "category": "public",
+      "check": "optimizer-api",
+      "seconds": 0.2187
+    },
+    {
+      "passed": false,
+      "error": "ValueError: required reduction missing: optimized 150, baseline 150",
+      "case": "public/0/selective reservation join",
+      "category": "public",
+      "check": "benchmark-half-pairs",
+      "seconds": 0.5588
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "public/1/all optional reservations",
+      "category": "public",
+      "check": "plain",
+      "seconds": 0.7187
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "public/1/all optional reservations",
+      "category": "public",
+      "check": "optimized-and-replay",
+      "seconds": 0.6055
+    },
+    {
+      "passed": true,
+      "case": "public/1/all optional reservations",
+      "category": "public",
+      "check": "optimizer-api",
+      "seconds": 0.2106
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "public/2/post outer nonnull filter",
+      "category": "public",
+      "check": "plain",
+      "seconds": 0.5178
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "public/2/post outer nonnull filter",
+      "category": "public",
+      "check": "optimized-and-replay",
+      "seconds": 0.4692
+    },
+    {
+      "passed": true,
+      "case": "public/2/post outer nonnull filter",
+      "category": "public",
+      "check": "optimizer-api",
+      "seconds": 0.3418
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "public/3/missing reservations",
+      "category": "public",
+      "check": "plain",
+      "seconds": 0.8059
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "public/3/missing reservations",
+      "category": "public",
+      "check": "optimized-and-replay",
+      "seconds": 0.4592
+    },
+    {
+      "passed": true,
+      "case": "public/3/missing reservations",
+      "category": "public",
+      "check": "optimizer-api",
+      "seconds": 0.2034
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "public/4/site reservation totals",
+      "category": "public",
+      "check": "plain",
+      "seconds": 0.5436
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "public/4/site reservation totals",
+      "category": "public",
+      "check": "optimized-and-replay",
+      "seconds": 0.4073
+    },
+    {
+      "passed": true,
+      "case": "public/4/site reservation totals",
+      "category": "public",
+      "check": "optimizer-api",
+      "seconds": 0.303
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "public/5/available joined units",
+      "category": "public",
+      "check": "plain",
+      "seconds": 0.6872
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "public/5/available joined units",
+      "category": "public",
+      "check": "optimized-and-replay",
+      "seconds": 0.7306
+    },
+    {
+      "passed": true,
+      "case": "public/5/available joined units",
+      "category": "public",
+      "check": "optimizer-api",
+      "seconds": 0.382
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "scan/bag",
+      "category": "semantics",
+      "check": "plain",
+      "seconds": 0.8238
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "scan/bag",
+      "category": "semantics",
+      "check": "optimized-and-replay",
+      "seconds": 1.3472
+    },
+    {
+      "passed": true,
+      "case": "scan/bag",
+      "category": "semantics",
+      "check": "optimizer-api",
+      "seconds": 0.3718
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "scan/empty",
+      "category": "semantics",
+      "check": "plain",
+      "seconds": 0.6594
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "scan/empty",
+      "category": "semantics",
+      "check": "optimized-and-replay",
+      "seconds": 1.499
+    },
+    {
+      "passed": true,
+      "case": "scan/empty",
+      "category": "semantics",
+      "check": "optimizer-api",
+      "seconds": 0.3151
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "project/empty-fields-bag",
+      "category": "semantics",
+      "check": "plain",
+      "seconds": 0.6682
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "project/empty-fields-bag",
+      "category": "semantics",
+      "check": "optimized-and-replay",
+      "seconds": 1.1238
+    },
+    {
+      "passed": true,
+      "case": "project/empty-fields-bag",
+      "category": "semantics",
+      "check": "optimizer-api",
+      "seconds": 0.2837
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "project/exact-values",
+      "category": "semantics",
+      "check": "plain",
+      "seconds": 0.5942
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "project/exact-values",
+      "category": "semantics",
+      "check": "optimized-and-replay",
+      "seconds": 1.0595
+    },
+    {
+      "passed": true,
+      "case": "project/exact-values",
+      "category": "semantics",
+      "check": "optimizer-api",
+      "seconds": 0.3132
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "project/downstream-reference",
+      "category": "semantics",
+      "check": "plain",
+      "seconds": 0.693
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "project/downstream-reference",
+      "category": "semantics",
+      "check": "optimized-and-replay",
+      "seconds": 1.3742
+    },
+    {
+      "passed": true,
+      "case": "project/downstream-reference",
+      "category": "semantics",
+      "check": "optimizer-api",
+      "seconds": 0.2704
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/eq/a.v",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.5319
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/eq/a.v",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 1.2751
+    },
+    {
+      "passed": true,
+      "case": "compare/eq/a.v",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.3251
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/eq/a.s",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.3312
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/eq/a.s",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.7025
+    },
+    {
+      "passed": true,
+      "case": "compare/eq/a.s",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1927
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/eq/null",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.2824
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/eq/null",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.8012
+    },
+    {
+      "passed": true,
+      "case": "compare/eq/null",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.23
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/ne/a.v",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.3577
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/ne/a.v",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.5629
+    },
+    {
+      "passed": true,
+      "case": "compare/ne/a.v",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1916
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/ne/a.s",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.3914
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/ne/a.s",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.8152
+    },
+    {
+      "passed": true,
+      "case": "compare/ne/a.s",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.2736
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/ne/null",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.477
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/ne/null",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.5842
+    },
+    {
+      "passed": true,
+      "case": "compare/ne/null",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1655
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/lt/a.v",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.2734
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/lt/a.v",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.64
+    },
+    {
+      "passed": true,
+      "case": "compare/lt/a.v",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.161
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/lt/a.s",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.3153
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/lt/a.s",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.5791
+    },
+    {
+      "passed": true,
+      "case": "compare/lt/a.s",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1376
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/lt/null",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.2807
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/lt/null",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.5439
+    },
+    {
+      "passed": true,
+      "case": "compare/lt/null",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1573
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/le/a.v",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.3201
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/le/a.v",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.6008
+    },
+    {
+      "passed": true,
+      "case": "compare/le/a.v",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.2385
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/le/a.s",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.2752
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/le/a.s",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.5703
+    },
+    {
+      "passed": true,
+      "case": "compare/le/a.s",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1379
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/le/null",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.3021
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/le/null",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.5937
+    },
+    {
+      "passed": true,
+      "case": "compare/le/null",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1506
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/gt/a.v",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.2942
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/gt/a.v",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.5749
+    },
+    {
+      "passed": true,
+      "case": "compare/gt/a.v",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1484
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/gt/a.s",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.3243
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/gt/a.s",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.5587
+    },
+    {
+      "passed": true,
+      "case": "compare/gt/a.s",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1779
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/gt/null",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.4231
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/gt/null",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.642
+    },
+    {
+      "passed": true,
+      "case": "compare/gt/null",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1655
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/ge/a.v",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.2909
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/ge/a.v",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.7458
+    },
+    {
+      "passed": true,
+      "case": "compare/ge/a.v",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.2694
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/ge/a.s",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.4351
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/ge/a.s",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.6525
+    },
+    {
+      "passed": true,
+      "case": "compare/ge/a.s",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1775
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "compare/ge/null",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.3754
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "compare/ge/null",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.6213
+    },
+    {
+      "passed": true,
+      "case": "compare/ge/null",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1652
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "logic/and/negate-False",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.3126
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "logic/and/negate-False",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.5795
+    },
+    {
+      "passed": true,
+      "case": "logic/and/negate-False",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1515
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "logic/and/negate-True",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.2937
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "logic/and/negate-True",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.6039
+    },
+    {
+      "passed": true,
+      "case": "logic/and/negate-True",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1379
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "logic/or/negate-False",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.2837
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "logic/or/negate-False",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.5997
+    },
+    {
+      "passed": true,
+      "case": "logic/or/negate-False",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1837
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "logic/or/negate-True",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.2992
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "logic/or/negate-True",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.6196
+    },
+    {
+      "passed": true,
+      "case": "logic/or/negate-True",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1714
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "logic/is-null",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.3072
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "logic/is-null",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.6086
+    },
+    {
+      "passed": true,
+      "case": "logic/is-null",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1458
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "logic/not-unknown",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.281
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "logic/not-unknown",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.5842
+    },
+    {
+      "passed": true,
+      "case": "logic/not-unknown",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.1891
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "logic/variadic",
+      "category": "logic",
+      "check": "plain",
+      "seconds": 0.3017
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "logic/variadic",
+      "category": "logic",
+      "check": "optimized-and-replay",
+      "seconds": 0.838
+    },
+    {
+      "passed": true,
+      "case": "logic/variadic",
+      "category": "logic",
+      "check": "optimizer-api",
+      "seconds": 0.2981
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25
+      },
+      "case": "join/inner/bag-null",
+      "category": "join",
+      "check": "plain",
+      "seconds": 0.6816
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25,
+        "baseline_comparisons": 25
+      },
+      "case": "join/inner/bag-null",
+      "category": "join",
+      "check": "optimized-and-replay",
+      "seconds": 1.2553
+    },
+    {
+      "passed": true,
+      "case": "join/inner/bag-null",
+      "category": "join",
+      "check": "optimizer-api",
+      "seconds": 0.3531
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25
+      },
+      "case": "join/inner/string-key",
+      "category": "join",
+      "check": "plain",
+      "seconds": 0.618
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25,
+        "baseline_comparisons": 25
+      },
+      "case": "join/inner/string-key",
+      "category": "join",
+      "check": "optimized-and-replay",
+      "seconds": 0.7515
+    },
+    {
+      "passed": true,
+      "case": "join/inner/string-key",
+      "category": "join",
+      "check": "optimizer-api",
+      "seconds": 0.1945
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "join/inner/empty-left",
+      "category": "join",
+      "check": "plain",
+      "seconds": 0.3104
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "join/inner/empty-left",
+      "category": "join",
+      "check": "optimized-and-replay",
+      "seconds": 0.5978
+    },
+    {
+      "passed": true,
+      "case": "join/inner/empty-left",
+      "category": "join",
+      "check": "optimizer-api",
+      "seconds": 0.1687
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "join/inner/empty-right",
+      "category": "join",
+      "check": "plain",
+      "seconds": 0.2702
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "join/inner/empty-right",
+      "category": "join",
+      "check": "optimized-and-replay",
+      "seconds": 0.5797
+    },
+    {
+      "passed": true,
+      "case": "join/inner/empty-right",
+      "category": "join",
+      "check": "optimizer-api",
+      "seconds": 0.1648
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0
+      },
+      "case": "join/inner/empty-derived-schema",
+      "category": "join",
+      "check": "plain",
+      "seconds": 0.2813
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 0,
+        "baseline_comparisons": 0
+      },
+      "case": "join/inner/empty-derived-schema",
+      "category": "join",
+      "check": "optimized-and-replay",
+      "seconds": 0.5571
+    },
+    {
+      "passed": true,
+      "case": "join/inner/empty-derived-schema",
+      "category": "join",
+      "check": "optimizer-api",
+      "seconds": 0.1638
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "join/left/bag-null",
+      "category": "join",
+      "check": "plain",
+      "seconds": 0.341
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "join/left/bag-null",
+      "category": "join",
+      "check": "optimized-and-replay",
+      "seconds": 0.3088
+    },
+    {
+      "passed": true,
+      "case": "join/left/bag-null",
+      "category": "join",
+      "check": "optimizer-api",
+      "seconds": 0.1798
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "join/left/string-key",
+      "category": "join",
+      "check": "plain",
+      "seconds": 0.3498
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "join/left/string-key",
+      "category": "join",
+      "check": "optimized-and-replay",
+      "seconds": 0.4011
+    },
+    {
+      "passed": true,
+      "case": "join/left/string-key",
+      "category": "join",
+      "check": "optimizer-api",
+      "seconds": 0.2033
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "join/left/empty-left",
+      "category": "join",
+      "check": "plain",
+      "seconds": 0.3313
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "join/left/empty-left",
+      "category": "join",
+      "check": "optimized-and-replay",
+      "seconds": 0.2984
+    },
+    {
+      "passed": true,
+      "case": "join/left/empty-left",
+      "category": "join",
+      "check": "optimizer-api",
+      "seconds": 0.1678
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "join/left/empty-right",
+      "category": "join",
+      "check": "plain",
+      "seconds": 0.2943
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "join/left/empty-right",
+      "category": "join",
+      "check": "optimized-and-replay",
+      "seconds": 0.2741
+    },
+    {
+      "passed": true,
+      "case": "join/left/empty-right",
+      "category": "join",
+      "check": "optimizer-api",
+      "seconds": 0.1552
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "join/left/empty-derived-schema",
+      "category": "join",
+      "check": "plain",
+      "seconds": 0.3278
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "join/left/empty-derived-schema",
+      "category": "join",
+      "check": "optimized-and-replay",
+      "seconds": 0.3449
+    },
+    {
+      "passed": true,
+      "case": "join/left/empty-derived-schema",
+      "category": "join",
+      "check": "optimizer-api",
+      "seconds": 0.1614
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "join/nested-counters",
+      "category": "join",
+      "check": "plain",
+      "seconds": 0.288
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "join/nested-counters",
+      "category": "join",
+      "check": "optimized-and-replay",
+      "seconds": 0.29
+    },
+    {
+      "passed": true,
+      "case": "join/nested-counters",
+      "category": "join",
+      "check": "optimizer-api",
+      "seconds": 0.1426
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25
+      },
+      "case": "join/empty-parent-counts-child",
+      "category": "join",
+      "check": "plain",
+      "seconds": 0.2934
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25,
+        "baseline_comparisons": 25
+      },
+      "case": "join/empty-parent-counts-child",
+      "category": "join",
+      "check": "optimized-and-replay",
+      "seconds": 0.5659
+    },
+    {
+      "passed": true,
+      "case": "join/empty-parent-counts-child",
+      "category": "join",
+      "check": "optimizer-api",
+      "seconds": 0.1585
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25
+      },
+      "case": "join/projected-fields",
+      "category": "join",
+      "check": "plain",
+      "seconds": 0.5372
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25,
+        "baseline_comparisons": 25
+      },
+      "case": "join/projected-fields",
+      "category": "join",
+      "check": "optimized-and-replay",
+      "seconds": 0.5792
+    },
+    {
+      "passed": true,
+      "case": "join/projected-fields",
+      "category": "join",
+      "check": "optimizer-api",
+      "seconds": 0.1761
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/a/0",
+      "category": "group",
+      "check": "plain",
+      "seconds": 0.287
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/a/0",
+      "category": "group",
+      "check": "optimized-and-replay",
+      "seconds": 0.277
+    },
+    {
+      "passed": true,
+      "case": "group/a/0",
+      "category": "group",
+      "check": "optimizer-api",
+      "seconds": 0.1512
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/a/1",
+      "category": "group",
+      "check": "plain",
+      "seconds": 0.2667
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/a/1",
+      "category": "group",
+      "check": "optimized-and-replay",
+      "seconds": 0.2801
+    },
+    {
+      "passed": true,
+      "case": "group/a/1",
+      "category": "group",
+      "check": "optimizer-api",
+      "seconds": 0.1598
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/a/2",
+      "category": "group",
+      "check": "plain",
+      "seconds": 0.2937
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/a/2",
+      "category": "group",
+      "check": "optimized-and-replay",
+      "seconds": 0.3494
+    },
+    {
+      "passed": true,
+      "case": "group/a/2",
+      "category": "group",
+      "check": "optimizer-api",
+      "seconds": 0.1771
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/empty/0",
+      "category": "group",
+      "check": "plain",
+      "seconds": 0.3159
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/empty/0",
+      "category": "group",
+      "check": "optimized-and-replay",
+      "seconds": 0.2977
+    },
+    {
+      "passed": true,
+      "case": "group/empty/0",
+      "category": "group",
+      "check": "optimizer-api",
+      "seconds": 0.2233
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/empty/1",
+      "category": "group",
+      "check": "plain",
+      "seconds": 0.3537
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/empty/1",
+      "category": "group",
+      "check": "optimized-and-replay",
+      "seconds": 0.3291
+    },
+    {
+      "passed": true,
+      "case": "group/empty/1",
+      "category": "group",
+      "check": "optimizer-api",
+      "seconds": 0.1535
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/empty/2",
+      "category": "group",
+      "check": "plain",
+      "seconds": 0.4007
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/empty/2",
+      "category": "group",
+      "check": "optimized-and-replay",
+      "seconds": 0.4177
+    },
+    {
+      "passed": true,
+      "case": "group/empty/2",
+      "category": "group",
+      "check": "optimizer-api",
+      "seconds": 0.2306
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/nulls/0",
+      "category": "group",
+      "check": "plain",
+      "seconds": 0.3065
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/nulls/0",
+      "category": "group",
+      "check": "optimized-and-replay",
+      "seconds": 0.3034
+    },
+    {
+      "passed": true,
+      "case": "group/nulls/0",
+      "category": "group",
+      "check": "optimizer-api",
+      "seconds": 0.1791
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/nulls/1",
+      "category": "group",
+      "check": "plain",
+      "seconds": 0.3041
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/nulls/1",
+      "category": "group",
+      "check": "optimized-and-replay",
+      "seconds": 0.3459
+    },
+    {
+      "passed": true,
+      "case": "group/nulls/1",
+      "category": "group",
+      "check": "optimizer-api",
+      "seconds": 0.1878
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/nulls/2",
+      "category": "group",
+      "check": "plain",
+      "seconds": 0.3984
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/nulls/2",
+      "category": "group",
+      "check": "optimized-and-replay",
+      "seconds": 0.3351
+    },
+    {
+      "passed": true,
+      "case": "group/nulls/2",
+      "category": "group",
+      "check": "optimizer-api",
+      "seconds": 0.1698
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/no-aggregates",
+      "category": "group",
+      "check": "plain",
+      "seconds": 0.3033
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/no-aggregates",
+      "category": "group",
+      "check": "optimized-and-replay",
+      "seconds": 0.276
+    },
+    {
+      "passed": true,
+      "case": "group/no-aggregates",
+      "category": "group",
+      "check": "optimizer-api",
+      "seconds": 0.1637
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/empty-no-aggregates",
+      "category": "group",
+      "check": "plain",
+      "seconds": 0.3117
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/empty-no-aggregates",
+      "category": "group",
+      "check": "optimized-and-replay",
+      "seconds": 0.2649
+    },
+    {
+      "passed": true,
+      "case": "group/empty-no-aggregates",
+      "category": "group",
+      "check": "optimizer-api",
+      "seconds": 0.1411
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/downstream-expression",
+      "category": "group",
+      "check": "plain",
+      "seconds": 0.2722
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/downstream-expression",
+      "category": "group",
+      "check": "optimized-and-replay",
+      "seconds": 0.2781
+    },
+    {
+      "passed": true,
+      "case": "group/downstream-expression",
+      "category": "group",
+      "check": "optimizer-api",
+      "seconds": 0.1402
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/group-over-group",
+      "category": "group",
+      "check": "plain",
+      "seconds": 0.2823
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/group-over-group",
+      "category": "group",
+      "check": "optimized-and-replay",
+      "seconds": 0.298
+    },
+    {
+      "passed": true,
+      "case": "group/group-over-group",
+      "category": "group",
+      "check": "optimizer-api",
+      "seconds": 0.1435
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/join-derived",
+      "category": "group",
+      "check": "plain",
+      "seconds": 0.3141
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "group/join-derived",
+      "category": "group",
+      "check": "optimized-and-replay",
+      "seconds": 0.3218
+    },
+    {
+      "passed": true,
+      "case": "group/join-derived",
+      "category": "group",
+      "check": "optimizer-api",
+      "seconds": 0.1527
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25
+      },
+      "case": "optimizer/inner/right-is-null",
+      "category": "optimizer-safety",
+      "check": "plain",
+      "seconds": 0.3128
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25,
+        "baseline_comparisons": 25
+      },
+      "case": "optimizer/inner/right-is-null",
+      "category": "optimizer-safety",
+      "check": "optimized-and-replay",
+      "seconds": 0.5387
+    },
+    {
+      "passed": true,
+      "case": "optimizer/inner/right-is-null",
+      "category": "optimizer-safety",
+      "check": "optimizer-api",
+      "seconds": 0.1494
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "optimizer/left/right-is-null",
+      "category": "optimizer-safety",
+      "check": "plain",
+      "seconds": 0.31
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "optimizer/left/right-is-null",
+      "category": "optimizer-safety",
+      "check": "optimized-and-replay",
+      "seconds": 0.2702
+    },
+    {
+      "passed": true,
+      "case": "optimizer/left/right-is-null",
+      "category": "optimizer-safety",
+      "check": "optimizer-api",
+      "seconds": 0.1659
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25
+      },
+      "case": "optimizer/inner/right-positive",
+      "category": "optimizer-safety",
+      "check": "plain",
+      "seconds": 0.2871
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25,
+        "baseline_comparisons": 25
+      },
+      "case": "optimizer/inner/right-positive",
+      "category": "optimizer-safety",
+      "check": "optimized-and-replay",
+      "seconds": 0.6129
+    },
+    {
+      "passed": true,
+      "case": "optimizer/inner/right-positive",
+      "category": "optimizer-safety",
+      "check": "optimizer-api",
+      "seconds": 0.1802
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "optimizer/left/right-positive",
+      "category": "optimizer-safety",
+      "check": "plain",
+      "seconds": 0.2838
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "optimizer/left/right-positive",
+      "category": "optimizer-safety",
+      "check": "optimized-and-replay",
+      "seconds": 0.3184
+    },
+    {
+      "passed": true,
+      "case": "optimizer/left/right-positive",
+      "category": "optimizer-safety",
+      "check": "optimizer-api",
+      "seconds": 0.1586
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25
+      },
+      "case": "optimizer/inner/left-positive",
+      "category": "optimizer-safety",
+      "check": "plain",
+      "seconds": 0.3424
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25,
+        "baseline_comparisons": 25
+      },
+      "case": "optimizer/inner/left-positive",
+      "category": "optimizer-safety",
+      "check": "optimized-and-replay",
+      "seconds": 0.684
+    },
+    {
+      "passed": true,
+      "case": "optimizer/inner/left-positive",
+      "category": "optimizer-safety",
+      "check": "optimizer-api",
+      "seconds": 0.2434
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "optimizer/left/left-positive",
+      "category": "optimizer-safety",
+      "check": "plain",
+      "seconds": 0.2945
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "optimizer/left/left-positive",
+      "category": "optimizer-safety",
+      "check": "optimized-and-replay",
+      "seconds": 0.3325
+    },
+    {
+      "passed": true,
+      "case": "optimizer/left/left-positive",
+      "category": "optimizer-safety",
+      "check": "optimizer-api",
+      "seconds": 0.1839
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25
+      },
+      "case": "optimizer/inner/cross-or",
+      "category": "optimizer-safety",
+      "check": "plain",
+      "seconds": 0.3524
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25,
+        "baseline_comparisons": 25
+      },
+      "case": "optimizer/inner/cross-or",
+      "category": "optimizer-safety",
+      "check": "optimized-and-replay",
+      "seconds": 0.6805
+    },
+    {
+      "passed": true,
+      "case": "optimizer/inner/cross-or",
+      "category": "optimizer-safety",
+      "check": "optimizer-api",
+      "seconds": 0.1892
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "optimizer/left/cross-or",
+      "category": "optimizer-safety",
+      "check": "plain",
+      "seconds": 0.344
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "optimizer/left/cross-or",
+      "category": "optimizer-safety",
+      "check": "optimized-and-replay",
+      "seconds": 0.3926
+    },
+    {
+      "passed": true,
+      "case": "optimizer/left/cross-or",
+      "category": "optimizer-safety",
+      "check": "optimizer-api",
+      "seconds": 0.2313
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25
+      },
+      "case": "optimizer/inner/cross-add",
+      "category": "optimizer-safety",
+      "check": "plain",
+      "seconds": 0.4167
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25,
+        "baseline_comparisons": 25
+      },
+      "case": "optimizer/inner/cross-add",
+      "category": "optimizer-safety",
+      "check": "optimized-and-replay",
+      "seconds": 0.841
+    },
+    {
+      "passed": true,
+      "case": "optimizer/inner/cross-add",
+      "category": "optimizer-safety",
+      "check": "optimizer-api",
+      "seconds": 0.187
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "optimizer/left/cross-add",
+      "category": "optimizer-safety",
+      "check": "plain",
+      "seconds": 0.3816
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "optimizer/left/cross-add",
+      "category": "optimizer-safety",
+      "check": "optimized-and-replay",
+      "seconds": 0.3235
+    },
+    {
+      "passed": true,
+      "case": "optimizer/left/cross-add",
+      "category": "optimizer-safety",
+      "check": "optimizer-api",
+      "seconds": 0.1825
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25
+      },
+      "case": "optimizer/inner/nested-and",
+      "category": "optimizer-safety",
+      "check": "plain",
+      "seconds": 0.2975
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25,
+        "baseline_comparisons": 25
+      },
+      "case": "optimizer/inner/nested-and",
+      "category": "optimizer-safety",
+      "check": "optimized-and-replay",
+      "seconds": 0.8599
+    },
+    {
+      "passed": true,
+      "case": "optimizer/inner/nested-and",
+      "category": "optimizer-safety",
+      "check": "optimizer-api",
+      "seconds": 0.1747
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "optimizer/left/nested-and",
+      "category": "optimizer-safety",
+      "check": "plain",
+      "seconds": 0.4959
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "optimizer/left/nested-and",
+      "category": "optimizer-safety",
+      "check": "optimized-and-replay",
+      "seconds": 0.4794
+    },
+    {
+      "passed": true,
+      "case": "optimizer/left/nested-and",
+      "category": "optimizer-safety",
+      "check": "optimizer-api",
+      "seconds": 0.163
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25
+      },
+      "case": "optimizer/ownership-not-prefix",
+      "category": "optimizer-safety",
+      "check": "plain",
+      "seconds": 0.2966
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 25,
+        "baseline_comparisons": 25
+      },
+      "case": "optimizer/ownership-not-prefix",
+      "category": "optimizer-safety",
+      "check": "optimized-and-replay",
+      "seconds": 0.6681
+    },
+    {
+      "passed": true,
+      "case": "optimizer/ownership-not-prefix",
+      "category": "optimizer-safety",
+      "check": "optimizer-api",
+      "seconds": 0.1798
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "optimizer/group-barrier",
+      "category": "optimizer-safety",
+      "check": "plain",
+      "seconds": 0.3855
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "optimizer/group-barrier",
+      "category": "optimizer-safety",
+      "check": "optimized-and-replay",
+      "seconds": 0.2856
+    },
+    {
+      "passed": true,
+      "case": "optimizer/group-barrier",
+      "category": "optimizer-safety",
+      "check": "optimizer-api",
+      "seconds": 0.1852
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/0",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.3629
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/0",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.3292
+    },
+    {
+      "passed": true,
+      "case": "generated/0",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.1482
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/1",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.35
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/1",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.3114
+    },
+    {
+      "passed": true,
+      "case": "generated/1",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.1897
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/2",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.4894
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/2",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.3405
+    },
+    {
+      "passed": true,
+      "case": "generated/2",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.2017
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/3",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.3956
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/3",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.4053
+    },
+    {
+      "passed": true,
+      "case": "generated/3",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.1746
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 18
+      },
+      "case": "generated/4",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.4049
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 18,
+        "baseline_comparisons": 18
+      },
+      "case": "generated/4",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 1.0579
+    },
+    {
+      "passed": true,
+      "case": "generated/4",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.2903
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/5",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.565
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/5",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.4573
+    },
+    {
+      "passed": true,
+      "case": "generated/5",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.1835
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "generated/6",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.3297
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "generated/6",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.3373
+    },
+    {
+      "passed": true,
+      "case": "generated/6",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.1585
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/7",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.3965
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/7",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.3745
+    },
+    {
+      "passed": true,
+      "case": "generated/7",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.1558
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 49
+      },
+      "case": "generated/8",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.4203
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 49,
+        "baseline_comparisons": 49
+      },
+      "case": "generated/8",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 1.0526
+    },
+    {
+      "passed": true,
+      "case": "generated/8",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.302
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "generated/9",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.4286
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "generated/9",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.4117
+    },
+    {
+      "passed": true,
+      "case": "generated/9",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.2502
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 8
+      },
+      "case": "generated/10",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.3465
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 8,
+        "baseline_comparisons": 8
+      },
+      "case": "generated/10",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.6841
+    },
+    {
+      "passed": true,
+      "case": "generated/10",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.2764
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 9
+      },
+      "case": "generated/11",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.3299
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 9,
+        "baseline_comparisons": 9
+      },
+      "case": "generated/11",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 1.1318
+    },
+    {
+      "passed": true,
+      "case": "generated/11",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.3018
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "generated/12",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.634
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "generated/12",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.6097
+    },
+    {
+      "passed": true,
+      "case": "generated/12",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.2959
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 42
+      },
+      "case": "generated/13",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.5785
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 42,
+        "baseline_comparisons": 42
+      },
+      "case": "generated/13",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.9143
+    },
+    {
+      "passed": true,
+      "case": "generated/13",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.2027
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/14",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.3384
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/14",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.3975
+    },
+    {
+      "passed": true,
+      "case": "generated/14",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.1832
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "generated/15",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.4566
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "generated/15",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.3387
+    },
+    {
+      "passed": true,
+      "case": "generated/15",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.145
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 3
+      },
+      "case": "generated/16",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.3252
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 3,
+        "baseline_comparisons": 3
+      },
+      "case": "generated/16",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.7333
+    },
+    {
+      "passed": true,
+      "case": "generated/16",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.1842
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/17",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.3803
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/17",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.3628
+    },
+    {
+      "passed": true,
+      "case": "generated/17",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.1869
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "generated/18",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.3292
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "generated/18",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.3753
+    },
+    {
+      "passed": true,
+      "case": "generated/18",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.1505
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/19",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.3846
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/19",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.3676
+    },
+    {
+      "passed": true,
+      "case": "generated/19",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.1832
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 4
+      },
+      "case": "generated/20",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.3494
+    },
+    {
+      "passed": true,
+      "detail": {
+        "join_comparisons": 4,
+        "baseline_comparisons": 4
+      },
+      "case": "generated/20",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.8741
+    },
+    {
+      "passed": true,
+      "case": "generated/20",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.2373
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "generated/21",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.531
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement GROUP semantics\r\n",
+      "case": "generated/21",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.5845
+    },
+    {
+      "passed": true,
+      "case": "generated/21",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.3315
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/22",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.5852
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/22",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.5562
+    },
+    {
+      "passed": true,
+      "case": "generated/22",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.325
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/23",
+      "category": "generated",
+      "check": "plain",
+      "seconds": 0.3682
+    },
+    {
+      "passed": false,
+      "error": "ValueError: exit 2; stderr: NotImplementedError:TODO implement LEFT JOIN\r\n",
+      "case": "generated/23",
+      "category": "generated",
+      "check": "optimized-and-replay",
+      "seconds": 0.3046
+    },
+    {
+      "passed": true,
+      "case": "generated/23",
+      "category": "generated",
+      "check": "optimizer-api",
+      "seconds": 0.1877
+    },
+    {
+      "passed": true,
+      "case": "invalid/request-list",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3525
+    },
+    {
+      "passed": true,
+      "case": "invalid/request-list",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3537
+    },
+    {
+      "passed": true,
+      "case": "invalid/request-missing",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.5126
+    },
+    {
+      "passed": true,
+      "case": "invalid/request-missing",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.445
+    },
+    {
+      "passed": true,
+      "case": "invalid/request-extra",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.4477
+    },
+    {
+      "passed": true,
+      "case": "invalid/request-extra",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3695
+    },
+    {
+      "passed": true,
+      "case": "invalid/tables-list",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3613
+    },
+    {
+      "passed": true,
+      "case": "invalid/tables-list",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3639
+    },
+    {
+      "passed": true,
+      "case": "invalid/table-list",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3783
+    },
+    {
+      "passed": true,
+      "case": "invalid/table-list",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3296
+    },
+    {
+      "passed": true,
+      "case": "invalid/table-extra",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3037
+    },
+    {
+      "passed": true,
+      "case": "invalid/table-extra",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3774
+    },
+    {
+      "passed": true,
+      "case": "invalid/columns-list",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3902
+    },
+    {
+      "passed": true,
+      "case": "invalid/columns-list",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3391
+    },
+    {
+      "passed": true,
+      "case": "invalid/rows-object",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3583
+    },
+    {
+      "passed": true,
+      "case": "invalid/rows-object",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3492
+    },
+    {
+      "passed": true,
+      "case": "invalid/column-dot",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3385
+    },
+    {
+      "passed": true,
+      "case": "invalid/column-dot",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.353
+    },
+    {
+      "passed": true,
+      "case": "invalid/column-empty",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.336
+    },
+    {
+      "passed": true,
+      "case": "invalid/column-empty",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3117
+    },
+    {
+      "passed": true,
+      "case": "invalid/column-type",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3376
+    },
+    {
+      "passed": true,
+      "case": "invalid/column-type",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2935
+    },
+    {
+      "passed": true,
+      "case": "invalid/row-missing",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3873
+    },
+    {
+      "passed": true,
+      "case": "invalid/row-missing",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2894
+    },
+    {
+      "passed": true,
+      "case": "invalid/row-extra",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.4212
+    },
+    {
+      "passed": true,
+      "case": "invalid/row-extra",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2965
+    },
+    {
+      "passed": true,
+      "case": "invalid/row-array",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3346
+    },
+    {
+      "passed": true,
+      "case": "invalid/row-array",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3084
+    },
+    {
+      "passed": true,
+      "case": "invalid/row-bool",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2906
+    },
+    {
+      "passed": true,
+      "case": "invalid/row-bool",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.362
+    },
+    {
+      "passed": true,
+      "case": "invalid/row-float",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.5324
+    },
+    {
+      "passed": true,
+      "case": "invalid/row-float",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.4964
+    },
+    {
+      "passed": true,
+      "case": "invalid/row-string",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.5331
+    },
+    {
+      "passed": true,
+      "case": "invalid/row-string",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3611
+    },
+    {
+      "passed": true,
+      "case": "invalid/row-int-for-string",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3222
+    },
+    {
+      "passed": true,
+      "case": "invalid/row-int-for-string",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3985
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-extra",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3532
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-extra",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3615
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-missing-op",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3746
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-missing-op",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.326
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-missing-table",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.4425
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-missing-table",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3468
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-missing-as",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3652
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-missing-as",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3573
+    },
+    {
+      "passed": true,
+      "case": "invalid/filter-extra",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.4136
+    },
+    {
+      "passed": true,
+      "case": "invalid/filter-extra",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3474
+    },
+    {
+      "passed": true,
+      "case": "invalid/filter-missing-op",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3191
+    },
+    {
+      "passed": true,
+      "case": "invalid/filter-missing-op",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.4446
+    },
+    {
+      "passed": true,
+      "case": "invalid/filter-missing-input",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.6902
+    },
+    {
+      "passed": true,
+      "case": "invalid/filter-missing-input",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.6422
+    },
+    {
+      "passed": true,
+      "case": "invalid/filter-missing-predicate",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.6174
+    },
+    {
+      "passed": true,
+      "case": "invalid/filter-missing-predicate",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.6335
+    },
+    {
+      "passed": true,
+      "case": "invalid/project-extra",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.5425
+    },
+    {
+      "passed": true,
+      "case": "invalid/project-extra",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3575
+    },
+    {
+      "passed": true,
+      "case": "invalid/project-missing-op",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3544
+    },
+    {
+      "passed": true,
+      "case": "invalid/project-missing-op",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3601
+    },
+    {
+      "passed": true,
+      "case": "invalid/project-missing-input",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3969
+    },
+    {
+      "passed": true,
+      "case": "invalid/project-missing-input",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3933
+    },
+    {
+      "passed": true,
+      "case": "invalid/project-missing-fields",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.6782
+    },
+    {
+      "passed": true,
+      "case": "invalid/project-missing-fields",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3938
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-extra",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.4706
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-extra",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.8024
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-missing-op",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 1.5825
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-missing-op",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.938
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-missing-kind",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 1.0839
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-missing-kind",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.9962
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-missing-left",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.9082
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-missing-left",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.8777
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-missing-right",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.7529
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-missing-right",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.7725
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-missing-left_on",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.6508
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-missing-left_on",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.4452
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-missing-right_on",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3401
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-missing-right_on",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3445
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-extra",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3291
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-extra",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3077
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-missing-op",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3736
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-missing-op",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2685
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-missing-input",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2786
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-missing-input",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.295
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-missing-keys",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2723
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-missing-keys",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2611
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-missing-aggregates",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2738
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-missing-aggregates",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.263
+    },
+    {
+      "passed": true,
+      "case": "invalid/plan-array",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2921
+    },
+    {
+      "passed": true,
+      "case": "invalid/plan-array",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2895
+    },
+    {
+      "passed": true,
+      "case": "invalid/plan-unknown",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3235
+    },
+    {
+      "passed": true,
+      "case": "invalid/plan-unknown",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2764
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-table",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.4093
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-table",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.5037
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-alias-dot",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.5851
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-alias-dot",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.5046
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-alias-empty",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3359
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-alias-empty",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3533
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-alias-number",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3346
+    },
+    {
+      "passed": true,
+      "case": "invalid/scan-alias-number",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2742
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-kind",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2724
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-kind",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3002
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-overlap",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2602
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-overlap",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2636
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-missing-key",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2728
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-missing-key",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2687
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-wrong-side",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3056
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-wrong-side",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3066
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-type",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3093
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-type",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2612
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-empty-type",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2822
+    },
+    {
+      "passed": true,
+      "case": "invalid/join-empty-type",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2667
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-key-missing",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2747
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-key-missing",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2581
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-key-duplicate",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2897
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-key-duplicate",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3139
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-key-type",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.344
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-key-type",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3119
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-collision",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3068
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-collision",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2939
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-aggs-list",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3271
+    },
+    {
+      "passed": true,
+      "case": "invalid/group-aggs-list",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3188
+    },
+    {
+      "passed": true,
+      "case": "invalid/project-fields-list",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.363
+    },
+    {
+      "passed": true,
+      "case": "invalid/project-fields-list",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3329
+    },
+    {
+      "passed": true,
+      "case": "invalid/project-sibling-reference",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2663
+    },
+    {
+      "passed": true,
+      "case": "invalid/project-sibling-reference",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2599
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-0",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2758
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-0",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2868
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-1",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.271
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-1",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2633
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-2",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2977
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-2",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2862
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-3",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2914
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-3",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2742
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-4",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2941
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-4",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2847
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-5",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2802
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-5",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3649
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-6",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.698
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-6",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.6887
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-7",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.6869
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-7",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.6523
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-8",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 1.0967
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-8",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.6915
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-9",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.6465
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-9",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.6718
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-10",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.8205
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-10",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.435
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-11",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3766
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-11",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.4786
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-12",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.4717
+    },
+    {
+      "passed": true,
+      "case": "invalid/expression-empty-12",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3786
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-0",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.574
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-0",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.5888
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-0",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.7579
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-0",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.635
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-1",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3439
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-1",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2793
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-1",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2949
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-1",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.301
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-2",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2763
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-2",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2622
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-2",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2878
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-2",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3002
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-3",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3124
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-3",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3677
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-3",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.4513
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-3",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3243
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-4",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2898
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-4",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3211
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-4",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.32
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-4",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3345
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-5",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3266
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-5",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2942
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-5",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2976
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-5",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3409
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-6",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3895
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-6",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.359
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-6",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3411
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-6",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3556
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-7",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3209
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-7",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3049
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-7",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3171
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-7",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2973
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-8",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3226
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-8",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3081
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-8",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3154
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-8",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3094
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-9",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3125
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-9",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2967
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-9",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3206
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-9",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3112
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-10",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3308
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-empty-10",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.405
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-10",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3791
+    },
+    {
+      "passed": true,
+      "case": "invalid/predicate-populated-10",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2951
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-0",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3084
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-0",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2882
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-1",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3314
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-1",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2779
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-2",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2872
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-2",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2651
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-3",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2772
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-3",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2583
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-4",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2821
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-4",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3049
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-5",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2749
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-5",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2685
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-6",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2799
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-6",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.268
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-7",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2985
+    },
+    {
+      "passed": true,
+      "case": "invalid/aggregate-empty-7",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2791
+    },
+    {
+      "passed": false,
+      "error": "ValueError: invalid request must exit 2, got 0",
+      "case": "invalid/derived-null-type",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.276
+    },
+    {
+      "passed": false,
+      "error": "ValueError: invalid request must exit 2, got 0",
+      "case": "invalid/derived-null-type",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2689
+    },
+    {
+      "passed": true,
+      "case": "invalid/optimizer-must-not-erase-invalid",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3094
+    },
+    {
+      "passed": true,
+      "case": "invalid/optimizer-must-not-erase-invalid",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2862
+    },
+    {
+      "passed": true,
+      "case": "invalid/duplicate-root",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3022
+    },
+    {
+      "passed": true,
+      "case": "invalid/duplicate-root",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2974
+    },
+    {
+      "passed": true,
+      "case": "invalid/duplicate-plan",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3117
+    },
+    {
+      "passed": true,
+      "case": "invalid/duplicate-plan",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3104
+    },
+    {
+      "passed": true,
+      "case": "invalid/duplicate-row",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.305
+    },
+    {
+      "passed": true,
+      "case": "invalid/duplicate-row",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2906
+    },
+    {
+      "passed": true,
+      "case": "invalid/duplicate-column",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2845
+    },
+    {
+      "passed": true,
+      "case": "invalid/duplicate-column",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2617
+    },
+    {
+      "passed": true,
+      "case": "invalid/duplicate-table",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.2806
+    },
+    {
+      "passed": true,
+      "case": "invalid/duplicate-table",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.2859
+    },
+    {
+      "passed": true,
+      "case": "invalid/truncated-json",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3247
+    },
+    {
+      "passed": true,
+      "case": "invalid/truncated-json",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3208
+    },
+    {
+      "passed": true,
+      "case": "invalid/trailing-json",
+      "category": "validation",
+      "check": "reject-plain",
+      "seconds": 0.3235
+    },
+    {
+      "passed": true,
+      "case": "invalid/trailing-json",
+      "category": "validation",
+      "check": "reject-optimized",
+      "seconds": 0.3014
+    },
+    {
+      "passed": true,
+      "case": "submission",
+      "category": "integrity",
+      "check": "protected-after",
+      "seconds": 0.0027
+    },
+    {
+      "passed": true,
+      "case": "submission",
+      "category": "integrity",
+      "check": "regular-modules-after",
+      "seconds": 0.0101
+    }
+  ]
+}

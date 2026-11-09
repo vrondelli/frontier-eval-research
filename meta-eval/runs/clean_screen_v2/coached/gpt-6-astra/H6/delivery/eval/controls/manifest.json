@@ -1,0 +1,31 @@
+{
+  "positives": ["correct", "exponent_metadata", "error_envelope"],
+  "negatives": [
+    {"mode": "example_only", "case": "mixed_identifiers", "fault": "hardcodes the example"},
+    {"mode": "float_math", "case": "binary_precision", "fault": "rounds input through binary float"},
+    {"mode": "int_tokens_only", "case": "integral_encodings", "fault": "rejects valid decimal/exponent encodings"},
+    {"mode": "bound64", "case": "unbounded_integer", "fault": "adds an invalid signed 64-bit bound"},
+    {"mode": "reject_big_digits", "case": "large_coefficient", "fault": "keeps a decimal digit limit"},
+    {"mode": "count_unique", "case": "repeated_events", "fault": "deduplicates events"},
+    {"mode": "abs_max", "case": "signed_maximum", "fault": "takes absolute values for maximum"},
+    {"mode": "zero_max", "case": "signed_maximum", "fault": "initializes maximum to zero"},
+    {"mode": "sum_as_max", "case": "sum_not_maximum", "fault": "computes maximum instead of sum"},
+    {"mode": "first_only", "case": "mixed_identifiers", "fault": "processes only the first sheet"},
+    {"mode": "extra_identifier", "case": "singleton", "fault": "adds an output identifier"},
+    {"mode": "strings_output", "case": "singleton", "fault": "serializes results as strings"},
+    {"mode": "boolean_output", "case": "singleton", "fault": "serializes results as Booleans"},
+    {"mode": "boolean_values", "case": "bad_number_0_net_units", "fault": "accepts Boolean measurements"},
+    {"mode": "truncate_fractions", "case": "bad_number_6_net_units", "fault": "truncates nonintegral measurements"},
+    {"mode": "unchecked_count", "case": "bad_number_0_event_count", "fault": "skips measurement validation for event_count"},
+    {"mode": "allow_duplicates", "case": "duplicate_escaped_identifier", "fault": "silently overwrites duplicate keys"},
+    {"mode": "extra_properties", "case": "extra_sheet", "fault": "allows forbidden properties"},
+    {"mode": "character_limit", "case": "oversize_utf8", "fault": "checks characters rather than UTF-8 bytes"},
+    {"mode": "no_size_limit", "case": "oversize_ascii", "fault": "does not enforce 8192 bytes"},
+    {"mode": "partial_on_error", "case": "late_invalid_sheet", "fault": "publishes partial results before validation completes"},
+    {"mode": "empty_on_error", "case": "empty_max", "fault": "writes an empty results object on failure"},
+    {"mode": "success_on_error", "case": "empty_max", "fault": "returns zero on invalid input"},
+    {"mode": "nonzero_success", "case": "singleton", "fault": "returns nonzero on valid input"},
+    {"mode": "missing_output", "case": "singleton", "fault": "does not write the requested output file"},
+    {"mode": "malformed_error", "case": "empty_max", "fault": "writes malformed JSON instead of an error envelope"}
+  ]
+}

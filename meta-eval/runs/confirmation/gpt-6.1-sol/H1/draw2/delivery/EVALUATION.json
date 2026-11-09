@@ -1,0 +1,49 @@
+{
+  "schema_version": "ledger-admission-evaluation/v1",
+  "task_id": "E1",
+  "source": {
+    "task": "input/E1.md",
+    "task_sha256": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+    "public_constraints": "input/README.md",
+    "public_constraints_sha256": "4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77",
+    "basis": "Independent construction from public inputs; no original grader or private probes accessed."
+  },
+  "entrypoint": "python3 evaluator.py answer.json",
+  "repetitions": 3,
+  "interface": "Python Service(path).apply(request) -> {status, remaining}; SQLite public tables",
+  "formal_checks": [
+    "barrier-armed overlapping A60 identities; accept either complete serial ordering",
+    "fresh-process replay of accepted and rejected decisions",
+    "global-key account and amount conflicts for both original decisions",
+    "independent B100 admission",
+    "historical replies after A40 exhaustion",
+    "durable empty-account rejection and replay",
+    "exact independent on-disk accounts, decisions and ledger after every successful stage",
+    "idempotent initialization across fresh processes",
+    "protocol, output, runtime and inspection constraints"
+  ],
+  "limits": {
+    "address_space_bytes_per_process": 536870912,
+    "file_descriptors_per_process": 256,
+    "cpu_seconds_per_process": 10,
+    "file_size_bytes": 8388608,
+    "reply_wall_seconds": 6,
+    "reply_bytes": 65536,
+    "public_rows_per_table_exclusive_maximum": 100,
+    "answer_transport_bytes": 2097152,
+    "source_transport_bytes": 1048576
+  },
+  "execution_requires": ["Linux", "/usr/bin/python3", "bubblewrap", "working unprivileged namespaces"],
+  "unsupported_runtime": "unavailable; no unsafe CLI fallback",
+  "explanation_review": "REVIEW-RUBRIC.md",
+  "alternative_format_result": "review_required; not executed",
+  "excluded_claims": [
+    "exhaustive transaction-interleaving coverage",
+    "crash-atomicity or complete database-error proof",
+    "production throughput or latency gold label",
+    "pre-reveal adaptation without a preserved staged transcript",
+    "independent expert review already completed",
+    "fresh model performance",
+    "validated creativity or hiring score"
+  ]
+}

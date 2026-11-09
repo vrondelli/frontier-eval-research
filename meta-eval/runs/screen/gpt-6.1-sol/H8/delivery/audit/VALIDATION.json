@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "scenarios": [
+    {
+      "scenario": "baseline_all_turns_including_failure",
+      "passed": true
+    },
+    {
+      "scenario": "missing_direct_stage_manifest",
+      "passed": true,
+      "detected_checks": [
+        "one_snapshot_per_recorded_turn",
+        "packet_manifest_bytes_and_sha256"
+      ]
+    },
+    {
+      "scenario": "missing_failed_attempt_manifest",
+      "passed": true,
+      "detected_checks": [
+        "one_snapshot_per_recorded_turn",
+        "packet_manifest_bytes_and_sha256"
+      ]
+    },
+    {
+      "scenario": "same_manifest_count_but_missing_and_orphan_roots",
+      "passed": true,
+      "detected_checks": [
+        "one_snapshot_per_recorded_turn",
+        "packet_manifest_bytes_and_sha256"
+      ]
+    },
+    {
+      "scenario": "manifest_bytes_changed_valid_json",
+      "passed": true,
+      "detected_checks": [
+        "manifest_identity_against_source_layout",
+        "packet_manifest_bytes_and_sha256"
+      ]
+    },
+    {
+      "scenario": "aggregate_episode_disagreement",
+      "passed": true,
+      "detected_checks": [
+        "aggregate_episode_equality",
+        "packet_manifest_bytes_and_sha256"
+      ]
+    },
+    {
+      "scenario": "duplicate_json_keys",
+      "passed": true,
+      "detected_checks": [
+        "json_parse_and_unique_keys"
+      ]
+    },
+    {
+      "scenario": "missing_episode_keeps_aggregate_turn_expectation",
+      "passed": true,
+      "detected_checks": [
+        "aggregate_episode_equality",
+        "packet_manifest_bytes_and_sha256"
+      ]
+    },
+    {
+      "scenario": "original_input_inventory_unchanged",
+      "passed": true
+    }
+  ]
+}

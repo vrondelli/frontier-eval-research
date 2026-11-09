@@ -1,0 +1,24 @@
+{
+  "review_kind": "AI_semantic_reviewer_not_human",
+  "case_id": "H2",
+  "instruction_identity": "Recovered original rubric-authoring user instruction; full historical context not reproduced.",
+  "deviations": [
+    {
+      "kind": "public_input_layout",
+      "original": "Prompt names CAL-A.txt through CAL-D.txt as workspace files and the historical launch workspace had them at its root.",
+      "current": "run_screen.py copies the whole packet; CAL files are at input/CAL-A.txt through input/CAL-D.txt, while prompt.md and provenance files are at workspace root.",
+      "implication": "An inability to find the CAL files under this layout is a current exposure/environment issue. It cannot establish the original rubric-authoring limitation. An actor that finds and reads all four inputs can still produce reviewable rubric evidence.",
+      "action": "Preserve live packets and attempts; do not restart or retroactively correct this screen. Qualify replication claims."
+    },
+    {
+      "kind": "line_ending_normalization",
+      "current": "run_screen.py reads prompt.md as text and hashes its UTF-8 re-encoding. This can normalize CRLF before stdin delivery, so launch prompt_sha256 may differ from the byte hash of prompt.md in input_inventory.",
+      "implication": "Claim exact recovered instruction text after line-ending normalization, not identical prompt file bytes or full model context."
+    },
+    {
+      "kind": "additional_visible_packet_metadata",
+      "current": "MANIFEST.json, PROVENANCE.json and prompt.md are copied into the actor workspace, although original H2 rubric authors did not have those newly built files.",
+      "implication": "This is additional exposure. It includes reconstruction/context metadata but does not include owner graders, labels or mutation controls. It limits same-context replication claims."
+    }
+  ]
+}

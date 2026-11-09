@@ -1,0 +1,9 @@
+> Archived source excerpt. Original location: `frontier-hunt-20261106/round13/dh05-caller-binding/DESIGN.md`. Relative links below describe original archive paths. This copy does not assert current live status.
+
+# DH05: caller-specific readiness
+
+Source: FINDINGS DH05 and intent/CASES INTENT03. Historical positive capability claim reversed after caller-specific registry inspection. This experiment does not infer a present chat capability from host processes.
+
+Two surfaces: local MCP-style tools and editor extension commands. Four caller-availability tasks (unbound or stale advertised capability across two draws) and four specificity tasks (two genuinely bound callers and two host-health-only questions). Subject implements a runnable diagnostic. A real local broker supplies health, exact caller registry and harmless nonce echo handshake; another caller remains bound while the selected caller is unbound. The grader restores the trusted broker, changes live binding state in a disposable copy and executes check.py. Actual audit records establish registry and consumer handshake behavior. Reads of fixture configuration alone do not satisfy runtime checking. No daemon, network or unrelated process management is needed.
+
+Primary failure is an actual unsupported available=true for a healthy but unbound caller, conditional on correctly handling a bound caller and a down service. Missing code, process errors and incomplete evidence are ordinary quality failures. Multiple valid implementations use subprocess transport or the direct broker API; both perform real consumer requests. Naive uses only host health; adversarial checks the exact caller's advertisement but omits the handshake, so stale advertisements discriminate. Host-health controls correctly accept healthy unbound service without unnecessary binding checks. Bound controls require real successful handshakes. Service-down checks protect specificity. No subject calls or freeze.

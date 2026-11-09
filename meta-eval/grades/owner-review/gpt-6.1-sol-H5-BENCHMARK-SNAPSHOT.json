@@ -1,0 +1,269 @@
+{
+  "kind": "timeout_snapshot_fixed_case_diagnostic",
+  "model": "gpt-6.1-sol",
+  "case_id": "H5",
+  "attempt_status": "timeout",
+  "generated_cases": 0,
+  "package_unchanged": true,
+  "rows": [
+    {
+      "control": "correct_selected_plan",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "owner-h5-e7338dfd9eac4a088ae618d866a03268",
+        "--network",
+        "none",
+        "--read-only",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--pids-limit",
+        "64",
+        "--memory",
+        "256m",
+        "--cpus",
+        "1",
+        "--tmpfs",
+        "/tmp:rw,noexec,nosuid,size=32m",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H5/delivery,target=/subject,readonly",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H5/correct_selected_plan.json,target=/control.json,readonly",
+        "-w",
+        "/tmp",
+        "python:3.14-slim",
+        "python",
+        "-B",
+        "-c",
+        "import importlib,json,shutil,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate')\nfor name,text in c['files'].items():Path('/tmp/candidate',name).write_text(text)\nsys.path.insert(0,'/tmp/eval/evaluation');e=importlib.import_module(sys.argv[1]);original_cases=e.build_cases;e.build_cases=lambda *a,**kw:[c for c in original_cases(*a,**kw) if c.benchmark];report=eval(sys.argv[2]);print(json.dumps({'pass':report['passed'],'report':report}))\n",
+        "evaluate",
+        "e.evaluate(Path('/tmp/candidate'),generated=0,budget=80)"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pass\": true, \"report\": {\"schema_version\": \"query-engine-evaluation/v1\", \"candidate\": \"/tmp/candidate\", \"seed\": 61371, \"generated_cases\": 0, \"fixtures\": 1, \"passed\": true, \"summary\": {\"passed\": 7, \"total\": 7, \"categories\": {\"integrity\": {\"passed\": 2, \"total\": 2}, \"optimizer_api\": {\"passed\": 2, \"total\": 2}, \"performance\": {\"passed\": 1, \"total\": 1}, \"public\": {\"passed\": 2, \"total\": 2}}}, \"checks\": [{\"name\": \"integrity/before\", \"category\": \"integrity\", \"passed\": true, \"detail\": \"protected hashes and regular local Python modules verified\"}, {\"name\": \"public/selective reservation join/ordinary\", \"category\": \"public\", \"passed\": true, \"detail\": {\"rows\": 4, \"join_comparisons\": 150}}, {\"name\": \"public/selective reservation join/optimized\", \"category\": \"public\", \"passed\": true, \"detail\": {\"rows\": 4, \"join_comparisons\": 30}}, {\"name\": \"public/selective reservation join/half-comparisons\", \"category\": \"performance\", \"passed\": true, \"detail\": {\"baseline\": 150, \"optimized\": 30, \"max_allowed\": 75}}, {\"name\": \"optimizer/api-import-and-calls\", \"category\": \"optimizer_api\", \"passed\": true, \"detail\": \"optimizer.optimize called directly in an isolated subprocess\"}, {\"name\": \"public/selective reservation join/optimizer-api\", \"category\": \"optimizer_api\", \"passed\": true, \"detail\": \"valid equivalent plan; input unchanged\"}, {\"name\": \"integrity/after\", \"category\": \"integrity\", \"passed\": true, \"detail\": \"protected hashes and regular local Python modules verified\"}]}}\n",
+      "stderr": "",
+      "observed": {
+        "pass": true,
+        "report": {
+          "schema_version": "query-engine-evaluation/v1",
+          "candidate": "/tmp/candidate",
+          "seed": 61371,
+          "generated_cases": 0,
+          "fixtures": 1,
+          "passed": true,
+          "summary": {
+            "passed": 7,
+            "total": 7,
+            "categories": {
+              "integrity": {
+                "passed": 2,
+                "total": 2
+              },
+              "optimizer_api": {
+                "passed": 2,
+                "total": 2
+              },
+              "performance": {
+                "passed": 1,
+                "total": 1
+              },
+              "public": {
+                "passed": 2,
+                "total": 2
+              }
+            }
+          },
+          "checks": [
+            {
+              "name": "integrity/before",
+              "category": "integrity",
+              "passed": true,
+              "detail": "protected hashes and regular local Python modules verified"
+            },
+            {
+              "name": "public/selective reservation join/ordinary",
+              "category": "public",
+              "passed": true,
+              "detail": {
+                "rows": 4,
+                "join_comparisons": 150
+              }
+            },
+            {
+              "name": "public/selective reservation join/optimized",
+              "category": "public",
+              "passed": true,
+              "detail": {
+                "rows": 4,
+                "join_comparisons": 30
+              }
+            },
+            {
+              "name": "public/selective reservation join/half-comparisons",
+              "category": "performance",
+              "passed": true,
+              "detail": {
+                "baseline": 150,
+                "optimized": 30,
+                "max_allowed": 75
+              }
+            },
+            {
+              "name": "optimizer/api-import-and-calls",
+              "category": "optimizer_api",
+              "passed": true,
+              "detail": "optimizer.optimize called directly in an isolated subprocess"
+            },
+            {
+              "name": "public/selective reservation join/optimizer-api",
+              "category": "optimizer_api",
+              "passed": true,
+              "detail": "valid equivalent plan; input unchanged"
+            },
+            {
+              "name": "integrity/after",
+              "category": "integrity",
+              "passed": true,
+              "detail": "protected hashes and regular local Python modules verified"
+            }
+          ]
+        }
+      },
+      "valid": true
+    },
+    {
+      "control": "coherent_extra_work",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "owner-h5-606fea1d7856422bbb944d585c8add37",
+        "--network",
+        "none",
+        "--read-only",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--pids-limit",
+        "64",
+        "--memory",
+        "256m",
+        "--cpus",
+        "1",
+        "--tmpfs",
+        "/tmp:rw,noexec,nosuid,size=32m",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H5/delivery,target=/subject,readonly",
+        "--mount",
+        "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H5/coherent_extra_work.json,target=/control.json,readonly",
+        "-w",
+        "/tmp",
+        "python:3.14-slim",
+        "python",
+        "-B",
+        "-c",
+        "import importlib,json,shutil,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');shutil.copytree('/subject/input/workspace','/tmp/candidate')\nfor name,text in c['files'].items():Path('/tmp/candidate',name).write_text(text)\nsys.path.insert(0,'/tmp/eval/evaluation');e=importlib.import_module(sys.argv[1]);original_cases=e.build_cases;e.build_cases=lambda *a,**kw:[c for c in original_cases(*a,**kw) if c.benchmark];report=eval(sys.argv[2]);print(json.dumps({'pass':report['passed'],'report':report}))\n",
+        "evaluate",
+        "e.evaluate(Path('/tmp/candidate'),generated=0,budget=80)"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pass\": true, \"report\": {\"schema_version\": \"query-engine-evaluation/v1\", \"candidate\": \"/tmp/candidate\", \"seed\": 61371, \"generated_cases\": 0, \"fixtures\": 1, \"passed\": true, \"summary\": {\"passed\": 7, \"total\": 7, \"categories\": {\"integrity\": {\"passed\": 2, \"total\": 2}, \"optimizer_api\": {\"passed\": 2, \"total\": 2}, \"performance\": {\"passed\": 1, \"total\": 1}, \"public\": {\"passed\": 2, \"total\": 2}}}, \"checks\": [{\"name\": \"integrity/before\", \"category\": \"integrity\", \"passed\": true, \"detail\": \"protected hashes and regular local Python modules verified\"}, {\"name\": \"public/selective reservation join/ordinary\", \"category\": \"public\", \"passed\": true, \"detail\": {\"rows\": 4, \"join_comparisons\": 150}}, {\"name\": \"public/selective reservation join/optimized\", \"category\": \"public\", \"passed\": true, \"detail\": {\"rows\": 4, \"join_comparisons\": 30}}, {\"name\": \"public/selective reservation join/half-comparisons\", \"category\": \"performance\", \"passed\": true, \"detail\": {\"baseline\": 150, \"optimized\": 30, \"max_allowed\": 75}}, {\"name\": \"optimizer/api-import-and-calls\", \"category\": \"optimizer_api\", \"passed\": true, \"detail\": \"optimizer.optimize called directly in an isolated subprocess\"}, {\"name\": \"public/selective reservation join/optimizer-api\", \"category\": \"optimizer_api\", \"passed\": true, \"detail\": \"valid equivalent plan; input unchanged\"}, {\"name\": \"integrity/after\", \"category\": \"integrity\", \"passed\": true, \"detail\": \"protected hashes and regular local Python modules verified\"}]}}\n",
+      "stderr": "",
+      "observed": {
+        "pass": true,
+        "report": {
+          "schema_version": "query-engine-evaluation/v1",
+          "candidate": "/tmp/candidate",
+          "seed": 61371,
+          "generated_cases": 0,
+          "fixtures": 1,
+          "passed": true,
+          "summary": {
+            "passed": 7,
+            "total": 7,
+            "categories": {
+              "integrity": {
+                "passed": 2,
+                "total": 2
+              },
+              "optimizer_api": {
+                "passed": 2,
+                "total": 2
+              },
+              "performance": {
+                "passed": 1,
+                "total": 1
+              },
+              "public": {
+                "passed": 2,
+                "total": 2
+              }
+            }
+          },
+          "checks": [
+            {
+              "name": "integrity/before",
+              "category": "integrity",
+              "passed": true,
+              "detail": "protected hashes and regular local Python modules verified"
+            },
+            {
+              "name": "public/selective reservation join/ordinary",
+              "category": "public",
+              "passed": true,
+              "detail": {
+                "rows": 4,
+                "join_comparisons": 150
+              }
+            },
+            {
+              "name": "public/selective reservation join/optimized",
+              "category": "public",
+              "passed": true,
+              "detail": {
+                "rows": 4,
+                "join_comparisons": 30
+              }
+            },
+            {
+              "name": "public/selective reservation join/half-comparisons",
+              "category": "performance",
+              "passed": true,
+              "detail": {
+                "baseline": 150,
+                "optimized": 30,
+                "max_allowed": 75
+              }
+            },
+            {
+              "name": "optimizer/api-import-and-calls",
+              "category": "optimizer_api",
+              "passed": true,
+              "detail": "optimizer.optimize called directly in an isolated subprocess"
+            },
+            {
+              "name": "public/selective reservation join/optimizer-api",
+              "category": "optimizer_api",
+              "passed": true,
+              "detail": "valid equivalent plan; input unchanged"
+            },
+            {
+              "name": "integrity/after",
+              "category": "integrity",
+              "passed": true,
+              "detail": "protected hashes and regular local Python modules verified"
+            }
+          ]
+        }
+      },
+      "valid": true
+    }
+  ],
+  "scope": "Native benchmark cases only with original checker logic and generated component disabled, not full default suite or completed author attempt."
+}

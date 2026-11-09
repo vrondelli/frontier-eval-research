@@ -1,0 +1,5 @@
+Implemented `settle_fares` with strict ASCII validation and exact rational arithmetic in [fares.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep03-luna-main-draw3/workspace/fares.py). Added independent unittest cases in [test_fares.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/v6-common-mode/episodes/ep03-luna-main-draw3/workspace/test_fares.py).
+
+The farelib helpers contradicted the supplied rules on class boundaries, cutoff eligibility, and quarter rounding, so the implementation follows the rules directly instead.
+
+Verified with `python3 -m unittest -v test_fares.py`: all 6 tests pass.

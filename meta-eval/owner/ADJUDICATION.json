@@ -1,0 +1,28 @@
+{
+  "schema_version":"eval-author-owner-adjudication/v1",
+  "original_frozen_bank_unchanged":true,
+  "excluded_controls":[
+    {"case_id":"H4","control_id":"correct_independent_alternate","path":"owner/cases/H4/correct_independent_alternate.json","reason":"Standalone assertions violate original task requirement to run with unittest; also inherited production reference is not full-domain qualified.","retained_scope":"Original receipt only establishes finite reference/naive discrimination, not a full-task positive."},
+    {"case_id":"H4","control_id":"correct_independent","path":"owner/cases/H4/correct_independent.json","reason":"Inherited reference uses re.match final-newline acceptance and Decimal precision; cannot supply full-domain positive gold for richer new graders.","retained_scope":"Finite original test-suite discrimination only."},
+    {"case_id":"H4","control_id":"contaminated","path":"owner/cases/H4/contaminated.json","reason":"Native complete-candidate wrapper would pair suite with inherited production reference; its rejection cannot isolate test-quality mechanism.","retained_scope":"Targeted suite failure against preserved original reference/naive only."},
+    {"case_id":"H4","control_id":"reject_everything","path":"owner/cases/H4/reject_everything.json","reason":"Native complete-candidate wrapper uses unqualified inherited production reference; retain as component negative only.","retained_scope":"Suite rejects correct selected behavior; not independent full-task grading."},
+    {"case_id":"H4","control_id":"accept_everything","path":"owner/cases/H4/accept_everything.json","reason":"Native complete-candidate wrapper uses unqualified inherited production reference; retain as component negative only.","retained_scope":"Suite has no meaningful assertions; full-task native positive/negative gold deferred to successor."},
+    {"case_id":"H6","control_id":"correct_lexical_integer","path":"owner/cases/H6/correct_lexical_integer.json","reason":"Finite owner positive expands10**written_exponent before count; cannot qualify full original numeric domain even on feasible-output extreme-exponent count. Full-task false-reject scoring is invalid.","retained_scope":"Independent finite bounded-output owner probes only; not a universally correct implementation."},
+    {"case_id":"H6","control_id":"correct_fraction_parser","path":"owner/cases/H6/correct_fraction_parser.json","reason":"Fraction-based finite positive expands huge nonzero exponent before count; full-domain correctness is unqualified and runtime may exhaust resources.","retained_scope":"Independent finite bounded-output owner probes only; not full-task positive gold."}
+  ],
+  "native_case_policy":{
+    "H1":{"status":"finite_qualified","requires_complete_candidate":true,"materialization":"answer.json must contain task_id, code and nonempty explanation. Any owner-supplied constant explanation is adapter metadata; prose quality is separately reviewed.","scope":"Original sequential controls plus separately frozen three-process-overlap expansion; no universal concurrency proof."},
+    "H2":{"status":"manual_review_required","rubric":"owner/cases/H2/REVIEW.md"},
+    "H3":{"status":"manual_review_required","rubric":"owner/cases/H3/REVIEW.md"},
+    "H4":{"status":"successor_required","requires_complete_candidate":true,"successor_manifest":"owner/expansion-h4/MANIFEST.json","successor_condition":"post_outcome_owner_correction","materialization":"Use supplied original protected workspace unchanged; materialize successor exact-rational production reference as fares.py and valid unittest suite as test_fares.py. Runtime must permit grader's documented scratch-root writes on disposable copy."},
+    "H5":{"status":"finite_qualified","requires_complete_candidate":true,"scope":"Actual original CLI/engine/optimizer, benchmark and257-row probe, independently traced reviewed increment line. Nested private-oracle access is a separate evaluator boundary diagnostic, not original query-contract failure by itself."},
+    "H6":{"status":"coverage_dimension_qualified_overall_positive_qualification_unknown","requires_complete_candidate":true,"scope":"Known-bad saved Luna CLI fails tiny legal exponent-zero count input, so its acceptance proves a coverage false green. Initial positives are excluded as full-task gold. Only feasible bounded-output cases supply failure claims; enormous nonzero sum/output capacity remains resource-ambiguous. Do not classify missing incomplete-turn outputs as completed failures."},
+    "H7":{"status":"finite_qualified","scope":"Original selected source/request with licensed flat/list extraction alternatives; semantic paraphrase coverage remains manual."}
+  },
+  "build_incidents":[
+    {"id":"OWNER-H1-WINDOWS-CLEANUP","kind":"owner_instrument_error","resolution":"Verifier closes sqlite connection; initial failed receipt retained."},
+    {"id":"OWNER-H4-UNLICENSED-ALTERNATE","kind":"invalid_positive_control","resolution":"Frozen control excluded by this sidecar; licensed unittest successor explicitly marked post-outcome."},
+    {"id":"OWNER-H4-INHERITED-REFERENCE","kind":"incomplete_positive_qualification","resolution":"Original full-domain correctness not established; source-derived exact-rational successor built and separately qualified after output inspection."},
+    {"id":"OWNER-H6-FINITE-POSITIVES","kind":"incomplete_positive_qualification","resolution":"Initial positives satisfy selected bounded-output probes but expand extreme nonzero exponents before count. Exclude full-task positive labels. Preserve decisive known-bad acceptance and legalzero counterexamples as coverage/error dimensions; overall positive qualification unknown."}
+  ]
+}

@@ -1,0 +1,35 @@
+PASS ord_summer_daily [ordinary]
+PASS ord_winter_weekly [ordinary]
+PASS ord_sydney_winter [ordinary]
+PASS ord_london_winter [ordinary]
+PASS spring_ny_0230 [spring_nonexistent]
+PASS spring_ny_0200 [spring_nonexistent]
+PASS spring_ny_start_in_gap [spring_nonexistent]
+PASS spring_london_0130 [spring_nonexistent]
+PASS fall_ny_0130 [fall_ambiguous]
+PASS fall_ny_start_ambiguous [fall_ambiguous]
+PASS fall_london_0130 [fall_ambiguous]
+PASS fall_ny_weekly_0130 [fall_ambiguous]
+PASS weekly_ny_spring [weekly_crossing]
+PASS weekly_ny_fall [weekly_crossing]
+PASS weekly_london_spring [weekly_crossing]
+PASS syd_spring_0230 [southern]
+PASS syd_fall_0230 [southern]
+PASS syd_weekly_oct [southern]
+PASS syd_weekly_apr [southern]
+PASS bound_month_end [boundary]
+PASS bound_year_end [boundary]
+PASS bound_sydney_feb [boundary]
+PASS both_weekly_44 [both_transitions]
+PASS both_daily_250 [both_transitions]
+GROUP both_transitions 2/2
+GROUP boundary 3/3
+GROUP fall_ambiguous 4/4
+GROUP ordinary 4/4
+GROUP southern 4/4
+GROUP spring_nonexistent 4/4
+GROUP weekly_crossing 3/3
+COUNTED_FAILURE False ordinary_ok=True dst_failed_groups=[]
+SUMMARY 24/24 pass; fails=[]
+OVERALL PASS
+grader_exit=0

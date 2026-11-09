@@ -1,0 +1,17 @@
+*.zip binary
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+# Frozen evidence bytes must retain their identities. Do not normalize them.
+meta-eval/** -text
+releases/** -text
+
+evidence/** -text
+data/** -text
+
+meta-eval/runs/** linguist-generated=true
+meta-eval/grades/** linguist-generated=true
+meta-eval/packets/** linguist-generated=true
+evidence/** linguist-generated=true
+data/native-receipt-index.json linguist-generated=true

@@ -1,0 +1,1056 @@
+{
+  "subject": {
+    "id": "H6_same_condition_confirmation/gpt-6-astra/H6/draw2",
+    "case_id": "H6",
+    "cohort": "H6_same_condition_confirmation",
+    "model": "gpt-6-astra",
+    "native_status": "completed",
+    "package": "runs/confirmation/gpt-6-astra/H6/draw2/delivery",
+    "jobs": [
+      {
+        "name": "saved_luna_decimal",
+        "kind": "control",
+        "expected": false,
+        "family": "baseline",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-e260805d0641475fb17c3e9052006dc9",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/confirmation/gpt-6-astra/H6/draw2/delivery,target=/subject,readonly",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H6/saved_luna_decimal.json,target=/control.json,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import importlib,json,os,shutil,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir();script=Path('/tmp/candidate/summarize.py');script.write_text(c['code']);sys.path.insert(0,'/tmp/eval/evaluation');os.chdir('/tmp');e=importlib.import_module('evaluate');r=e.run_suite([sys.executable,str(script)],script.parent);print(json.dumps({'pass_verdict':r['all_passed'],'report':r}))\n"
+        ]
+      },
+      {
+        "name": "wrong_count",
+        "kind": "control",
+        "expected": false,
+        "family": "sibling",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-d337f8bc91d24ec48065145f4db6d290",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/confirmation/gpt-6-astra/H6/draw2/delivery,target=/subject,readonly",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H6/wrong_count.json,target=/control.json,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import importlib,json,os,shutil,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir();script=Path('/tmp/candidate/summarize.py');script.write_text(c['code']);sys.path.insert(0,'/tmp/eval/evaluation');os.chdir('/tmp');e=importlib.import_module('evaluate');r=e.run_suite([sys.executable,str(script)],script.parent);print(json.dumps({'pass_verdict':r['all_passed'],'report':r}))\n"
+        ]
+      },
+      {
+        "name": "reject_empty",
+        "kind": "control",
+        "expected": false,
+        "family": "sibling",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-2c3081b9cdce43a8bfd0d217302cdac2",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/confirmation/gpt-6-astra/H6/draw2/delivery,target=/subject,readonly",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H6/reject_empty.json,target=/control.json,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import importlib,json,os,shutil,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir();script=Path('/tmp/candidate/summarize.py');script.write_text(c['code']);sys.path.insert(0,'/tmp/eval/evaluation');os.chdir('/tmp');e=importlib.import_module('evaluate');r=e.run_suite([sys.executable,str(script)],script.parent);print(json.dumps({'pass_verdict':r['all_passed'],'report':r}))\n"
+        ]
+      },
+      {
+        "name": "legal_output_pair",
+        "kind": "output_pair",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-55844bb3b38449838696560d00e411c8",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/confirmation/gpt-6-astra/H6/draw2/delivery,target=/subject,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import importlib,json,sys\nfrom pathlib import Path\nsys.path.insert(0,'/subject/evaluation');e=importlib.import_module('evaluate')\nCase=getattr(e,'Case',None)\nif Case is None:Case=importlib.import_module('cases').Case\ncase=Case('owner-empty-count','owner',b'{\"adjustment_sheets\":{\"zero\":{\"stat\":\"event_count\",\"turns\":[]}}}',{'zero':'0'});rows=[]\nfor token in ['0','0e10000000000000000000']:\n out='{\"stock_reports\":{\"zero\":'+token+'}}';p=Path('/tmp/output.json');p.write_text(out)\n r=getattr(e,'check_output')(case,0,p)\n accepted=(r is None)if 'check_output' in ['judge_output','check_output']else r[0]\n rows.append({'token':token,'accepted':accepted,'detail':r})\nprint(json.dumps({'rows':rows}))\n"
+        ]
+      },
+      {
+        "name": "export_reference_cases",
+        "kind": "numeric_reference",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-fa4272299fdc4ca8ae353a5c7ef597cf",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/confirmation/gpt-6-astra/H6/draw2/delivery,target=/subject,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import importlib,json,sys\nsys.path.insert(0,'/subject/evaluation');m=importlib.import_module('cases');cases=getattr(m,'build_cases')();rows=[]\nfor c in cases:\n raw=next(getattr(c,n)for n in ['raw','data','payload']if hasattr(c,n))\n if c.expected is None:raw=''\n rows.append({'name':c.name,'raw':raw.decode('utf8')if isinstance(raw,bytes)else raw,'expected':None if c.expected is None else {str(k):str(v)for k,v in c.expected.items()}})\nprint(json.dumps({'cases':rows}))\n"
+        ]
+      },
+      {
+        "name": "author_verification",
+        "kind": "selftests",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-f8ea8204bee9445ca4425e7a303c5e17",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/confirmation/gpt-6-astra/H6/draw2/delivery,target=/subject,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import json,os,shutil,subprocess,sys\nfrom pathlib import Path\nshutil.copytree('/subject','/tmp/eval');os.chdir('/tmp/eval');env=dict(os.environ);env['PYTHONPATH']='/tmp/eval:/tmp/eval/evaluation'\np=subprocess.run([sys.executable,'-B','-c',\"import json,runpy,sys,unittest\\nfrom pathlib import Path\\nevents={'unittest_cases_entered':0,'native_grader_calls':0}\\ncase_code=unittest.TestCase.run.__code__\\ndef observe(frame,event,arg):\\n if event=='call':\\n  if frame.f_code is case_code:events['unittest_cases_entered']+=1\\n  if frame.f_code.co_filename.startswith('/tmp/eval/')and frame.f_code.co_name in ['grade','evaluate','run_suite']:events['native_grader_calls']+=1\\nsys.argv=['evaluation/selftest.py'];status=0;sys.setprofile(observe)\\ntry:\\n if sys.argv[0]=='-m':\\n  module=sys.argv[1];sys.argv=sys.argv[1:];runpy.run_module(module,run_name='__main__',alter_sys=True)\\n else:runpy.run_path(sys.argv[0],run_name='__main__')\\nexcept SystemExit as e:status=e.code or 0\\nfinally:\\n sys.setprofile(None);Path('/tmp/owner-verification-events.json').write_text(json.dumps(events))\\nraise SystemExit(status)\\n\"],capture_output=True,text=True,env=env,timeout=180)\nreport=Path('/tmp/eval/evaluation/selftest-report.json')\nevents=Path('/tmp/owner-verification-events.json')\nprint(json.dumps({'native_exit':p.returncode,'stdout':p.stdout,'stderr':p.stderr,'observed_execution_events':json.loads(events.read_text())if events.exists()else None,'verification_report':json.loads(report.read_text())if report.exists()else None}))\n"
+        ],
+        "timeout": 210
+      }
+    ],
+    "review_evidence": [
+      "grades/owner-review/H6-CONFIRMATION-REVIEW.json"
+    ],
+    "historical_verified_dimensions": [],
+    "h6_profile": {
+      "module": "evaluate",
+      "cases_module": "cases",
+      "cases": "build_cases",
+      "call": "e.run_suite([sys.executable,str(script)],script.parent)",
+      "key": "all_passed",
+      "judge": "check_output",
+      "path": true,
+      "string_expected": true
+    }
+  },
+  "scoring": {
+    "score_interval": [
+      57.15909091,
+      100.0
+    ],
+    "verdict": "not_qualified",
+    "critical_failures": [],
+    "qualified": false,
+    "points_observed_pass": 57.15909091,
+    "points_observed_fail": 0.0,
+    "points_unresolved": 42.84090909
+  },
+  "checks": [
+    {
+      "id": "A1",
+      "points": 5,
+      "description": "Delivered grader actually executes",
+      "status": "pass",
+      "reason": "Actual delivered grading functions executed on independently supplied controls.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/00-saved_luna_decimal.json",
+          "sha256": "93e3d22c2ebb57c75db7a43721f071d482e86f80a0b8de713a025d1d7c6f09ce"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/01-wrong_count.json",
+          "sha256": "6f4878725e7f2cd3a0532999a66e39057aae1defba7d3c32be9d8850bee14884"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/02-reject_empty.json",
+          "sha256": "fb381ee2f1c7625347b619a554f0f0aaef3107ecf423095b6d11b36b38fddc4e"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "A2",
+      "points": 5,
+      "description": "Delivered verification/runner executes in clean disposable state",
+      "status": "pass",
+      "reason": "Delivered verification suite reproduced in clean temporary copy under the supplied runtime; this does not establish all CLI paths.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/05-author_verification.json",
+          "sha256": "95e21261c1a117f81e5d2c106effffd50e9387e36bb9818cf2f3a1087b69b601"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "B1",
+      "points": 7.5,
+      "description": "Source requirements preserved",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "B2",
+      "points": 7.5,
+      "description": "Graded requirements exposed to solver",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "C1",
+      "points": 7.5,
+      "description": "Reference independently passes core semantics",
+      "status": "pass",
+      "reason": "Independent oracle compared 9 supplied core reference answers; finite scope only.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "subchecks": [
+        {
+          "name": "published_example",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.8333333333333334
+        },
+        {
+          "name": "identities_and_repetitions",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.8333333333333334
+        },
+        {
+          "name": "identifiers",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.8333333333333334
+        },
+        {
+          "name": "beyond_decimal_default_precision",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.8333333333333334
+        },
+        {
+          "name": "long_integer_literal",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.8333333333333334
+        },
+        {
+          "name": "long_integral_decimal",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.8333333333333334
+        },
+        {
+          "name": "many_rows",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.8333333333333334
+        },
+        {
+          "name": "long_array",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.8333333333333334
+        },
+        {
+          "name": "exactly_8192_bytes",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.8333333333333334
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "points": 7.5,
+      "description": "Reference independently passes boundary semantics",
+      "status": "unknown",
+      "reason": "Independent oracle compared 22 supplied boundary reference answers; finite scope only.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+          "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "subchecks": [
+        {
+          "name": "integral_number_encodings",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "binary64_boundary",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "cancellation_and_order",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "beyond_float_range",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "large_result",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "compact_extreme_exponent",
+          "status": "unknown",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_00",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_01",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_02",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_03",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_04",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_05",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_06",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_07",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_08",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_09",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_10",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_11",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_12",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_13",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_14",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        },
+        {
+          "name": "generated_15",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/independent-numeric-reference.json",
+              "sha256": "b7e875f2f9da6e18fc51004efcb8ffbd79d90752025b5849c4fd7d2c80227dc2"
+            }
+          ],
+          "points": 0.3409090909090909
+        }
+      ]
+    },
+    {
+      "id": "D1",
+      "points": 10,
+      "description": "Baseline correct control accepted",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "D2",
+      "points": 10,
+      "description": "Correct alternative/representation accepted",
+      "status": "pass",
+      "reason": "Actual native judge on two source-licensed spellings of exact zero; output-only scope.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/03-legal_output_pair.json",
+          "sha256": "bb1ae94e136a7486654895abe7f4f828a3d9bf6deab67867a3e438a356382d27"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "E1",
+      "points": 10,
+      "description": "Baseline faulty controls rejected",
+      "status": "pass",
+      "reason": "Actual native verdicts on independently labeled finite faulty-control family; controls macro-averaged within family.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/00-saved_luna_decimal.json",
+          "sha256": "93e3d22c2ebb57c75db7a43721f071d482e86f80a0b8de713a025d1d7c6f09ce"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "subchecks": [
+        {
+          "name": "saved_luna_decimal",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/00-saved_luna_decimal.json",
+              "sha256": "93e3d22c2ebb57c75db7a43721f071d482e86f80a0b8de713a025d1d7c6f09ce"
+            }
+          ],
+          "points": 10.0
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "points": 10,
+      "description": "Fresh sibling faults rejected",
+      "status": "pass",
+      "reason": "Actual native verdicts on independently labeled finite faulty-control family; controls macro-averaged within family.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/01-wrong_count.json",
+          "sha256": "6f4878725e7f2cd3a0532999a66e39057aae1defba7d3c32be9d8850bee14884"
+        },
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/02-reject_empty.json",
+          "sha256": "fb381ee2f1c7625347b619a554f0f0aaef3107ecf423095b6d11b36b38fddc4e"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "subchecks": [
+        {
+          "name": "wrong_count",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/01-wrong_count.json",
+              "sha256": "6f4878725e7f2cd3a0532999a66e39057aae1defba7d3c32be9d8850bee14884"
+            }
+          ],
+          "points": 5.0
+        },
+        {
+          "name": "reject_empty",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/02-reject_empty.json",
+              "sha256": "fb381ee2f1c7625347b619a554f0f0aaef3107ecf423095b6d11b36b38fddc4e"
+            }
+          ],
+          "points": 5.0
+        }
+      ]
+    },
+    {
+      "id": "F1",
+      "points": 5,
+      "description": "Required isolation boundaries qualified",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "F2",
+      "points": 5,
+      "description": "Required measurement/accounting checked independently",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "G1",
+      "points": 2.5,
+      "description": "Delivered verification controls execute",
+      "status": "pass",
+      "reason": "Observed 0 actual unittest-case entries and 10 native grading calls under an owner-side profiler. Control-label correctness is a separate review.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/05-author_verification.json",
+          "sha256": "95e21261c1a117f81e5d2c106effffd50e9387e36bb9818cf2f3a1087b69b601"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "G2",
+      "points": 2.5,
+      "description": "Verification claims independently match observations",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "H1",
+      "points": 2.5,
+      "description": "Numerical claims agree with evidence",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "H2",
+      "points": 2.5,
+      "description": "Material conclusions supported",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    }
+  ],
+  "native_control_results": [
+    {
+      "name": "saved_luna_decimal",
+      "expected": false,
+      "actual": false,
+      "valid": true,
+      "family": "baseline",
+      "evidence": {
+        "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/00-saved_luna_decimal.json",
+        "sha256": "93e3d22c2ebb57c75db7a43721f071d482e86f80a0b8de713a025d1d7c6f09ce"
+      }
+    },
+    {
+      "name": "wrong_count",
+      "expected": false,
+      "actual": false,
+      "valid": true,
+      "family": "sibling",
+      "evidence": {
+        "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/01-wrong_count.json",
+        "sha256": "6f4878725e7f2cd3a0532999a66e39057aae1defba7d3c32be9d8850bee14884"
+      }
+    },
+    {
+      "name": "reject_empty",
+      "expected": false,
+      "actual": false,
+      "valid": true,
+      "family": "sibling",
+      "evidence": {
+        "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/02-reject_empty.json",
+        "sha256": "fb381ee2f1c7625347b619a554f0f0aaef3107ecf423095b6d11b36b38fddc4e"
+      }
+    }
+  ],
+  "execution_receipts": [
+    {
+      "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/00-saved_luna_decimal.json",
+      "sha256": "93e3d22c2ebb57c75db7a43721f071d482e86f80a0b8de713a025d1d7c6f09ce"
+    },
+    {
+      "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/01-wrong_count.json",
+      "sha256": "6f4878725e7f2cd3a0532999a66e39057aae1defba7d3c32be9d8850bee14884"
+    },
+    {
+      "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/02-reject_empty.json",
+      "sha256": "fb381ee2f1c7625347b619a554f0f0aaef3107ecf423095b6d11b36b38fddc4e"
+    },
+    {
+      "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/03-legal_output_pair.json",
+      "sha256": "bb1ae94e136a7486654895abe7f4f828a3d9bf6deab67867a3e438a356382d27"
+    },
+    {
+      "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/04-export_reference_cases.json",
+      "sha256": "36215c2680a8f98296b270f713119ef1cc64edfb35ba4b5211e9b09438c9d2a8"
+    },
+    {
+      "path": "grades/scored-v2-final/H6_same_condition_confirmation/gpt-6-astra/H6/draw2/05-author_verification.json",
+      "sha256": "95e21261c1a117f81e5d2c106effffd50e9387e36bb9818cf2f3a1087b69b601"
+    }
+  ],
+  "instrument_observations": [],
+  "subject_unchanged": true,
+  "subject_before_sha256": {
+    "MANIFEST.json": "b8d456092a610308085192119c74120c6d9123a592c8931c33a268fd193bd1f2",
+    "PROVENANCE.json": "a6a03f7a01d2dcd617518f7a538ad5fa7a044cf6787919a95644338514d4b40a",
+    "evaluation/README.md": "4b69ce27f1ce3a4a7c1bb122aef599bf89831c4c7f5f83485b6fcabdbd7f0bcf",
+    "evaluation/cases.py": "5a5aff4070168bfe625f61de50a24e5c0a2e4295b4080ccb7b53308caed48bf5",
+    "evaluation/control_cli.py": "0e5914c9f4066d0d5a8f1fbf0171bf4bb92e6298ba23143c64cafaa84a3b0391",
+    "evaluation/evaluate.py": "c3715083a598193a4a149d198281a85e762e099ba0fea6150cb3207e29c3a578",
+    "evaluation/numbers_exact.py": "093e9307d5125cd03ac2a57f054ac10af8c1e567ce7b773201fdb4da96de2b7e",
+    "evaluation/positive-control-report.json": "50aaead1690129a9c8c71cc77424871210beb46ace1db85660594e1692972628",
+    "evaluation/selftest-report.json": "04fe7806bc4f85e7a6f51c91533938ce866a61f42fed1cdf7b25c75960720c50",
+    "evaluation/selftest.py": "f23d194236edfd9924dcbc9b56dc825d3ecb63a3a11c463a7adc6afed8136521",
+    "input/task.txt": "a14f6d6510d66ed96ad0124d3563ac1c2ea02f9686399bb97324e1fc7c3811f5",
+    "input/workspace/README.md": "b62e2fa1926a5d39e749a09cae70ede342275855e4ca3f81318483c42c399cc7",
+    "input/workspace/example.json": "81e6c582cb892db6a2457cd88a005d45689a10835ff089041083eb3363ae1d62",
+    "input/workspace/input.schema.json": "22e4954dd62b1f6b7368d8d16875ebdfcda0dd5ae9c973bc21f2b7e1b445ada5",
+    "input/workspace/output.schema.json": "1b02c59bce9547a3240d0fb6b32d118e11e34d862597eb2e80013c7001c5b4cf",
+    "prompt.md": "b445955764503d0f388b8471f5740124bcc06bd9f00014f071735cd031a05b4d"
+  },
+  "human_review_complete": false,
+  "scope": "Executable meta-evaluation on the finite registered checks; unqualified semantic/boundary claims remain unresolved."
+}

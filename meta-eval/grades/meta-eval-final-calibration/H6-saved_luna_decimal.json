@@ -1,0 +1,95 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 2.072779250000167,
+  "stdout": "{\"observed_pass\": false, \"evidence\": [{\"probe\": \"zero_exponent\", \"pass\": false, \"exit_code\": 1, \"output\": null, \"stderr\": \"Traceback (most recent call last):\\n  File \\\"/tmp/eval-owner-z__bebyt/summarize.py\\\", line 125, in <module>\\n    raise SystemExit(main())\\n                     ~~~~^^\\n  File \\\"/tmp/eval-owner-z__bebyt/summarize.py\\\", line 108, in main\\n    document = json.loads(\\n        source,\\n    ...<3 lines>...\\n        object_pairs_hook=_object_without_duplicates,\\n    )\\n  File \\\"/usr/local/lib/python3.14/json/__init__.py\\\", line 365, in loads\\n    return cls(**kw).decode(s)\\n           ~~~~~~~~~~~~~~~~^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 345, in decode\\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.14/json/decoder.py\\\", line 361, in raw_decode\\n    obj, end = self.scan_once(s, idx)\\n               ~~~~~~~~~~~~~~^^^^^^^^\\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\\n\"}, {\"probe\": \"canonical\", \"pass\": true, \"exit_code\": 0, \"output\": {\"stock_reports\": {\"a\": 1, \"b\": 3}}, \"stderr\": \"\"}, {\"probe\": \"empty\", \"pass\": true, \"exit_code\": 0, \"output\": {\"stock_reports\": {\"e\": 0, \"c\": 0}}, \"stderr\": \"\"}, {\"probe\": \"integral\", \"pass\": true, \"exit_code\": 0, \"output\": {\"stock_reports\": {\"s\": 29, \"m\": -2}}, \"stderr\": \"\"}, {\"probe\": \"boolean\", \"pass\": true, \"exit_code\": 1, \"output\": null, \"stderr\": \"summarize.py: sheet 's' contains a non-integer turn\\n\"}]}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-14a642d3f7644a60be7d1a2d7d12bc1f",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/check_cases.py,target=/checker.py,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H6/saved_luna_decimal.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,runpy\nm=runpy.run_path('/checker.py');c=json.load(open('/control.json'));ok,ev=m['CHECKS']['H6'](c);print(json.dumps({'observed_pass':ok,'evidence':ev}))"
+  ],
+  "decoded": {
+    "observed_pass": false,
+    "evidence": [
+      {
+        "probe": "zero_exponent",
+        "pass": false,
+        "exit_code": 1,
+        "output": null,
+        "stderr": "Traceback (most recent call last):\n  File \"/tmp/eval-owner-z__bebyt/summarize.py\", line 125, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"/tmp/eval-owner-z__bebyt/summarize.py\", line 108, in main\n    document = json.loads(\n        source,\n    ...<3 lines>...\n        object_pairs_hook=_object_without_duplicates,\n    )\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\n"
+      },
+      {
+        "probe": "canonical",
+        "pass": true,
+        "exit_code": 0,
+        "output": {
+          "stock_reports": {
+            "a": 1,
+            "b": 3
+          }
+        },
+        "stderr": ""
+      },
+      {
+        "probe": "empty",
+        "pass": true,
+        "exit_code": 0,
+        "output": {
+          "stock_reports": {
+            "e": 0,
+            "c": 0
+          }
+        },
+        "stderr": ""
+      },
+      {
+        "probe": "integral",
+        "pass": true,
+        "exit_code": 0,
+        "output": {
+          "stock_reports": {
+            "s": 29,
+            "m": -2
+          }
+        },
+        "stderr": ""
+      },
+      {
+        "probe": "boolean",
+        "pass": true,
+        "exit_code": 1,
+        "output": null,
+        "stderr": "summarize.py: sheet 's' contains a non-integer turn\n"
+      }
+    ]
+  }
+}

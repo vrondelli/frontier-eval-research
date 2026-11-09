@@ -1,0 +1,123 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 2.651580510999338,
+  "stdout": "{\"pass_verdict\": false, \"report\": {\"case_id\": \"H7\", \"passed\": false, \"score\": 0.9375, \"checks_passed\": 15, \"checks_total\": 16, \"schema_valid\": true, \"errors\": [], \"warnings\": [], \"fields\": {\"path\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": true, \"passed\": true, \"issues\": []}, \"load_profile\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": true, \"passed\": true, \"issues\": []}, \"metric\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": true, \"passed\": true, \"issues\": []}, \"value_ms\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": false, \"passed\": false, \"issues\": [\"Quote must be one exact contiguous report span covering affirmative evidence for this field and the requested target; numbers must include units, and the metric must include activity and percentile.\"]}, \"sample_count\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": true, \"passed\": true, \"issues\": []}, \"time_scope\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": true, \"passed\": true, \"issues\": []}, \"rejection_rate\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": true, \"passed\": true, \"issues\": []}, \"deployment_region\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": true, \"passed\": true, \"issues\": []}}, \"manual_review_required\": true, \"scope\": \"Artifact correctness only; process and brief limitations explanation require review.\"}}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-c72da9ebed1c4bd89f336169868d769e",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H7/delivery,target=/subject,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H7/wrong_supporting_quote.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,sys;sys.path.insert(0,'/subject/evaluation');import grade;c=json.load(open(sys.argv[1]));r=grade.grade(c['extraction']);print(json.dumps(dict(pass_verdict=r['passed'],report=r)))",
+    "/control.json"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 1558,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "pass_verdict": false,
+    "report": {
+      "case_id": "H7",
+      "passed": false,
+      "score": 0.9375,
+      "checks_passed": 15,
+      "checks_total": 16,
+      "schema_valid": true,
+      "errors": [],
+      "warnings": [],
+      "fields": {
+        "path": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": true,
+          "passed": true,
+          "issues": []
+        },
+        "load_profile": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": true,
+          "passed": true,
+          "issues": []
+        },
+        "metric": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": true,
+          "passed": true,
+          "issues": []
+        },
+        "value_ms": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": false,
+          "passed": false,
+          "issues": [
+            "Quote must be one exact contiguous report span covering affirmative evidence for this field and the requested target; numbers must include units, and the metric must include activity and percentile."
+          ]
+        },
+        "sample_count": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": true,
+          "passed": true,
+          "issues": []
+        },
+        "time_scope": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": true,
+          "passed": true,
+          "issues": []
+        },
+        "rejection_rate": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": true,
+          "passed": true,
+          "issues": []
+        },
+        "deployment_region": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": true,
+          "passed": true,
+          "issues": []
+        }
+      },
+      "manual_review_required": true,
+      "scope": "Artifact correctness only; process and brief limitations explanation require review."
+    }
+  },
+  "job_id": "wrong_supporting_quote",
+  "kind": "control",
+  "expected": false,
+  "family": "baseline"
+}

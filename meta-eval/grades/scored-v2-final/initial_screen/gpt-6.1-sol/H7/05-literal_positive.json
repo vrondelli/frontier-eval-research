@@ -1,0 +1,121 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 2.798295958000381,
+  "stdout": "{\"pass_verdict\": true, \"report\": {\"case_id\": \"H7\", \"passed\": true, \"score\": 1.0, \"checks_passed\": 16, \"checks_total\": 16, \"schema_valid\": true, \"errors\": [], \"warnings\": [], \"fields\": {\"path\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": true, \"passed\": true, \"issues\": []}, \"load_profile\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": true, \"passed\": true, \"issues\": []}, \"metric\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": true, \"passed\": true, \"issues\": []}, \"value_ms\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": true, \"passed\": true, \"issues\": []}, \"sample_count\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": true, \"passed\": true, \"issues\": []}, \"time_scope\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": true, \"passed\": true, \"issues\": []}, \"rejection_rate\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": true, \"passed\": true, \"issues\": []}, \"deployment_region\": {\"value_correct\": true, \"quote_exact\": true, \"quote_supports_assigned_value\": true, \"passed\": true, \"issues\": []}}, \"manual_review_required\": true, \"scope\": \"Artifact correctness only; process and brief limitations explanation require review.\"}}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-c51175d23cd049809f2ddb5bcd2d0844",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H7/delivery,target=/subject,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/expansion-h7/literal_positive.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,sys;sys.path.insert(0,'/subject/evaluation');import grade;c=json.load(open(sys.argv[1]));r=grade.grade(c['extraction']);print(json.dumps(dict(pass_verdict=r['passed'],report=r)))",
+    "/control.json"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 1351,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "pass_verdict": true,
+    "report": {
+      "case_id": "H7",
+      "passed": true,
+      "score": 1.0,
+      "checks_passed": 16,
+      "checks_total": 16,
+      "schema_valid": true,
+      "errors": [],
+      "warnings": [],
+      "fields": {
+        "path": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": true,
+          "passed": true,
+          "issues": []
+        },
+        "load_profile": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": true,
+          "passed": true,
+          "issues": []
+        },
+        "metric": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": true,
+          "passed": true,
+          "issues": []
+        },
+        "value_ms": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": true,
+          "passed": true,
+          "issues": []
+        },
+        "sample_count": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": true,
+          "passed": true,
+          "issues": []
+        },
+        "time_scope": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": true,
+          "passed": true,
+          "issues": []
+        },
+        "rejection_rate": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": true,
+          "passed": true,
+          "issues": []
+        },
+        "deployment_region": {
+          "value_correct": true,
+          "quote_exact": true,
+          "quote_supports_assigned_value": true,
+          "passed": true,
+          "issues": []
+        }
+      },
+      "manual_review_required": true,
+      "scope": "Artifact correctness only; process and brief limitations explanation require review."
+    }
+  },
+  "job_id": "literal_positive",
+  "kind": "control",
+  "expected": true,
+  "family": "sibling"
+}

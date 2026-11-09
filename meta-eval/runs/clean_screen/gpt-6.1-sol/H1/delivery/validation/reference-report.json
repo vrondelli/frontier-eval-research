@@ -1,0 +1,34 @@
+{
+  "schema_version": "e1-evaluation/v1",
+  "task_id": "E1",
+  "answer_sha256": "c0ed3c22614133db7503cd79d347697d42963ef4a2b79052bb0bf7e7ab2bc463",
+  "protocol_sha256": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+  "harness_sha256": {
+    "evaluator.py": "6a697417090c7b7d5c00d2161057002924a3e95957bf15256801c7b393e517d6",
+    "staged.py": "023e61c8ce8e0da20fc89ce95e1f78540f47c694e3083f0f5293ea445fa8277d",
+    "e1eval/__init__.py": "9f59b696a1bd40601e4d3d5f9c9de71267fef2fb012e864cc525d2b759acfb68",
+    "e1eval/inspect_db.py": "91d7dfb88007cc518389fa64164250ff2c333d10a88dbca5ef1693a9778e5efa",
+    "e1eval/oracle.py": "59f7b2989bdb97e46c8c016b4409ca9cf488486afd2fee5170278f414bf52701",
+    "e1eval/runner.py": "e69bb38847a746e208fea9f071605017e3694e50f49a856644ba476f637d7c8b",
+    "e1eval/worker.py": "876304677eb929bb49f14489e574d1eff49015ca7232ac1ac6c3dceb686761dd"
+  },
+  "limits": {
+    "address_space_bytes": 536870912,
+    "file_descriptors": 256,
+    "cpu_seconds_per_process": 10,
+    "reply_seconds": 6,
+    "reply_bytes": 65536,
+    "file_size_bytes": 8388608,
+    "isolated_repetitions": 3
+  },
+  "review": {
+    "status": "pending",
+    "rubric": "REVIEW-RUBRIC.md"
+  },
+  "canonical_answer_sha256": "cadfed148263e1e599aed38c18fb5f1dcb13e7e37a1ff3b003f81383d17ec03f",
+  "status": "unavailable",
+  "formal_status": "unavailable",
+  "overall_status": "unavailable",
+  "executable_ran": false,
+  "reason": "Linux with bubblewrap and working unprivileged namespaces is required"
+}

@@ -1,0 +1,973 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 0.5865017979995173,
+  "stdout": "{\"evaluator\": \"e1-eval/1.0\", \"task_id\": \"E1\", \"formal_status\": \"fail\", \"overall_status\": \"formal_fail_review_pending\", \"review_status\": \"pending\", \"cases\": [{\"name\": \"core-1\", \"scope\": \"declared_overlap_and_replay\", \"status\": \"fail\", \"plan\": {\"name\": \"core-1\", \"scope\": \"declared_overlap_and_replay\", \"pair\": [{\"key\": \"d5d284fb8fc8344e0043eee0-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"d5d284fb8fc8344e0043eee0-y\", \"account\": \"A\", \"amount\": 60}], \"tail\": [{\"key\": \"d5d284fb8fc8344e0043eee0-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"d5d284fb8fc8344e0043eee0-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"d5d284fb8fc8344e0043eee0-x\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"d5d284fb8fc8344e0043eee0-x\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"d5d284fb8fc8344e0043eee0-y\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"d5d284fb8fc8344e0043eee0-y\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"d5d284fb8fc8344e0043eee0-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"d5d284fb8fc8344e0043eee0-drain\", \"account\": \"A\", \"amount\": 40}, {\"key\": \"d5d284fb8fc8344e0043eee0-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"d5d284fb8fc8344e0043eee0-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"d5d284fb8fc8344e0043eee0-empty-a\", \"account\": \"A\", \"amount\": 1}, {\"key\": \"d5d284fb8fc8344e0043eee0-empty-b\", \"account\": \"B\", \"amount\": 1}, {\"key\": \"d5d284fb8fc8344e0043eee0-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"d5d284fb8fc8344e0043eee0-drain\", \"account\": \"A\", \"amount\": 40}], \"restart\": [{\"key\": \"d5d284fb8fc8344e0043eee0-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"d5d284fb8fc8344e0043eee0-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"d5d284fb8fc8344e0043eee0-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"d5d284fb8fc8344e0043eee0-drain\", \"account\": \"A\", \"amount\": 40}, {\"key\": \"d5d284fb8fc8344e0043eee0-empty-a\", \"account\": \"A\", \"amount\": 1}, {\"key\": \"d5d284fb8fc8344e0043eee0-empty-b\", \"account\": \"B\", \"amount\": 1}], \"release_first\": 0}, \"events\": [{\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"request\": {\"key\": \"d5d284fb8fc8344e0043eee0-x\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 40}}}], \"checkpoints\": [], \"terminals\": [{\"pid\": 6, \"returncode\": 0}, {\"pid\": 7, \"returncode\": 0}], \"error\": \"CandidateError: unrecognized business status\"}, {\"name\": \"core-2\", \"scope\": \"declared_overlap_and_replay\", \"status\": \"fail\", \"plan\": {\"name\": \"core-2\", \"scope\": \"declared_overlap_and_replay\", \"pair\": [{\"key\": \"7be9613d8057c36eef2d2ae6-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"7be9613d8057c36eef2d2ae6-y\", \"account\": \"A\", \"amount\": 60}], \"tail\": [{\"key\": \"7be9613d8057c36eef2d2ae6-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"7be9613d8057c36eef2d2ae6-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"7be9613d8057c36eef2d2ae6-x\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"7be9613d8057c36eef2d2ae6-x\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"7be9613d8057c36eef2d2ae6-y\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"7be9613d8057c36eef2d2ae6-y\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"7be9613d8057c36eef2d2ae6-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"7be9613d8057c36eef2d2ae6-drain\", \"account\": \"A\", \"amount\": 40}, {\"key\": \"7be9613d8057c36eef2d2ae6-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"7be9613d8057c36eef2d2ae6-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"7be9613d8057c36eef2d2ae6-empty-a\", \"account\": \"A\", \"amount\": 1}, {\"key\": \"7be9613d8057c36eef2d2ae6-empty-b\", \"account\": \"B\", \"amount\": 1}, {\"key\": \"7be9613d8057c36eef2d2ae6-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"7be9613d8057c36eef2d2ae6-drain\", \"account\": \"A\", \"amount\": 40}], \"restart\": [{\"key\": \"7be9613d8057c36eef2d2ae6-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"7be9613d8057c36eef2d2ae6-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"7be9613d8057c36eef2d2ae6-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"7be9613d8057c36eef2d2ae6-drain\", \"account\": \"A\", \"amount\": 40}, {\"key\": \"7be9613d8057c36eef2d2ae6-empty-a\", \"account\": \"A\", \"amount\": 1}, {\"key\": \"7be9613d8057c36eef2d2ae6-empty-b\", \"account\": \"B\", \"amount\": 1}], \"release_first\": 1}, \"events\": [{\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"request\": {\"key\": \"7be9613d8057c36eef2d2ae6-x\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 40}}}], \"checkpoints\": [], \"terminals\": [{\"pid\": 12, \"returncode\": 0}, {\"pid\": 13, \"returncode\": 0}], \"error\": \"CandidateError: unrecognized business status\"}, {\"name\": \"core-3\", \"scope\": \"declared_overlap_and_replay\", \"status\": \"fail\", \"plan\": {\"name\": \"core-3\", \"scope\": \"declared_overlap_and_replay\", \"pair\": [{\"key\": \"714bce1a05638fea7ffcfbb3-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"714bce1a05638fea7ffcfbb3-y\", \"account\": \"A\", \"amount\": 60}], \"tail\": [{\"key\": \"714bce1a05638fea7ffcfbb3-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"714bce1a05638fea7ffcfbb3-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"714bce1a05638fea7ffcfbb3-x\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"714bce1a05638fea7ffcfbb3-x\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"714bce1a05638fea7ffcfbb3-y\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"714bce1a05638fea7ffcfbb3-y\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"714bce1a05638fea7ffcfbb3-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"714bce1a05638fea7ffcfbb3-drain\", \"account\": \"A\", \"amount\": 40}, {\"key\": \"714bce1a05638fea7ffcfbb3-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"714bce1a05638fea7ffcfbb3-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"714bce1a05638fea7ffcfbb3-empty-a\", \"account\": \"A\", \"amount\": 1}, {\"key\": \"714bce1a05638fea7ffcfbb3-empty-b\", \"account\": \"B\", \"amount\": 1}, {\"key\": \"714bce1a05638fea7ffcfbb3-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"714bce1a05638fea7ffcfbb3-drain\", \"account\": \"A\", \"amount\": 40}], \"restart\": [{\"key\": \"714bce1a05638fea7ffcfbb3-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"714bce1a05638fea7ffcfbb3-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"714bce1a05638fea7ffcfbb3-b\", \"account\": \"B\", \"amount\": 100}, {\"key\": \"714bce1a05638fea7ffcfbb3-drain\", \"account\": \"A\", \"amount\": 40}, {\"key\": \"714bce1a05638fea7ffcfbb3-empty-a\", \"account\": \"A\", \"amount\": 1}, {\"key\": \"714bce1a05638fea7ffcfbb3-empty-b\", \"account\": \"B\", \"amount\": 1}], \"release_first\": 0}, \"events\": [{\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"request\": {\"key\": \"714bce1a05638fea7ffcfbb3-x\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 40}}}, {\"phase\": \"overlap\", \"worker\": 1, \"request\": {\"key\": \"714bce1a05638fea7ffcfbb3-y\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 40}}}], \"checkpoints\": [], \"terminals\": [{\"pid\": 18, \"returncode\": 0}, {\"pid\": 19, \"returncode\": 0}], \"error\": \"CandidateError: unrecognized business status\"}, {\"name\": \"identity-identical\", \"scope\": \"supplemental_global_identity\", \"status\": \"fail\", \"plan\": {\"name\": \"identity-identical\", \"scope\": \"supplemental_global_identity\", \"pair\": [{\"key\": \"41f763ea1b0dd759c8581085\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"41f763ea1b0dd759c8581085\", \"account\": \"A\", \"amount\": 60}], \"tail\": [{\"key\": \"41f763ea1b0dd759c8581085\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"41f763ea1b0dd759c8581085\", \"account\": \"A\", \"amount\": 60}], \"restart\": [{\"key\": \"41f763ea1b0dd759c8581085\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"41f763ea1b0dd759c8581085\", \"account\": \"A\", \"amount\": 60}], \"release_first\": 0}, \"events\": [{\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"request\": {\"key\": \"41f763ea1b0dd759c8581085\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 40}}}], \"checkpoints\": [], \"terminals\": [{\"pid\": 24, \"returncode\": 0}, {\"pid\": 25, \"returncode\": 0}], \"error\": \"CandidateError: unrecognized business status\"}, {\"name\": \"identity-amount-conflict\", \"scope\": \"supplemental_global_identity\", \"status\": \"fail\", \"plan\": {\"name\": \"identity-amount-conflict\", \"scope\": \"supplemental_global_identity\", \"pair\": [{\"key\": \"445cb7643d13dfa4c6880c7e\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"445cb7643d13dfa4c6880c7e\", \"account\": \"A\", \"amount\": 80}], \"tail\": [{\"key\": \"445cb7643d13dfa4c6880c7e\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"445cb7643d13dfa4c6880c7e\", \"account\": \"A\", \"amount\": 80}], \"restart\": [{\"key\": \"445cb7643d13dfa4c6880c7e\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"445cb7643d13dfa4c6880c7e\", \"account\": \"A\", \"amount\": 80}], \"release_first\": 0}, \"events\": [{\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"request\": {\"key\": \"445cb7643d13dfa4c6880c7e\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"rejected\", \"remaining\": 0}}}, {\"phase\": \"overlap\", \"worker\": 1, \"request\": {\"key\": \"445cb7643d13dfa4c6880c7e\", \"account\": \"A\", \"amount\": 80}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 20}}}], \"checkpoints\": [], \"terminals\": [{\"pid\": 30, \"returncode\": 0}, {\"pid\": 31, \"returncode\": 0}], \"error\": \"CandidateError: unrecognized business status\"}, {\"name\": \"identity-account-conflict\", \"scope\": \"supplemental_global_identity\", \"status\": \"fail\", \"plan\": {\"name\": \"identity-account-conflict\", \"scope\": \"supplemental_global_identity\", \"pair\": [{\"key\": \"59237d15dc192223a39869db\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"59237d15dc192223a39869db\", \"account\": \"B\", \"amount\": 60}], \"tail\": [{\"key\": \"59237d15dc192223a39869db\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"59237d15dc192223a39869db\", \"account\": \"B\", \"amount\": 60}], \"restart\": [{\"key\": \"59237d15dc192223a39869db\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"59237d15dc192223a39869db\", \"account\": \"B\", \"amount\": 60}], \"release_first\": 0}, \"events\": [{\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"ready\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 1, \"event\": {\"event\": \"armed\"}}, {\"phase\": \"overlap\", \"worker\": 0, \"request\": {\"key\": \"59237d15dc192223a39869db\", \"account\": \"A\", \"amount\": 60}, \"event\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 40}}}], \"checkpoints\": [], \"terminals\": [{\"pid\": 36, \"returncode\": 0}, {\"pid\": 37, \"returncode\": 0}], \"error\": \"CandidateError: unrecognized business status\"}], \"source_sha256\": \"514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221\", \"evaluator_files_sha256\": {\"evaluate.py\": \"26fabf2ead5c894d6f75a88a6a6460cf97cd91c0f6a195b7a96021d35f856226\", \"oracle.py\": \"bbc84c607cfe426253cdc5798b937af389e8442f78b9fd4d23373d3e2d0f5d49\", \"sandbox.py\": \"01ac80280c1829e8f127c26f94f424a4351172b06e064f5c810379385de852da\", \"worker.py\": \"5a1f6cfe44c3d183b86c256b1f731dde6880f043a7f049015b7e7e05ad6c22df\", \"inspect_db.py\": \"84fc66aaf8bfdf4d3675a2d3fef172a5ccc1d452a4ea0b2f4f710cc72b1347da\"}, \"answer_sha256\": \"1016a482ac3829d4e9e33a08de3524545e389f502fb5812b8c511220f7f72fba\"}\n",
+  "stderr": "",
+  "command": [
+    "bwrap",
+    "--die-with-parent",
+    "--unshare-all",
+    "--cap-drop",
+    "ALL",
+    "--clearenv",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "--setenv",
+    "LANG",
+    "C.UTF-8",
+    "--ro-bind",
+    "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/budget-diagnostic/gpt-6.1-sol/H1/draw2/delivery",
+    "/subject",
+    "--ro-bind",
+    "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H1/wrong_payload_mismatch.json",
+    "/control.json",
+    "--chdir",
+    "/tmp",
+    "/usr/bin/python3",
+    "-B",
+    "-c",
+    "import json,sys;sys.path.insert(0,'/subject');import evaluate;c=json.load(open('/control.json'));a=dict(task_id='E1',code=c['code'],explanation='Owner executable control; prose quality reviewed separately.');r=getattr(evaluate,sys.argv[1])(a);print(json.dumps(r))",
+    "evaluate"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 11980,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "evaluator": "e1-eval/1.0",
+    "task_id": "E1",
+    "formal_status": "fail",
+    "overall_status": "formal_fail_review_pending",
+    "review_status": "pending",
+    "cases": [
+      {
+        "name": "core-1",
+        "scope": "declared_overlap_and_replay",
+        "status": "fail",
+        "plan": {
+          "name": "core-1",
+          "scope": "declared_overlap_and_replay",
+          "pair": [
+            {
+              "key": "d5d284fb8fc8344e0043eee0-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-y",
+              "account": "A",
+              "amount": 60
+            }
+          ],
+          "tail": [
+            {
+              "key": "d5d284fb8fc8344e0043eee0-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-x",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-x",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-y",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-y",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-drain",
+              "account": "A",
+              "amount": 40
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-empty-b",
+              "account": "B",
+              "amount": 1
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-drain",
+              "account": "A",
+              "amount": 40
+            }
+          ],
+          "restart": [
+            {
+              "key": "d5d284fb8fc8344e0043eee0-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-drain",
+              "account": "A",
+              "amount": 40
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            {
+              "key": "d5d284fb8fc8344e0043eee0-empty-b",
+              "account": "B",
+              "amount": 1
+            }
+          ],
+          "release_first": 0
+        },
+        "events": [
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "request": {
+              "key": "d5d284fb8fc8344e0043eee0-x",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 40
+              }
+            }
+          }
+        ],
+        "checkpoints": [],
+        "terminals": [
+          {
+            "pid": 6,
+            "returncode": 0
+          },
+          {
+            "pid": 7,
+            "returncode": 0
+          }
+        ],
+        "error": "CandidateError: unrecognized business status"
+      },
+      {
+        "name": "core-2",
+        "scope": "declared_overlap_and_replay",
+        "status": "fail",
+        "plan": {
+          "name": "core-2",
+          "scope": "declared_overlap_and_replay",
+          "pair": [
+            {
+              "key": "7be9613d8057c36eef2d2ae6-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-y",
+              "account": "A",
+              "amount": 60
+            }
+          ],
+          "tail": [
+            {
+              "key": "7be9613d8057c36eef2d2ae6-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-x",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-x",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-y",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-y",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-drain",
+              "account": "A",
+              "amount": 40
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-empty-b",
+              "account": "B",
+              "amount": 1
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-drain",
+              "account": "A",
+              "amount": 40
+            }
+          ],
+          "restart": [
+            {
+              "key": "7be9613d8057c36eef2d2ae6-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-drain",
+              "account": "A",
+              "amount": 40
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            {
+              "key": "7be9613d8057c36eef2d2ae6-empty-b",
+              "account": "B",
+              "amount": 1
+            }
+          ],
+          "release_first": 1
+        },
+        "events": [
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "request": {
+              "key": "7be9613d8057c36eef2d2ae6-x",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 40
+              }
+            }
+          }
+        ],
+        "checkpoints": [],
+        "terminals": [
+          {
+            "pid": 12,
+            "returncode": 0
+          },
+          {
+            "pid": 13,
+            "returncode": 0
+          }
+        ],
+        "error": "CandidateError: unrecognized business status"
+      },
+      {
+        "name": "core-3",
+        "scope": "declared_overlap_and_replay",
+        "status": "fail",
+        "plan": {
+          "name": "core-3",
+          "scope": "declared_overlap_and_replay",
+          "pair": [
+            {
+              "key": "714bce1a05638fea7ffcfbb3-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-y",
+              "account": "A",
+              "amount": 60
+            }
+          ],
+          "tail": [
+            {
+              "key": "714bce1a05638fea7ffcfbb3-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-x",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-x",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-y",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-y",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-drain",
+              "account": "A",
+              "amount": 40
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-empty-b",
+              "account": "B",
+              "amount": 1
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-drain",
+              "account": "A",
+              "amount": 40
+            }
+          ],
+          "restart": [
+            {
+              "key": "714bce1a05638fea7ffcfbb3-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-b",
+              "account": "B",
+              "amount": 100
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-drain",
+              "account": "A",
+              "amount": 40
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-empty-a",
+              "account": "A",
+              "amount": 1
+            },
+            {
+              "key": "714bce1a05638fea7ffcfbb3-empty-b",
+              "account": "B",
+              "amount": 1
+            }
+          ],
+          "release_first": 0
+        },
+        "events": [
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "request": {
+              "key": "714bce1a05638fea7ffcfbb3-x",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 40
+              }
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "request": {
+              "key": "714bce1a05638fea7ffcfbb3-y",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 40
+              }
+            }
+          }
+        ],
+        "checkpoints": [],
+        "terminals": [
+          {
+            "pid": 18,
+            "returncode": 0
+          },
+          {
+            "pid": 19,
+            "returncode": 0
+          }
+        ],
+        "error": "CandidateError: unrecognized business status"
+      },
+      {
+        "name": "identity-identical",
+        "scope": "supplemental_global_identity",
+        "status": "fail",
+        "plan": {
+          "name": "identity-identical",
+          "scope": "supplemental_global_identity",
+          "pair": [
+            {
+              "key": "41f763ea1b0dd759c8581085",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "41f763ea1b0dd759c8581085",
+              "account": "A",
+              "amount": 60
+            }
+          ],
+          "tail": [
+            {
+              "key": "41f763ea1b0dd759c8581085",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "41f763ea1b0dd759c8581085",
+              "account": "A",
+              "amount": 60
+            }
+          ],
+          "restart": [
+            {
+              "key": "41f763ea1b0dd759c8581085",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "41f763ea1b0dd759c8581085",
+              "account": "A",
+              "amount": 60
+            }
+          ],
+          "release_first": 0
+        },
+        "events": [
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "request": {
+              "key": "41f763ea1b0dd759c8581085",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 40
+              }
+            }
+          }
+        ],
+        "checkpoints": [],
+        "terminals": [
+          {
+            "pid": 24,
+            "returncode": 0
+          },
+          {
+            "pid": 25,
+            "returncode": 0
+          }
+        ],
+        "error": "CandidateError: unrecognized business status"
+      },
+      {
+        "name": "identity-amount-conflict",
+        "scope": "supplemental_global_identity",
+        "status": "fail",
+        "plan": {
+          "name": "identity-amount-conflict",
+          "scope": "supplemental_global_identity",
+          "pair": [
+            {
+              "key": "445cb7643d13dfa4c6880c7e",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "445cb7643d13dfa4c6880c7e",
+              "account": "A",
+              "amount": 80
+            }
+          ],
+          "tail": [
+            {
+              "key": "445cb7643d13dfa4c6880c7e",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "445cb7643d13dfa4c6880c7e",
+              "account": "A",
+              "amount": 80
+            }
+          ],
+          "restart": [
+            {
+              "key": "445cb7643d13dfa4c6880c7e",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "445cb7643d13dfa4c6880c7e",
+              "account": "A",
+              "amount": 80
+            }
+          ],
+          "release_first": 0
+        },
+        "events": [
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "request": {
+              "key": "445cb7643d13dfa4c6880c7e",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "rejected",
+                "remaining": 0
+              }
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "request": {
+              "key": "445cb7643d13dfa4c6880c7e",
+              "account": "A",
+              "amount": 80
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 20
+              }
+            }
+          }
+        ],
+        "checkpoints": [],
+        "terminals": [
+          {
+            "pid": 30,
+            "returncode": 0
+          },
+          {
+            "pid": 31,
+            "returncode": 0
+          }
+        ],
+        "error": "CandidateError: unrecognized business status"
+      },
+      {
+        "name": "identity-account-conflict",
+        "scope": "supplemental_global_identity",
+        "status": "fail",
+        "plan": {
+          "name": "identity-account-conflict",
+          "scope": "supplemental_global_identity",
+          "pair": [
+            {
+              "key": "59237d15dc192223a39869db",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "59237d15dc192223a39869db",
+              "account": "B",
+              "amount": 60
+            }
+          ],
+          "tail": [
+            {
+              "key": "59237d15dc192223a39869db",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "59237d15dc192223a39869db",
+              "account": "B",
+              "amount": 60
+            }
+          ],
+          "restart": [
+            {
+              "key": "59237d15dc192223a39869db",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "59237d15dc192223a39869db",
+              "account": "B",
+              "amount": 60
+            }
+          ],
+          "release_first": 0
+        },
+        "events": [
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "ready"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 1,
+            "event": {
+              "event": "armed"
+            }
+          },
+          {
+            "phase": "overlap",
+            "worker": 0,
+            "request": {
+              "key": "59237d15dc192223a39869db",
+              "account": "A",
+              "amount": 60
+            },
+            "event": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 40
+              }
+            }
+          }
+        ],
+        "checkpoints": [],
+        "terminals": [
+          {
+            "pid": 36,
+            "returncode": 0
+          },
+          {
+            "pid": 37,
+            "returncode": 0
+          }
+        ],
+        "error": "CandidateError: unrecognized business status"
+      }
+    ],
+    "source_sha256": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+    "evaluator_files_sha256": {
+      "evaluate.py": "26fabf2ead5c894d6f75a88a6a6460cf97cd91c0f6a195b7a96021d35f856226",
+      "oracle.py": "bbc84c607cfe426253cdc5798b937af389e8442f78b9fd4d23373d3e2d0f5d49",
+      "sandbox.py": "01ac80280c1829e8f127c26f94f424a4351172b06e064f5c810379385de852da",
+      "worker.py": "5a1f6cfe44c3d183b86c256b1f731dde6880f043a7f049015b7e7e05ad6c22df",
+      "inspect_db.py": "84fc66aaf8bfdf4d3675a2d3fef172a5ccc1d452a4ea0b2f4f710cc72b1347da"
+    },
+    "answer_sha256": "1016a482ac3829d4e9e33a08de3524545e389f502fb5812b8c511220f7f72fba"
+  },
+  "job_id": "wrong_payload_mismatch",
+  "kind": "control",
+  "expected": false,
+  "family": "baseline"
+}

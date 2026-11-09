@@ -1,0 +1,215 @@
+OpenAI Codex v0.167.0
+--------
+workdir: /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-dst-recurrence/episodes/ep02-luna-main-draw2/workspace
+model: gpt-6-luna
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: high
+reasoning summaries: none
+session id: 01a1b6e8-3a6a-7a73-8a53-ea1b178ddd7e
+--------
+user
+You are working in a workspace containing a small recurrence task. Use the available tools. Standard library only; use the standard library zoneinfo module for time zones. Do not modify test_visible.py.
+
+TASK: Implement expand_recurrence(start_local_iso, tz_name, freq, count) in recurrence.py in the workspace root, replacing the skeleton. start_local_iso is a string giving a local wall-clock time in the form YYYY-MM-DDTHH:MM:SS with no offset and no time zone suffix, for example a year, a hyphen, a two-digit month, a hyphen, a two-digit day, the letter T, a two-digit hour, a colon, a two-digit minute, a colon, and a two-digit second. tz_name is a string giving an IANA time zone name such as America/New_York. freq is either the string "daily" or the string "weekly". count is a positive integer giving the number of occurrences to return.
+
+A provided test file test_visible.py is also present in the workspace.
+
+No worked input-output pair is supplied with this task. Derive your own check cases from the rules below.
+
+RULES - these are the requirement, exactly:
+
+Rule W (wall-clock occurrences): Occurrences are defined by local wall time in the named time zone. The first occurrence is the start local time itself. Each following occurrence falls on the calendar date one day after the previous nominal date for "daily", or seven calendar days after the previous nominal date for "weekly", at the same local wall-clock time of day as the start time. Each occurrence is determined independently from its own nominal local date and the start wall-clock time of day; an adjustment applied to one occurrence under Rule N or Rule A below does not change the nominal local date or wall-clock time of any other occurrence.
+
+Rule N (nonexistent local times): When clocks spring forward, a range of local wall-clock times does not occur on that date. If an occurrence's nominal local time falls in such a nonexistent range, that occurrence is shifted forward to the first valid instant: the earliest instant whose local wall-clock time is at or after the end of the nonexistent range, that is, the local time the clocks jump to when they spring forward.
+
+Rule A (ambiguous local times): When clocks fall back, a range of local wall-clock times occurs twice on that date. If an occurrence's nominal local time falls in such a repeated range, that occurrence is the first of the two occurrences of that wall-clock time, that is, the one with the earlier UTC instant.
+
+Rule R (return value): Return a list of exactly count strings, one per occurrence in order. Each string gives the occurrence as a UTC instant in the form YYYY-MM-DDTHH:MM:SSZ: a four-digit year, a hyphen, a two-digit month, a hyphen, a two-digit day, the letter T, a two-digit hour, a colon, a two-digit minute, a colon, a two-digit second, and the letter Z, with no other characters.
+
+Rule N and Rule A apply to every occurrence, including the first occurrence when the start local time itself is nonexistent or ambiguous.
+
+Deliverables: the completed recurrence.py.
+
+codex
+I’ll inspect the starter file and visible tests, then implement the timezone conversion rules and run the provided checks.
+exec
+/bin/bash -lc "pwd && rg --files -g 'recurrence.py' -g 'test_visible.py' -g 'AGENTS.md'" in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-dst-recurrence/episodes/ep02-luna-main-draw2/workspace
+ succeeded in 0ms:
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-dst-recurrence/episodes/ep02-luna-main-draw2/workspace
+test_visible.py
+recurrence.py
+
+exec
+/bin/bash -lc 'cat recurrence.py && cat test_visible.py' in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-dst-recurrence/episodes/ep02-luna-main-draw2/workspace
+ succeeded in 0ms:
+"""Wall-clock recurrence expansion. Implement expand_recurrence below."""
+
+
+def expand_recurrence(start_local_iso, tz_name, freq, count):
+    """Return a list of UTC ISO instant strings for the recurrence."""
+    raise NotImplementedError
+# Provided visible tests: ordinary (non-transition) cases only.
+import unittest
+
+from recurrence import expand_recurrence
+
+
+class TestVisible(unittest.TestCase):
+    def test_summer_daily_ny(self):
+        self.assertEqual(
+            expand_recurrence("2026-06-10T09:00:00", "America/New_York", "daily", 3),
+            ["2026-06-10T13:00:00Z", "2026-06-11T13:00:00Z", "2026-06-12T13:00:00Z"],
+        )
+
+    def test_winter_daily_ny(self):
+        self.assertEqual(
+            expand_recurrence("2026-01-10T09:00:00", "America/New_York", "daily", 3),
+            ["2026-01-10T14:00:00Z", "2026-01-11T14:00:00Z", "2026-01-12T14:00:00Z"],
+        )
+
+    def test_summer_weekly_ny(self):
+        self.assertEqual(
+            expand_recurrence("2026-07-06T18:30:00", "America/New_York", "weekly", 3),
+            ["2026-07-06T22:30:00Z", "2026-07-13T22:30:00Z", "2026-07-20T22:30:00Z"],
+        )
+
+    def test_winter_weekly_sydney(self):
+        # June is standard time (UTC+10) in Sydney.
+        self.assertEqual(
+            expand_recurrence("2026-06-05T08:00:00", "Australia/Sydney", "weekly", 3),
+            ["2026-06-04T22:00:00Z", "2026-06-11T22:00:00Z", "2026-06-18T22:00:00Z"],
+        )
+
+    def test_spring_weekly_london(self):
+        # May is British Summer Time (UTC+1) in London.
+        self.assertEqual(
+            expand_recurrence("2026-05-04T12:00:00", "Europe/London", "weekly", 2),
+            ["2026-05-04T11:00:00Z", "2026-05-11T11:00:00Z"],
+        )
+
+    def test_count_one(self):
+        self.assertEqual(
+            expand_recurrence("2026-08-15T00:15:00", "America/New_York", "daily", 1),
+            ["2026-08-15T04:15:00Z"],
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+apply patch
+patch: completed
+/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-dst-recurrence/episodes/ep02-luna-main-draw2/workspace/recurrence.py
+diff --git a/research/hackathon/frontier-hunt-20261106/round10/e-dst-recurrence/episodes/ep02-luna-main-draw2/workspace/recurrence.py b/research/hackathon/frontier-hunt-20261106/round10/e-dst-recurrence/episodes/ep02-luna-main-draw2/workspace/recurrence.py
+index 5a67ff0f7a824f65eb995f909724d3efb71f061a..35d9a1777d1fea17c7990ba55fd3867104fe2873
+--- a/research/hackathon/frontier-hunt-20261106/round10/e-dst-recurrence/episodes/ep02-luna-main-draw2/workspace/recurrence.py
++++ b/research/hackathon/frontier-hunt-20261106/round10/e-dst-recurrence/episodes/ep02-luna-main-draw2/workspace/recurrence.py
+@@ -1,6 +1,67 @@
+-"""Wall-clock recurrence expansion. Implement expand_recurrence below."""
++"""Wall-clock recurrence expansion using the standard library only."""
++
++from datetime import datetime, timedelta, timezone
++from zoneinfo import ZoneInfo
++
++
++def _local_candidates(wall_time, zone):
++    """Return the UTC instants that round-trip to this local wall time."""
++    candidates = []
++    for fold in (0, 1):
++        local = wall_time.replace(tzinfo=zone, fold=fold)
++        utc = local.astimezone(timezone.utc)
++        if utc.astimezone(zone).replace(tzinfo=None) == wall_time:
++            if utc not in candidates:
++                candidates.append(utc)
++    return candidates
+ 
+ 
++def _resolve_wall_time(wall_time, zone):
++    candidates = _local_candidates(wall_time, zone)
++    if candidates:
++        # In a repeated interval, this is the first occurrence in real time.
++        return min(candidates)
++
++    # A nonexistent wall time lies in a forward clock jump. Find the first
++    # valid local second at or after it, which is the end of the skipped range.
++    # fold=0 interprets the wall time using the pre-jump offset and round-trips
++    # to a local time beyond the gap, giving us an upper bound for the search.
++    upper = wall_time.replace(tzinfo=zone, fold=0).astimezone(
++        timezone.utc
++    ).astimezone(zone).replace(tzinfo=None)
++    if upper <= wall_time:  # Defensive fallback for unusual zone transitions.
++        upper = wall_time + timedelta(days=2)
++
++    low_seconds = 0
++    high_seconds = int((upper - wall_time).total_seconds())
++    while low_seconds < high_seconds:
++        middle = (low_seconds + high_seconds) // 2
++        probe = wall_time + timedelta(seconds=middle)
++        if _local_candidates(probe, zone):
++            high_seconds = middle
++        else:
++            low_seconds = middle + 1
++
++    resolved = wall_time + timedelta(seconds=low_seconds)
++    return min(_local_candidates(resolved, zone))
++
++
+ def expand_recurrence(start_local_iso, tz_name, freq, count):
+     """Return a list of UTC ISO instant strings for the recurrence."""
+-    raise NotImplementedError
++    start = datetime.strptime(start_local_iso, "%Y-%m-%dT%H:%M:%S")
++    zone = ZoneInfo(tz_name)
++    if freq == "daily":
++        step_days = 1
++    elif freq == "weekly":
++        step_days = 7
++    else:
++        raise ValueError("freq must be 'daily' or 'weekly'")
++    if not isinstance(count, int) or isinstance(count, bool) or count <= 0:
++        raise ValueError("count must be a positive integer")
++
++    result = []
++    for index in range(count):
++        nominal = start + timedelta(days=step_days * index)
++        instant = _resolve_wall_time(nominal, zone)
++        result.append(instant.strftime("%Y-%m-%dT%H:%M:%SZ"))
++    return result
+
+codex
+The implementation resolves each nominal date independently. For gaps, it searches for the first valid local second; for repeated times, it picks the UTC instant that occurs first. I’m checking the visible tests plus one spring gap and one fall overlap.
+exec
+/bin/bash -lc "python3 -m unittest -v test_visible.py && python3 - <<'PY'
+from recurrence import expand_recurrence
+assert expand_recurrence('2026-03-08T02:30:00', 'America/New_York', 'daily', 2) == [
+    '2026-03-08T07:00:00Z', '2026-03-09T06:30:00Z'
+]
+assert expand_recurrence('2026-11-01T01:30:00', 'America/New_York', 'daily', 2) == [
+    '2026-11-01T05:30:00Z', '2026-11-02T06:30:00Z'
+]
+print('custom DST checks passed')
+PY" in /home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-dst-recurrence/episodes/ep02-luna-main-draw2/workspace
+ succeeded in 21ms:
+test_count_one (test_visible.TestVisible.test_count_one) ... ok
+test_spring_weekly_london (test_visible.TestVisible.test_spring_weekly_london) ... ok
+test_summer_daily_ny (test_visible.TestVisible.test_summer_daily_ny) ... ok
+test_summer_weekly_ny (test_visible.TestVisible.test_summer_weekly_ny) ... ok
+test_winter_daily_ny (test_visible.TestVisible.test_winter_daily_ny) ... ok
+test_winter_weekly_sydney (test_visible.TestVisible.test_winter_weekly_sydney) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.007s
+
+OK
+custom DST checks passed
+
+codex
+Implemented `expand_recurrence` in [recurrence.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-dst-recurrence/episodes/ep02-luna-main-draw2/workspace/recurrence.py).
+
+It expands daily and weekly local wall times, shifts nonexistent times to the first valid local second, and resolves ambiguous times to the earlier UTC instant. All six visible tests and custom spring-gap and fall-overlap checks passed.
+tokens used
+9,847
+Implemented `expand_recurrence` in [recurrence.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/e-dst-recurrence/episodes/ep02-luna-main-draw2/workspace/recurrence.py).
+
+It expands daily and weekly local wall times, shifts nonexistent times to the first valid local second, and resolves ambiguous times to the earlier UTC instant. All six visible tests and custom spring-gap and fall-overlap checks passed.

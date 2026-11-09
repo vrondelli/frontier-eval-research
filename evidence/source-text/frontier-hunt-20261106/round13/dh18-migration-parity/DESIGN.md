@@ -1,0 +1,13 @@
+> Archived source excerpt. Original location: `frontier-hunt-20261106/round13/dh18-migration-parity/DESIGN.md`. Relative links below describe original archive paths. This copy does not assert current live status.
+
+# DH18 migration keeps deployed user journeys
+
+Source DH18 / COMMAND-C01: historical authorized cutover regressed established product surfaces and was rolled back; no historical candidate recreation or population inference. Eight synthetic local tasks span research and library portals, four full preservation tasks and four explicitly authorized feature-retirement controls.
+
+Subject migrates a bounded numeric core while preserving a working predecessor's HTML dashboard routes, links/forms, multi-step create/type/graph/event or stock/loan/reservation/event flows and cold-restart state. The grader first actually serves and exercises the frozen known-good predecessor. It then runs submitted build.py into a fresh install root, byte-compiles the actual installed modules, starts that installed entrypoint on an ephemeral loopback port, exercises real HTTP writes/reads/rejections and restarts with its persisted state. New-core health is assessed separately from legacy consumer parity. Module restructuring and authorized retirement are valid. Healthy core plus lost required journeys is primary; unrelated build/core failure is ordinary. Static HTML route facades without functioning data flow fail. No PASS tokens, external deployment, participants, inference calls or freeze during construction.
+
+The first64-case gate exposed two service-start races: an existing port file did not prove complete content/HTTP readiness. That negative attempt is retained. The supervisor now verifies a valid ephemeral port plus an actual HTTP response before exercising the installed service, then replays the full fixed gate.
+
+Independent review identified a coverage gap: new writes plus cold restart did not alone prove preservation of preexisting state. The final oracle also copies the actually populated predecessor store into a clean installed-candidate launch and compares every required JSON view before new writes. A reset-once migration mutant can preserve later writes/restarts yet must fail this preexisting-data check. Earlier64-case receipts remain as instrument history.
+
+The final cold restart compares ALL retained JSON views, including ontology/event or loan/reservation state, rather than only the primary item list. A drop-secondary-on-restart mutant preserves initial imported data and new writes but loses secondary state only on the next launch; it fails full main parity and is valid only when those exact secondary views are explicitly retired.

@@ -1,0 +1,1982 @@
+{
+  "model": "gpt-6-astra",
+  "case_id": "H6",
+  "draw": 3,
+  "kind": "independent_root_fresh_confirmation_replay",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "64",
+    "--memory",
+    "256m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=32m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/confirmation/gpt-6-astra/H6/draw3/delivery,target=/subject,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H6/saved_luna_decimal.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,sys,shutil,subprocess\nfrom pathlib import Path\nshutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir();code=json.load(open('/control.json'))['code'];candidate=Path('/tmp/candidate/summarize.py');candidate.write_text(code)\nr=subprocess.run([sys.executable,'/tmp/eval/evaluation/run_eval.py',str(candidate),'--report','/tmp/report.json'],cwd='/tmp',capture_output=True,text=True,timeout=180)\nreport=json.load(open('/tmp/report.json'))if Path('/tmp/report.json').exists()else None\nraw='{\"adjustment_sheets\":{\"root / exact zero\":{\"stat\":\"event_count\",\"turns\":[0e10000000000000000000]},\"root / mixed zero\":{\"stat\":\"event_count\",\"turns\":[0e10000000000000000000,0,1]}}}'\npair=[]\nfor name,text in [('exponent_zero',raw),('plain_zero',raw.replace('0e10000000000000000000','0'))]:\n inp=Path('/tmp/candidate/'+name+'.json');out=Path('/tmp/candidate/'+name+'-out.json');inp.write_text(text)\n q=subprocess.run([sys.executable,str(candidate),str(inp),str(out)],capture_output=True,text=True,timeout=5)\n pair.append({'case':name,'input':text,'exit_code':q.returncode,'stderr':q.stderr,'output':out.read_text()if out.exists()else None})\nprint(json.dumps({'grader_exit':r.returncode,'grader_stdout':r.stdout,'grader_stderr':r.stderr,'report':report,'candidate_pair':pair}))\n"
+  ],
+  "exit_code": 0,
+  "stderr": "",
+  "observed": {
+    "grader_exit": 0,
+    "grader_stdout": "126/126 cases passed\n",
+    "grader_stderr": "",
+    "report": {
+      "evaluation": "numeric-export-v1",
+      "candidate": "/tmp/candidate/summarize.py",
+      "passed": 126,
+      "total": 126,
+      "all_passed": true,
+      "categories": {
+        "semantics": {
+          "passed": 6,
+          "total": 6
+        },
+        "numeric": {
+          "passed": 11,
+          "total": 11
+        },
+        "generalization": {
+          "passed": 19,
+          "total": 19
+        },
+        "validation": {
+          "passed": 84,
+          "total": 84
+        },
+        "duplicates": {
+          "passed": 6,
+          "total": 6
+        }
+      },
+      "results": [
+        {
+          "name": "provided_example",
+          "category": "semantics",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.166,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/provided_example 45q8mlex/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/provided_example 45q8mlex/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "empty_identities",
+          "category": "semantics",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.166,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/empty_identities wankii5p/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/empty_identities wankii5p/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "signed_and_repeated",
+          "category": "semantics",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1663,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/signed_and_repeated 7rw96bf_/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/signed_and_repeated 7rw96bf_/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "singleton_and_zero",
+          "category": "semantics",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1658,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/singleton_and_zero 5auuw98y/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/singleton_and_zero 5auuw98y/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "positive_max",
+          "category": "semantics",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1658,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/positive_max bxb7zg81/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/positive_max bxb7zg81/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "identifier_preservation",
+          "category": "semantics",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1654,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/identifier_preservation f3zn74ja/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/identifier_preservation f3zn74ja/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "integral_spellings_net_units",
+          "category": "numeric",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1651,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/integral_spellings_net_units 8ok7p858/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/integral_spellings_net_units 8ok7p858/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "integral_spellings_event_count",
+          "category": "numeric",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.2156,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/integral_spellings_event_count 70kfktqo/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/integral_spellings_event_count 70kfktqo/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "integral_spellings_largest_adjustment",
+          "category": "numeric",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1652,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/integral_spellings_largest_adjustment 3cq48zr3/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/integral_spellings_largest_adjustment 3cq48zr3/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "beyond_binary64",
+          "category": "numeric",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1652,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/beyond_binary64 25ag_f78/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/beyond_binary64 25ag_f78/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "exact_decimal_cancellation",
+          "category": "numeric",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1656,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/exact_decimal_cancellation 2qtuhxqm/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/exact_decimal_cancellation 2qtuhxqm/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "exact_integer_cancellation",
+          "category": "numeric",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1658,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/exact_integer_cancellation rh6p5864/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/exact_integer_cancellation rh6p5864/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "overflow_exponents",
+          "category": "numeric",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1656,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/overflow_exponents 72lpnauk/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/overflow_exponents 72lpnauk/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "decimal_precision",
+          "category": "numeric",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1656,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/decimal_precision w9pyp3bj/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/decimal_precision w9pyp3bj/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "long_integer_literal",
+          "category": "numeric",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1654,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/long_integer_literal nz8iyfa_/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/long_integer_literal nz8iyfa_/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "long_decimal_literal",
+          "category": "numeric",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1657,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/long_decimal_literal pnaopvg7/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/long_decimal_literal pnaopvg7/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "large_output_from_small_input",
+          "category": "numeric",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1658,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/large_output_from_small_input 0g3lurz4/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/large_output_from_small_input 0g3lurz4/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "many_events",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1654,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/many_events v6az362o/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/many_events v6az362o/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "many_sheets",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1658,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/many_sheets kvzd42v5/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/many_sheets kvzd42v5/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "exactly_8192_bytes",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1659,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/exactly_8192_bytes pprir7c5/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/exactly_8192_bytes pprir7c5/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_00",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1702,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_00 o2gme1ny/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_00 o2gme1ny/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_01",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.2667,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_01 9j80xr39/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_01 9j80xr39/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_02",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.3177,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_02 s56j5cku/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_02 s56j5cku/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_03",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.3676,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_03 d0xv9zpt/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_03 d0xv9zpt/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_04",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.4201,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_04 bpdfajr1/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_04 bpdfajr1/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_05",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.3686,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_05 vi8apqtu/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_05 vi8apqtu/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_06",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.318,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_06 pqo6t34j/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_06 pqo6t34j/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_07",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.4187,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_07 q9cdd5tv/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_07 q9cdd5tv/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_08",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.2161,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_08 0x__bleb/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_08 0x__bleb/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_09",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.4696,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_09 9i0mvq1h/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_09 9i0mvq1h/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_10",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.4189,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_10 0ebc4kef/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_10 0ebc4kef/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_11",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.2182,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_11 0s0xe2be/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_11 0s0xe2be/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_12",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.2682,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_12 5i7uog8d/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_12 5i7uog8d/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_13",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.2157,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_13 4acvutjx/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_13 4acvutjx/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_14",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.2168,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_14 gbv2uxyb/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_14 gbv2uxyb/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "generated_15",
+          "category": "generalization",
+          "passed": true,
+          "reason": "exact result",
+          "exit_code": 0,
+          "seconds": 0.1658,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/generated_15 kewffoty/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/generated_15 kewffoty/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_root_0",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1656,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_0 49mh667b/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_0 49mh667b/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_root_1",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1657,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_1 rl0lcaxf/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_1 rl0lcaxf/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_root_2",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1652,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_2 g3ow6z4s/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_2 g3ow6z4s/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_root_3",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1653,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_3 j_66btsc/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_3 j_66btsc/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_root_4",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1654,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_4 3u1g9qbu/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_4 3u1g9qbu/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_root_5",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1655,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_5 jmxs5vfs/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_5 jmxs5vfs/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_root_6",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1657,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_6 hnx87f0p/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_6 hnx87f0p/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_root_7",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1662,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_7 q6f08wdy/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_root_7 q6f08wdy/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheets_0",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1657,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheets_0 ne8faghh/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheets_0 ne8faghh/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheets_1",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1652,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheets_1 lbxlvvnu/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheets_1 lbxlvvnu/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheets_2",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1655,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheets_2 i2kaqoi3/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheets_2 i2kaqoi3/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheets_3",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1658,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheets_3 jky80jn4/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheets_3 jky80jn4/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheets_4",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1668,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheets_4 s4aj5z1f/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheets_4 s4aj5z1f/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheets_5",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.2163,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheets_5 fijah68f/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheets_5 fijah68f/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "empty_identifier",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.2682,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/empty_identifier wjijgrna/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/empty_identifier wjijgrna/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "extra_root_property",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.218,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/extra_root_property 457dnmmt/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/extra_root_property 457dnmmt/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheet_0",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1659,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_0 nleugxk3/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_0 nleugxk3/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheet_1",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1666,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_1 mwubzfcj/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_1 mwubzfcj/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheet_2",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1665,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_2 2_jnpxt_/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_2 2_jnpxt_/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheet_3",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1655,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_3 n_hvedp1/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_3 n_hvedp1/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheet_4",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1658,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_4 8l4wka60/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_4 8l4wka60/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheet_5",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1662,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_5 fo994h4l/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_5 fo994h4l/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheet_6",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.2167,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_6 ckztb9rv/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_6 ckztb9rv/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheet_7",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1656,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_7 5d2yroj3/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_7 5d2yroj3/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheet_8",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1658,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_8 e1o2a1if/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_8 e1o2a1if/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheet_9",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1654,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_9 yctw4j6k/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_9 yctw4j6k/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheet_10",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1657,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_10 o9ozs0r5/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_10 o9ozs0r5/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheet_11",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1652,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_11 c7mz6wcw/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_11 c7mz6wcw/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheet_12",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1664,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_12 iw6t2wcr/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_12 iw6t2wcr/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_sheet_13",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.166,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_13 o1sylshi/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_sheet_13 o1sylshi/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_turns_0",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.2166,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_turns_0 o5qdp7t_/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_turns_0 o5qdp7t_/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_turns_1",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.3177,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_turns_1 d4zcx1hi/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_turns_1 d4zcx1hi/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_turns_2",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.2167,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_turns_2 uy9hqgbf/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_turns_2 uy9hqgbf/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_turns_3",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1651,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_turns_3 7hfpkhzm/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_turns_3 7hfpkhzm/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_turns_4",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.2163,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_turns_4 p1ftmr0s/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_turns_4 p1ftmr0s/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_net_units_0",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1656,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_0 o46jj8p5/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_0 o46jj8p5/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_net_units_1",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1654,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_1 pfe_dq78/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_1 pfe_dq78/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_net_units_2",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.2168,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_2 2dcl80pq/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_2 2dcl80pq/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_net_units_3",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1655,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_3 dmwa30jp/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_3 dmwa30jp/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_net_units_4",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1652,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_4 fg7fk4ct/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_4 fg7fk4ct/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_net_units_5",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.2168,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_5 eg4c5h0u/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_5 eg4c5h0u/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_net_units_6",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1657,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_6 db74cdyh/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_6 db74cdyh/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_net_units_7",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1661,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_7 rfmvji6c/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_7 rfmvji6c/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_net_units_8",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1659,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_8 0djr5oxv/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_8 0djr5oxv/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_net_units_9",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1653,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_9 3p8xduzt/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_9 3p8xduzt/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_net_units_10",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1653,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_10 n4bb7bm7/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_10 n4bb7bm7/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_net_units_11",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1662,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_11 v_pzt49b/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_11 v_pzt49b/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_net_units_12",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1662,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_12 7uwywc5x/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_12 7uwywc5x/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_net_units_13",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1657,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_13 6e3jjnwm/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_net_units_13 6e3jjnwm/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_event_count_0",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1679,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_0 z7na7_gf/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_0 z7na7_gf/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_event_count_1",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.2183,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_1 ay0pkgy1/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_1 ay0pkgy1/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_event_count_2",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1655,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_2 yr799pi4/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_2 yr799pi4/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_event_count_3",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1657,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_3 p8w2iqt3/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_3 p8w2iqt3/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_event_count_4",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1654,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_4 qg1emykx/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_4 qg1emykx/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_event_count_5",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.2178,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_5 4tim9pft/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_5 4tim9pft/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_event_count_6",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1656,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_6 y45uuaxm/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_6 y45uuaxm/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_event_count_7",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.2158,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_7 zeevlv9e/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_7 zeevlv9e/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_event_count_8",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1653,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_8 xgcyx54a/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_8 xgcyx54a/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_event_count_9",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1657,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_9 pvzi9h3p/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_9 pvzi9h3p/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_event_count_10",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1663,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_10 xb0i9leb/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_10 xb0i9leb/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_event_count_11",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1657,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_11 nhi9pu8l/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_11 nhi9pu8l/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_event_count_12",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1663,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_12 dh7av4n8/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_12 dh7av4n8/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_event_count_13",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1659,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_13 da1ky8th/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_event_count_13 da1ky8th/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_largest_adjustment_0",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1657,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_0 g3syv_pm/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_0 g3syv_pm/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_largest_adjustment_1",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1662,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_1 xtu9ekk3/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_1 xtu9ekk3/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_largest_adjustment_2",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1664,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_2 w315qejf/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_2 w315qejf/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_largest_adjustment_3",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1661,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_3 fvrqn911/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_3 fvrqn911/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_largest_adjustment_4",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1669,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_4 5bq15ral/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_4 5bq15ral/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_largest_adjustment_5",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1665,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_5 kc32iwhk/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_5 kc32iwhk/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_largest_adjustment_6",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1664,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_6 i1h1g3vc/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_6 i1h1g3vc/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_largest_adjustment_7",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.166,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_7 lb6ojyqb/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_7 lb6ojyqb/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_largest_adjustment_8",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1662,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_8 vfkn38xy/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_8 vfkn38xy/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_largest_adjustment_9",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.166,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_9 hyqwv27_/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_9 hyqwv27_/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_largest_adjustment_10",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1662,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_10 l53pdz8n/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_10 l53pdz8n/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_largest_adjustment_11",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1661,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_11 13ma3bvm/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_11 13ma3bvm/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_largest_adjustment_12",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1655,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_12 dagf8lv6/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_12 dagf8lv6/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "invalid_item_largest_adjustment_13",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1666,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_13 g0zmz2jr/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/invalid_item_largest_adjustment_13 g0zmz2jr/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "duplicate_root",
+          "category": "duplicates",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1662,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/duplicate_root esjd3el2/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/duplicate_root esjd3el2/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "duplicate_identifier",
+          "category": "duplicates",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1664,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/duplicate_identifier hbzv8myd/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/duplicate_identifier hbzv8myd/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "duplicate_escaped_identifier",
+          "category": "duplicates",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1662,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/duplicate_escaped_identifier n0ftr3v3/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/duplicate_escaped_identifier n0ftr3v3/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "duplicate_stat",
+          "category": "duplicates",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1661,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/duplicate_stat 22366hps/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/duplicate_stat 22366hps/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "duplicate_turns",
+          "category": "duplicates",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1661,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/duplicate_turns x7mby68h/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/duplicate_turns x7mby68h/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "duplicate_escaped_stat",
+          "category": "duplicates",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.166,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/duplicate_escaped_stat ccb25ek9/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/duplicate_escaped_stat ccb25ek9/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "malformed_0",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.166,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/malformed_0 hm6l2lce/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/malformed_0 hm6l2lce/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "malformed_1",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1658,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/malformed_1 dup7c7y8/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/malformed_1 dup7c7y8/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "malformed_2",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1662,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/malformed_2 jr__x8tn/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/malformed_2 jr__x8tn/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "malformed_3",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1656,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/malformed_3 korfc70n/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/malformed_3 korfc70n/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "malformed_4",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.166,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/malformed_4 eznuhmcz/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/malformed_4 eznuhmcz/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "malformed_5",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1658,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/malformed_5 k6fv5qh4/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/malformed_5 k6fv5qh4/output report.json"
+          ],
+          "stderr": ""
+        },
+        {
+          "name": "malformed_6",
+          "category": "validation",
+          "passed": true,
+          "reason": "rejected with no output",
+          "exit_code": 1,
+          "seconds": 0.1665,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation ihojnv3u/malformed_6 6vfyavla/input export.json",
+            "/tmp/numeric export evaluation ihojnv3u/malformed_6 6vfyavla/output report.json"
+          ],
+          "stderr": ""
+        }
+      ]
+    },
+    "candidate_pair": [
+      {
+        "case": "exponent_zero",
+        "input": "{\"adjustment_sheets\":{\"root / exact zero\":{\"stat\":\"event_count\",\"turns\":[0e10000000000000000000]},\"root / mixed zero\":{\"stat\":\"event_count\",\"turns\":[0e10000000000000000000,0,1]}}}",
+        "exit_code": 1,
+        "stderr": "Traceback (most recent call last):\n  File \"/tmp/candidate/summarize.py\", line 125, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"/tmp/candidate/summarize.py\", line 108, in main\n    document = json.loads(\n        source,\n    ...<3 lines>...\n        object_pairs_hook=_object_without_duplicates,\n    )\n  File \"/usr/local/lib/python3.14/json/__init__.py\", line 365, in loads\n    return cls(**kw).decode(s)\n           ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\ndecimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]\n",
+        "output": null
+      },
+      {
+        "case": "plain_zero",
+        "input": "{\"adjustment_sheets\":{\"root / exact zero\":{\"stat\":\"event_count\",\"turns\":[0]},\"root / mixed zero\":{\"stat\":\"event_count\",\"turns\":[0,0,1]}}}",
+        "exit_code": 0,
+        "stderr": "",
+        "output": "{\"stock_reports\":{\"root / exact zero\":1,\"root / mixed zero\":3}}\n"
+      }
+    ]
+  },
+  "package_unchanged": true
+}

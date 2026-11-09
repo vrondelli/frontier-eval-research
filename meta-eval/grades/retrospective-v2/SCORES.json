@@ -1,0 +1,3853 @@
+{
+  "schema_version": "retrospective-eval-author-score/v1",
+  "generated_utc": "2026-11-09T03:42:51.970189+00:00",
+  "post_hoc": true,
+  "preregistered": false,
+  "model_calls": 0,
+  "new_subject_executions": 0,
+  "scoring_method": "Import existing qualified native receipts and explicit AI semantic reviews. Score selected properties only; unknown weights remain unresolved. Not a final v2 benchmark grade.",
+  "source_bindings": [
+    {
+      "path": "RESULTS.json",
+      "sha256": "0f56b1201a5a4851ce6d7fd89c64bba6bb4b166950d8152ade78afa023dac979"
+    },
+    {
+      "path": "owner/ADJUDICATION.json",
+      "sha256": "6e05954954507dffcdcfc9b8ab63585450a39d5db57b1e5885dbc093f10fa597"
+    },
+    {
+      "path": "protocol/meta-eval-v2/SCORING.json",
+      "sha256": "794c668d398fe737d77e64d876f042be04d17b6d1d027b99b32cf55f35cd874d"
+    },
+    {
+      "path": "grades/retrospective-v2/CHECK-REGISTRY.json",
+      "sha256": "e54c88a603f72f1885d0d2c1a5ead3010a90b2fd8e3575b29b365c15ac3257da"
+    }
+  ],
+  "attempt_count": 31,
+  "eval_authoring_attempts": 27,
+  "supplementary_audit_attempts": 4,
+  "completed_eval_authoring_outputs": 19,
+  "counterexample_outputs": 8,
+  "fully_qualified_passes": null,
+  "human_review_complete": false,
+  "no_pooled_rate": true,
+  "counts": {
+    "counterexample_reproduced_human_adjudication_pending": 8,
+    "incomplete_timeout": 7,
+    "no_full_scoped_verdict_evidence_incomplete": 11,
+    "supplementary_audit_probe_not_100_point_eval_author_score": 4,
+    "capture_unknown": 1
+  },
+  "limitations": [
+    "Post-outcome rubric/subweights; existing instruction conditions remain separate.",
+    "Numeric bounds indicate unresolved evidence, not capability confidence intervals or rankings.",
+    "Passing a finite control family is not full-domain reference or grader qualification.",
+    "Unrequested v2 deliverables do not become historical model failures.",
+    "H2 paper-rubric and H3 hybrid-review interfaces retain their original task scope.",
+    "H4 controls corrected post-outcome; H6 excluded positives never regain gold status.",
+    "No additional defect-output count from duplicate failed dimensions/checks.",
+    "The prior verified ZIP is unchanged; this is a separate retrospective addendum."
+  ],
+  "attempts": [
+    {
+      "attempt_id": "initial_screen/gpt-6.1-sol/H1",
+      "case_id": "H1",
+      "model": "gpt-6.1-sol",
+      "cohort": "initial_screen",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "verified_false_reject",
+      "retrospective_verdict": "counterexample_reproduced_human_adjudication_pending",
+      "score_interval": [
+        25,
+        82.5
+      ],
+      "raw_control_classification": {
+        "valid_positives": 2,
+        "accepted_positives": 1,
+        "valid_negatives": 3,
+        "rejected_negatives": 3,
+        "false_rejects": 1,
+        "false_accepts": 0
+      },
+      "historical_verified_dimensions": [
+        "hidden_required_status_literal_false_reject"
+      ],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Native submitted grader was actually invoked; this is not a complete clean-runner check.",
+          "evidence": [
+            {
+              "path": "grades/root-review/H1-SOL-REPLAY.json",
+              "sha256": "ce440eb4013bd5e44839a7f5e3b43310c19ce2c58e3948d029d8173f3a15d945"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "fail",
+          "reason": "Grader requires accepted while documented solver-only views omit it; source-license analysis is AI-reviewed with human adjudication pending.",
+          "evidence": [
+            {
+              "path": "grades/root-review/H1-SOL-REPLAY.json",
+              "sha256": "ce440eb4013bd5e44839a7f5e3b43310c19ce2c58e3948d029d8173f3a15d945"
+            },
+            {
+              "path": "grades/semantic-review/H1-INDEPENDENT.json",
+              "sha256": "3fee0b5334a5d6848c1f4cc90d6e619d31b639beeb4aea7796fc75abe25f1f3c"
+            }
+          ]
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "pass",
+          "reason": "Baseline qualified correct control result.",
+          "evidence": [
+            {
+              "path": "grades/root-review/H1-SOL-REPLAY.json",
+              "sha256": "ce440eb4013bd5e44839a7f5e3b43310c19ce2c58e3948d029d8173f3a15d945"
+            }
+          ]
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "fail",
+          "reason": "Second qualified correct strategy/representation result.",
+          "evidence": [
+            {
+              "path": "grades/root-review/H1-SOL-REPLAY.json",
+              "sha256": "ce440eb4013bd5e44839a7f5e3b43310c19ce2c58e3948d029d8173f3a15d945"
+            }
+          ]
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "pass",
+          "reason": "Three independently labeled baseline faults checked.",
+          "evidence": [
+            {
+              "path": "grades/root-review/H1-SOL-REPLAY.json",
+              "sha256": "ce440eb4013bd5e44839a7f5e3b43310c19ce2c58e3948d029d8173f3a15d945"
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/semantic-review/H1-INDEPENDENT.json",
+          "sha256": "3fee0b5334a5d6848c1f4cc90d6e619d31b639beeb4aea7796fc75abe25f1f3c"
+        },
+        {
+          "path": "grades/semantic-review/H1-SOL-LITERAL-PAIR.json",
+          "sha256": "3427ee7d38cc38389d7a1831618682a5a78b7f0f939f52d35f8b0ca153d14dcd"
+        },
+        {
+          "path": "grades/owner-review/sol-H1-FULL-BWRAP.json",
+          "sha256": "06a77639543c23b1fd757dc677f7fa5a16fe3578a58bcb43fe828ccbb6c32b84"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6-astra/H1",
+      "case_id": "H1",
+      "model": "gpt-6-astra",
+      "cohort": "initial_screen",
+      "native_status": "timeout",
+      "track": "eval_authoring",
+      "historical_outcome": "timeout_snapshot_diagnostic_only",
+      "retrospective_verdict": "incomplete_timeout",
+      "score_interval": null,
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H1-REVIEW.md",
+          "sha256": "dcd9f6bc5a1cf9c27055b2bae6416f245736d5e52ed359c6704c26e9dc19f207"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6.1-sol/H2",
+      "case_id": "H2",
+      "model": "gpt-6.1-sol",
+      "cohort": "initial_screen",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "no_objective_defect_established",
+      "retrospective_verdict": "no_full_scoped_verdict_evidence_incomplete",
+      "score_interval": [
+        17.5,
+        100.0
+      ],
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "pass",
+          "reason": "Original rubric-writing obligations checked in AI semantic review; no new full-package delivery requirement imposed.",
+          "evidence": [
+            {
+              "path": "grades/semantic-review/H2-gpt-6.1-sol.json",
+              "sha256": "68c68408b605864a644b9ebf69cf3f78daa6e6aeee999cbb118106daa506b373"
+            }
+          ]
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "pass",
+          "reason": "Rubric criteria and mapping are explicit in the delivered criteria document; no private prior-art ranking imposed.",
+          "evidence": [
+            {
+              "path": "grades/semantic-review/H2-gpt-6.1-sol.json",
+              "sha256": "68c68408b605864a644b9ebf69cf3f78daa6e6aeee999cbb118106daa506b373"
+            }
+          ]
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "pass",
+          "reason": "Worked CAL totals and score mapping recomputed and internally consistent; this is not empirical construct validity.",
+          "evidence": [
+            {
+              "path": "grades/semantic-review/H2-gpt-6.1-sol.json",
+              "sha256": "68c68408b605864a644b9ebf69cf3f78daa6e6aeee999cbb118106daa506b373"
+            }
+          ]
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/semantic-review/H2-gpt-6.1-sol.json",
+          "sha256": "68c68408b605864a644b9ebf69cf3f78daa6e6aeee999cbb118106daa506b373"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6-astra/H2",
+      "case_id": "H2",
+      "model": "gpt-6-astra",
+      "cohort": "initial_screen",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "no_objective_defect_established",
+      "retrospective_verdict": "no_full_scoped_verdict_evidence_incomplete",
+      "score_interval": [
+        17.5,
+        100.0
+      ],
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "pass",
+          "reason": "Original rubric-writing obligations checked in AI semantic review; no new full-package delivery requirement imposed.",
+          "evidence": [
+            {
+              "path": "grades/semantic-review/H2-gpt-6-astra.json",
+              "sha256": "7881aecc36b9e9ca2efb22aa1577988b7a61354f7b336617645fa2a6dbceef7f"
+            }
+          ]
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "pass",
+          "reason": "Rubric criteria and mapping are explicit in the delivered criteria document; no private prior-art ranking imposed.",
+          "evidence": [
+            {
+              "path": "grades/semantic-review/H2-gpt-6-astra.json",
+              "sha256": "7881aecc36b9e9ca2efb22aa1577988b7a61354f7b336617645fa2a6dbceef7f"
+            }
+          ]
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "pass",
+          "reason": "Worked CAL totals and score mapping recomputed and internally consistent; this is not empirical construct validity.",
+          "evidence": [
+            {
+              "path": "grades/semantic-review/H2-gpt-6-astra.json",
+              "sha256": "7881aecc36b9e9ca2efb22aa1577988b7a61354f7b336617645fa2a6dbceef7f"
+            }
+          ]
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/semantic-review/H2-gpt-6-astra.json",
+          "sha256": "7881aecc36b9e9ca2efb22aa1577988b7a61354f7b336617645fa2a6dbceef7f"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6.1-sol/H3",
+      "case_id": "H3",
+      "model": "gpt-6.1-sol",
+      "cohort": "initial_screen",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "no_objective_defect_established_scoped",
+      "retrospective_verdict": "no_full_scoped_verdict_evidence_incomplete",
+      "score_interval": [
+        5,
+        100.0
+      ],
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Delivered evaluation function actually invoked on the saved diagnostic probe; semantic verdict remains scoped.",
+          "evidence": [
+            {
+              "path": "grades/semantic-review/H3-gpt-6.1-sol.json",
+              "sha256": "ff79df6c887f3d33cb3bab5345d50ee8dc3559d6ef39aef1e4609b47a4c380a1"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/semantic-review/H3-gpt-6.1-sol.json",
+          "sha256": "ff79df6c887f3d33cb3bab5345d50ee8dc3559d6ef39aef1e4609b47a4c380a1"
+        },
+        {
+          "path": "grades/semantic-review/H3-TIMING-WITNESS.json",
+          "sha256": "047a8e855eb3cfbb6b826aa9eb944bc93017b4a582de5f53c8de42c1d35336c7"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6-astra/H3",
+      "case_id": "H3",
+      "model": "gpt-6-astra",
+      "cohort": "initial_screen",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "no_objective_defect_established_scoped",
+      "retrospective_verdict": "no_full_scoped_verdict_evidence_incomplete",
+      "score_interval": [
+        5,
+        100.0
+      ],
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Delivered evaluation function actually invoked on the saved diagnostic probe; semantic verdict remains scoped.",
+          "evidence": [
+            {
+              "path": "grades/semantic-review/H3-gpt-6-astra.json",
+              "sha256": "752b2659aece6e6ba30b241422aac58a76cc232bec38ff87393f725c5e5af266"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/semantic-review/H3-gpt-6-astra.json",
+          "sha256": "752b2659aece6e6ba30b241422aac58a76cc232bec38ff87393f725c5e5af266"
+        },
+        {
+          "path": "grades/semantic-review/H3-TIMING-WITNESS.json",
+          "sha256": "047a8e855eb3cfbb6b826aa9eb944bc93017b4a582de5f53c8de42c1d35336c7"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6.1-sol/H4",
+      "case_id": "H4",
+      "model": "gpt-6.1-sol",
+      "cohort": "initial_screen",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "no_defect_on_post_outcome_successor_controls",
+      "retrospective_verdict": "no_full_scoped_verdict_evidence_incomplete",
+      "score_interval": [
+        35,
+        100.0
+      ],
+      "raw_control_classification": {
+        "valid_positives": 2,
+        "accepted_positives": 2,
+        "valid_negatives": 3,
+        "rejected_negatives": 3,
+        "false_rejects": 0,
+        "false_accepts": 0
+      },
+      "historical_verified_dimensions": [],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Native submitted grader was actually invoked; this is not a complete clean-runner check.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/gpt-6.1-sol-H4-SUCCESSOR.json",
+              "sha256": "7317c1442ffa0b3c49f7a4152bf2533ec87ac90bec6e6b392e72f5f5ff09f5bb"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "pass",
+          "reason": "Baseline qualified correct control result. Controls are post-outcome H4 corrections.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/gpt-6.1-sol-H4-SUCCESSOR.json",
+              "sha256": "7317c1442ffa0b3c49f7a4152bf2533ec87ac90bec6e6b392e72f5f5ff09f5bb"
+            }
+          ]
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "pass",
+          "reason": "Second qualified correct strategy/representation result. Controls are post-outcome H4 corrections.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/gpt-6.1-sol-H4-SUCCESSOR.json",
+              "sha256": "7317c1442ffa0b3c49f7a4152bf2533ec87ac90bec6e6b392e72f5f5ff09f5bb"
+            }
+          ]
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "pass",
+          "reason": "Three independently labeled baseline faults checked. Controls are post-outcome H4 corrections.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/gpt-6.1-sol-H4-SUCCESSOR.json",
+              "sha256": "7317c1442ffa0b3c49f7a4152bf2533ec87ac90bec6e6b392e72f5f5ff09f5bb"
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H4-REVIEW.md",
+          "sha256": "fa2b6d19081067a23bc2645e4a273c0df9ed093911d8e07faef519eb59be2b50"
+        },
+        {
+          "path": "grades/owner-review/gpt-6.1-sol-H4-SUCCESSOR.json",
+          "sha256": "7317c1442ffa0b3c49f7a4152bf2533ec87ac90bec6e6b392e72f5f5ff09f5bb"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6-astra/H4",
+      "case_id": "H4",
+      "model": "gpt-6-astra",
+      "cohort": "initial_screen",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "no_defect_on_post_outcome_successor_controls",
+      "retrospective_verdict": "no_full_scoped_verdict_evidence_incomplete",
+      "score_interval": [
+        35,
+        100.0
+      ],
+      "raw_control_classification": {
+        "valid_positives": 2,
+        "accepted_positives": 2,
+        "valid_negatives": 3,
+        "rejected_negatives": 3,
+        "false_rejects": 0,
+        "false_accepts": 0
+      },
+      "historical_verified_dimensions": [],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Native submitted grader was actually invoked; this is not a complete clean-runner check.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/gpt-6-astra-H4-SUCCESSOR.json",
+              "sha256": "7b9dc3672471b4770290bcfa6ef37eb83f826e99ce4f5511fc377e57cc1476a1"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "pass",
+          "reason": "Baseline qualified correct control result. Controls are post-outcome H4 corrections.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/gpt-6-astra-H4-SUCCESSOR.json",
+              "sha256": "7b9dc3672471b4770290bcfa6ef37eb83f826e99ce4f5511fc377e57cc1476a1"
+            }
+          ]
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "pass",
+          "reason": "Second qualified correct strategy/representation result. Controls are post-outcome H4 corrections.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/gpt-6-astra-H4-SUCCESSOR.json",
+              "sha256": "7b9dc3672471b4770290bcfa6ef37eb83f826e99ce4f5511fc377e57cc1476a1"
+            }
+          ]
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "pass",
+          "reason": "Three independently labeled baseline faults checked. Controls are post-outcome H4 corrections.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/gpt-6-astra-H4-SUCCESSOR.json",
+              "sha256": "7b9dc3672471b4770290bcfa6ef37eb83f826e99ce4f5511fc377e57cc1476a1"
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H4-REVIEW.md",
+          "sha256": "fa2b6d19081067a23bc2645e4a273c0df9ed093911d8e07faef519eb59be2b50"
+        },
+        {
+          "path": "grades/owner-review/gpt-6-astra-H4-SUCCESSOR.json",
+          "sha256": "7b9dc3672471b4770290bcfa6ef37eb83f826e99ce4f5511fc377e57cc1476a1"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6.1-sol/H5",
+      "case_id": "H5",
+      "model": "gpt-6.1-sol",
+      "cohort": "initial_screen",
+      "native_status": "timeout",
+      "track": "eval_authoring",
+      "historical_outcome": "timeout_snapshot_diagnostic_only",
+      "retrospective_verdict": "incomplete_timeout",
+      "score_interval": null,
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H5-REVIEW.md",
+          "sha256": "b6239dd193e27178b22815583aeb09053650a35cf7d9802ffc78747c9694936f"
+        },
+        {
+          "path": "grades/owner-review/gpt-6.1-sol-H5-BENCHMARK-SNAPSHOT.json",
+          "sha256": "b87bf4797418f9fb119093ae388a32e392c7691f21e3da407a8edfd3f36c2ffe"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6-astra/H5",
+      "case_id": "H5",
+      "model": "gpt-6-astra",
+      "cohort": "initial_screen",
+      "native_status": "timeout",
+      "track": "eval_authoring",
+      "historical_outcome": "timeout_snapshot_diagnostic_only",
+      "retrospective_verdict": "incomplete_timeout",
+      "score_interval": null,
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H5-REVIEW.md",
+          "sha256": "b6239dd193e27178b22815583aeb09053650a35cf7d9802ffc78747c9694936f"
+        },
+        {
+          "path": "grades/owner-review/gpt-6-astra-H5-BENCHMARK-SNAPSHOT.json",
+          "sha256": "a0d3d4f54c16e39203e1e3ce79ef3619dbacd460c7e489b064601c29cc357cad"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6.1-sol/H6",
+      "case_id": "H6",
+      "model": "gpt-6.1-sol",
+      "cohort": "initial_screen",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "no_established_failure_on_licensed_witness",
+      "retrospective_verdict": "no_full_scoped_verdict_evidence_incomplete",
+      "score_interval": [
+        25,
+        100.0
+      ],
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Actual native numeric evaluator invoked; no inference from self-reported verification alone.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/sol-H6-ZERO-COVERAGE.json",
+              "sha256": "b99ab8a3aa21b364fd9d47b2a8336faaff10bb5238c60e0e4644bbe4580c4f3a"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "pass",
+          "reason": "Direct licensed equivalent-zero output accepted; output-only positive, not full-CLI positive qualification.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/sol-H6-ZERO-COVERAGE.json",
+              "sha256": "b99ab8a3aa21b364fd9d47b2a8336faaff10bb5238c60e0e4644bbe4580c4f3a"
+            },
+            {
+              "path": "grades/semantic-review/H6-SOURCE-CLAUSES.md",
+              "sha256": "5b75d8efc5e06825776a63ec5905c29b207517ee0f1386a6f728b4350aeb43b8"
+            }
+          ]
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "pass",
+          "reason": "Actual known-bad CLI rejection checked. Rejection may detect another real defect and does not establish zero-family coverage.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/sol-H6-ZERO-COVERAGE.json",
+              "sha256": "b99ab8a3aa21b364fd9d47b2a8336faaff10bb5238c60e0e4644bbe4580c4f3a"
+            },
+            {
+              "path": "grades/owner-review/H6-REVIEW.md",
+              "sha256": "b0b75b72e7cd27de8dfe8dc7c70b1a2bee010c14eaa2b7ecfeccec580d2842ba"
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H6-REVIEW.md",
+          "sha256": "b0b75b72e7cd27de8dfe8dc7c70b1a2bee010c14eaa2b7ecfeccec580d2842ba"
+        },
+        {
+          "path": "owner/ADJUDICATION.json",
+          "sha256": "6e05954954507dffcdcfc9b8ab63585450a39d5db57b1e5885dbc093f10fa597"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6-astra/H6",
+      "case_id": "H6",
+      "model": "gpt-6-astra",
+      "cohort": "initial_screen",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "verified_false_green_and_isolated_false_reject",
+      "retrospective_verdict": "counterexample_reproduced_human_adjudication_pending",
+      "score_interval": [
+        5,
+        80.0
+      ],
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [
+        "actual_bad_numeric_cli_false_green",
+        "legal_numeric_output_false_reject"
+      ],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Actual native numeric evaluator invoked; no inference from self-reported verification alone.",
+          "evidence": [
+            {
+              "path": "grades/root-review/H6-ASTRA-REPLAY.json",
+              "sha256": "75ecd0038ef8a7dba5810881555107b4c1839d9e3dde9f7a0fbeab63c3001f0e"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "fail",
+          "reason": "Correct canonical-zero output passes but equivalent licensed exponent-zero output fails. This is an output-only control, not a universally correct full CLI.",
+          "evidence": [
+            {
+              "path": "grades/semantic-review/H6-OUTPUT-ZERO-PAIR.json",
+              "sha256": "3577256328bd3a4ae19bd55e295cd2e605208e52e755afa7060f6de60b94fd11"
+            },
+            {
+              "path": "grades/semantic-review/H6-SOURCE-CLAUSES.md",
+              "sha256": "5b75d8efc5e06825776a63ec5905c29b207517ee0f1386a6f728b4350aeb43b8"
+            }
+          ]
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "fail",
+          "reason": "Actual known-bad CLI rejection checked. Rejection may detect another real defect and does not establish zero-family coverage.",
+          "evidence": [
+            {
+              "path": "grades/root-review/H6-ASTRA-REPLAY.json",
+              "sha256": "75ecd0038ef8a7dba5810881555107b4c1839d9e3dde9f7a0fbeab63c3001f0e"
+            },
+            {
+              "path": "grades/owner-review/H6-REVIEW.md",
+              "sha256": "b0b75b72e7cd27de8dfe8dc7c70b1a2bee010c14eaa2b7ecfeccec580d2842ba"
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/ASTRA-H6-PAIRED-REPRODUCER.json",
+          "sha256": "1c53ae7085514244322da76126738b1aae8e56a9c4e67481ff15a77b70854e0d"
+        },
+        {
+          "path": "grades/semantic-review/H6-INDEPENDENT.json",
+          "sha256": "16fd24d1f8db3df377a16650246ea7e7dd550457fd0e321a3dce0984f890157e"
+        },
+        {
+          "path": "grades/semantic-review/H6-OUTPUT-ZERO-PAIR.json",
+          "sha256": "3577256328bd3a4ae19bd55e295cd2e605208e52e755afa7060f6de60b94fd11"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6.1-sol/H7",
+      "case_id": "H7",
+      "model": "gpt-6.1-sol",
+      "cohort": "initial_screen",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "no_defect_on_selected_controls",
+      "retrospective_verdict": "no_full_scoped_verdict_evidence_incomplete",
+      "score_interval": [
+        45,
+        100.0
+      ],
+      "raw_control_classification": {
+        "valid_positives": 2,
+        "accepted_positives": 2,
+        "valid_negatives": 3,
+        "rejected_negatives": 3,
+        "false_rejects": 0,
+        "false_accepts": 0
+      },
+      "historical_verified_dimensions": [],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Native submitted grader was actually invoked; this is not a complete clean-runner check.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/sol-H7-FULL-GRADE.json",
+              "sha256": "bd125aa1f0a88278a3903332c3a24716be06c3f77a510da79fa9a4645699eddf"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "pass",
+          "reason": "Baseline qualified correct control result.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/sol-H7-FULL-GRADE.json",
+              "sha256": "bd125aa1f0a88278a3903332c3a24716be06c3f77a510da79fa9a4645699eddf"
+            }
+          ]
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "pass",
+          "reason": "Second qualified correct strategy/representation result.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/sol-H7-FULL-GRADE.json",
+              "sha256": "bd125aa1f0a88278a3903332c3a24716be06c3f77a510da79fa9a4645699eddf"
+            }
+          ]
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "pass",
+          "reason": "Three independently labeled baseline faults checked.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/sol-H7-FULL-GRADE.json",
+              "sha256": "bd125aa1f0a88278a3903332c3a24716be06c3f77a510da79fa9a4645699eddf"
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "pass",
+          "reason": "One separately authored post-outcome noncontiguous-quote mutant rejected per package; the second probe is a correct literal control. Literal-source scope only.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/gpt-6.1-sol-H7-CONTIGUITY.json",
+              "sha256": "ef0ba3989ff99841de8857b45892a8118acdbe29a5c5b40c78e1fbe575ed8e24"
+            },
+            {
+              "path": "grades/owner-review/H7-REVIEW.md",
+              "sha256": "8a6a09a14751771e7a8eee03bce95a3b9b112bde1b2aef7908cce16572945727"
+            }
+          ]
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H7-REVIEW.md",
+          "sha256": "8a6a09a14751771e7a8eee03bce95a3b9b112bde1b2aef7908cce16572945727"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6-astra/H7",
+      "case_id": "H7",
+      "model": "gpt-6-astra",
+      "cohort": "initial_screen",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "no_defect_on_selected_controls",
+      "retrospective_verdict": "no_full_scoped_verdict_evidence_incomplete",
+      "score_interval": [
+        45,
+        100.0
+      ],
+      "raw_control_classification": {
+        "valid_positives": 2,
+        "accepted_positives": 2,
+        "valid_negatives": 3,
+        "rejected_negatives": 3,
+        "false_rejects": 0,
+        "false_accepts": 0
+      },
+      "historical_verified_dimensions": [],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Native submitted grader was actually invoked; this is not a complete clean-runner check.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/astra-H7-FULL-GRADE.json",
+              "sha256": "8a9679f60cf0caa250fd8fa96da7cf9588d07abb7b1f921611257b8193500b0e"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "pass",
+          "reason": "Baseline qualified correct control result.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/astra-H7-FULL-GRADE.json",
+              "sha256": "8a9679f60cf0caa250fd8fa96da7cf9588d07abb7b1f921611257b8193500b0e"
+            }
+          ]
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "pass",
+          "reason": "Second qualified correct strategy/representation result.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/astra-H7-FULL-GRADE.json",
+              "sha256": "8a9679f60cf0caa250fd8fa96da7cf9588d07abb7b1f921611257b8193500b0e"
+            }
+          ]
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "pass",
+          "reason": "Three independently labeled baseline faults checked.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/astra-H7-FULL-GRADE.json",
+              "sha256": "8a9679f60cf0caa250fd8fa96da7cf9588d07abb7b1f921611257b8193500b0e"
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "pass",
+          "reason": "One separately authored post-outcome noncontiguous-quote mutant rejected per package; the second probe is a correct literal control. Literal-source scope only.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/gpt-6-astra-H7-CONTIGUITY.json",
+              "sha256": "c3ad2e405020284d24419936c69fe7592ce91687b3476156b01d2594a3676fea"
+            },
+            {
+              "path": "grades/owner-review/H7-REVIEW.md",
+              "sha256": "8a6a09a14751771e7a8eee03bce95a3b9b112bde1b2aef7908cce16572945727"
+            }
+          ]
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H7-REVIEW.md",
+          "sha256": "8a6a09a14751771e7a8eee03bce95a3b9b112bde1b2aef7908cce16572945727"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6.1-sol/H8",
+      "case_id": "H8",
+      "model": "gpt-6.1-sol",
+      "cohort": "initial_screen",
+      "native_status": "completed",
+      "track": "audit_supplement",
+      "historical_outcome": "no_material_defect_established_scoped",
+      "retrospective_verdict": "supplementary_audit_probe_not_100_point_eval_author_score",
+      "score_interval": null,
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [],
+      "review_evidence": [
+        {
+          "path": "grades/audit-review/H8-SEMANTIC-REVIEW.md",
+          "sha256": "47fca02b01eb6119e4ea39f8a7a0309f4019a0e18b24f00c0590b36ccb658f38"
+        },
+        {
+          "path": "grades/audit-review/H8-INDEPENDENT-REPLAY.json",
+          "sha256": "f1102640073422d45ac09e84616ff0884d955e84e4758d7d400211242d5915ec"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6-astra/H8",
+      "case_id": "H8",
+      "model": "gpt-6-astra",
+      "cohort": "initial_screen",
+      "native_status": "completed",
+      "track": "audit_supplement",
+      "historical_outcome": "no_material_defect_established_scoped",
+      "retrospective_verdict": "supplementary_audit_probe_not_100_point_eval_author_score",
+      "score_interval": null,
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [],
+      "review_evidence": [
+        {
+          "path": "grades/audit-review/H8-SEMANTIC-REVIEW.md",
+          "sha256": "47fca02b01eb6119e4ea39f8a7a0309f4019a0e18b24f00c0590b36ccb658f38"
+        },
+        {
+          "path": "grades/audit-review/H8-INDEPENDENT-REPLAY.json",
+          "sha256": "f1102640073422d45ac09e84616ff0884d955e84e4758d7d400211242d5915ec"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6.1-sol/H9",
+      "case_id": "H9",
+      "model": "gpt-6.1-sol",
+      "cohort": "initial_screen",
+      "native_status": "recovered_completed_turn_delivery",
+      "track": "audit_supplement",
+      "historical_outcome": "no_material_defect_established_recovered",
+      "retrospective_verdict": "supplementary_audit_probe_not_100_point_eval_author_score",
+      "score_interval": null,
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [],
+      "review_evidence": [
+        {
+          "path": "grades/audit-review/H9-SEMANTIC-REVIEW.md",
+          "sha256": "1b07f05da5f560a3480e56c2211054a61d3de7a46f5b4f0295795dc5e4b32a82"
+        },
+        {
+          "path": "grades/audit-review/H9-INDEPENDENT-REPLAY.json",
+          "sha256": "2c52472cead244621ab4fba33248c98dd5a002fa09dbb3ec47441d62955a0e35"
+        },
+        {
+          "path": "runs/screen/gpt-6.1-sol/H9/RECOVERY.json",
+          "sha256": "cd54d7eeaa455a285b451897c348e51a65ece8ba1a2169fdd05b37dd9a4663b2"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "initial_screen/gpt-6-astra/H9",
+      "case_id": "H9",
+      "model": "gpt-6-astra",
+      "cohort": "initial_screen",
+      "native_status": "recovered_completed_turn_delivery",
+      "track": "audit_supplement",
+      "historical_outcome": "no_material_defect_established_recovered",
+      "retrospective_verdict": "supplementary_audit_probe_not_100_point_eval_author_score",
+      "score_interval": null,
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [],
+      "review_evidence": [
+        {
+          "path": "grades/audit-review/H9-SEMANTIC-REVIEW.md",
+          "sha256": "1b07f05da5f560a3480e56c2211054a61d3de7a46f5b4f0295795dc5e4b32a82"
+        },
+        {
+          "path": "grades/audit-review/H9-INDEPENDENT-REPLAY.json",
+          "sha256": "2c52472cead244621ab4fba33248c98dd5a002fa09dbb3ec47441d62955a0e35"
+        },
+        {
+          "path": "runs/screen/gpt-6-astra/H9/RECOVERY.json",
+          "sha256": "cb33cc67fbeca1cdb9a999181d7e7d803b86aefa14b440a470e07b33aef9b9f6"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "H1_same_condition_confirmation/gpt-6.1-sol/H1/draw1",
+      "case_id": "H1",
+      "model": "gpt-6.1-sol",
+      "cohort": "H1_same_condition_confirmation",
+      "native_status": "timeout",
+      "track": "eval_authoring",
+      "historical_outcome": "timeout_no_completed_recurrence_verdict",
+      "retrospective_verdict": "incomplete_timeout",
+      "score_interval": null,
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H1-CONFIRMATION-REVIEW.json",
+          "sha256": "d8233916e668f79d1440df8f29d96617a4e443e7fd0b1ea2b21e446f9731f3bc"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "H1_same_condition_confirmation/gpt-6.1-sol/H1/draw2",
+      "case_id": "H1",
+      "model": "gpt-6.1-sol",
+      "cohort": "H1_same_condition_confirmation",
+      "native_status": "timeout",
+      "track": "eval_authoring",
+      "historical_outcome": "timeout_no_completed_recurrence_verdict",
+      "retrospective_verdict": "incomplete_timeout",
+      "score_interval": null,
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H1-CONFIRMATION-REVIEW.json",
+          "sha256": "d8233916e668f79d1440df8f29d96617a4e443e7fd0b1ea2b21e446f9731f3bc"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "H1_same_condition_confirmation/gpt-6.1-sol/H1/draw3",
+      "case_id": "H1",
+      "model": "gpt-6.1-sol",
+      "cohort": "H1_same_condition_confirmation",
+      "native_status": "timeout",
+      "track": "eval_authoring",
+      "historical_outcome": "timeout_no_completed_recurrence_verdict",
+      "retrospective_verdict": "incomplete_timeout",
+      "score_interval": null,
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H1-CONFIRMATION-REVIEW.json",
+          "sha256": "d8233916e668f79d1440df8f29d96617a4e443e7fd0b1ea2b21e446f9731f3bc"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "H6_same_condition_confirmation/gpt-6-astra/H6/draw1",
+      "case_id": "H6",
+      "model": "gpt-6-astra",
+      "cohort": "H6_same_condition_confirmation",
+      "native_status": "capture_unknown_native_terminal",
+      "track": "eval_authoring",
+      "historical_outcome": "capture_unknown_no_model_verdict",
+      "retrospective_verdict": "capture_unknown",
+      "score_interval": null,
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H6-CONFIRMATION-REVIEW.json",
+          "sha256": "ab70d72a56d9563d47f6443a8388021df2fbfc70f4fab250fe02927fb5c3d997"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "H6_same_condition_confirmation/gpt-6-astra/H6/draw2",
+      "case_id": "H6",
+      "model": "gpt-6-astra",
+      "cohort": "H6_same_condition_confirmation",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "known_bad_rejected_distinct_defect",
+      "retrospective_verdict": "no_full_scoped_verdict_evidence_incomplete",
+      "score_interval": [
+        15,
+        100.0
+      ],
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Actual native numeric evaluator invoked; no inference from self-reported verification alone.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H6-CONFIRM-draw2.json",
+              "sha256": "4f655b3e3e5d09da40378a7a1ee9ede74c9d8322e5569d582ecf3ef48f0f4302"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "pass",
+          "reason": "Actual known-bad CLI rejection checked. Rejection may detect another real defect and does not establish zero-family coverage.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H6-CONFIRM-draw2.json",
+              "sha256": "4f655b3e3e5d09da40378a7a1ee9ede74c9d8322e5569d582ecf3ef48f0f4302"
+            },
+            {
+              "path": "grades/owner-review/H6-REVIEW.md",
+              "sha256": "b0b75b72e7cd27de8dfe8dc7c70b1a2bee010c14eaa2b7ecfeccec580d2842ba"
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H6-CONFIRMATION-REVIEW.json",
+          "sha256": "ab70d72a56d9563d47f6443a8388021df2fbfc70f4fab250fe02927fb5c3d997"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "H6_same_condition_confirmation/gpt-6-astra/H6/draw3",
+      "case_id": "H6",
+      "model": "gpt-6-astra",
+      "cohort": "H6_same_condition_confirmation",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "verified_fresh_false_green",
+      "retrospective_verdict": "counterexample_reproduced_human_adjudication_pending",
+      "score_interval": [
+        5,
+        90.0
+      ],
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [
+        "actual_bad_numeric_cli_false_green"
+      ],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Actual native numeric evaluator invoked; no inference from self-reported verification alone.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H6-CONFIRM-draw3.json",
+              "sha256": "196d08dcfc28a2b37d3e738a55400008f5554b6aec00995f8752f8b07876ba64"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "fail",
+          "reason": "Actual known-bad CLI rejection checked. Rejection may detect another real defect and does not establish zero-family coverage.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H6-CONFIRM-draw3.json",
+              "sha256": "196d08dcfc28a2b37d3e738a55400008f5554b6aec00995f8752f8b07876ba64"
+            },
+            {
+              "path": "grades/owner-review/H6-REVIEW.md",
+              "sha256": "b0b75b72e7cd27de8dfe8dc7c70b1a2bee010c14eaa2b7ecfeccec580d2842ba"
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H6-CONFIRMATION-REVIEW.json",
+          "sha256": "ab70d72a56d9563d47f6443a8388021df2fbfc70f4fab250fe02927fb5c3d997"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "H1_budget_diagnostic/gpt-6.1-sol/H1/draw1",
+      "case_id": "H1",
+      "model": "gpt-6.1-sol",
+      "cohort": "H1_budget_diagnostic",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "verified_false_reject",
+      "retrospective_verdict": "counterexample_reproduced_human_adjudication_pending",
+      "score_interval": [
+        25,
+        82.5
+      ],
+      "raw_control_classification": {
+        "valid_positives": 2,
+        "accepted_positives": 1,
+        "valid_negatives": 3,
+        "rejected_negatives": 3,
+        "false_rejects": 1,
+        "false_accepts": 0
+      },
+      "historical_verified_dimensions": [
+        "hidden_required_status_literal_false_reject"
+      ],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Native submitted grader was actually invoked; this is not a complete clean-runner check.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-BUDGET-draw1-FULL.json",
+              "sha256": "b5bbc15ea6d85a439d7009cf2bbc6b7c06fd6bd7eeb196d0cef2f4146eb51eeb"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "fail",
+          "reason": "Grader requires accepted while documented solver-only views omit it; source-license analysis is AI-reviewed with human adjudication pending.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-BUDGET-draw1-FULL.json",
+              "sha256": "b5bbc15ea6d85a439d7009cf2bbc6b7c06fd6bd7eeb196d0cef2f4146eb51eeb"
+            },
+            {
+              "path": "grades/owner-review/H1-BUDGET-NATIVE-SUMMARY.json",
+              "sha256": "ba2c765d849be4b69f7b539b0821ba098687773b07fc3196a6c914e4a8a51f4a"
+            },
+            {
+              "path": "grades/owner-review/H1-BUDGET-REVIEW.md",
+              "sha256": "2e8af0a51029ba762ae2432f4adaf1945dac0e72d9ba5aebe60502c9b2a1826c"
+            }
+          ]
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "pass",
+          "reason": "Baseline qualified correct control result.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-BUDGET-draw1-FULL.json",
+              "sha256": "b5bbc15ea6d85a439d7009cf2bbc6b7c06fd6bd7eeb196d0cef2f4146eb51eeb"
+            }
+          ]
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "fail",
+          "reason": "Second qualified correct strategy/representation result.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-BUDGET-draw1-FULL.json",
+              "sha256": "b5bbc15ea6d85a439d7009cf2bbc6b7c06fd6bd7eeb196d0cef2f4146eb51eeb"
+            }
+          ]
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "pass",
+          "reason": "Three independently labeled baseline faults checked.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-BUDGET-draw1-FULL.json",
+              "sha256": "b5bbc15ea6d85a439d7009cf2bbc6b7c06fd6bd7eeb196d0cef2f4146eb51eeb"
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H1-BUDGET-NATIVE-SUMMARY.json",
+          "sha256": "ba2c765d849be4b69f7b539b0821ba098687773b07fc3196a6c914e4a8a51f4a"
+        },
+        {
+          "path": "grades/owner-review/H1-BUDGET-draw1-FULL.json",
+          "sha256": "b5bbc15ea6d85a439d7009cf2bbc6b7c06fd6bd7eeb196d0cef2f4146eb51eeb"
+        },
+        {
+          "path": "grades/owner-review/H1-BUDGET-REVIEW.md",
+          "sha256": "2e8af0a51029ba762ae2432f4adaf1945dac0e72d9ba5aebe60502c9b2a1826c"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "H1_budget_diagnostic/gpt-6.1-sol/H1/draw2",
+      "case_id": "H1",
+      "model": "gpt-6.1-sol",
+      "cohort": "H1_budget_diagnostic",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "verified_false_reject",
+      "retrospective_verdict": "counterexample_reproduced_human_adjudication_pending",
+      "score_interval": [
+        25,
+        82.5
+      ],
+      "raw_control_classification": {
+        "valid_positives": 2,
+        "accepted_positives": 1,
+        "valid_negatives": 3,
+        "rejected_negatives": 3,
+        "false_rejects": 1,
+        "false_accepts": 0
+      },
+      "historical_verified_dimensions": [
+        "hidden_required_status_literal_false_reject"
+      ],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Native submitted grader was actually invoked; this is not a complete clean-runner check.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-BUDGET-draw2-FULL.json",
+              "sha256": "a87f56856ec9f01fc0bfdb7c5b6694c1cbc8a60a65fec99005745f32ceeae1e4"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "fail",
+          "reason": "Grader requires accepted while documented solver-only views omit it; source-license analysis is AI-reviewed with human adjudication pending.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-BUDGET-draw2-FULL.json",
+              "sha256": "a87f56856ec9f01fc0bfdb7c5b6694c1cbc8a60a65fec99005745f32ceeae1e4"
+            },
+            {
+              "path": "grades/owner-review/H1-BUDGET-NATIVE-SUMMARY.json",
+              "sha256": "ba2c765d849be4b69f7b539b0821ba098687773b07fc3196a6c914e4a8a51f4a"
+            },
+            {
+              "path": "grades/owner-review/H1-BUDGET-REVIEW.md",
+              "sha256": "2e8af0a51029ba762ae2432f4adaf1945dac0e72d9ba5aebe60502c9b2a1826c"
+            }
+          ]
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "pass",
+          "reason": "Baseline qualified correct control result.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-BUDGET-draw2-FULL.json",
+              "sha256": "a87f56856ec9f01fc0bfdb7c5b6694c1cbc8a60a65fec99005745f32ceeae1e4"
+            }
+          ]
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "fail",
+          "reason": "Second qualified correct strategy/representation result.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-BUDGET-draw2-FULL.json",
+              "sha256": "a87f56856ec9f01fc0bfdb7c5b6694c1cbc8a60a65fec99005745f32ceeae1e4"
+            }
+          ]
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "pass",
+          "reason": "Three independently labeled baseline faults checked.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-BUDGET-draw2-FULL.json",
+              "sha256": "a87f56856ec9f01fc0bfdb7c5b6694c1cbc8a60a65fec99005745f32ceeae1e4"
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H1-BUDGET-NATIVE-SUMMARY.json",
+          "sha256": "ba2c765d849be4b69f7b539b0821ba098687773b07fc3196a6c914e4a8a51f4a"
+        },
+        {
+          "path": "grades/owner-review/H1-BUDGET-draw2-FULL.json",
+          "sha256": "a87f56856ec9f01fc0bfdb7c5b6694c1cbc8a60a65fec99005745f32ceeae1e4"
+        },
+        {
+          "path": "grades/owner-review/H1-BUDGET-REVIEW.md",
+          "sha256": "2e8af0a51029ba762ae2432f4adaf1945dac0e72d9ba5aebe60502c9b2a1826c"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "H1_budget_diagnostic/gpt-6.1-sol/H1/draw3",
+      "case_id": "H1",
+      "model": "gpt-6.1-sol",
+      "cohort": "H1_budget_diagnostic",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "verified_false_reject",
+      "retrospective_verdict": "counterexample_reproduced_human_adjudication_pending",
+      "score_interval": [
+        25,
+        82.5
+      ],
+      "raw_control_classification": {
+        "valid_positives": 2,
+        "accepted_positives": 1,
+        "valid_negatives": 3,
+        "rejected_negatives": 3,
+        "false_rejects": 1,
+        "false_accepts": 0
+      },
+      "historical_verified_dimensions": [
+        "hidden_required_status_literal_false_reject"
+      ],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Native submitted grader was actually invoked; this is not a complete clean-runner check.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-BUDGET-draw3-FULL.json",
+              "sha256": "582aee8aa57e77a8b820c93a60aae5e503a513e22fadea3ce96a8db2745ab13b"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "fail",
+          "reason": "Grader requires accepted while documented solver-only views omit it; source-license analysis is AI-reviewed with human adjudication pending.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-BUDGET-draw3-FULL.json",
+              "sha256": "582aee8aa57e77a8b820c93a60aae5e503a513e22fadea3ce96a8db2745ab13b"
+            },
+            {
+              "path": "grades/owner-review/H1-BUDGET-NATIVE-SUMMARY.json",
+              "sha256": "ba2c765d849be4b69f7b539b0821ba098687773b07fc3196a6c914e4a8a51f4a"
+            },
+            {
+              "path": "grades/owner-review/H1-BUDGET-REVIEW.md",
+              "sha256": "2e8af0a51029ba762ae2432f4adaf1945dac0e72d9ba5aebe60502c9b2a1826c"
+            }
+          ]
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "pass",
+          "reason": "Baseline qualified correct control result.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-BUDGET-draw3-FULL.json",
+              "sha256": "582aee8aa57e77a8b820c93a60aae5e503a513e22fadea3ce96a8db2745ab13b"
+            }
+          ]
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "fail",
+          "reason": "Second qualified correct strategy/representation result.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-BUDGET-draw3-FULL.json",
+              "sha256": "582aee8aa57e77a8b820c93a60aae5e503a513e22fadea3ce96a8db2745ab13b"
+            }
+          ]
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "pass",
+          "reason": "Three independently labeled baseline faults checked.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-BUDGET-draw3-FULL.json",
+              "sha256": "582aee8aa57e77a8b820c93a60aae5e503a513e22fadea3ce96a8db2745ab13b"
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H1-BUDGET-NATIVE-SUMMARY.json",
+          "sha256": "ba2c765d849be4b69f7b539b0821ba098687773b07fc3196a6c914e4a8a51f4a"
+        },
+        {
+          "path": "grades/owner-review/H1-BUDGET-draw3-FULL.json",
+          "sha256": "582aee8aa57e77a8b820c93a60aae5e503a513e22fadea3ce96a8db2745ab13b"
+        },
+        {
+          "path": "grades/owner-review/H1-BUDGET-REVIEW.md",
+          "sha256": "2e8af0a51029ba762ae2432f4adaf1945dac0e72d9ba5aebe60502c9b2a1826c"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "selected_hit_clean_staging/gpt-6.1-sol/H1",
+      "case_id": "H1",
+      "model": "gpt-6.1-sol",
+      "cohort": "selected_hit_clean_staging",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "verified_false_rejection",
+      "retrospective_verdict": "counterexample_reproduced_human_adjudication_pending",
+      "score_interval": [
+        25,
+        82.5
+      ],
+      "raw_control_classification": {
+        "valid_positives": 2,
+        "accepted_positives": 1,
+        "valid_negatives": 3,
+        "rejected_negatives": 3,
+        "false_rejects": 1,
+        "false_accepts": 0
+      },
+      "historical_verified_dimensions": [
+        "hidden_required_status_literal_false_reject"
+      ],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Native submitted grader was actually invoked; this is not a complete clean-runner check.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-CLEAN-FULL.json",
+              "sha256": "8c51118b459b8a33e99c7993e896a834f2b57ea6c2a5d9ba6bfd6805ebcf3d84"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "fail",
+          "reason": "Grader requires accepted while documented solver-only views omit it; source-license analysis is AI-reviewed with human adjudication pending.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-CLEAN-FULL.json",
+              "sha256": "8c51118b459b8a33e99c7993e896a834f2b57ea6c2a5d9ba6bfd6805ebcf3d84"
+            },
+            {
+              "path": "grades/owner-review/H1-CLEAN-REVIEW.md",
+              "sha256": "2b14f065b77b418fc798a444b29396d12bba65320ca2c2c04c4c82b950f5d30b"
+            },
+            {
+              "path": "runs/clean_screen/gpt-6.1-sol/H1/launch.json",
+              "sha256": "63595705fc5117cafab33ed183f24e5b224446e84e621fa473e2763b17278fab"
+            }
+          ]
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "pass",
+          "reason": "Baseline qualified correct control result.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-CLEAN-FULL.json",
+              "sha256": "8c51118b459b8a33e99c7993e896a834f2b57ea6c2a5d9ba6bfd6805ebcf3d84"
+            }
+          ]
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "fail",
+          "reason": "Second qualified correct strategy/representation result.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-CLEAN-FULL.json",
+              "sha256": "8c51118b459b8a33e99c7993e896a834f2b57ea6c2a5d9ba6bfd6805ebcf3d84"
+            }
+          ]
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "pass",
+          "reason": "Three independently labeled baseline faults checked.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-CLEAN-FULL.json",
+              "sha256": "8c51118b459b8a33e99c7993e896a834f2b57ea6c2a5d9ba6bfd6805ebcf3d84"
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H1-CLEAN-FULL.json",
+          "sha256": "8c51118b459b8a33e99c7993e896a834f2b57ea6c2a5d9ba6bfd6805ebcf3d84"
+        },
+        {
+          "path": "grades/owner-review/H1-CLEAN-REVIEW.md",
+          "sha256": "2b14f065b77b418fc798a444b29396d12bba65320ca2c2c04c4c82b950f5d30b"
+        },
+        {
+          "path": "runs/clean_screen/gpt-6.1-sol/H1/launch.json",
+          "sha256": "63595705fc5117cafab33ed183f24e5b224446e84e621fa473e2763b17278fab"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "selected_hit_clean_staging/gpt-6-astra/H6",
+      "case_id": "H6",
+      "model": "gpt-6-astra",
+      "cohort": "selected_hit_clean_staging",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "verified_false_acceptance",
+      "retrospective_verdict": "counterexample_reproduced_human_adjudication_pending",
+      "score_interval": [
+        5,
+        80.0
+      ],
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [
+        "actual_bad_numeric_cli_false_green",
+        "legal_numeric_output_false_reject"
+      ],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Actual native numeric evaluator invoked; no inference from self-reported verification alone.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H6-CLEAN-FULL.json",
+              "sha256": "c37d0f2081a53fa0e95e5d8aa8f1491ee07faf983dcff7f97415cbdf79716238"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "fail",
+          "reason": "Correct canonical-zero output passes but equivalent licensed exponent-zero output fails. This is an output-only control, not a universally correct full CLI.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H6-CLEAN-OUTPUT-ZERO-PAIR.json",
+              "sha256": "e4fa6f1fe1c0328905447ac1c7c20571c06e4ca63be7994d97288d77d23e39bf"
+            },
+            {
+              "path": "grades/semantic-review/H6-SOURCE-CLAUSES.md",
+              "sha256": "5b75d8efc5e06825776a63ec5905c29b207517ee0f1386a6f728b4350aeb43b8"
+            }
+          ]
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "fail",
+          "reason": "Actual known-bad CLI rejection checked. Rejection may detect another real defect and does not establish zero-family coverage.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H6-CLEAN-FULL.json",
+              "sha256": "c37d0f2081a53fa0e95e5d8aa8f1491ee07faf983dcff7f97415cbdf79716238"
+            },
+            {
+              "path": "grades/owner-review/H6-REVIEW.md",
+              "sha256": "b0b75b72e7cd27de8dfe8dc7c70b1a2bee010c14eaa2b7ecfeccec580d2842ba"
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H6-CLEAN-FULL.json",
+          "sha256": "c37d0f2081a53fa0e95e5d8aa8f1491ee07faf983dcff7f97415cbdf79716238"
+        },
+        {
+          "path": "grades/owner-review/H6-CLEAN-OUTPUT-ZERO-PAIR.json",
+          "sha256": "e4fa6f1fe1c0328905447ac1c7c20571c06e4ca63be7994d97288d77d23e39bf"
+        },
+        {
+          "path": "grades/owner-review/ASTRA-H6-PAIRED-REPRODUCER.json",
+          "sha256": "1c53ae7085514244322da76126738b1aae8e56a9c4e67481ff15a77b70854e0d"
+        },
+        {
+          "path": "runs/clean_screen/gpt-6-astra/H6/launch.json",
+          "sha256": "8c8fec254a65dd78995d1d0f9c426c79e356f4805a76a74081172c8894e741fe"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "selected_hit_coached_staging/gpt-6.1-sol/H1",
+      "case_id": "H1",
+      "model": "gpt-6.1-sol",
+      "cohort": "selected_hit_coached_staging",
+      "native_status": "completed",
+      "track": "eval_authoring",
+      "historical_outcome": "target_failure_not_observed_under_published_new_contract",
+      "retrospective_verdict": "no_full_scoped_verdict_evidence_incomplete",
+      "score_interval": [
+        35,
+        100.0
+      ],
+      "raw_control_classification": {
+        "valid_positives": 2,
+        "accepted_positives": 2,
+        "valid_negatives": 3,
+        "rejected_negatives": 3,
+        "false_rejects": 0,
+        "false_accepts": 0
+      },
+      "historical_verified_dimensions": [],
+      "checks": [
+        {
+          "id": "A1",
+          "points": 5,
+          "description": "Actual delivered grader invoked through a native adapter",
+          "status": "pass",
+          "reason": "Native submitted grader was actually invoked; this is not a complete clean-runner check.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-COACHED-FULL.json",
+              "sha256": "d314ba4f35744aa5243f9a72a82b552bc10d2578861887bce8b62b26617710be"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "points": 5,
+          "description": "Delivered clean runner independently reproduced as documented",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B1",
+          "points": 7.5,
+          "description": "Reviewed source requirements preserved in the delivered task",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "B2",
+          "points": 7.5,
+          "description": "Reviewed graded requirements disclosed to the actual solver",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C1",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on core domain obligations",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "C2",
+          "points": 7.5,
+          "description": "Delivered reference independently checked on licensed boundary cases",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "D1",
+          "points": 10,
+          "description": "Baseline independently qualified correct answer accepted",
+          "status": "pass",
+          "reason": "Baseline qualified correct control result. Controls are explicitly mapped to the new published accepted-only interface; original scope preservation remains unknown.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-COACHED-FULL.json",
+              "sha256": "d314ba4f35744aa5243f9a72a82b552bc10d2578861887bce8b62b26617710be"
+            }
+          ]
+        },
+        {
+          "id": "D2",
+          "points": 10,
+          "description": "Qualified correct alternative/representation accepted",
+          "status": "pass",
+          "reason": "Second qualified correct strategy/representation result. Controls are explicitly mapped to the new published accepted-only interface; original scope preservation remains unknown.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-COACHED-FULL.json",
+              "sha256": "d314ba4f35744aa5243f9a72a82b552bc10d2578861887bce8b62b26617710be"
+            }
+          ]
+        },
+        {
+          "id": "E1",
+          "points": 10,
+          "description": "All exercised qualified baseline faulty controls rejected",
+          "status": "pass",
+          "reason": "Three independently labeled baseline faults checked. Controls are explicitly mapped to the new published accepted-only interface; original scope preservation remains unknown.",
+          "evidence": [
+            {
+              "path": "grades/owner-review/H1-COACHED-FULL.json",
+              "sha256": "d314ba4f35744aa5243f9a72a82b552bc10d2578861887bce8b62b26617710be"
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "points": 10,
+          "description": "Separately authored sibling faulty controls rejected",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F1",
+          "points": 5,
+          "description": "Required author/eval/candidate boundaries independently qualified",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "F2",
+          "points": 5,
+          "description": "Required work/evidence measurement independently checked",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G1",
+          "points": 2.5,
+          "description": "Author's delivered positive and negative controls execute",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "G2",
+          "points": 2.5,
+          "description": "Author's own control claims independently validated",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H1",
+          "points": 2.5,
+          "description": "Published numeric/calibration claims recomputed from evidence",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        },
+        {
+          "id": "H2",
+          "points": 2.5,
+          "description": "Material report conclusions independently supported",
+          "status": "unknown",
+          "reason": "Not established by the imported evidence; not a subject failure.",
+          "evidence": []
+        }
+      ],
+      "review_evidence": [
+        {
+          "path": "grades/owner-review/H1-COACHED-FULL.json",
+          "sha256": "d314ba4f35744aa5243f9a72a82b552bc10d2578861887bce8b62b26617710be"
+        },
+        {
+          "path": "grades/owner-review/H1-COACHED-REVIEW.md",
+          "sha256": "a37d400f5aea597181d3feca1a8d1741cb81206a4eccc58167728b4d3828d572"
+        },
+        {
+          "path": "grades/owner-review/H1-COACHED-ZIP-BINDING.json",
+          "sha256": "2d96c129ad01cb2321da333808edc0d6a6e6ee8c794bd28e9674849357d65324"
+        },
+        {
+          "path": "runs/clean_screen_v2/coached/gpt-6.1-sol/H1/launch.json",
+          "sha256": "a5ab0caeb6afba73e4819b128a650e45c8f98a94f4b0eccd312ea782975f39af"
+        },
+        {
+          "path": "runs/clean_screen_v2/coached/gpt-6.1-sol/H1/delivery/TASK.md",
+          "sha256": "f3f287c91f2a12cf4dd2e766865ca826aa75bf83ee20d9f942e7924c6eb0a132"
+        }
+      ],
+      "human_review_complete": false
+    },
+    {
+      "attempt_id": "selected_hit_coached_staging/gpt-6-astra/H6",
+      "case_id": "H6",
+      "model": "gpt-6-astra",
+      "cohort": "selected_hit_coached_staging",
+      "native_status": "timeout",
+      "track": "eval_authoring",
+      "historical_outcome": "incomplete_timeout_no_completed_verdict",
+      "retrospective_verdict": "incomplete_timeout",
+      "score_interval": null,
+      "raw_control_classification": null,
+      "historical_verified_dimensions": [],
+      "checks": [],
+      "review_evidence": [
+        {
+          "path": "runs/clean_screen_v2/coached/gpt-6-astra/H6/launch.json",
+          "sha256": "a6d87d127f2597e5dac66c6b70c94f3c57c321f776a06032e16732f3db55c487"
+        },
+        {
+          "path": "runs/clean_screen_v2/coached/gpt-6-astra/H6/transcript.jsonl",
+          "sha256": "64f49b4780e535a70f3ecb2134b3c7215402ec5ecf8527cace4f2d529fa4464b"
+        },
+        {
+          "path": "grades/owner-review/H6-COACHED-REVIEW.md",
+          "sha256": "48c66d6a8e5dc6bf3777227af6ad237d462fa94b04b1317856ec7c5f5c1d2cdf"
+        }
+      ],
+      "human_review_complete": false
+    }
+  ]
+}

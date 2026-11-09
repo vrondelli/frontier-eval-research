@@ -1,0 +1,6 @@
+{
+ "case_id":"H7","model":"gpt-6-astra",
+ "mapping_note":"Owner adapter maps original extraction JSON representation to immutable delivered grade.grade, which is the same function used by native CLI.",
+ "command":["python","-B","-c","import json,sys;sys.path.insert(0,'/subject/evaluation');import grade;c=json.load(open(sys.argv[1]));r=grade.grade(c['extraction']);print(json.dumps(dict(pass_verdict=r['passed'],report=r)))","{case_file}"],
+ "verdict_source":"json","pass_key":"pass_verdict"
+}

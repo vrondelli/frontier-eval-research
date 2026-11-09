@@ -1,0 +1,14 @@
+{
+  "case_id": "H6",
+  "model": "gpt-6.1-sol",
+  "mapping_note": "Owner adapter materializes immutable code control as summarize.py and invokes native evaluate.evaluate with the actual CLI command in a disposable Docker copy. Initial owner positives are only finite-qualified and may fail broader licensed cases; adjudicate before calling false rejection.",
+  "command": [
+    "python",
+    "-B",
+    "-c",
+    "import json,sys,shutil;from pathlib import Path;c=json.load(open(sys.argv[1]));shutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir();Path('/tmp/candidate/summarize.py').write_text(c['code']);sys.path.insert(0,'/tmp/eval/evaluation');import evaluate;import os;os.chdir('/tmp');r=evaluate.evaluate([sys.executable,'/tmp/candidate/summarize.py'],cwd='/tmp/candidate');print(json.dumps(dict(pass_verdict=r['success'],report=r)))",
+    "{case_file}"
+  ],
+  "verdict_source": "json",
+  "pass_key": "pass_verdict"
+}

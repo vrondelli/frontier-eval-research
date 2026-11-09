@@ -1,0 +1,72 @@
+{
+  "schema_version": "eval-author-clean-hit-diagnostic/v1",
+  "admitted": true,
+  "frozen_utc": "2026-11-09T02:23:09.251042+00:00",
+  "condition": "selected_hit_clean_staging_diagnostic",
+  "initial_screen_rate_eligible": false,
+  "trigger": "Post-screen selection of H1 and H6 evaluator weaknesses; measure clean staging without provenance/manifest author payload.",
+  "source_instruction_conditions": "H1/H6 minimal reconstruction, no stronger quality checklist",
+  "actor_roots": [
+    "prompt.md",
+    "input/"
+  ],
+  "forbidden_actor_metadata": [
+    "PROVENANCE.json",
+    "MANIFEST.json"
+  ],
+  "native_python_version": "3.14.2",
+  "reasoning_effort": "high",
+  "sandbox": "Windows MXC workspace-write",
+  "jobs_sequential": [
+    {
+      "model": "gpt-6.1-sol",
+      "case": "H1",
+      "timeout_seconds": 1200
+    },
+    {
+      "model": "gpt-6-astra",
+      "case": "H6",
+      "timeout_seconds": 600
+    }
+  ],
+  "worker_count": 1,
+  "model_calls_scheduled": 2,
+  "wait_for_terminal": "runs/CONFIRMATION-H6-TERMINAL.json",
+  "concurrency_context": "May overlap3H1budgetdiagnosticactors; this supervisor contributes max1actor.",
+  "automatic_retries": 0,
+  "fresh_sessions": true,
+  "packets": {
+    "H1": {
+      "case_id": "H1",
+      "manifest_sha256": "5f38525a68615f92a667ff2ac5d03a77e1f7759945e8220b259ed533a3cb27ea",
+      "provenance_sha256": "b16d9b3da0364a2bf86f281985290973da518b8d7b3929f6a0e39c33e3540a6b",
+      "verified_file_count": 4,
+      "prompt_sha256": "df6180cbe0ef1a14781dbf0b50e0d29490876cf466dc39a865f24ea9e64825d0"
+    },
+    "H6": {
+      "case_id": "H6",
+      "manifest_sha256": "b8d456092a610308085192119c74120c6d9123a592c8931c33a268fd193bd1f2",
+      "provenance_sha256": "a6a03f7a01d2dcd617518f7a538ad5fa7a044cf6787919a95644338514d4b40a",
+      "verified_file_count": 7,
+      "prompt_sha256": "b445955764503d0f388b8471f5740124bcc06bd9f00014f071735cd031a05b4d"
+    }
+  },
+  "files": {
+    "run_clean_screen.py": "20e028253eb072f8d1c8e4ea12592caebca01ca1b494d6530c036beae328559f",
+    "run_eval.py": "7bfddb3a107cbc1029c03ba117f7ccc5c6764d7c81f3c8d907a45786a804b98e",
+    "run_clean_hit_diagnostic.py": "7dfb9a74fdc868de0fcf8c80b2817fff27275a2af9a582f4f76cb4a81473db56",
+    "packets/primary/H1/prompt.md": "df6180cbe0ef1a14781dbf0b50e0d29490876cf466dc39a865f24ea9e64825d0",
+    "packets/primary/H1/MANIFEST.json": "5f38525a68615f92a667ff2ac5d03a77e1f7759945e8220b259ed533a3cb27ea",
+    "packets/primary/H1/PROVENANCE.json": "b16d9b3da0364a2bf86f281985290973da518b8d7b3929f6a0e39c33e3540a6b",
+    "packets/primary/H1/input/README.md": "4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77",
+    "packets/primary/H1/input/E1.md": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+    "packets/primary/H6/prompt.md": "b445955764503d0f388b8471f5740124bcc06bd9f00014f071735cd031a05b4d",
+    "packets/primary/H6/MANIFEST.json": "b8d456092a610308085192119c74120c6d9123a592c8931c33a268fd193bd1f2",
+    "packets/primary/H6/PROVENANCE.json": "a6a03f7a01d2dcd617518f7a538ad5fa7a044cf6787919a95644338514d4b40a",
+    "packets/primary/H6/input/task.txt": "a14f6d6510d66ed96ad0124d3563ac1c2ea02f9686399bb97324e1fc7c3811f5",
+    "packets/primary/H6/input/workspace/example.json": "81e6c582cb892db6a2457cd88a005d45689a10835ff089041083eb3363ae1d62",
+    "packets/primary/H6/input/workspace/output.schema.json": "1b02c59bce9547a3240d0fb6b32d118e11e34d862597eb2e80013c7001c5b4cf",
+    "packets/primary/H6/input/workspace/README.md": "b62e2fa1926a5d39e749a09cae70ede342275855e4ca3f81318483c42c399cc7",
+    "packets/primary/H6/input/workspace/input.schema.json": "22e4954dd62b1f6b7368d8d16875ebdfcda0dd5ae9c973bc21f2b7e1b445ada5"
+  }
+}

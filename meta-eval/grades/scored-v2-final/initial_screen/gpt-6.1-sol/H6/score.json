@@ -1,0 +1,1214 @@
+{
+  "subject": {
+    "id": "initial_screen/gpt-6.1-sol/H6",
+    "case_id": "H6",
+    "cohort": "initial_screen",
+    "model": "gpt-6.1-sol",
+    "native_status": "completed",
+    "package": "runs/screen/gpt-6.1-sol/H6/delivery",
+    "jobs": [
+      {
+        "name": "saved_luna_decimal",
+        "kind": "control",
+        "expected": false,
+        "family": "baseline",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-43c78860e0df43bc8dd2954c7c3c504f",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H6/delivery,target=/subject,readonly",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H6/saved_luna_decimal.json,target=/control.json,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import importlib,json,os,shutil,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir();script=Path('/tmp/candidate/summarize.py');script.write_text(c['code']);sys.path.insert(0,'/tmp/eval/evaluation');os.chdir('/tmp');e=importlib.import_module('evaluate');r=e.evaluate([sys.executable,str(script)],cwd=script.parent);print(json.dumps({'pass_verdict':r['success'],'report':r}))\n"
+        ]
+      },
+      {
+        "name": "wrong_count",
+        "kind": "control",
+        "expected": false,
+        "family": "sibling",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-623075faa618412e84684d2656d2cba2",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H6/delivery,target=/subject,readonly",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H6/wrong_count.json,target=/control.json,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import importlib,json,os,shutil,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir();script=Path('/tmp/candidate/summarize.py');script.write_text(c['code']);sys.path.insert(0,'/tmp/eval/evaluation');os.chdir('/tmp');e=importlib.import_module('evaluate');r=e.evaluate([sys.executable,str(script)],cwd=script.parent);print(json.dumps({'pass_verdict':r['success'],'report':r}))\n"
+        ]
+      },
+      {
+        "name": "reject_empty",
+        "kind": "control",
+        "expected": false,
+        "family": "sibling",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-a4c1364920564fddbc657b7a1248ddf0",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H6/delivery,target=/subject,readonly",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H6/reject_empty.json,target=/control.json,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import importlib,json,os,shutil,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir();script=Path('/tmp/candidate/summarize.py');script.write_text(c['code']);sys.path.insert(0,'/tmp/eval/evaluation');os.chdir('/tmp');e=importlib.import_module('evaluate');r=e.evaluate([sys.executable,str(script)],cwd=script.parent);print(json.dumps({'pass_verdict':r['success'],'report':r}))\n"
+        ]
+      },
+      {
+        "name": "legal_output_pair",
+        "kind": "output_pair",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-a7e25dd850634c7e9266193d1cb79bb2",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H6/delivery,target=/subject,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import importlib,json,sys\nfrom pathlib import Path\nsys.path.insert(0,'/subject/evaluation');e=importlib.import_module('evaluate')\nCase=getattr(e,'Case',None)\nif Case is None:Case=importlib.import_module('cases').Case\ncase=Case('owner-empty-count','owner',b'{\"adjustment_sheets\":{\"zero\":{\"stat\":\"event_count\",\"turns\":[]}}}',{'zero':'0'});rows=[]\nfor token in ['0','0e10000000000000000000']:\n out='{\"stock_reports\":{\"zero\":'+token+'}}';p=Path('/tmp/output.json');p.write_text(out)\n r=getattr(e,'judge_output')(case,0,out.encode())\n accepted=(r is None)if 'judge_output' in ['judge_output','check_output']else r[0]\n rows.append({'token':token,'accepted':accepted,'detail':r})\nprint(json.dumps({'rows':rows}))\n"
+        ]
+      },
+      {
+        "name": "export_reference_cases",
+        "kind": "numeric_reference",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-57fa109fcf41428ba2b4a68e3e1fe64c",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H6/delivery,target=/subject,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import importlib,json,sys\nsys.path.insert(0,'/subject/evaluation');m=importlib.import_module('evaluate');cases=getattr(m,'make_cases')();rows=[]\nfor c in cases:\n raw=next(getattr(c,n)for n in ['raw','data','payload']if hasattr(c,n))\n if c.expected is None:raw=''\n rows.append({'name':c.name,'raw':raw.decode('utf8')if isinstance(raw,bytes)else raw,'expected':None if c.expected is None else {str(k):str(v)for k,v in c.expected.items()}})\nprint(json.dumps({'cases':rows}))\n"
+        ]
+      },
+      {
+        "name": "author_verification",
+        "kind": "selftests",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "meta-eval-ff5e33ab44af4cfb901b15fdeaf7e1b2",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "128",
+          "--memory",
+          "512m",
+          "--cpus",
+          "1",
+          "--tmpfs",
+          "/tmp:rw,nosuid,size=128m",
+          "--mount",
+          "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H6/delivery,target=/subject,readonly",
+          "-w",
+          "/tmp",
+          "python:3.14-slim",
+          "python",
+          "-B",
+          "-c",
+          "import json,os,shutil,subprocess,sys\nfrom pathlib import Path\nshutil.copytree('/subject','/tmp/eval');os.chdir('/tmp/eval');env=dict(os.environ);env['PYTHONPATH']='/tmp/eval:/tmp/eval/evaluation'\np=subprocess.run([sys.executable,'-B','-c',\"import json,runpy,sys,unittest\\nfrom pathlib import Path\\nevents={'unittest_cases_entered':0,'native_grader_calls':0}\\ncase_code=unittest.TestCase.run.__code__\\ndef observe(frame,event,arg):\\n if event=='call':\\n  if frame.f_code is case_code:events['unittest_cases_entered']+=1\\n  if frame.f_code.co_filename.startswith('/tmp/eval/')and frame.f_code.co_name in ['grade','evaluate','run_suite']:events['native_grader_calls']+=1\\nsys.argv=['-m', 'unittest', 'discover', '-s', 'evaluation', '-p', 'test*.py'];status=0;sys.setprofile(observe)\\ntry:\\n if sys.argv[0]=='-m':\\n  module=sys.argv[1];sys.argv=sys.argv[1:];runpy.run_module(module,run_name='__main__',alter_sys=True)\\n else:runpy.run_path(sys.argv[0],run_name='__main__')\\nexcept SystemExit as e:status=e.code or 0\\nfinally:\\n sys.setprofile(None);Path('/tmp/owner-verification-events.json').write_text(json.dumps(events))\\nraise SystemExit(status)\\n\"],capture_output=True,text=True,env=env,timeout=180)\nreport=Path('/tmp/eval/evaluation/selftest-report.json')\nevents=Path('/tmp/owner-verification-events.json')\nprint(json.dumps({'native_exit':p.returncode,'stdout':p.stdout,'stderr':p.stderr,'observed_execution_events':json.loads(events.read_text())if events.exists()else None,'verification_report':json.loads(report.read_text())if report.exists()else None}))\n"
+        ],
+        "timeout": 210
+      }
+    ],
+    "review_evidence": [
+      "grades/owner-review/H6-REVIEW.md",
+      "owner/ADJUDICATION.json"
+    ],
+    "historical_verified_dimensions": [],
+    "h6_profile": {
+      "module": "evaluate",
+      "cases": "make_cases",
+      "cases_module": "evaluate",
+      "call": "e.evaluate([sys.executable,str(script)],cwd=script.parent)",
+      "key": "success",
+      "judge": "judge_output",
+      "path": false,
+      "string_expected": true
+    }
+  },
+  "scoring": {
+    "score_interval": [
+      58.5,
+      100.0
+    ],
+    "verdict": "not_qualified",
+    "critical_failures": [],
+    "qualified": false,
+    "points_observed_pass": 58.5,
+    "points_observed_fail": 0.0,
+    "points_unresolved": 41.5
+  },
+  "checks": [
+    {
+      "id": "A1",
+      "points": 5,
+      "description": "Delivered grader actually executes",
+      "status": "pass",
+      "reason": "Actual delivered grading functions executed on independently supplied controls.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/00-saved_luna_decimal.json",
+          "sha256": "3907e520aa3b962531f9067bda30d550a9c89f68b0f8245d445191fc6400b94c"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/01-wrong_count.json",
+          "sha256": "f43c6b5c8b0168b51dd1b2b28477c66d330da3655b17d127594e579b6fb46e95"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/02-reject_empty.json",
+          "sha256": "f3d2800cb45db4d748007d0f15cb601c42ec85acc83efc947ed8e3e3ba9db791"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "A2",
+      "points": 5,
+      "description": "Delivered verification/runner executes in clean disposable state",
+      "status": "pass",
+      "reason": "Delivered verification suite reproduced in clean temporary copy under the supplied runtime; this does not establish all CLI paths.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/05-author_verification.json",
+          "sha256": "b881442d4394f8c75d4c38d276d95545d887bbcfc515d22e71c1a4a4ffe7387b"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "B1",
+      "points": 7.5,
+      "description": "Source requirements preserved",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "B2",
+      "points": 7.5,
+      "description": "Graded requirements exposed to solver",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "C1",
+      "points": 7.5,
+      "description": "Reference independently passes core semantics",
+      "status": "pass",
+      "reason": "Independent oracle compared 26 supplied core reference answers; finite scope only.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "subchecks": [
+        {
+          "name": "public_example",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "empty_sum_and_count",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "repetitions_are_events",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "singletons_and_zero",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "identifier_preservation",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "all_sheets_and_order",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "long_array",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "integral_decimals",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "binary64_integer_boundary",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "binary64_decimal_boundary",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "binary64_maximum_boundary",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "signed64_overflow",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "beyond_default_digit_limit",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "generated_00",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "generated_01",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "generated_02",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "generated_03",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "generated_04",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "generated_05",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "generated_06",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "generated_07",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "generated_08",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "generated_09",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "generated_10",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "generated_11",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        },
+        {
+          "name": "exactly_8192_bytes",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.28846153846153844
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "points": 7.5,
+      "description": "Reference independently passes boundary semantics",
+      "status": "unknown",
+      "reason": "Independent oracle compared 15 supplied boundary reference answers; finite scope only.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+          "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "subchecks": [
+        {
+          "name": "integral_exponents",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.5
+        },
+        {
+          "name": "negative_zero",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.5
+        },
+        {
+          "name": "encoded_repetitions",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.5
+        },
+        {
+          "name": "encoded_negative_maximum",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.5
+        },
+        {
+          "name": "decimal_context_cancellation",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.5
+        },
+        {
+          "name": "decimal_context_order",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.5
+        },
+        {
+          "name": "exponent_overflow_cancellation",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.5
+        },
+        {
+          "name": "exponent_overflow_max",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.5
+        },
+        {
+          "name": "negative_exponent_order",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.5
+        },
+        {
+          "name": "large_exponent_sum",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.5
+        },
+        {
+          "name": "large_exponent_cancellation",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.5
+        },
+        {
+          "name": "extreme_exponent_singleton",
+          "status": "unknown",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.5
+        },
+        {
+          "name": "extreme_exponent_count",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.5
+        },
+        {
+          "name": "extreme_exponent_cancel",
+          "status": "unknown",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.5
+        },
+        {
+          "name": "extreme_exponent_max",
+          "status": "unknown",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/independent-numeric-reference.json",
+              "sha256": "ad23ed84d5ed0efe2c13c41efe7ee9c23c444bce401f712ad26d2f20d02a97dc"
+            }
+          ],
+          "points": 0.5
+        }
+      ]
+    },
+    {
+      "id": "D1",
+      "points": 10,
+      "description": "Baseline correct control accepted",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "D2",
+      "points": 10,
+      "description": "Correct alternative/representation accepted",
+      "status": "pass",
+      "reason": "Actual native judge on two source-licensed spellings of exact zero; output-only scope.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/03-legal_output_pair.json",
+          "sha256": "799d8f50e6a668a21ca262f1f9ed38a6455b6f845a87f01b00fa4c8a3d82c495"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "E1",
+      "points": 10,
+      "description": "Baseline faulty controls rejected",
+      "status": "pass",
+      "reason": "Actual native verdicts on independently labeled finite faulty-control family; controls macro-averaged within family.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/00-saved_luna_decimal.json",
+          "sha256": "3907e520aa3b962531f9067bda30d550a9c89f68b0f8245d445191fc6400b94c"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "subchecks": [
+        {
+          "name": "saved_luna_decimal",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/00-saved_luna_decimal.json",
+              "sha256": "3907e520aa3b962531f9067bda30d550a9c89f68b0f8245d445191fc6400b94c"
+            }
+          ],
+          "points": 10.0
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "points": 10,
+      "description": "Fresh sibling faults rejected",
+      "status": "pass",
+      "reason": "Actual native verdicts on independently labeled finite faulty-control family; controls macro-averaged within family.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/01-wrong_count.json",
+          "sha256": "f43c6b5c8b0168b51dd1b2b28477c66d330da3655b17d127594e579b6fb46e95"
+        },
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/02-reject_empty.json",
+          "sha256": "f3d2800cb45db4d748007d0f15cb601c42ec85acc83efc947ed8e3e3ba9db791"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass.",
+      "subchecks": [
+        {
+          "name": "wrong_count",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/01-wrong_count.json",
+              "sha256": "f43c6b5c8b0168b51dd1b2b28477c66d330da3655b17d127594e579b6fb46e95"
+            }
+          ],
+          "points": 5.0
+        },
+        {
+          "name": "reject_empty",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/02-reject_empty.json",
+              "sha256": "f3d2800cb45db4d748007d0f15cb601c42ec85acc83efc947ed8e3e3ba9db791"
+            }
+          ],
+          "points": 5.0
+        }
+      ]
+    },
+    {
+      "id": "F1",
+      "points": 5,
+      "description": "Required isolation boundaries qualified",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "F2",
+      "points": 5,
+      "description": "Required measurement/accounting checked independently",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "G1",
+      "points": 2.5,
+      "description": "Delivered verification controls execute",
+      "status": "pass",
+      "reason": "Observed 9 actual unittest-case entries and 3 native grading calls under an owner-side profiler. Control-label correctness is a separate review.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/05-author_verification.json",
+          "sha256": "b881442d4394f8c75d4c38d276d95545d887bbcfc515d22e71c1a4a4ffe7387b"
+        }
+      ],
+      "method": "executed",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "G2",
+      "points": 2.5,
+      "description": "Verification claims independently match observations",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "H1",
+      "points": 2.5,
+      "description": "Numerical claims agree with evidence",
+      "status": "pass",
+      "reason": "Stored authored unittest-count claim matches actual observed TestCase entries and successful native suite. This checks a numerical verification claim, not control-label correctness.",
+      "evidence": [
+        {
+          "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/05-author_verification.json",
+          "sha256": "b881442d4394f8c75d4c38d276d95545d887bbcfc515d22e71c1a4a4ffe7387b"
+        },
+        {
+          "path": "runs/screen/gpt-6.1-sol/H6/delivery/evaluation/selftest.log",
+          "sha256": "168a69c2f6232762426cd1cf363f215a4f0c381f7a8923787c02dfd8d06f9255"
+        }
+      ],
+      "method": "executed_plus_artifact_inspection",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    },
+    {
+      "id": "H2",
+      "points": 2.5,
+      "description": "Material conclusions supported",
+      "status": "unknown",
+      "reason": "Required evidence or semantic qualification not yet established",
+      "evidence": [],
+      "method": "bound_review_required",
+      "review_requirement": "Owner review must bind this exact package, public obligation and specific evidence; no unbound manual pass."
+    }
+  ],
+  "native_control_results": [
+    {
+      "name": "saved_luna_decimal",
+      "expected": false,
+      "actual": false,
+      "valid": true,
+      "family": "baseline",
+      "evidence": {
+        "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/00-saved_luna_decimal.json",
+        "sha256": "3907e520aa3b962531f9067bda30d550a9c89f68b0f8245d445191fc6400b94c"
+      }
+    },
+    {
+      "name": "wrong_count",
+      "expected": false,
+      "actual": false,
+      "valid": true,
+      "family": "sibling",
+      "evidence": {
+        "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/01-wrong_count.json",
+        "sha256": "f43c6b5c8b0168b51dd1b2b28477c66d330da3655b17d127594e579b6fb46e95"
+      }
+    },
+    {
+      "name": "reject_empty",
+      "expected": false,
+      "actual": false,
+      "valid": true,
+      "family": "sibling",
+      "evidence": {
+        "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/02-reject_empty.json",
+        "sha256": "f3d2800cb45db4d748007d0f15cb601c42ec85acc83efc947ed8e3e3ba9db791"
+      }
+    }
+  ],
+  "execution_receipts": [
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/00-saved_luna_decimal.json",
+      "sha256": "3907e520aa3b962531f9067bda30d550a9c89f68b0f8245d445191fc6400b94c"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/01-wrong_count.json",
+      "sha256": "f43c6b5c8b0168b51dd1b2b28477c66d330da3655b17d127594e579b6fb46e95"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/02-reject_empty.json",
+      "sha256": "f3d2800cb45db4d748007d0f15cb601c42ec85acc83efc947ed8e3e3ba9db791"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/03-legal_output_pair.json",
+      "sha256": "799d8f50e6a668a21ca262f1f9ed38a6455b6f845a87f01b00fa4c8a3d82c495"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/04-export_reference_cases.json",
+      "sha256": "11e6534cdd1126c11b10a1e2a2e1cddfb5eeae185a2a36e5767c2948d7b7aec4"
+    },
+    {
+      "path": "grades/scored-v2-final/initial_screen/gpt-6.1-sol/H6/05-author_verification.json",
+      "sha256": "b881442d4394f8c75d4c38d276d95545d887bbcfc515d22e71c1a4a4ffe7387b"
+    }
+  ],
+  "instrument_observations": [],
+  "subject_unchanged": true,
+  "subject_before_sha256": {
+    "MANIFEST.json": "b8d456092a610308085192119c74120c6d9123a592c8931c33a268fd193bd1f2",
+    "PROVENANCE.json": "a6a03f7a01d2dcd617518f7a538ad5fa7a044cf6787919a95644338514d4b40a",
+    "evaluation/README.md": "2486876d602b9ba15e75d70ab67900d4685aec2c66a12a503f2a3addb5e86a62",
+    "evaluation/cases.json": "1e51dcc774f7f36e653f4c77875e12b54815142a6e73d31757254fc3096ac77d",
+    "evaluation/control_cli.py": "10fd9b5348730b3e548f14813b4b3c203c3cdae5be84ee9261703b7b58d1741e",
+    "evaluation/evaluate.py": "545cb9a6daade395c7ed2e963d2ac50b4fbc5c180c0cf7843f5b9f6a374704af",
+    "evaluation/selftest.log": "168a69c2f6232762426cd1cf363f215a4f0c381f7a8923787c02dfd8d06f9255",
+    "evaluation/test_evaluation.py": "45b238448f3308e7921df4ff2023bbd57ece8fad2f1b2596361598793c50b0c1",
+    "input/task.txt": "a14f6d6510d66ed96ad0124d3563ac1c2ea02f9686399bb97324e1fc7c3811f5",
+    "input/workspace/README.md": "b62e2fa1926a5d39e749a09cae70ede342275855e4ca3f81318483c42c399cc7",
+    "input/workspace/example.json": "81e6c582cb892db6a2457cd88a005d45689a10835ff089041083eb3363ae1d62",
+    "input/workspace/input.schema.json": "22e4954dd62b1f6b7368d8d16875ebdfcda0dd5ae9c973bc21f2b7e1b445ada5",
+    "input/workspace/output.schema.json": "1b02c59bce9547a3240d0fb6b32d118e11e34d862597eb2e80013c7001c5b4cf",
+    "prompt.md": "b445955764503d0f388b8471f5740124bcc06bd9f00014f071735cd031a05b4d"
+  },
+  "human_review_complete": false,
+  "scope": "Executable meta-evaluation on the finite registered checks; unqualified semantic/boundary claims remain unresolved."
+}

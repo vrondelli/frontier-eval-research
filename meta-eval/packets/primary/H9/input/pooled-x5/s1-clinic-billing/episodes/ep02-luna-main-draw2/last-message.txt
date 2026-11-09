@@ -1,0 +1,5 @@
+Implemented `settle_bills` in [billing.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep02-luna-main-draw2/workspace/billing.py) with strict ASCII validation and exact `Decimal` arithmetic. Added independent standard-library tests in [test_billing.py](/home/vlad_/projects/engineer-assessment/research/hackathon/frontier-hunt-20261106/round10/pooled-x5/s1-clinic-billing/episodes/ep02-luna-main-draw2/workspace/test_billing.py).
+
+The installed `clinlib` helpers disagreed with the task’s stated rules on band boundaries and discount cap, so the implementation follows the rules directly.
+
+Verification: `python3 -m unittest test_billing test_visible` passed all 14 tests. **13 tool calls.**

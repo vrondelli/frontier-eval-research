@@ -1,0 +1,1486 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 1.8175834440007748,
+  "stdout": "{\"evaluator\": \"e1-evaluation/1\", \"task_id\": \"E1\", \"cases\": [{\"id\": \"allowance/1\", \"checks\": [{\"check\": \"initial account values and empty decision/ledger tables\", \"pass\": true, \"actual\": {\"accounts\": [[\"A\", 100], [\"B\", 100]], \"decisions\": [], \"ledger\": []}, \"expected\": {\"accounts\": [[\"A\", 100], [\"B\", 100]], \"decisions\": [], \"ledger\": []}}, {\"check\": \"two 60-unit requests: either serialization\", \"pass\": false, \"actual\": [{\"status\": \"applied\", \"remaining\": 100}, {\"status\": \"applied\", \"remaining\": 100}], \"legal_replies\": [[{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}], [{\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}]]}], \"transcript\": [{\"worker\": \"initialization/0\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"initialization/1\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"initialization/0\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}, {\"worker\": \"initialization/1\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}, {\"worker\": \"overlap/0\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"overlap/1\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"overlap/0\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"race-left\", \"account\": \"A\", \"amount\": 60}}}, {\"worker\": \"overlap/1\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"race-right\", \"account\": \"A\", \"amount\": 60}}}, {\"worker\": \"overlap/0\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"overlap/1\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"overlap/0\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"overlap/1\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"overlap/0\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 100}}}, {\"worker\": \"overlap/1\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 100}}}, {\"worker\": \"overlap/0\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}, {\"worker\": \"overlap/1\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}], \"status\": \"fail\", \"reason\": \"CandidateError: overlap matches neither legal serial outcome\", \"elapsed_seconds\": 0.368}, {\"id\": \"duplicate_identity/1\", \"checks\": [{\"check\": \"concurrent global-key arbitration\", \"pass\": false, \"actual\": [{\"status\": \"applied\", \"remaining\": 100}, {\"status\": \"applied\", \"remaining\": 100}], \"legal_replies\": [[{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}], [{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}]]}], \"transcript\": [{\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"identity-overlap/0\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"same-key\", \"account\": \"A\", \"amount\": 60}}}, {\"worker\": \"identity-overlap/1\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"same-key\", \"account\": \"A\", \"amount\": 60}}}, {\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"identity-overlap/0\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"identity-overlap/1\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 100}}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 100}}}, {\"worker\": \"identity-overlap/0\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}, {\"worker\": \"identity-overlap/1\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}], \"status\": \"fail\", \"reason\": \"CandidateError: concurrent identity arbitration violated\", \"elapsed_seconds\": 0.1}, {\"id\": \"conflicting_identity/1\", \"checks\": [{\"check\": \"concurrent global-key arbitration\", \"pass\": false, \"actual\": [{\"status\": \"applied\", \"remaining\": 100}, {\"status\": \"payload_mismatch\", \"remaining\": null}], \"legal_replies\": [[{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"payload_mismatch\", \"remaining\": null}], [{\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"accepted\", \"remaining\": 40}]]}], \"transcript\": [{\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"identity-overlap/0\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"same-key\", \"account\": \"A\", \"amount\": 60}}}, {\"worker\": \"identity-overlap/1\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"same-key\", \"account\": \"B\", \"amount\": 60}}}, {\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"identity-overlap/0\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"identity-overlap/1\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 100}}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"worker\": \"identity-overlap/0\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}, {\"worker\": \"identity-overlap/1\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}], \"status\": \"fail\", \"reason\": \"CandidateError: concurrent identity arbitration violated\", \"elapsed_seconds\": 0.095}, {\"id\": \"allowance/2\", \"checks\": [{\"check\": \"initial account values and empty decision/ledger tables\", \"pass\": true, \"actual\": {\"accounts\": [[\"A\", 100], [\"B\", 100]], \"decisions\": [], \"ledger\": []}, \"expected\": {\"accounts\": [[\"A\", 100], [\"B\", 100]], \"decisions\": [], \"ledger\": []}}, {\"check\": \"two 60-unit requests: either serialization\", \"pass\": false, \"actual\": [{\"status\": \"applied\", \"remaining\": 100}, {\"status\": \"applied\", \"remaining\": 100}], \"legal_replies\": [[{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}], [{\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}]]}], \"transcript\": [{\"worker\": \"initialization/0\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"initialization/1\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"initialization/0\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}, {\"worker\": \"initialization/1\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}, {\"worker\": \"overlap/0\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"overlap/1\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"overlap/0\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"race-left\", \"account\": \"A\", \"amount\": 60}}}, {\"worker\": \"overlap/1\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"race-right\", \"account\": \"A\", \"amount\": 60}}}, {\"worker\": \"overlap/0\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"overlap/1\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"overlap/0\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"overlap/1\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"overlap/0\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 100}}}, {\"worker\": \"overlap/1\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 100}}}, {\"worker\": \"overlap/0\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}, {\"worker\": \"overlap/1\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}], \"status\": \"fail\", \"reason\": \"CandidateError: overlap matches neither legal serial outcome\", \"elapsed_seconds\": 0.307}, {\"id\": \"duplicate_identity/2\", \"checks\": [{\"check\": \"concurrent global-key arbitration\", \"pass\": false, \"actual\": [{\"status\": \"applied\", \"remaining\": 100}, {\"status\": \"applied\", \"remaining\": 100}], \"legal_replies\": [[{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}], [{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}]]}], \"transcript\": [{\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"identity-overlap/0\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"same-key\", \"account\": \"A\", \"amount\": 60}}}, {\"worker\": \"identity-overlap/1\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"same-key\", \"account\": \"A\", \"amount\": 60}}}, {\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"identity-overlap/0\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"identity-overlap/1\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 100}}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 100}}}, {\"worker\": \"identity-overlap/0\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}, {\"worker\": \"identity-overlap/1\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}], \"status\": \"fail\", \"reason\": \"CandidateError: concurrent identity arbitration violated\", \"elapsed_seconds\": 0.095}, {\"id\": \"conflicting_identity/2\", \"checks\": [{\"check\": \"concurrent global-key arbitration\", \"pass\": false, \"actual\": [{\"status\": \"applied\", \"remaining\": 100}, {\"status\": \"payload_mismatch\", \"remaining\": null}], \"legal_replies\": [[{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"payload_mismatch\", \"remaining\": null}], [{\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"accepted\", \"remaining\": 40}]]}], \"transcript\": [{\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"identity-overlap/0\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"same-key\", \"account\": \"A\", \"amount\": 60}}}, {\"worker\": \"identity-overlap/1\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"same-key\", \"account\": \"B\", \"amount\": 60}}}, {\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"identity-overlap/0\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"identity-overlap/1\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 100}}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"worker\": \"identity-overlap/0\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}, {\"worker\": \"identity-overlap/1\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}], \"status\": \"fail\", \"reason\": \"CandidateError: concurrent identity arbitration violated\", \"elapsed_seconds\": 0.098}, {\"id\": \"allowance/3\", \"checks\": [{\"check\": \"initial account values and empty decision/ledger tables\", \"pass\": true, \"actual\": {\"accounts\": [[\"A\", 100], [\"B\", 100]], \"decisions\": [], \"ledger\": []}, \"expected\": {\"accounts\": [[\"A\", 100], [\"B\", 100]], \"decisions\": [], \"ledger\": []}}, {\"check\": \"two 60-unit requests: either serialization\", \"pass\": false, \"actual\": [{\"status\": \"applied\", \"remaining\": 100}, {\"status\": \"applied\", \"remaining\": 100}], \"legal_replies\": [[{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}], [{\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}]]}], \"transcript\": [{\"worker\": \"initialization/0\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"initialization/1\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"initialization/0\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}, {\"worker\": \"initialization/1\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}, {\"worker\": \"overlap/0\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"overlap/1\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"overlap/0\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"race-left\", \"account\": \"A\", \"amount\": 60}}}, {\"worker\": \"overlap/1\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"race-right\", \"account\": \"A\", \"amount\": 60}}}, {\"worker\": \"overlap/0\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"overlap/1\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"overlap/0\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"overlap/1\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"overlap/0\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 100}}}, {\"worker\": \"overlap/1\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 100}}}, {\"worker\": \"overlap/0\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}, {\"worker\": \"overlap/1\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}], \"status\": \"fail\", \"reason\": \"CandidateError: overlap matches neither legal serial outcome\", \"elapsed_seconds\": 0.343}, {\"id\": \"duplicate_identity/3\", \"checks\": [{\"check\": \"concurrent global-key arbitration\", \"pass\": false, \"actual\": [{\"status\": \"applied\", \"remaining\": 100}, {\"status\": \"applied\", \"remaining\": 100}], \"legal_replies\": [[{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}], [{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}]]}], \"transcript\": [{\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"identity-overlap/0\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"same-key\", \"account\": \"A\", \"amount\": 60}}}, {\"worker\": \"identity-overlap/1\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"same-key\", \"account\": \"A\", \"amount\": 60}}}, {\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"identity-overlap/0\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"identity-overlap/1\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 100}}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 100}}}, {\"worker\": \"identity-overlap/0\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}, {\"worker\": \"identity-overlap/1\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}], \"status\": \"fail\", \"reason\": \"CandidateError: concurrent identity arbitration violated\", \"elapsed_seconds\": 0.088}, {\"id\": \"conflicting_identity/3\", \"checks\": [{\"check\": \"concurrent global-key arbitration\", \"pass\": false, \"actual\": [{\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"applied\", \"remaining\": 100}], \"legal_replies\": [[{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"payload_mismatch\", \"remaining\": null}], [{\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"accepted\", \"remaining\": 40}]]}], \"transcript\": [{\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"ready\"}}, {\"worker\": \"identity-overlap/0\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"same-key\", \"account\": \"A\", \"amount\": 60}}}, {\"worker\": \"identity-overlap/1\", \"send\": {\"op\": \"arm\", \"request\": {\"key\": \"same-key\", \"account\": \"B\", \"amount\": 60}}}, {\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"armed\"}}, {\"worker\": \"identity-overlap/0\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"identity-overlap/1\", \"send\": {\"op\": \"release\"}}, {\"worker\": \"identity-overlap/0\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"payload_mismatch\", \"remaining\": null}}}, {\"worker\": \"identity-overlap/1\", \"receive\": {\"event\": \"reply\", \"value\": {\"status\": \"applied\", \"remaining\": 100}}}, {\"worker\": \"identity-overlap/0\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}, {\"worker\": \"identity-overlap/1\", \"terminal_code\": -9, \"termination\": \"evaluator_cleanup\", \"stderr\": \"\"}], \"status\": \"fail\", \"reason\": \"CandidateError: concurrent identity arbitration violated\", \"elapsed_seconds\": 0.107}], \"review_status\": \"pending\", \"staged\": false, \"limits\": {\"repetitions\": 3, \"reply_seconds\": 6, \"reply_bytes\": 65536, \"address_space_bytes\": 536870912, \"file_descriptors\": 256, \"file_bytes\": 8388608, \"cpu_seconds_per_process\": 10}, \"source_bindings\": {\"input/E1.md\": {\"sha256\": \"514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221\", \"bytes\": 3346}, \"input/README.md\": {\"sha256\": \"4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77\", \"bytes\": 10449}}, \"answer_sha256\": \"dec69e0495ace6ae84a61e950e731c9b1f21e78ce1286536bd25303264f9412f\", \"code_sha256\": \"db19bc016c5087d44aa6204afb62df8719c66fcc60a99fcc80190ed77d4b46d9\", \"worker_runtime\": {\"python\": \"3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]\", \"sqlite\": \"3.46.1\", \"platform\": \"linux\"}, \"formal_status\": \"fail\", \"overall_status\": \"formal_fail_review_pending\"}\n",
+  "stderr": "",
+  "command": [
+    "bwrap",
+    "--die-with-parent",
+    "--unshare-all",
+    "--cap-drop",
+    "ALL",
+    "--clearenv",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "--setenv",
+    "LANG",
+    "C.UTF-8",
+    "--ro-bind",
+    "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H1/delivery",
+    "/subject",
+    "--ro-bind",
+    "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H1/wrong_debit.json",
+    "/control.json",
+    "--chdir",
+    "/subject",
+    "/usr/bin/python3",
+    "-B",
+    "-c",
+    "import json;from evaluation.grader import grade;c=json.load(open('/control.json'));print(json.dumps(grade({'task_id':'E1','code':c['code'],'explanation':'Owner-authored executable control; prose is independently reviewed.'})))"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 16665,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "evaluator": "e1-evaluation/1",
+    "task_id": "E1",
+    "cases": [
+      {
+        "id": "allowance/1",
+        "checks": [
+          {
+            "check": "initial account values and empty decision/ledger tables",
+            "pass": true,
+            "actual": {
+              "accounts": [
+                [
+                  "A",
+                  100
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [],
+              "ledger": []
+            },
+            "expected": {
+              "accounts": [
+                [
+                  "A",
+                  100
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [],
+              "ledger": []
+            }
+          },
+          {
+            "check": "two 60-unit requests: either serialization",
+            "pass": false,
+            "actual": [
+              {
+                "status": "applied",
+                "remaining": 100
+              },
+              {
+                "status": "applied",
+                "remaining": 100
+              }
+            ],
+            "legal_replies": [
+              [
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                }
+              ],
+              [
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                }
+              ]
+            ]
+          }
+        ],
+        "transcript": [
+          {
+            "worker": "initialization/0",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "initialization/1",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "initialization/0",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          },
+          {
+            "worker": "initialization/1",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          },
+          {
+            "worker": "overlap/0",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "overlap/1",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "overlap/0",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "race-left",
+                "account": "A",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "overlap/1",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "race-right",
+                "account": "A",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "overlap/0",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "overlap/1",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "overlap/0",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "overlap/1",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "overlap/0",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 100
+              }
+            }
+          },
+          {
+            "worker": "overlap/1",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 100
+              }
+            }
+          },
+          {
+            "worker": "overlap/0",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          },
+          {
+            "worker": "overlap/1",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          }
+        ],
+        "status": "fail",
+        "reason": "CandidateError: overlap matches neither legal serial outcome",
+        "elapsed_seconds": 0.368
+      },
+      {
+        "id": "duplicate_identity/1",
+        "checks": [
+          {
+            "check": "concurrent global-key arbitration",
+            "pass": false,
+            "actual": [
+              {
+                "status": "applied",
+                "remaining": 100
+              },
+              {
+                "status": "applied",
+                "remaining": 100
+              }
+            ],
+            "legal_replies": [
+              [
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                }
+              ],
+              [
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                }
+              ]
+            ]
+          }
+        ],
+        "transcript": [
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "same-key",
+                "account": "A",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "same-key",
+                "account": "A",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 100
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 100
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          },
+          {
+            "worker": "identity-overlap/1",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          }
+        ],
+        "status": "fail",
+        "reason": "CandidateError: concurrent identity arbitration violated",
+        "elapsed_seconds": 0.1
+      },
+      {
+        "id": "conflicting_identity/1",
+        "checks": [
+          {
+            "check": "concurrent global-key arbitration",
+            "pass": false,
+            "actual": [
+              {
+                "status": "applied",
+                "remaining": 100
+              },
+              {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            ],
+            "legal_replies": [
+              [
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                }
+              ],
+              [
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                }
+              ]
+            ]
+          }
+        ],
+        "transcript": [
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "same-key",
+                "account": "A",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "same-key",
+                "account": "B",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 100
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          },
+          {
+            "worker": "identity-overlap/1",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          }
+        ],
+        "status": "fail",
+        "reason": "CandidateError: concurrent identity arbitration violated",
+        "elapsed_seconds": 0.095
+      },
+      {
+        "id": "allowance/2",
+        "checks": [
+          {
+            "check": "initial account values and empty decision/ledger tables",
+            "pass": true,
+            "actual": {
+              "accounts": [
+                [
+                  "A",
+                  100
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [],
+              "ledger": []
+            },
+            "expected": {
+              "accounts": [
+                [
+                  "A",
+                  100
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [],
+              "ledger": []
+            }
+          },
+          {
+            "check": "two 60-unit requests: either serialization",
+            "pass": false,
+            "actual": [
+              {
+                "status": "applied",
+                "remaining": 100
+              },
+              {
+                "status": "applied",
+                "remaining": 100
+              }
+            ],
+            "legal_replies": [
+              [
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                }
+              ],
+              [
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                }
+              ]
+            ]
+          }
+        ],
+        "transcript": [
+          {
+            "worker": "initialization/0",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "initialization/1",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "initialization/0",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          },
+          {
+            "worker": "initialization/1",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          },
+          {
+            "worker": "overlap/0",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "overlap/1",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "overlap/0",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "race-left",
+                "account": "A",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "overlap/1",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "race-right",
+                "account": "A",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "overlap/0",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "overlap/1",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "overlap/0",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "overlap/1",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "overlap/0",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 100
+              }
+            }
+          },
+          {
+            "worker": "overlap/1",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 100
+              }
+            }
+          },
+          {
+            "worker": "overlap/0",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          },
+          {
+            "worker": "overlap/1",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          }
+        ],
+        "status": "fail",
+        "reason": "CandidateError: overlap matches neither legal serial outcome",
+        "elapsed_seconds": 0.307
+      },
+      {
+        "id": "duplicate_identity/2",
+        "checks": [
+          {
+            "check": "concurrent global-key arbitration",
+            "pass": false,
+            "actual": [
+              {
+                "status": "applied",
+                "remaining": 100
+              },
+              {
+                "status": "applied",
+                "remaining": 100
+              }
+            ],
+            "legal_replies": [
+              [
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                }
+              ],
+              [
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                }
+              ]
+            ]
+          }
+        ],
+        "transcript": [
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "same-key",
+                "account": "A",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "same-key",
+                "account": "A",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 100
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 100
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          },
+          {
+            "worker": "identity-overlap/1",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          }
+        ],
+        "status": "fail",
+        "reason": "CandidateError: concurrent identity arbitration violated",
+        "elapsed_seconds": 0.095
+      },
+      {
+        "id": "conflicting_identity/2",
+        "checks": [
+          {
+            "check": "concurrent global-key arbitration",
+            "pass": false,
+            "actual": [
+              {
+                "status": "applied",
+                "remaining": 100
+              },
+              {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            ],
+            "legal_replies": [
+              [
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                }
+              ],
+              [
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                }
+              ]
+            ]
+          }
+        ],
+        "transcript": [
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "same-key",
+                "account": "A",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "same-key",
+                "account": "B",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 100
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          },
+          {
+            "worker": "identity-overlap/1",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          }
+        ],
+        "status": "fail",
+        "reason": "CandidateError: concurrent identity arbitration violated",
+        "elapsed_seconds": 0.098
+      },
+      {
+        "id": "allowance/3",
+        "checks": [
+          {
+            "check": "initial account values and empty decision/ledger tables",
+            "pass": true,
+            "actual": {
+              "accounts": [
+                [
+                  "A",
+                  100
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [],
+              "ledger": []
+            },
+            "expected": {
+              "accounts": [
+                [
+                  "A",
+                  100
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [],
+              "ledger": []
+            }
+          },
+          {
+            "check": "two 60-unit requests: either serialization",
+            "pass": false,
+            "actual": [
+              {
+                "status": "applied",
+                "remaining": 100
+              },
+              {
+                "status": "applied",
+                "remaining": 100
+              }
+            ],
+            "legal_replies": [
+              [
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                }
+              ],
+              [
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                }
+              ]
+            ]
+          }
+        ],
+        "transcript": [
+          {
+            "worker": "initialization/0",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "initialization/1",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "initialization/0",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          },
+          {
+            "worker": "initialization/1",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          },
+          {
+            "worker": "overlap/0",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "overlap/1",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "overlap/0",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "race-left",
+                "account": "A",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "overlap/1",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "race-right",
+                "account": "A",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "overlap/0",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "overlap/1",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "overlap/0",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "overlap/1",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "overlap/0",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 100
+              }
+            }
+          },
+          {
+            "worker": "overlap/1",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 100
+              }
+            }
+          },
+          {
+            "worker": "overlap/0",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          },
+          {
+            "worker": "overlap/1",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          }
+        ],
+        "status": "fail",
+        "reason": "CandidateError: overlap matches neither legal serial outcome",
+        "elapsed_seconds": 0.343
+      },
+      {
+        "id": "duplicate_identity/3",
+        "checks": [
+          {
+            "check": "concurrent global-key arbitration",
+            "pass": false,
+            "actual": [
+              {
+                "status": "applied",
+                "remaining": 100
+              },
+              {
+                "status": "applied",
+                "remaining": 100
+              }
+            ],
+            "legal_replies": [
+              [
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                }
+              ],
+              [
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                }
+              ]
+            ]
+          }
+        ],
+        "transcript": [
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "same-key",
+                "account": "A",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "same-key",
+                "account": "A",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 100
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 100
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          },
+          {
+            "worker": "identity-overlap/1",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          }
+        ],
+        "status": "fail",
+        "reason": "CandidateError: concurrent identity arbitration violated",
+        "elapsed_seconds": 0.088
+      },
+      {
+        "id": "conflicting_identity/3",
+        "checks": [
+          {
+            "check": "concurrent global-key arbitration",
+            "pass": false,
+            "actual": [
+              {
+                "status": "payload_mismatch",
+                "remaining": null
+              },
+              {
+                "status": "applied",
+                "remaining": 100
+              }
+            ],
+            "legal_replies": [
+              [
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                }
+              ],
+              [
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                }
+              ]
+            ]
+          }
+        ],
+        "transcript": [
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "ready"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "same-key",
+                "account": "A",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "send": {
+              "op": "arm",
+              "request": {
+                "key": "same-key",
+                "account": "B",
+                "amount": 60
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "armed"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "send": {
+              "op": "release"
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "payload_mismatch",
+                "remaining": null
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/1",
+            "receive": {
+              "event": "reply",
+              "value": {
+                "status": "applied",
+                "remaining": 100
+              }
+            }
+          },
+          {
+            "worker": "identity-overlap/0",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          },
+          {
+            "worker": "identity-overlap/1",
+            "terminal_code": -9,
+            "termination": "evaluator_cleanup",
+            "stderr": ""
+          }
+        ],
+        "status": "fail",
+        "reason": "CandidateError: concurrent identity arbitration violated",
+        "elapsed_seconds": 0.107
+      }
+    ],
+    "review_status": "pending",
+    "staged": false,
+    "limits": {
+      "repetitions": 3,
+      "reply_seconds": 6,
+      "reply_bytes": 65536,
+      "address_space_bytes": 536870912,
+      "file_descriptors": 256,
+      "file_bytes": 8388608,
+      "cpu_seconds_per_process": 10
+    },
+    "source_bindings": {
+      "input/E1.md": {
+        "sha256": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+        "bytes": 3346
+      },
+      "input/README.md": {
+        "sha256": "4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77",
+        "bytes": 10449
+      }
+    },
+    "answer_sha256": "dec69e0495ace6ae84a61e950e731c9b1f21e78ce1286536bd25303264f9412f",
+    "code_sha256": "db19bc016c5087d44aa6204afb62df8719c66fcc60a99fcc80190ed77d4b46d9",
+    "worker_runtime": {
+      "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+      "sqlite": "3.46.1",
+      "platform": "linux"
+    },
+    "formal_status": "fail",
+    "overall_status": "formal_fail_review_pending"
+  },
+  "job_id": "wrong_debit",
+  "kind": "control",
+  "expected": false,
+  "family": "baseline"
+}

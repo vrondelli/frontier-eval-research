@@ -1,0 +1,44 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 0.8832355570011714,
+  "stdout": "{\"value\": [true, false]}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-d54c08d289ad444abd942df42fe55f4c",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/grades/meta-eval-final-calibration/fixtures/wrong_reference,target=/subject,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json,subprocess,sys\np=subprocess.run([sys.executable,'-B','/subject/runner.py'],capture_output=True,text=True,timeout=5);print(json.dumps({'value':json.loads(p.stdout)['results']}))"
+  ],
+  "decoded": {
+    "value": [
+      true,
+      false
+    ]
+  }
+}

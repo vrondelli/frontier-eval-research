@@ -1,0 +1,1440 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 38.4573277920008,
+  "stdout": "{\"pass_verdict\": true, \"report\": {\"all_passed\": true, \"passed\": 84, \"total\": 84, \"case_pass_fraction\": 1.0, \"categories\": {\"basic\": {\"passed\": 2, \"total\": 2}, \"boundary\": {\"passed\": 1, \"total\": 1}, \"duplicates\": {\"passed\": 6, \"total\": 6}, \"generalization\": {\"passed\": 9, \"total\": 9}, \"identifiers\": {\"passed\": 1, \"total\": 1}, \"invalid-numeric\": {\"passed\": 30, \"total\": 30}, \"json\": {\"passed\": 7, \"total\": 7}, \"numeric\": {\"passed\": 6, \"total\": 6}, \"schema\": {\"passed\": 22, \"total\": 22}}, \"cases\": [{\"name\": \"illustrative-example\", \"category\": \"basic\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.3918, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/000 illustrative-example/input data.json\", \"/tmp/numeric export evaluation b6160asb/000 illustrative-example/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"identities-repetitions-and-sign\", \"category\": \"basic\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.3504, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/001 identities-repetitions-and-sign/input data.json\", \"/tmp/numeric export evaluation b6160asb/001 identities-repetitions-and-sign/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"unicode-and-special-identifiers\", \"category\": \"identifiers\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.401, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/002 unicode-and-special-identifiers/input data.json\", \"/tmp/numeric export evaluation b6160asb/002 unicode-and-special-identifiers/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"integral-number-encodings\", \"category\": \"numeric\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.4187, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/003 integral-number-encodings/input data.json\", \"/tmp/numeric export evaluation b6160asb/003 integral-number-encodings/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"binary64-integer-boundary\", \"category\": \"numeric\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.4409, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/004 binary64-integer-boundary/input data.json\", \"/tmp/numeric export evaluation b6160asb/004 binary64-integer-boundary/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"beyond-finite-float\", \"category\": \"numeric\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.4177, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/005 beyond-finite-float/input data.json\", \"/tmp/numeric export evaluation b6160asb/005 beyond-finite-float/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"decimal-context-precision\", \"category\": \"numeric\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.3236, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/006 decimal-context-precision/input data.json\", \"/tmp/numeric export evaluation b6160asb/006 decimal-context-precision/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"long-integer-token\", \"category\": \"numeric\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.3913, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/007 long-integer-token/input data.json\", \"/tmp/numeric export evaluation b6160asb/007 long-integer-token/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"long-coefficient-with-negative-exponent\", \"category\": \"numeric\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.383, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/008 long-coefficient-with-negative-exponent/input data.json\", \"/tmp/numeric export evaluation b6160asb/008 long-coefficient-with-negative-exponent/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"many-sheets\", \"category\": \"generalization\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.3831, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/009 many-sheets/input data.json\", \"/tmp/numeric export evaluation b6160asb/009 many-sheets/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"generated-0\", \"category\": \"generalization\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.3853, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/010 generated-0/input data.json\", \"/tmp/numeric export evaluation b6160asb/010 generated-0/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"generated-1\", \"category\": \"generalization\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.3526, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/011 generated-1/input data.json\", \"/tmp/numeric export evaluation b6160asb/011 generated-1/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"generated-2\", \"category\": \"generalization\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.2099, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/012 generated-2/input data.json\", \"/tmp/numeric export evaluation b6160asb/012 generated-2/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"generated-3\", \"category\": \"generalization\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.3254, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/013 generated-3/input data.json\", \"/tmp/numeric export evaluation b6160asb/013 generated-3/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"generated-4\", \"category\": \"generalization\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.3618, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/014 generated-4/input data.json\", \"/tmp/numeric export evaluation b6160asb/014 generated-4/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"generated-5\", \"category\": \"generalization\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.3516, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/015 generated-5/input data.json\", \"/tmp/numeric export evaluation b6160asb/015 generated-5/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"generated-6\", \"category\": \"generalization\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.4342, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/016 generated-6/input data.json\", \"/tmp/numeric export evaluation b6160asb/016 generated-6/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"generated-7\", \"category\": \"generalization\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.4128, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/017 generated-7/input data.json\", \"/tmp/numeric export evaluation b6160asb/017 generated-7/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"exact-byte-limit\", \"category\": \"boundary\", \"valid_input\": true, \"passed\": true, \"reason\": \"exact results matched\", \"returncode\": 0, \"seconds\": 0.4366, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/018 exact-byte-limit/input data.json\", \"/tmp/numeric export evaluation b6160asb/018 exact-byte-limit/output data.json\"], \"stderr_tail\": \"\"}, {\"name\": \"root-array\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3986, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/019 root-array/input data.json\", \"/tmp/numeric export evaluation b6160asb/019 root-array/output data.json\"], \"stderr_tail\": \"summarize.py: top-level object must contain only 'adjustment_sheets'\\n\"}, {\"name\": \"root-null\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4554, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/020 root-null/input data.json\", \"/tmp/numeric export evaluation b6160asb/020 root-null/output data.json\"], \"stderr_tail\": \"summarize.py: top-level object must contain only 'adjustment_sheets'\\n\"}, {\"name\": \"root-scalar\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3982, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/021 root-scalar/input data.json\", \"/tmp/numeric export evaluation b6160asb/021 root-scalar/output data.json\"], \"stderr_tail\": \"summarize.py: top-level object must contain only 'adjustment_sheets'\\n\"}, {\"name\": \"missing-sheets\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4226, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/022 missing-sheets/input data.json\", \"/tmp/numeric export evaluation b6160asb/022 missing-sheets/output data.json\"], \"stderr_tail\": \"summarize.py: top-level object must contain only 'adjustment_sheets'\\n\"}, {\"name\": \"empty-sheets\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3774, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/023 empty-sheets/input data.json\", \"/tmp/numeric export evaluation b6160asb/023 empty-sheets/output data.json\"], \"stderr_tail\": \"summarize.py: 'adjustment_sheets' must be a nonempty object\\n\"}, {\"name\": \"sheets-array\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3998, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/024 sheets-array/input data.json\", \"/tmp/numeric export evaluation b6160asb/024 sheets-array/output data.json\"], \"stderr_tail\": \"summarize.py: 'adjustment_sheets' must be a nonempty object\\n\"}, {\"name\": \"sheets-null\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3676, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/025 sheets-null/input data.json\", \"/tmp/numeric export evaluation b6160asb/025 sheets-null/output data.json\"], \"stderr_tail\": \"summarize.py: 'adjustment_sheets' must be a nonempty object\\n\"}, {\"name\": \"top-extra\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3903, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/026 top-extra/input data.json\", \"/tmp/numeric export evaluation b6160asb/026 top-extra/output data.json\"], \"stderr_tail\": \"summarize.py: top-level object must contain only 'adjustment_sheets'\\n\"}, {\"name\": \"row-null\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3717, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/027 row-null/input data.json\", \"/tmp/numeric export evaluation b6160asb/027 row-null/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' must contain only 'stat' and 'turns'\\n\"}, {\"name\": \"row-array\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3868, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/028 row-array/input data.json\", \"/tmp/numeric export evaluation b6160asb/028 row-array/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' must contain only 'stat' and 'turns'\\n\"}, {\"name\": \"row-string\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4239, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/029 row-string/input data.json\", \"/tmp/numeric export evaluation b6160asb/029 row-string/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' must contain only 'stat' and 'turns'\\n\"}, {\"name\": \"missing-stat\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3764, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/030 missing-stat/input data.json\", \"/tmp/numeric export evaluation b6160asb/030 missing-stat/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' must contain only 'stat' and 'turns'\\n\"}, {\"name\": \"missing-turns\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3477, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/031 missing-turns/input data.json\", \"/tmp/numeric export evaluation b6160asb/031 missing-turns/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' must contain only 'stat' and 'turns'\\n\"}, {\"name\": \"unknown-stat\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3632, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/032 unknown-stat/input data.json\", \"/tmp/numeric export evaluation b6160asb/032 unknown-stat/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' has an unknown stat\\n\"}, {\"name\": \"stat-wrong-case\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3434, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/033 stat-wrong-case/input data.json\", \"/tmp/numeric export evaluation b6160asb/033 stat-wrong-case/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' has an unknown stat\\n\"}, {\"name\": \"stat-null\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3314, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/034 stat-null/input data.json\", \"/tmp/numeric export evaluation b6160asb/034 stat-null/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' has an unknown stat\\n\"}, {\"name\": \"row-extra\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3675, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/035 row-extra/input data.json\", \"/tmp/numeric export evaluation b6160asb/035 row-extra/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' must contain only 'stat' and 'turns'\\n\"}, {\"name\": \"turns-null\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3451, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/036 turns-null/input data.json\", \"/tmp/numeric export evaluation b6160asb/036 turns-null/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' turns must be an array\\n\"}, {\"name\": \"turns-object\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3645, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/037 turns-object/input data.json\", \"/tmp/numeric export evaluation b6160asb/037 turns-object/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' turns must be an array\\n\"}, {\"name\": \"turns-string\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3595, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/038 turns-string/input data.json\", \"/tmp/numeric export evaluation b6160asb/038 turns-string/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' turns must be an array\\n\"}, {\"name\": \"empty-maximum\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3356, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/039 empty-maximum/input data.json\", \"/tmp/numeric export evaluation b6160asb/039 empty-maximum/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' needs at least one turn\\n\"}, {\"name\": \"empty-identifier\", \"category\": \"schema\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3374, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/040 empty-identifier/input data.json\", \"/tmp/numeric export evaluation b6160asb/040 empty-identifier/output data.json\"], \"stderr_tail\": \"summarize.py: sheet identifiers must be nonempty strings\\n\"}, {\"name\": \"net_units-true\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.359, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/041 net_units-true/input data.json\", \"/tmp/numeric export evaluation b6160asb/041 net_units-true/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"net_units-false\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.389, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/042 net_units-false/input data.json\", \"/tmp/numeric export evaluation b6160asb/042 net_units-false/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"net_units-null\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3566, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/043 net_units-null/input data.json\", \"/tmp/numeric export evaluation b6160asb/043 net_units-null/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"net_units-string\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3241, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/044 net_units-string/input data.json\", \"/tmp/numeric export evaluation b6160asb/044 net_units-string/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"net_units-array\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3627, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/045 net_units-array/input data.json\", \"/tmp/numeric export evaluation b6160asb/045 net_units-array/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"net_units-object\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4088, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/046 net_units-object/input data.json\", \"/tmp/numeric export evaluation b6160asb/046 net_units-object/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"net_units-fraction\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.5143, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/047 net_units-fraction/input data.json\", \"/tmp/numeric export evaluation b6160asb/047 net_units-fraction/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"net_units-rounded-fraction\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.6016, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/048 net_units-rounded-fraction/input data.json\", \"/tmp/numeric export evaluation b6160asb/048 net_units-rounded-fraction/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"net_units-tiny-fraction\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.6935, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/049 net_units-tiny-fraction/input data.json\", \"/tmp/numeric export evaluation b6160asb/049 net_units-tiny-fraction/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"net_units-near-integral\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.5909, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/050 net_units-near-integral/input data.json\", \"/tmp/numeric export evaluation b6160asb/050 net_units-near-integral/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"event_count-true\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.5543, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/051 event_count-true/input data.json\", \"/tmp/numeric export evaluation b6160asb/051 event_count-true/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"event_count-false\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4709, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/052 event_count-false/input data.json\", \"/tmp/numeric export evaluation b6160asb/052 event_count-false/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"event_count-null\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4676, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/053 event_count-null/input data.json\", \"/tmp/numeric export evaluation b6160asb/053 event_count-null/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"event_count-string\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4796, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/054 event_count-string/input data.json\", \"/tmp/numeric export evaluation b6160asb/054 event_count-string/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"event_count-array\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4609, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/055 event_count-array/input data.json\", \"/tmp/numeric export evaluation b6160asb/055 event_count-array/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"event_count-object\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4763, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/056 event_count-object/input data.json\", \"/tmp/numeric export evaluation b6160asb/056 event_count-object/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"event_count-fraction\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4209, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/057 event_count-fraction/input data.json\", \"/tmp/numeric export evaluation b6160asb/057 event_count-fraction/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"event_count-rounded-fraction\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4821, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/058 event_count-rounded-fraction/input data.json\", \"/tmp/numeric export evaluation b6160asb/058 event_count-rounded-fraction/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"event_count-tiny-fraction\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4985, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/059 event_count-tiny-fraction/input data.json\", \"/tmp/numeric export evaluation b6160asb/059 event_count-tiny-fraction/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"event_count-near-integral\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4804, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/060 event_count-near-integral/input data.json\", \"/tmp/numeric export evaluation b6160asb/060 event_count-near-integral/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"largest_adjustment-true\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4628, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/061 largest_adjustment-true/input data.json\", \"/tmp/numeric export evaluation b6160asb/061 largest_adjustment-true/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"largest_adjustment-false\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.48, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/062 largest_adjustment-false/input data.json\", \"/tmp/numeric export evaluation b6160asb/062 largest_adjustment-false/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"largest_adjustment-null\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4409, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/063 largest_adjustment-null/input data.json\", \"/tmp/numeric export evaluation b6160asb/063 largest_adjustment-null/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"largest_adjustment-string\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.5221, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/064 largest_adjustment-string/input data.json\", \"/tmp/numeric export evaluation b6160asb/064 largest_adjustment-string/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"largest_adjustment-array\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3869, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/065 largest_adjustment-array/input data.json\", \"/tmp/numeric export evaluation b6160asb/065 largest_adjustment-array/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"largest_adjustment-object\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.463, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/066 largest_adjustment-object/input data.json\", \"/tmp/numeric export evaluation b6160asb/066 largest_adjustment-object/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"largest_adjustment-fraction\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.5403, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/067 largest_adjustment-fraction/input data.json\", \"/tmp/numeric export evaluation b6160asb/067 largest_adjustment-fraction/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"largest_adjustment-rounded-fraction\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4975, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/068 largest_adjustment-rounded-fraction/input data.json\", \"/tmp/numeric export evaluation b6160asb/068 largest_adjustment-rounded-fraction/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"largest_adjustment-tiny-fraction\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.5269, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/069 largest_adjustment-tiny-fraction/input data.json\", \"/tmp/numeric export evaluation b6160asb/069 largest_adjustment-tiny-fraction/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"largest_adjustment-near-integral\", \"category\": \"invalid-numeric\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4358, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/070 largest_adjustment-near-integral/input data.json\", \"/tmp/numeric export evaluation b6160asb/070 largest_adjustment-near-integral/output data.json\"], \"stderr_tail\": \"summarize.py: sheet 'bad' contains a non-integer turn\\n\"}, {\"name\": \"duplicate-root\", \"category\": \"duplicates\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4496, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/071 duplicate-root/input data.json\", \"/tmp/numeric export evaluation b6160asb/071 duplicate-root/output data.json\"], \"stderr_tail\": \"summarize.py: duplicate object member: 'adjustment_sheets'\\n\"}, {\"name\": \"duplicate-row\", \"category\": \"duplicates\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.5407, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/072 duplicate-row/input data.json\", \"/tmp/numeric export evaluation b6160asb/072 duplicate-row/output data.json\"], \"stderr_tail\": \"summarize.py: duplicate object member: 'first-valid'\\n\"}, {\"name\": \"escaped-duplicate-row\", \"category\": \"duplicates\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4971, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/073 escaped-duplicate-row/input data.json\", \"/tmp/numeric export evaluation b6160asb/073 escaped-duplicate-row/output data.json\"], \"stderr_tail\": \"summarize.py: duplicate object member: 'a'\\n\"}, {\"name\": \"duplicate-stat\", \"category\": \"duplicates\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.5444, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/074 duplicate-stat/input data.json\", \"/tmp/numeric export evaluation b6160asb/074 duplicate-stat/output data.json\"], \"stderr_tail\": \"summarize.py: duplicate object member: 'stat'\\n\"}, {\"name\": \"duplicate-turns\", \"category\": \"duplicates\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.498, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/075 duplicate-turns/input data.json\", \"/tmp/numeric export evaluation b6160asb/075 duplicate-turns/output data.json\"], \"stderr_tail\": \"summarize.py: duplicate object member: 'turns'\\n\"}, {\"name\": \"escaped-duplicate-member\", \"category\": \"duplicates\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.5305, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/076 escaped-duplicate-member/input data.json\", \"/tmp/numeric export evaluation b6160asb/076 escaped-duplicate-member/output data.json\"], \"stderr_tail\": \"summarize.py: duplicate object member: 'turns'\\n\"}, {\"name\": \"truncated\", \"category\": \"json\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4634, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/077 truncated/input data.json\", \"/tmp/numeric export evaluation b6160asb/077 truncated/output data.json\"], \"stderr_tail\": \"summarize.py: Expecting value: line 1 column 22 (char 21)\\n\"}, {\"name\": \"trailing-document\", \"category\": \"json\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.5072, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/078 trailing-document/input data.json\", \"/tmp/numeric export evaluation b6160asb/078 trailing-document/output data.json\"], \"stderr_tail\": \"summarize.py: Extra data: line 1 column 73 (char 72)\\n\"}, {\"name\": \"trailing-comma\", \"category\": \"json\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.5903, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/079 trailing-comma/input data.json\", \"/tmp/numeric export evaluation b6160asb/079 trailing-comma/output data.json\"], \"stderr_tail\": \"summarize.py: Illegal trailing comma before end of object: line 1 column 24 (char 23)\\n\"}, {\"name\": \"leading-zero\", \"category\": \"json\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.6188, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/080 leading-zero/input data.json\", \"/tmp/numeric export evaluation b6160asb/080 leading-zero/output data.json\"], \"stderr_tail\": \"summarize.py: Expecting ',' delimiter: line 1 column 57 (char 56)\\n\"}, {\"name\": \"nan\", \"category\": \"json\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.4576, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/081 nan/input data.json\", \"/tmp/numeric export evaluation b6160asb/081 nan/output data.json\"], \"stderr_tail\": \"summarize.py: invalid JSON number: NaN\\n\"}, {\"name\": \"infinity\", \"category\": \"json\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3986, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/082 infinity/input data.json\", \"/tmp/numeric export evaluation b6160asb/082 infinity/output data.json\"], \"stderr_tail\": \"summarize.py: invalid JSON number: Infinity\\n\"}, {\"name\": \"negative-infinity\", \"category\": \"json\", \"valid_input\": false, \"passed\": true, \"reason\": \"invalid input rejected without output\", \"returncode\": 1, \"seconds\": 0.3962, \"command\": [\"/usr/local/bin/python\", \"/tmp/candidate/summarize.py\", \"/tmp/numeric export evaluation b6160asb/083 negative-infinity/input data.json\", \"/tmp/numeric export evaluation b6160asb/083 negative-infinity/output data.json\"], \"stderr_tail\": \"summarize.py: invalid JSON number: -Infinity\\n\"}]}}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-e848a3eeaea3450dbc1f1556addb31b6",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6-astra/H6/delivery,target=/subject,readonly",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H6/saved_luna_decimal.json,target=/control.json,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import importlib,json,os,shutil,sys\nfrom pathlib import Path\nc=json.load(open('/control.json'));shutil.copytree('/subject','/tmp/eval');Path('/tmp/candidate').mkdir();script=Path('/tmp/candidate/summarize.py');script.write_text(c['code']);sys.path.insert(0,'/tmp/eval/evaluation');os.chdir('/tmp');e=importlib.import_module('evaluate');r=e.run_suite(script,work_dir='/tmp');print(json.dumps({'pass_verdict':r['all_passed'],'report':r}))\n"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 40230,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "pass_verdict": true,
+    "report": {
+      "all_passed": true,
+      "passed": 84,
+      "total": 84,
+      "case_pass_fraction": 1.0,
+      "categories": {
+        "basic": {
+          "passed": 2,
+          "total": 2
+        },
+        "boundary": {
+          "passed": 1,
+          "total": 1
+        },
+        "duplicates": {
+          "passed": 6,
+          "total": 6
+        },
+        "generalization": {
+          "passed": 9,
+          "total": 9
+        },
+        "identifiers": {
+          "passed": 1,
+          "total": 1
+        },
+        "invalid-numeric": {
+          "passed": 30,
+          "total": 30
+        },
+        "json": {
+          "passed": 7,
+          "total": 7
+        },
+        "numeric": {
+          "passed": 6,
+          "total": 6
+        },
+        "schema": {
+          "passed": 22,
+          "total": 22
+        }
+      },
+      "cases": [
+        {
+          "name": "illustrative-example",
+          "category": "basic",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.3918,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/000 illustrative-example/input data.json",
+            "/tmp/numeric export evaluation b6160asb/000 illustrative-example/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "identities-repetitions-and-sign",
+          "category": "basic",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.3504,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/001 identities-repetitions-and-sign/input data.json",
+            "/tmp/numeric export evaluation b6160asb/001 identities-repetitions-and-sign/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "unicode-and-special-identifiers",
+          "category": "identifiers",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.401,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/002 unicode-and-special-identifiers/input data.json",
+            "/tmp/numeric export evaluation b6160asb/002 unicode-and-special-identifiers/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "integral-number-encodings",
+          "category": "numeric",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.4187,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/003 integral-number-encodings/input data.json",
+            "/tmp/numeric export evaluation b6160asb/003 integral-number-encodings/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "binary64-integer-boundary",
+          "category": "numeric",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.4409,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/004 binary64-integer-boundary/input data.json",
+            "/tmp/numeric export evaluation b6160asb/004 binary64-integer-boundary/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "beyond-finite-float",
+          "category": "numeric",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.4177,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/005 beyond-finite-float/input data.json",
+            "/tmp/numeric export evaluation b6160asb/005 beyond-finite-float/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "decimal-context-precision",
+          "category": "numeric",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.3236,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/006 decimal-context-precision/input data.json",
+            "/tmp/numeric export evaluation b6160asb/006 decimal-context-precision/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "long-integer-token",
+          "category": "numeric",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.3913,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/007 long-integer-token/input data.json",
+            "/tmp/numeric export evaluation b6160asb/007 long-integer-token/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "long-coefficient-with-negative-exponent",
+          "category": "numeric",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.383,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/008 long-coefficient-with-negative-exponent/input data.json",
+            "/tmp/numeric export evaluation b6160asb/008 long-coefficient-with-negative-exponent/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "many-sheets",
+          "category": "generalization",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.3831,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/009 many-sheets/input data.json",
+            "/tmp/numeric export evaluation b6160asb/009 many-sheets/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "generated-0",
+          "category": "generalization",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.3853,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/010 generated-0/input data.json",
+            "/tmp/numeric export evaluation b6160asb/010 generated-0/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "generated-1",
+          "category": "generalization",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.3526,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/011 generated-1/input data.json",
+            "/tmp/numeric export evaluation b6160asb/011 generated-1/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "generated-2",
+          "category": "generalization",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.2099,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/012 generated-2/input data.json",
+            "/tmp/numeric export evaluation b6160asb/012 generated-2/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "generated-3",
+          "category": "generalization",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.3254,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/013 generated-3/input data.json",
+            "/tmp/numeric export evaluation b6160asb/013 generated-3/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "generated-4",
+          "category": "generalization",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.3618,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/014 generated-4/input data.json",
+            "/tmp/numeric export evaluation b6160asb/014 generated-4/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "generated-5",
+          "category": "generalization",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.3516,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/015 generated-5/input data.json",
+            "/tmp/numeric export evaluation b6160asb/015 generated-5/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "generated-6",
+          "category": "generalization",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.4342,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/016 generated-6/input data.json",
+            "/tmp/numeric export evaluation b6160asb/016 generated-6/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "generated-7",
+          "category": "generalization",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.4128,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/017 generated-7/input data.json",
+            "/tmp/numeric export evaluation b6160asb/017 generated-7/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "exact-byte-limit",
+          "category": "boundary",
+          "valid_input": true,
+          "passed": true,
+          "reason": "exact results matched",
+          "returncode": 0,
+          "seconds": 0.4366,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/018 exact-byte-limit/input data.json",
+            "/tmp/numeric export evaluation b6160asb/018 exact-byte-limit/output data.json"
+          ],
+          "stderr_tail": ""
+        },
+        {
+          "name": "root-array",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3986,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/019 root-array/input data.json",
+            "/tmp/numeric export evaluation b6160asb/019 root-array/output data.json"
+          ],
+          "stderr_tail": "summarize.py: top-level object must contain only 'adjustment_sheets'\n"
+        },
+        {
+          "name": "root-null",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4554,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/020 root-null/input data.json",
+            "/tmp/numeric export evaluation b6160asb/020 root-null/output data.json"
+          ],
+          "stderr_tail": "summarize.py: top-level object must contain only 'adjustment_sheets'\n"
+        },
+        {
+          "name": "root-scalar",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3982,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/021 root-scalar/input data.json",
+            "/tmp/numeric export evaluation b6160asb/021 root-scalar/output data.json"
+          ],
+          "stderr_tail": "summarize.py: top-level object must contain only 'adjustment_sheets'\n"
+        },
+        {
+          "name": "missing-sheets",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4226,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/022 missing-sheets/input data.json",
+            "/tmp/numeric export evaluation b6160asb/022 missing-sheets/output data.json"
+          ],
+          "stderr_tail": "summarize.py: top-level object must contain only 'adjustment_sheets'\n"
+        },
+        {
+          "name": "empty-sheets",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3774,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/023 empty-sheets/input data.json",
+            "/tmp/numeric export evaluation b6160asb/023 empty-sheets/output data.json"
+          ],
+          "stderr_tail": "summarize.py: 'adjustment_sheets' must be a nonempty object\n"
+        },
+        {
+          "name": "sheets-array",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3998,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/024 sheets-array/input data.json",
+            "/tmp/numeric export evaluation b6160asb/024 sheets-array/output data.json"
+          ],
+          "stderr_tail": "summarize.py: 'adjustment_sheets' must be a nonempty object\n"
+        },
+        {
+          "name": "sheets-null",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3676,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/025 sheets-null/input data.json",
+            "/tmp/numeric export evaluation b6160asb/025 sheets-null/output data.json"
+          ],
+          "stderr_tail": "summarize.py: 'adjustment_sheets' must be a nonempty object\n"
+        },
+        {
+          "name": "top-extra",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3903,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/026 top-extra/input data.json",
+            "/tmp/numeric export evaluation b6160asb/026 top-extra/output data.json"
+          ],
+          "stderr_tail": "summarize.py: top-level object must contain only 'adjustment_sheets'\n"
+        },
+        {
+          "name": "row-null",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3717,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/027 row-null/input data.json",
+            "/tmp/numeric export evaluation b6160asb/027 row-null/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' must contain only 'stat' and 'turns'\n"
+        },
+        {
+          "name": "row-array",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3868,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/028 row-array/input data.json",
+            "/tmp/numeric export evaluation b6160asb/028 row-array/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' must contain only 'stat' and 'turns'\n"
+        },
+        {
+          "name": "row-string",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4239,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/029 row-string/input data.json",
+            "/tmp/numeric export evaluation b6160asb/029 row-string/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' must contain only 'stat' and 'turns'\n"
+        },
+        {
+          "name": "missing-stat",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3764,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/030 missing-stat/input data.json",
+            "/tmp/numeric export evaluation b6160asb/030 missing-stat/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' must contain only 'stat' and 'turns'\n"
+        },
+        {
+          "name": "missing-turns",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3477,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/031 missing-turns/input data.json",
+            "/tmp/numeric export evaluation b6160asb/031 missing-turns/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' must contain only 'stat' and 'turns'\n"
+        },
+        {
+          "name": "unknown-stat",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3632,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/032 unknown-stat/input data.json",
+            "/tmp/numeric export evaluation b6160asb/032 unknown-stat/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' has an unknown stat\n"
+        },
+        {
+          "name": "stat-wrong-case",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3434,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/033 stat-wrong-case/input data.json",
+            "/tmp/numeric export evaluation b6160asb/033 stat-wrong-case/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' has an unknown stat\n"
+        },
+        {
+          "name": "stat-null",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3314,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/034 stat-null/input data.json",
+            "/tmp/numeric export evaluation b6160asb/034 stat-null/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' has an unknown stat\n"
+        },
+        {
+          "name": "row-extra",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3675,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/035 row-extra/input data.json",
+            "/tmp/numeric export evaluation b6160asb/035 row-extra/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' must contain only 'stat' and 'turns'\n"
+        },
+        {
+          "name": "turns-null",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3451,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/036 turns-null/input data.json",
+            "/tmp/numeric export evaluation b6160asb/036 turns-null/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' turns must be an array\n"
+        },
+        {
+          "name": "turns-object",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3645,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/037 turns-object/input data.json",
+            "/tmp/numeric export evaluation b6160asb/037 turns-object/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' turns must be an array\n"
+        },
+        {
+          "name": "turns-string",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3595,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/038 turns-string/input data.json",
+            "/tmp/numeric export evaluation b6160asb/038 turns-string/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' turns must be an array\n"
+        },
+        {
+          "name": "empty-maximum",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3356,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/039 empty-maximum/input data.json",
+            "/tmp/numeric export evaluation b6160asb/039 empty-maximum/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' needs at least one turn\n"
+        },
+        {
+          "name": "empty-identifier",
+          "category": "schema",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3374,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/040 empty-identifier/input data.json",
+            "/tmp/numeric export evaluation b6160asb/040 empty-identifier/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet identifiers must be nonempty strings\n"
+        },
+        {
+          "name": "net_units-true",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.359,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/041 net_units-true/input data.json",
+            "/tmp/numeric export evaluation b6160asb/041 net_units-true/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "net_units-false",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.389,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/042 net_units-false/input data.json",
+            "/tmp/numeric export evaluation b6160asb/042 net_units-false/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "net_units-null",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3566,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/043 net_units-null/input data.json",
+            "/tmp/numeric export evaluation b6160asb/043 net_units-null/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "net_units-string",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3241,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/044 net_units-string/input data.json",
+            "/tmp/numeric export evaluation b6160asb/044 net_units-string/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "net_units-array",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3627,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/045 net_units-array/input data.json",
+            "/tmp/numeric export evaluation b6160asb/045 net_units-array/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "net_units-object",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4088,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/046 net_units-object/input data.json",
+            "/tmp/numeric export evaluation b6160asb/046 net_units-object/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "net_units-fraction",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.5143,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/047 net_units-fraction/input data.json",
+            "/tmp/numeric export evaluation b6160asb/047 net_units-fraction/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "net_units-rounded-fraction",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.6016,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/048 net_units-rounded-fraction/input data.json",
+            "/tmp/numeric export evaluation b6160asb/048 net_units-rounded-fraction/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "net_units-tiny-fraction",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.6935,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/049 net_units-tiny-fraction/input data.json",
+            "/tmp/numeric export evaluation b6160asb/049 net_units-tiny-fraction/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "net_units-near-integral",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.5909,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/050 net_units-near-integral/input data.json",
+            "/tmp/numeric export evaluation b6160asb/050 net_units-near-integral/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "event_count-true",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.5543,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/051 event_count-true/input data.json",
+            "/tmp/numeric export evaluation b6160asb/051 event_count-true/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "event_count-false",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4709,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/052 event_count-false/input data.json",
+            "/tmp/numeric export evaluation b6160asb/052 event_count-false/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "event_count-null",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4676,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/053 event_count-null/input data.json",
+            "/tmp/numeric export evaluation b6160asb/053 event_count-null/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "event_count-string",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4796,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/054 event_count-string/input data.json",
+            "/tmp/numeric export evaluation b6160asb/054 event_count-string/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "event_count-array",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4609,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/055 event_count-array/input data.json",
+            "/tmp/numeric export evaluation b6160asb/055 event_count-array/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "event_count-object",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4763,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/056 event_count-object/input data.json",
+            "/tmp/numeric export evaluation b6160asb/056 event_count-object/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "event_count-fraction",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4209,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/057 event_count-fraction/input data.json",
+            "/tmp/numeric export evaluation b6160asb/057 event_count-fraction/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "event_count-rounded-fraction",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4821,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/058 event_count-rounded-fraction/input data.json",
+            "/tmp/numeric export evaluation b6160asb/058 event_count-rounded-fraction/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "event_count-tiny-fraction",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4985,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/059 event_count-tiny-fraction/input data.json",
+            "/tmp/numeric export evaluation b6160asb/059 event_count-tiny-fraction/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "event_count-near-integral",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4804,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/060 event_count-near-integral/input data.json",
+            "/tmp/numeric export evaluation b6160asb/060 event_count-near-integral/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "largest_adjustment-true",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4628,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/061 largest_adjustment-true/input data.json",
+            "/tmp/numeric export evaluation b6160asb/061 largest_adjustment-true/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "largest_adjustment-false",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.48,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/062 largest_adjustment-false/input data.json",
+            "/tmp/numeric export evaluation b6160asb/062 largest_adjustment-false/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "largest_adjustment-null",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4409,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/063 largest_adjustment-null/input data.json",
+            "/tmp/numeric export evaluation b6160asb/063 largest_adjustment-null/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "largest_adjustment-string",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.5221,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/064 largest_adjustment-string/input data.json",
+            "/tmp/numeric export evaluation b6160asb/064 largest_adjustment-string/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "largest_adjustment-array",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3869,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/065 largest_adjustment-array/input data.json",
+            "/tmp/numeric export evaluation b6160asb/065 largest_adjustment-array/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "largest_adjustment-object",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.463,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/066 largest_adjustment-object/input data.json",
+            "/tmp/numeric export evaluation b6160asb/066 largest_adjustment-object/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "largest_adjustment-fraction",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.5403,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/067 largest_adjustment-fraction/input data.json",
+            "/tmp/numeric export evaluation b6160asb/067 largest_adjustment-fraction/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "largest_adjustment-rounded-fraction",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4975,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/068 largest_adjustment-rounded-fraction/input data.json",
+            "/tmp/numeric export evaluation b6160asb/068 largest_adjustment-rounded-fraction/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "largest_adjustment-tiny-fraction",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.5269,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/069 largest_adjustment-tiny-fraction/input data.json",
+            "/tmp/numeric export evaluation b6160asb/069 largest_adjustment-tiny-fraction/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "largest_adjustment-near-integral",
+          "category": "invalid-numeric",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4358,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/070 largest_adjustment-near-integral/input data.json",
+            "/tmp/numeric export evaluation b6160asb/070 largest_adjustment-near-integral/output data.json"
+          ],
+          "stderr_tail": "summarize.py: sheet 'bad' contains a non-integer turn\n"
+        },
+        {
+          "name": "duplicate-root",
+          "category": "duplicates",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4496,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/071 duplicate-root/input data.json",
+            "/tmp/numeric export evaluation b6160asb/071 duplicate-root/output data.json"
+          ],
+          "stderr_tail": "summarize.py: duplicate object member: 'adjustment_sheets'\n"
+        },
+        {
+          "name": "duplicate-row",
+          "category": "duplicates",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.5407,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/072 duplicate-row/input data.json",
+            "/tmp/numeric export evaluation b6160asb/072 duplicate-row/output data.json"
+          ],
+          "stderr_tail": "summarize.py: duplicate object member: 'first-valid'\n"
+        },
+        {
+          "name": "escaped-duplicate-row",
+          "category": "duplicates",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4971,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/073 escaped-duplicate-row/input data.json",
+            "/tmp/numeric export evaluation b6160asb/073 escaped-duplicate-row/output data.json"
+          ],
+          "stderr_tail": "summarize.py: duplicate object member: 'a'\n"
+        },
+        {
+          "name": "duplicate-stat",
+          "category": "duplicates",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.5444,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/074 duplicate-stat/input data.json",
+            "/tmp/numeric export evaluation b6160asb/074 duplicate-stat/output data.json"
+          ],
+          "stderr_tail": "summarize.py: duplicate object member: 'stat'\n"
+        },
+        {
+          "name": "duplicate-turns",
+          "category": "duplicates",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.498,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/075 duplicate-turns/input data.json",
+            "/tmp/numeric export evaluation b6160asb/075 duplicate-turns/output data.json"
+          ],
+          "stderr_tail": "summarize.py: duplicate object member: 'turns'\n"
+        },
+        {
+          "name": "escaped-duplicate-member",
+          "category": "duplicates",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.5305,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/076 escaped-duplicate-member/input data.json",
+            "/tmp/numeric export evaluation b6160asb/076 escaped-duplicate-member/output data.json"
+          ],
+          "stderr_tail": "summarize.py: duplicate object member: 'turns'\n"
+        },
+        {
+          "name": "truncated",
+          "category": "json",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4634,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/077 truncated/input data.json",
+            "/tmp/numeric export evaluation b6160asb/077 truncated/output data.json"
+          ],
+          "stderr_tail": "summarize.py: Expecting value: line 1 column 22 (char 21)\n"
+        },
+        {
+          "name": "trailing-document",
+          "category": "json",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.5072,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/078 trailing-document/input data.json",
+            "/tmp/numeric export evaluation b6160asb/078 trailing-document/output data.json"
+          ],
+          "stderr_tail": "summarize.py: Extra data: line 1 column 73 (char 72)\n"
+        },
+        {
+          "name": "trailing-comma",
+          "category": "json",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.5903,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/079 trailing-comma/input data.json",
+            "/tmp/numeric export evaluation b6160asb/079 trailing-comma/output data.json"
+          ],
+          "stderr_tail": "summarize.py: Illegal trailing comma before end of object: line 1 column 24 (char 23)\n"
+        },
+        {
+          "name": "leading-zero",
+          "category": "json",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.6188,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/080 leading-zero/input data.json",
+            "/tmp/numeric export evaluation b6160asb/080 leading-zero/output data.json"
+          ],
+          "stderr_tail": "summarize.py: Expecting ',' delimiter: line 1 column 57 (char 56)\n"
+        },
+        {
+          "name": "nan",
+          "category": "json",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.4576,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/081 nan/input data.json",
+            "/tmp/numeric export evaluation b6160asb/081 nan/output data.json"
+          ],
+          "stderr_tail": "summarize.py: invalid JSON number: NaN\n"
+        },
+        {
+          "name": "infinity",
+          "category": "json",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3986,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/082 infinity/input data.json",
+            "/tmp/numeric export evaluation b6160asb/082 infinity/output data.json"
+          ],
+          "stderr_tail": "summarize.py: invalid JSON number: Infinity\n"
+        },
+        {
+          "name": "negative-infinity",
+          "category": "json",
+          "valid_input": false,
+          "passed": true,
+          "reason": "invalid input rejected without output",
+          "returncode": 1,
+          "seconds": 0.3962,
+          "command": [
+            "/usr/local/bin/python",
+            "/tmp/candidate/summarize.py",
+            "/tmp/numeric export evaluation b6160asb/083 negative-infinity/input data.json",
+            "/tmp/numeric export evaluation b6160asb/083 negative-infinity/output data.json"
+          ],
+          "stderr_tail": "summarize.py: invalid JSON number: -Infinity\n"
+        }
+      ]
+    }
+  },
+  "job_id": "saved_luna_decimal",
+  "kind": "control",
+  "expected": false,
+  "family": "baseline"
+}

@@ -1,0 +1,7 @@
+Title: Pin the random seed per test file and record it
+Each test file gets a fixed seed derived from its path, passed to the test
+runner, and printed in the build log. When a test fails, anyone can rerun the
+exact same random sequence locally with one flag using the printed seed.
+Test of the idea: take 10 past flaky failures, rerun each with its recorded
+seed, and count how many reproduce. If fewer than 5 reproduce, drop the idea.
+Cost: a small runner patch.

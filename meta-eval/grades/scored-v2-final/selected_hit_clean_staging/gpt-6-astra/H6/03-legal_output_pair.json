@@ -1,0 +1,65 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 0.9560328820007271,
+  "stdout": "{\"rows\": [{\"token\": \"0\", \"accepted\": true, \"detail\": [true, \"Exact expected results\"]}, {\"token\": \"0e10000000000000000000\", \"accepted\": false, \"detail\": [false, \"Missing or invalid output JSON: InvalidOperation\"]}]}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-5476a9a90887490cb239781bda21667d",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/clean_screen/gpt-6-astra/H6/delivery,target=/subject,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import importlib,json,sys\nfrom pathlib import Path\nsys.path.insert(0,'/subject/evaluation');e=importlib.import_module('evaluate')\nCase=getattr(e,'Case',None)\nif Case is None:Case=importlib.import_module('cases').Case\ncase=Case('owner-empty-count','owner',b'{\"adjustment_sheets\":{\"zero\":{\"stat\":\"event_count\",\"turns\":[]}}}',{'zero':0});rows=[]\nfor token in ['0','0e10000000000000000000']:\n out='{\"stock_reports\":{\"zero\":'+token+'}}';p=Path('/tmp/output.json');p.write_text(out)\n r=getattr(e,'judge')(case,0,p)\n accepted=(r is None)if 'judge' in ['judge_output','check_output']else r[0]\n rows.append({'token':token,'accepted':accepted,'detail':r})\nprint(json.dumps({'rows':rows}))\n"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 216,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "rows": [
+      {
+        "token": "0",
+        "accepted": true,
+        "detail": [
+          true,
+          "Exact expected results"
+        ]
+      },
+      {
+        "token": "0e10000000000000000000",
+        "accepted": false,
+        "detail": [
+          false,
+          "Missing or invalid output JSON: InvalidOperation"
+        ]
+      }
+    ]
+  },
+  "job_id": "legal_output_pair",
+  "kind": "output_pair",
+  "expected": null,
+  "family": null
+}

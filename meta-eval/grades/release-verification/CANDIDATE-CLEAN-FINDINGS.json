@@ -1,0 +1,27 @@
+{
+  "archive_sha256": "dcbb4d6054ecce8c24539866624874424a2b4ca8779129ebacb716e2db52927d",
+  "clean_extraction": true,
+  "model_calls": 0,
+  "checks": [
+    {
+      "script": "verify_release.py",
+      "exit_code": 0,
+      "stdout": "{\"archive_hashes_verified\": 6014, \"public_packets_verified\": 9, \"historical_finite_owner_checks_reproduce\": true, \"excluded_full_task_owner_controls\": 7, \"complete_task_gold_claim\": false, \"audit_controls_verified\": 10, \"model_calls\": 0, \"scope\": \"offline authored controls; not a claim all generated model evals are correct\"}\n",
+      "stderr": ""
+    },
+    {
+      "script": "reproduce_h1.py",
+      "exit_code": 0,
+      "stdout": "{\"false_rejects\": 1, \"false_accepts\": 0, \"invalid\": 0, \"package_unchanged\": true}\n",
+      "stderr": ""
+    },
+    {
+      "script": "reproduce_h6.py",
+      "exit_code": 0,
+      "stdout": "{\"saved_candidate_rejects_legal_zero\": true, \"new_eval_all_passed\": true, \"package_unchanged\": true}\n",
+      "stderr": ""
+    }
+  ],
+  "all_passed": true,
+  "scope": "Saved immutable grader exhibits and owner checks; not fresh model inference or universal program proof."
+}

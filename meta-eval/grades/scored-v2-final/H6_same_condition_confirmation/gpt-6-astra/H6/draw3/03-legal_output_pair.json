@@ -1,0 +1,65 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 1.3585958749990823,
+  "stdout": "{\"rows\": [{\"token\": \"0\", \"accepted\": true, \"detail\": [true, \"exact result\"]}, {\"token\": \"0e10000000000000000000\", \"accepted\": true, \"detail\": [true, \"exact result\"]}]}\n",
+  "stderr": "",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "meta-eval-2066ae2fb4654dea8c31fc810d69ed45",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "128",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,nosuid,size=128m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/confirmation/gpt-6-astra/H6/draw3/delivery,target=/subject,readonly",
+    "-w",
+    "/tmp",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import importlib,json,sys\nfrom pathlib import Path\nsys.path.insert(0,'/subject/evaluation');e=importlib.import_module('run_eval')\nCase=getattr(e,'Case',None)\nif Case is None:Case=importlib.import_module('cases').Case\ncase=Case('owner-empty-count','owner','{\"adjustment_sheets\":{\"zero\":{\"stat\":\"event_count\",\"turns\":[]}}}',{'zero':0});rows=[]\nfor token in ['0','0e10000000000000000000']:\n out='{\"stock_reports\":{\"zero\":'+token+'}}';p=Path('/tmp/output.json');p.write_text(out)\n r=getattr(e,'judge')(case,0,out.encode())\n accepted=(r is None)if 'judge' in ['judge_output','check_output']else r[0]\n rows.append({'token':token,'accepted':accepted,'detail':r})\nprint(json.dumps({'rows':rows}))\n"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 168,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "rows": [
+      {
+        "token": "0",
+        "accepted": true,
+        "detail": [
+          true,
+          "exact result"
+        ]
+      },
+      {
+        "token": "0e10000000000000000000",
+        "accepted": true,
+        "detail": [
+          true,
+          "exact result"
+        ]
+      }
+    ]
+  },
+  "job_id": "legal_output_pair",
+  "kind": "output_pair",
+  "expected": null,
+  "family": null
+}

@@ -1,0 +1,43 @@
+{
+  "model_calls": 0,
+  "benign_zip_byte_exact": true,
+  "unsafe_paths_and_private_environment_omitted": true,
+  "memory_output_sanitized": true,
+  "actual_coached_model_zip_review": {
+    "scan": "bounded_zip_privacy_secret_and_path_scan",
+    "depth": 0,
+    "members": 25,
+    "uncompressed_bytes": 3700919,
+    "changes": [],
+    "original_sha256": "c56adf750228dd517c86c99d22bbf3e55bc569a98ba2a48606de3f30e74fefdf",
+    "public_sha256": "c56adf750228dd517c86c99d22bbf3e55bc569a98ba2a48606de3f30e74fefdf",
+    "original_artifact_unchanged": true
+  },
+  "actual_model_zip_preserved_byte_exact": true,
+  "synthetic_changes": [
+    {
+      "member": "../escape",
+      "action": "omitted",
+      "reason": "unsafe_path_or_symlink"
+    },
+    {
+      "member": ".env",
+      "action": "omitted",
+      "reason": "local_environment_or_credential_file"
+    },
+    {
+      "member": "log.jsonl",
+      "action": "sanitized",
+      "original_sha256": "d596bcc93f4b8335919029d324973cd35ec2abf0173ca37ca02c822d6ce46f4c",
+      "sanitized_sha256": "84a0ca8b32945eaef13bdc5f00e9e77acaa14329ec169ee945b2c40c26a0b4c6",
+      "events": [
+        {
+          "line": 1,
+          "event_id": "m1",
+          "reason": "memory_search_command_and_result",
+          "removed_fields_sha256": "160cdff45b443a5941f2b370bd78a016aa99447763b4466a69ead0b2e3c5a878"
+        }
+      ]
+    }
+  ]
+}

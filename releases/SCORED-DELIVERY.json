@@ -1,0 +1,79 @@
+{
+  "schema_version": "scored-meta-eval-delivery/v2",
+  "created_utc": "2026-11-09T04:45:06.642090+00:00",
+  "software_pipeline_implemented": true,
+  "software_clean_replay_verified": true,
+  "archive": "release/eval-author-meta-eval-scored-v2.zip",
+  "archive_sha256": "fb4fca7b22311573f65337f83fb17ad63fa0cce4225505f2727ffc6506cf1c45",
+  "archive_bytes": 25923702,
+  "entry_point": "run_meta_eval.py",
+  "guide": "META-EVAL.md",
+  "score_registry": "meta_eval/CHECK-REGISTRY.json",
+  "source_and_report": "SCORING-RESULTS.md",
+  "dimensions": 8,
+  "points": 100,
+  "checks": 16,
+  "unit_tests_passed": 19,
+  "calibration_eval_packages": 12,
+  "calibration_domain_control_checks": 3,
+  "existing_records_reported": 31,
+  "completed_eval_authoring_packages_executed": 19,
+  "fresh_check_jobs_in_packaged_report": 114,
+  "fresh_check_jobs_in_clean_replay": 114,
+  "clean_verification_stages_passed": 5,
+  "stable_semantic_results_reproduced": true,
+  "operational_variation_preserved": [
+    {
+      "subject": "H1_budget_diagnostic/gpt-6.1-sol/H1/draw3",
+      "packaged": [
+        "B2",
+        "D1",
+        "D2"
+      ],
+      "replayed": [
+        "B2",
+        "D2"
+      ],
+      "reason": "Observed native grader worker-protocol flakiness on the same correct control; original/replayed outcomes both retained. Not a new author trial."
+    }
+  ],
+  "invalid_native_jobs_in_clean_replay": 0,
+  "model_calls": 0,
+  "post_hoc": true,
+  "human_semantic_review_complete": false,
+  "domain_wide_qualification_complete": false,
+  "scope": "Implemented executable meta-eval with native/artifact/independent-oracle checks and bound human review routes. Unqualified checks retain unknown score weights. Calibration is finite; no universal trustworthiness or pooled frontier reliability claim.",
+  "external_submission_performed": false,
+  "older_exploratory_archive_unchanged": true,
+  "proofs": [
+    {
+      "path": "release/SCORED-CLEAN-VERIFICATION.json",
+      "sha256": "8d119892c0e119f3c3c7230f8f6922c8ecc0dd6470efcd7a9b44631d427ba4b0"
+    },
+    {
+      "path": "release/SCORED-PRIVACY-CHECK.json",
+      "sha256": "4fda432548087593a6a4607f044adb8522008d92736ef48617272886e4dacac2"
+    },
+    {
+      "path": "release/SCORED-LINK-CHECK.json",
+      "sha256": "d9e7a0e9d2eca66dd554b5313a0a93dba0bc5b2b5e6b8f440a617100e27c6be5"
+    },
+    {
+      "path": "grades/scored-v2-final/REPORT.json",
+      "sha256": "da550f63cb8965e999bddf1058262cb021be4b6ef6d53b4fc780a53647f3fa47"
+    },
+    {
+      "path": "grades/scored-v2-unit/RESULT.json",
+      "sha256": "d8c56b9ba7054f4d8964cb2f058c45af841d143e9ee692251046682cc4cbf6c9"
+    },
+    {
+      "path": "grades/meta-eval-final-calibration/QUALIFICATION.json",
+      "sha256": "567b646a102be38913664e9631609ac4fa19652e086645f58ab10800e5996892"
+    },
+    {
+      "path": "grades/scored-v2-flakiness-audit/SUMMARY.json",
+      "sha256": "f128b194b94d4b122834359023192da442b7612cc58a64f5a72967acfe399daa"
+    }
+  ],
+  "archive_policy": "External proof avoids self-reference. This exact scored archive is immutable; rebuilding requires fresh verification."
+}

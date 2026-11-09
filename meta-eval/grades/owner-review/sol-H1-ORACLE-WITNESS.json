@@ -1,0 +1,96 @@
+{
+  "kind": "immutable_oracle_diagnostic",
+  "model": "gpt-6.1-sol",
+  "case_id": "H1",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "64",
+    "--memory",
+    "256m",
+    "--cpus",
+    "1",
+    "--tmpfs",
+    "/tmp:rw,noexec,nosuid,size=16m",
+    "--mount",
+    "type=bind,source=/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/screen/gpt-6.1-sol/H1/delivery,target=/subject,readonly",
+    "-w",
+    "/subject",
+    "python:3.14-slim",
+    "python",
+    "-B",
+    "-c",
+    "import json\nfrom evaluation.oracle import exact,overlap_options,request\nfrom evaluation.grader import grade\na={'task_id':'E1','code':'class Service: pass','explanation':'Owner control explanation. Functional checks and prose review are distinct.'}\noptions=overlap_options(request('race-left'),request('race-right'))\napplied=[{'status':'applied','remaining':40},{'status':'rejected','remaining':40}]\naccepted=[{'status':'accepted','remaining':40},{'status':'rejected','remaining':40}]\nprint(json.dumps({'oracle_accepts_applied':any(exact(applied,v)for _,v in options),'oracle_accepts_accepted':any(exact(accepted,v)for _,v in options),'expected_reply_options':[v for _,v in options],'full_grader_runtime_probe':grade(a)}))\n"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"oracle_accepts_applied\": false, \"oracle_accepts_accepted\": true, \"expected_reply_options\": [[{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}], [{\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}]], \"full_grader_runtime_probe\": {\"evaluator\": \"e1-evaluation/1\", \"task_id\": \"E1\", \"cases\": [], \"review_status\": \"pending\", \"staged\": false, \"limits\": {\"repetitions\": 3, \"reply_seconds\": 6, \"reply_bytes\": 65536, \"address_space_bytes\": 536870912, \"file_descriptors\": 256, \"file_bytes\": 8388608, \"cpu_seconds_per_process\": 10}, \"source_bindings\": {\"input/E1.md\": {\"sha256\": \"514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221\", \"bytes\": 3346}, \"input/README.md\": {\"sha256\": \"4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77\", \"bytes\": 10449}}, \"answer_sha256\": \"26278430604a66a9860f1f237c8c49eacbb8ad72d450cd5c783803f1d7211ed4\", \"code_sha256\": \"f2307f661d6643e0c65266a3c4dcc1864f0c2b101c872cec72f9962501ea158d\", \"formal_status\": \"unavailable\", \"overall_status\": \"unavailable\", \"reason\": \"requires bwrap and /usr/bin/python3\"}}\n",
+  "stderr": "",
+  "package_unchanged": true,
+  "scope": "Executes delivered pure oracle and runtime availability probe, not a full candidate grade. Applied/accepted comparison is original-contract fidelity evidence.",
+  "observed": {
+    "oracle_accepts_applied": false,
+    "oracle_accepts_accepted": true,
+    "expected_reply_options": [
+      [
+        {
+          "status": "accepted",
+          "remaining": 40
+        },
+        {
+          "status": "rejected",
+          "remaining": 40
+        }
+      ],
+      [
+        {
+          "status": "rejected",
+          "remaining": 40
+        },
+        {
+          "status": "accepted",
+          "remaining": 40
+        }
+      ]
+    ],
+    "full_grader_runtime_probe": {
+      "evaluator": "e1-evaluation/1",
+      "task_id": "E1",
+      "cases": [],
+      "review_status": "pending",
+      "staged": false,
+      "limits": {
+        "repetitions": 3,
+        "reply_seconds": 6,
+        "reply_bytes": 65536,
+        "address_space_bytes": 536870912,
+        "file_descriptors": 256,
+        "file_bytes": 8388608,
+        "cpu_seconds_per_process": 10
+      },
+      "source_bindings": {
+        "input/E1.md": {
+          "sha256": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+          "bytes": 3346
+        },
+        "input/README.md": {
+          "sha256": "4cb185b2d32398fa9c055638a54c6ebb5dad48f84eba70555faf0241a3a44e77",
+          "bytes": 10449
+        }
+      },
+      "answer_sha256": "26278430604a66a9860f1f237c8c49eacbb8ad72d450cd5c783803f1d7211ed4",
+      "code_sha256": "f2307f661d6643e0c65266a3c4dcc1864f0c2b101c872cec72f9962501ea158d",
+      "formal_status": "unavailable",
+      "overall_status": "unavailable",
+      "reason": "requires bwrap and /usr/bin/python3"
+    }
+  }
+}

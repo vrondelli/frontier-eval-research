@@ -1,0 +1,1581 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 1.7098896890001924,
+  "stdout": "{\"schema_version\": \"e1-evaluation/v1\", \"task_id\": \"E1\", \"answer_sha256\": \"c7a6c1ffec6ca690d54f0410583c655b94298aac1e104e88b6c84224d96c3071\", \"protocol_sha256\": \"514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221\", \"harness_sha256\": {\"evaluator.py\": \"6a697417090c7b7d5c00d2161057002924a3e95957bf15256801c7b393e517d6\", \"staged.py\": \"023e61c8ce8e0da20fc89ce95e1f78540f47c694e3083f0f5293ea445fa8277d\", \"e1eval/__init__.py\": \"9f59b696a1bd40601e4d3d5f9c9de71267fef2fb012e864cc525d2b759acfb68\", \"e1eval/inspect_db.py\": \"91d7dfb88007cc518389fa64164250ff2c333d10a88dbca5ef1693a9778e5efa\", \"e1eval/oracle.py\": \"59f7b2989bdb97e46c8c016b4409ca9cf488486afd2fee5170278f414bf52701\", \"e1eval/runner.py\": \"e69bb38847a746e208fea9f071605017e3694e50f49a856644ba476f637d7c8b\", \"e1eval/worker.py\": \"876304677eb929bb49f14489e574d1eff49015ca7232ac1ac6c3dceb686761dd\"}, \"limits\": {\"address_space_bytes\": 536870912, \"file_descriptors\": 256, \"cpu_seconds_per_process\": 10, \"reply_seconds\": 6, \"reply_bytes\": 65536, \"file_size_bytes\": 8388608, \"isolated_repetitions\": 3}, \"review\": {\"status\": \"pending\", \"rubric\": \"REVIEW-RUBRIC.md\"}, \"canonical_answer_sha256\": \"cdffa4c03e33e91e7e4aa69c2b6bbe50c59d2e740522930c1715bf4a1021cbc6\", \"status\": \"fail\", \"formal_status\": \"fail\", \"overall_status\": \"formal_fail_review_pending\", \"executable_ran\": true, \"repetitions\": [{\"repetition\": 1, \"plan\": {\"overlap\": [{\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-y\", \"account\": \"A\", \"amount\": 60}], \"sequential\": [{\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-x\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-x\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-y\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-y\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-b\", \"account\": \"B\", \"amount\": 100}]}, \"workers\": [{\"worker\": 1, \"pid\": 6, \"request\": {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-x\", \"account\": \"A\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"rejected\", \"remaining\": 40}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 2, \"pid\": 9, \"request\": {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-y\", \"account\": \"A\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"accepted\", \"remaining\": 40}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 3, \"pid\": 16, \"request\": {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-x\", \"account\": \"A\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"rejected\", \"remaining\": 40}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 4, \"pid\": 21, \"request\": {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-y\", \"account\": \"A\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"accepted\", \"remaining\": 40}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 5, \"pid\": 26, \"request\": {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-x\", \"account\": \"A\", \"amount\": 61}, \"armed\": true, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 6, \"pid\": 31, \"request\": {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-x\", \"account\": \"B\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 7, \"pid\": 36, \"request\": {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-y\", \"account\": \"A\", \"amount\": 61}, \"armed\": true, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 8, \"pid\": 41, \"request\": {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-y\", \"account\": \"B\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 9, \"pid\": 46, \"request\": {\"key\": \"e1931625cd7644e9a79ca2a98c65f3e1-b\", \"account\": \"B\", \"amount\": 100}, \"armed\": true, \"reply\": {\"status\": \"accepted\", \"remaining\": 1}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}], \"replies\": [{\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"accepted\", \"remaining\": 1}], \"both_armed_before_release\": true, \"workers_exited_cleanly\": true, \"observation\": {\"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 0]], \"decisions\": [[\"e1931625cd7644e9a79ca2a98c65f3e1-b\", \"B\", 100, \"accepted\", 0], [\"e1931625cd7644e9a79ca2a98c65f3e1-x\", \"A\", 60, \"rejected\", 40], [\"e1931625cd7644e9a79ca2a98c65f3e1-y\", \"A\", 60, \"accepted\", 40]], \"ledger\": [[\"e1931625cd7644e9a79ca2a98c65f3e1-b\", \"B\", 100], [\"e1931625cd7644e9a79ca2a98c65f3e1-y\", \"A\", 60]]}}, \"judgment\": {\"passed\": false, \"checks\": {\"overlap_has_one_accept_and_one_reject\": true, \"fresh_process_replays_are_exact\": true, \"amount_and_account_conflicts_change_nothing\": true, \"other_account_can_spend_100\": false, \"all_replies_match_a_serial_history\": false, \"independent_tables_match_a_serial_history\": true, \"replies_and_tables_match_the_same_history\": false}, \"matched_serial_orders\": [], \"expected_alternatives\": [{\"serial_order\": [0, 1], \"replies\": [{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"accepted\", \"remaining\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 0]], \"decisions\": [[\"e1931625cd7644e9a79ca2a98c65f3e1-b\", \"B\", 100, \"accepted\", 0], [\"e1931625cd7644e9a79ca2a98c65f3e1-x\", \"A\", 60, \"accepted\", 40], [\"e1931625cd7644e9a79ca2a98c65f3e1-y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"e1931625cd7644e9a79ca2a98c65f3e1-b\", \"B\", 100], [\"e1931625cd7644e9a79ca2a98c65f3e1-x\", \"A\", 60]]}}, {\"serial_order\": [1, 0], \"replies\": [{\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"accepted\", \"remaining\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 0]], \"decisions\": [[\"e1931625cd7644e9a79ca2a98c65f3e1-b\", \"B\", 100, \"accepted\", 0], [\"e1931625cd7644e9a79ca2a98c65f3e1-x\", \"A\", 60, \"rejected\", 40], [\"e1931625cd7644e9a79ca2a98c65f3e1-y\", \"A\", 60, \"accepted\", 40]], \"ledger\": [[\"e1931625cd7644e9a79ca2a98c65f3e1-b\", \"B\", 100], [\"e1931625cd7644e9a79ca2a98c65f3e1-y\", \"A\", 60]]}}]}, \"passed\": false}, {\"repetition\": 2, \"plan\": {\"overlap\": [{\"key\": \"2f732b18e57342219176faeec32cf335-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"2f732b18e57342219176faeec32cf335-y\", \"account\": \"A\", \"amount\": 60}], \"sequential\": [{\"key\": \"2f732b18e57342219176faeec32cf335-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"2f732b18e57342219176faeec32cf335-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"2f732b18e57342219176faeec32cf335-x\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"2f732b18e57342219176faeec32cf335-x\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"2f732b18e57342219176faeec32cf335-y\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"2f732b18e57342219176faeec32cf335-y\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"2f732b18e57342219176faeec32cf335-b\", \"account\": \"B\", \"amount\": 100}]}, \"workers\": [{\"worker\": 1, \"pid\": 52, \"request\": {\"key\": \"2f732b18e57342219176faeec32cf335-x\", \"account\": \"A\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"rejected\", \"remaining\": 40}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 2, \"pid\": 55, \"request\": {\"key\": \"2f732b18e57342219176faeec32cf335-y\", \"account\": \"A\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"accepted\", \"remaining\": 40}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 3, \"pid\": 62, \"request\": {\"key\": \"2f732b18e57342219176faeec32cf335-x\", \"account\": \"A\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"rejected\", \"remaining\": 40}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 4, \"pid\": 67, \"request\": {\"key\": \"2f732b18e57342219176faeec32cf335-y\", \"account\": \"A\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"accepted\", \"remaining\": 40}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 5, \"pid\": 72, \"request\": {\"key\": \"2f732b18e57342219176faeec32cf335-x\", \"account\": \"A\", \"amount\": 61}, \"armed\": true, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 6, \"pid\": 77, \"request\": {\"key\": \"2f732b18e57342219176faeec32cf335-x\", \"account\": \"B\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 7, \"pid\": 82, \"request\": {\"key\": \"2f732b18e57342219176faeec32cf335-y\", \"account\": \"A\", \"amount\": 61}, \"armed\": true, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 8, \"pid\": 87, \"request\": {\"key\": \"2f732b18e57342219176faeec32cf335-y\", \"account\": \"B\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 9, \"pid\": 92, \"request\": {\"key\": \"2f732b18e57342219176faeec32cf335-b\", \"account\": \"B\", \"amount\": 100}, \"armed\": true, \"reply\": {\"status\": \"accepted\", \"remaining\": 1}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}], \"replies\": [{\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"accepted\", \"remaining\": 1}], \"both_armed_before_release\": true, \"workers_exited_cleanly\": true, \"observation\": {\"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 0]], \"decisions\": [[\"2f732b18e57342219176faeec32cf335-b\", \"B\", 100, \"accepted\", 0], [\"2f732b18e57342219176faeec32cf335-x\", \"A\", 60, \"rejected\", 40], [\"2f732b18e57342219176faeec32cf335-y\", \"A\", 60, \"accepted\", 40]], \"ledger\": [[\"2f732b18e57342219176faeec32cf335-b\", \"B\", 100], [\"2f732b18e57342219176faeec32cf335-y\", \"A\", 60]]}}, \"judgment\": {\"passed\": false, \"checks\": {\"overlap_has_one_accept_and_one_reject\": true, \"fresh_process_replays_are_exact\": true, \"amount_and_account_conflicts_change_nothing\": true, \"other_account_can_spend_100\": false, \"all_replies_match_a_serial_history\": false, \"independent_tables_match_a_serial_history\": true, \"replies_and_tables_match_the_same_history\": false}, \"matched_serial_orders\": [], \"expected_alternatives\": [{\"serial_order\": [0, 1], \"replies\": [{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"accepted\", \"remaining\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 0]], \"decisions\": [[\"2f732b18e57342219176faeec32cf335-b\", \"B\", 100, \"accepted\", 0], [\"2f732b18e57342219176faeec32cf335-x\", \"A\", 60, \"accepted\", 40], [\"2f732b18e57342219176faeec32cf335-y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"2f732b18e57342219176faeec32cf335-b\", \"B\", 100], [\"2f732b18e57342219176faeec32cf335-x\", \"A\", 60]]}}, {\"serial_order\": [1, 0], \"replies\": [{\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"accepted\", \"remaining\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 0]], \"decisions\": [[\"2f732b18e57342219176faeec32cf335-b\", \"B\", 100, \"accepted\", 0], [\"2f732b18e57342219176faeec32cf335-x\", \"A\", 60, \"rejected\", 40], [\"2f732b18e57342219176faeec32cf335-y\", \"A\", 60, \"accepted\", 40]], \"ledger\": [[\"2f732b18e57342219176faeec32cf335-b\", \"B\", 100], [\"2f732b18e57342219176faeec32cf335-y\", \"A\", 60]]}}]}, \"passed\": false}, {\"repetition\": 3, \"plan\": {\"overlap\": [{\"key\": \"11013aac1d044de3af7cac808e9c2d77-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"11013aac1d044de3af7cac808e9c2d77-y\", \"account\": \"A\", \"amount\": 60}], \"sequential\": [{\"key\": \"11013aac1d044de3af7cac808e9c2d77-x\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"11013aac1d044de3af7cac808e9c2d77-y\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"11013aac1d044de3af7cac808e9c2d77-x\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"11013aac1d044de3af7cac808e9c2d77-x\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"11013aac1d044de3af7cac808e9c2d77-y\", \"account\": \"A\", \"amount\": 61}, {\"key\": \"11013aac1d044de3af7cac808e9c2d77-y\", \"account\": \"B\", \"amount\": 60}, {\"key\": \"11013aac1d044de3af7cac808e9c2d77-b\", \"account\": \"B\", \"amount\": 100}]}, \"workers\": [{\"worker\": 1, \"pid\": 98, \"request\": {\"key\": \"11013aac1d044de3af7cac808e9c2d77-x\", \"account\": \"A\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"rejected\", \"remaining\": 40}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 2, \"pid\": 101, \"request\": {\"key\": \"11013aac1d044de3af7cac808e9c2d77-y\", \"account\": \"A\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"accepted\", \"remaining\": 40}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 3, \"pid\": 108, \"request\": {\"key\": \"11013aac1d044de3af7cac808e9c2d77-x\", \"account\": \"A\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"rejected\", \"remaining\": 40}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 4, \"pid\": 113, \"request\": {\"key\": \"11013aac1d044de3af7cac808e9c2d77-y\", \"account\": \"A\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"accepted\", \"remaining\": 40}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 5, \"pid\": 118, \"request\": {\"key\": \"11013aac1d044de3af7cac808e9c2d77-x\", \"account\": \"A\", \"amount\": 61}, \"armed\": true, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 6, \"pid\": 123, \"request\": {\"key\": \"11013aac1d044de3af7cac808e9c2d77-x\", \"account\": \"B\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 7, \"pid\": 128, \"request\": {\"key\": \"11013aac1d044de3af7cac808e9c2d77-y\", \"account\": \"A\", \"amount\": 61}, \"armed\": true, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 8, \"pid\": 133, \"request\": {\"key\": \"11013aac1d044de3af7cac808e9c2d77-y\", \"account\": \"B\", \"amount\": 60}, \"armed\": true, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}, {\"worker\": 9, \"pid\": 138, \"request\": {\"key\": \"11013aac1d044de3af7cac808e9c2d77-b\", \"account\": \"B\", \"amount\": 100}, \"armed\": true, \"reply\": {\"status\": \"accepted\", \"remaining\": 1}, \"exit_code\": 0, \"forced_stop\": false, \"diagnostics\": \"\"}], \"replies\": [{\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"accepted\", \"remaining\": 1}], \"both_armed_before_release\": true, \"workers_exited_cleanly\": true, \"observation\": {\"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 0]], \"decisions\": [[\"11013aac1d044de3af7cac808e9c2d77-b\", \"B\", 100, \"accepted\", 0], [\"11013aac1d044de3af7cac808e9c2d77-x\", \"A\", 60, \"rejected\", 40], [\"11013aac1d044de3af7cac808e9c2d77-y\", \"A\", 60, \"accepted\", 40]], \"ledger\": [[\"11013aac1d044de3af7cac808e9c2d77-b\", \"B\", 100], [\"11013aac1d044de3af7cac808e9c2d77-y\", \"A\", 60]]}}, \"judgment\": {\"passed\": false, \"checks\": {\"overlap_has_one_accept_and_one_reject\": true, \"fresh_process_replays_are_exact\": true, \"amount_and_account_conflicts_change_nothing\": true, \"other_account_can_spend_100\": false, \"all_replies_match_a_serial_history\": false, \"independent_tables_match_a_serial_history\": true, \"replies_and_tables_match_the_same_history\": false}, \"matched_serial_orders\": [], \"expected_alternatives\": [{\"serial_order\": [0, 1], \"replies\": [{\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"accepted\", \"remaining\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 0]], \"decisions\": [[\"11013aac1d044de3af7cac808e9c2d77-b\", \"B\", 100, \"accepted\", 0], [\"11013aac1d044de3af7cac808e9c2d77-x\", \"A\", 60, \"accepted\", 40], [\"11013aac1d044de3af7cac808e9c2d77-y\", \"A\", 60, \"rejected\", 40]], \"ledger\": [[\"11013aac1d044de3af7cac808e9c2d77-b\", \"B\", 100], [\"11013aac1d044de3af7cac808e9c2d77-x\", \"A\", 60]]}}, {\"serial_order\": [1, 0], \"replies\": [{\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"accepted\", \"remaining\": 40}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"payload_mismatch\", \"remaining\": null}, {\"status\": \"accepted\", \"remaining\": 0}], \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 0]], \"decisions\": [[\"11013aac1d044de3af7cac808e9c2d77-b\", \"B\", 100, \"accepted\", 0], [\"11013aac1d044de3af7cac808e9c2d77-x\", \"A\", 60, \"rejected\", 40], [\"11013aac1d044de3af7cac808e9c2d77-y\", \"A\", 60, \"accepted\", 40]], \"ledger\": [[\"11013aac1d044de3af7cac808e9c2d77-b\", \"B\", 100], [\"11013aac1d044de3af7cac808e9c2d77-y\", \"A\", 60]]}}]}, \"passed\": false}]}\n",
+  "stderr": "",
+  "command": [
+    "bwrap",
+    "--die-with-parent",
+    "--unshare-all",
+    "--cap-drop",
+    "ALL",
+    "--clearenv",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "--setenv",
+    "LANG",
+    "C.UTF-8",
+    "--ro-bind",
+    "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/clean_screen/gpt-6.1-sol/H1/delivery",
+    "/subject",
+    "--ro-bind",
+    "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/meta_eval/controls/H1/wrong_B_reply_v2.json",
+    "/control.json",
+    "--chdir",
+    "/tmp",
+    "/usr/bin/python3",
+    "-B",
+    "-c",
+    "import json,sys;sys.path.insert(0,'/subject');import evaluator;c=json.load(open('/control.json'));a=dict(task_id='E1',code=c['code'],explanation='Owner executable control; prose quality is separately reviewed.');print(json.dumps(evaluator.grade(json.dumps(a).encode())))"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 18997,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "schema_version": "e1-evaluation/v1",
+    "task_id": "E1",
+    "answer_sha256": "c7a6c1ffec6ca690d54f0410583c655b94298aac1e104e88b6c84224d96c3071",
+    "protocol_sha256": "514e2d4ca8675f9b137a843df0cc2d47181f2506518fd43cc3d6819df6a09221",
+    "harness_sha256": {
+      "evaluator.py": "6a697417090c7b7d5c00d2161057002924a3e95957bf15256801c7b393e517d6",
+      "staged.py": "023e61c8ce8e0da20fc89ce95e1f78540f47c694e3083f0f5293ea445fa8277d",
+      "e1eval/__init__.py": "9f59b696a1bd40601e4d3d5f9c9de71267fef2fb012e864cc525d2b759acfb68",
+      "e1eval/inspect_db.py": "91d7dfb88007cc518389fa64164250ff2c333d10a88dbca5ef1693a9778e5efa",
+      "e1eval/oracle.py": "59f7b2989bdb97e46c8c016b4409ca9cf488486afd2fee5170278f414bf52701",
+      "e1eval/runner.py": "e69bb38847a746e208fea9f071605017e3694e50f49a856644ba476f637d7c8b",
+      "e1eval/worker.py": "876304677eb929bb49f14489e574d1eff49015ca7232ac1ac6c3dceb686761dd"
+    },
+    "limits": {
+      "address_space_bytes": 536870912,
+      "file_descriptors": 256,
+      "cpu_seconds_per_process": 10,
+      "reply_seconds": 6,
+      "reply_bytes": 65536,
+      "file_size_bytes": 8388608,
+      "isolated_repetitions": 3
+    },
+    "review": {
+      "status": "pending",
+      "rubric": "REVIEW-RUBRIC.md"
+    },
+    "canonical_answer_sha256": "cdffa4c03e33e91e7e4aa69c2b6bbe50c59d2e740522930c1715bf4a1021cbc6",
+    "status": "fail",
+    "formal_status": "fail",
+    "overall_status": "formal_fail_review_pending",
+    "executable_ran": true,
+    "repetitions": [
+      {
+        "repetition": 1,
+        "plan": {
+          "overlap": [
+            {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-y",
+              "account": "A",
+              "amount": 60
+            }
+          ],
+          "sequential": [
+            {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-x",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-x",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-y",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-y",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-b",
+              "account": "B",
+              "amount": 100
+            }
+          ]
+        },
+        "workers": [
+          {
+            "worker": 1,
+            "pid": 6,
+            "request": {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-x",
+              "account": "A",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "rejected",
+              "remaining": 40
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 2,
+            "pid": 9,
+            "request": {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-y",
+              "account": "A",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "accepted",
+              "remaining": 40
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 3,
+            "pid": 16,
+            "request": {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-x",
+              "account": "A",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "rejected",
+              "remaining": 40
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 4,
+            "pid": 21,
+            "request": {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-y",
+              "account": "A",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "accepted",
+              "remaining": 40
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 5,
+            "pid": 26,
+            "request": {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-x",
+              "account": "A",
+              "amount": 61
+            },
+            "armed": true,
+            "reply": {
+              "status": "payload_mismatch",
+              "remaining": null
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 6,
+            "pid": 31,
+            "request": {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-x",
+              "account": "B",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "payload_mismatch",
+              "remaining": null
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 7,
+            "pid": 36,
+            "request": {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-y",
+              "account": "A",
+              "amount": 61
+            },
+            "armed": true,
+            "reply": {
+              "status": "payload_mismatch",
+              "remaining": null
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 8,
+            "pid": 41,
+            "request": {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-y",
+              "account": "B",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "payload_mismatch",
+              "remaining": null
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 9,
+            "pid": 46,
+            "request": {
+              "key": "e1931625cd7644e9a79ca2a98c65f3e1-b",
+              "account": "B",
+              "amount": 100
+            },
+            "armed": true,
+            "reply": {
+              "status": "accepted",
+              "remaining": 1
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          }
+        ],
+        "replies": [
+          {
+            "status": "rejected",
+            "remaining": 40
+          },
+          {
+            "status": "accepted",
+            "remaining": 40
+          },
+          {
+            "status": "rejected",
+            "remaining": 40
+          },
+          {
+            "status": "accepted",
+            "remaining": 40
+          },
+          {
+            "status": "payload_mismatch",
+            "remaining": null
+          },
+          {
+            "status": "payload_mismatch",
+            "remaining": null
+          },
+          {
+            "status": "payload_mismatch",
+            "remaining": null
+          },
+          {
+            "status": "payload_mismatch",
+            "remaining": null
+          },
+          {
+            "status": "accepted",
+            "remaining": 1
+          }
+        ],
+        "both_armed_before_release": true,
+        "workers_exited_cleanly": true,
+        "observation": {
+          "snapshot": {
+            "accounts": [
+              [
+                "A",
+                40
+              ],
+              [
+                "B",
+                0
+              ]
+            ],
+            "decisions": [
+              [
+                "e1931625cd7644e9a79ca2a98c65f3e1-b",
+                "B",
+                100,
+                "accepted",
+                0
+              ],
+              [
+                "e1931625cd7644e9a79ca2a98c65f3e1-x",
+                "A",
+                60,
+                "rejected",
+                40
+              ],
+              [
+                "e1931625cd7644e9a79ca2a98c65f3e1-y",
+                "A",
+                60,
+                "accepted",
+                40
+              ]
+            ],
+            "ledger": [
+              [
+                "e1931625cd7644e9a79ca2a98c65f3e1-b",
+                "B",
+                100
+              ],
+              [
+                "e1931625cd7644e9a79ca2a98c65f3e1-y",
+                "A",
+                60
+              ]
+            ]
+          }
+        },
+        "judgment": {
+          "passed": false,
+          "checks": {
+            "overlap_has_one_accept_and_one_reject": true,
+            "fresh_process_replays_are_exact": true,
+            "amount_and_account_conflicts_change_nothing": true,
+            "other_account_can_spend_100": false,
+            "all_replies_match_a_serial_history": false,
+            "independent_tables_match_a_serial_history": true,
+            "replies_and_tables_match_the_same_history": false
+          },
+          "matched_serial_orders": [],
+          "expected_alternatives": [
+            {
+              "serial_order": [
+                0,
+                1
+              ],
+              "replies": [
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    0
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "e1931625cd7644e9a79ca2a98c65f3e1-b",
+                    "B",
+                    100,
+                    "accepted",
+                    0
+                  ],
+                  [
+                    "e1931625cd7644e9a79ca2a98c65f3e1-x",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ],
+                  [
+                    "e1931625cd7644e9a79ca2a98c65f3e1-y",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "e1931625cd7644e9a79ca2a98c65f3e1-b",
+                    "B",
+                    100
+                  ],
+                  [
+                    "e1931625cd7644e9a79ca2a98c65f3e1-x",
+                    "A",
+                    60
+                  ]
+                ]
+              }
+            },
+            {
+              "serial_order": [
+                1,
+                0
+              ],
+              "replies": [
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    0
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "e1931625cd7644e9a79ca2a98c65f3e1-b",
+                    "B",
+                    100,
+                    "accepted",
+                    0
+                  ],
+                  [
+                    "e1931625cd7644e9a79ca2a98c65f3e1-x",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ],
+                  [
+                    "e1931625cd7644e9a79ca2a98c65f3e1-y",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "e1931625cd7644e9a79ca2a98c65f3e1-b",
+                    "B",
+                    100
+                  ],
+                  [
+                    "e1931625cd7644e9a79ca2a98c65f3e1-y",
+                    "A",
+                    60
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "passed": false
+      },
+      {
+        "repetition": 2,
+        "plan": {
+          "overlap": [
+            {
+              "key": "2f732b18e57342219176faeec32cf335-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "2f732b18e57342219176faeec32cf335-y",
+              "account": "A",
+              "amount": 60
+            }
+          ],
+          "sequential": [
+            {
+              "key": "2f732b18e57342219176faeec32cf335-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "2f732b18e57342219176faeec32cf335-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "2f732b18e57342219176faeec32cf335-x",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "2f732b18e57342219176faeec32cf335-x",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "2f732b18e57342219176faeec32cf335-y",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "2f732b18e57342219176faeec32cf335-y",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "2f732b18e57342219176faeec32cf335-b",
+              "account": "B",
+              "amount": 100
+            }
+          ]
+        },
+        "workers": [
+          {
+            "worker": 1,
+            "pid": 52,
+            "request": {
+              "key": "2f732b18e57342219176faeec32cf335-x",
+              "account": "A",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "rejected",
+              "remaining": 40
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 2,
+            "pid": 55,
+            "request": {
+              "key": "2f732b18e57342219176faeec32cf335-y",
+              "account": "A",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "accepted",
+              "remaining": 40
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 3,
+            "pid": 62,
+            "request": {
+              "key": "2f732b18e57342219176faeec32cf335-x",
+              "account": "A",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "rejected",
+              "remaining": 40
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 4,
+            "pid": 67,
+            "request": {
+              "key": "2f732b18e57342219176faeec32cf335-y",
+              "account": "A",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "accepted",
+              "remaining": 40
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 5,
+            "pid": 72,
+            "request": {
+              "key": "2f732b18e57342219176faeec32cf335-x",
+              "account": "A",
+              "amount": 61
+            },
+            "armed": true,
+            "reply": {
+              "status": "payload_mismatch",
+              "remaining": null
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 6,
+            "pid": 77,
+            "request": {
+              "key": "2f732b18e57342219176faeec32cf335-x",
+              "account": "B",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "payload_mismatch",
+              "remaining": null
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 7,
+            "pid": 82,
+            "request": {
+              "key": "2f732b18e57342219176faeec32cf335-y",
+              "account": "A",
+              "amount": 61
+            },
+            "armed": true,
+            "reply": {
+              "status": "payload_mismatch",
+              "remaining": null
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 8,
+            "pid": 87,
+            "request": {
+              "key": "2f732b18e57342219176faeec32cf335-y",
+              "account": "B",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "payload_mismatch",
+              "remaining": null
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 9,
+            "pid": 92,
+            "request": {
+              "key": "2f732b18e57342219176faeec32cf335-b",
+              "account": "B",
+              "amount": 100
+            },
+            "armed": true,
+            "reply": {
+              "status": "accepted",
+              "remaining": 1
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          }
+        ],
+        "replies": [
+          {
+            "status": "rejected",
+            "remaining": 40
+          },
+          {
+            "status": "accepted",
+            "remaining": 40
+          },
+          {
+            "status": "rejected",
+            "remaining": 40
+          },
+          {
+            "status": "accepted",
+            "remaining": 40
+          },
+          {
+            "status": "payload_mismatch",
+            "remaining": null
+          },
+          {
+            "status": "payload_mismatch",
+            "remaining": null
+          },
+          {
+            "status": "payload_mismatch",
+            "remaining": null
+          },
+          {
+            "status": "payload_mismatch",
+            "remaining": null
+          },
+          {
+            "status": "accepted",
+            "remaining": 1
+          }
+        ],
+        "both_armed_before_release": true,
+        "workers_exited_cleanly": true,
+        "observation": {
+          "snapshot": {
+            "accounts": [
+              [
+                "A",
+                40
+              ],
+              [
+                "B",
+                0
+              ]
+            ],
+            "decisions": [
+              [
+                "2f732b18e57342219176faeec32cf335-b",
+                "B",
+                100,
+                "accepted",
+                0
+              ],
+              [
+                "2f732b18e57342219176faeec32cf335-x",
+                "A",
+                60,
+                "rejected",
+                40
+              ],
+              [
+                "2f732b18e57342219176faeec32cf335-y",
+                "A",
+                60,
+                "accepted",
+                40
+              ]
+            ],
+            "ledger": [
+              [
+                "2f732b18e57342219176faeec32cf335-b",
+                "B",
+                100
+              ],
+              [
+                "2f732b18e57342219176faeec32cf335-y",
+                "A",
+                60
+              ]
+            ]
+          }
+        },
+        "judgment": {
+          "passed": false,
+          "checks": {
+            "overlap_has_one_accept_and_one_reject": true,
+            "fresh_process_replays_are_exact": true,
+            "amount_and_account_conflicts_change_nothing": true,
+            "other_account_can_spend_100": false,
+            "all_replies_match_a_serial_history": false,
+            "independent_tables_match_a_serial_history": true,
+            "replies_and_tables_match_the_same_history": false
+          },
+          "matched_serial_orders": [],
+          "expected_alternatives": [
+            {
+              "serial_order": [
+                0,
+                1
+              ],
+              "replies": [
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    0
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "2f732b18e57342219176faeec32cf335-b",
+                    "B",
+                    100,
+                    "accepted",
+                    0
+                  ],
+                  [
+                    "2f732b18e57342219176faeec32cf335-x",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ],
+                  [
+                    "2f732b18e57342219176faeec32cf335-y",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "2f732b18e57342219176faeec32cf335-b",
+                    "B",
+                    100
+                  ],
+                  [
+                    "2f732b18e57342219176faeec32cf335-x",
+                    "A",
+                    60
+                  ]
+                ]
+              }
+            },
+            {
+              "serial_order": [
+                1,
+                0
+              ],
+              "replies": [
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    0
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "2f732b18e57342219176faeec32cf335-b",
+                    "B",
+                    100,
+                    "accepted",
+                    0
+                  ],
+                  [
+                    "2f732b18e57342219176faeec32cf335-x",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ],
+                  [
+                    "2f732b18e57342219176faeec32cf335-y",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "2f732b18e57342219176faeec32cf335-b",
+                    "B",
+                    100
+                  ],
+                  [
+                    "2f732b18e57342219176faeec32cf335-y",
+                    "A",
+                    60
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "passed": false
+      },
+      {
+        "repetition": 3,
+        "plan": {
+          "overlap": [
+            {
+              "key": "11013aac1d044de3af7cac808e9c2d77-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "11013aac1d044de3af7cac808e9c2d77-y",
+              "account": "A",
+              "amount": 60
+            }
+          ],
+          "sequential": [
+            {
+              "key": "11013aac1d044de3af7cac808e9c2d77-x",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "11013aac1d044de3af7cac808e9c2d77-y",
+              "account": "A",
+              "amount": 60
+            },
+            {
+              "key": "11013aac1d044de3af7cac808e9c2d77-x",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "11013aac1d044de3af7cac808e9c2d77-x",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "11013aac1d044de3af7cac808e9c2d77-y",
+              "account": "A",
+              "amount": 61
+            },
+            {
+              "key": "11013aac1d044de3af7cac808e9c2d77-y",
+              "account": "B",
+              "amount": 60
+            },
+            {
+              "key": "11013aac1d044de3af7cac808e9c2d77-b",
+              "account": "B",
+              "amount": 100
+            }
+          ]
+        },
+        "workers": [
+          {
+            "worker": 1,
+            "pid": 98,
+            "request": {
+              "key": "11013aac1d044de3af7cac808e9c2d77-x",
+              "account": "A",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "rejected",
+              "remaining": 40
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 2,
+            "pid": 101,
+            "request": {
+              "key": "11013aac1d044de3af7cac808e9c2d77-y",
+              "account": "A",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "accepted",
+              "remaining": 40
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 3,
+            "pid": 108,
+            "request": {
+              "key": "11013aac1d044de3af7cac808e9c2d77-x",
+              "account": "A",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "rejected",
+              "remaining": 40
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 4,
+            "pid": 113,
+            "request": {
+              "key": "11013aac1d044de3af7cac808e9c2d77-y",
+              "account": "A",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "accepted",
+              "remaining": 40
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 5,
+            "pid": 118,
+            "request": {
+              "key": "11013aac1d044de3af7cac808e9c2d77-x",
+              "account": "A",
+              "amount": 61
+            },
+            "armed": true,
+            "reply": {
+              "status": "payload_mismatch",
+              "remaining": null
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 6,
+            "pid": 123,
+            "request": {
+              "key": "11013aac1d044de3af7cac808e9c2d77-x",
+              "account": "B",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "payload_mismatch",
+              "remaining": null
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 7,
+            "pid": 128,
+            "request": {
+              "key": "11013aac1d044de3af7cac808e9c2d77-y",
+              "account": "A",
+              "amount": 61
+            },
+            "armed": true,
+            "reply": {
+              "status": "payload_mismatch",
+              "remaining": null
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 8,
+            "pid": 133,
+            "request": {
+              "key": "11013aac1d044de3af7cac808e9c2d77-y",
+              "account": "B",
+              "amount": 60
+            },
+            "armed": true,
+            "reply": {
+              "status": "payload_mismatch",
+              "remaining": null
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          },
+          {
+            "worker": 9,
+            "pid": 138,
+            "request": {
+              "key": "11013aac1d044de3af7cac808e9c2d77-b",
+              "account": "B",
+              "amount": 100
+            },
+            "armed": true,
+            "reply": {
+              "status": "accepted",
+              "remaining": 1
+            },
+            "exit_code": 0,
+            "forced_stop": false,
+            "diagnostics": ""
+          }
+        ],
+        "replies": [
+          {
+            "status": "rejected",
+            "remaining": 40
+          },
+          {
+            "status": "accepted",
+            "remaining": 40
+          },
+          {
+            "status": "rejected",
+            "remaining": 40
+          },
+          {
+            "status": "accepted",
+            "remaining": 40
+          },
+          {
+            "status": "payload_mismatch",
+            "remaining": null
+          },
+          {
+            "status": "payload_mismatch",
+            "remaining": null
+          },
+          {
+            "status": "payload_mismatch",
+            "remaining": null
+          },
+          {
+            "status": "payload_mismatch",
+            "remaining": null
+          },
+          {
+            "status": "accepted",
+            "remaining": 1
+          }
+        ],
+        "both_armed_before_release": true,
+        "workers_exited_cleanly": true,
+        "observation": {
+          "snapshot": {
+            "accounts": [
+              [
+                "A",
+                40
+              ],
+              [
+                "B",
+                0
+              ]
+            ],
+            "decisions": [
+              [
+                "11013aac1d044de3af7cac808e9c2d77-b",
+                "B",
+                100,
+                "accepted",
+                0
+              ],
+              [
+                "11013aac1d044de3af7cac808e9c2d77-x",
+                "A",
+                60,
+                "rejected",
+                40
+              ],
+              [
+                "11013aac1d044de3af7cac808e9c2d77-y",
+                "A",
+                60,
+                "accepted",
+                40
+              ]
+            ],
+            "ledger": [
+              [
+                "11013aac1d044de3af7cac808e9c2d77-b",
+                "B",
+                100
+              ],
+              [
+                "11013aac1d044de3af7cac808e9c2d77-y",
+                "A",
+                60
+              ]
+            ]
+          }
+        },
+        "judgment": {
+          "passed": false,
+          "checks": {
+            "overlap_has_one_accept_and_one_reject": true,
+            "fresh_process_replays_are_exact": true,
+            "amount_and_account_conflicts_change_nothing": true,
+            "other_account_can_spend_100": false,
+            "all_replies_match_a_serial_history": false,
+            "independent_tables_match_a_serial_history": true,
+            "replies_and_tables_match_the_same_history": false
+          },
+          "matched_serial_orders": [],
+          "expected_alternatives": [
+            {
+              "serial_order": [
+                0,
+                1
+              ],
+              "replies": [
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    0
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "11013aac1d044de3af7cac808e9c2d77-b",
+                    "B",
+                    100,
+                    "accepted",
+                    0
+                  ],
+                  [
+                    "11013aac1d044de3af7cac808e9c2d77-x",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ],
+                  [
+                    "11013aac1d044de3af7cac808e9c2d77-y",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "11013aac1d044de3af7cac808e9c2d77-b",
+                    "B",
+                    100
+                  ],
+                  [
+                    "11013aac1d044de3af7cac808e9c2d77-x",
+                    "A",
+                    60
+                  ]
+                ]
+              }
+            },
+            {
+              "serial_order": [
+                1,
+                0
+              ],
+              "replies": [
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 40
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                {
+                  "status": "accepted",
+                  "remaining": 0
+                }
+              ],
+              "snapshot": {
+                "accounts": [
+                  [
+                    "A",
+                    40
+                  ],
+                  [
+                    "B",
+                    0
+                  ]
+                ],
+                "decisions": [
+                  [
+                    "11013aac1d044de3af7cac808e9c2d77-b",
+                    "B",
+                    100,
+                    "accepted",
+                    0
+                  ],
+                  [
+                    "11013aac1d044de3af7cac808e9c2d77-x",
+                    "A",
+                    60,
+                    "rejected",
+                    40
+                  ],
+                  [
+                    "11013aac1d044de3af7cac808e9c2d77-y",
+                    "A",
+                    60,
+                    "accepted",
+                    40
+                  ]
+                ],
+                "ledger": [
+                  [
+                    "11013aac1d044de3af7cac808e9c2d77-b",
+                    "B",
+                    100
+                  ],
+                  [
+                    "11013aac1d044de3af7cac808e9c2d77-y",
+                    "A",
+                    60
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "passed": false
+      }
+    ]
+  },
+  "job_id": "wrong_B_reply_sibling",
+  "kind": "control",
+  "expected": false,
+  "family": "sibling"
+}

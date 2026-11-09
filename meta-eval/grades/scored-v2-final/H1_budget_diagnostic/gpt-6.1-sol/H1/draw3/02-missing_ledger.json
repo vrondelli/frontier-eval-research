@@ -1,0 +1,1199 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 2.265400950000185,
+  "stdout": "{\"task_id\": \"E1\", \"answer_sha256\": \"8a6f571a27d3ccaf875e8c2382f7a04591390f0c0802356c769d411f9af5191f\", \"evaluation_version\": 1, \"review_status\": \"pending\", \"explanation_quality\": \"not_automatically_scored\", \"formal_status\": \"fail\", \"overall_status\": \"formal_fail\", \"repetitions\": [{\"repetition\": 1, \"steps\": [], \"execution\": [{\"requests\": [{\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"overlap-2\", \"account\": \"A\", \"amount\": 60}], \"workers\": [{\"request\": {\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 60}, \"reply\": {\"status\": \"rejected\", \"remaining\": 40}, \"returncode\": 0}, {\"request\": {\"key\": \"overlap-2\", \"account\": \"A\", \"amount\": 60}, \"reply\": {\"status\": \"applied\", \"remaining\": 40}, \"returncode\": 0}], \"both_armed_before_release\": true}, {\"requests\": [{\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 60}], \"workers\": [{\"request\": {\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 60}, \"error\": \"worker left protocol stdout open\", \"returncode\": 0}], \"both_armed_before_release\": false, \"error\": \"worker left protocol stdout open\"}], \"overlap\": [{\"status\": \"rejected\", \"remaining\": 40}, {\"status\": \"applied\", \"remaining\": 40}], \"after_overlap\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"overlap-1\", \"A\", 60, \"rejected\", 40], [\"overlap-2\", \"A\", 60, \"applied\", 40]], \"ledger\": []}, \"verification\": {\"passed\": false, \"error\": \"worker left protocol stdout open\"}, \"failure_snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"overlap-1\", \"A\", 60, \"rejected\", 40], [\"overlap-2\", \"A\", 60, \"applied\", 40]], \"ledger\": []}}, {\"repetition\": 2, \"steps\": [], \"execution\": [{\"requests\": [{\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"overlap-2\", \"account\": \"A\", \"amount\": 60}], \"workers\": [{\"request\": {\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 60}, \"reply\": {\"status\": \"applied\", \"remaining\": 40}, \"returncode\": 0}, {\"request\": {\"key\": \"overlap-2\", \"account\": \"A\", \"amount\": 60}, \"error\": \"worker left protocol stdout open\", \"returncode\": 0}], \"both_armed_before_release\": true, \"error\": \"worker left protocol stdout open\"}], \"verification\": {\"passed\": false, \"error\": \"worker left protocol stdout open\"}, \"failure_snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"overlap-1\", \"A\", 60, \"applied\", 40], [\"overlap-2\", \"A\", 60, \"rejected\", 40]], \"ledger\": []}}, {\"repetition\": 3, \"steps\": [{\"request\": {\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 60}, \"reply\": {\"status\": \"applied\", \"remaining\": 40}, \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"overlap-1\", \"A\", 60, \"applied\", 40], [\"overlap-2\", \"A\", 60, \"rejected\", 40]], \"ledger\": []}}, {\"request\": {\"key\": \"overlap-2\", \"account\": \"A\", \"amount\": 60}, \"reply\": {\"status\": \"rejected\", \"remaining\": 40}, \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"overlap-1\", \"A\", 60, \"applied\", 40], [\"overlap-2\", \"A\", 60, \"rejected\", 40]], \"ledger\": []}}, {\"request\": {\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 1}, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"overlap-1\", \"A\", 60, \"applied\", 40], [\"overlap-2\", \"A\", 60, \"rejected\", 40]], \"ledger\": []}}, {\"request\": {\"key\": \"overlap-2\", \"account\": \"B\", \"amount\": 60}, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"overlap-1\", \"A\", 60, \"applied\", 40], [\"overlap-2\", \"A\", 60, \"rejected\", 40]], \"ledger\": []}}, {\"request\": {\"key\": \"b-full\", \"account\": \"B\", \"amount\": 100}, \"reply\": {\"status\": \"applied\", \"remaining\": 0}, \"snapshot\": {\"accounts\": [[\"A\", 40], [\"B\", 0]], \"decisions\": [[\"b-full\", \"B\", 100, \"applied\", 0], [\"overlap-1\", \"A\", 60, \"applied\", 40], [\"overlap-2\", \"A\", 60, \"rejected\", 40]], \"ledger\": []}}, {\"request\": {\"key\": \"a-tail\", \"account\": \"A\", \"amount\": 40}, \"reply\": {\"status\": \"applied\", \"remaining\": 0}, \"snapshot\": {\"accounts\": [[\"A\", 0], [\"B\", 0]], \"decisions\": [[\"a-tail\", \"A\", 40, \"applied\", 0], [\"b-full\", \"B\", 100, \"applied\", 0], [\"overlap-1\", \"A\", 60, \"applied\", 40], [\"overlap-2\", \"A\", 60, \"rejected\", 40]], \"ledger\": []}}, {\"request\": {\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 60}, \"reply\": {\"status\": \"applied\", \"remaining\": 40}, \"snapshot\": {\"accounts\": [[\"A\", 0], [\"B\", 0]], \"decisions\": [[\"a-tail\", \"A\", 40, \"applied\", 0], [\"b-full\", \"B\", 100, \"applied\", 0], [\"overlap-1\", \"A\", 60, \"applied\", 40], [\"overlap-2\", \"A\", 60, \"rejected\", 40]], \"ledger\": []}}, {\"request\": {\"key\": \"overlap-2\", \"account\": \"A\", \"amount\": 60}, \"reply\": {\"status\": \"rejected\", \"remaining\": 40}, \"snapshot\": {\"accounts\": [[\"A\", 0], [\"B\", 0]], \"decisions\": [[\"a-tail\", \"A\", 40, \"applied\", 0], [\"b-full\", \"B\", 100, \"applied\", 0], [\"overlap-1\", \"A\", 60, \"applied\", 40], [\"overlap-2\", \"A\", 60, \"rejected\", 40]], \"ledger\": []}}, {\"request\": {\"key\": \"a-empty\", \"account\": \"A\", \"amount\": 1}, \"reply\": {\"status\": \"rejected\", \"remaining\": 0}, \"snapshot\": {\"accounts\": [[\"A\", 0], [\"B\", 0]], \"decisions\": [[\"a-empty\", \"A\", 1, \"rejected\", 0], [\"a-tail\", \"A\", 40, \"applied\", 0], [\"b-full\", \"B\", 100, \"applied\", 0], [\"overlap-1\", \"A\", 60, \"applied\", 40], [\"overlap-2\", \"A\", 60, \"rejected\", 40]], \"ledger\": []}}, {\"request\": {\"key\": \"a-empty\", \"account\": \"A\", \"amount\": 1}, \"reply\": {\"status\": \"rejected\", \"remaining\": 0}, \"snapshot\": {\"accounts\": [[\"A\", 0], [\"B\", 0]], \"decisions\": [[\"a-empty\", \"A\", 1, \"rejected\", 0], [\"a-tail\", \"A\", 40, \"applied\", 0], [\"b-full\", \"B\", 100, \"applied\", 0], [\"overlap-1\", \"A\", 60, \"applied\", 40], [\"overlap-2\", \"A\", 60, \"rejected\", 40]], \"ledger\": []}}, {\"request\": {\"key\": \"b-full\", \"account\": \"B\", \"amount\": 100}, \"reply\": {\"status\": \"applied\", \"remaining\": 0}, \"snapshot\": {\"accounts\": [[\"A\", 0], [\"B\", 0]], \"decisions\": [[\"a-empty\", \"A\", 1, \"rejected\", 0], [\"a-tail\", \"A\", 40, \"applied\", 0], [\"b-full\", \"B\", 100, \"applied\", 0], [\"overlap-1\", \"A\", 60, \"applied\", 40], [\"overlap-2\", \"A\", 60, \"rejected\", 40]], \"ledger\": []}}], \"execution\": [{\"requests\": [{\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 60}, {\"key\": \"overlap-2\", \"account\": \"A\", \"amount\": 60}], \"workers\": [{\"request\": {\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 60}, \"reply\": {\"status\": \"applied\", \"remaining\": 40}, \"returncode\": 0}, {\"request\": {\"key\": \"overlap-2\", \"account\": \"A\", \"amount\": 60}, \"reply\": {\"status\": \"rejected\", \"remaining\": 40}, \"returncode\": 0}], \"both_armed_before_release\": true}, {\"requests\": [{\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 60}], \"workers\": [{\"request\": {\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 60}, \"reply\": {\"status\": \"applied\", \"remaining\": 40}, \"returncode\": 0}], \"both_armed_before_release\": false}, {\"requests\": [{\"key\": \"overlap-2\", \"account\": \"A\", \"amount\": 60}], \"workers\": [{\"request\": {\"key\": \"overlap-2\", \"account\": \"A\", \"amount\": 60}, \"reply\": {\"status\": \"rejected\", \"remaining\": 40}, \"returncode\": 0}], \"both_armed_before_release\": false}, {\"requests\": [{\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 1}], \"workers\": [{\"request\": {\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 1}, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"returncode\": 0}], \"both_armed_before_release\": false}, {\"requests\": [{\"key\": \"overlap-2\", \"account\": \"B\", \"amount\": 60}], \"workers\": [{\"request\": {\"key\": \"overlap-2\", \"account\": \"B\", \"amount\": 60}, \"reply\": {\"status\": \"payload_mismatch\", \"remaining\": null}, \"returncode\": 0}], \"both_armed_before_release\": false}, {\"requests\": [{\"key\": \"b-full\", \"account\": \"B\", \"amount\": 100}], \"workers\": [{\"request\": {\"key\": \"b-full\", \"account\": \"B\", \"amount\": 100}, \"reply\": {\"status\": \"applied\", \"remaining\": 0}, \"returncode\": 0}], \"both_armed_before_release\": false}, {\"requests\": [{\"key\": \"a-tail\", \"account\": \"A\", \"amount\": 40}], \"workers\": [{\"request\": {\"key\": \"a-tail\", \"account\": \"A\", \"amount\": 40}, \"reply\": {\"status\": \"applied\", \"remaining\": 0}, \"returncode\": 0}], \"both_armed_before_release\": false}, {\"requests\": [{\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 60}], \"workers\": [{\"request\": {\"key\": \"overlap-1\", \"account\": \"A\", \"amount\": 60}, \"reply\": {\"status\": \"applied\", \"remaining\": 40}, \"returncode\": 0}], \"both_armed_before_release\": false}, {\"requests\": [{\"key\": \"overlap-2\", \"account\": \"A\", \"amount\": 60}], \"workers\": [{\"request\": {\"key\": \"overlap-2\", \"account\": \"A\", \"amount\": 60}, \"reply\": {\"status\": \"rejected\", \"remaining\": 40}, \"returncode\": 0}], \"both_armed_before_release\": false}, {\"requests\": [{\"key\": \"a-empty\", \"account\": \"A\", \"amount\": 1}], \"workers\": [{\"request\": {\"key\": \"a-empty\", \"account\": \"A\", \"amount\": 1}, \"reply\": {\"status\": \"rejected\", \"remaining\": 0}, \"returncode\": 0}], \"both_armed_before_release\": false}, {\"requests\": [{\"key\": \"a-empty\", \"account\": \"A\", \"amount\": 1}], \"workers\": [{\"request\": {\"key\": \"a-empty\", \"account\": \"A\", \"amount\": 1}, \"reply\": {\"status\": \"rejected\", \"remaining\": 0}, \"returncode\": 0}], \"both_armed_before_release\": false}, {\"requests\": [{\"key\": \"b-full\", \"account\": \"B\", \"amount\": 100}], \"workers\": [{\"request\": {\"key\": \"b-full\", \"account\": \"B\", \"amount\": 100}, \"reply\": {\"status\": \"applied\", \"remaining\": 0}, \"returncode\": 0}], \"both_armed_before_release\": false}], \"overlap\": [{\"status\": \"applied\", \"remaining\": 40}, {\"status\": \"rejected\", \"remaining\": 40}], \"after_overlap\": {\"accounts\": [[\"A\", 40], [\"B\", 100]], \"decisions\": [[\"overlap-1\", \"A\", 60, \"applied\", 40], [\"overlap-2\", \"A\", 60, \"rejected\", 40]], \"ledger\": []}, \"verification\": {\"passed\": false, \"order_failures\": [\"reply differs: expected {'status': 'accepted', 'remaining': 40}, observed {'status': 'applied', 'remaining': 40}\", \"reply differs: expected {'status': 'accepted', 'remaining': 40}, observed {'status': 'rejected', 'remaining': 40}\"]}}]}\n",
+  "stderr": "",
+  "command": [
+    "bwrap",
+    "--die-with-parent",
+    "--unshare-all",
+    "--cap-drop",
+    "ALL",
+    "--clearenv",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "--setenv",
+    "LANG",
+    "C.UTF-8",
+    "--ro-bind",
+    "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/runs/budget-diagnostic/gpt-6.1-sol/H1/draw3/delivery",
+    "/subject",
+    "--ro-bind",
+    "/home/vlad_/projects/engineer-assessment/research/hackathon/eval-author-meta-eval-20261108/owner/cases/H1/missing_ledger.json",
+    "/control.json",
+    "--chdir",
+    "/tmp",
+    "/usr/bin/python3",
+    "-B",
+    "-c",
+    "import json,sys;sys.path.insert(0,'/subject');import evaluate;c=json.load(open('/control.json'));a=dict(task_id='E1',code=c['code'],explanation='Owner executable control; prose quality reviewed separately.');r=getattr(evaluate,sys.argv[1])(a);print(json.dumps(r))",
+    "grade"
+  ],
+  "output_capture_cap_bytes": 16777216,
+  "observed_stdout_bytes": 9622,
+  "observed_stderr_bytes": 0,
+  "decoded": {
+    "task_id": "E1",
+    "answer_sha256": "8a6f571a27d3ccaf875e8c2382f7a04591390f0c0802356c769d411f9af5191f",
+    "evaluation_version": 1,
+    "review_status": "pending",
+    "explanation_quality": "not_automatically_scored",
+    "formal_status": "fail",
+    "overall_status": "formal_fail",
+    "repetitions": [
+      {
+        "repetition": 1,
+        "steps": [],
+        "execution": [
+          {
+            "requests": [
+              {
+                "key": "overlap-1",
+                "account": "A",
+                "amount": 60
+              },
+              {
+                "key": "overlap-2",
+                "account": "A",
+                "amount": 60
+              }
+            ],
+            "workers": [
+              {
+                "request": {
+                  "key": "overlap-1",
+                  "account": "A",
+                  "amount": 60
+                },
+                "reply": {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                "returncode": 0
+              },
+              {
+                "request": {
+                  "key": "overlap-2",
+                  "account": "A",
+                  "amount": 60
+                },
+                "reply": {
+                  "status": "applied",
+                  "remaining": 40
+                },
+                "returncode": 0
+              }
+            ],
+            "both_armed_before_release": true
+          },
+          {
+            "requests": [
+              {
+                "key": "overlap-1",
+                "account": "A",
+                "amount": 60
+              }
+            ],
+            "workers": [
+              {
+                "request": {
+                  "key": "overlap-1",
+                  "account": "A",
+                  "amount": 60
+                },
+                "error": "worker left protocol stdout open",
+                "returncode": 0
+              }
+            ],
+            "both_armed_before_release": false,
+            "error": "worker left protocol stdout open"
+          }
+        ],
+        "overlap": [
+          {
+            "status": "rejected",
+            "remaining": 40
+          },
+          {
+            "status": "applied",
+            "remaining": 40
+          }
+        ],
+        "after_overlap": {
+          "accounts": [
+            [
+              "A",
+              40
+            ],
+            [
+              "B",
+              100
+            ]
+          ],
+          "decisions": [
+            [
+              "overlap-1",
+              "A",
+              60,
+              "rejected",
+              40
+            ],
+            [
+              "overlap-2",
+              "A",
+              60,
+              "applied",
+              40
+            ]
+          ],
+          "ledger": []
+        },
+        "verification": {
+          "passed": false,
+          "error": "worker left protocol stdout open"
+        },
+        "failure_snapshot": {
+          "accounts": [
+            [
+              "A",
+              40
+            ],
+            [
+              "B",
+              100
+            ]
+          ],
+          "decisions": [
+            [
+              "overlap-1",
+              "A",
+              60,
+              "rejected",
+              40
+            ],
+            [
+              "overlap-2",
+              "A",
+              60,
+              "applied",
+              40
+            ]
+          ],
+          "ledger": []
+        }
+      },
+      {
+        "repetition": 2,
+        "steps": [],
+        "execution": [
+          {
+            "requests": [
+              {
+                "key": "overlap-1",
+                "account": "A",
+                "amount": 60
+              },
+              {
+                "key": "overlap-2",
+                "account": "A",
+                "amount": 60
+              }
+            ],
+            "workers": [
+              {
+                "request": {
+                  "key": "overlap-1",
+                  "account": "A",
+                  "amount": 60
+                },
+                "reply": {
+                  "status": "applied",
+                  "remaining": 40
+                },
+                "returncode": 0
+              },
+              {
+                "request": {
+                  "key": "overlap-2",
+                  "account": "A",
+                  "amount": 60
+                },
+                "error": "worker left protocol stdout open",
+                "returncode": 0
+              }
+            ],
+            "both_armed_before_release": true,
+            "error": "worker left protocol stdout open"
+          }
+        ],
+        "verification": {
+          "passed": false,
+          "error": "worker left protocol stdout open"
+        },
+        "failure_snapshot": {
+          "accounts": [
+            [
+              "A",
+              40
+            ],
+            [
+              "B",
+              100
+            ]
+          ],
+          "decisions": [
+            [
+              "overlap-1",
+              "A",
+              60,
+              "applied",
+              40
+            ],
+            [
+              "overlap-2",
+              "A",
+              60,
+              "rejected",
+              40
+            ]
+          ],
+          "ledger": []
+        }
+      },
+      {
+        "repetition": 3,
+        "steps": [
+          {
+            "request": {
+              "key": "overlap-1",
+              "account": "A",
+              "amount": 60
+            },
+            "reply": {
+              "status": "applied",
+              "remaining": 40
+            },
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "overlap-1",
+                  "A",
+                  60,
+                  "applied",
+                  40
+                ],
+                [
+                  "overlap-2",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": []
+            }
+          },
+          {
+            "request": {
+              "key": "overlap-2",
+              "account": "A",
+              "amount": 60
+            },
+            "reply": {
+              "status": "rejected",
+              "remaining": 40
+            },
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "overlap-1",
+                  "A",
+                  60,
+                  "applied",
+                  40
+                ],
+                [
+                  "overlap-2",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": []
+            }
+          },
+          {
+            "request": {
+              "key": "overlap-1",
+              "account": "A",
+              "amount": 1
+            },
+            "reply": {
+              "status": "payload_mismatch",
+              "remaining": null
+            },
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "overlap-1",
+                  "A",
+                  60,
+                  "applied",
+                  40
+                ],
+                [
+                  "overlap-2",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": []
+            }
+          },
+          {
+            "request": {
+              "key": "overlap-2",
+              "account": "B",
+              "amount": 60
+            },
+            "reply": {
+              "status": "payload_mismatch",
+              "remaining": null
+            },
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  100
+                ]
+              ],
+              "decisions": [
+                [
+                  "overlap-1",
+                  "A",
+                  60,
+                  "applied",
+                  40
+                ],
+                [
+                  "overlap-2",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": []
+            }
+          },
+          {
+            "request": {
+              "key": "b-full",
+              "account": "B",
+              "amount": 100
+            },
+            "reply": {
+              "status": "applied",
+              "remaining": 0
+            },
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  40
+                ],
+                [
+                  "B",
+                  0
+                ]
+              ],
+              "decisions": [
+                [
+                  "b-full",
+                  "B",
+                  100,
+                  "applied",
+                  0
+                ],
+                [
+                  "overlap-1",
+                  "A",
+                  60,
+                  "applied",
+                  40
+                ],
+                [
+                  "overlap-2",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": []
+            }
+          },
+          {
+            "request": {
+              "key": "a-tail",
+              "account": "A",
+              "amount": 40
+            },
+            "reply": {
+              "status": "applied",
+              "remaining": 0
+            },
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  0
+                ],
+                [
+                  "B",
+                  0
+                ]
+              ],
+              "decisions": [
+                [
+                  "a-tail",
+                  "A",
+                  40,
+                  "applied",
+                  0
+                ],
+                [
+                  "b-full",
+                  "B",
+                  100,
+                  "applied",
+                  0
+                ],
+                [
+                  "overlap-1",
+                  "A",
+                  60,
+                  "applied",
+                  40
+                ],
+                [
+                  "overlap-2",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": []
+            }
+          },
+          {
+            "request": {
+              "key": "overlap-1",
+              "account": "A",
+              "amount": 60
+            },
+            "reply": {
+              "status": "applied",
+              "remaining": 40
+            },
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  0
+                ],
+                [
+                  "B",
+                  0
+                ]
+              ],
+              "decisions": [
+                [
+                  "a-tail",
+                  "A",
+                  40,
+                  "applied",
+                  0
+                ],
+                [
+                  "b-full",
+                  "B",
+                  100,
+                  "applied",
+                  0
+                ],
+                [
+                  "overlap-1",
+                  "A",
+                  60,
+                  "applied",
+                  40
+                ],
+                [
+                  "overlap-2",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": []
+            }
+          },
+          {
+            "request": {
+              "key": "overlap-2",
+              "account": "A",
+              "amount": 60
+            },
+            "reply": {
+              "status": "rejected",
+              "remaining": 40
+            },
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  0
+                ],
+                [
+                  "B",
+                  0
+                ]
+              ],
+              "decisions": [
+                [
+                  "a-tail",
+                  "A",
+                  40,
+                  "applied",
+                  0
+                ],
+                [
+                  "b-full",
+                  "B",
+                  100,
+                  "applied",
+                  0
+                ],
+                [
+                  "overlap-1",
+                  "A",
+                  60,
+                  "applied",
+                  40
+                ],
+                [
+                  "overlap-2",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": []
+            }
+          },
+          {
+            "request": {
+              "key": "a-empty",
+              "account": "A",
+              "amount": 1
+            },
+            "reply": {
+              "status": "rejected",
+              "remaining": 0
+            },
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  0
+                ],
+                [
+                  "B",
+                  0
+                ]
+              ],
+              "decisions": [
+                [
+                  "a-empty",
+                  "A",
+                  1,
+                  "rejected",
+                  0
+                ],
+                [
+                  "a-tail",
+                  "A",
+                  40,
+                  "applied",
+                  0
+                ],
+                [
+                  "b-full",
+                  "B",
+                  100,
+                  "applied",
+                  0
+                ],
+                [
+                  "overlap-1",
+                  "A",
+                  60,
+                  "applied",
+                  40
+                ],
+                [
+                  "overlap-2",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": []
+            }
+          },
+          {
+            "request": {
+              "key": "a-empty",
+              "account": "A",
+              "amount": 1
+            },
+            "reply": {
+              "status": "rejected",
+              "remaining": 0
+            },
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  0
+                ],
+                [
+                  "B",
+                  0
+                ]
+              ],
+              "decisions": [
+                [
+                  "a-empty",
+                  "A",
+                  1,
+                  "rejected",
+                  0
+                ],
+                [
+                  "a-tail",
+                  "A",
+                  40,
+                  "applied",
+                  0
+                ],
+                [
+                  "b-full",
+                  "B",
+                  100,
+                  "applied",
+                  0
+                ],
+                [
+                  "overlap-1",
+                  "A",
+                  60,
+                  "applied",
+                  40
+                ],
+                [
+                  "overlap-2",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": []
+            }
+          },
+          {
+            "request": {
+              "key": "b-full",
+              "account": "B",
+              "amount": 100
+            },
+            "reply": {
+              "status": "applied",
+              "remaining": 0
+            },
+            "snapshot": {
+              "accounts": [
+                [
+                  "A",
+                  0
+                ],
+                [
+                  "B",
+                  0
+                ]
+              ],
+              "decisions": [
+                [
+                  "a-empty",
+                  "A",
+                  1,
+                  "rejected",
+                  0
+                ],
+                [
+                  "a-tail",
+                  "A",
+                  40,
+                  "applied",
+                  0
+                ],
+                [
+                  "b-full",
+                  "B",
+                  100,
+                  "applied",
+                  0
+                ],
+                [
+                  "overlap-1",
+                  "A",
+                  60,
+                  "applied",
+                  40
+                ],
+                [
+                  "overlap-2",
+                  "A",
+                  60,
+                  "rejected",
+                  40
+                ]
+              ],
+              "ledger": []
+            }
+          }
+        ],
+        "execution": [
+          {
+            "requests": [
+              {
+                "key": "overlap-1",
+                "account": "A",
+                "amount": 60
+              },
+              {
+                "key": "overlap-2",
+                "account": "A",
+                "amount": 60
+              }
+            ],
+            "workers": [
+              {
+                "request": {
+                  "key": "overlap-1",
+                  "account": "A",
+                  "amount": 60
+                },
+                "reply": {
+                  "status": "applied",
+                  "remaining": 40
+                },
+                "returncode": 0
+              },
+              {
+                "request": {
+                  "key": "overlap-2",
+                  "account": "A",
+                  "amount": 60
+                },
+                "reply": {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                "returncode": 0
+              }
+            ],
+            "both_armed_before_release": true
+          },
+          {
+            "requests": [
+              {
+                "key": "overlap-1",
+                "account": "A",
+                "amount": 60
+              }
+            ],
+            "workers": [
+              {
+                "request": {
+                  "key": "overlap-1",
+                  "account": "A",
+                  "amount": 60
+                },
+                "reply": {
+                  "status": "applied",
+                  "remaining": 40
+                },
+                "returncode": 0
+              }
+            ],
+            "both_armed_before_release": false
+          },
+          {
+            "requests": [
+              {
+                "key": "overlap-2",
+                "account": "A",
+                "amount": 60
+              }
+            ],
+            "workers": [
+              {
+                "request": {
+                  "key": "overlap-2",
+                  "account": "A",
+                  "amount": 60
+                },
+                "reply": {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                "returncode": 0
+              }
+            ],
+            "both_armed_before_release": false
+          },
+          {
+            "requests": [
+              {
+                "key": "overlap-1",
+                "account": "A",
+                "amount": 1
+              }
+            ],
+            "workers": [
+              {
+                "request": {
+                  "key": "overlap-1",
+                  "account": "A",
+                  "amount": 1
+                },
+                "reply": {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                "returncode": 0
+              }
+            ],
+            "both_armed_before_release": false
+          },
+          {
+            "requests": [
+              {
+                "key": "overlap-2",
+                "account": "B",
+                "amount": 60
+              }
+            ],
+            "workers": [
+              {
+                "request": {
+                  "key": "overlap-2",
+                  "account": "B",
+                  "amount": 60
+                },
+                "reply": {
+                  "status": "payload_mismatch",
+                  "remaining": null
+                },
+                "returncode": 0
+              }
+            ],
+            "both_armed_before_release": false
+          },
+          {
+            "requests": [
+              {
+                "key": "b-full",
+                "account": "B",
+                "amount": 100
+              }
+            ],
+            "workers": [
+              {
+                "request": {
+                  "key": "b-full",
+                  "account": "B",
+                  "amount": 100
+                },
+                "reply": {
+                  "status": "applied",
+                  "remaining": 0
+                },
+                "returncode": 0
+              }
+            ],
+            "both_armed_before_release": false
+          },
+          {
+            "requests": [
+              {
+                "key": "a-tail",
+                "account": "A",
+                "amount": 40
+              }
+            ],
+            "workers": [
+              {
+                "request": {
+                  "key": "a-tail",
+                  "account": "A",
+                  "amount": 40
+                },
+                "reply": {
+                  "status": "applied",
+                  "remaining": 0
+                },
+                "returncode": 0
+              }
+            ],
+            "both_armed_before_release": false
+          },
+          {
+            "requests": [
+              {
+                "key": "overlap-1",
+                "account": "A",
+                "amount": 60
+              }
+            ],
+            "workers": [
+              {
+                "request": {
+                  "key": "overlap-1",
+                  "account": "A",
+                  "amount": 60
+                },
+                "reply": {
+                  "status": "applied",
+                  "remaining": 40
+                },
+                "returncode": 0
+              }
+            ],
+            "both_armed_before_release": false
+          },
+          {
+            "requests": [
+              {
+                "key": "overlap-2",
+                "account": "A",
+                "amount": 60
+              }
+            ],
+            "workers": [
+              {
+                "request": {
+                  "key": "overlap-2",
+                  "account": "A",
+                  "amount": 60
+                },
+                "reply": {
+                  "status": "rejected",
+                  "remaining": 40
+                },
+                "returncode": 0
+              }
+            ],
+            "both_armed_before_release": false
+          },
+          {
+            "requests": [
+              {
+                "key": "a-empty",
+                "account": "A",
+                "amount": 1
+              }
+            ],
+            "workers": [
+              {
+                "request": {
+                  "key": "a-empty",
+                  "account": "A",
+                  "amount": 1
+                },
+                "reply": {
+                  "status": "rejected",
+                  "remaining": 0
+                },
+                "returncode": 0
+              }
+            ],
+            "both_armed_before_release": false
+          },
+          {
+            "requests": [
+              {
+                "key": "a-empty",
+                "account": "A",
+                "amount": 1
+              }
+            ],
+            "workers": [
+              {
+                "request": {
+                  "key": "a-empty",
+                  "account": "A",
+                  "amount": 1
+                },
+                "reply": {
+                  "status": "rejected",
+                  "remaining": 0
+                },
+                "returncode": 0
+              }
+            ],
+            "both_armed_before_release": false
+          },
+          {
+            "requests": [
+              {
+                "key": "b-full",
+                "account": "B",
+                "amount": 100
+              }
+            ],
+            "workers": [
+              {
+                "request": {
+                  "key": "b-full",
+                  "account": "B",
+                  "amount": 100
+                },
+                "reply": {
+                  "status": "applied",
+                  "remaining": 0
+                },
+                "returncode": 0
+              }
+            ],
+            "both_armed_before_release": false
+          }
+        ],
+        "overlap": [
+          {
+            "status": "applied",
+            "remaining": 40
+          },
+          {
+            "status": "rejected",
+            "remaining": 40
+          }
+        ],
+        "after_overlap": {
+          "accounts": [
+            [
+              "A",
+              40
+            ],
+            [
+              "B",
+              100
+            ]
+          ],
+          "decisions": [
+            [
+              "overlap-1",
+              "A",
+              60,
+              "applied",
+              40
+            ],
+            [
+              "overlap-2",
+              "A",
+              60,
+              "rejected",
+              40
+            ]
+          ],
+          "ledger": []
+        },
+        "verification": {
+          "passed": false,
+          "order_failures": [
+            "reply differs: expected {'status': 'accepted', 'remaining': 40}, observed {'status': 'applied', 'remaining': 40}",
+            "reply differs: expected {'status': 'accepted', 'remaining': 40}, observed {'status': 'rejected', 'remaining': 40}"
+          ]
+        }
+      }
+    ]
+  },
+  "job_id": "missing_ledger",
+  "kind": "control",
+  "expected": false,
+  "family": "baseline"
+}

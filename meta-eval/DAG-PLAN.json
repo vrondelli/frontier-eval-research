@@ -1,0 +1,31 @@
+{
+  "schema_version": "hackathon.eval-author-dag/v1",
+  "status": "implemented_with_documented_deviations_31_attempts_terminal_human_review_pending",
+  "execution_audit": "COMPLETION-AUDIT.json",
+  "objective": "Build and run a source-bound evaluation of GPT creating evals for nine original hackathon jobs, with original or reconstructed authoring instructions kept separate from coached instructions.",
+  "case_ids": ["H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8", "H9"],
+  "condition_ids": ["exact_original", "minimal_reconstruction", "coached_secondary"],
+  "nodes": [
+    {"id":"D00","title":"Claim and scope contract","depends_on":[],"optional":false,"output":"protocol/CLAIMS.md"},
+    {"id":"D01","title":"Recover eval-authoring instructions","depends_on":["D00"],"optional":false,"output":"sources/INSTRUCTION-PROVENANCE.json"},
+    {"id":"D02","title":"Census original sources and exposure","depends_on":["D00"],"optional":false,"output":"sources/SOURCE-MANIFEST.json"},
+    {"id":"D03","title":"Build source-bound packets per case","depends_on":["D01","D02"],"optional":false,"fanout":"H1-H9","output":"packets/Hn/PROVENANCE.json"},
+    {"id":"D04","title":"Map checks to public contract","depends_on":["D03"],"optional":false,"fanout":"H1-H9","output":"owner/Hn/CONTRACT-MATRIX.md"},
+    {"id":"D05","title":"Build independent correct alternatives","depends_on":["D04"],"optional":false,"fanout":"H1-H9","output":"owner/Hn/POSITIVES.json"},
+    {"id":"D06","title":"Build negative and sibling controls","depends_on":["D04"],"optional":false,"fanout":"H1-H9","output":"owner/Hn/NEGATIVES.json"},
+    {"id":"D07","title":"Build isolation and event recorder","depends_on":["D00"],"optional":false,"output":"owner/runtime/"},
+    {"id":"D08","title":"Build independent owner checker","depends_on":["D05","D06","D07"],"optional":false,"fanout":"H1-H9","output":"owner/Hn/checker/"},
+    {"id":"D09","title":"Freeze original or reconstructed prompt packets","depends_on":["D03"],"optional":false,"output":"packets/primary/"},
+    {"id":"D10","title":"Build coached secondary packets","depends_on":["D03"],"optional":false,"output":"packets/coached/"},
+    {"id":"D11","title":"Independent semantic and boundary review","depends_on":["D08","D09","D10"],"optional":false,"output":"owner/REVIEW.json"},
+    {"id":"D12","title":"Preflight and freeze","depends_on":["D11"],"optional":false,"output":"FREEZE.json"},
+    {"id":"D13","title":"Calibrate model transport","depends_on":["D12"],"optional":false,"output":"CALIBRATION.json"},
+    {"id":"D14","title":"Run formal primary author attempts","depends_on":["D13"],"optional":false,"output":"runs/primary/"},
+    {"id":"D15","title":"Score immutable primary artifacts","depends_on":["D14"],"optional":false,"output":"grades/primary/"},
+    {"id":"D16","title":"Run optional coached author attempts","depends_on":["D15"],"optional":true,"output":"runs/coached/"},
+    {"id":"D17","title":"Score immutable coached artifacts","depends_on":["D16"],"optional":true,"output":"grades/coached/"},
+    {"id":"D18","title":"Independently adjudicate outcomes","depends_on":["D15"],"optional_depends_on":["D17"],"optional":false,"output":"ADJUDICATION.md"},
+    {"id":"D19","title":"Synthesize claim-limited results","depends_on":["D18"],"optional":false,"output":"RESULTS.md"},
+    {"id":"D20","title":"Package reproducible local release","depends_on":["D19"],"optional":false,"output":"release/"}
+  ]
+}
