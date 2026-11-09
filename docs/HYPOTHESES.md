@@ -6,7 +6,9 @@ This guide groups the hypotheses by the problem they were trying to explain. [Th
 
 ## Could a model understand the current state and still make a bad plan?
 
-Yes. In the diagnostic games, Sol and Astra sometimes kept the correct set of possible worlds but chose tests that lost a feasible winning continuation. The important failure was the action, not a wrong description of the state.
+We built artificial troubleshooting puzzles: the model had to identify a hidden cause by choosing tests, paying a point cost for each, and allowing for a limited number of unreliable answers. A table told it what each test would normally return. It had to reason through the choices without running a search program.
+
+Sol and Astra sometimes listed the remaining possible causes correctly but spent the available points in a way that prevented a better result. In the saved Sol example, finding one cause was still guaranteed by another strategy, but its choice left a best possible guarantee of two. The important error was the decision, rather than an incorrect list of possibilities.
 
 We then changed resources. A later ordinary-tool retest passed all 24 attempts, each using Python. That tells us computation helped under those conditions. It also tells us to keep no-tool planning and tool-assisted search separate when describing the finding. [Planning example](CASE-STUDIES.md#4-the-model-knew-the-possible-answers-but-chose-the-wrong-test).
 
@@ -48,7 +50,7 @@ Many specified failure patterns did not appear. Broader review still found some 
 
 ## Would a query optimizer preserve meaning when names were qualified?
 
-A query that uses a namespaced name should retain its meaning after optimization. Saved and fresh Luna implementations sometimes broke that property. The original optimizer errors recurred in six of eight programs, and a later Luna comparison had three such errors in eight.
+These programs retrieved information from tables and rewrote the steps to do less work. Some field names included a source prefix, which distinguishes fields from different places. Rewriting those names incorrectly could change the answer or make a request fail. Saved and new Luna programs made such errors: six of eight programs in the original fresh group, and three of eight in a later comparison.
 
 Astra and Sol each passed all eight tasks in their corresponding comparison. That result narrowed the lead: the evidence did not show the same weakness across the stronger models tested. [Query follow-up and original failures](LATER-ROUNDS.md).
 

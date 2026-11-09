@@ -1,8 +1,8 @@
 # When did the planning failure persist, and when did tools help?
 
-We varied diagnostic instances, continued interaction and access to computation to see which parts of the early planning failures survived.
+We changed the troubleshooting puzzles, continued the same conversation across several test choices, and varied whether the model could run code. The question was whether a model could spend its test budget well enough to find the hidden cause.
 
-The study retained concrete no-tool planning errors, including a Sol action that lost an achievable one-world guarantee. Explicit computation succeeded in the tested difficult development condition. The invalid initial observations and their correction remain in the record.
+Without computation tools, some models made planning mistakes. In one Sol example, eight causes and six test points were supplied; the model listed the possible causes correctly but chose a test that lost a guaranteed single-cause answer. Allowing computation produced successes in the difficult development case. Invalid early observations and their correction remain visible.
 
 [Read the original report](../../evidence/source-text/readiness-study-20261031/REPORT.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 

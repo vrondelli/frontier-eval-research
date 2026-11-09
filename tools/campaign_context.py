@@ -6,8 +6,8 @@ CONTEXT = {
  'The audit found a large body of reports and tools and verified a fresh public clone. Its file counts describe existing material, not hundreds of independent experiments.'),
 'adaptive-frontier-research-20261031': (
  'Can the model choose a test without losing the goal?',
- 'A diagnostic agent has to do more than list the possibilities. Its next question must preserve a useful route to an answer within the remaining budget.',
- 'The study retained concrete planning failures on Sol and Astra, along with successes and abstentions. Some models tracked the possible worlds correctly but chose an action that lost an attainable guarantee. Later experiments changed tools or resources, so their outcomes need to be read alongside these original conditions.'),
+ 'We used artificial troubleshooting puzzles: the model chose tests to identify a hidden cause, paying points for each test and allowing for a limited number of unreliable answers. It had to decide which questions would leave enough points to finish.',
+ 'The study kept planning mistakes on Sol and Astra alongside correct answers and admissions of uncertainty. Some models accurately listed the possible causes but chose a test that made a better result impossible. Later experiments changed tools or resources, so their successes answer a different question.'),
 'anchor-batch-order-pilot-20261101': (
  'Does an answer score differently because of where it appears?',
  'A rubric should judge the answer rather than its position in a batch. We varied order and inspected both the primary decision and the more detailed ratings.',
@@ -178,8 +178,8 @@ CONTEXT = {
  'The exports add no model trials. Their results belong to the source studies they package, so they are not counted again.'),
 'readiness-study-20261031': (
  'When did the planning failure persist, and when did tools help?',
- 'We varied diagnostic instances, continued interaction and access to computation to see which parts of the early planning failures survived.',
- 'The study retained concrete no-tool planning errors, including a Sol action that lost an achievable one-world guarantee. Explicit computation succeeded in the tested difficult development condition. The invalid initial observations and their correction remain in the record.'),
+ 'We changed the troubleshooting puzzles, continued the same conversation across several test choices, and varied whether the model could run code. The question was whether a model could spend its test budget well enough to find the hidden cause.',
+ 'Without computation tools, some models made planning mistakes. In one Sol example, eight causes and six test points were supplied; the model listed the possible causes correctly but chose a test that lost a guaranteed single-cause answer. Allowing computation produced successes in the difficult development case. Invalid early observations and their correction remain visible.'),
 'research-judgment-paths-20261101': (
  'Could evidence and judgment tasks reveal a more useful lead?',
  'We explored finite judgment problems and more open assessment-design requests, keeping their different evaluation needs separate.',

@@ -1,8 +1,8 @@
 # Can the model choose a test without losing the goal?
 
-A diagnostic agent has to do more than list the possibilities. Its next question must preserve a useful route to an answer within the remaining budget.
+We used artificial troubleshooting puzzles: the model chose tests to identify a hidden cause, paying points for each test and allowing for a limited number of unreliable answers. It had to decide which questions would leave enough points to finish.
 
-The study retained concrete planning failures on Sol and Astra, along with successes and abstentions. Some models tracked the possible worlds correctly but chose an action that lost an attainable guarantee. Later experiments changed tools or resources, so their outcomes need to be read alongside these original conditions.
+The study kept planning mistakes on Sol and Astra alongside correct answers and admissions of uncertainty. Some models accurately listed the possible causes but chose a test that made a better result impossible. Later experiments changed tools or resources, so their successes answer a different question.
 
 [Read the original report](../../evidence/source-text/adaptive-frontier-research-20261031/FINDINGS.md). The report keeps the wording used at the time; the explanation above places it in the later research.
 

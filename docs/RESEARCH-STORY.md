@@ -20,9 +20,11 @@ The revised benchmark clarified the service vocabulary and changed some creative
 
 ## Tracking the situation was easier than choosing the next move
 
-The diagnostic planning tasks gave us a more concrete reasoning problem. The model had to choose tests under a limited budget, using each answer to decide its next action.
+We used a small artificial troubleshooting puzzle. In the saved example, one of eight labeled causes was real. The model received a table of what each test would answer, then chose tests one at a time. It had six points to spend: a cheap test cost one point and could give a wrong answer, while a guaranteed-truthful test cost two. Across the whole investigation, at most one answer from a cheap test could be wrong. Some tests also removed future choices.
 
-In a retained Sol example, its list of possible worlds stayed correct. The mistake was the next test it chose. Before that action, a strategy existed that could identify one world. Afterward, even the best remaining strategy could only narrow the answer to two. The model knew where it was but spent its budget in a way that lost the achievable goal.
+Before each choice, the model had to list all causes still possible. The goal was to distinguish them as well as the rules allowed, rather than guess. The reports call this a diagnostic game; it is an artificial planning problem, not a test on a real machine.
+
+Sol kept the possible-cause list correct. After its first test it had five points left, and a suitable sequence could still guarantee finding the cause. It then spent two points on the truthful test, leaving too little budget: even the best remaining strategy could leave two causes unresolved. This particular test removed no other options; the mistake was spending the remaining points poorly. Sol ultimately reported causes 1 and 7. Its honest uncertainty was correct, but an earlier choice had made that uncertainty avoidable.
 
 We repeated planning work on fresh instances and with persistent interaction. We also tried different resources. When ordinary computation tools were allowed in a later shortlist, all 24 attempts passed, and all 24 used Python.
 
@@ -48,7 +50,7 @@ An audit of the architecture experiments initially reported 156 saved snapshots 
 
 That was a failure in our evidence pipeline. The first report could say it passed because it never counted what it had failed to find.
 
-The query-optimizer audit exposed another problem. We built a deliberately dishonest candidate that did 150 comparisons using the original plan, then 30 using an optimized plan, and reported only the latter. It passed all 41 checks while doing 180 comparisons in total. The checks could replay the declared plan, but they did not observe all the work the candidate performed.
+Another task asked a program to retrieve information from tables with less work, without changing the answer. Its audit exposed a measurement problem. We deliberately wrote a program that did 150 comparisons using the original approach, then 30 using a faster approach, and reported only the latter. It passed all 41 checks while doing 180 comparisons in total. The checks could replay the declared plan, but they did not observe all the work the candidate performed.
 
 We then inspected the actual stronger-model programs separately. All 16 reviewed implementations genuinely reduced work on the measured paths. The test had a loophole; the reviewed programs were not shown to have used it.
 

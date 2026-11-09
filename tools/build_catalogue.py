@@ -196,7 +196,7 @@ Use this ledger in order. We retain failed, successful, interrupted, conditional
 The full local archive remains at `research/hackathon/`, ignored by Git. A clone includes the readable catalogues, evidence excerpts and the verified portable meta-eval, but not all raw historical workspaces. We explicitly distinguish documented-attempt coverage from a complete public export of every private native session.
 ''')
 # Additional important audit/conclusion excerpts.
-for rel in ['complete-recap-audit-20261108/REPORT.md','complete-recap-audit-20261108/EARLY-CAMPAIGNS.md','complete-recap-audit-20261108/FAILURE-TRANSITIONS.md','complete-recap-audit-20261108/TEST-GAMING-AUDIT.md','frontier-hunt-20261106/round13/DH-SYNTHESIS.md','original-five-rerun-20261108/REPORT.md','verification-eval-20261108/RESULTS-REVIEW.md']:
+for rel in ['readiness-study-20261031/G1-SOL-CASE-STUDY.md','complete-recap-audit-20261108/REPORT.md','complete-recap-audit-20261108/EARLY-CAMPAIGNS.md','complete-recap-audit-20261108/FAILURE-TRANSITIONS.md','complete-recap-audit-20261108/TEST-GAMING-AUDIT.md','frontier-hunt-20261106/round13/DH-SYNTHESIS.md','original-five-rerun-20261108/REPORT.md','verification-eval-20261108/RESULTS-REVIEW.md']:
  excerpt(rel)
 # Deduplicate repeated source exports by path; transformations are deterministic.
 js(ROOT/'data/source-map.json',{'schema':'portfolio-source-map/v1','sources':list({x['public']:x for x in SOURCES}.values()),'archive_modified':False})

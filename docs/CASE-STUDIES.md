@@ -130,16 +130,20 @@ Two earlier attempts were interrupted before reliable terminal records were writ
 
 ## 4. The model knew the possible answers, but chose the wrong test
 
-The diagnostic task was a small planning game. Several worlds were possible, each test cost part of a fixed budget, and the model had to use the observed answers to choose its next test.
+The task was an artificial troubleshooting puzzle. One of eight possible causes, labeled 0 through 7, was real. The model received a table showing what each test would answer for each cause, and had to choose tests one at a time.
 
-In the retained G05 Sol example, the model's possible-world lists were correct. The failure happened when it chose a costly probe:
+It had six points. Most tests cost one point, and at most one of their answers could be wrong across the whole game. A guaranteed-truthful test cost two points. Some choices also removed later tests. The model had to keep track of every cause still possible and use the available points to distinguish them as well as it could, without guessing.
+
+In the saved G05 example, Sol's lists of possible causes were correct at every step. After its first test, five points remained. It then chose the two-point truthful test. That test removed no future choices, but the three points left were not enough to finish the best possible investigation:
 
 | Moment | Best guarantee still achievable |
 |---|---|
-| Before the chosen probe | Identify one world |
-| After the chosen probe | At best, narrow the answer to two worlds |
+| Before the two-point test | Guarantee finding the one real cause |
+| After the two-point test | Even the best strategy could leave two causes unresolved |
 
-Two independent finite checks agreed on that change. The agent had spent its budget in a way that made the goal unattainable, even though it still described the current uncertainty correctly.
+Two separately implemented calculations agreed on that change. Sol eventually stopped with causes 1 and 7 still possible. It was right to admit that uncertainty at the end; the failure was an earlier decision that had made an avoidable two-cause result unavoidable in the worst case.
+
+[The saved case report](../evidence/source-text/readiness-study-20261031/G1-SOL-CASE-STUDY.md) records the choices and explains why the alternative strategy worked.
 
 Later computation-enabled runs did better: the ordinary-tool shortlist passed all 24 attempts, with Python used in every attempt. Two fresh stronger-model runs of the original diagnostic episode also succeeded.
 
@@ -149,7 +153,7 @@ Later computation-enabled runs did better: the ordinary-tool shortlist passed al
 
 ## 5. The test measured the reported plan, not all the work
 
-The query task asked a program to optimize execution while preserving the answer. The evaluator checked results and the cost of the declared optimized plan.
+The task asked a program to retrieve information from tables with less work while returning the same answer. A request for that information is called a query; rewriting its steps to avoid unnecessary work is called optimization. The evaluator checked the answer and the work needed by the steps the program reported.
 
 To test that measurement, we deliberately built a dishonest candidate. It ran the original plan first, then the optimized plan, and reported only the latter's cost:
 

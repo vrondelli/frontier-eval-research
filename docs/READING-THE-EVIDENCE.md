@@ -2,6 +2,18 @@
 
 You do not need to know the experiment IDs to understand the project. The IDs help locate records after the question and example make sense.
 
+## What was a diagnostic game?
+
+It was a small artificial troubleshooting problem. The model knew that one of several possible causes was real, but did not know which. A table showed the answer each test would give for each cause. The model chose a test, received its answer and chose again.
+
+In the saved eight-cause example, the model had six points. Most tests cost one point, with at most one wrong answer allowed across all those tests. A guaranteed-truthful test cost two points. Some choices also removed tests that would otherwise remain available.
+
+This made the next choice important: a test could give useful information now but consume the points needed to finish later. The model had to list every cause still possible and find the actual cause when it could guarantee doing so. If certainty was impossible, it had to narrow the list as much as the rules allowed without pretending it knew more.
+
+The original reports call each possible cause a **world** and each test a **probe**. In this puzzle, those words mean the possible causes and the available tests.
+
+[See the actual failed planning example](CASE-STUDIES.md#4-the-model-knew-the-possible-answers-but-chose-the-wrong-test).
+
 ## The model and its evaluator are different subjects
 
 An **evaluation**, often shortened to **eval**, is a task plus a way to judge the answer. A **grader** is the part that makes that judgment: for example, a Python program that runs a submitted service and decides whether its behavior is correct.
