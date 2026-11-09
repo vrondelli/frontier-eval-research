@@ -1,4 +1,4 @@
-# How a search for model failures became a test of the tests
+# How the hackathon research developed
 
 We started with a hackathon goal: find a meaningful failure that another person could reproduce. A striking answer was not enough. We needed a task with clear rules, a way to establish the right result, and evidence that the mistake survived inspection.
 
